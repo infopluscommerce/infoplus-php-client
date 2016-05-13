@@ -64,6 +64,7 @@ class Work implements ArrayAccess
         'priority_code' => 'int',
         'status' => 'string',
         'user_id' => 'int',
+        'lob_id' => 'int',
         'work_batch_id' => 'int'
     );
   
@@ -89,6 +90,7 @@ class Work implements ArrayAccess
         'priority_code' => 'priorityCode',
         'status' => 'status',
         'user_id' => 'userId',
+        'lob_id' => 'lobId',
         'work_batch_id' => 'workBatchId'
     );
   
@@ -114,6 +116,7 @@ class Work implements ArrayAccess
         'priority_code' => 'setPriorityCode',
         'status' => 'setStatus',
         'user_id' => 'setUserId',
+        'lob_id' => 'setLobId',
         'work_batch_id' => 'setWorkBatchId'
     );
   
@@ -139,6 +142,7 @@ class Work implements ArrayAccess
         'priority_code' => 'getPriorityCode',
         'status' => 'getStatus',
         'user_id' => 'getUserId',
+        'lob_id' => 'getLobId',
         'work_batch_id' => 'getWorkBatchId'
     );
   
@@ -226,6 +230,12 @@ class Work implements ArrayAccess
     protected $user_id;
     
     /**
+      * $lob_id 
+      * @var int
+      */
+    protected $lob_id;
+    
+    /**
       * $work_batch_id 
       * @var int
       */
@@ -253,6 +263,7 @@ class Work implements ArrayAccess
             $this->priority_code = $data["priority_code"];
             $this->status = $data["status"];
             $this->user_id = $data["user_id"];
+            $this->lob_id = $data["lob_id"];
             $this->work_batch_id = $data["work_batch_id"];
         }
     }
@@ -527,6 +538,27 @@ class Work implements ArrayAccess
     {
         
         $this->user_id = $user_id;
+        return $this;
+    }
+    
+    /**
+     * Gets lob_id
+     * @return int
+     */
+    public function getLobId()
+    {
+        return $this->lob_id;
+    }
+  
+    /**
+     * Sets lob_id
+     * @param int $lob_id 
+     * @return $this
+     */
+    public function setLobId($lob_id)
+    {
+        
+        $this->lob_id = $lob_id;
         return $this;
     }
     

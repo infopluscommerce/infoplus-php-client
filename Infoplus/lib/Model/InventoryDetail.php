@@ -59,6 +59,7 @@ class InventoryDetail implements ArrayAccess
         'units_per_wrap' => 'int',
         'revision_date' => 'string',
         'production_lot' => 'string',
+        'oldest_receipt_date' => '\DateTime',
         'lob_id' => 'int',
         'po_no' => 'string',
         'sku' => 'string'
@@ -81,6 +82,7 @@ class InventoryDetail implements ArrayAccess
         'units_per_wrap' => 'unitsPerWrap',
         'revision_date' => 'revisionDate',
         'production_lot' => 'productionLot',
+        'oldest_receipt_date' => 'oldestReceiptDate',
         'lob_id' => 'lobId',
         'po_no' => 'poNo',
         'sku' => 'sku'
@@ -103,6 +105,7 @@ class InventoryDetail implements ArrayAccess
         'units_per_wrap' => 'setUnitsPerWrap',
         'revision_date' => 'setRevisionDate',
         'production_lot' => 'setProductionLot',
+        'oldest_receipt_date' => 'setOldestReceiptDate',
         'lob_id' => 'setLobId',
         'po_no' => 'setPoNo',
         'sku' => 'setSku'
@@ -125,6 +128,7 @@ class InventoryDetail implements ArrayAccess
         'units_per_wrap' => 'getUnitsPerWrap',
         'revision_date' => 'getRevisionDate',
         'production_lot' => 'getProductionLot',
+        'oldest_receipt_date' => 'getOldestReceiptDate',
         'lob_id' => 'getLobId',
         'po_no' => 'getPoNo',
         'sku' => 'getSku'
@@ -184,6 +188,12 @@ class InventoryDetail implements ArrayAccess
     protected $production_lot;
     
     /**
+      * $oldest_receipt_date 
+      * @var \DateTime
+      */
+    protected $oldest_receipt_date;
+    
+    /**
       * $lob_id 
       * @var int
       */
@@ -218,6 +228,7 @@ class InventoryDetail implements ArrayAccess
             $this->units_per_wrap = $data["units_per_wrap"];
             $this->revision_date = $data["revision_date"];
             $this->production_lot = $data["production_lot"];
+            $this->oldest_receipt_date = $data["oldest_receipt_date"];
             $this->lob_id = $data["lob_id"];
             $this->po_no = $data["po_no"];
             $this->sku = $data["sku"];
@@ -389,6 +400,27 @@ class InventoryDetail implements ArrayAccess
     {
         
         $this->production_lot = $production_lot;
+        return $this;
+    }
+    
+    /**
+     * Gets oldest_receipt_date
+     * @return \DateTime
+     */
+    public function getOldestReceiptDate()
+    {
+        return $this->oldest_receipt_date;
+    }
+  
+    /**
+     * Sets oldest_receipt_date
+     * @param \DateTime $oldest_receipt_date 
+     * @return $this
+     */
+    public function setOldestReceiptDate($oldest_receipt_date)
+    {
+        
+        $this->oldest_receipt_date = $oldest_receipt_date;
         return $this;
     }
     

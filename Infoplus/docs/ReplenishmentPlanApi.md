@@ -1,6 +1,6 @@
 # Infoplus\ReplenishmentPlanApi
 
-All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0*
+All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

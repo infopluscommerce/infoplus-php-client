@@ -74,12 +74,12 @@ class OrderLine implements ArrayAccess
         'item_weight' => 'double',
         'weight_per_wrap' => 'double',
         'sector' => 'string',
-        'account_code' => 'string',
-        'low_stock_contact' => 'string',
-        'major_group' => 'string',
-        'sub_group' => 'string',
-        'production_code' => 'string',
-        'summary_code' => 'string'
+        'item_account_code_id' => 'int',
+        'item_legacy_low_stock_contact_id' => 'int',
+        'item_major_group_id' => 'int',
+        'item_sub_group_id' => 'int',
+        'item_product_code_id' => 'int',
+        'item_summary_code_id' => 'int'
     );
   
     static function swaggerTypes() {
@@ -114,12 +114,12 @@ class OrderLine implements ArrayAccess
         'item_weight' => 'itemWeight',
         'weight_per_wrap' => 'weightPerWrap',
         'sector' => 'sector',
-        'account_code' => 'accountCode',
-        'low_stock_contact' => 'lowStockContact',
-        'major_group' => 'majorGroup',
-        'sub_group' => 'subGroup',
-        'production_code' => 'productionCode',
-        'summary_code' => 'summaryCode'
+        'item_account_code_id' => 'itemAccountCodeId',
+        'item_legacy_low_stock_contact_id' => 'itemLegacyLowStockContactId',
+        'item_major_group_id' => 'itemMajorGroupId',
+        'item_sub_group_id' => 'itemSubGroupId',
+        'item_product_code_id' => 'itemProductCodeId',
+        'item_summary_code_id' => 'itemSummaryCodeId'
     );
   
     static function attributeMap() {
@@ -154,12 +154,12 @@ class OrderLine implements ArrayAccess
         'item_weight' => 'setItemWeight',
         'weight_per_wrap' => 'setWeightPerWrap',
         'sector' => 'setSector',
-        'account_code' => 'setAccountCode',
-        'low_stock_contact' => 'setLowStockContact',
-        'major_group' => 'setMajorGroup',
-        'sub_group' => 'setSubGroup',
-        'production_code' => 'setProductionCode',
-        'summary_code' => 'setSummaryCode'
+        'item_account_code_id' => 'setItemAccountCodeId',
+        'item_legacy_low_stock_contact_id' => 'setItemLegacyLowStockContactId',
+        'item_major_group_id' => 'setItemMajorGroupId',
+        'item_sub_group_id' => 'setItemSubGroupId',
+        'item_product_code_id' => 'setItemProductCodeId',
+        'item_summary_code_id' => 'setItemSummaryCodeId'
     );
   
     static function setters() {
@@ -194,12 +194,12 @@ class OrderLine implements ArrayAccess
         'item_weight' => 'getItemWeight',
         'weight_per_wrap' => 'getWeightPerWrap',
         'sector' => 'getSector',
-        'account_code' => 'getAccountCode',
-        'low_stock_contact' => 'getLowStockContact',
-        'major_group' => 'getMajorGroup',
-        'sub_group' => 'getSubGroup',
-        'production_code' => 'getProductionCode',
-        'summary_code' => 'getSummaryCode'
+        'item_account_code_id' => 'getItemAccountCodeId',
+        'item_legacy_low_stock_contact_id' => 'getItemLegacyLowStockContactId',
+        'item_major_group_id' => 'getItemMajorGroupId',
+        'item_sub_group_id' => 'getItemSubGroupId',
+        'item_product_code_id' => 'getItemProductCodeId',
+        'item_summary_code_id' => 'getItemSummaryCodeId'
     );
   
     static function getters() {
@@ -346,40 +346,40 @@ class OrderLine implements ArrayAccess
     protected $sector;
     
     /**
-      * $account_code 
-      * @var string
+      * $item_account_code_id 
+      * @var int
       */
-    protected $account_code;
+    protected $item_account_code_id;
     
     /**
-      * $low_stock_contact 
-      * @var string
+      * $item_legacy_low_stock_contact_id 
+      * @var int
       */
-    protected $low_stock_contact;
+    protected $item_legacy_low_stock_contact_id;
     
     /**
-      * $major_group 
-      * @var string
+      * $item_major_group_id 
+      * @var int
       */
-    protected $major_group;
+    protected $item_major_group_id;
     
     /**
-      * $sub_group 
-      * @var string
+      * $item_sub_group_id 
+      * @var int
       */
-    protected $sub_group;
+    protected $item_sub_group_id;
     
     /**
-      * $production_code 
-      * @var string
+      * $item_product_code_id 
+      * @var int
       */
-    protected $production_code;
+    protected $item_product_code_id;
     
     /**
-      * $summary_code 
-      * @var string
+      * $item_summary_code_id 
+      * @var int
       */
-    protected $summary_code;
+    protected $item_summary_code_id;
     
 
     /**
@@ -413,12 +413,12 @@ class OrderLine implements ArrayAccess
             $this->item_weight = $data["item_weight"];
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->sector = $data["sector"];
-            $this->account_code = $data["account_code"];
-            $this->low_stock_contact = $data["low_stock_contact"];
-            $this->major_group = $data["major_group"];
-            $this->sub_group = $data["sub_group"];
-            $this->production_code = $data["production_code"];
-            $this->summary_code = $data["summary_code"];
+            $this->item_account_code_id = $data["item_account_code_id"];
+            $this->item_legacy_low_stock_contact_id = $data["item_legacy_low_stock_contact_id"];
+            $this->item_major_group_id = $data["item_major_group_id"];
+            $this->item_sub_group_id = $data["item_sub_group_id"];
+            $this->item_product_code_id = $data["item_product_code_id"];
+            $this->item_summary_code_id = $data["item_summary_code_id"];
         }
     }
     
@@ -906,128 +906,128 @@ class OrderLine implements ArrayAccess
     }
     
     /**
-     * Gets account_code
-     * @return string
+     * Gets item_account_code_id
+     * @return int
      */
-    public function getAccountCode()
+    public function getItemAccountCodeId()
     {
-        return $this->account_code;
+        return $this->item_account_code_id;
     }
   
     /**
-     * Sets account_code
-     * @param string $account_code 
+     * Sets item_account_code_id
+     * @param int $item_account_code_id 
      * @return $this
      */
-    public function setAccountCode($account_code)
+    public function setItemAccountCodeId($item_account_code_id)
     {
         
-        $this->account_code = $account_code;
+        $this->item_account_code_id = $item_account_code_id;
         return $this;
     }
     
     /**
-     * Gets low_stock_contact
-     * @return string
+     * Gets item_legacy_low_stock_contact_id
+     * @return int
      */
-    public function getLowStockContact()
+    public function getItemLegacyLowStockContactId()
     {
-        return $this->low_stock_contact;
+        return $this->item_legacy_low_stock_contact_id;
     }
   
     /**
-     * Sets low_stock_contact
-     * @param string $low_stock_contact 
+     * Sets item_legacy_low_stock_contact_id
+     * @param int $item_legacy_low_stock_contact_id 
      * @return $this
      */
-    public function setLowStockContact($low_stock_contact)
+    public function setItemLegacyLowStockContactId($item_legacy_low_stock_contact_id)
     {
         
-        $this->low_stock_contact = $low_stock_contact;
+        $this->item_legacy_low_stock_contact_id = $item_legacy_low_stock_contact_id;
         return $this;
     }
     
     /**
-     * Gets major_group
-     * @return string
+     * Gets item_major_group_id
+     * @return int
      */
-    public function getMajorGroup()
+    public function getItemMajorGroupId()
     {
-        return $this->major_group;
+        return $this->item_major_group_id;
     }
   
     /**
-     * Sets major_group
-     * @param string $major_group 
+     * Sets item_major_group_id
+     * @param int $item_major_group_id 
      * @return $this
      */
-    public function setMajorGroup($major_group)
+    public function setItemMajorGroupId($item_major_group_id)
     {
         
-        $this->major_group = $major_group;
+        $this->item_major_group_id = $item_major_group_id;
         return $this;
     }
     
     /**
-     * Gets sub_group
-     * @return string
+     * Gets item_sub_group_id
+     * @return int
      */
-    public function getSubGroup()
+    public function getItemSubGroupId()
     {
-        return $this->sub_group;
+        return $this->item_sub_group_id;
     }
   
     /**
-     * Sets sub_group
-     * @param string $sub_group 
+     * Sets item_sub_group_id
+     * @param int $item_sub_group_id 
      * @return $this
      */
-    public function setSubGroup($sub_group)
+    public function setItemSubGroupId($item_sub_group_id)
     {
         
-        $this->sub_group = $sub_group;
+        $this->item_sub_group_id = $item_sub_group_id;
         return $this;
     }
     
     /**
-     * Gets production_code
-     * @return string
+     * Gets item_product_code_id
+     * @return int
      */
-    public function getProductionCode()
+    public function getItemProductCodeId()
     {
-        return $this->production_code;
+        return $this->item_product_code_id;
     }
   
     /**
-     * Sets production_code
-     * @param string $production_code 
+     * Sets item_product_code_id
+     * @param int $item_product_code_id 
      * @return $this
      */
-    public function setProductionCode($production_code)
+    public function setItemProductCodeId($item_product_code_id)
     {
         
-        $this->production_code = $production_code;
+        $this->item_product_code_id = $item_product_code_id;
         return $this;
     }
     
     /**
-     * Gets summary_code
-     * @return string
+     * Gets item_summary_code_id
+     * @return int
      */
-    public function getSummaryCode()
+    public function getItemSummaryCodeId()
     {
-        return $this->summary_code;
+        return $this->item_summary_code_id;
     }
   
     /**
-     * Sets summary_code
-     * @param string $summary_code 
+     * Sets item_summary_code_id
+     * @param int $item_summary_code_id 
      * @return $this
      */
-    public function setSummaryCode($summary_code)
+    public function setItemSummaryCodeId($item_summary_code_id)
     {
         
-        $this->summary_code = $summary_code;
+        $this->item_summary_code_id = $item_summary_code_id;
         return $this;
     }
     

@@ -64,7 +64,7 @@ class FulfillmentProcessApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0');
+            $apiClient->getConfig()->setHost('https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api');
         }
   
         $this->apiClient = $apiClient;

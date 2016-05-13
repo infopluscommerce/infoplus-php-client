@@ -58,7 +58,7 @@ class JobTime implements ArrayAccess
         'date' => '\DateTime',
         'user_id' => 'int',
         'lob_id' => 'int',
-        'job_type' => 'string',
+        'job_type_id' => 'int',
         'note' => 'string'
     );
   
@@ -78,7 +78,7 @@ class JobTime implements ArrayAccess
         'date' => 'date',
         'user_id' => 'userId',
         'lob_id' => 'lobId',
-        'job_type' => 'jobType',
+        'job_type_id' => 'jobTypeId',
         'note' => 'note'
     );
   
@@ -98,7 +98,7 @@ class JobTime implements ArrayAccess
         'date' => 'setDate',
         'user_id' => 'setUserId',
         'lob_id' => 'setLobId',
-        'job_type' => 'setJobType',
+        'job_type_id' => 'setJobTypeId',
         'note' => 'setNote'
     );
   
@@ -118,7 +118,7 @@ class JobTime implements ArrayAccess
         'date' => 'getDate',
         'user_id' => 'getUserId',
         'lob_id' => 'getLobId',
-        'job_type' => 'getJobType',
+        'job_type_id' => 'getJobTypeId',
         'note' => 'getNote'
     );
   
@@ -170,10 +170,10 @@ class JobTime implements ArrayAccess
     protected $lob_id;
     
     /**
-      * $job_type 
-      * @var string
+      * $job_type_id 
+      * @var int
       */
-    protected $job_type;
+    protected $job_type_id;
     
     /**
       * $note 
@@ -197,7 +197,7 @@ class JobTime implements ArrayAccess
             $this->date = $data["date"];
             $this->user_id = $data["user_id"];
             $this->lob_id = $data["lob_id"];
-            $this->job_type = $data["job_type"];
+            $this->job_type_id = $data["job_type_id"];
             $this->note = $data["note"];
         }
     }
@@ -350,23 +350,23 @@ class JobTime implements ArrayAccess
     }
     
     /**
-     * Gets job_type
-     * @return string
+     * Gets job_type_id
+     * @return int
      */
-    public function getJobType()
+    public function getJobTypeId()
     {
-        return $this->job_type;
+        return $this->job_type_id;
     }
   
     /**
-     * Sets job_type
-     * @param string $job_type 
+     * Sets job_type_id
+     * @param int $job_type_id 
      * @return $this
      */
-    public function setJobType($job_type)
+    public function setJobTypeId($job_type_id)
     {
         
-        $this->job_type = $job_type;
+        $this->job_type_id = $job_type_id;
         return $this;
     }
     

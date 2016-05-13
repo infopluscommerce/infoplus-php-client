@@ -26,12 +26,12 @@ Name | Type | Description | Notes
 **item_weight** | **double** |  | [optional] 
 **weight_per_wrap** | **double** |  | [optional] 
 **sector** | **string** |  | [optional] 
-**account_code** | **string** |  | 
-**low_stock_contact** | **string** |  | 
-**major_group** | **string** |  | 
-**sub_group** | **string** |  | 
-**production_code** | **string** |  | [optional] 
-**summary_code** | **string** |  | 
+**item_account_code_id** | **int** |  | 
+**item_legacy_low_stock_contact_id** | **int** |  | 
+**item_major_group_id** | **int** |  | 
+**item_sub_group_id** | **int** |  | 
+**item_product_code_id** | **int** |  | [optional] 
+**item_summary_code_id** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

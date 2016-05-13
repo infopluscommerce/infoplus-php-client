@@ -62,7 +62,7 @@ class LoggedTime implements ArrayAccess
         'user_id' => 'int',
         'lob_id' => 'int',
         'warehouse_id' => 'int',
-        'logged_time_type' => 'string',
+        'logged_time_type_id' => 'int',
         'app_id' => 'int'
     );
   
@@ -86,7 +86,7 @@ class LoggedTime implements ArrayAccess
         'user_id' => 'userId',
         'lob_id' => 'lobId',
         'warehouse_id' => 'warehouseId',
-        'logged_time_type' => 'loggedTimeType',
+        'logged_time_type_id' => 'loggedTimeTypeId',
         'app_id' => 'appId'
     );
   
@@ -110,7 +110,7 @@ class LoggedTime implements ArrayAccess
         'user_id' => 'setUserId',
         'lob_id' => 'setLobId',
         'warehouse_id' => 'setWarehouseId',
-        'logged_time_type' => 'setLoggedTimeType',
+        'logged_time_type_id' => 'setLoggedTimeTypeId',
         'app_id' => 'setAppId'
     );
   
@@ -134,7 +134,7 @@ class LoggedTime implements ArrayAccess
         'user_id' => 'getUserId',
         'lob_id' => 'getLobId',
         'warehouse_id' => 'getWarehouseId',
-        'logged_time_type' => 'getLoggedTimeType',
+        'logged_time_type_id' => 'getLoggedTimeTypeId',
         'app_id' => 'getAppId'
     );
   
@@ -210,10 +210,10 @@ class LoggedTime implements ArrayAccess
     protected $warehouse_id;
     
     /**
-      * $logged_time_type 
-      * @var string
+      * $logged_time_type_id 
+      * @var int
       */
-    protected $logged_time_type;
+    protected $logged_time_type_id;
     
     /**
       * $app_id 
@@ -241,7 +241,7 @@ class LoggedTime implements ArrayAccess
             $this->user_id = $data["user_id"];
             $this->lob_id = $data["lob_id"];
             $this->warehouse_id = $data["warehouse_id"];
-            $this->logged_time_type = $data["logged_time_type"];
+            $this->logged_time_type_id = $data["logged_time_type_id"];
             $this->app_id = $data["app_id"];
         }
     }
@@ -478,23 +478,23 @@ class LoggedTime implements ArrayAccess
     }
     
     /**
-     * Gets logged_time_type
-     * @return string
+     * Gets logged_time_type_id
+     * @return int
      */
-    public function getLoggedTimeType()
+    public function getLoggedTimeTypeId()
     {
-        return $this->logged_time_type;
+        return $this->logged_time_type_id;
     }
   
     /**
-     * Sets logged_time_type
-     * @param string $logged_time_type 
+     * Sets logged_time_type_id
+     * @param int $logged_time_type_id 
      * @return $this
      */
-    public function setLoggedTimeType($logged_time_type)
+    public function setLoggedTimeTypeId($logged_time_type_id)
     {
         
-        $this->logged_time_type = $logged_time_type;
+        $this->logged_time_type_id = $logged_time_type_id;
         return $this;
     }
     

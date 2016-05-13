@@ -52,15 +52,15 @@ class Item implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'account_code' => 'string',
+        'account_code_id' => 'int',
         'low_stock_contact_id' => 'int',
-        'legacy_low_stock_contact' => 'string',
-        'low_stock_code' => 'string',
-        'major_group' => 'string',
-        'sub_group' => 'string',
-        'production_code' => 'string',
-        'summary_code' => 'string',
-        'buyer' => 'string',
+        'legacy_low_level_contact_id' => 'int',
+        'low_stock_code_id' => 'int',
+        'major_group_id' => 'int',
+        'sub_group_id' => 'int',
+        'product_code_id' => 'int',
+        'summary_code_id' => 'int',
+        'buyer_id' => 'int',
         'lob_id' => 'int',
         'sku' => 'string',
         'vendor_sku' => 'string',
@@ -124,15 +124,15 @@ class Item implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
-        'account_code' => 'accountCode',
+        'account_code_id' => 'accountCodeId',
         'low_stock_contact_id' => 'lowStockContactId',
-        'legacy_low_stock_contact' => 'legacyLowStockContact',
-        'low_stock_code' => 'lowStockCode',
-        'major_group' => 'majorGroup',
-        'sub_group' => 'subGroup',
-        'production_code' => 'productionCode',
-        'summary_code' => 'summaryCode',
-        'buyer' => 'buyer',
+        'legacy_low_level_contact_id' => 'legacyLowLevelContactId',
+        'low_stock_code_id' => 'lowStockCodeId',
+        'major_group_id' => 'majorGroupId',
+        'sub_group_id' => 'subGroupId',
+        'product_code_id' => 'productCodeId',
+        'summary_code_id' => 'summaryCodeId',
+        'buyer_id' => 'buyerId',
         'lob_id' => 'lobId',
         'sku' => 'sku',
         'vendor_sku' => 'vendorSKU',
@@ -196,15 +196,15 @@ class Item implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'account_code' => 'setAccountCode',
+        'account_code_id' => 'setAccountCodeId',
         'low_stock_contact_id' => 'setLowStockContactId',
-        'legacy_low_stock_contact' => 'setLegacyLowStockContact',
-        'low_stock_code' => 'setLowStockCode',
-        'major_group' => 'setMajorGroup',
-        'sub_group' => 'setSubGroup',
-        'production_code' => 'setProductionCode',
-        'summary_code' => 'setSummaryCode',
-        'buyer' => 'setBuyer',
+        'legacy_low_level_contact_id' => 'setLegacyLowLevelContactId',
+        'low_stock_code_id' => 'setLowStockCodeId',
+        'major_group_id' => 'setMajorGroupId',
+        'sub_group_id' => 'setSubGroupId',
+        'product_code_id' => 'setProductCodeId',
+        'summary_code_id' => 'setSummaryCodeId',
+        'buyer_id' => 'setBuyerId',
         'lob_id' => 'setLobId',
         'sku' => 'setSku',
         'vendor_sku' => 'setVendorSku',
@@ -268,15 +268,15 @@ class Item implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'account_code' => 'getAccountCode',
+        'account_code_id' => 'getAccountCodeId',
         'low_stock_contact_id' => 'getLowStockContactId',
-        'legacy_low_stock_contact' => 'getLegacyLowStockContact',
-        'low_stock_code' => 'getLowStockCode',
-        'major_group' => 'getMajorGroup',
-        'sub_group' => 'getSubGroup',
-        'production_code' => 'getProductionCode',
-        'summary_code' => 'getSummaryCode',
-        'buyer' => 'getBuyer',
+        'legacy_low_level_contact_id' => 'getLegacyLowLevelContactId',
+        'low_stock_code_id' => 'getLowStockCodeId',
+        'major_group_id' => 'getMajorGroupId',
+        'sub_group_id' => 'getSubGroupId',
+        'product_code_id' => 'getProductCodeId',
+        'summary_code_id' => 'getSummaryCodeId',
+        'buyer_id' => 'getBuyerId',
         'lob_id' => 'getLobId',
         'sku' => 'getSku',
         'vendor_sku' => 'getVendorSku',
@@ -342,10 +342,10 @@ class Item implements ArrayAccess
     protected $id;
     
     /**
-      * $account_code 
-      * @var string
+      * $account_code_id 
+      * @var int
       */
-    protected $account_code;
+    protected $account_code_id;
     
     /**
       * $low_stock_contact_id 
@@ -354,46 +354,46 @@ class Item implements ArrayAccess
     protected $low_stock_contact_id;
     
     /**
-      * $legacy_low_stock_contact 
-      * @var string
+      * $legacy_low_level_contact_id 
+      * @var int
       */
-    protected $legacy_low_stock_contact;
+    protected $legacy_low_level_contact_id;
     
     /**
-      * $low_stock_code 
-      * @var string
+      * $low_stock_code_id 
+      * @var int
       */
-    protected $low_stock_code;
+    protected $low_stock_code_id;
     
     /**
-      * $major_group 
-      * @var string
+      * $major_group_id 
+      * @var int
       */
-    protected $major_group;
+    protected $major_group_id;
     
     /**
-      * $sub_group 
-      * @var string
+      * $sub_group_id 
+      * @var int
       */
-    protected $sub_group;
+    protected $sub_group_id;
     
     /**
-      * $production_code 
-      * @var string
+      * $product_code_id 
+      * @var int
       */
-    protected $production_code;
+    protected $product_code_id;
     
     /**
-      * $summary_code 
-      * @var string
+      * $summary_code_id 
+      * @var int
       */
-    protected $summary_code;
+    protected $summary_code_id;
     
     /**
-      * $buyer 
-      * @var string
+      * $buyer_id 
+      * @var int
       */
-    protected $buyer;
+    protected $buyer_id;
     
     /**
       * $lob_id 
@@ -711,15 +711,15 @@ class Item implements ArrayAccess
         
         if ($data != null) {
             $this->id = $data["id"];
-            $this->account_code = $data["account_code"];
+            $this->account_code_id = $data["account_code_id"];
             $this->low_stock_contact_id = $data["low_stock_contact_id"];
-            $this->legacy_low_stock_contact = $data["legacy_low_stock_contact"];
-            $this->low_stock_code = $data["low_stock_code"];
-            $this->major_group = $data["major_group"];
-            $this->sub_group = $data["sub_group"];
-            $this->production_code = $data["production_code"];
-            $this->summary_code = $data["summary_code"];
-            $this->buyer = $data["buyer"];
+            $this->legacy_low_level_contact_id = $data["legacy_low_level_contact_id"];
+            $this->low_stock_code_id = $data["low_stock_code_id"];
+            $this->major_group_id = $data["major_group_id"];
+            $this->sub_group_id = $data["sub_group_id"];
+            $this->product_code_id = $data["product_code_id"];
+            $this->summary_code_id = $data["summary_code_id"];
+            $this->buyer_id = $data["buyer_id"];
             $this->lob_id = $data["lob_id"];
             $this->sku = $data["sku"];
             $this->vendor_sku = $data["vendor_sku"];
@@ -796,23 +796,23 @@ class Item implements ArrayAccess
     }
     
     /**
-     * Gets account_code
-     * @return string
+     * Gets account_code_id
+     * @return int
      */
-    public function getAccountCode()
+    public function getAccountCodeId()
     {
-        return $this->account_code;
+        return $this->account_code_id;
     }
   
     /**
-     * Sets account_code
-     * @param string $account_code 
+     * Sets account_code_id
+     * @param int $account_code_id 
      * @return $this
      */
-    public function setAccountCode($account_code)
+    public function setAccountCodeId($account_code_id)
     {
         
-        $this->account_code = $account_code;
+        $this->account_code_id = $account_code_id;
         return $this;
     }
     
@@ -838,149 +838,149 @@ class Item implements ArrayAccess
     }
     
     /**
-     * Gets legacy_low_stock_contact
-     * @return string
+     * Gets legacy_low_level_contact_id
+     * @return int
      */
-    public function getLegacyLowStockContact()
+    public function getLegacyLowLevelContactId()
     {
-        return $this->legacy_low_stock_contact;
+        return $this->legacy_low_level_contact_id;
     }
   
     /**
-     * Sets legacy_low_stock_contact
-     * @param string $legacy_low_stock_contact 
+     * Sets legacy_low_level_contact_id
+     * @param int $legacy_low_level_contact_id 
      * @return $this
      */
-    public function setLegacyLowStockContact($legacy_low_stock_contact)
+    public function setLegacyLowLevelContactId($legacy_low_level_contact_id)
     {
         
-        $this->legacy_low_stock_contact = $legacy_low_stock_contact;
+        $this->legacy_low_level_contact_id = $legacy_low_level_contact_id;
         return $this;
     }
     
     /**
-     * Gets low_stock_code
-     * @return string
+     * Gets low_stock_code_id
+     * @return int
      */
-    public function getLowStockCode()
+    public function getLowStockCodeId()
     {
-        return $this->low_stock_code;
+        return $this->low_stock_code_id;
     }
   
     /**
-     * Sets low_stock_code
-     * @param string $low_stock_code 
+     * Sets low_stock_code_id
+     * @param int $low_stock_code_id 
      * @return $this
      */
-    public function setLowStockCode($low_stock_code)
+    public function setLowStockCodeId($low_stock_code_id)
     {
         
-        $this->low_stock_code = $low_stock_code;
+        $this->low_stock_code_id = $low_stock_code_id;
         return $this;
     }
     
     /**
-     * Gets major_group
-     * @return string
+     * Gets major_group_id
+     * @return int
      */
-    public function getMajorGroup()
+    public function getMajorGroupId()
     {
-        return $this->major_group;
+        return $this->major_group_id;
     }
   
     /**
-     * Sets major_group
-     * @param string $major_group 
+     * Sets major_group_id
+     * @param int $major_group_id 
      * @return $this
      */
-    public function setMajorGroup($major_group)
+    public function setMajorGroupId($major_group_id)
     {
         
-        $this->major_group = $major_group;
+        $this->major_group_id = $major_group_id;
         return $this;
     }
     
     /**
-     * Gets sub_group
-     * @return string
+     * Gets sub_group_id
+     * @return int
      */
-    public function getSubGroup()
+    public function getSubGroupId()
     {
-        return $this->sub_group;
+        return $this->sub_group_id;
     }
   
     /**
-     * Sets sub_group
-     * @param string $sub_group 
+     * Sets sub_group_id
+     * @param int $sub_group_id 
      * @return $this
      */
-    public function setSubGroup($sub_group)
+    public function setSubGroupId($sub_group_id)
     {
         
-        $this->sub_group = $sub_group;
+        $this->sub_group_id = $sub_group_id;
         return $this;
     }
     
     /**
-     * Gets production_code
-     * @return string
+     * Gets product_code_id
+     * @return int
      */
-    public function getProductionCode()
+    public function getProductCodeId()
     {
-        return $this->production_code;
+        return $this->product_code_id;
     }
   
     /**
-     * Sets production_code
-     * @param string $production_code 
+     * Sets product_code_id
+     * @param int $product_code_id 
      * @return $this
      */
-    public function setProductionCode($production_code)
+    public function setProductCodeId($product_code_id)
     {
         
-        $this->production_code = $production_code;
+        $this->product_code_id = $product_code_id;
         return $this;
     }
     
     /**
-     * Gets summary_code
-     * @return string
+     * Gets summary_code_id
+     * @return int
      */
-    public function getSummaryCode()
+    public function getSummaryCodeId()
     {
-        return $this->summary_code;
+        return $this->summary_code_id;
     }
   
     /**
-     * Sets summary_code
-     * @param string $summary_code 
+     * Sets summary_code_id
+     * @param int $summary_code_id 
      * @return $this
      */
-    public function setSummaryCode($summary_code)
+    public function setSummaryCodeId($summary_code_id)
     {
         
-        $this->summary_code = $summary_code;
+        $this->summary_code_id = $summary_code_id;
         return $this;
     }
     
     /**
-     * Gets buyer
-     * @return string
+     * Gets buyer_id
+     * @return int
      */
-    public function getBuyer()
+    public function getBuyerId()
     {
-        return $this->buyer;
+        return $this->buyer_id;
     }
   
     /**
-     * Sets buyer
-     * @param string $buyer 
+     * Sets buyer_id
+     * @param int $buyer_id 
      * @return $this
      */
-    public function setBuyer($buyer)
+    public function setBuyerId($buyer_id)
     {
         
-        $this->buyer = $buyer;
+        $this->buyer_id = $buyer_id;
         return $this;
     }
     

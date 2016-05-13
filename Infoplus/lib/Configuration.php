@@ -96,7 +96,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0';
+    protected $host = 'https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

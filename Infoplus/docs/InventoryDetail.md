@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **units_per_wrap** | **int** |  | [optional] 
 **revision_date** | **string** |  | [optional] 
 **production_lot** | **string** |  | [optional] 
+**oldest_receipt_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **lob_id** | **int** |  | [optional] 
 **po_no** | **string** |  | [optional] 
 **sku** | **string** |  | [optional] 

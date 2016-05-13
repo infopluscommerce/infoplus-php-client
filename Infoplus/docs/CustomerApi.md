@@ -1,14 +1,14 @@
 # Infoplus\CustomerApi
 
-All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0*
+All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addCustomer**](CustomerApi.md#addCustomer) | **POST** /v1.0/customer | Create a customer
 [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /v1.0/customer/{customerId} | Delete a customer
+[**getByCustomerNo**](CustomerApi.md#getByCustomerNo) | **GET** /v1.0/customer/getByCustomerNo | Get a customer by Customer No
 [**getCustomerByFilter**](CustomerApi.md#getCustomerByFilter) | **GET** /v1.0/customer/search | Search customers by filter
 [**getCustomerById**](CustomerApi.md#getCustomerById) | **GET** /v1.0/customer/{customerId} | Get a customer by id
-[**getCustomerBygetByCustomerNo**](CustomerApi.md#getCustomerBygetByCustomerNo) | **GET** /v1.0/customer/getByCustomerNo | Get a customer by Customer No
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /v1.0/customer | Update a customer
 
 
@@ -111,6 +111,58 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getByCustomerNo**
+> \Infoplus\Model\Customer getByCustomerNo($lob_id, $customer_no)
+
+Get a customer by Customer No
+
+Returns the customer identified by the specified parameters.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$lob_id = 56; // int | lobId of the customer to be returned.
+$customer_no = "customer_no_example"; // string | customerNo of the customer to be returned.
+
+try { 
+    $result = $api_instance->getByCustomerNo($lob_id, $customer_no);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getByCustomerNo: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lob_id** | **int**| lobId of the customer to be returned. | 
+ **customer_no** | **string**| customerNo of the customer to be returned. | 
+
+### Return type
+
+[**\Infoplus\Model\Customer**](Customer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getCustomerByFilter**
 > \Infoplus\Model\Customer[] getCustomerByFilter($filter, $page, $limit, $sort)
 
@@ -201,58 +253,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_id** | **int**| Id of the customer to be returned. | 
-
-### Return type
-
-[**\Infoplus\Model\Customer**](Customer.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getCustomerBygetByCustomerNo**
-> \Infoplus\Model\Customer getCustomerBygetByCustomerNo($lob_id, $customer_no)
-
-Get a customer by Customer No
-
-Returns the customer identified by the specified parameters.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\CustomerApi();
-$lob_id = 56; // int | lobId of the customer to be returned.
-$customer_no = "customer_no_example"; // string | customerNo of the customer to be returned.
-
-try { 
-    $result = $api_instance->getCustomerBygetByCustomerNo($lob_id, $customer_no);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getCustomerBygetByCustomerNo: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **lob_id** | **int**| lobId of the customer to be returned. | 
- **customer_no** | **string**| customerNo of the customer to be returned. | 
 
 ### Return type
 

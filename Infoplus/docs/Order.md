@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **lob_id** | **int** |  | 
 **warehouse_id** | **int** |  | 
 **order_date** | [**\DateTime**](\DateTime.md) |  | 
-**customer_no** | **string** |  | 
+**customer_no** | **string** |  | [optional] 
 **first_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **last_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **deliver_on_date** | [**\DateTime**](\DateTime.md) |  | [optional] 

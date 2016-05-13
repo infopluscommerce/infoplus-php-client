@@ -64,7 +64,7 @@ class CustomerApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api/v1.0');
+            $apiClient->getConfig()->setHost('https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api');
         }
   
         $this->apiClient = $apiClient;
@@ -288,6 +288,114 @@ class CustomerApi
     }
     
     /**
+     * getByCustomerNo
+     *
+     * Get a customer by Customer No
+     *
+     * @param int $lob_id lobId of the customer to be returned. (required)
+     * @param string $customer_no customerNo of the customer to be returned. (required)
+     * @return \Infoplus\Model\Customer
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getByCustomerNo($lob_id, $customer_no)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getByCustomerNoWithHttpInfo ($lob_id, $customer_no);
+        return $response; 
+    }
+
+
+    /**
+     * getByCustomerNoWithHttpInfo
+     *
+     * Get a customer by Customer No
+     *
+     * @param int $lob_id lobId of the customer to be returned. (required)
+     * @param string $customer_no customerNo of the customer to be returned. (required)
+     * @return Array of \Infoplus\Model\Customer, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getByCustomerNoWithHttpInfo($lob_id, $customer_no)
+    {
+        
+        // verify the required parameter 'lob_id' is set
+        if ($lob_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $lob_id when calling getByCustomerNo');
+        }
+        // verify the required parameter 'customer_no' is set
+        if ($customer_no === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_no when calling getByCustomerNo');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v1.0/customer/getByCustomerNo";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        // query params
+        
+        if ($lob_id !== null) {
+            $queryParams['lobId'] = $this->apiClient->getSerializer()->toQueryValue($lob_id);
+        }// query params
+        
+        if ($customer_no !== null) {
+            $queryParams['customerNo'] = $this->apiClient->getSerializer()->toQueryValue($customer_no);
+        }
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Customer'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Customer', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Customer', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getCustomerByFilter
      *
      * Search customers by filter
@@ -455,114 +563,6 @@ class CustomerApi
                 $resourcePath
             );
         }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\Customer'
-            );
-            
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Customer', $httpHeader), $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Customer', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * getCustomerBygetByCustomerNo
-     *
-     * Get a customer by Customer No
-     *
-     * @param int $lob_id lobId of the customer to be returned. (required)
-     * @param string $customer_no customerNo of the customer to be returned. (required)
-     * @return \Infoplus\Model\Customer
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getCustomerBygetByCustomerNo($lob_id, $customer_no)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getCustomerBygetByCustomerNoWithHttpInfo ($lob_id, $customer_no);
-        return $response; 
-    }
-
-
-    /**
-     * getCustomerBygetByCustomerNoWithHttpInfo
-     *
-     * Get a customer by Customer No
-     *
-     * @param int $lob_id lobId of the customer to be returned. (required)
-     * @param string $customer_no customerNo of the customer to be returned. (required)
-     * @return Array of \Infoplus\Model\Customer, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getCustomerBygetByCustomerNoWithHttpInfo($lob_id, $customer_no)
-    {
-        
-        // verify the required parameter 'lob_id' is set
-        if ($lob_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $lob_id when calling getCustomerBygetByCustomerNo');
-        }
-        // verify the required parameter 'customer_no' is set
-        if ($customer_no === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_no when calling getCustomerBygetByCustomerNo');
-        }
-  
-        // parse inputs
-        $resourcePath = "/v1.0/customer/getByCustomerNo";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        // query params
-        
-        if ($lob_id !== null) {
-            $queryParams['lobId'] = $this->apiClient->getSerializer()->toQueryValue($lob_id);
-        }// query params
-        
-        if ($customer_no !== null) {
-            $queryParams['customerNo'] = $this->apiClient->getSerializer()->toQueryValue($customer_no);
-        }
-        
-        
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 

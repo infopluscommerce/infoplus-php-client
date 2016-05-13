@@ -4,15 +4,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**account_code** | **string** |  | [optional] 
+**account_code_id** | **int** |  | [optional] 
 **low_stock_contact_id** | **int** |  | [optional] 
-**legacy_low_stock_contact** | **string** |  | [optional] 
-**low_stock_code** | **string** |  | [optional] 
-**major_group** | **string** |  | 
-**sub_group** | **string** |  | 
-**production_code** | **string** |  | [optional] 
-**summary_code** | **string** |  | [optional] 
-**buyer** | **string** |  | [optional] 
+**legacy_low_level_contact_id** | **int** |  | [optional] 
+**low_stock_code_id** | **int** |  | [optional] 
+**major_group_id** | **int** |  | 
+**sub_group_id** | **int** |  | 
+**product_code_id** | **int** |  | [optional] 
+**summary_code_id** | **int** |  | [optional] 
+**buyer_id** | **int** |  | [optional] 
 **lob_id** | **int** |  | 
 **sku** | **string** |  | 
 **vendor_sku** | **string** |  | [optional] 

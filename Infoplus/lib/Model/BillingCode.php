@@ -58,7 +58,7 @@ class BillingCode implements ArrayAccess
         'date' => '\DateTime',
         'user_id' => 'int',
         'lob_id' => 'int',
-        'billing_code_type' => 'string',
+        'billing_code_type_id' => 'int',
         'note' => 'string'
     );
   
@@ -78,7 +78,7 @@ class BillingCode implements ArrayAccess
         'date' => 'date',
         'user_id' => 'userId',
         'lob_id' => 'lobId',
-        'billing_code_type' => 'billingCodeType',
+        'billing_code_type_id' => 'billingCodeTypeId',
         'note' => 'note'
     );
   
@@ -98,7 +98,7 @@ class BillingCode implements ArrayAccess
         'date' => 'setDate',
         'user_id' => 'setUserId',
         'lob_id' => 'setLobId',
-        'billing_code_type' => 'setBillingCodeType',
+        'billing_code_type_id' => 'setBillingCodeTypeId',
         'note' => 'setNote'
     );
   
@@ -118,7 +118,7 @@ class BillingCode implements ArrayAccess
         'date' => 'getDate',
         'user_id' => 'getUserId',
         'lob_id' => 'getLobId',
-        'billing_code_type' => 'getBillingCodeType',
+        'billing_code_type_id' => 'getBillingCodeTypeId',
         'note' => 'getNote'
     );
   
@@ -170,10 +170,10 @@ class BillingCode implements ArrayAccess
     protected $lob_id;
     
     /**
-      * $billing_code_type 
-      * @var string
+      * $billing_code_type_id 
+      * @var int
       */
-    protected $billing_code_type;
+    protected $billing_code_type_id;
     
     /**
       * $note 
@@ -197,7 +197,7 @@ class BillingCode implements ArrayAccess
             $this->date = $data["date"];
             $this->user_id = $data["user_id"];
             $this->lob_id = $data["lob_id"];
-            $this->billing_code_type = $data["billing_code_type"];
+            $this->billing_code_type_id = $data["billing_code_type_id"];
             $this->note = $data["note"];
         }
     }
@@ -350,23 +350,23 @@ class BillingCode implements ArrayAccess
     }
     
     /**
-     * Gets billing_code_type
-     * @return string
+     * Gets billing_code_type_id
+     * @return int
      */
-    public function getBillingCodeType()
+    public function getBillingCodeTypeId()
     {
-        return $this->billing_code_type;
+        return $this->billing_code_type_id;
     }
   
     /**
-     * Sets billing_code_type
-     * @param string $billing_code_type 
+     * Sets billing_code_type_id
+     * @param int $billing_code_type_id 
      * @return $this
      */
-    public function setBillingCodeType($billing_code_type)
+    public function setBillingCodeTypeId($billing_code_type_id)
     {
         
-        $this->billing_code_type = $billing_code_type;
+        $this->billing_code_type_id = $billing_code_type_id;
         return $this;
     }
     

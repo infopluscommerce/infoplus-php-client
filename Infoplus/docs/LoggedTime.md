@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **user_id** | **int** |  | 
 **lob_id** | **int** |  | [optional] 
 **warehouse_id** | **int** |  | 
-**logged_time_type** | **string** |  | 
+**logged_time_type_id** | **int** |  | 
 **app_id** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
