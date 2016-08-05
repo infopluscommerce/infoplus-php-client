@@ -55,7 +55,8 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
         'no_packages' => 'int',
         'weight' => 'int',
         'palletslip' => 'bool',
-        'additional_shipper_info' => 'string'
+        'additional_shipper_info' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -71,7 +72,8 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
         'no_packages' => 'noPackages',
         'weight' => 'weight',
         'palletslip' => 'palletslip',
-        'additional_shipper_info' => 'additionalShipperInfo'
+        'additional_shipper_info' => 'additionalShipperInfo',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -87,7 +89,8 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
         'no_packages' => 'setNoPackages',
         'weight' => 'setWeight',
         'palletslip' => 'setPalletslip',
-        'additional_shipper_info' => 'setAdditionalShipperInfo'
+        'additional_shipper_info' => 'setAdditionalShipperInfo',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -103,7 +106,8 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
         'no_packages' => 'getNoPackages',
         'weight' => 'getWeight',
         'palletslip' => 'getPalletslip',
-        'additional_shipper_info' => 'getAdditionalShipperInfo'
+        'additional_shipper_info' => 'getAdditionalShipperInfo',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -141,6 +145,12 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
       */
     protected $additional_shipper_info;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -155,6 +165,7 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
             $this->weight = $data["weight"];
             $this->palletslip = $data["palletslip"];
             $this->additional_shipper_info = $data["additional_shipper_info"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -260,6 +271,27 @@ class BillOfLadingOrderInfoLine implements ArrayAccess
     {
         
         $this->additional_shipper_info = $additional_shipper_info;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

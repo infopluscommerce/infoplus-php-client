@@ -6,20 +6,21 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**order_id** | **double** |  | 
+**order_id** | [**Number**](Number.md) |  | 
 **carrier_id** | **int** |  | 
 **parcel_account_id** | **int** |  | 
 **third_party_parcel_account_id** | **int** |  | [optional] 
-**freight** | **double** |  | [optional] 
+**freight** | [**Number**](Number.md) |  | [optional] 
 **tracking_no** | **string** |  | 
-**dim1_in** | **double** |  | [optional] 
-**dim2_in** | **double** |  | [optional] 
-**dim3_in** | **double** |  | [optional] 
-**weight_lbs** | **double** |  | [optional] 
-**dim_weight** | **double** |  | [optional] 
+**dim1_in** | [**Number**](Number.md) |  | [optional] 
+**dim2_in** | [**Number**](Number.md) |  | [optional] 
+**dim3_in** | [**Number**](Number.md) |  | [optional] 
+**weight_lbs** | [**Number**](Number.md) |  | [optional] 
+**dim_weight** | [**Number**](Number.md) |  | [optional] 
 **residential** | **bool** |  | [optional] [default to false]
 **zone** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

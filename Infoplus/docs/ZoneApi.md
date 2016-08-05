@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addZone**](ZoneApi.md#addZone) | **POST** /v1.0/zone | Create a zone
-[**deleteZone**](ZoneApi.md#deleteZone) | **DELETE** /v1.0/zone/{zoneId} | Delete a zone
-[**getZoneByFilter**](ZoneApi.md#getZoneByFilter) | **GET** /v1.0/zone/search | Search zones by filter
-[**getZoneById**](ZoneApi.md#getZoneById) | **GET** /v1.0/zone/{zoneId} | Get a zone by id
-[**updateZone**](ZoneApi.md#updateZone) | **PUT** /v1.0/zone | Update a zone
+[**addZone**](ZoneApi.md#addZone) | **POST** /beta/zone | Create a zone
+[**deleteZone**](ZoneApi.md#deleteZone) | **DELETE** /beta/zone/{zoneId} | Delete a zone
+[**getZoneByFilter**](ZoneApi.md#getZoneByFilter) | **GET** /beta/zone/search | Search zones by filter
+[**getZoneById**](ZoneApi.md#getZoneById) | **GET** /beta/zone/{zoneId} | Get a zone by id
+[**updateZone**](ZoneApi.md#updateZone) | **PUT** /beta/zone | Update a zone
+[**updateZoneCustomFields**](ZoneApi.md#updateZoneCustomFields) | **PUT** /beta/zone/customFields | Update a zone custom fields
 
 
 # **addZone**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateZone($body);
 } catch (Exception $e) {
     echo 'Exception when calling ZoneApi->updateZone: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Zone**](\Infoplus\Model\Zone.md)| Zone to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateZoneCustomFields**
+> updateZoneCustomFields($body)
+
+Update a zone custom fields
+
+Updates an existing zone custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ZoneApi();
+$body = new \Infoplus\Model\Zone(); // \Infoplus\Model\Zone | Zone to be updated.
+
+try { 
+    $api_instance->updateZoneCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling ZoneApi->updateZoneCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

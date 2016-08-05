@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **oldest_receipt_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **lob_id** | **int** |  | [optional] 
 **po_no** | **string** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 **sku** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

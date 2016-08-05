@@ -125,7 +125,7 @@ class ItemLegacyLowStockContactApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemLegacyLowStockContact/search";
+        $resourcePath = "/beta/itemLegacyLowStockContact/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemLegacyLowStockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemLegacyLowStockContact/{itemLegacyLowStockContactId}";
+        $resourcePath = "/beta/itemLegacyLowStockContact/{itemLegacyLowStockContactId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

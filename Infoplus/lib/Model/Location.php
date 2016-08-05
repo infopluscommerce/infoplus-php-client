@@ -69,7 +69,8 @@ class Location implements ArrayAccess
         'priority_code' => 'int',
         'allow_item_mixing' => 'bool',
         'create_date' => '\DateTime',
-        'modify_date' => '\DateTime'
+        'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -99,7 +100,8 @@ class Location implements ArrayAccess
         'priority_code' => 'priorityCode',
         'allow_item_mixing' => 'allowItemMixing',
         'create_date' => 'createDate',
-        'modify_date' => 'modifyDate'
+        'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -129,7 +131,8 @@ class Location implements ArrayAccess
         'priority_code' => 'setPriorityCode',
         'allow_item_mixing' => 'setAllowItemMixing',
         'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate'
+        'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -159,7 +162,8 @@ class Location implements ArrayAccess
         'priority_code' => 'getPriorityCode',
         'allow_item_mixing' => 'getAllowItemMixing',
         'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate'
+        'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -281,6 +285,12 @@ class Location implements ArrayAccess
       */
     protected $modify_date;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -309,6 +319,7 @@ class Location implements ArrayAccess
             $this->allow_item_mixing = $data["allow_item_mixing"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -708,6 +719,27 @@ class Location implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

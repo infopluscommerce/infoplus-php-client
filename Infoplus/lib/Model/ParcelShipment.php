@@ -59,27 +59,28 @@ class ParcelShipment implements ArrayAccess
         'tracking_no' => 'string',
         'warehouse_id' => 'int',
         'lob_id' => 'int',
-        'order_no' => 'double',
+        'order_no' => 'Number',
         'carton_no' => 'int',
         'number_of_cartons' => 'int',
         'status' => 'string',
         'shipped' => 'bool',
         'carrier_service_id' => 'int',
-        'dim1_in' => 'double',
-        'dim2_in' => 'double',
-        'dim3_in' => 'double',
+        'dim1_in' => 'Number',
+        'dim2_in' => 'Number',
+        'dim3_in' => 'Number',
         'estimated_zone' => 'string',
         'parcel_account_no' => 'string',
         'third_party_parcel_account_no' => 'string',
         'manifest_id' => 'int',
         'residential' => 'bool',
         'billing_option' => 'string',
-        'weight_lbs' => 'double',
-        'dim_weight' => 'double',
+        'weight_lbs' => 'Number',
+        'dim_weight' => 'Number',
         'license_plate_number' => 'string',
-        'charged_freight_amount' => 'double',
-        'published_freight_amount' => 'double',
-        'retail_freight_amount' => 'double'
+        'charged_freight_amount' => 'Number',
+        'published_freight_amount' => 'Number',
+        'retail_freight_amount' => 'Number',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -119,7 +120,8 @@ class ParcelShipment implements ArrayAccess
         'license_plate_number' => 'licensePlateNumber',
         'charged_freight_amount' => 'chargedFreightAmount',
         'published_freight_amount' => 'publishedFreightAmount',
-        'retail_freight_amount' => 'retailFreightAmount'
+        'retail_freight_amount' => 'retailFreightAmount',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -159,7 +161,8 @@ class ParcelShipment implements ArrayAccess
         'license_plate_number' => 'setLicensePlateNumber',
         'charged_freight_amount' => 'setChargedFreightAmount',
         'published_freight_amount' => 'setPublishedFreightAmount',
-        'retail_freight_amount' => 'setRetailFreightAmount'
+        'retail_freight_amount' => 'setRetailFreightAmount',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -199,7 +202,8 @@ class ParcelShipment implements ArrayAccess
         'license_plate_number' => 'getLicensePlateNumber',
         'charged_freight_amount' => 'getChargedFreightAmount',
         'published_freight_amount' => 'getPublishedFreightAmount',
-        'retail_freight_amount' => 'getRetailFreightAmount'
+        'retail_freight_amount' => 'getRetailFreightAmount',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -257,7 +261,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -293,19 +297,19 @@ class ParcelShipment implements ArrayAccess
     
     /**
       * $dim1_in 
-      * @var double
+      * @var Number
       */
     protected $dim1_in;
     
     /**
       * $dim2_in 
-      * @var double
+      * @var Number
       */
     protected $dim2_in;
     
     /**
       * $dim3_in 
-      * @var double
+      * @var Number
       */
     protected $dim3_in;
     
@@ -347,13 +351,13 @@ class ParcelShipment implements ArrayAccess
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
     
     /**
       * $dim_weight 
-      * @var double
+      * @var Number
       */
     protected $dim_weight;
     
@@ -365,21 +369,27 @@ class ParcelShipment implements ArrayAccess
     
     /**
       * $charged_freight_amount 
-      * @var double
+      * @var Number
       */
     protected $charged_freight_amount;
     
     /**
       * $published_freight_amount 
-      * @var double
+      * @var Number
       */
     protected $published_freight_amount;
     
     /**
       * $retail_freight_amount 
-      * @var double
+      * @var Number
       */
     protected $retail_freight_amount;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -419,6 +429,7 @@ class ParcelShipment implements ArrayAccess
             $this->charged_freight_amount = $data["charged_freight_amount"];
             $this->published_freight_amount = $data["published_freight_amount"];
             $this->retail_freight_amount = $data["retail_freight_amount"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -592,7 +603,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -601,7 +612,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -718,7 +729,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets dim1_in
-     * @return double
+     * @return Number
      */
     public function getDim1In()
     {
@@ -727,7 +738,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets dim1_in
-     * @param double $dim1_in 
+     * @param Number $dim1_in 
      * @return $this
      */
     public function setDim1In($dim1_in)
@@ -739,7 +750,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets dim2_in
-     * @return double
+     * @return Number
      */
     public function getDim2In()
     {
@@ -748,7 +759,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets dim2_in
-     * @param double $dim2_in 
+     * @param Number $dim2_in 
      * @return $this
      */
     public function setDim2In($dim2_in)
@@ -760,7 +771,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets dim3_in
-     * @return double
+     * @return Number
      */
     public function getDim3In()
     {
@@ -769,7 +780,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets dim3_in
-     * @param double $dim3_in 
+     * @param Number $dim3_in 
      * @return $this
      */
     public function setDim3In($dim3_in)
@@ -907,7 +918,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -916,7 +927,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
@@ -928,7 +939,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets dim_weight
-     * @return double
+     * @return Number
      */
     public function getDimWeight()
     {
@@ -937,7 +948,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets dim_weight
-     * @param double $dim_weight 
+     * @param Number $dim_weight 
      * @return $this
      */
     public function setDimWeight($dim_weight)
@@ -970,7 +981,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets charged_freight_amount
-     * @return double
+     * @return Number
      */
     public function getChargedFreightAmount()
     {
@@ -979,7 +990,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets charged_freight_amount
-     * @param double $charged_freight_amount 
+     * @param Number $charged_freight_amount 
      * @return $this
      */
     public function setChargedFreightAmount($charged_freight_amount)
@@ -991,7 +1002,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets published_freight_amount
-     * @return double
+     * @return Number
      */
     public function getPublishedFreightAmount()
     {
@@ -1000,7 +1011,7 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets published_freight_amount
-     * @param double $published_freight_amount 
+     * @param Number $published_freight_amount 
      * @return $this
      */
     public function setPublishedFreightAmount($published_freight_amount)
@@ -1012,7 +1023,7 @@ class ParcelShipment implements ArrayAccess
     
     /**
      * Gets retail_freight_amount
-     * @return double
+     * @return Number
      */
     public function getRetailFreightAmount()
     {
@@ -1021,13 +1032,34 @@ class ParcelShipment implements ArrayAccess
   
     /**
      * Sets retail_freight_amount
-     * @param double $retail_freight_amount 
+     * @param Number $retail_freight_amount 
      * @return $this
      */
     public function setRetailFreightAmount($retail_freight_amount)
     {
         
         $this->retail_freight_amount = $retail_freight_amount;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

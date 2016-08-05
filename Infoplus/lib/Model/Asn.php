@@ -95,7 +95,8 @@ class Asn implements ArrayAccess
         'terms' => 'string',
         'used_by' => 'string',
         'line_items' => '\Infoplus\Model\ItemReceipt[]',
-        'status' => 'string'
+        'status' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -151,7 +152,8 @@ class Asn implements ArrayAccess
         'terms' => 'terms',
         'used_by' => 'usedBy',
         'line_items' => 'lineItems',
-        'status' => 'status'
+        'status' => 'status',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -207,7 +209,8 @@ class Asn implements ArrayAccess
         'terms' => 'setTerms',
         'used_by' => 'setUsedBy',
         'line_items' => 'setLineItems',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -263,7 +266,8 @@ class Asn implements ArrayAccess
         'terms' => 'getTerms',
         'used_by' => 'getUsedBy',
         'line_items' => 'getLineItems',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -541,6 +545,12 @@ class Asn implements ArrayAccess
       */
     protected $status;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -595,6 +605,7 @@ class Asn implements ArrayAccess
             $this->used_by = $data["used_by"];
             $this->line_items = $data["line_items"];
             $this->status = $data["status"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -1540,6 +1551,27 @@ class Asn implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

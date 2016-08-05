@@ -56,8 +56,10 @@ class PickFaceAssignment implements ArrayAccess
         'location_id' => 'int',
         'replenishment_point' => 'int',
         'max_quantity' => 'int',
+        'active' => 'bool',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -75,8 +77,10 @@ class PickFaceAssignment implements ArrayAccess
         'location_id' => 'locationId',
         'replenishment_point' => 'replenishmentPoint',
         'max_quantity' => 'maxQuantity',
+        'active' => 'active',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -94,8 +98,10 @@ class PickFaceAssignment implements ArrayAccess
         'location_id' => 'setLocationId',
         'replenishment_point' => 'setReplenishmentPoint',
         'max_quantity' => 'setMaxQuantity',
+        'active' => 'setActive',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -113,8 +119,10 @@ class PickFaceAssignment implements ArrayAccess
         'location_id' => 'getLocationId',
         'replenishment_point' => 'getReplenishmentPoint',
         'max_quantity' => 'getMaxQuantity',
+        'active' => 'getActive',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -154,6 +162,12 @@ class PickFaceAssignment implements ArrayAccess
     protected $max_quantity;
     
     /**
+      * $active 
+      * @var bool
+      */
+    protected $active = false;
+    
+    /**
       * $create_date 
       * @var \DateTime
       */
@@ -164,6 +178,12 @@ class PickFaceAssignment implements ArrayAccess
       * @var \DateTime
       */
     protected $modify_date;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
     /**
       * $sku 
@@ -185,8 +205,10 @@ class PickFaceAssignment implements ArrayAccess
             $this->location_id = $data["location_id"];
             $this->replenishment_point = $data["replenishment_point"];
             $this->max_quantity = $data["max_quantity"];
+            $this->active = $data["active"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -297,6 +319,27 @@ class PickFaceAssignment implements ArrayAccess
     }
     
     /**
+     * Gets active
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+  
+    /**
+     * Sets active
+     * @param bool $active 
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        
+        $this->active = $active;
+        return $this;
+    }
+    
+    /**
      * Gets create_date
      * @return \DateTime
      */
@@ -335,6 +378,27 @@ class PickFaceAssignment implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

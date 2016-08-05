@@ -4,8 +4,9 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getWorkBatchByFilter**](WorkBatchApi.md#getWorkBatchByFilter) | **GET** /v1.0/workBatch/search | Search workBatchs by filter
-[**getWorkBatchById**](WorkBatchApi.md#getWorkBatchById) | **GET** /v1.0/workBatch/{workBatchId} | Get a workBatch by id
+[**getWorkBatchByFilter**](WorkBatchApi.md#getWorkBatchByFilter) | **GET** /beta/workBatch/search | Search workBatchs by filter
+[**getWorkBatchById**](WorkBatchApi.md#getWorkBatchById) | **GET** /beta/workBatch/{workBatchId} | Get a workBatch by id
+[**updateWorkBatchCustomFields**](WorkBatchApi.md#updateWorkBatchCustomFields) | **PUT** /beta/workBatch/customFields | Update a workBatch custom fields
 
 
 # **getWorkBatchByFilter**
@@ -110,6 +111,55 @@ Name | Type | Description  | Notes
 ### HTTP reuqest headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateWorkBatchCustomFields**
+> updateWorkBatchCustomFields($body)
+
+Update a workBatch custom fields
+
+Updates an existing workBatch custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WorkBatchApi();
+$body = new \Infoplus\Model\WorkBatch(); // \Infoplus\Model\WorkBatch | WorkBatch to be updated.
+
+try { 
+    $api_instance->updateWorkBatchCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling WorkBatchApi->updateWorkBatchCustomFields: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\WorkBatch**](\Infoplus\Model\WorkBatch.md)| WorkBatch to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

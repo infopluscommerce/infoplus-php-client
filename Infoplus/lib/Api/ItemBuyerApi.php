@@ -125,7 +125,7 @@ class ItemBuyerApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemBuyer/search";
+        $resourcePath = "/beta/itemBuyer/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemBuyer/{itemBuyerId}";
+        $resourcePath = "/beta/itemBuyer/{itemBuyerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

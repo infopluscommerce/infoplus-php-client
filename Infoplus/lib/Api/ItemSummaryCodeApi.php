@@ -125,7 +125,7 @@ class ItemSummaryCodeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSummaryCode/search";
+        $resourcePath = "/beta/itemSummaryCode/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemSummaryCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSummaryCode/{itemSummaryCodeId}";
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

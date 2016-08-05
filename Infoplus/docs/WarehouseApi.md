@@ -4,9 +4,10 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getWarehouseByFilter**](WarehouseApi.md#getWarehouseByFilter) | **GET** /v1.0/warehouse/search | Search warehouses by filter
-[**getWarehouseById**](WarehouseApi.md#getWarehouseById) | **GET** /v1.0/warehouse/{warehouseId} | Get a warehouse by id
-[**updateWarehouse**](WarehouseApi.md#updateWarehouse) | **PUT** /v1.0/warehouse | Update a warehouse
+[**getWarehouseByFilter**](WarehouseApi.md#getWarehouseByFilter) | **GET** /beta/warehouse/search | Search warehouses by filter
+[**getWarehouseById**](WarehouseApi.md#getWarehouseById) | **GET** /beta/warehouse/{warehouseId} | Get a warehouse by id
+[**updateWarehouse**](WarehouseApi.md#updateWarehouse) | **PUT** /beta/warehouse | Update a warehouse
+[**updateWarehouseCustomFields**](WarehouseApi.md#updateWarehouseCustomFields) | **PUT** /beta/warehouse/customFields | Update a warehouse custom fields
 
 
 # **getWarehouseByFilter**
@@ -139,6 +140,55 @@ try {
     $api_instance->updateWarehouse($body);
 } catch (Exception $e) {
     echo 'Exception when calling WarehouseApi->updateWarehouse: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Warehouse**](\Infoplus\Model\Warehouse.md)| Warehouse to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateWarehouseCustomFields**
+> updateWarehouseCustomFields($body)
+
+Update a warehouse custom fields
+
+Updates an existing warehouse custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseApi();
+$body = new \Infoplus\Model\Warehouse(); // \Infoplus\Model\Warehouse | Warehouse to be updated.
+
+try { 
+    $api_instance->updateWarehouseCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseApi->updateWarehouseCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

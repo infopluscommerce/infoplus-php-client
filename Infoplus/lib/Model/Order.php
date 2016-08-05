@@ -51,7 +51,7 @@ class Order implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'order_no' => 'double',
+        'order_no' => 'Number',
         'customer_order_no' => 'string',
         'lob_id' => 'int',
         'warehouse_id' => 'int',
@@ -68,9 +68,9 @@ class Order implements ArrayAccess
         'legacy_restriction_type' => 'string',
         'alcohol_order_type' => 'string',
         'alternate_usage' => 'string',
-        'authorization_amount' => 'double',
+        'authorization_amount' => 'Number',
         'authorized_by' => 'string',
-        'balance_due' => 'double',
+        'balance_due' => 'Number',
         'batch_no' => 'string',
         'bill_to_attention' => 'string',
         'bill_to_company' => 'string',
@@ -91,19 +91,19 @@ class Order implements ArrayAccess
         'create_date' => '\DateTime',
         'customer_po_no' => 'string',
         'distribution_channel' => 'string',
-        'distribution_charges' => 'double',
+        'distribution_charges' => 'Number',
         'division' => 'int',
         'entered_by' => 'string',
-        'estimated_weight_lbs' => 'double',
-        'freight' => 'double',
+        'estimated_weight_lbs' => 'Number',
+        'freight' => 'Number',
         'gift_message' => 'string',
-        'group_order_id' => 'double',
+        'group_order_id' => 'Number',
         'hold_code' => 'string',
         'integration_partner_id' => 'int',
         'number_of_line_items' => 'int',
         'modify_date' => '\DateTime',
-        'oms_order_id' => 'int',
         'oms_order_no' => 'int',
+        'oms_customer_id' => 'int',
         'order_load_program_id' => 'int',
         'order_message' => 'string',
         'order_reason' => 'int',
@@ -128,16 +128,17 @@ class Order implements ArrayAccess
         'ship_to_country' => 'string',
         'ship_to_phone' => 'string',
         'ship_to_email' => 'string',
-        'shipping_charge' => 'double',
+        'shipping_charge' => 'Number',
         'status' => 'string',
         'stop_back_orders' => 'string',
-        'subtotal' => 'double',
-        'tax' => 'double',
-        'total' => 'double',
-        'total_paid' => 'double',
+        'subtotal' => 'Number',
+        'tax' => 'Number',
+        'total' => 'Number',
+        'total_paid' => 'Number',
         'total_qty' => 'int',
-        'weight_lbs' => 'double',
-        'line_items' => '\Infoplus\Model\OrderLine[]'
+        'weight_lbs' => 'Number',
+        'line_items' => '\Infoplus\Model\OrderLine[]',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -200,8 +201,8 @@ class Order implements ArrayAccess
         'integration_partner_id' => 'integrationPartnerId',
         'number_of_line_items' => 'numberOfLineItems',
         'modify_date' => 'modifyDate',
-        'oms_order_id' => 'omsOrderId',
         'oms_order_no' => 'omsOrderNo',
+        'oms_customer_id' => 'omsCustomerId',
         'order_load_program_id' => 'orderLoadProgramId',
         'order_message' => 'orderMessage',
         'order_reason' => 'orderReason',
@@ -235,7 +236,8 @@ class Order implements ArrayAccess
         'total_paid' => 'totalPaid',
         'total_qty' => 'totalQty',
         'weight_lbs' => 'weightLbs',
-        'line_items' => 'lineItems'
+        'line_items' => 'lineItems',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -298,8 +300,8 @@ class Order implements ArrayAccess
         'integration_partner_id' => 'setIntegrationPartnerId',
         'number_of_line_items' => 'setNumberOfLineItems',
         'modify_date' => 'setModifyDate',
-        'oms_order_id' => 'setOmsOrderId',
         'oms_order_no' => 'setOmsOrderNo',
+        'oms_customer_id' => 'setOmsCustomerId',
         'order_load_program_id' => 'setOrderLoadProgramId',
         'order_message' => 'setOrderMessage',
         'order_reason' => 'setOrderReason',
@@ -333,7 +335,8 @@ class Order implements ArrayAccess
         'total_paid' => 'setTotalPaid',
         'total_qty' => 'setTotalQty',
         'weight_lbs' => 'setWeightLbs',
-        'line_items' => 'setLineItems'
+        'line_items' => 'setLineItems',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -396,8 +399,8 @@ class Order implements ArrayAccess
         'integration_partner_id' => 'getIntegrationPartnerId',
         'number_of_line_items' => 'getNumberOfLineItems',
         'modify_date' => 'getModifyDate',
-        'oms_order_id' => 'getOmsOrderId',
         'oms_order_no' => 'getOmsOrderNo',
+        'oms_customer_id' => 'getOmsCustomerId',
         'order_load_program_id' => 'getOrderLoadProgramId',
         'order_message' => 'getOrderMessage',
         'order_reason' => 'getOrderReason',
@@ -431,7 +434,8 @@ class Order implements ArrayAccess
         'total_paid' => 'getTotalPaid',
         'total_qty' => 'getTotalQty',
         'weight_lbs' => 'getWeightLbs',
-        'line_items' => 'getLineItems'
+        'line_items' => 'getLineItems',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -441,7 +445,7 @@ class Order implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -543,7 +547,7 @@ class Order implements ArrayAccess
     
     /**
       * $authorization_amount 
-      * @var double
+      * @var Number
       */
     protected $authorization_amount;
     
@@ -555,7 +559,7 @@ class Order implements ArrayAccess
     
     /**
       * $balance_due 
-      * @var double
+      * @var Number
       */
     protected $balance_due;
     
@@ -681,7 +685,7 @@ class Order implements ArrayAccess
     
     /**
       * $distribution_charges 
-      * @var double
+      * @var Number
       */
     protected $distribution_charges;
     
@@ -699,13 +703,13 @@ class Order implements ArrayAccess
     
     /**
       * $estimated_weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $estimated_weight_lbs;
     
     /**
       * $freight 
-      * @var double
+      * @var Number
       */
     protected $freight;
     
@@ -717,7 +721,7 @@ class Order implements ArrayAccess
     
     /**
       * $group_order_id 
-      * @var double
+      * @var Number
       */
     protected $group_order_id;
     
@@ -746,16 +750,16 @@ class Order implements ArrayAccess
     protected $modify_date;
     
     /**
-      * $oms_order_id 
-      * @var int
-      */
-    protected $oms_order_id;
-    
-    /**
       * $oms_order_no 
       * @var int
       */
     protected $oms_order_no;
+    
+    /**
+      * $oms_customer_id 
+      * @var int
+      */
+    protected $oms_customer_id;
     
     /**
       * $order_load_program_id 
@@ -903,7 +907,7 @@ class Order implements ArrayAccess
     
     /**
       * $shipping_charge 
-      * @var double
+      * @var Number
       */
     protected $shipping_charge;
     
@@ -921,25 +925,25 @@ class Order implements ArrayAccess
     
     /**
       * $subtotal 
-      * @var double
+      * @var Number
       */
     protected $subtotal;
     
     /**
       * $tax 
-      * @var double
+      * @var Number
       */
     protected $tax;
     
     /**
       * $total 
-      * @var double
+      * @var Number
       */
     protected $total;
     
     /**
       * $total_paid 
-      * @var double
+      * @var Number
       */
     protected $total_paid;
     
@@ -951,7 +955,7 @@ class Order implements ArrayAccess
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
     
@@ -960,6 +964,12 @@ class Order implements ArrayAccess
       * @var \Infoplus\Model\OrderLine[]
       */
     protected $line_items;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -1021,8 +1031,8 @@ class Order implements ArrayAccess
             $this->integration_partner_id = $data["integration_partner_id"];
             $this->number_of_line_items = $data["number_of_line_items"];
             $this->modify_date = $data["modify_date"];
-            $this->oms_order_id = $data["oms_order_id"];
             $this->oms_order_no = $data["oms_order_no"];
+            $this->oms_customer_id = $data["oms_customer_id"];
             $this->order_load_program_id = $data["order_load_program_id"];
             $this->order_message = $data["order_message"];
             $this->order_reason = $data["order_reason"];
@@ -1057,12 +1067,13 @@ class Order implements ArrayAccess
             $this->total_qty = $data["total_qty"];
             $this->weight_lbs = $data["weight_lbs"];
             $this->line_items = $data["line_items"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -1071,7 +1082,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -1419,7 +1430,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets authorization_amount
-     * @return double
+     * @return Number
      */
     public function getAuthorizationAmount()
     {
@@ -1428,7 +1439,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets authorization_amount
-     * @param double $authorization_amount 
+     * @param Number $authorization_amount 
      * @return $this
      */
     public function setAuthorizationAmount($authorization_amount)
@@ -1461,7 +1472,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets balance_due
-     * @return double
+     * @return Number
      */
     public function getBalanceDue()
     {
@@ -1470,7 +1481,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets balance_due
-     * @param double $balance_due 
+     * @param Number $balance_due 
      * @return $this
      */
     public function setBalanceDue($balance_due)
@@ -1902,7 +1913,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets distribution_charges
-     * @return double
+     * @return Number
      */
     public function getDistributionCharges()
     {
@@ -1911,7 +1922,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets distribution_charges
-     * @param double $distribution_charges 
+     * @param Number $distribution_charges 
      * @return $this
      */
     public function setDistributionCharges($distribution_charges)
@@ -1965,7 +1976,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets estimated_weight_lbs
-     * @return double
+     * @return Number
      */
     public function getEstimatedWeightLbs()
     {
@@ -1974,7 +1985,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets estimated_weight_lbs
-     * @param double $estimated_weight_lbs 
+     * @param Number $estimated_weight_lbs 
      * @return $this
      */
     public function setEstimatedWeightLbs($estimated_weight_lbs)
@@ -1986,7 +1997,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets freight
-     * @return double
+     * @return Number
      */
     public function getFreight()
     {
@@ -1995,7 +2006,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets freight
-     * @param double $freight 
+     * @param Number $freight 
      * @return $this
      */
     public function setFreight($freight)
@@ -2028,7 +2039,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets group_order_id
-     * @return double
+     * @return Number
      */
     public function getGroupOrderId()
     {
@@ -2037,7 +2048,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets group_order_id
-     * @param double $group_order_id 
+     * @param Number $group_order_id 
      * @return $this
      */
     public function setGroupOrderId($group_order_id)
@@ -2132,27 +2143,6 @@ class Order implements ArrayAccess
     }
     
     /**
-     * Gets oms_order_id
-     * @return int
-     */
-    public function getOmsOrderId()
-    {
-        return $this->oms_order_id;
-    }
-  
-    /**
-     * Sets oms_order_id
-     * @param int $oms_order_id 
-     * @return $this
-     */
-    public function setOmsOrderId($oms_order_id)
-    {
-        
-        $this->oms_order_id = $oms_order_id;
-        return $this;
-    }
-    
-    /**
      * Gets oms_order_no
      * @return int
      */
@@ -2170,6 +2160,27 @@ class Order implements ArrayAccess
     {
         
         $this->oms_order_no = $oms_order_no;
+        return $this;
+    }
+    
+    /**
+     * Gets oms_customer_id
+     * @return int
+     */
+    public function getOmsCustomerId()
+    {
+        return $this->oms_customer_id;
+    }
+  
+    /**
+     * Sets oms_customer_id
+     * @param int $oms_customer_id 
+     * @return $this
+     */
+    public function setOmsCustomerId($oms_customer_id)
+    {
+        
+        $this->oms_customer_id = $oms_customer_id;
         return $this;
     }
     
@@ -2679,7 +2690,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets shipping_charge
-     * @return double
+     * @return Number
      */
     public function getShippingCharge()
     {
@@ -2688,7 +2699,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets shipping_charge
-     * @param double $shipping_charge 
+     * @param Number $shipping_charge 
      * @return $this
      */
     public function setShippingCharge($shipping_charge)
@@ -2742,7 +2753,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets subtotal
-     * @return double
+     * @return Number
      */
     public function getSubtotal()
     {
@@ -2751,7 +2762,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets subtotal
-     * @param double $subtotal 
+     * @param Number $subtotal 
      * @return $this
      */
     public function setSubtotal($subtotal)
@@ -2763,7 +2774,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets tax
-     * @return double
+     * @return Number
      */
     public function getTax()
     {
@@ -2772,7 +2783,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets tax
-     * @param double $tax 
+     * @param Number $tax 
      * @return $this
      */
     public function setTax($tax)
@@ -2784,7 +2795,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets total
-     * @return double
+     * @return Number
      */
     public function getTotal()
     {
@@ -2793,7 +2804,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets total
-     * @param double $total 
+     * @param Number $total 
      * @return $this
      */
     public function setTotal($total)
@@ -2805,7 +2816,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets total_paid
-     * @return double
+     * @return Number
      */
     public function getTotalPaid()
     {
@@ -2814,7 +2825,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets total_paid
-     * @param double $total_paid 
+     * @param Number $total_paid 
      * @return $this
      */
     public function setTotalPaid($total_paid)
@@ -2847,7 +2858,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -2856,7 +2867,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
@@ -2884,6 +2895,27 @@ class Order implements ArrayAccess
     {
         
         $this->line_items = $line_items;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

@@ -62,7 +62,8 @@ class OrderSource implements ArrayAccess
         'shipping_notes' => 'string',
         'packing_slip_id' => 'int',
         'order_confirmation_email_id' => 'int',
-        'shipment_confirmation_email_id' => 'int'
+        'shipment_confirmation_email_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -85,7 +86,8 @@ class OrderSource implements ArrayAccess
         'shipping_notes' => 'shippingNotes',
         'packing_slip_id' => 'packingSlipId',
         'order_confirmation_email_id' => 'orderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'shipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'shipmentConfirmationEmailId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -108,7 +110,8 @@ class OrderSource implements ArrayAccess
         'shipping_notes' => 'setShippingNotes',
         'packing_slip_id' => 'setPackingSlipId',
         'order_confirmation_email_id' => 'setOrderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'setShipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'setShipmentConfirmationEmailId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -131,7 +134,8 @@ class OrderSource implements ArrayAccess
         'shipping_notes' => 'getShippingNotes',
         'packing_slip_id' => 'getPackingSlipId',
         'order_confirmation_email_id' => 'getOrderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'getShipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'getShipmentConfirmationEmailId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -211,6 +215,12 @@ class OrderSource implements ArrayAccess
       */
     protected $shipment_confirmation_email_id;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -232,6 +242,7 @@ class OrderSource implements ArrayAccess
             $this->packing_slip_id = $data["packing_slip_id"];
             $this->order_confirmation_email_id = $data["order_confirmation_email_id"];
             $this->shipment_confirmation_email_id = $data["shipment_confirmation_email_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -484,6 +495,27 @@ class OrderSource implements ArrayAccess
     {
         
         $this->shipment_confirmation_email_id = $shipment_confirmation_email_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **total_quantity** | **int** |  | 
 **message** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 **sku** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

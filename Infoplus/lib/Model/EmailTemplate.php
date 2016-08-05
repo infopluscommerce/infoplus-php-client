@@ -59,7 +59,8 @@ class EmailTemplate implements ArrayAccess
         'from_address' => 'string',
         'email_template_type' => 'string',
         'create_date' => '\DateTime',
-        'modify_date' => '\DateTime'
+        'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -79,7 +80,8 @@ class EmailTemplate implements ArrayAccess
         'from_address' => 'fromAddress',
         'email_template_type' => 'emailTemplateType',
         'create_date' => 'createDate',
-        'modify_date' => 'modifyDate'
+        'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -99,7 +101,8 @@ class EmailTemplate implements ArrayAccess
         'from_address' => 'setFromAddress',
         'email_template_type' => 'setEmailTemplateType',
         'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate'
+        'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -119,7 +122,8 @@ class EmailTemplate implements ArrayAccess
         'from_address' => 'getFromAddress',
         'email_template_type' => 'getEmailTemplateType',
         'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate'
+        'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -181,6 +185,12 @@ class EmailTemplate implements ArrayAccess
       */
     protected $modify_date;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -199,6 +209,7 @@ class EmailTemplate implements ArrayAccess
             $this->email_template_type = $data["email_template_type"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -388,6 +399,27 @@ class EmailTemplate implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

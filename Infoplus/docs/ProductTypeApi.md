@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getProductTypeById**](ProductTypeApi.md#getProductTypeById) | **GET** /v1.0/productType/{productTypeId} | Get a productType by id
-[**getProductTypeBySearchText**](ProductTypeApi.md#getProductTypeBySearchText) | **GET** /v1.0/productType/search | Search productTypes
+[**getProductTypeById**](ProductTypeApi.md#getProductTypeById) | **GET** /beta/productType/{productTypeId} | Get a productType by id
+[**getProductTypeBySearchText**](ProductTypeApi.md#getProductTypeBySearchText) | **GET** /beta/productType/search | Search productTypes
 
 
 # **getProductTypeById**

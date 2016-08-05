@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **critical_amount** | **int** |  | 
 **overall_fixed_reorder_point** | **int** |  | [optional] 
 **overall_lead_time** | **int** |  | [optional] 
-**list_price** | **double** |  | [optional] 
+**list_price** | [**Number**](Number.md) |  | [optional] 
 **lot_control_flag** | **string** |  | [optional] 
 **max_cycle** | **int** |  | 
 **max_interim** | **int** |  | 
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **serial_code** | **string** |  | 
 **unit_code** | **string** |  | 
 **units_per_wrap** | **int** |  | 
-**weight_per_wrap** | **double** |  | [optional] 
+**weight_per_wrap** | [**Number**](Number.md) |  | [optional] 
 **void_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **wrap_code** | **string** |  | 
 **extrinsic_text1** | **string** |  | [optional] 
@@ -54,8 +54,8 @@ Name | Type | Description | Notes
 **extrinsic_text3** | **string** |  | [optional] 
 **extrinsic_number1** | **int** |  | [optional] 
 **extrinsic_number2** | **int** |  | [optional] 
-**extrinsic_decimal1** | **double** |  | [optional] 
-**extrinsic_decimal2** | **double** |  | [optional] 
+**extrinsic_decimal1** | [**Number**](Number.md) |  | [optional] 
+**extrinsic_decimal2** | [**Number**](Number.md) |  | [optional] 
 **casebreak_enabled** | **string** |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **forward_lot_mixing_rule** | **string** |  | 
@@ -63,7 +63,9 @@ Name | Type | Description | Notes
 **forward_item_mixing_rule** | **string** |  | 
 **storage_item_mixing_rule** | **string** |  | 
 **allocation_rule** | **string** |  | 
+**barcode_field** | **string** |  | [optional] 
 **hazmat** | **string** |  | 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

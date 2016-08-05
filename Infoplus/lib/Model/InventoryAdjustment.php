@@ -62,8 +62,9 @@ class InventoryAdjustment implements ArrayAccess
         'note' => 'string',
         'authorized_by' => 'string',
         'printed' => 'string',
-        'order_no' => 'double',
-        'adjustment_code' => 'string'
+        'order_no' => 'Number',
+        'adjustment_code' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -87,7 +88,8 @@ class InventoryAdjustment implements ArrayAccess
         'authorized_by' => 'authorizedBy',
         'printed' => 'printed',
         'order_no' => 'orderNo',
-        'adjustment_code' => 'adjustmentCode'
+        'adjustment_code' => 'adjustmentCode',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -111,7 +113,8 @@ class InventoryAdjustment implements ArrayAccess
         'authorized_by' => 'setAuthorizedBy',
         'printed' => 'setPrinted',
         'order_no' => 'setOrderNo',
-        'adjustment_code' => 'setAdjustmentCode'
+        'adjustment_code' => 'setAdjustmentCode',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -135,7 +138,8 @@ class InventoryAdjustment implements ArrayAccess
         'authorized_by' => 'getAuthorizedBy',
         'printed' => 'getPrinted',
         'order_no' => 'getOrderNo',
-        'adjustment_code' => 'getAdjustmentCode'
+        'adjustment_code' => 'getAdjustmentCode',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -211,7 +215,7 @@ class InventoryAdjustment implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -220,6 +224,12 @@ class InventoryAdjustment implements ArrayAccess
       * @var string
       */
     protected $adjustment_code;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -243,6 +253,7 @@ class InventoryAdjustment implements ArrayAccess
             $this->printed = $data["printed"];
             $this->order_no = $data["order_no"];
             $this->adjustment_code = $data["adjustment_code"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -479,7 +490,7 @@ class InventoryAdjustment implements ArrayAccess
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -488,7 +499,7 @@ class InventoryAdjustment implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -516,6 +527,27 @@ class InventoryAdjustment implements ArrayAccess
     {
         
         $this->adjustment_code = $adjustment_code;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

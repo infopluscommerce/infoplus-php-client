@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillOfLading**](BillOfLadingApi.md#addBillOfLading) | **POST** /v1.0/billOfLading | Create a billOfLading
-[**deleteBillOfLading**](BillOfLadingApi.md#deleteBillOfLading) | **DELETE** /v1.0/billOfLading/{billOfLadingId} | Delete a billOfLading
-[**getBillOfLadingByFilter**](BillOfLadingApi.md#getBillOfLadingByFilter) | **GET** /v1.0/billOfLading/search | Search billOfLadings by filter
-[**getBillOfLadingById**](BillOfLadingApi.md#getBillOfLadingById) | **GET** /v1.0/billOfLading/{billOfLadingId} | Get a billOfLading by id
-[**updateBillOfLading**](BillOfLadingApi.md#updateBillOfLading) | **PUT** /v1.0/billOfLading | Update a billOfLading
+[**addBillOfLading**](BillOfLadingApi.md#addBillOfLading) | **POST** /beta/billOfLading | Create a billOfLading
+[**deleteBillOfLading**](BillOfLadingApi.md#deleteBillOfLading) | **DELETE** /beta/billOfLading/{billOfLadingId} | Delete a billOfLading
+[**getBillOfLadingByFilter**](BillOfLadingApi.md#getBillOfLadingByFilter) | **GET** /beta/billOfLading/search | Search billOfLadings by filter
+[**getBillOfLadingById**](BillOfLadingApi.md#getBillOfLadingById) | **GET** /beta/billOfLading/{billOfLadingId} | Get a billOfLading by id
+[**updateBillOfLading**](BillOfLadingApi.md#updateBillOfLading) | **PUT** /beta/billOfLading | Update a billOfLading
+[**updateBillOfLadingCustomFields**](BillOfLadingApi.md#updateBillOfLadingCustomFields) | **PUT** /beta/billOfLading/customFields | Update a billOfLading custom fields
 
 
 # **addBillOfLading**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateBillOfLading($body);
 } catch (Exception $e) {
     echo 'Exception when calling BillOfLadingApi->updateBillOfLading: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\BillOfLading**](\Infoplus\Model\BillOfLading.md)| BillOfLading to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBillOfLadingCustomFields**
+> updateBillOfLadingCustomFields($body)
+
+Update a billOfLading custom fields
+
+Updates an existing billOfLading custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BillOfLadingApi();
+$body = new \Infoplus\Model\BillOfLading(); // \Infoplus\Model\BillOfLading | BillOfLading to be updated.
+
+try { 
+    $api_instance->updateBillOfLadingCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling BillOfLadingApi->updateBillOfLadingCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

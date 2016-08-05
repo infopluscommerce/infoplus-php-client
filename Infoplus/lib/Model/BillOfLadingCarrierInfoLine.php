@@ -60,7 +60,8 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
         'is_hazardous_material' => 'bool',
         'commodity_description' => 'string',
         'nfmc_no' => 'string',
-        'carrier_class' => 'string'
+        'carrier_class' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -81,7 +82,8 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
         'is_hazardous_material' => 'isHazardousMaterial',
         'commodity_description' => 'commodityDescription',
         'nfmc_no' => 'nfmcNo',
-        'carrier_class' => 'carrierClass'
+        'carrier_class' => 'carrierClass',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -102,7 +104,8 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
         'is_hazardous_material' => 'setIsHazardousMaterial',
         'commodity_description' => 'setCommodityDescription',
         'nfmc_no' => 'setNfmcNo',
-        'carrier_class' => 'setCarrierClass'
+        'carrier_class' => 'setCarrierClass',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -123,7 +126,8 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
         'is_hazardous_material' => 'getIsHazardousMaterial',
         'commodity_description' => 'getCommodityDescription',
         'nfmc_no' => 'getNfmcNo',
-        'carrier_class' => 'getCarrierClass'
+        'carrier_class' => 'getCarrierClass',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -191,6 +195,12 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
       */
     protected $carrier_class;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -210,6 +220,7 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
             $this->commodity_description = $data["commodity_description"];
             $this->nfmc_no = $data["nfmc_no"];
             $this->carrier_class = $data["carrier_class"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -420,6 +431,27 @@ class BillOfLadingCarrierInfoLine implements ArrayAccess
     {
         
         $this->carrier_class = $carrier_class;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

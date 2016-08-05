@@ -14,8 +14,9 @@ Name | Type | Description | Notes
 **note** | **string** |  | [optional] 
 **authorized_by** | **string** |  | [optional] 
 **printed** | **string** |  | [optional] 
-**order_no** | **double** |  | [optional] 
+**order_no** | [**Number**](Number.md) |  | [optional] 
 **adjustment_code** | **string** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -125,7 +125,7 @@ class ItemApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/item";
+        $resourcePath = "/beta/item";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class ItemApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/item/{itemId}";
+        $resourcePath = "/beta/item/{itemId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -327,7 +327,7 @@ class ItemApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/item/getBySKU";
+        $resourcePath = "/beta/item/getBySKU";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -431,7 +431,7 @@ class ItemApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/item/search";
+        $resourcePath = "/beta/item/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -541,7 +541,7 @@ class ItemApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/item/{itemId}";
+        $resourcePath = "/beta/item/{itemId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -643,7 +643,97 @@ class ItemApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/item";
+        $resourcePath = "/beta/item";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateItemCustomFields
+     *
+     * Update an item custom fields
+     *
+     * @param \Infoplus\Model\Item $body Item to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateItemCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateItemCustomFieldsWithHttpInfo
+     *
+     * Update an item custom fields
+     *
+     * @param \Infoplus\Model\Item $body Item to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateItemCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/item/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

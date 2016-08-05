@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **sync_inventory** | **bool** |  | [default to false]
 **sync_tracking_data** | **bool** |  | [default to false]
 **sync_inventory_levels_last_run_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

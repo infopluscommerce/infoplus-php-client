@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addQuickReceipt**](QuickReceiptApi.md#addQuickReceipt) | **POST** /v1.0/quickReceipt | Create a quickReceipt
-[**deleteQuickReceipt**](QuickReceiptApi.md#deleteQuickReceipt) | **DELETE** /v1.0/quickReceipt/{quickReceiptId} | Delete a quickReceipt
-[**getQuickReceiptByFilter**](QuickReceiptApi.md#getQuickReceiptByFilter) | **GET** /v1.0/quickReceipt/search | Search quickReceipts by filter
-[**getQuickReceiptById**](QuickReceiptApi.md#getQuickReceiptById) | **GET** /v1.0/quickReceipt/{quickReceiptId} | Get a quickReceipt by id
-[**updateQuickReceipt**](QuickReceiptApi.md#updateQuickReceipt) | **PUT** /v1.0/quickReceipt | Update a quickReceipt
+[**addQuickReceipt**](QuickReceiptApi.md#addQuickReceipt) | **POST** /beta/quickReceipt | Create a quickReceipt
+[**deleteQuickReceipt**](QuickReceiptApi.md#deleteQuickReceipt) | **DELETE** /beta/quickReceipt/{quickReceiptId} | Delete a quickReceipt
+[**getQuickReceiptByFilter**](QuickReceiptApi.md#getQuickReceiptByFilter) | **GET** /beta/quickReceipt/search | Search quickReceipts by filter
+[**getQuickReceiptById**](QuickReceiptApi.md#getQuickReceiptById) | **GET** /beta/quickReceipt/{quickReceiptId} | Get a quickReceipt by id
+[**updateQuickReceipt**](QuickReceiptApi.md#updateQuickReceipt) | **PUT** /beta/quickReceipt | Update a quickReceipt
+[**updateQuickReceiptCustomFields**](QuickReceiptApi.md#updateQuickReceiptCustomFields) | **PUT** /beta/quickReceipt/customFields | Update a quickReceipt custom fields
 
 
 # **addQuickReceipt**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateQuickReceipt($body);
 } catch (Exception $e) {
     echo 'Exception when calling QuickReceiptApi->updateQuickReceipt: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\QuickReceipt**](\Infoplus\Model\QuickReceipt.md)| QuickReceipt to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateQuickReceiptCustomFields**
+> updateQuickReceiptCustomFields($body)
+
+Update a quickReceipt custom fields
+
+Updates an existing quickReceipt custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$body = new \Infoplus\Model\QuickReceipt(); // \Infoplus\Model\QuickReceipt | QuickReceipt to be updated.
+
+try { 
+    $api_instance->updateQuickReceiptCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->updateQuickReceiptCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getItemLegacyLowStockContactBySearchText**](ItemLegacyLowStockContactApi.md#getItemLegacyLowStockContactBySearchText) | **GET** /v1.0/itemLegacyLowStockContact/search | Search itemLegacyLowStockContacts
-[**getTranslateLowStockContactById**](ItemLegacyLowStockContactApi.md#getTranslateLowStockContactById) | **GET** /v1.0/itemLegacyLowStockContact/{itemLegacyLowStockContactId} | Get an itemLegacyLowStockContact by id
+[**getItemLegacyLowStockContactBySearchText**](ItemLegacyLowStockContactApi.md#getItemLegacyLowStockContactBySearchText) | **GET** /beta/itemLegacyLowStockContact/search | Search itemLegacyLowStockContacts
+[**getTranslateLowStockContactById**](ItemLegacyLowStockContactApi.md#getTranslateLowStockContactById) | **GET** /beta/itemLegacyLowStockContact/{itemLegacyLowStockContactId} | Get an itemLegacyLowStockContact by id
 
 
 # **getItemLegacyLowStockContactBySearchText**

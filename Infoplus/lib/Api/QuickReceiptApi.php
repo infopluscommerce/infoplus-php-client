@@ -125,7 +125,7 @@ class QuickReceiptApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickReceipt";
+        $resourcePath = "/beta/quickReceipt";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class QuickReceiptApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickReceipt/{quickReceiptId}";
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -323,7 +323,7 @@ class QuickReceiptApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/quickReceipt/search";
+        $resourcePath = "/beta/quickReceipt/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +433,7 @@ class QuickReceiptApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickReceipt/{quickReceiptId}";
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -535,7 +535,97 @@ class QuickReceiptApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickReceipt";
+        $resourcePath = "/beta/quickReceipt";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateQuickReceiptCustomFields
+     *
+     * Update a quickReceipt custom fields
+     *
+     * @param \Infoplus\Model\QuickReceipt $body QuickReceipt to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateQuickReceiptCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateQuickReceiptCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateQuickReceiptCustomFieldsWithHttpInfo
+     *
+     * Update a quickReceipt custom fields
+     *
+     * @param \Infoplus\Model\QuickReceipt $body QuickReceipt to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateQuickReceiptCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateQuickReceiptCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

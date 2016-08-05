@@ -62,6 +62,7 @@ class InventoryDetail implements ArrayAccess
         'oldest_receipt_date' => '\DateTime',
         'lob_id' => 'int',
         'po_no' => 'string',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -85,6 +86,7 @@ class InventoryDetail implements ArrayAccess
         'oldest_receipt_date' => 'oldestReceiptDate',
         'lob_id' => 'lobId',
         'po_no' => 'poNo',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -108,6 +110,7 @@ class InventoryDetail implements ArrayAccess
         'oldest_receipt_date' => 'setOldestReceiptDate',
         'lob_id' => 'setLobId',
         'po_no' => 'setPoNo',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -131,6 +134,7 @@ class InventoryDetail implements ArrayAccess
         'oldest_receipt_date' => 'getOldestReceiptDate',
         'lob_id' => 'getLobId',
         'po_no' => 'getPoNo',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -206,6 +210,12 @@ class InventoryDetail implements ArrayAccess
     protected $po_no;
     
     /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
+    /**
       * $sku 
       * @var string
       */
@@ -231,6 +241,7 @@ class InventoryDetail implements ArrayAccess
             $this->oldest_receipt_date = $data["oldest_receipt_date"];
             $this->lob_id = $data["lob_id"];
             $this->po_no = $data["po_no"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -463,6 +474,27 @@ class InventoryDetail implements ArrayAccess
     {
         
         $this->po_no = $po_no;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

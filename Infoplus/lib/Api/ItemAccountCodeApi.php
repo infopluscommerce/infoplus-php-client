@@ -125,7 +125,7 @@ class ItemAccountCodeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemAccountCode/search";
+        $resourcePath = "/beta/itemAccountCode/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemAccountCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemAccountCode/{itemAccountCodeId}";
+        $resourcePath = "/beta/itemAccountCode/{itemAccountCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

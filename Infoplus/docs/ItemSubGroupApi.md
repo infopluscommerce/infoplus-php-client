@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getItemSubGroupBySearchText**](ItemSubGroupApi.md#getItemSubGroupBySearchText) | **GET** /v1.0/itemSubGroup/search | Search itemSubGroups
-[**getTranslateSubGroupById**](ItemSubGroupApi.md#getTranslateSubGroupById) | **GET** /v1.0/itemSubGroup/{itemSubGroupId} | Get an itemSubGroup by id
+[**getItemSubGroupBySearchText**](ItemSubGroupApi.md#getItemSubGroupBySearchText) | **GET** /beta/itemSubGroup/search | Search itemSubGroups
+[**getTranslateSubGroupById**](ItemSubGroupApi.md#getTranslateSubGroupById) | **GET** /beta/itemSubGroup/{itemSubGroupId} | Get an itemSubGroup by id
 
 
 # **getItemSubGroupBySearchText**

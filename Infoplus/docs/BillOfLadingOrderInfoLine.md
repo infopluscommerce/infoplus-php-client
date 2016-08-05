@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **weight** | **int** |  | [optional] 
 **palletslip** | **bool** |  | [optional] [default to false]
 **additional_shipper_info** | **string** |  | 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

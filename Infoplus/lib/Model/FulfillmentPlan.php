@@ -73,12 +73,14 @@ class FulfillmentPlan implements ArrayAccess
         'pick_summary_format' => 'string',
         'pick_summary_layout' => 'string',
         'pick_summary_sort' => 'string',
+        'pick_scan_scheme_id' => 'int',
         'cartonize_orders' => 'bool',
         'auto_ship_casebreak_cartons' => 'bool',
         'pre_generate_parcel_labels' => 'bool',
         'override_packing_slip_template_id' => 'int',
         'create_packing_slip' => 'bool',
-        'create_order_assembly_guide' => 'bool'
+        'create_order_assembly_guide' => 'bool',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -112,12 +114,14 @@ class FulfillmentPlan implements ArrayAccess
         'pick_summary_format' => 'pickSummaryFormat',
         'pick_summary_layout' => 'pickSummaryLayout',
         'pick_summary_sort' => 'pickSummarySort',
+        'pick_scan_scheme_id' => 'pickScanSchemeId',
         'cartonize_orders' => 'cartonizeOrders',
         'auto_ship_casebreak_cartons' => 'autoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'preGenerateParcelLabels',
         'override_packing_slip_template_id' => 'overridePackingSlipTemplateId',
         'create_packing_slip' => 'createPackingSlip',
-        'create_order_assembly_guide' => 'createOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'createOrderAssemblyGuide',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -151,12 +155,14 @@ class FulfillmentPlan implements ArrayAccess
         'pick_summary_format' => 'setPickSummaryFormat',
         'pick_summary_layout' => 'setPickSummaryLayout',
         'pick_summary_sort' => 'setPickSummarySort',
+        'pick_scan_scheme_id' => 'setPickScanSchemeId',
         'cartonize_orders' => 'setCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'setAutoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'setPreGenerateParcelLabels',
         'override_packing_slip_template_id' => 'setOverridePackingSlipTemplateId',
         'create_packing_slip' => 'setCreatePackingSlip',
-        'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -190,12 +196,14 @@ class FulfillmentPlan implements ArrayAccess
         'pick_summary_format' => 'getPickSummaryFormat',
         'pick_summary_layout' => 'getPickSummaryLayout',
         'pick_summary_sort' => 'getPickSummarySort',
+        'pick_scan_scheme_id' => 'getPickScanSchemeId',
         'cartonize_orders' => 'getCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'getAutoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'getPreGenerateParcelLabels',
         'override_packing_slip_template_id' => 'getOverridePackingSlipTemplateId',
         'create_packing_slip' => 'getCreatePackingSlip',
-        'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -336,6 +344,12 @@ class FulfillmentPlan implements ArrayAccess
     protected $pick_summary_sort;
     
     /**
+      * $pick_scan_scheme_id 
+      * @var int
+      */
+    protected $pick_scan_scheme_id;
+    
+    /**
       * $cartonize_orders 
       * @var bool
       */
@@ -371,6 +385,12 @@ class FulfillmentPlan implements ArrayAccess
       */
     protected $create_order_assembly_guide = false;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -402,12 +422,14 @@ class FulfillmentPlan implements ArrayAccess
             $this->pick_summary_format = $data["pick_summary_format"];
             $this->pick_summary_layout = $data["pick_summary_layout"];
             $this->pick_summary_sort = $data["pick_summary_sort"];
+            $this->pick_scan_scheme_id = $data["pick_scan_scheme_id"];
             $this->cartonize_orders = $data["cartonize_orders"];
             $this->auto_ship_casebreak_cartons = $data["auto_ship_casebreak_cartons"];
             $this->pre_generate_parcel_labels = $data["pre_generate_parcel_labels"];
             $this->override_packing_slip_template_id = $data["override_packing_slip_template_id"];
             $this->create_packing_slip = $data["create_packing_slip"];
             $this->create_order_assembly_guide = $data["create_order_assembly_guide"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -874,6 +896,27 @@ class FulfillmentPlan implements ArrayAccess
     }
     
     /**
+     * Gets pick_scan_scheme_id
+     * @return int
+     */
+    public function getPickScanSchemeId()
+    {
+        return $this->pick_scan_scheme_id;
+    }
+  
+    /**
+     * Sets pick_scan_scheme_id
+     * @param int $pick_scan_scheme_id 
+     * @return $this
+     */
+    public function setPickScanSchemeId($pick_scan_scheme_id)
+    {
+        
+        $this->pick_scan_scheme_id = $pick_scan_scheme_id;
+        return $this;
+    }
+    
+    /**
      * Gets cartonize_orders
      * @return bool
      */
@@ -996,6 +1039,27 @@ class FulfillmentPlan implements ArrayAccess
     {
         
         $this->create_order_assembly_guide = $create_order_assembly_guide;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

@@ -62,16 +62,17 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'units_per_wrap' => 'int',
         'units_per_case' => 'int',
         'cases_per_pallet' => 'int',
-        'weight_per_wrap' => 'double',
-        'weight_per_case' => 'double',
+        'weight_per_wrap' => 'Number',
+        'weight_per_case' => 'Number',
         'production_lot' => 'string',
         'revision_date' => 'string',
         'origin' => 'string',
-        'carton_length' => 'double',
-        'carton_width' => 'double',
-        'carton_height' => 'double',
+        'carton_length' => 'Number',
+        'carton_width' => 'Number',
+        'carton_height' => 'Number',
         'put_away_plans' => '\Infoplus\Model\ReceivingWorksheetPutAwayPlan[]',
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -103,7 +104,8 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'carton_width' => 'cartonWidth',
         'carton_height' => 'cartonHeight',
         'put_away_plans' => 'putAwayPlans',
-        'quantity' => 'quantity'
+        'quantity' => 'quantity',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -135,7 +137,8 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'carton_width' => 'setCartonWidth',
         'carton_height' => 'setCartonHeight',
         'put_away_plans' => 'setPutAwayPlans',
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -167,7 +170,8 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'carton_width' => 'getCartonWidth',
         'carton_height' => 'getCartonHeight',
         'put_away_plans' => 'getPutAwayPlans',
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -243,13 +247,13 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
     /**
       * $weight_per_case 
-      * @var double
+      * @var Number
       */
     protected $weight_per_case;
     
@@ -273,19 +277,19 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
       * $carton_length 
-      * @var double
+      * @var Number
       */
     protected $carton_length;
     
     /**
       * $carton_width 
-      * @var double
+      * @var Number
       */
     protected $carton_width;
     
     /**
       * $carton_height 
-      * @var double
+      * @var Number
       */
     protected $carton_height;
     
@@ -300,6 +304,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       * @var int
       */
     protected $quantity;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -331,6 +341,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
             $this->carton_height = $data["carton_height"];
             $this->put_away_plans = $data["put_away_plans"];
             $this->quantity = $data["quantity"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -567,7 +578,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -576,7 +587,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -588,7 +599,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets weight_per_case
-     * @return double
+     * @return Number
      */
     public function getWeightPerCase()
     {
@@ -597,7 +608,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets weight_per_case
-     * @param double $weight_per_case 
+     * @param Number $weight_per_case 
      * @return $this
      */
     public function setWeightPerCase($weight_per_case)
@@ -672,7 +683,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_length
-     * @return double
+     * @return Number
      */
     public function getCartonLength()
     {
@@ -681,7 +692,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_length
-     * @param double $carton_length 
+     * @param Number $carton_length 
      * @return $this
      */
     public function setCartonLength($carton_length)
@@ -693,7 +704,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_width
-     * @return double
+     * @return Number
      */
     public function getCartonWidth()
     {
@@ -702,7 +713,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_width
-     * @param double $carton_width 
+     * @param Number $carton_width 
      * @return $this
      */
     public function setCartonWidth($carton_width)
@@ -714,7 +725,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_height
-     * @return double
+     * @return Number
      */
     public function getCartonHeight()
     {
@@ -723,7 +734,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_height
-     * @param double $carton_height 
+     * @param Number $carton_height 
      * @return $this
      */
     public function setCartonHeight($carton_height)
@@ -772,6 +783,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

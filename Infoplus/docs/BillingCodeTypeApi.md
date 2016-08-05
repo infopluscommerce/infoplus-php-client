@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillingCodeType**](BillingCodeTypeApi.md#addBillingCodeType) | **POST** /v1.0/billingCodeType | Create a billingCodeType
-[**deleteBillingCodeType**](BillingCodeTypeApi.md#deleteBillingCodeType) | **DELETE** /v1.0/billingCodeType/{billingCodeTypeId} | Delete a billingCodeType
-[**getBillingCodeTypeByFilter**](BillingCodeTypeApi.md#getBillingCodeTypeByFilter) | **GET** /v1.0/billingCodeType/search | Search billingCodeTypes by filter
-[**getBillingCodeTypeById**](BillingCodeTypeApi.md#getBillingCodeTypeById) | **GET** /v1.0/billingCodeType/{billingCodeTypeId} | Get a billingCodeType by id
-[**updateBillingCodeType**](BillingCodeTypeApi.md#updateBillingCodeType) | **PUT** /v1.0/billingCodeType | Update a billingCodeType
+[**addBillingCodeType**](BillingCodeTypeApi.md#addBillingCodeType) | **POST** /beta/billingCodeType | Create a billingCodeType
+[**deleteBillingCodeType**](BillingCodeTypeApi.md#deleteBillingCodeType) | **DELETE** /beta/billingCodeType/{billingCodeTypeId} | Delete a billingCodeType
+[**getBillingCodeTypeByFilter**](BillingCodeTypeApi.md#getBillingCodeTypeByFilter) | **GET** /beta/billingCodeType/search | Search billingCodeTypes by filter
+[**getBillingCodeTypeById**](BillingCodeTypeApi.md#getBillingCodeTypeById) | **GET** /beta/billingCodeType/{billingCodeTypeId} | Get a billingCodeType by id
+[**updateBillingCodeType**](BillingCodeTypeApi.md#updateBillingCodeType) | **PUT** /beta/billingCodeType | Update a billingCodeType
+[**updateBillingCodeTypeCustomFields**](BillingCodeTypeApi.md#updateBillingCodeTypeCustomFields) | **PUT** /beta/billingCodeType/customFields | Update a billingCodeType custom fields
 
 
 # **addBillingCodeType**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateBillingCodeType($body);
 } catch (Exception $e) {
     echo 'Exception when calling BillingCodeTypeApi->updateBillingCodeType: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\BillingCodeType**](\Infoplus\Model\BillingCodeType.md)| BillingCodeType to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBillingCodeTypeCustomFields**
+> updateBillingCodeTypeCustomFields($body)
+
+Update a billingCodeType custom fields
+
+Updates an existing billingCodeType custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BillingCodeTypeApi();
+$body = new \Infoplus\Model\BillingCodeType(); // \Infoplus\Model\BillingCodeType | BillingCodeType to be updated.
+
+try { 
+    $api_instance->updateBillingCodeTypeCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling BillingCodeTypeApi->updateBillingCodeTypeCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

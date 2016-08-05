@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addEmailTemplate**](EmailTemplateApi.md#addEmailTemplate) | **POST** /v1.0/emailTemplate | Create an emailTemplate
-[**deleteEmailTemplate**](EmailTemplateApi.md#deleteEmailTemplate) | **DELETE** /v1.0/emailTemplate/{emailTemplateId} | Delete an emailTemplate
-[**getEmailTemplateByFilter**](EmailTemplateApi.md#getEmailTemplateByFilter) | **GET** /v1.0/emailTemplate/search | Search emailTemplates by filter
-[**getEmailTemplateById**](EmailTemplateApi.md#getEmailTemplateById) | **GET** /v1.0/emailTemplate/{emailTemplateId} | Get an emailTemplate by id
-[**updateEmailTemplate**](EmailTemplateApi.md#updateEmailTemplate) | **PUT** /v1.0/emailTemplate | Update an emailTemplate
+[**addEmailTemplate**](EmailTemplateApi.md#addEmailTemplate) | **POST** /beta/emailTemplate | Create an emailTemplate
+[**deleteEmailTemplate**](EmailTemplateApi.md#deleteEmailTemplate) | **DELETE** /beta/emailTemplate/{emailTemplateId} | Delete an emailTemplate
+[**getEmailTemplateByFilter**](EmailTemplateApi.md#getEmailTemplateByFilter) | **GET** /beta/emailTemplate/search | Search emailTemplates by filter
+[**getEmailTemplateById**](EmailTemplateApi.md#getEmailTemplateById) | **GET** /beta/emailTemplate/{emailTemplateId} | Get an emailTemplate by id
+[**updateEmailTemplate**](EmailTemplateApi.md#updateEmailTemplate) | **PUT** /beta/emailTemplate | Update an emailTemplate
+[**updateEmailTemplateCustomFields**](EmailTemplateApi.md#updateEmailTemplateCustomFields) | **PUT** /beta/emailTemplate/customFields | Update an emailTemplate custom fields
 
 
 # **addEmailTemplate**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateEmailTemplate($body);
 } catch (Exception $e) {
     echo 'Exception when calling EmailTemplateApi->updateEmailTemplate: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\EmailTemplate**](\Infoplus\Model\EmailTemplate.md)| EmailTemplate to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateEmailTemplateCustomFields**
+> updateEmailTemplateCustomFields($body)
+
+Update an emailTemplate custom fields
+
+Updates an existing emailTemplate custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$body = new \Infoplus\Model\EmailTemplate(); // \Infoplus\Model\EmailTemplate | EmailTemplate to be updated.
+
+try { 
+    $api_instance->updateEmailTemplateCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->updateEmailTemplateCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

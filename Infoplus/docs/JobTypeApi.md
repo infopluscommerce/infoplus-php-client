@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addJobType**](JobTypeApi.md#addJobType) | **POST** /v1.0/jobType | Create a jobType
-[**deleteJobType**](JobTypeApi.md#deleteJobType) | **DELETE** /v1.0/jobType/{jobTypeId} | Delete a jobType
-[**getJobTypeByFilter**](JobTypeApi.md#getJobTypeByFilter) | **GET** /v1.0/jobType/search | Search jobTypes by filter
-[**getJobTypeById**](JobTypeApi.md#getJobTypeById) | **GET** /v1.0/jobType/{jobTypeId} | Get a jobType by id
-[**updateJobType**](JobTypeApi.md#updateJobType) | **PUT** /v1.0/jobType | Update a jobType
+[**addJobType**](JobTypeApi.md#addJobType) | **POST** /beta/jobType | Create a jobType
+[**deleteJobType**](JobTypeApi.md#deleteJobType) | **DELETE** /beta/jobType/{jobTypeId} | Delete a jobType
+[**getJobTypeByFilter**](JobTypeApi.md#getJobTypeByFilter) | **GET** /beta/jobType/search | Search jobTypes by filter
+[**getJobTypeById**](JobTypeApi.md#getJobTypeById) | **GET** /beta/jobType/{jobTypeId} | Get a jobType by id
+[**updateJobType**](JobTypeApi.md#updateJobType) | **PUT** /beta/jobType | Update a jobType
+[**updateJobTypeCustomFields**](JobTypeApi.md#updateJobTypeCustomFields) | **PUT** /beta/jobType/customFields | Update a jobType custom fields
 
 
 # **addJobType**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateJobType($body);
 } catch (Exception $e) {
     echo 'Exception when calling JobTypeApi->updateJobType: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\JobType**](\Infoplus\Model\JobType.md)| JobType to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateJobTypeCustomFields**
+> updateJobTypeCustomFields($body)
+
+Update a jobType custom fields
+
+Updates an existing jobType custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\JobTypeApi();
+$body = new \Infoplus\Model\JobType(); // \Infoplus\Model\JobType | JobType to be updated.
+
+try { 
+    $api_instance->updateJobTypeCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling JobTypeApi->updateJobTypeCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

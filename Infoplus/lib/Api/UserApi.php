@@ -125,7 +125,7 @@ class UserApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/user/{userId}";
+        $resourcePath = "/beta/user/{userId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class UserApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/user/search";
+        $resourcePath = "/beta/user/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

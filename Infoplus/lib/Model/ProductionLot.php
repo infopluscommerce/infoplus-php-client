@@ -55,6 +55,7 @@ class ProductionLot implements ArrayAccess
         'lob_id' => 'int',
         'production_lot' => 'string',
         'quantity' => 'int',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -71,6 +72,7 @@ class ProductionLot implements ArrayAccess
         'lob_id' => 'lobId',
         'production_lot' => 'productionLot',
         'quantity' => 'quantity',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -87,6 +89,7 @@ class ProductionLot implements ArrayAccess
         'lob_id' => 'setLobId',
         'production_lot' => 'setProductionLot',
         'quantity' => 'setQuantity',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -103,6 +106,7 @@ class ProductionLot implements ArrayAccess
         'lob_id' => 'getLobId',
         'production_lot' => 'getProductionLot',
         'quantity' => 'getQuantity',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -136,6 +140,12 @@ class ProductionLot implements ArrayAccess
     protected $quantity;
     
     /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
+    /**
       * $sku 
       * @var string
       */
@@ -154,6 +164,7 @@ class ProductionLot implements ArrayAccess
             $this->lob_id = $data["lob_id"];
             $this->production_lot = $data["production_lot"];
             $this->quantity = $data["quantity"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -239,6 +250,27 @@ class ProductionLot implements ArrayAccess
     {
         
         $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

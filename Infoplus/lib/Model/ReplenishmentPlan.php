@@ -56,7 +56,8 @@ class ReplenishmentPlan implements ArrayAccess
         'modify_date' => '\DateTime',
         'warehouse_id' => 'int',
         'pick_face_assignment_smart_filter_id' => 'int',
-        'name' => 'string'
+        'name' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -73,7 +74,8 @@ class ReplenishmentPlan implements ArrayAccess
         'modify_date' => 'modifyDate',
         'warehouse_id' => 'warehouseId',
         'pick_face_assignment_smart_filter_id' => 'pickFaceAssignmentSmartFilterId',
-        'name' => 'name'
+        'name' => 'name',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -90,7 +92,8 @@ class ReplenishmentPlan implements ArrayAccess
         'modify_date' => 'setModifyDate',
         'warehouse_id' => 'setWarehouseId',
         'pick_face_assignment_smart_filter_id' => 'setPickFaceAssignmentSmartFilterId',
-        'name' => 'setName'
+        'name' => 'setName',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -107,7 +110,8 @@ class ReplenishmentPlan implements ArrayAccess
         'modify_date' => 'getModifyDate',
         'warehouse_id' => 'getWarehouseId',
         'pick_face_assignment_smart_filter_id' => 'getPickFaceAssignmentSmartFilterId',
-        'name' => 'getName'
+        'name' => 'getName',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -151,6 +155,12 @@ class ReplenishmentPlan implements ArrayAccess
       */
     protected $name;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -166,6 +176,7 @@ class ReplenishmentPlan implements ArrayAccess
             $this->warehouse_id = $data["warehouse_id"];
             $this->pick_face_assignment_smart_filter_id = $data["pick_face_assignment_smart_filter_id"];
             $this->name = $data["name"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -292,6 +303,27 @@ class ReplenishmentPlan implements ArrayAccess
     {
         
         $this->name = $name;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

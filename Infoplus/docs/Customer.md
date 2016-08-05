@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **area** | **string** |  | [optional] 
 **customer_type** | **string** |  | [optional] 
 **mass_level** | **string** |  | [optional] 
-**mass_factor** | **double** |  | [optional] 
+**mass_factor** | [**Number**](Number.md) |  | [optional] 
 **price_level** | **string** |  | [optional] 
 **open_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **close_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
@@ -47,10 +47,11 @@ Name | Type | Description | Notes
 **extrinsic_text3** | **string** |  | [optional] 
 **extrinsic_number1** | **int** |  | [optional] 
 **extrinsic_number2** | **int** |  | [optional] 
-**extrinsic_decimal1** | **double** |  | [optional] 
-**extrinsic_decimal2** | **double** |  | [optional] 
+**extrinsic_decimal1** | [**Number**](Number.md) |  | [optional] 
+**extrinsic_decimal2** | [**Number**](Number.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **oms_customer_id** | **int** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

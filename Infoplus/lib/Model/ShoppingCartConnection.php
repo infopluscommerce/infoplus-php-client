@@ -70,7 +70,8 @@ class ShoppingCartConnection implements ArrayAccess
         'sync_orders' => 'bool',
         'sync_inventory' => 'bool',
         'sync_tracking_data' => 'bool',
-        'sync_inventory_levels_last_run_time' => '\DateTime'
+        'sync_inventory_levels_last_run_time' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -101,7 +102,8 @@ class ShoppingCartConnection implements ArrayAccess
         'sync_orders' => 'syncOrders',
         'sync_inventory' => 'syncInventory',
         'sync_tracking_data' => 'syncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'syncInventoryLevelsLastRunTime'
+        'sync_inventory_levels_last_run_time' => 'syncInventoryLevelsLastRunTime',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -132,7 +134,8 @@ class ShoppingCartConnection implements ArrayAccess
         'sync_orders' => 'setSyncOrders',
         'sync_inventory' => 'setSyncInventory',
         'sync_tracking_data' => 'setSyncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'setSyncInventoryLevelsLastRunTime'
+        'sync_inventory_levels_last_run_time' => 'setSyncInventoryLevelsLastRunTime',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -163,7 +166,8 @@ class ShoppingCartConnection implements ArrayAccess
         'sync_orders' => 'getSyncOrders',
         'sync_inventory' => 'getSyncInventory',
         'sync_tracking_data' => 'getSyncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'getSyncInventoryLevelsLastRunTime'
+        'sync_inventory_levels_last_run_time' => 'getSyncInventoryLevelsLastRunTime',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -291,6 +295,12 @@ class ShoppingCartConnection implements ArrayAccess
       */
     protected $sync_inventory_levels_last_run_time;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -320,6 +330,7 @@ class ShoppingCartConnection implements ArrayAccess
             $this->sync_inventory = $data["sync_inventory"];
             $this->sync_tracking_data = $data["sync_tracking_data"];
             $this->sync_inventory_levels_last_run_time = $data["sync_inventory_levels_last_run_time"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -740,6 +751,27 @@ class ShoppingCartConnection implements ArrayAccess
     {
         
         $this->sync_inventory_levels_last_run_time = $sync_inventory_levels_last_run_time;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOrderSource**](OrderSourceApi.md#addOrderSource) | **POST** /v1.0/orderSource | Create an orderSource
-[**deleteOrderSource**](OrderSourceApi.md#deleteOrderSource) | **DELETE** /v1.0/orderSource/{orderSourceId} | Delete an orderSource
-[**getOrderSourceByFilter**](OrderSourceApi.md#getOrderSourceByFilter) | **GET** /v1.0/orderSource/search | Search orderSources by filter
-[**getOrderSourceById**](OrderSourceApi.md#getOrderSourceById) | **GET** /v1.0/orderSource/{orderSourceId} | Get an orderSource by id
-[**updateOrderSource**](OrderSourceApi.md#updateOrderSource) | **PUT** /v1.0/orderSource | Update an orderSource
+[**addOrderSource**](OrderSourceApi.md#addOrderSource) | **POST** /beta/orderSource | Create an orderSource
+[**deleteOrderSource**](OrderSourceApi.md#deleteOrderSource) | **DELETE** /beta/orderSource/{orderSourceId} | Delete an orderSource
+[**getOrderSourceByFilter**](OrderSourceApi.md#getOrderSourceByFilter) | **GET** /beta/orderSource/search | Search orderSources by filter
+[**getOrderSourceById**](OrderSourceApi.md#getOrderSourceById) | **GET** /beta/orderSource/{orderSourceId} | Get an orderSource by id
+[**updateOrderSource**](OrderSourceApi.md#updateOrderSource) | **PUT** /beta/orderSource | Update an orderSource
+[**updateOrderSourceCustomFields**](OrderSourceApi.md#updateOrderSourceCustomFields) | **PUT** /beta/orderSource/customFields | Update an orderSource custom fields
 
 
 # **addOrderSource**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateOrderSource($body);
 } catch (Exception $e) {
     echo 'Exception when calling OrderSourceApi->updateOrderSource: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\OrderSource**](\Infoplus\Model\OrderSource.md)| OrderSource to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateOrderSourceCustomFields**
+> updateOrderSourceCustomFields($body)
+
+Update an orderSource custom fields
+
+Updates an existing orderSource custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$body = new \Infoplus\Model\OrderSource(); // \Infoplus\Model\OrderSource | OrderSource to be updated.
+
+try { 
+    $api_instance->updateOrderSourceCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->updateOrderSourceCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

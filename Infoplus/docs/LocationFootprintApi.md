@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLocationFootprint**](LocationFootprintApi.md#addLocationFootprint) | **POST** /v1.0/locationFootprint | Create a locationFootprint
-[**deleteLocationFootprint**](LocationFootprintApi.md#deleteLocationFootprint) | **DELETE** /v1.0/locationFootprint/{locationFootprintId} | Delete a locationFootprint
-[**getLocationFootprintByFilter**](LocationFootprintApi.md#getLocationFootprintByFilter) | **GET** /v1.0/locationFootprint/search | Search locationFootprints by filter
-[**getLocationFootprintById**](LocationFootprintApi.md#getLocationFootprintById) | **GET** /v1.0/locationFootprint/{locationFootprintId} | Get a locationFootprint by id
-[**updateLocationFootprint**](LocationFootprintApi.md#updateLocationFootprint) | **PUT** /v1.0/locationFootprint | Update a locationFootprint
+[**addLocationFootprint**](LocationFootprintApi.md#addLocationFootprint) | **POST** /beta/locationFootprint | Create a locationFootprint
+[**deleteLocationFootprint**](LocationFootprintApi.md#deleteLocationFootprint) | **DELETE** /beta/locationFootprint/{locationFootprintId} | Delete a locationFootprint
+[**getLocationFootprintByFilter**](LocationFootprintApi.md#getLocationFootprintByFilter) | **GET** /beta/locationFootprint/search | Search locationFootprints by filter
+[**getLocationFootprintById**](LocationFootprintApi.md#getLocationFootprintById) | **GET** /beta/locationFootprint/{locationFootprintId} | Get a locationFootprint by id
+[**updateLocationFootprint**](LocationFootprintApi.md#updateLocationFootprint) | **PUT** /beta/locationFootprint | Update a locationFootprint
+[**updateLocationFootprintCustomFields**](LocationFootprintApi.md#updateLocationFootprintCustomFields) | **PUT** /beta/locationFootprint/customFields | Update a locationFootprint custom fields
 
 
 # **addLocationFootprint**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateLocationFootprint($body);
 } catch (Exception $e) {
     echo 'Exception when calling LocationFootprintApi->updateLocationFootprint: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\LocationFootprint**](\Infoplus\Model\LocationFootprint.md)| LocationFootprint to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateLocationFootprintCustomFields**
+> updateLocationFootprintCustomFields($body)
+
+Update a locationFootprint custom fields
+
+Updates an existing locationFootprint custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LocationFootprintApi();
+$body = new \Infoplus\Model\LocationFootprint(); // \Infoplus\Model\LocationFootprint | LocationFootprint to be updated.
+
+try { 
+    $api_instance->updateLocationFootprintCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling LocationFootprintApi->updateLocationFootprintCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

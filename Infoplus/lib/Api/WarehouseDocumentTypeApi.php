@@ -127,7 +127,7 @@ class WarehouseDocumentTypeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/warehouseDocumentType/search";
+        $resourcePath = "/beta/warehouseDocumentType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +237,7 @@ class WarehouseDocumentTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/warehouseDocumentType/{warehouseDocumentTypeId}";
+        $resourcePath = "/beta/warehouseDocumentType/{warehouseDocumentTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

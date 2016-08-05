@@ -125,7 +125,7 @@ class ItemSubGroupApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSubGroup/search";
+        $resourcePath = "/beta/itemSubGroup/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemSubGroupApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSubGroup/{itemSubGroupId}";
+        $resourcePath = "/beta/itemSubGroup/{itemSubGroupId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

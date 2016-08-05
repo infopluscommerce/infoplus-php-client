@@ -125,7 +125,7 @@ class ItemProductCodeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemProductCode/search";
+        $resourcePath = "/beta/itemProductCode/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemProductCode/{itemProductCodeId}";
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -125,7 +125,7 @@ class ItemMajorGroupApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/itemMajorGroup/search";
+        $resourcePath = "/beta/itemMajorGroup/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class ItemMajorGroupApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemMajorGroup/{itemMajorGroupId}";
+        $resourcePath = "/beta/itemMajorGroup/{itemMajorGroupId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

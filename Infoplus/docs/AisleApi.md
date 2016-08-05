@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addAisle**](AisleApi.md#addAisle) | **POST** /v1.0/aisle | Create an aisle
-[**deleteAisle**](AisleApi.md#deleteAisle) | **DELETE** /v1.0/aisle/{aisleId} | Delete an aisle
-[**getAisleByFilter**](AisleApi.md#getAisleByFilter) | **GET** /v1.0/aisle/search | Search aisles by filter
-[**getAisleById**](AisleApi.md#getAisleById) | **GET** /v1.0/aisle/{aisleId} | Get an aisle by id
-[**updateAisle**](AisleApi.md#updateAisle) | **PUT** /v1.0/aisle | Update an aisle
+[**addAisle**](AisleApi.md#addAisle) | **POST** /beta/aisle | Create an aisle
+[**deleteAisle**](AisleApi.md#deleteAisle) | **DELETE** /beta/aisle/{aisleId} | Delete an aisle
+[**getAisleByFilter**](AisleApi.md#getAisleByFilter) | **GET** /beta/aisle/search | Search aisles by filter
+[**getAisleById**](AisleApi.md#getAisleById) | **GET** /beta/aisle/{aisleId} | Get an aisle by id
+[**updateAisle**](AisleApi.md#updateAisle) | **PUT** /beta/aisle | Update an aisle
+[**updateAisleCustomFields**](AisleApi.md#updateAisleCustomFields) | **PUT** /beta/aisle/customFields | Update an aisle custom fields
 
 
 # **addAisle**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateAisle($body);
 } catch (Exception $e) {
     echo 'Exception when calling AisleApi->updateAisle: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Aisle**](\Infoplus\Model\Aisle.md)| Aisle to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateAisleCustomFields**
+> updateAisleCustomFields($body)
+
+Update an aisle custom fields
+
+Updates an existing aisle custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\AisleApi();
+$body = new \Infoplus\Model\Aisle(); // \Infoplus\Model\Aisle | Aisle to be updated.
+
+try { 
+    $api_instance->updateAisleCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling AisleApi->updateAisleCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCartonContent**](CartonContentApi.md#addCartonContent) | **POST** /v1.0/cartonContent | Create a cartonContent
-[**deleteCartonContent**](CartonContentApi.md#deleteCartonContent) | **DELETE** /v1.0/cartonContent/{cartonContentId} | Delete a cartonContent
-[**getCartonContentByFilter**](CartonContentApi.md#getCartonContentByFilter) | **GET** /v1.0/cartonContent/search | Search cartonContents by filter
-[**getCartonContentById**](CartonContentApi.md#getCartonContentById) | **GET** /v1.0/cartonContent/{cartonContentId} | Get a cartonContent by id
-[**updateCartonContent**](CartonContentApi.md#updateCartonContent) | **PUT** /v1.0/cartonContent | Update a cartonContent
+[**addCartonContent**](CartonContentApi.md#addCartonContent) | **POST** /beta/cartonContent | Create a cartonContent
+[**deleteCartonContent**](CartonContentApi.md#deleteCartonContent) | **DELETE** /beta/cartonContent/{cartonContentId} | Delete a cartonContent
+[**getCartonContentByFilter**](CartonContentApi.md#getCartonContentByFilter) | **GET** /beta/cartonContent/search | Search cartonContents by filter
+[**getCartonContentById**](CartonContentApi.md#getCartonContentById) | **GET** /beta/cartonContent/{cartonContentId} | Get a cartonContent by id
+[**updateCartonContent**](CartonContentApi.md#updateCartonContent) | **PUT** /beta/cartonContent | Update a cartonContent
+[**updateCartonContentCustomFields**](CartonContentApi.md#updateCartonContentCustomFields) | **PUT** /beta/cartonContent/customFields | Update a cartonContent custom fields
 
 
 # **addCartonContent**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateCartonContent($body);
 } catch (Exception $e) {
     echo 'Exception when calling CartonContentApi->updateCartonContent: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\CartonContent**](\Infoplus\Model\CartonContent.md)| CartonContent to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateCartonContentCustomFields**
+> updateCartonContentCustomFields($body)
+
+Update a cartonContent custom fields
+
+Updates an existing cartonContent custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonContentApi();
+$body = new \Infoplus\Model\CartonContent(); // \Infoplus\Model\CartonContent | CartonContent to be updated.
+
+try { 
+    $api_instance->updateCartonContentCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonContentApi->updateCartonContentCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

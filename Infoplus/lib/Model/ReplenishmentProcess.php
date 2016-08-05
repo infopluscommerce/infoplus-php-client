@@ -57,7 +57,9 @@ class ReplenishmentProcess implements ArrayAccess
         'warehouse_id' => 'int',
         'replenishment_plan_id' => 'int',
         'status' => 'string',
-        'estimated_work' => 'int'
+        'estimated_work' => 'int',
+        'work_batch_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -75,7 +77,9 @@ class ReplenishmentProcess implements ArrayAccess
         'warehouse_id' => 'warehouseId',
         'replenishment_plan_id' => 'replenishmentPlanId',
         'status' => 'status',
-        'estimated_work' => 'estimatedWork'
+        'estimated_work' => 'estimatedWork',
+        'work_batch_id' => 'workBatchId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -93,7 +97,9 @@ class ReplenishmentProcess implements ArrayAccess
         'warehouse_id' => 'setWarehouseId',
         'replenishment_plan_id' => 'setReplenishmentPlanId',
         'status' => 'setStatus',
-        'estimated_work' => 'setEstimatedWork'
+        'estimated_work' => 'setEstimatedWork',
+        'work_batch_id' => 'setWorkBatchId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -111,7 +117,9 @@ class ReplenishmentProcess implements ArrayAccess
         'warehouse_id' => 'getWarehouseId',
         'replenishment_plan_id' => 'getReplenishmentPlanId',
         'status' => 'getStatus',
-        'estimated_work' => 'getEstimatedWork'
+        'estimated_work' => 'getEstimatedWork',
+        'work_batch_id' => 'getWorkBatchId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -161,6 +169,18 @@ class ReplenishmentProcess implements ArrayAccess
       */
     protected $estimated_work;
     
+    /**
+      * $work_batch_id 
+      * @var int
+      */
+    protected $work_batch_id;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -177,6 +197,8 @@ class ReplenishmentProcess implements ArrayAccess
             $this->replenishment_plan_id = $data["replenishment_plan_id"];
             $this->status = $data["status"];
             $this->estimated_work = $data["estimated_work"];
+            $this->work_batch_id = $data["work_batch_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -324,6 +346,48 @@ class ReplenishmentProcess implements ArrayAccess
     {
         
         $this->estimated_work = $estimated_work;
+        return $this;
+    }
+    
+    /**
+     * Gets work_batch_id
+     * @return int
+     */
+    public function getWorkBatchId()
+    {
+        return $this->work_batch_id;
+    }
+  
+    /**
+     * Sets work_batch_id
+     * @param int $work_batch_id 
+     * @return $this
+     */
+    public function setWorkBatchId($work_batch_id)
+    {
+        
+        $this->work_batch_id = $work_batch_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

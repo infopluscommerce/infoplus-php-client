@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order_no** | **double** |  | [optional] 
+**order_no** | [**Number**](Number.md) |  | [optional] 
 **customer_order_no** | **string** |  | [optional] 
 **lob_id** | **int** |  | 
 **warehouse_id** | **int** |  | 
@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 **legacy_restriction_type** | **string** |  | 
 **alcohol_order_type** | **string** |  | [optional] 
 **alternate_usage** | **string** |  | [optional] 
-**authorization_amount** | **double** |  | [optional] 
+**authorization_amount** | [**Number**](Number.md) |  | [optional] 
 **authorized_by** | **string** |  | [optional] 
-**balance_due** | **double** |  | [optional] 
+**balance_due** | [**Number**](Number.md) |  | [optional] 
 **batch_no** | **string** |  | [optional] 
 **bill_to_attention** | **string** |  | [optional] 
 **bill_to_company** | **string** |  | [optional] 
@@ -43,19 +43,19 @@ Name | Type | Description | Notes
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **customer_po_no** | **string** |  | [optional] 
 **distribution_channel** | **string** |  | [optional] 
-**distribution_charges** | **double** |  | [optional] 
+**distribution_charges** | [**Number**](Number.md) |  | [optional] 
 **division** | **int** |  | [optional] 
 **entered_by** | **string** |  | [optional] 
-**estimated_weight_lbs** | **double** |  | [optional] 
-**freight** | **double** |  | [optional] 
+**estimated_weight_lbs** | [**Number**](Number.md) |  | [optional] 
+**freight** | [**Number**](Number.md) |  | [optional] 
 **gift_message** | **string** |  | [optional] 
-**group_order_id** | **double** |  | [optional] 
+**group_order_id** | [**Number**](Number.md) |  | [optional] 
 **hold_code** | **string** |  | [optional] 
 **integration_partner_id** | **int** |  | [optional] 
 **number_of_line_items** | **int** |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**oms_order_id** | **int** |  | [optional] 
 **oms_order_no** | **int** |  | [optional] 
+**oms_customer_id** | **int** |  | [optional] 
 **order_load_program_id** | **int** |  | [optional] 
 **order_message** | **string** |  | [optional] 
 **order_reason** | **int** |  | [optional] 
@@ -80,16 +80,17 @@ Name | Type | Description | Notes
 **ship_to_country** | **string** |  | [optional] 
 **ship_to_phone** | **string** |  | [optional] 
 **ship_to_email** | **string** |  | [optional] 
-**shipping_charge** | **double** |  | [optional] 
+**shipping_charge** | [**Number**](Number.md) |  | [optional] 
 **status** | **string** |  | [optional] 
 **stop_back_orders** | **string** |  | [optional] 
-**subtotal** | **double** |  | [optional] 
-**tax** | **double** |  | [optional] 
-**total** | **double** |  | [optional] 
-**total_paid** | **double** |  | [optional] 
+**subtotal** | [**Number**](Number.md) |  | [optional] 
+**tax** | [**Number**](Number.md) |  | [optional] 
+**total** | [**Number**](Number.md) |  | [optional] 
+**total_paid** | [**Number**](Number.md) |  | [optional] 
 **total_qty** | **int** |  | [optional] 
-**weight_lbs** | **double** |  | [optional] 
+**weight_lbs** | [**Number**](Number.md) |  | [optional] 
 **line_items** | [**\Infoplus\Model\OrderLine[]**](OrderLine.md) |  | 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **process_no** | **int** |  | [optional] 
 **work_batch_id** | **int** |  | [optional] 
 **warehouse_id** | **int** |  | 
-**allocation_plan_id** | **int** |  | 
+**fulfillment_plan_id** | **int** |  | 
+**pick_scan_scheme_id** | **int** |  | 
 **status** | **string** |  | 
 **order_smart_filter_id** | **int** |  | [optional] 
 **location_smart_filter_id** | **int** |  | [optional] 
@@ -46,6 +47,7 @@ Name | Type | Description | Notes
 **create_packing_slip** | **bool** |  | [optional] [default to false]
 **override_packing_slip_template_id** | **int** |  | [optional] 
 **create_order_assembly_guide** | **bool** |  | [optional] [default to false]
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

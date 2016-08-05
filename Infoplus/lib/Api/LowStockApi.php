@@ -127,7 +127,7 @@ class LowStockApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/lowStock/search";
+        $resourcePath = "/beta/lowStock/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +237,7 @@ class LowStockApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/lowStock/{lowStockId}";
+        $resourcePath = "/beta/lowStock/{lowStockId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

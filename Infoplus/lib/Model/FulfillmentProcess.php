@@ -57,7 +57,8 @@ class FulfillmentProcess implements ArrayAccess
         'process_no' => 'int',
         'work_batch_id' => 'int',
         'warehouse_id' => 'int',
-        'allocation_plan_id' => 'int',
+        'fulfillment_plan_id' => 'int',
+        'pick_scan_scheme_id' => 'int',
         'status' => 'string',
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
@@ -93,7 +94,8 @@ class FulfillmentProcess implements ArrayAccess
         'cartonize_orders' => 'bool',
         'create_packing_slip' => 'bool',
         'override_packing_slip_template_id' => 'int',
-        'create_order_assembly_guide' => 'bool'
+        'create_order_assembly_guide' => 'bool',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -111,7 +113,8 @@ class FulfillmentProcess implements ArrayAccess
         'process_no' => 'processNo',
         'work_batch_id' => 'workBatchId',
         'warehouse_id' => 'warehouseId',
-        'allocation_plan_id' => 'allocationPlanId',
+        'fulfillment_plan_id' => 'fulfillmentPlanId',
+        'pick_scan_scheme_id' => 'pickScanSchemeId',
         'status' => 'status',
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
@@ -147,7 +150,8 @@ class FulfillmentProcess implements ArrayAccess
         'cartonize_orders' => 'cartonizeOrders',
         'create_packing_slip' => 'createPackingSlip',
         'override_packing_slip_template_id' => 'overridePackingSlipTemplateId',
-        'create_order_assembly_guide' => 'createOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'createOrderAssemblyGuide',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -165,7 +169,8 @@ class FulfillmentProcess implements ArrayAccess
         'process_no' => 'setProcessNo',
         'work_batch_id' => 'setWorkBatchId',
         'warehouse_id' => 'setWarehouseId',
-        'allocation_plan_id' => 'setAllocationPlanId',
+        'fulfillment_plan_id' => 'setFulfillmentPlanId',
+        'pick_scan_scheme_id' => 'setPickScanSchemeId',
         'status' => 'setStatus',
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
@@ -201,7 +206,8 @@ class FulfillmentProcess implements ArrayAccess
         'cartonize_orders' => 'setCartonizeOrders',
         'create_packing_slip' => 'setCreatePackingSlip',
         'override_packing_slip_template_id' => 'setOverridePackingSlipTemplateId',
-        'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -219,7 +225,8 @@ class FulfillmentProcess implements ArrayAccess
         'process_no' => 'getProcessNo',
         'work_batch_id' => 'getWorkBatchId',
         'warehouse_id' => 'getWarehouseId',
-        'allocation_plan_id' => 'getAllocationPlanId',
+        'fulfillment_plan_id' => 'getFulfillmentPlanId',
+        'pick_scan_scheme_id' => 'getPickScanSchemeId',
         'status' => 'getStatus',
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
@@ -255,7 +262,8 @@ class FulfillmentProcess implements ArrayAccess
         'cartonize_orders' => 'getCartonizeOrders',
         'create_packing_slip' => 'getCreatePackingSlip',
         'override_packing_slip_template_id' => 'getOverridePackingSlipTemplateId',
-        'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide'
+        'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -300,10 +308,16 @@ class FulfillmentProcess implements ArrayAccess
     protected $warehouse_id;
     
     /**
-      * $allocation_plan_id 
+      * $fulfillment_plan_id 
       * @var int
       */
-    protected $allocation_plan_id;
+    protected $fulfillment_plan_id;
+    
+    /**
+      * $pick_scan_scheme_id 
+      * @var int
+      */
+    protected $pick_scan_scheme_id;
     
     /**
       * $status 
@@ -521,6 +535,12 @@ class FulfillmentProcess implements ArrayAccess
       */
     protected $create_order_assembly_guide = false;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -536,7 +556,8 @@ class FulfillmentProcess implements ArrayAccess
             $this->process_no = $data["process_no"];
             $this->work_batch_id = $data["work_batch_id"];
             $this->warehouse_id = $data["warehouse_id"];
-            $this->allocation_plan_id = $data["allocation_plan_id"];
+            $this->fulfillment_plan_id = $data["fulfillment_plan_id"];
+            $this->pick_scan_scheme_id = $data["pick_scan_scheme_id"];
             $this->status = $data["status"];
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
@@ -573,6 +594,7 @@ class FulfillmentProcess implements ArrayAccess
             $this->create_packing_slip = $data["create_packing_slip"];
             $this->override_packing_slip_template_id = $data["override_packing_slip_template_id"];
             $this->create_order_assembly_guide = $data["create_order_assembly_guide"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -703,23 +725,44 @@ class FulfillmentProcess implements ArrayAccess
     }
     
     /**
-     * Gets allocation_plan_id
+     * Gets fulfillment_plan_id
      * @return int
      */
-    public function getAllocationPlanId()
+    public function getFulfillmentPlanId()
     {
-        return $this->allocation_plan_id;
+        return $this->fulfillment_plan_id;
     }
   
     /**
-     * Sets allocation_plan_id
-     * @param int $allocation_plan_id 
+     * Sets fulfillment_plan_id
+     * @param int $fulfillment_plan_id 
      * @return $this
      */
-    public function setAllocationPlanId($allocation_plan_id)
+    public function setFulfillmentPlanId($fulfillment_plan_id)
     {
         
-        $this->allocation_plan_id = $allocation_plan_id;
+        $this->fulfillment_plan_id = $fulfillment_plan_id;
+        return $this;
+    }
+    
+    /**
+     * Gets pick_scan_scheme_id
+     * @return int
+     */
+    public function getPickScanSchemeId()
+    {
+        return $this->pick_scan_scheme_id;
+    }
+  
+    /**
+     * Sets pick_scan_scheme_id
+     * @param int $pick_scan_scheme_id 
+     * @return $this
+     */
+    public function setPickScanSchemeId($pick_scan_scheme_id)
+    {
+        
+        $this->pick_scan_scheme_id = $pick_scan_scheme_id;
         return $this;
     }
     
@@ -1476,6 +1519,27 @@ class FulfillmentProcess implements ArrayAccess
     {
         
         $this->create_order_assembly_guide = $create_order_assembly_guide;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

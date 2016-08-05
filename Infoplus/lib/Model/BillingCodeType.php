@@ -58,7 +58,8 @@ class BillingCodeType implements ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'billing_code' => 'string',
-        'is_active' => 'bool'
+        'is_active' => 'bool',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -77,7 +78,8 @@ class BillingCodeType implements ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'billing_code' => 'billingCode',
-        'is_active' => 'isActive'
+        'is_active' => 'isActive',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -96,7 +98,8 @@ class BillingCodeType implements ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'billing_code' => 'setBillingCode',
-        'is_active' => 'setIsActive'
+        'is_active' => 'setIsActive',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -115,7 +118,8 @@ class BillingCodeType implements ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'billing_code' => 'getBillingCode',
-        'is_active' => 'getIsActive'
+        'is_active' => 'getIsActive',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -171,6 +175,12 @@ class BillingCodeType implements ArrayAccess
       */
     protected $is_active = false;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -188,6 +198,7 @@ class BillingCodeType implements ArrayAccess
             $this->description = $data["description"];
             $this->billing_code = $data["billing_code"];
             $this->is_active = $data["is_active"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -356,6 +367,27 @@ class BillingCodeType implements ArrayAccess
     {
         
         $this->is_active = $is_active;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

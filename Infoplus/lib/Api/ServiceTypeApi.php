@@ -125,7 +125,7 @@ class ServiceTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/serviceType/{serviceTypeId}";
+        $resourcePath = "/beta/serviceType/{serviceTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class ServiceTypeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/serviceType/search";
+        $resourcePath = "/beta/serviceType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

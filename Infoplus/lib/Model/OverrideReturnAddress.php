@@ -65,7 +65,8 @@ class OverrideReturnAddress implements ArrayAccess
         'state' => 'string',
         'zip' => 'string',
         'country' => 'string',
-        'phone' => 'string'
+        'phone' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -91,7 +92,8 @@ class OverrideReturnAddress implements ArrayAccess
         'state' => 'state',
         'zip' => 'zip',
         'country' => 'country',
-        'phone' => 'phone'
+        'phone' => 'phone',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -117,7 +119,8 @@ class OverrideReturnAddress implements ArrayAccess
         'state' => 'setState',
         'zip' => 'setZip',
         'country' => 'setCountry',
-        'phone' => 'setPhone'
+        'phone' => 'setPhone',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -143,7 +146,8 @@ class OverrideReturnAddress implements ArrayAccess
         'state' => 'getState',
         'zip' => 'getZip',
         'country' => 'getCountry',
-        'phone' => 'getPhone'
+        'phone' => 'getPhone',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -241,6 +245,12 @@ class OverrideReturnAddress implements ArrayAccess
       */
     protected $phone;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -265,6 +275,7 @@ class OverrideReturnAddress implements ArrayAccess
             $this->zip = $data["zip"];
             $this->country = $data["country"];
             $this->phone = $data["phone"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -580,6 +591,27 @@ class OverrideReturnAddress implements ArrayAccess
     {
         
         $this->phone = $phone;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

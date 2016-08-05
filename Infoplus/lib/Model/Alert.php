@@ -60,7 +60,8 @@ class Alert implements ArrayAccess
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
         'expiration_date' => '\DateTime',
-        'acknowledge_date' => '\DateTime'
+        'acknowledge_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -81,7 +82,8 @@ class Alert implements ArrayAccess
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
         'expiration_date' => 'expirationDate',
-        'acknowledge_date' => 'acknowledgeDate'
+        'acknowledge_date' => 'acknowledgeDate',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -102,7 +104,8 @@ class Alert implements ArrayAccess
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
         'expiration_date' => 'setExpirationDate',
-        'acknowledge_date' => 'setAcknowledgeDate'
+        'acknowledge_date' => 'setAcknowledgeDate',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -123,7 +126,8 @@ class Alert implements ArrayAccess
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
         'expiration_date' => 'getExpirationDate',
-        'acknowledge_date' => 'getAcknowledgeDate'
+        'acknowledge_date' => 'getAcknowledgeDate',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -191,6 +195,12 @@ class Alert implements ArrayAccess
       */
     protected $acknowledge_date;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -210,6 +220,7 @@ class Alert implements ArrayAccess
             $this->modify_date = $data["modify_date"];
             $this->expiration_date = $data["expiration_date"];
             $this->acknowledge_date = $data["acknowledge_date"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -420,6 +431,27 @@ class Alert implements ArrayAccess
     {
         
         $this->acknowledge_date = $acknowledge_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

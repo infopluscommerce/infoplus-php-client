@@ -60,6 +60,7 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'int',
         'message' => 'string',
         'status' => 'string',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -81,6 +82,7 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'totalQuantity',
         'message' => 'message',
         'status' => 'status',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -102,6 +104,7 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'setTotalQuantity',
         'message' => 'setMessage',
         'status' => 'setStatus',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -123,6 +126,7 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'getTotalQuantity',
         'message' => 'getMessage',
         'status' => 'getStatus',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -186,6 +190,12 @@ class QuickAdjustment implements ArrayAccess
     protected $status;
     
     /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
+    /**
       * $sku 
       * @var string
       */
@@ -209,6 +219,7 @@ class QuickAdjustment implements ArrayAccess
             $this->total_quantity = $data["total_quantity"];
             $this->message = $data["message"];
             $this->status = $data["status"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -399,6 +410,27 @@ class QuickAdjustment implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

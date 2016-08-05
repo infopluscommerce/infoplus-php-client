@@ -55,7 +55,8 @@ class VendorComplianceSurvey implements ArrayAccess
         'worksheet_id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
-        'survey_questions' => 'string'
+        'survey_questions' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -71,7 +72,8 @@ class VendorComplianceSurvey implements ArrayAccess
         'worksheet_id' => 'worksheetId',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
-        'survey_questions' => 'surveyQuestions'
+        'survey_questions' => 'surveyQuestions',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -87,7 +89,8 @@ class VendorComplianceSurvey implements ArrayAccess
         'worksheet_id' => 'setWorksheetId',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
-        'survey_questions' => 'setSurveyQuestions'
+        'survey_questions' => 'setSurveyQuestions',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -103,7 +106,8 @@ class VendorComplianceSurvey implements ArrayAccess
         'worksheet_id' => 'getWorksheetId',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
-        'survey_questions' => 'getSurveyQuestions'
+        'survey_questions' => 'getSurveyQuestions',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -141,6 +145,12 @@ class VendorComplianceSurvey implements ArrayAccess
       */
     protected $survey_questions;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -155,6 +165,7 @@ class VendorComplianceSurvey implements ArrayAccess
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
             $this->survey_questions = $data["survey_questions"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -260,6 +271,27 @@ class VendorComplianceSurvey implements ArrayAccess
     {
         
         $this->survey_questions = $survey_questions;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

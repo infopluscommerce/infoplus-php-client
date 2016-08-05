@@ -4,11 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillingCode**](BillingCodeApi.md#addBillingCode) | **POST** /v1.0/billingCode | Create a billingCode
-[**deleteBillingCode**](BillingCodeApi.md#deleteBillingCode) | **DELETE** /v1.0/billingCode/{billingCodeId} | Delete a billingCode
-[**getBillingCodeByFilter**](BillingCodeApi.md#getBillingCodeByFilter) | **GET** /v1.0/billingCode/search | Search billingCodes by filter
-[**getBillingCodeById**](BillingCodeApi.md#getBillingCodeById) | **GET** /v1.0/billingCode/{billingCodeId} | Get a billingCode by id
-[**updateBillingCode**](BillingCodeApi.md#updateBillingCode) | **PUT** /v1.0/billingCode | Update a billingCode
+[**addBillingCode**](BillingCodeApi.md#addBillingCode) | **POST** /beta/billingCode | Create a billingCode
+[**deleteBillingCode**](BillingCodeApi.md#deleteBillingCode) | **DELETE** /beta/billingCode/{billingCodeId} | Delete a billingCode
+[**getBillingCodeByFilter**](BillingCodeApi.md#getBillingCodeByFilter) | **GET** /beta/billingCode/search | Search billingCodes by filter
+[**getBillingCodeById**](BillingCodeApi.md#getBillingCodeById) | **GET** /beta/billingCode/{billingCodeId} | Get a billingCode by id
+[**updateBillingCode**](BillingCodeApi.md#updateBillingCode) | **PUT** /beta/billingCode | Update a billingCode
+[**updateBillingCodeCustomFields**](BillingCodeApi.md#updateBillingCodeCustomFields) | **PUT** /beta/billingCode/customFields | Update a billingCode custom fields
 
 
 # **addBillingCode**
@@ -240,6 +241,55 @@ try {
     $api_instance->updateBillingCode($body);
 } catch (Exception $e) {
     echo 'Exception when calling BillingCodeApi->updateBillingCode: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\BillingCode**](\Infoplus\Model\BillingCode.md)| BillingCode to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBillingCodeCustomFields**
+> updateBillingCodeCustomFields($body)
+
+Update a billingCode custom fields
+
+Updates an existing billingCode custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BillingCodeApi();
+$body = new \Infoplus\Model\BillingCode(); // \Infoplus\Model\BillingCode | BillingCode to be updated.
+
+try { 
+    $api_instance->updateBillingCodeCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling BillingCodeApi->updateBillingCodeCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

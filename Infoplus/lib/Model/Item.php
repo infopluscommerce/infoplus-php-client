@@ -77,7 +77,7 @@ class Item implements ArrayAccess
         'critical_amount' => 'int',
         'overall_fixed_reorder_point' => 'int',
         'overall_lead_time' => 'int',
-        'list_price' => 'double',
+        'list_price' => 'Number',
         'lot_control_flag' => 'string',
         'max_cycle' => 'int',
         'max_interim' => 'int',
@@ -94,7 +94,7 @@ class Item implements ArrayAccess
         'serial_code' => 'string',
         'unit_code' => 'string',
         'units_per_wrap' => 'int',
-        'weight_per_wrap' => 'double',
+        'weight_per_wrap' => 'Number',
         'void_date' => '\DateTime',
         'wrap_code' => 'string',
         'extrinsic_text1' => 'string',
@@ -102,8 +102,8 @@ class Item implements ArrayAccess
         'extrinsic_text3' => 'string',
         'extrinsic_number1' => 'int',
         'extrinsic_number2' => 'int',
-        'extrinsic_decimal1' => 'double',
-        'extrinsic_decimal2' => 'double',
+        'extrinsic_decimal1' => 'Number',
+        'extrinsic_decimal2' => 'Number',
         'casebreak_enabled' => 'string',
         'modify_date' => '\DateTime',
         'forward_lot_mixing_rule' => 'string',
@@ -111,7 +111,9 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'string',
         'storage_item_mixing_rule' => 'string',
         'allocation_rule' => 'string',
-        'hazmat' => 'string'
+        'barcode_field' => 'string',
+        'hazmat' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -183,7 +185,9 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'forwardItemMixingRule',
         'storage_item_mixing_rule' => 'storageItemMixingRule',
         'allocation_rule' => 'allocationRule',
-        'hazmat' => 'hazmat'
+        'barcode_field' => 'barcodeField',
+        'hazmat' => 'hazmat',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -255,7 +259,9 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'setForwardItemMixingRule',
         'storage_item_mixing_rule' => 'setStorageItemMixingRule',
         'allocation_rule' => 'setAllocationRule',
-        'hazmat' => 'setHazmat'
+        'barcode_field' => 'setBarcodeField',
+        'hazmat' => 'setHazmat',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -327,7 +333,9 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'getForwardItemMixingRule',
         'storage_item_mixing_rule' => 'getStorageItemMixingRule',
         'allocation_rule' => 'getAllocationRule',
-        'hazmat' => 'getHazmat'
+        'barcode_field' => 'getBarcodeField',
+        'hazmat' => 'getHazmat',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -493,7 +501,7 @@ class Item implements ArrayAccess
     
     /**
       * $list_price 
-      * @var double
+      * @var Number
       */
     protected $list_price;
     
@@ -595,7 +603,7 @@ class Item implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
@@ -643,13 +651,13 @@ class Item implements ArrayAccess
     
     /**
       * $extrinsic_decimal1 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal1;
     
     /**
       * $extrinsic_decimal2 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal2;
     
@@ -696,10 +704,22 @@ class Item implements ArrayAccess
     protected $allocation_rule;
     
     /**
+      * $barcode_field 
+      * @var string
+      */
+    protected $barcode_field;
+    
+    /**
       * $hazmat 
       * @var string
       */
     protected $hazmat;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -770,7 +790,9 @@ class Item implements ArrayAccess
             $this->forward_item_mixing_rule = $data["forward_item_mixing_rule"];
             $this->storage_item_mixing_rule = $data["storage_item_mixing_rule"];
             $this->allocation_rule = $data["allocation_rule"];
+            $this->barcode_field = $data["barcode_field"];
             $this->hazmat = $data["hazmat"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -1322,7 +1344,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets list_price
-     * @return double
+     * @return Number
      */
     public function getListPrice()
     {
@@ -1331,7 +1353,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets list_price
-     * @param double $list_price 
+     * @param Number $list_price 
      * @return $this
      */
     public function setListPrice($list_price)
@@ -1679,7 +1701,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -1688,7 +1710,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -1847,7 +1869,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal1
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal1()
     {
@@ -1856,7 +1878,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal1
-     * @param double $extrinsic_decimal1 
+     * @param Number $extrinsic_decimal1 
      * @return $this
      */
     public function setExtrinsicDecimal1($extrinsic_decimal1)
@@ -1868,7 +1890,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal2
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal2()
     {
@@ -1877,7 +1899,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal2
-     * @param double $extrinsic_decimal2 
+     * @param Number $extrinsic_decimal2 
      * @return $this
      */
     public function setExtrinsicDecimal2($extrinsic_decimal2)
@@ -2035,6 +2057,27 @@ class Item implements ArrayAccess
     }
     
     /**
+     * Gets barcode_field
+     * @return string
+     */
+    public function getBarcodeField()
+    {
+        return $this->barcode_field;
+    }
+  
+    /**
+     * Sets barcode_field
+     * @param string $barcode_field 
+     * @return $this
+     */
+    public function setBarcodeField($barcode_field)
+    {
+        
+        $this->barcode_field = $barcode_field;
+        return $this;
+    }
+    
+    /**
      * Gets hazmat
      * @return string
      */
@@ -2052,6 +2095,27 @@ class Item implements ArrayAccess
     {
         
         $this->hazmat = $hazmat;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

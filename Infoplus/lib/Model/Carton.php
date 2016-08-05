@@ -52,11 +52,12 @@ class Carton implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'order_no' => 'double',
+        'order_no' => 'Number',
         'carton_no' => 'int',
         'carton_type_id' => 'int',
         'carton_lpn' => 'string',
-        'weight_lbs' => 'double'
+        'weight_lbs' => 'Number',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -73,7 +74,8 @@ class Carton implements ArrayAccess
         'carton_no' => 'cartonNo',
         'carton_type_id' => 'cartonTypeId',
         'carton_lpn' => 'cartonLPN',
-        'weight_lbs' => 'weightLbs'
+        'weight_lbs' => 'weightLbs',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -90,7 +92,8 @@ class Carton implements ArrayAccess
         'carton_no' => 'setCartonNo',
         'carton_type_id' => 'setCartonTypeId',
         'carton_lpn' => 'setCartonLpn',
-        'weight_lbs' => 'setWeightLbs'
+        'weight_lbs' => 'setWeightLbs',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -107,7 +110,8 @@ class Carton implements ArrayAccess
         'carton_no' => 'getCartonNo',
         'carton_type_id' => 'getCartonTypeId',
         'carton_lpn' => 'getCartonLpn',
-        'weight_lbs' => 'getWeightLbs'
+        'weight_lbs' => 'getWeightLbs',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -123,7 +127,7 @@ class Carton implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -147,9 +151,15 @@ class Carton implements ArrayAccess
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -166,6 +176,7 @@ class Carton implements ArrayAccess
             $this->carton_type_id = $data["carton_type_id"];
             $this->carton_lpn = $data["carton_lpn"];
             $this->weight_lbs = $data["weight_lbs"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -192,7 +203,7 @@ class Carton implements ArrayAccess
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -201,7 +212,7 @@ class Carton implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -276,7 +287,7 @@ class Carton implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -285,13 +296,34 @@ class Carton implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
     {
         
         $this->weight_lbs = $weight_lbs;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

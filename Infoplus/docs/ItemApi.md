@@ -4,12 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItem**](ItemApi.md#addItem) | **POST** /v1.0/item | Create an item
-[**deleteItem**](ItemApi.md#deleteItem) | **DELETE** /v1.0/item/{itemId} | Delete an item
-[**getBySKU**](ItemApi.md#getBySKU) | **GET** /v1.0/item/getBySKU | Get an item by SKU
-[**getItemByFilter**](ItemApi.md#getItemByFilter) | **GET** /v1.0/item/search | Search items by filter
-[**getItemById**](ItemApi.md#getItemById) | **GET** /v1.0/item/{itemId} | Get an item by id
-[**updateItem**](ItemApi.md#updateItem) | **PUT** /v1.0/item | Update an item
+[**addItem**](ItemApi.md#addItem) | **POST** /beta/item | Create an item
+[**deleteItem**](ItemApi.md#deleteItem) | **DELETE** /beta/item/{itemId} | Delete an item
+[**getBySKU**](ItemApi.md#getBySKU) | **GET** /beta/item/getBySKU | Get an item by SKU
+[**getItemByFilter**](ItemApi.md#getItemByFilter) | **GET** /beta/item/search | Search items by filter
+[**getItemById**](ItemApi.md#getItemById) | **GET** /beta/item/{itemId} | Get an item by id
+[**updateItem**](ItemApi.md#updateItem) | **PUT** /beta/item | Update an item
+[**updateItemCustomFields**](ItemApi.md#updateItemCustomFields) | **PUT** /beta/item/customFields | Update an item custom fields
 
 
 # **addItem**
@@ -293,6 +294,55 @@ try {
     $api_instance->updateItem($body);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->updateItem: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Item**](\Infoplus\Model\Item.md)| Item to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateItemCustomFields**
+> updateItemCustomFields($body)
+
+Update an item custom fields
+
+Updates an existing item custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ItemApi();
+$body = new \Infoplus\Model\Item(); // \Infoplus\Model\Item | Item to be updated.
+
+try { 
+    $api_instance->updateItemCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->updateItemCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```
