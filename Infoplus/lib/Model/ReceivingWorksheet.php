@@ -58,6 +58,8 @@ class ReceivingWorksheet implements ArrayAccess
         'vendor_id' => 'int',
         'status' => 'string',
         'service_level' => 'string',
+        'receiving_process_id' => 'int',
+        'dock_date' => '\DateTime',
         'created_by' => 'int',
         'worksheet_name' => 'string',
         'carrier' => 'string',
@@ -67,7 +69,8 @@ class ReceivingWorksheet implements ArrayAccess
         'notes' => 'string',
         'work_batch_id' => 'int',
         'create_date' => '\DateTime',
-        'modify_date' => '\DateTime'
+        'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -86,6 +89,8 @@ class ReceivingWorksheet implements ArrayAccess
         'vendor_id' => 'vendorId',
         'status' => 'status',
         'service_level' => 'serviceLevel',
+        'receiving_process_id' => 'receivingProcessId',
+        'dock_date' => 'dockDate',
         'created_by' => 'createdBy',
         'worksheet_name' => 'worksheetName',
         'carrier' => 'carrier',
@@ -95,7 +100,8 @@ class ReceivingWorksheet implements ArrayAccess
         'notes' => 'notes',
         'work_batch_id' => 'workBatchId',
         'create_date' => 'createDate',
-        'modify_date' => 'modifyDate'
+        'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -114,6 +120,8 @@ class ReceivingWorksheet implements ArrayAccess
         'vendor_id' => 'setVendorId',
         'status' => 'setStatus',
         'service_level' => 'setServiceLevel',
+        'receiving_process_id' => 'setReceivingProcessId',
+        'dock_date' => 'setDockDate',
         'created_by' => 'setCreatedBy',
         'worksheet_name' => 'setWorksheetName',
         'carrier' => 'setCarrier',
@@ -123,7 +131,8 @@ class ReceivingWorksheet implements ArrayAccess
         'notes' => 'setNotes',
         'work_batch_id' => 'setWorkBatchId',
         'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate'
+        'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -142,6 +151,8 @@ class ReceivingWorksheet implements ArrayAccess
         'vendor_id' => 'getVendorId',
         'status' => 'getStatus',
         'service_level' => 'getServiceLevel',
+        'receiving_process_id' => 'getReceivingProcessId',
+        'dock_date' => 'getDockDate',
         'created_by' => 'getCreatedBy',
         'worksheet_name' => 'getWorksheetName',
         'carrier' => 'getCarrier',
@@ -151,7 +162,8 @@ class ReceivingWorksheet implements ArrayAccess
         'notes' => 'getNotes',
         'work_batch_id' => 'getWorkBatchId',
         'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate'
+        'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -200,6 +212,18 @@ class ReceivingWorksheet implements ArrayAccess
       * @var string
       */
     protected $service_level;
+    
+    /**
+      * $receiving_process_id 
+      * @var int
+      */
+    protected $receiving_process_id;
+    
+    /**
+      * $dock_date 
+      * @var \DateTime
+      */
+    protected $dock_date;
     
     /**
       * $created_by 
@@ -261,6 +285,12 @@ class ReceivingWorksheet implements ArrayAccess
       */
     protected $modify_date;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -277,6 +307,8 @@ class ReceivingWorksheet implements ArrayAccess
             $this->vendor_id = $data["vendor_id"];
             $this->status = $data["status"];
             $this->service_level = $data["service_level"];
+            $this->receiving_process_id = $data["receiving_process_id"];
+            $this->dock_date = $data["dock_date"];
             $this->created_by = $data["created_by"];
             $this->worksheet_name = $data["worksheet_name"];
             $this->carrier = $data["carrier"];
@@ -287,6 +319,7 @@ class ReceivingWorksheet implements ArrayAccess
             $this->work_batch_id = $data["work_batch_id"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -434,6 +467,48 @@ class ReceivingWorksheet implements ArrayAccess
     {
         
         $this->service_level = $service_level;
+        return $this;
+    }
+    
+    /**
+     * Gets receiving_process_id
+     * @return int
+     */
+    public function getReceivingProcessId()
+    {
+        return $this->receiving_process_id;
+    }
+  
+    /**
+     * Sets receiving_process_id
+     * @param int $receiving_process_id 
+     * @return $this
+     */
+    public function setReceivingProcessId($receiving_process_id)
+    {
+        
+        $this->receiving_process_id = $receiving_process_id;
+        return $this;
+    }
+    
+    /**
+     * Gets dock_date
+     * @return \DateTime
+     */
+    public function getDockDate()
+    {
+        return $this->dock_date;
+    }
+  
+    /**
+     * Sets dock_date
+     * @param \DateTime $dock_date 
+     * @return $this
+     */
+    public function setDockDate($dock_date)
+    {
+        
+        $this->dock_date = $dock_date;
         return $this;
     }
     
@@ -644,6 +719,27 @@ class ReceivingWorksheet implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

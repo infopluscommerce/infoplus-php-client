@@ -67,10 +67,17 @@ class ShoppingCartConnection implements ArrayAccess
         'shopping_cart_store_url' => 'string',
         'access_code' => 'string',
         'access_token' => 'string',
+        'username' => 'string',
+        'password' => 'string',
+        'default_carrier_id' => 'int',
+        'order_shipment_level' => 'string',
         'sync_orders' => 'bool',
         'sync_inventory' => 'bool',
         'sync_tracking_data' => 'bool',
-        'sync_inventory_levels_last_run_time' => '\DateTime'
+        'fulfill_all_items' => 'bool',
+        'sync_inventory_levels_last_run_time' => '\DateTime',
+        'sync_orders_last_run_time' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -98,10 +105,17 @@ class ShoppingCartConnection implements ArrayAccess
         'shopping_cart_store_url' => 'shoppingCartStoreURL',
         'access_code' => 'accessCode',
         'access_token' => 'accessToken',
+        'username' => 'username',
+        'password' => 'password',
+        'default_carrier_id' => 'defaultCarrierId',
+        'order_shipment_level' => 'orderShipmentLevel',
         'sync_orders' => 'syncOrders',
         'sync_inventory' => 'syncInventory',
         'sync_tracking_data' => 'syncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'syncInventoryLevelsLastRunTime'
+        'fulfill_all_items' => 'fulfillAllItems',
+        'sync_inventory_levels_last_run_time' => 'syncInventoryLevelsLastRunTime',
+        'sync_orders_last_run_time' => 'syncOrdersLastRunTime',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -129,10 +143,17 @@ class ShoppingCartConnection implements ArrayAccess
         'shopping_cart_store_url' => 'setShoppingCartStoreUrl',
         'access_code' => 'setAccessCode',
         'access_token' => 'setAccessToken',
+        'username' => 'setUsername',
+        'password' => 'setPassword',
+        'default_carrier_id' => 'setDefaultCarrierId',
+        'order_shipment_level' => 'setOrderShipmentLevel',
         'sync_orders' => 'setSyncOrders',
         'sync_inventory' => 'setSyncInventory',
         'sync_tracking_data' => 'setSyncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'setSyncInventoryLevelsLastRunTime'
+        'fulfill_all_items' => 'setFulfillAllItems',
+        'sync_inventory_levels_last_run_time' => 'setSyncInventoryLevelsLastRunTime',
+        'sync_orders_last_run_time' => 'setSyncOrdersLastRunTime',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -160,10 +181,17 @@ class ShoppingCartConnection implements ArrayAccess
         'shopping_cart_store_url' => 'getShoppingCartStoreUrl',
         'access_code' => 'getAccessCode',
         'access_token' => 'getAccessToken',
+        'username' => 'getUsername',
+        'password' => 'getPassword',
+        'default_carrier_id' => 'getDefaultCarrierId',
+        'order_shipment_level' => 'getOrderShipmentLevel',
         'sync_orders' => 'getSyncOrders',
         'sync_inventory' => 'getSyncInventory',
         'sync_tracking_data' => 'getSyncTrackingData',
-        'sync_inventory_levels_last_run_time' => 'getSyncInventoryLevelsLastRunTime'
+        'fulfill_all_items' => 'getFulfillAllItems',
+        'sync_inventory_levels_last_run_time' => 'getSyncInventoryLevelsLastRunTime',
+        'sync_orders_last_run_time' => 'getSyncOrdersLastRunTime',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -268,6 +296,30 @@ class ShoppingCartConnection implements ArrayAccess
     protected $access_token;
     
     /**
+      * $username 
+      * @var string
+      */
+    protected $username;
+    
+    /**
+      * $password 
+      * @var string
+      */
+    protected $password;
+    
+    /**
+      * $default_carrier_id 
+      * @var int
+      */
+    protected $default_carrier_id;
+    
+    /**
+      * $order_shipment_level 
+      * @var string
+      */
+    protected $order_shipment_level;
+    
+    /**
       * $sync_orders 
       * @var bool
       */
@@ -286,10 +338,28 @@ class ShoppingCartConnection implements ArrayAccess
     protected $sync_tracking_data = false;
     
     /**
+      * $fulfill_all_items 
+      * @var bool
+      */
+    protected $fulfill_all_items = false;
+    
+    /**
       * $sync_inventory_levels_last_run_time 
       * @var \DateTime
       */
     protected $sync_inventory_levels_last_run_time;
+    
+    /**
+      * $sync_orders_last_run_time 
+      * @var \DateTime
+      */
+    protected $sync_orders_last_run_time;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -316,10 +386,17 @@ class ShoppingCartConnection implements ArrayAccess
             $this->shopping_cart_store_url = $data["shopping_cart_store_url"];
             $this->access_code = $data["access_code"];
             $this->access_token = $data["access_token"];
+            $this->username = $data["username"];
+            $this->password = $data["password"];
+            $this->default_carrier_id = $data["default_carrier_id"];
+            $this->order_shipment_level = $data["order_shipment_level"];
             $this->sync_orders = $data["sync_orders"];
             $this->sync_inventory = $data["sync_inventory"];
             $this->sync_tracking_data = $data["sync_tracking_data"];
+            $this->fulfill_all_items = $data["fulfill_all_items"];
             $this->sync_inventory_levels_last_run_time = $data["sync_inventory_levels_last_run_time"];
+            $this->sync_orders_last_run_time = $data["sync_orders_last_run_time"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -660,6 +737,90 @@ class ShoppingCartConnection implements ArrayAccess
     }
     
     /**
+     * Gets username
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+  
+    /**
+     * Sets username
+     * @param string $username 
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        
+        $this->username = $username;
+        return $this;
+    }
+    
+    /**
+     * Gets password
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+  
+    /**
+     * Sets password
+     * @param string $password 
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        
+        $this->password = $password;
+        return $this;
+    }
+    
+    /**
+     * Gets default_carrier_id
+     * @return int
+     */
+    public function getDefaultCarrierId()
+    {
+        return $this->default_carrier_id;
+    }
+  
+    /**
+     * Sets default_carrier_id
+     * @param int $default_carrier_id 
+     * @return $this
+     */
+    public function setDefaultCarrierId($default_carrier_id)
+    {
+        
+        $this->default_carrier_id = $default_carrier_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_shipment_level
+     * @return string
+     */
+    public function getOrderShipmentLevel()
+    {
+        return $this->order_shipment_level;
+    }
+  
+    /**
+     * Sets order_shipment_level
+     * @param string $order_shipment_level 
+     * @return $this
+     */
+    public function setOrderShipmentLevel($order_shipment_level)
+    {
+        
+        $this->order_shipment_level = $order_shipment_level;
+        return $this;
+    }
+    
+    /**
      * Gets sync_orders
      * @return bool
      */
@@ -723,6 +884,27 @@ class ShoppingCartConnection implements ArrayAccess
     }
     
     /**
+     * Gets fulfill_all_items
+     * @return bool
+     */
+    public function getFulfillAllItems()
+    {
+        return $this->fulfill_all_items;
+    }
+  
+    /**
+     * Sets fulfill_all_items
+     * @param bool $fulfill_all_items 
+     * @return $this
+     */
+    public function setFulfillAllItems($fulfill_all_items)
+    {
+        
+        $this->fulfill_all_items = $fulfill_all_items;
+        return $this;
+    }
+    
+    /**
      * Gets sync_inventory_levels_last_run_time
      * @return \DateTime
      */
@@ -740,6 +922,48 @@ class ShoppingCartConnection implements ArrayAccess
     {
         
         $this->sync_inventory_levels_last_run_time = $sync_inventory_levels_last_run_time;
+        return $this;
+    }
+    
+    /**
+     * Gets sync_orders_last_run_time
+     * @return \DateTime
+     */
+    public function getSyncOrdersLastRunTime()
+    {
+        return $this->sync_orders_last_run_time;
+    }
+  
+    /**
+     * Sets sync_orders_last_run_time
+     * @param \DateTime $sync_orders_last_run_time 
+     * @return $this
+     */
+    public function setSyncOrdersLastRunTime($sync_orders_last_run_time)
+    {
+        
+        $this->sync_orders_last_run_time = $sync_orders_last_run_time;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

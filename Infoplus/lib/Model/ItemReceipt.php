@@ -52,25 +52,25 @@ class ItemReceipt implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'po_no' => 'string',
+        'po_no_id' => 'int',
         'lob_id' => 'int',
         'legacy_po_no' => 'string',
         'warehouse_id' => 'int',
         'order_date' => '\DateTime',
-        'fact_cost' => 'double',
-        'ml_cost' => 'double',
+        'fact_cost' => 'Number',
+        'ml_cost' => 'Number',
         'sku' => 'string',
         'order_quantity' => 'int',
         'requested_delivery_date' => '\DateTime',
         'unit_code' => 'string',
         'wrap_code' => 'string',
         'units_per_wrap' => 'int',
-        'cost' => 'double',
-        'sell' => 'double',
+        'cost' => 'Number',
+        'sell' => 'Number',
         'pricing_per' => 'string',
-        'max_freight' => 'double',
+        'max_freight' => 'Number',
         'charge_freight' => 'string',
-        'max_other' => 'double',
+        'max_other' => 'Number',
         'dist_date' => '\DateTime',
         'void_date' => '\DateTime',
         'freeze_action' => 'string',
@@ -88,19 +88,19 @@ class ItemReceipt implements ArrayAccess
         'capitalize' => 'string',
         'accrual' => 'string',
         'odd_quantity' => 'int',
-        'freight_cost' => 'double',
+        'freight_cost' => 'Number',
         'received_date' => '\DateTime',
         'received_quantity' => 'int',
         'from_prod' => 'int',
         'sfp_complete' => 'string',
         'end_quantity' => 'int',
-        'end_val' => 'double',
-        'end_fact' => 'double',
+        'end_val' => 'Number',
+        'end_fact' => 'Number',
         'interim_quantity' => 'int',
-        'interim_val' => 'double',
-        'interim_fact' => 'double',
+        'interim_val' => 'Number',
+        'interim_fact' => 'Number',
         'last_act' => '\DateTime',
-        'weight_per_wrap' => 'double',
+        'weight_per_wrap' => 'Number',
         'norcs' => 'string',
         'vendor_id' => 'int',
         'bs_vendor' => 'int',
@@ -111,15 +111,17 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'string',
         'line_no' => 'int',
         'prod_lot' => 'string',
+        'product_id_tag' => 'string',
         'units_per_case' => 'int',
-        'case_weight' => 'double',
-        'height' => 'double',
-        'width' => 'double',
-        'length' => 'double',
-        'dock_time' => '\DateTime',
+        'case_weight' => 'Number',
+        'height' => 'Number',
+        'width' => 'Number',
+        'length' => 'Number',
+        'dock_date' => '\DateTime',
         'modify_date' => '\DateTime',
         'impressions' => 'int',
-        'asn_line' => 'int'
+        'asn_line' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -132,7 +134,7 @@ class ItemReceipt implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
-        'po_no' => 'poNo',
+        'po_no_id' => 'poNoId',
         'lob_id' => 'lobId',
         'legacy_po_no' => 'legacyPoNo',
         'warehouse_id' => 'warehouseId',
@@ -191,15 +193,17 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'receivedBy',
         'line_no' => 'lineNo',
         'prod_lot' => 'prodLot',
+        'product_id_tag' => 'productIdTag',
         'units_per_case' => 'unitsPerCase',
         'case_weight' => 'caseWeight',
         'height' => 'height',
         'width' => 'width',
         'length' => 'length',
-        'dock_time' => 'dockTime',
+        'dock_date' => 'dockDate',
         'modify_date' => 'modifyDate',
         'impressions' => 'impressions',
-        'asn_line' => 'asnLine'
+        'asn_line' => 'asnLine',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -212,7 +216,7 @@ class ItemReceipt implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'po_no' => 'setPoNo',
+        'po_no_id' => 'setPoNoId',
         'lob_id' => 'setLobId',
         'legacy_po_no' => 'setLegacyPoNo',
         'warehouse_id' => 'setWarehouseId',
@@ -271,15 +275,17 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'setReceivedBy',
         'line_no' => 'setLineNo',
         'prod_lot' => 'setProdLot',
+        'product_id_tag' => 'setProductIdTag',
         'units_per_case' => 'setUnitsPerCase',
         'case_weight' => 'setCaseWeight',
         'height' => 'setHeight',
         'width' => 'setWidth',
         'length' => 'setLength',
-        'dock_time' => 'setDockTime',
+        'dock_date' => 'setDockDate',
         'modify_date' => 'setModifyDate',
         'impressions' => 'setImpressions',
-        'asn_line' => 'setAsnLine'
+        'asn_line' => 'setAsnLine',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -292,7 +298,7 @@ class ItemReceipt implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'po_no' => 'getPoNo',
+        'po_no_id' => 'getPoNoId',
         'lob_id' => 'getLobId',
         'legacy_po_no' => 'getLegacyPoNo',
         'warehouse_id' => 'getWarehouseId',
@@ -351,15 +357,17 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'getReceivedBy',
         'line_no' => 'getLineNo',
         'prod_lot' => 'getProdLot',
+        'product_id_tag' => 'getProductIdTag',
         'units_per_case' => 'getUnitsPerCase',
         'case_weight' => 'getCaseWeight',
         'height' => 'getHeight',
         'width' => 'getWidth',
         'length' => 'getLength',
-        'dock_time' => 'getDockTime',
+        'dock_date' => 'getDockDate',
         'modify_date' => 'getModifyDate',
         'impressions' => 'getImpressions',
-        'asn_line' => 'getAsnLine'
+        'asn_line' => 'getAsnLine',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -374,10 +382,10 @@ class ItemReceipt implements ArrayAccess
     protected $id;
     
     /**
-      * $po_no 
-      * @var string
+      * $po_no_id 
+      * @var int
       */
-    protected $po_no;
+    protected $po_no_id;
     
     /**
       * $lob_id 
@@ -405,13 +413,13 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $fact_cost 
-      * @var double
+      * @var Number
       */
     protected $fact_cost;
     
     /**
       * $ml_cost 
-      * @var double
+      * @var Number
       */
     protected $ml_cost;
     
@@ -453,13 +461,13 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $cost 
-      * @var double
+      * @var Number
       */
     protected $cost;
     
     /**
       * $sell 
-      * @var double
+      * @var Number
       */
     protected $sell;
     
@@ -471,7 +479,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $max_freight 
-      * @var double
+      * @var Number
       */
     protected $max_freight;
     
@@ -483,7 +491,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $max_other 
-      * @var double
+      * @var Number
       */
     protected $max_other;
     
@@ -591,7 +599,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $freight_cost 
-      * @var double
+      * @var Number
       */
     protected $freight_cost;
     
@@ -627,13 +635,13 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $end_val 
-      * @var double
+      * @var Number
       */
     protected $end_val;
     
     /**
       * $end_fact 
-      * @var double
+      * @var Number
       */
     protected $end_fact;
     
@@ -645,13 +653,13 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $interim_val 
-      * @var double
+      * @var Number
       */
     protected $interim_val;
     
     /**
       * $interim_fact 
-      * @var double
+      * @var Number
       */
     protected $interim_fact;
     
@@ -663,7 +671,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
@@ -728,6 +736,12 @@ class ItemReceipt implements ArrayAccess
     protected $prod_lot;
     
     /**
+      * $product_id_tag 
+      * @var string
+      */
+    protected $product_id_tag;
+    
+    /**
       * $units_per_case 
       * @var int
       */
@@ -735,33 +749,33 @@ class ItemReceipt implements ArrayAccess
     
     /**
       * $case_weight 
-      * @var double
+      * @var Number
       */
     protected $case_weight;
     
     /**
       * $height 
-      * @var double
+      * @var Number
       */
     protected $height;
     
     /**
       * $width 
-      * @var double
+      * @var Number
       */
     protected $width;
     
     /**
       * $length 
-      * @var double
+      * @var Number
       */
     protected $length;
     
     /**
-      * $dock_time 
+      * $dock_date 
       * @var \DateTime
       */
-    protected $dock_time;
+    protected $dock_date;
     
     /**
       * $modify_date 
@@ -781,6 +795,12 @@ class ItemReceipt implements ArrayAccess
       */
     protected $asn_line;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -791,7 +811,7 @@ class ItemReceipt implements ArrayAccess
         
         if ($data != null) {
             $this->id = $data["id"];
-            $this->po_no = $data["po_no"];
+            $this->po_no_id = $data["po_no_id"];
             $this->lob_id = $data["lob_id"];
             $this->legacy_po_no = $data["legacy_po_no"];
             $this->warehouse_id = $data["warehouse_id"];
@@ -850,15 +870,17 @@ class ItemReceipt implements ArrayAccess
             $this->received_by = $data["received_by"];
             $this->line_no = $data["line_no"];
             $this->prod_lot = $data["prod_lot"];
+            $this->product_id_tag = $data["product_id_tag"];
             $this->units_per_case = $data["units_per_case"];
             $this->case_weight = $data["case_weight"];
             $this->height = $data["height"];
             $this->width = $data["width"];
             $this->length = $data["length"];
-            $this->dock_time = $data["dock_time"];
+            $this->dock_date = $data["dock_date"];
             $this->modify_date = $data["modify_date"];
             $this->impressions = $data["impressions"];
             $this->asn_line = $data["asn_line"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -884,23 +906,23 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
-     * Gets po_no
-     * @return string
+     * Gets po_no_id
+     * @return int
      */
-    public function getPoNo()
+    public function getPoNoId()
     {
-        return $this->po_no;
+        return $this->po_no_id;
     }
   
     /**
-     * Sets po_no
-     * @param string $po_no 
+     * Sets po_no_id
+     * @param int $po_no_id 
      * @return $this
      */
-    public function setPoNo($po_no)
+    public function setPoNoId($po_no_id)
     {
         
-        $this->po_no = $po_no;
+        $this->po_no_id = $po_no_id;
         return $this;
     }
     
@@ -990,7 +1012,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets fact_cost
-     * @return double
+     * @return Number
      */
     public function getFactCost()
     {
@@ -999,7 +1021,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets fact_cost
-     * @param double $fact_cost 
+     * @param Number $fact_cost 
      * @return $this
      */
     public function setFactCost($fact_cost)
@@ -1011,7 +1033,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets ml_cost
-     * @return double
+     * @return Number
      */
     public function getMlCost()
     {
@@ -1020,7 +1042,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets ml_cost
-     * @param double $ml_cost 
+     * @param Number $ml_cost 
      * @return $this
      */
     public function setMlCost($ml_cost)
@@ -1158,7 +1180,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets cost
-     * @return double
+     * @return Number
      */
     public function getCost()
     {
@@ -1167,7 +1189,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets cost
-     * @param double $cost 
+     * @param Number $cost 
      * @return $this
      */
     public function setCost($cost)
@@ -1179,7 +1201,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets sell
-     * @return double
+     * @return Number
      */
     public function getSell()
     {
@@ -1188,7 +1210,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets sell
-     * @param double $sell 
+     * @param Number $sell 
      * @return $this
      */
     public function setSell($sell)
@@ -1221,7 +1243,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets max_freight
-     * @return double
+     * @return Number
      */
     public function getMaxFreight()
     {
@@ -1230,7 +1252,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets max_freight
-     * @param double $max_freight 
+     * @param Number $max_freight 
      * @return $this
      */
     public function setMaxFreight($max_freight)
@@ -1263,7 +1285,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets max_other
-     * @return double
+     * @return Number
      */
     public function getMaxOther()
     {
@@ -1272,7 +1294,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets max_other
-     * @param double $max_other 
+     * @param Number $max_other 
      * @return $this
      */
     public function setMaxOther($max_other)
@@ -1641,7 +1663,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets freight_cost
-     * @return double
+     * @return Number
      */
     public function getFreightCost()
     {
@@ -1650,7 +1672,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets freight_cost
-     * @param double $freight_cost 
+     * @param Number $freight_cost 
      * @return $this
      */
     public function setFreightCost($freight_cost)
@@ -1767,7 +1789,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets end_val
-     * @return double
+     * @return Number
      */
     public function getEndVal()
     {
@@ -1776,7 +1798,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets end_val
-     * @param double $end_val 
+     * @param Number $end_val 
      * @return $this
      */
     public function setEndVal($end_val)
@@ -1788,7 +1810,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets end_fact
-     * @return double
+     * @return Number
      */
     public function getEndFact()
     {
@@ -1797,7 +1819,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets end_fact
-     * @param double $end_fact 
+     * @param Number $end_fact 
      * @return $this
      */
     public function setEndFact($end_fact)
@@ -1830,7 +1852,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets interim_val
-     * @return double
+     * @return Number
      */
     public function getInterimVal()
     {
@@ -1839,7 +1861,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets interim_val
-     * @param double $interim_val 
+     * @param Number $interim_val 
      * @return $this
      */
     public function setInterimVal($interim_val)
@@ -1851,7 +1873,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets interim_fact
-     * @return double
+     * @return Number
      */
     public function getInterimFact()
     {
@@ -1860,7 +1882,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets interim_fact
-     * @param double $interim_fact 
+     * @param Number $interim_fact 
      * @return $this
      */
     public function setInterimFact($interim_fact)
@@ -1893,7 +1915,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -1902,7 +1924,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -2123,6 +2145,27 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
+     * Gets product_id_tag
+     * @return string
+     */
+    public function getProductIdTag()
+    {
+        return $this->product_id_tag;
+    }
+  
+    /**
+     * Sets product_id_tag
+     * @param string $product_id_tag 
+     * @return $this
+     */
+    public function setProductIdTag($product_id_tag)
+    {
+        
+        $this->product_id_tag = $product_id_tag;
+        return $this;
+    }
+    
+    /**
      * Gets units_per_case
      * @return int
      */
@@ -2145,7 +2188,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets case_weight
-     * @return double
+     * @return Number
      */
     public function getCaseWeight()
     {
@@ -2154,7 +2197,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets case_weight
-     * @param double $case_weight 
+     * @param Number $case_weight 
      * @return $this
      */
     public function setCaseWeight($case_weight)
@@ -2166,7 +2209,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets height
-     * @return double
+     * @return Number
      */
     public function getHeight()
     {
@@ -2175,7 +2218,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets height
-     * @param double $height 
+     * @param Number $height 
      * @return $this
      */
     public function setHeight($height)
@@ -2187,7 +2230,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets width
-     * @return double
+     * @return Number
      */
     public function getWidth()
     {
@@ -2196,7 +2239,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets width
-     * @param double $width 
+     * @param Number $width 
      * @return $this
      */
     public function setWidth($width)
@@ -2208,7 +2251,7 @@ class ItemReceipt implements ArrayAccess
     
     /**
      * Gets length
-     * @return double
+     * @return Number
      */
     public function getLength()
     {
@@ -2217,7 +2260,7 @@ class ItemReceipt implements ArrayAccess
   
     /**
      * Sets length
-     * @param double $length 
+     * @param Number $length 
      * @return $this
      */
     public function setLength($length)
@@ -2228,23 +2271,23 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
-     * Gets dock_time
+     * Gets dock_date
      * @return \DateTime
      */
-    public function getDockTime()
+    public function getDockDate()
     {
-        return $this->dock_time;
+        return $this->dock_date;
     }
   
     /**
-     * Sets dock_time
-     * @param \DateTime $dock_time 
+     * Sets dock_date
+     * @param \DateTime $dock_date 
      * @return $this
      */
-    public function setDockTime($dock_time)
+    public function setDockDate($dock_date)
     {
         
-        $this->dock_time = $dock_time;
+        $this->dock_date = $dock_date;
         return $this;
     }
     
@@ -2308,6 +2351,27 @@ class ItemReceipt implements ArrayAccess
     {
         
         $this->asn_line = $asn_line;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

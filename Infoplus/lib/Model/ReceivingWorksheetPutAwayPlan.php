@@ -51,7 +51,8 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -63,7 +64,8 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
-        'quantity' => 'quantity'
+        'quantity' => 'quantity',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -75,7 +77,8 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -87,7 +90,8 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -101,6 +105,12 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
       */
     protected $quantity;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -111,6 +121,7 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
         
         if ($data != null) {
             $this->quantity = $data["quantity"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -132,6 +143,27 @@ class ReceivingWorksheetPutAwayPlan implements ArrayAccess
     {
         
         $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

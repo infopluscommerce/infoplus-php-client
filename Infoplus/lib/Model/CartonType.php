@@ -54,15 +54,17 @@ class CartonType implements ArrayAccess
         'id' => 'int',
         'abbreviation' => 'string',
         'name' => 'string',
-        'length_in' => 'double',
-        'width_in' => 'double',
-        'height_in' => 'double',
-        'inner_length_in' => 'double',
-        'inner_width_in' => 'double',
-        'inner_height_in' => 'double',
-        'weight_lbs' => 'double',
+        'length_in' => 'Number',
+        'width_in' => 'Number',
+        'height_in' => 'Number',
+        'inner_length_in' => 'Number',
+        'inner_width_in' => 'Number',
+        'inner_height_in' => 'Number',
+        'weight_lbs' => 'Number',
         'lob_id' => 'int',
-        'is_active' => 'bool'
+        'is_active' => 'bool',
+        'predefined_package_type_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -85,7 +87,9 @@ class CartonType implements ArrayAccess
         'inner_height_in' => 'innerHeightIn',
         'weight_lbs' => 'weightLbs',
         'lob_id' => 'lobId',
-        'is_active' => 'isActive'
+        'is_active' => 'isActive',
+        'predefined_package_type_id' => 'predefinedPackageTypeId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -108,7 +112,9 @@ class CartonType implements ArrayAccess
         'inner_height_in' => 'setInnerHeightIn',
         'weight_lbs' => 'setWeightLbs',
         'lob_id' => 'setLobId',
-        'is_active' => 'setIsActive'
+        'is_active' => 'setIsActive',
+        'predefined_package_type_id' => 'setPredefinedPackageTypeId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -131,7 +137,9 @@ class CartonType implements ArrayAccess
         'inner_height_in' => 'getInnerHeightIn',
         'weight_lbs' => 'getWeightLbs',
         'lob_id' => 'getLobId',
-        'is_active' => 'getIsActive'
+        'is_active' => 'getIsActive',
+        'predefined_package_type_id' => 'getPredefinedPackageTypeId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -159,43 +167,43 @@ class CartonType implements ArrayAccess
     
     /**
       * $length_in 
-      * @var double
+      * @var Number
       */
     protected $length_in;
     
     /**
       * $width_in 
-      * @var double
+      * @var Number
       */
     protected $width_in;
     
     /**
       * $height_in 
-      * @var double
+      * @var Number
       */
     protected $height_in;
     
     /**
       * $inner_length_in 
-      * @var double
+      * @var Number
       */
     protected $inner_length_in;
     
     /**
       * $inner_width_in 
-      * @var double
+      * @var Number
       */
     protected $inner_width_in;
     
     /**
       * $inner_height_in 
-      * @var double
+      * @var Number
       */
     protected $inner_height_in;
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
     
@@ -210,6 +218,18 @@ class CartonType implements ArrayAccess
       * @var bool
       */
     protected $is_active = false;
+    
+    /**
+      * $predefined_package_type_id 
+      * @var int
+      */
+    protected $predefined_package_type_id;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -232,6 +252,8 @@ class CartonType implements ArrayAccess
             $this->weight_lbs = $data["weight_lbs"];
             $this->lob_id = $data["lob_id"];
             $this->is_active = $data["is_active"];
+            $this->predefined_package_type_id = $data["predefined_package_type_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -300,7 +322,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets length_in
-     * @return double
+     * @return Number
      */
     public function getLengthIn()
     {
@@ -309,7 +331,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets length_in
-     * @param double $length_in 
+     * @param Number $length_in 
      * @return $this
      */
     public function setLengthIn($length_in)
@@ -321,7 +343,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets width_in
-     * @return double
+     * @return Number
      */
     public function getWidthIn()
     {
@@ -330,7 +352,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets width_in
-     * @param double $width_in 
+     * @param Number $width_in 
      * @return $this
      */
     public function setWidthIn($width_in)
@@ -342,7 +364,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets height_in
-     * @return double
+     * @return Number
      */
     public function getHeightIn()
     {
@@ -351,7 +373,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets height_in
-     * @param double $height_in 
+     * @param Number $height_in 
      * @return $this
      */
     public function setHeightIn($height_in)
@@ -363,7 +385,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets inner_length_in
-     * @return double
+     * @return Number
      */
     public function getInnerLengthIn()
     {
@@ -372,7 +394,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets inner_length_in
-     * @param double $inner_length_in 
+     * @param Number $inner_length_in 
      * @return $this
      */
     public function setInnerLengthIn($inner_length_in)
@@ -384,7 +406,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets inner_width_in
-     * @return double
+     * @return Number
      */
     public function getInnerWidthIn()
     {
@@ -393,7 +415,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets inner_width_in
-     * @param double $inner_width_in 
+     * @param Number $inner_width_in 
      * @return $this
      */
     public function setInnerWidthIn($inner_width_in)
@@ -405,7 +427,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets inner_height_in
-     * @return double
+     * @return Number
      */
     public function getInnerHeightIn()
     {
@@ -414,7 +436,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets inner_height_in
-     * @param double $inner_height_in 
+     * @param Number $inner_height_in 
      * @return $this
      */
     public function setInnerHeightIn($inner_height_in)
@@ -426,7 +448,7 @@ class CartonType implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -435,7 +457,7 @@ class CartonType implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
@@ -484,6 +506,48 @@ class CartonType implements ArrayAccess
     {
         
         $this->is_active = $is_active;
+        return $this;
+    }
+    
+    /**
+     * Gets predefined_package_type_id
+     * @return int
+     */
+    public function getPredefinedPackageTypeId()
+    {
+        return $this->predefined_package_type_id;
+    }
+  
+    /**
+     * Sets predefined_package_type_id
+     * @param int $predefined_package_type_id 
+     * @return $this
+     */
+    public function setPredefinedPackageTypeId($predefined_package_type_id)
+    {
+        
+        $this->predefined_package_type_id = $predefined_package_type_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

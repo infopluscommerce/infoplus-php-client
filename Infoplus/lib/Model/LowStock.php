@@ -59,6 +59,7 @@ class LowStock implements ArrayAccess
         'is_delayed' => 'bool',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -79,6 +80,7 @@ class LowStock implements ArrayAccess
         'is_delayed' => 'isDelayed',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -99,6 +101,7 @@ class LowStock implements ArrayAccess
         'is_delayed' => 'setIsDelayed',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -119,6 +122,7 @@ class LowStock implements ArrayAccess
         'is_delayed' => 'getIsDelayed',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -176,6 +180,12 @@ class LowStock implements ArrayAccess
     protected $modify_date;
     
     /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
+    /**
       * $sku 
       * @var string
       */
@@ -198,6 +208,7 @@ class LowStock implements ArrayAccess
             $this->is_delayed = $data["is_delayed"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -367,6 +378,27 @@ class LowStock implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

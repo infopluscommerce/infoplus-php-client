@@ -19,9 +19,11 @@ Name | Type | Description | Notes
 **number** | **int** |  | [optional] 
 **online** | **bool** |  | [default to false]
 **priority_code** | **int** |  | [optional] 
+**cost** | **int** |  | [optional] 
 **allow_item_mixing** | **bool** |  | [default to false]
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

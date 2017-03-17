@@ -92,6 +92,432 @@ class WarehouseDocumentApi
   
     
     /**
+     * addWarehouseDocumentAudit
+     *
+     * Add new audit for a warehouseDocument
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to add an audit to (required)
+     * @param string $warehouse_document_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseDocumentAudit($warehouse_document_id, $warehouse_document_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWarehouseDocumentAuditWithHttpInfo ($warehouse_document_id, $warehouse_document_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addWarehouseDocumentAuditWithHttpInfo
+     *
+     * Add new audit for a warehouseDocument
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to add an audit to (required)
+     * @param string $warehouse_document_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseDocumentAuditWithHttpInfo($warehouse_document_id, $warehouse_document_audit)
+    {
+        
+        // verify the required parameter 'warehouse_document_id' is set
+        if ($warehouse_document_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_id when calling addWarehouseDocumentAudit');
+        }
+        // verify the required parameter 'warehouse_document_audit' is set
+        if ($warehouse_document_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_audit when calling addWarehouseDocumentAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/{warehouseDocumentId}/audit/{warehouseDocumentAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($warehouse_document_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_document_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addWarehouseDocumentTag
+     *
+     * Add new tags for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to add a tag to (required)
+     * @param string $warehouse_document_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseDocumentTag($warehouse_document_id, $warehouse_document_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWarehouseDocumentTagWithHttpInfo ($warehouse_document_id, $warehouse_document_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addWarehouseDocumentTagWithHttpInfo
+     *
+     * Add new tags for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to add a tag to (required)
+     * @param string $warehouse_document_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseDocumentTagWithHttpInfo($warehouse_document_id, $warehouse_document_tag)
+    {
+        
+        // verify the required parameter 'warehouse_document_id' is set
+        if ($warehouse_document_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_id when calling addWarehouseDocumentTag');
+        }
+        // verify the required parameter 'warehouse_document_tag' is set
+        if ($warehouse_document_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_tag when calling addWarehouseDocumentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/{warehouseDocumentId}/tag/{warehouseDocumentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($warehouse_document_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_document_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteWarehouseDocumentTag
+     *
+     * Delete a tag for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to remove tag from (required)
+     * @param string $warehouse_document_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWarehouseDocumentTag($warehouse_document_id, $warehouse_document_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteWarehouseDocumentTagWithHttpInfo ($warehouse_document_id, $warehouse_document_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteWarehouseDocumentTagWithHttpInfo
+     *
+     * Delete a tag for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to remove tag from (required)
+     * @param string $warehouse_document_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWarehouseDocumentTagWithHttpInfo($warehouse_document_id, $warehouse_document_tag)
+    {
+        
+        // verify the required parameter 'warehouse_document_id' is set
+        if ($warehouse_document_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_id when calling deleteWarehouseDocumentTag');
+        }
+        // verify the required parameter 'warehouse_document_tag' is set
+        if ($warehouse_document_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_tag when calling deleteWarehouseDocumentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/{warehouseDocumentId}/tag/{warehouseDocumentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_document_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_document_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateWarehouseDocumentById
+     *
+     * Get a duplicated a warehouseDocument by id
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to be duplicated. (required)
+     * @return \Infoplus\Model\WarehouseDocument
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWarehouseDocumentById($warehouse_document_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateWarehouseDocumentByIdWithHttpInfo ($warehouse_document_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateWarehouseDocumentByIdWithHttpInfo
+     *
+     * Get a duplicated a warehouseDocument by id
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to be duplicated. (required)
+     * @return Array of \Infoplus\Model\WarehouseDocument, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWarehouseDocumentByIdWithHttpInfo($warehouse_document_id)
+    {
+        
+        // verify the required parameter 'warehouse_document_id' is set
+        if ($warehouse_document_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_id when calling getDuplicateWarehouseDocumentById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/duplicate/{warehouseDocumentId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_document_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\WarehouseDocument'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\WarehouseDocument', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\WarehouseDocument', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getWarehouseDocumentByFilter
      *
      * Search warehouseDocuments by filter
@@ -127,7 +553,7 @@ class WarehouseDocumentApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/warehouseDocument/search";
+        $resourcePath = "/beta/warehouseDocument/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +663,7 @@ class WarehouseDocumentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/warehouseDocument/{warehouseDocumentId}";
+        $resourcePath = "/beta/warehouseDocument/{warehouseDocumentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -299,6 +725,190 @@ class WarehouseDocumentApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\WarehouseDocument', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getWarehouseDocumentTags
+     *
+     * Get the tags for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWarehouseDocumentTags($warehouse_document_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getWarehouseDocumentTagsWithHttpInfo ($warehouse_document_id);
+        return $response; 
+    }
+
+
+    /**
+     * getWarehouseDocumentTagsWithHttpInfo
+     *
+     * Get the tags for a warehouseDocument.
+     *
+     * @param int $warehouse_document_id Id of the warehouseDocument to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWarehouseDocumentTagsWithHttpInfo($warehouse_document_id)
+    {
+        
+        // verify the required parameter 'warehouse_document_id' is set
+        if ($warehouse_document_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_document_id when calling getWarehouseDocumentTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/{warehouseDocumentId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_document_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseDocumentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_document_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateWarehouseDocumentCustomFields
+     *
+     * Update a warehouseDocument custom fields
+     *
+     * @param \Infoplus\Model\WarehouseDocument $body WarehouseDocument to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateWarehouseDocumentCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateWarehouseDocumentCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateWarehouseDocumentCustomFieldsWithHttpInfo
+     *
+     * Update a warehouseDocument custom fields
+     *
+     * @param \Infoplus\Model\WarehouseDocument $body WarehouseDocument to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateWarehouseDocumentCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateWarehouseDocumentCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouseDocument/customFields";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

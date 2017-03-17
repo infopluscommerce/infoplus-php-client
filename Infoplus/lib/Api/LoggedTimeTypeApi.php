@@ -125,7 +125,7 @@ class LoggedTimeTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/loggedTimeType/{loggedTimeTypeId}";
+        $resourcePath = "/beta/loggedTimeType/{loggedTimeTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class LoggedTimeTypeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/loggedTimeType/search";
+        $resourcePath = "/beta/loggedTimeType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

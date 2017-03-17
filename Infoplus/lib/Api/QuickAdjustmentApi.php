@@ -125,7 +125,7 @@ class QuickAdjustmentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickAdjustment";
+        $resourcePath = "/beta/quickAdjustment";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class QuickAdjustmentApi
     }
     
     /**
+     * addQuickAdjustmentAudit
+     *
+     * Add new audit for a quickAdjustment
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to add an audit to (required)
+     * @param string $quick_adjustment_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickAdjustmentAudit($quick_adjustment_id, $quick_adjustment_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addQuickAdjustmentAuditWithHttpInfo ($quick_adjustment_id, $quick_adjustment_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addQuickAdjustmentAuditWithHttpInfo
+     *
+     * Add new audit for a quickAdjustment
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to add an audit to (required)
+     * @param string $quick_adjustment_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickAdjustmentAuditWithHttpInfo($quick_adjustment_id, $quick_adjustment_audit)
+    {
+        
+        // verify the required parameter 'quick_adjustment_id' is set
+        if ($quick_adjustment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_id when calling addQuickAdjustmentAudit');
+        }
+        // verify the required parameter 'quick_adjustment_audit' is set
+        if ($quick_adjustment_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_audit when calling addQuickAdjustmentAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}/audit/{quickAdjustmentAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($quick_adjustment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_adjustment_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addQuickAdjustmentTag
+     *
+     * Add new tags for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to add a tag to (required)
+     * @param string $quick_adjustment_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addQuickAdjustmentTagWithHttpInfo ($quick_adjustment_id, $quick_adjustment_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addQuickAdjustmentTagWithHttpInfo
+     *
+     * Add new tags for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to add a tag to (required)
+     * @param string $quick_adjustment_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickAdjustmentTagWithHttpInfo($quick_adjustment_id, $quick_adjustment_tag)
+    {
+        
+        // verify the required parameter 'quick_adjustment_id' is set
+        if ($quick_adjustment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_id when calling addQuickAdjustmentTag');
+        }
+        // verify the required parameter 'quick_adjustment_tag' is set
+        if ($quick_adjustment_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_tag when calling addQuickAdjustmentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($quick_adjustment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_adjustment_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteQuickAdjustment
      *
      * Delete a quickAdjustment
@@ -227,7 +443,7 @@ class QuickAdjustmentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickAdjustment/{quickAdjustmentId}";
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class QuickAdjustmentApi
     }
     
     /**
+     * deleteQuickAdjustmentTag
+     *
+     * Delete a tag for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to remove tag from (required)
+     * @param string $quick_adjustment_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteQuickAdjustmentTagWithHttpInfo ($quick_adjustment_id, $quick_adjustment_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteQuickAdjustmentTagWithHttpInfo
+     *
+     * Delete a tag for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to remove tag from (required)
+     * @param string $quick_adjustment_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteQuickAdjustmentTagWithHttpInfo($quick_adjustment_id, $quick_adjustment_tag)
+    {
+        
+        // verify the required parameter 'quick_adjustment_id' is set
+        if ($quick_adjustment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_id when calling deleteQuickAdjustmentTag');
+        }
+        // verify the required parameter 'quick_adjustment_tag' is set
+        if ($quick_adjustment_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_tag when calling deleteQuickAdjustmentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_adjustment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_adjustment_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateQuickAdjustmentById
+     *
+     * Get a duplicated a quickAdjustment by id
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to be duplicated. (required)
+     * @return \Infoplus\Model\QuickAdjustment
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateQuickAdjustmentById($quick_adjustment_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateQuickAdjustmentByIdWithHttpInfo ($quick_adjustment_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateQuickAdjustmentByIdWithHttpInfo
+     *
+     * Get a duplicated a quickAdjustment by id
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to be duplicated. (required)
+     * @return Array of \Infoplus\Model\QuickAdjustment, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateQuickAdjustmentByIdWithHttpInfo($quick_adjustment_id)
+    {
+        
+        // verify the required parameter 'quick_adjustment_id' is set
+        if ($quick_adjustment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_id when calling getDuplicateQuickAdjustmentById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/duplicate/{quickAdjustmentId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_adjustment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\QuickAdjustment'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\QuickAdjustment', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\QuickAdjustment', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getQuickAdjustmentByFilter
      *
      * Search quickAdjustments by filter
@@ -323,7 +749,7 @@ class QuickAdjustmentApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/quickAdjustment/search";
+        $resourcePath = "/beta/quickAdjustment/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class QuickAdjustmentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickAdjustment/{quickAdjustmentId}";
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class QuickAdjustmentApi
     }
     
     /**
+     * getQuickAdjustmentTags
+     *
+     * Get the tags for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getQuickAdjustmentTags($quick_adjustment_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getQuickAdjustmentTagsWithHttpInfo ($quick_adjustment_id);
+        return $response; 
+    }
+
+
+    /**
+     * getQuickAdjustmentTagsWithHttpInfo
+     *
+     * Get the tags for a quickAdjustment.
+     *
+     * @param int $quick_adjustment_id Id of the quickAdjustment to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getQuickAdjustmentTagsWithHttpInfo($quick_adjustment_id)
+    {
+        
+        // verify the required parameter 'quick_adjustment_id' is set
+        if ($quick_adjustment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_adjustment_id when calling getQuickAdjustmentTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/{quickAdjustmentId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_adjustment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickAdjustmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_adjustment_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateQuickAdjustment
      *
      * Update a quickAdjustment
@@ -535,7 +1055,97 @@ class QuickAdjustmentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/quickAdjustment";
+        $resourcePath = "/beta/quickAdjustment";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateQuickAdjustmentCustomFields
+     *
+     * Update a quickAdjustment custom fields
+     *
+     * @param \Infoplus\Model\QuickAdjustment $body QuickAdjustment to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateQuickAdjustmentCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateQuickAdjustmentCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateQuickAdjustmentCustomFieldsWithHttpInfo
+     *
+     * Update a quickAdjustment custom fields
+     *
+     * @param \Infoplus\Model\QuickAdjustment $body QuickAdjustment to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateQuickAdjustmentCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateQuickAdjustmentCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickAdjustment/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

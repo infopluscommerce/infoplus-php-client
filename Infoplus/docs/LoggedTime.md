@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **warehouse_id** | **int** |  | 
 **logged_time_type_id** | **int** |  | 
 **app_id** | **int** |  | 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

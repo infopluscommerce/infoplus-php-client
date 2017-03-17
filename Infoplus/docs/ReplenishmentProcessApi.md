@@ -4,9 +4,218 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getReplenishmentProcessByFilter**](ReplenishmentProcessApi.md#getReplenishmentProcessByFilter) | **GET** /v1.0/replenishmentProcess/search | Search replenishmentProcesses by filter
-[**getReplenishmentProcessById**](ReplenishmentProcessApi.md#getReplenishmentProcessById) | **GET** /v1.0/replenishmentProcess/{replenishmentProcessId} | Get a replenishmentProcess by id
+[**addReplenishmentProcessAudit**](ReplenishmentProcessApi.md#addReplenishmentProcessAudit) | **PUT** /beta/replenishmentProcess/{replenishmentProcessId}/audit/{replenishmentProcessAudit} | Add new audit for a replenishmentProcess
+[**addReplenishmentProcessTag**](ReplenishmentProcessApi.md#addReplenishmentProcessTag) | **PUT** /beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag} | Add new tags for a replenishmentProcess.
+[**deleteReplenishmentProcessTag**](ReplenishmentProcessApi.md#deleteReplenishmentProcessTag) | **DELETE** /beta/replenishmentProcess/{replenishmentProcessId}/tag/{replenishmentProcessTag} | Delete a tag for a replenishmentProcess.
+[**getDuplicateReplenishmentProcessById**](ReplenishmentProcessApi.md#getDuplicateReplenishmentProcessById) | **GET** /beta/replenishmentProcess/duplicate/{replenishmentProcessId} | Get a duplicated a replenishmentProcess by id
+[**getReplenishmentProcessByFilter**](ReplenishmentProcessApi.md#getReplenishmentProcessByFilter) | **GET** /beta/replenishmentProcess/search | Search replenishmentProcesses by filter
+[**getReplenishmentProcessById**](ReplenishmentProcessApi.md#getReplenishmentProcessById) | **GET** /beta/replenishmentProcess/{replenishmentProcessId} | Get a replenishmentProcess by id
+[**getReplenishmentProcessTags**](ReplenishmentProcessApi.md#getReplenishmentProcessTags) | **GET** /beta/replenishmentProcess/{replenishmentProcessId}/tag | Get the tags for a replenishmentProcess.
+[**updateReplenishmentProcessCustomFields**](ReplenishmentProcessApi.md#updateReplenishmentProcessCustomFields) | **PUT** /beta/replenishmentProcess/customFields | Update a replenishmentProcess custom fields
 
+
+# **addReplenishmentProcessAudit**
+> addReplenishmentProcessAudit($replenishment_process_id, $replenishment_process_audit)
+
+Add new audit for a replenishmentProcess
+
+Adds an audit to an existing replenishmentProcess.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$replenishment_process_id = 56; // int | Id of the replenishmentProcess to add an audit to
+$replenishment_process_audit = "replenishment_process_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addReplenishmentProcessAudit($replenishment_process_id, $replenishment_process_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->addReplenishmentProcessAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replenishment_process_id** | **int**| Id of the replenishmentProcess to add an audit to | 
+ **replenishment_process_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addReplenishmentProcessTag**
+> addReplenishmentProcessTag($replenishment_process_id, $replenishment_process_tag)
+
+Add new tags for a replenishmentProcess.
+
+Adds a tag to an existing replenishmentProcess.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$replenishment_process_id = 56; // int | Id of the replenishmentProcess to add a tag to
+$replenishment_process_tag = "replenishment_process_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addReplenishmentProcessTag($replenishment_process_id, $replenishment_process_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->addReplenishmentProcessTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replenishment_process_id** | **int**| Id of the replenishmentProcess to add a tag to | 
+ **replenishment_process_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteReplenishmentProcessTag**
+> deleteReplenishmentProcessTag($replenishment_process_id, $replenishment_process_tag)
+
+Delete a tag for a replenishmentProcess.
+
+Deletes an existing replenishmentProcess tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$replenishment_process_id = 56; // int | Id of the replenishmentProcess to remove tag from
+$replenishment_process_tag = "replenishment_process_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteReplenishmentProcessTag($replenishment_process_id, $replenishment_process_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->deleteReplenishmentProcessTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replenishment_process_id** | **int**| Id of the replenishmentProcess to remove tag from | 
+ **replenishment_process_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateReplenishmentProcessById**
+> \Infoplus\Model\ReplenishmentProcess getDuplicateReplenishmentProcessById($replenishment_process_id)
+
+Get a duplicated a replenishmentProcess by id
+
+Returns a duplicated replenishmentProcess identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$replenishment_process_id = 56; // int | Id of the replenishmentProcess to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateReplenishmentProcessById($replenishment_process_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->getDuplicateReplenishmentProcessById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replenishment_process_id** | **int**| Id of the replenishmentProcess to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\ReplenishmentProcess**](ReplenishmentProcess.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getReplenishmentProcessByFilter**
 > \Infoplus\Model\ReplenishmentProcess[] getReplenishmentProcessByFilter($filter, $page, $limit, $sort)
@@ -110,6 +319,104 @@ Name | Type | Description  | Notes
 ### HTTP reuqest headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getReplenishmentProcessTags**
+> getReplenishmentProcessTags($replenishment_process_id)
+
+Get the tags for a replenishmentProcess.
+
+Get all existing replenishmentProcess tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$replenishment_process_id = 56; // int | Id of the replenishmentProcess to get tags for
+
+try { 
+    $api_instance->getReplenishmentProcessTags($replenishment_process_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->getReplenishmentProcessTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **replenishment_process_id** | **int**| Id of the replenishmentProcess to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateReplenishmentProcessCustomFields**
+> updateReplenishmentProcessCustomFields($body)
+
+Update a replenishmentProcess custom fields
+
+Updates an existing replenishmentProcess custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ReplenishmentProcessApi();
+$body = new \Infoplus\Model\ReplenishmentProcess(); // \Infoplus\Model\ReplenishmentProcess | ReplenishmentProcess to be updated.
+
+try { 
+    $api_instance->updateReplenishmentProcessCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling ReplenishmentProcessApi->updateReplenishmentProcessCustomFields: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\ReplenishmentProcess**](\Infoplus\Model\ReplenishmentProcess.md)| ReplenishmentProcess to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

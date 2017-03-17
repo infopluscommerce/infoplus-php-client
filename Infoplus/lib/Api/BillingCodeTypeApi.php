@@ -125,7 +125,7 @@ class BillingCodeTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/billingCodeType";
+        $resourcePath = "/beta/billingCodeType";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class BillingCodeTypeApi
     }
     
     /**
+     * addBillingCodeTypeAudit
+     *
+     * Add new audit for a billingCodeType
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to add an audit to (required)
+     * @param string $billing_code_type_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillingCodeTypeAudit($billing_code_type_id, $billing_code_type_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBillingCodeTypeAuditWithHttpInfo ($billing_code_type_id, $billing_code_type_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addBillingCodeTypeAuditWithHttpInfo
+     *
+     * Add new audit for a billingCodeType
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to add an audit to (required)
+     * @param string $billing_code_type_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillingCodeTypeAuditWithHttpInfo($billing_code_type_id, $billing_code_type_audit)
+    {
+        
+        // verify the required parameter 'billing_code_type_id' is set
+        if ($billing_code_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_id when calling addBillingCodeTypeAudit');
+        }
+        // verify the required parameter 'billing_code_type_audit' is set
+        if ($billing_code_type_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_audit when calling addBillingCodeTypeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}/audit/{billingCodeTypeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($billing_code_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($billing_code_type_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addBillingCodeTypeTag
+     *
+     * Add new tags for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to add a tag to (required)
+     * @param string $billing_code_type_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBillingCodeTypeTagWithHttpInfo ($billing_code_type_id, $billing_code_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addBillingCodeTypeTagWithHttpInfo
+     *
+     * Add new tags for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to add a tag to (required)
+     * @param string $billing_code_type_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillingCodeTypeTagWithHttpInfo($billing_code_type_id, $billing_code_type_tag)
+    {
+        
+        // verify the required parameter 'billing_code_type_id' is set
+        if ($billing_code_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_id when calling addBillingCodeTypeTag');
+        }
+        // verify the required parameter 'billing_code_type_tag' is set
+        if ($billing_code_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_tag when calling addBillingCodeTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($billing_code_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($billing_code_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteBillingCodeType
      *
      * Delete a billingCodeType
@@ -227,7 +443,7 @@ class BillingCodeTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/billingCodeType/{billingCodeTypeId}";
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -246,6 +462,114 @@ class BillingCodeTypeApi
             $resourcePath = str_replace(
                 "{" . "billingCodeTypeId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteBillingCodeTypeTag
+     *
+     * Delete a tag for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to remove tag from (required)
+     * @param string $billing_code_type_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteBillingCodeTypeTagWithHttpInfo ($billing_code_type_id, $billing_code_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteBillingCodeTypeTagWithHttpInfo
+     *
+     * Delete a tag for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to remove tag from (required)
+     * @param string $billing_code_type_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBillingCodeTypeTagWithHttpInfo($billing_code_type_id, $billing_code_type_tag)
+    {
+        
+        // verify the required parameter 'billing_code_type_id' is set
+        if ($billing_code_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_id when calling deleteBillingCodeTypeTag');
+        }
+        // verify the required parameter 'billing_code_type_tag' is set
+        if ($billing_code_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_tag when calling deleteBillingCodeTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($billing_code_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($billing_code_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_tag),
                 $resourcePath
             );
         }
@@ -323,7 +647,7 @@ class BillingCodeTypeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/billingCodeType/search";
+        $resourcePath = "/beta/billingCodeType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +757,203 @@ class BillingCodeTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/billingCodeType/{billingCodeTypeId}";
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($billing_code_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\BillingCodeType'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\BillingCodeType', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\BillingCodeType', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getBillingCodeTypeTags
+     *
+     * Get the tags for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBillingCodeTypeTags($billing_code_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getBillingCodeTypeTagsWithHttpInfo ($billing_code_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getBillingCodeTypeTagsWithHttpInfo
+     *
+     * Get the tags for a billingCodeType.
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBillingCodeTypeTagsWithHttpInfo($billing_code_type_id)
+    {
+        
+        // verify the required parameter 'billing_code_type_id' is set
+        if ($billing_code_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_id when calling getBillingCodeTypeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/{billingCodeTypeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($billing_code_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billingCodeTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($billing_code_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateBillingCodeTypeById
+     *
+     * Get a duplicated a billingCodeType by id
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to be duplicated. (required)
+     * @return \Infoplus\Model\BillingCodeType
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBillingCodeTypeById($billing_code_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateBillingCodeTypeByIdWithHttpInfo ($billing_code_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateBillingCodeTypeByIdWithHttpInfo
+     *
+     * Get a duplicated a billingCodeType by id
+     *
+     * @param int $billing_code_type_id Id of the billingCodeType to be duplicated. (required)
+     * @return Array of \Infoplus\Model\BillingCodeType, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBillingCodeTypeByIdWithHttpInfo($billing_code_type_id)
+    {
+        
+        // verify the required parameter 'billing_code_type_id' is set
+        if ($billing_code_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $billing_code_type_id when calling getDuplicateBillingCodeTypeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/duplicate/{billingCodeTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -535,7 +1055,97 @@ class BillingCodeTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/billingCodeType";
+        $resourcePath = "/beta/billingCodeType";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateBillingCodeTypeCustomFields
+     *
+     * Update a billingCodeType custom fields
+     *
+     * @param \Infoplus\Model\BillingCodeType $body BillingCodeType to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateBillingCodeTypeCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateBillingCodeTypeCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateBillingCodeTypeCustomFieldsWithHttpInfo
+     *
+     * Update a billingCodeType custom fields
+     *
+     * @param \Infoplus\Model\BillingCodeType $body BillingCodeType to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateBillingCodeTypeCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateBillingCodeTypeCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billingCodeType/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

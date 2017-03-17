@@ -125,7 +125,7 @@ class JobTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/jobType";
+        $resourcePath = "/beta/jobType";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class JobTypeApi
     }
     
     /**
+     * addJobTypeAudit
+     *
+     * Add new audit for a jobType
+     *
+     * @param int $job_type_id Id of the jobType to add an audit to (required)
+     * @param string $job_type_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTypeAudit($job_type_id, $job_type_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addJobTypeAuditWithHttpInfo ($job_type_id, $job_type_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addJobTypeAuditWithHttpInfo
+     *
+     * Add new audit for a jobType
+     *
+     * @param int $job_type_id Id of the jobType to add an audit to (required)
+     * @param string $job_type_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTypeAuditWithHttpInfo($job_type_id, $job_type_audit)
+    {
+        
+        // verify the required parameter 'job_type_id' is set
+        if ($job_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_id when calling addJobTypeAudit');
+        }
+        // verify the required parameter 'job_type_audit' is set
+        if ($job_type_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_audit when calling addJobTypeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/{jobTypeId}/audit/{jobTypeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($job_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_type_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addJobTypeTag
+     *
+     * Add new tags for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to add a tag to (required)
+     * @param string $job_type_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTypeTag($job_type_id, $job_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addJobTypeTagWithHttpInfo ($job_type_id, $job_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addJobTypeTagWithHttpInfo
+     *
+     * Add new tags for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to add a tag to (required)
+     * @param string $job_type_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTypeTagWithHttpInfo($job_type_id, $job_type_tag)
+    {
+        
+        // verify the required parameter 'job_type_id' is set
+        if ($job_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_id when calling addJobTypeTag');
+        }
+        // verify the required parameter 'job_type_tag' is set
+        if ($job_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_tag when calling addJobTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/{jobTypeId}/tag/{jobTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($job_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteJobType
      *
      * Delete a jobType
@@ -227,7 +443,7 @@ class JobTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/jobType/{jobTypeId}";
+        $resourcePath = "/beta/jobType/{jobTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class JobTypeApi
     }
     
     /**
+     * deleteJobTypeTag
+     *
+     * Delete a tag for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to remove tag from (required)
+     * @param string $job_type_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteJobTypeTag($job_type_id, $job_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteJobTypeTagWithHttpInfo ($job_type_id, $job_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteJobTypeTagWithHttpInfo
+     *
+     * Delete a tag for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to remove tag from (required)
+     * @param string $job_type_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteJobTypeTagWithHttpInfo($job_type_id, $job_type_tag)
+    {
+        
+        // verify the required parameter 'job_type_id' is set
+        if ($job_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_id when calling deleteJobTypeTag');
+        }
+        // verify the required parameter 'job_type_tag' is set
+        if ($job_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_tag when calling deleteJobTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/{jobTypeId}/tag/{jobTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateJobTypeById
+     *
+     * Get a duplicated a jobType by id
+     *
+     * @param int $job_type_id Id of the jobType to be duplicated. (required)
+     * @return \Infoplus\Model\JobType
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateJobTypeById($job_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateJobTypeByIdWithHttpInfo ($job_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateJobTypeByIdWithHttpInfo
+     *
+     * Get a duplicated a jobType by id
+     *
+     * @param int $job_type_id Id of the jobType to be duplicated. (required)
+     * @return Array of \Infoplus\Model\JobType, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateJobTypeByIdWithHttpInfo($job_type_id)
+    {
+        
+        // verify the required parameter 'job_type_id' is set
+        if ($job_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_id when calling getDuplicateJobTypeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/duplicate/{jobTypeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\JobType'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\JobType', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\JobType', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getJobTypeByFilter
      *
      * Search jobTypes by filter
@@ -323,7 +749,7 @@ class JobTypeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/jobType/search";
+        $resourcePath = "/beta/jobType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class JobTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/jobType/{jobTypeId}";
+        $resourcePath = "/beta/jobType/{jobTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class JobTypeApi
     }
     
     /**
+     * getJobTypeTags
+     *
+     * Get the tags for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getJobTypeTags($job_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getJobTypeTagsWithHttpInfo ($job_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getJobTypeTagsWithHttpInfo
+     *
+     * Get the tags for a jobType.
+     *
+     * @param int $job_type_id Id of the jobType to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getJobTypeTagsWithHttpInfo($job_type_id)
+    {
+        
+        // verify the required parameter 'job_type_id' is set
+        if ($job_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_type_id when calling getJobTypeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/{jobTypeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateJobType
      *
      * Update a jobType
@@ -535,7 +1055,97 @@ class JobTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/jobType";
+        $resourcePath = "/beta/jobType";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateJobTypeCustomFields
+     *
+     * Update a jobType custom fields
+     *
+     * @param \Infoplus\Model\JobType $body JobType to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateJobTypeCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateJobTypeCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateJobTypeCustomFieldsWithHttpInfo
+     *
+     * Update a jobType custom fields
+     *
+     * @param \Infoplus\Model\JobType $body JobType to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateJobTypeCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateJobTypeCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobType/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -64,20 +64,25 @@ class QuickReceipt implements ArrayAccess
         'status' => 'string',
         'unit_code' => 'string',
         'wrap_code' => 'string',
-        'weight_per_wrap' => 'double',
+        'weight_per_wrap' => 'Number',
         'units_per_wrap' => 'int',
         'units_per_case' => 'int',
         'cases_per_pallet' => 'int',
-        'case_weight' => 'double',
+        'case_weight' => 'Number',
         'production_lot' => 'string',
         'revision_date' => 'string',
         'origin' => 'string',
-        'carton_length' => 'double',
-        'carton_width' => 'double',
-        'carton_height' => 'double',
-        'cost' => 'double',
-        'sell' => 'double',
+        'carton_length' => 'Number',
+        'carton_width' => 'Number',
+        'carton_height' => 'Number',
+        'cost' => 'Number',
+        'sell' => 'Number',
         'pricing_per' => 'string',
+        'generated_item_receipt_id' => 'int',
+        'generated_asn_id' => 'int',
+        'dock_date' => '\DateTime',
+        'product_id_tag' => 'string',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -117,6 +122,11 @@ class QuickReceipt implements ArrayAccess
         'cost' => 'cost',
         'sell' => 'sell',
         'pricing_per' => 'pricingPer',
+        'generated_item_receipt_id' => 'generatedItemReceiptId',
+        'generated_asn_id' => 'generatedASNId',
+        'dock_date' => 'dockDate',
+        'product_id_tag' => 'productIdTag',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -156,6 +166,11 @@ class QuickReceipt implements ArrayAccess
         'cost' => 'setCost',
         'sell' => 'setSell',
         'pricing_per' => 'setPricingPer',
+        'generated_item_receipt_id' => 'setGeneratedItemReceiptId',
+        'generated_asn_id' => 'setGeneratedAsnId',
+        'dock_date' => 'setDockDate',
+        'product_id_tag' => 'setProductIdTag',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -195,6 +210,11 @@ class QuickReceipt implements ArrayAccess
         'cost' => 'getCost',
         'sell' => 'getSell',
         'pricing_per' => 'getPricingPer',
+        'generated_item_receipt_id' => 'getGeneratedItemReceiptId',
+        'generated_asn_id' => 'getGeneratedAsnId',
+        'dock_date' => 'getDockDate',
+        'product_id_tag' => 'getProductIdTag',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -283,7 +303,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
@@ -307,7 +327,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
       * $case_weight 
-      * @var double
+      * @var Number
       */
     protected $case_weight;
     
@@ -331,31 +351,31 @@ class QuickReceipt implements ArrayAccess
     
     /**
       * $carton_length 
-      * @var double
+      * @var Number
       */
     protected $carton_length;
     
     /**
       * $carton_width 
-      * @var double
+      * @var Number
       */
     protected $carton_width;
     
     /**
       * $carton_height 
-      * @var double
+      * @var Number
       */
     protected $carton_height;
     
     /**
       * $cost 
-      * @var double
+      * @var Number
       */
     protected $cost;
     
     /**
       * $sell 
-      * @var double
+      * @var Number
       */
     protected $sell;
     
@@ -364,6 +384,36 @@ class QuickReceipt implements ArrayAccess
       * @var string
       */
     protected $pricing_per;
+    
+    /**
+      * $generated_item_receipt_id 
+      * @var int
+      */
+    protected $generated_item_receipt_id;
+    
+    /**
+      * $generated_asn_id 
+      * @var int
+      */
+    protected $generated_asn_id;
+    
+    /**
+      * $dock_date 
+      * @var \DateTime
+      */
+    protected $dock_date;
+    
+    /**
+      * $product_id_tag 
+      * @var string
+      */
+    protected $product_id_tag;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
     /**
       * $sku 
@@ -407,6 +457,11 @@ class QuickReceipt implements ArrayAccess
             $this->cost = $data["cost"];
             $this->sell = $data["sell"];
             $this->pricing_per = $data["pricing_per"];
+            $this->generated_item_receipt_id = $data["generated_item_receipt_id"];
+            $this->generated_asn_id = $data["generated_asn_id"];
+            $this->dock_date = $data["dock_date"];
+            $this->product_id_tag = $data["product_id_tag"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -686,7 +741,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -695,7 +750,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -770,7 +825,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets case_weight
-     * @return double
+     * @return Number
      */
     public function getCaseWeight()
     {
@@ -779,7 +834,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets case_weight
-     * @param double $case_weight 
+     * @param Number $case_weight 
      * @return $this
      */
     public function setCaseWeight($case_weight)
@@ -854,7 +909,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets carton_length
-     * @return double
+     * @return Number
      */
     public function getCartonLength()
     {
@@ -863,7 +918,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets carton_length
-     * @param double $carton_length 
+     * @param Number $carton_length 
      * @return $this
      */
     public function setCartonLength($carton_length)
@@ -875,7 +930,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets carton_width
-     * @return double
+     * @return Number
      */
     public function getCartonWidth()
     {
@@ -884,7 +939,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets carton_width
-     * @param double $carton_width 
+     * @param Number $carton_width 
      * @return $this
      */
     public function setCartonWidth($carton_width)
@@ -896,7 +951,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets carton_height
-     * @return double
+     * @return Number
      */
     public function getCartonHeight()
     {
@@ -905,7 +960,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets carton_height
-     * @param double $carton_height 
+     * @param Number $carton_height 
      * @return $this
      */
     public function setCartonHeight($carton_height)
@@ -917,7 +972,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets cost
-     * @return double
+     * @return Number
      */
     public function getCost()
     {
@@ -926,7 +981,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets cost
-     * @param double $cost 
+     * @param Number $cost 
      * @return $this
      */
     public function setCost($cost)
@@ -938,7 +993,7 @@ class QuickReceipt implements ArrayAccess
     
     /**
      * Gets sell
-     * @return double
+     * @return Number
      */
     public function getSell()
     {
@@ -947,7 +1002,7 @@ class QuickReceipt implements ArrayAccess
   
     /**
      * Sets sell
-     * @param double $sell 
+     * @param Number $sell 
      * @return $this
      */
     public function setSell($sell)
@@ -975,6 +1030,111 @@ class QuickReceipt implements ArrayAccess
     {
         
         $this->pricing_per = $pricing_per;
+        return $this;
+    }
+    
+    /**
+     * Gets generated_item_receipt_id
+     * @return int
+     */
+    public function getGeneratedItemReceiptId()
+    {
+        return $this->generated_item_receipt_id;
+    }
+  
+    /**
+     * Sets generated_item_receipt_id
+     * @param int $generated_item_receipt_id 
+     * @return $this
+     */
+    public function setGeneratedItemReceiptId($generated_item_receipt_id)
+    {
+        
+        $this->generated_item_receipt_id = $generated_item_receipt_id;
+        return $this;
+    }
+    
+    /**
+     * Gets generated_asn_id
+     * @return int
+     */
+    public function getGeneratedAsnId()
+    {
+        return $this->generated_asn_id;
+    }
+  
+    /**
+     * Sets generated_asn_id
+     * @param int $generated_asn_id 
+     * @return $this
+     */
+    public function setGeneratedAsnId($generated_asn_id)
+    {
+        
+        $this->generated_asn_id = $generated_asn_id;
+        return $this;
+    }
+    
+    /**
+     * Gets dock_date
+     * @return \DateTime
+     */
+    public function getDockDate()
+    {
+        return $this->dock_date;
+    }
+  
+    /**
+     * Sets dock_date
+     * @param \DateTime $dock_date 
+     * @return $this
+     */
+    public function setDockDate($dock_date)
+    {
+        
+        $this->dock_date = $dock_date;
+        return $this;
+    }
+    
+    /**
+     * Gets product_id_tag
+     * @return string
+     */
+    public function getProductIdTag()
+    {
+        return $this->product_id_tag;
+    }
+  
+    /**
+     * Sets product_id_tag
+     * @param string $product_id_tag 
+     * @return $this
+     */
+    public function setProductIdTag($product_id_tag)
+    {
+        
+        $this->product_id_tag = $product_id_tag;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

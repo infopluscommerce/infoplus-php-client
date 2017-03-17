@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLoggedTimeTypeById**](LoggedTimeTypeApi.md#getLoggedTimeTypeById) | **GET** /v1.0/loggedTimeType/{loggedTimeTypeId} | Get a loggedTimeType by id
-[**getLoggedTimeTypeBySearchText**](LoggedTimeTypeApi.md#getLoggedTimeTypeBySearchText) | **GET** /v1.0/loggedTimeType/search | Search loggedTimeTypes
+[**getLoggedTimeTypeById**](LoggedTimeTypeApi.md#getLoggedTimeTypeById) | **GET** /beta/loggedTimeType/{loggedTimeTypeId} | Get a loggedTimeType by id
+[**getLoggedTimeTypeBySearchText**](LoggedTimeTypeApi.md#getLoggedTimeTypeBySearchText) | **GET** /beta/loggedTimeType/search | Search loggedTimeTypes
 
 
 # **getLoggedTimeTypeById**

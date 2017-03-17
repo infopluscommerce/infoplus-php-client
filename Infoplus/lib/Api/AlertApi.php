@@ -92,6 +92,330 @@ class AlertApi
   
     
     /**
+     * addAlertAudit
+     *
+     * Add new audit for an alert
+     *
+     * @param int $alert_id Id of the alert to add an audit to (required)
+     * @param string $alert_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAlertAudit($alert_id, $alert_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addAlertAuditWithHttpInfo ($alert_id, $alert_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addAlertAuditWithHttpInfo
+     *
+     * Add new audit for an alert
+     *
+     * @param int $alert_id Id of the alert to add an audit to (required)
+     * @param string $alert_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAlertAuditWithHttpInfo($alert_id, $alert_audit)
+    {
+        
+        // verify the required parameter 'alert_id' is set
+        if ($alert_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_id when calling addAlertAudit');
+        }
+        // verify the required parameter 'alert_audit' is set
+        if ($alert_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_audit when calling addAlertAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/{alertId}/audit/{alertAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($alert_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($alert_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addAlertTag
+     *
+     * Add new tags for an alert.
+     *
+     * @param int $alert_id Id of the alert to add a tag to (required)
+     * @param string $alert_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAlertTag($alert_id, $alert_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addAlertTagWithHttpInfo ($alert_id, $alert_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addAlertTagWithHttpInfo
+     *
+     * Add new tags for an alert.
+     *
+     * @param int $alert_id Id of the alert to add a tag to (required)
+     * @param string $alert_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAlertTagWithHttpInfo($alert_id, $alert_tag)
+    {
+        
+        // verify the required parameter 'alert_id' is set
+        if ($alert_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_id when calling addAlertTag');
+        }
+        // verify the required parameter 'alert_tag' is set
+        if ($alert_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_tag when calling addAlertTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/{alertId}/tag/{alertTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($alert_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($alert_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteAlertTag
+     *
+     * Delete a tag for an alert.
+     *
+     * @param int $alert_id Id of the alert to remove tag from (required)
+     * @param string $alert_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteAlertTag($alert_id, $alert_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteAlertTagWithHttpInfo ($alert_id, $alert_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteAlertTagWithHttpInfo
+     *
+     * Delete a tag for an alert.
+     *
+     * @param int $alert_id Id of the alert to remove tag from (required)
+     * @param string $alert_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteAlertTagWithHttpInfo($alert_id, $alert_tag)
+    {
+        
+        // verify the required parameter 'alert_id' is set
+        if ($alert_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_id when calling deleteAlertTag');
+        }
+        // verify the required parameter 'alert_tag' is set
+        if ($alert_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_tag when calling deleteAlertTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/{alertId}/tag/{alertTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($alert_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($alert_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getAlertByFilter
      *
      * Search alerts by filter
@@ -127,7 +451,7 @@ class AlertApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/alert/search";
+        $resourcePath = "/beta/alert/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +561,7 @@ class AlertApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/alert/{alertId}";
+        $resourcePath = "/beta/alert/{alertId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -299,6 +623,292 @@ class AlertApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Alert', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getAlertTags
+     *
+     * Get the tags for an alert.
+     *
+     * @param int $alert_id Id of the alert to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getAlertTags($alert_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getAlertTagsWithHttpInfo ($alert_id);
+        return $response; 
+    }
+
+
+    /**
+     * getAlertTagsWithHttpInfo
+     *
+     * Get the tags for an alert.
+     *
+     * @param int $alert_id Id of the alert to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getAlertTagsWithHttpInfo($alert_id)
+    {
+        
+        // verify the required parameter 'alert_id' is set
+        if ($alert_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_id when calling getAlertTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/{alertId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($alert_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateAlertById
+     *
+     * Get a duplicated an alert by id
+     *
+     * @param int $alert_id Id of the alert to be duplicated. (required)
+     * @return \Infoplus\Model\Alert
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateAlertById($alert_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateAlertByIdWithHttpInfo ($alert_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateAlertByIdWithHttpInfo
+     *
+     * Get a duplicated an alert by id
+     *
+     * @param int $alert_id Id of the alert to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Alert, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateAlertByIdWithHttpInfo($alert_id)
+    {
+        
+        // verify the required parameter 'alert_id' is set
+        if ($alert_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $alert_id when calling getDuplicateAlertById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/duplicate/{alertId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($alert_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "alertId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($alert_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Alert'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Alert', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Alert', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateAlertCustomFields
+     *
+     * Update an alert custom fields
+     *
+     * @param \Infoplus\Model\Alert $body Alert to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateAlertCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateAlertCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateAlertCustomFieldsWithHttpInfo
+     *
+     * Update an alert custom fields
+     *
+     * @param \Infoplus\Model\Alert $body Alert to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateAlertCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateAlertCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/alert/customFields";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

@@ -125,7 +125,7 @@ class ReceivingWorksheetApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/receivingWorksheet";
+        $resourcePath = "/beta/receivingWorksheet";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class ReceivingWorksheetApi
     }
     
     /**
+     * addReceivingWorksheetAudit
+     *
+     * Add new audit for a receivingWorksheet
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to add an audit to (required)
+     * @param string $receiving_worksheet_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addReceivingWorksheetAudit($receiving_worksheet_id, $receiving_worksheet_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addReceivingWorksheetAuditWithHttpInfo ($receiving_worksheet_id, $receiving_worksheet_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addReceivingWorksheetAuditWithHttpInfo
+     *
+     * Add new audit for a receivingWorksheet
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to add an audit to (required)
+     * @param string $receiving_worksheet_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addReceivingWorksheetAuditWithHttpInfo($receiving_worksheet_id, $receiving_worksheet_audit)
+    {
+        
+        // verify the required parameter 'receiving_worksheet_id' is set
+        if ($receiving_worksheet_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_id when calling addReceivingWorksheetAudit');
+        }
+        // verify the required parameter 'receiving_worksheet_audit' is set
+        if ($receiving_worksheet_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_audit when calling addReceivingWorksheetAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}/audit/{receivingWorksheetAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($receiving_worksheet_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($receiving_worksheet_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addReceivingWorksheetTag
+     *
+     * Add new tags for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to add a tag to (required)
+     * @param string $receiving_worksheet_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addReceivingWorksheetTag($receiving_worksheet_id, $receiving_worksheet_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addReceivingWorksheetTagWithHttpInfo ($receiving_worksheet_id, $receiving_worksheet_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addReceivingWorksheetTagWithHttpInfo
+     *
+     * Add new tags for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to add a tag to (required)
+     * @param string $receiving_worksheet_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addReceivingWorksheetTagWithHttpInfo($receiving_worksheet_id, $receiving_worksheet_tag)
+    {
+        
+        // verify the required parameter 'receiving_worksheet_id' is set
+        if ($receiving_worksheet_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_id when calling addReceivingWorksheetTag');
+        }
+        // verify the required parameter 'receiving_worksheet_tag' is set
+        if ($receiving_worksheet_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_tag when calling addReceivingWorksheetTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($receiving_worksheet_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($receiving_worksheet_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteReceivingWorksheet
      *
      * Delete a receivingWorksheet
@@ -227,7 +443,7 @@ class ReceivingWorksheetApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/receivingWorksheet/{receivingWorksheetId}";
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class ReceivingWorksheetApi
     }
     
     /**
+     * deleteReceivingWorksheetTag
+     *
+     * Delete a tag for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to remove tag from (required)
+     * @param string $receiving_worksheet_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteReceivingWorksheetTag($receiving_worksheet_id, $receiving_worksheet_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteReceivingWorksheetTagWithHttpInfo ($receiving_worksheet_id, $receiving_worksheet_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteReceivingWorksheetTagWithHttpInfo
+     *
+     * Delete a tag for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to remove tag from (required)
+     * @param string $receiving_worksheet_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteReceivingWorksheetTagWithHttpInfo($receiving_worksheet_id, $receiving_worksheet_tag)
+    {
+        
+        // verify the required parameter 'receiving_worksheet_id' is set
+        if ($receiving_worksheet_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_id when calling deleteReceivingWorksheetTag');
+        }
+        // verify the required parameter 'receiving_worksheet_tag' is set
+        if ($receiving_worksheet_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_tag when calling deleteReceivingWorksheetTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}/tag/{receivingWorksheetTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($receiving_worksheet_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($receiving_worksheet_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateReceivingWorksheetById
+     *
+     * Get a duplicated a receivingWorksheet by id
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to be duplicated. (required)
+     * @return \Infoplus\Model\ReceivingWorksheet
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateReceivingWorksheetById($receiving_worksheet_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateReceivingWorksheetByIdWithHttpInfo ($receiving_worksheet_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateReceivingWorksheetByIdWithHttpInfo
+     *
+     * Get a duplicated a receivingWorksheet by id
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ReceivingWorksheet, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateReceivingWorksheetByIdWithHttpInfo($receiving_worksheet_id)
+    {
+        
+        // verify the required parameter 'receiving_worksheet_id' is set
+        if ($receiving_worksheet_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_id when calling getDuplicateReceivingWorksheetById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/duplicate/{receivingWorksheetId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($receiving_worksheet_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ReceivingWorksheet'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ReceivingWorksheet', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ReceivingWorksheet', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getReceivingWorksheetByFilter
      *
      * Search receivingWorksheets by filter
@@ -323,7 +749,7 @@ class ReceivingWorksheetApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/receivingWorksheet/search";
+        $resourcePath = "/beta/receivingWorksheet/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class ReceivingWorksheetApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/receivingWorksheet/{receivingWorksheetId}";
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class ReceivingWorksheetApi
     }
     
     /**
+     * getReceivingWorksheetTags
+     *
+     * Get the tags for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getReceivingWorksheetTags($receiving_worksheet_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getReceivingWorksheetTagsWithHttpInfo ($receiving_worksheet_id);
+        return $response; 
+    }
+
+
+    /**
+     * getReceivingWorksheetTagsWithHttpInfo
+     *
+     * Get the tags for a receivingWorksheet.
+     *
+     * @param int $receiving_worksheet_id Id of the receivingWorksheet to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getReceivingWorksheetTagsWithHttpInfo($receiving_worksheet_id)
+    {
+        
+        // verify the required parameter 'receiving_worksheet_id' is set
+        if ($receiving_worksheet_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $receiving_worksheet_id when calling getReceivingWorksheetTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/{receivingWorksheetId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($receiving_worksheet_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "receivingWorksheetId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($receiving_worksheet_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateReceivingWorksheet
      *
      * Update a receivingWorksheet
@@ -535,7 +1055,97 @@ class ReceivingWorksheetApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/receivingWorksheet";
+        $resourcePath = "/beta/receivingWorksheet";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateReceivingWorksheetCustomFields
+     *
+     * Update a receivingWorksheet custom fields
+     *
+     * @param \Infoplus\Model\ReceivingWorksheet $body ReceivingWorksheet to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateReceivingWorksheetCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateReceivingWorksheetCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateReceivingWorksheetCustomFieldsWithHttpInfo
+     *
+     * Update a receivingWorksheet custom fields
+     *
+     * @param \Infoplus\Model\ReceivingWorksheet $body ReceivingWorksheet to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateReceivingWorksheetCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateReceivingWorksheetCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/receivingWorksheet/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

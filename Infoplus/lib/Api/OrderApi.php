@@ -125,7 +125,7 @@ class OrderApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/order";
+        $resourcePath = "/beta/order";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,11 +194,227 @@ class OrderApi
     }
     
     /**
+     * addOrderAudit
+     *
+     * Add new audit for an order
+     *
+     * @param Number $order_id Id of the order to add an audit to (required)
+     * @param string $order_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderAudit($order_id, $order_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOrderAuditWithHttpInfo ($order_id, $order_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addOrderAuditWithHttpInfo
+     *
+     * Add new audit for an order
+     *
+     * @param Number $order_id Id of the order to add an audit to (required)
+     * @param string $order_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderAuditWithHttpInfo($order_id, $order_audit)
+    {
+        
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling addOrderAudit');
+        }
+        // verify the required parameter 'order_audit' is set
+        if ($order_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_audit when calling addOrderAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/{orderId}/audit/{orderAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addOrderTag
+     *
+     * Add new tags for an order.
+     *
+     * @param Number $order_id Id of the order to add a tag to (required)
+     * @param string $order_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderTag($order_id, $order_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOrderTagWithHttpInfo ($order_id, $order_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addOrderTagWithHttpInfo
+     *
+     * Add new tags for an order.
+     *
+     * @param Number $order_id Id of the order to add a tag to (required)
+     * @param string $order_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderTagWithHttpInfo($order_id, $order_tag)
+    {
+        
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling addOrderTag');
+        }
+        // verify the required parameter 'order_tag' is set
+        if ($order_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_tag when calling addOrderTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/{orderId}/tag/{orderTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteOrder
      *
      * Delete an order
      *
-     * @param double $order_id Id of the order to be deleted. (required)
+     * @param Number $order_id Id of the order to be deleted. (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
@@ -214,7 +430,7 @@ class OrderApi
      *
      * Delete an order
      *
-     * @param double $order_id Id of the order to be deleted. (required)
+     * @param Number $order_id Id of the order to be deleted. (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
@@ -227,7 +443,7 @@ class OrderApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/order/{orderId}";
+        $resourcePath = "/beta/order/{orderId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class OrderApi
     }
     
     /**
+     * deleteOrderTag
+     *
+     * Delete a tag for an order.
+     *
+     * @param Number $order_id Id of the order to remove tag from (required)
+     * @param string $order_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOrderTag($order_id, $order_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteOrderTagWithHttpInfo ($order_id, $order_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteOrderTagWithHttpInfo
+     *
+     * Delete a tag for an order.
+     *
+     * @param Number $order_id Id of the order to remove tag from (required)
+     * @param string $order_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOrderTagWithHttpInfo($order_id, $order_tag)
+    {
+        
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling deleteOrderTag');
+        }
+        // verify the required parameter 'order_tag' is set
+        if ($order_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_tag when calling deleteOrderTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/{orderId}/tag/{orderTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateOrderById
+     *
+     * Get a duplicated an order by id
+     *
+     * @param Number $order_id Id of the order to be duplicated. (required)
+     * @return \Infoplus\Model\Order
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOrderById($order_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateOrderByIdWithHttpInfo ($order_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateOrderByIdWithHttpInfo
+     *
+     * Get a duplicated an order by id
+     *
+     * @param Number $order_id Id of the order to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Order, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOrderByIdWithHttpInfo($order_id)
+    {
+        
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling getDuplicateOrderById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/duplicate/{orderId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Order'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Order', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Order', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getOrderByFilter
      *
      * Search orders by filter
@@ -323,7 +749,7 @@ class OrderApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/order/search";
+        $resourcePath = "/beta/order/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -404,7 +830,7 @@ class OrderApi
      *
      * Get an order by id
      *
-     * @param double $order_id Id of the order to be returned. (required)
+     * @param Number $order_id Id of the order to be returned. (required)
      * @return \Infoplus\Model\Order
      * @throws \Infoplus\ApiException on non-2xx response
      */
@@ -420,7 +846,7 @@ class OrderApi
      *
      * Get an order by id
      *
-     * @param double $order_id Id of the order to be returned. (required)
+     * @param Number $order_id Id of the order to be returned. (required)
      * @return Array of \Infoplus\Model\Order, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
@@ -433,7 +859,7 @@ class OrderApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/order/{orderId}";
+        $resourcePath = "/beta/order/{orderId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class OrderApi
     }
     
     /**
+     * getOrderTags
+     *
+     * Get the tags for an order.
+     *
+     * @param Number $order_id Id of the order to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOrderTags($order_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getOrderTagsWithHttpInfo ($order_id);
+        return $response; 
+    }
+
+
+    /**
+     * getOrderTagsWithHttpInfo
+     *
+     * Get the tags for an order.
+     *
+     * @param Number $order_id Id of the order to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOrderTagsWithHttpInfo($order_id)
+    {
+        
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling getOrderTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/{orderId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateOrder
      *
      * Update an order
@@ -535,7 +1055,97 @@ class OrderApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/order";
+        $resourcePath = "/beta/order";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateOrderCustomFields
+     *
+     * Update an order custom fields
+     *
+     * @param \Infoplus\Model\Order $body Order to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateOrderCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateOrderCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateOrderCustomFieldsWithHttpInfo
+     *
+     * Update an order custom fields
+     *
+     * @param \Infoplus\Model\Order $body Order to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateOrderCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateOrderCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/order/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **process_no** | **int** |  | [optional] 
 **work_batch_id** | **int** |  | [optional] 
 **warehouse_id** | **int** |  | 
-**allocation_plan_id** | **int** |  | 
+**fulfillment_plan_id** | **int** |  | 
+**pick_scan_scheme_id** | **int** |  | 
 **status** | **string** |  | 
 **order_smart_filter_id** | **int** |  | [optional] 
 **location_smart_filter_id** | **int** |  | [optional] 
@@ -43,9 +44,14 @@ Name | Type | Description | Notes
 **ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **auto_ship_casebreak_cartons** | **bool** |  | [optional] [default to false]
 **cartonize_orders** | **bool** |  | [optional] [default to false]
-**create_packing_slip** | **bool** |  | [optional] [default to false]
+**create_packing_slip** | **string** |  | 
 **override_packing_slip_template_id** | **int** |  | [optional] 
 **create_order_assembly_guide** | **bool** |  | [optional] [default to false]
+**create_order_invoice** | **string** |  | 
+**override_order_invoice_template_id** | **int** |  | [optional] 
+**send_to_external_shipping_system** | **bool** |  | [default to false]
+**external_shipping_system_id** | **int** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

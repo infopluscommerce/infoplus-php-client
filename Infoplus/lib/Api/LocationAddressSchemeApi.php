@@ -125,7 +125,7 @@ class LocationAddressSchemeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/locationAddressScheme";
+        $resourcePath = "/beta/locationAddressScheme";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class LocationAddressSchemeApi
     }
     
     /**
+     * addLocationAddressSchemeAudit
+     *
+     * Add new audit for a locationAddressScheme
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to add an audit to (required)
+     * @param string $location_address_scheme_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationAddressSchemeAudit($location_address_scheme_id, $location_address_scheme_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLocationAddressSchemeAuditWithHttpInfo ($location_address_scheme_id, $location_address_scheme_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addLocationAddressSchemeAuditWithHttpInfo
+     *
+     * Add new audit for a locationAddressScheme
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to add an audit to (required)
+     * @param string $location_address_scheme_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationAddressSchemeAuditWithHttpInfo($location_address_scheme_id, $location_address_scheme_audit)
+    {
+        
+        // verify the required parameter 'location_address_scheme_id' is set
+        if ($location_address_scheme_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_id when calling addLocationAddressSchemeAudit');
+        }
+        // verify the required parameter 'location_address_scheme_audit' is set
+        if ($location_address_scheme_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_audit when calling addLocationAddressSchemeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($location_address_scheme_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_address_scheme_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addLocationAddressSchemeTag
+     *
+     * Add new tags for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to add a tag to (required)
+     * @param string $location_address_scheme_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLocationAddressSchemeTagWithHttpInfo ($location_address_scheme_id, $location_address_scheme_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addLocationAddressSchemeTagWithHttpInfo
+     *
+     * Add new tags for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to add a tag to (required)
+     * @param string $location_address_scheme_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationAddressSchemeTagWithHttpInfo($location_address_scheme_id, $location_address_scheme_tag)
+    {
+        
+        // verify the required parameter 'location_address_scheme_id' is set
+        if ($location_address_scheme_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_id when calling addLocationAddressSchemeTag');
+        }
+        // verify the required parameter 'location_address_scheme_tag' is set
+        if ($location_address_scheme_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_tag when calling addLocationAddressSchemeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($location_address_scheme_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_address_scheme_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteLocationAddressScheme
      *
      * Delete a locationAddressScheme
@@ -227,7 +443,7 @@ class LocationAddressSchemeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/locationAddressScheme/{locationAddressSchemeId}";
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class LocationAddressSchemeApi
     }
     
     /**
+     * deleteLocationAddressSchemeTag
+     *
+     * Delete a tag for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to remove tag from (required)
+     * @param string $location_address_scheme_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteLocationAddressSchemeTagWithHttpInfo ($location_address_scheme_id, $location_address_scheme_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteLocationAddressSchemeTagWithHttpInfo
+     *
+     * Delete a tag for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to remove tag from (required)
+     * @param string $location_address_scheme_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLocationAddressSchemeTagWithHttpInfo($location_address_scheme_id, $location_address_scheme_tag)
+    {
+        
+        // verify the required parameter 'location_address_scheme_id' is set
+        if ($location_address_scheme_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_id when calling deleteLocationAddressSchemeTag');
+        }
+        // verify the required parameter 'location_address_scheme_tag' is set
+        if ($location_address_scheme_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_tag when calling deleteLocationAddressSchemeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_address_scheme_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_address_scheme_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateLocationAddressSchemeById
+     *
+     * Get a duplicated a locationAddressScheme by id
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to be duplicated. (required)
+     * @return \Infoplus\Model\LocationAddressScheme
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLocationAddressSchemeById($location_address_scheme_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateLocationAddressSchemeByIdWithHttpInfo ($location_address_scheme_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateLocationAddressSchemeByIdWithHttpInfo
+     *
+     * Get a duplicated a locationAddressScheme by id
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to be duplicated. (required)
+     * @return Array of \Infoplus\Model\LocationAddressScheme, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLocationAddressSchemeByIdWithHttpInfo($location_address_scheme_id)
+    {
+        
+        // verify the required parameter 'location_address_scheme_id' is set
+        if ($location_address_scheme_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_id when calling getDuplicateLocationAddressSchemeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/duplicate/{locationAddressSchemeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_address_scheme_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\LocationAddressScheme'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\LocationAddressScheme', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LocationAddressScheme', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getLocationAddressSchemeByFilter
      *
      * Search locationAddressSchemes by filter
@@ -323,7 +749,7 @@ class LocationAddressSchemeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/locationAddressScheme/search";
+        $resourcePath = "/beta/locationAddressScheme/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class LocationAddressSchemeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/locationAddressScheme/{locationAddressSchemeId}";
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class LocationAddressSchemeApi
     }
     
     /**
+     * getLocationAddressSchemeTags
+     *
+     * Get the tags for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLocationAddressSchemeTags($location_address_scheme_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getLocationAddressSchemeTagsWithHttpInfo ($location_address_scheme_id);
+        return $response; 
+    }
+
+
+    /**
+     * getLocationAddressSchemeTagsWithHttpInfo
+     *
+     * Get the tags for a locationAddressScheme.
+     *
+     * @param int $location_address_scheme_id Id of the locationAddressScheme to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLocationAddressSchemeTagsWithHttpInfo($location_address_scheme_id)
+    {
+        
+        // verify the required parameter 'location_address_scheme_id' is set
+        if ($location_address_scheme_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_address_scheme_id when calling getLocationAddressSchemeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/{locationAddressSchemeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_address_scheme_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationAddressSchemeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_address_scheme_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateLocationAddressScheme
      *
      * Update a locationAddressScheme
@@ -535,7 +1055,97 @@ class LocationAddressSchemeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/locationAddressScheme";
+        $resourcePath = "/beta/locationAddressScheme";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateLocationAddressSchemeCustomFields
+     *
+     * Update a locationAddressScheme custom fields
+     *
+     * @param \Infoplus\Model\LocationAddressScheme $body LocationAddressScheme to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateLocationAddressSchemeCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateLocationAddressSchemeCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateLocationAddressSchemeCustomFieldsWithHttpInfo
+     *
+     * Update a locationAddressScheme custom fields
+     *
+     * @param \Infoplus\Model\LocationAddressScheme $body LocationAddressScheme to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateLocationAddressSchemeCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateLocationAddressSchemeCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationAddressScheme/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -125,7 +125,7 @@ class VendorComplianceSurveyApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/vendorComplianceSurvey";
+        $resourcePath = "/beta/vendorComplianceSurvey";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class VendorComplianceSurveyApi
     }
     
     /**
+     * addVendorComplianceSurveyAudit
+     *
+     * Add new audit for a vendorComplianceSurvey
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to add an audit to (required)
+     * @param string $vendor_compliance_survey_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorComplianceSurveyAudit($vendor_compliance_survey_id, $vendor_compliance_survey_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addVendorComplianceSurveyAuditWithHttpInfo ($vendor_compliance_survey_id, $vendor_compliance_survey_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addVendorComplianceSurveyAuditWithHttpInfo
+     *
+     * Add new audit for a vendorComplianceSurvey
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to add an audit to (required)
+     * @param string $vendor_compliance_survey_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorComplianceSurveyAuditWithHttpInfo($vendor_compliance_survey_id, $vendor_compliance_survey_audit)
+    {
+        
+        // verify the required parameter 'vendor_compliance_survey_id' is set
+        if ($vendor_compliance_survey_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_id when calling addVendorComplianceSurveyAudit');
+        }
+        // verify the required parameter 'vendor_compliance_survey_audit' is set
+        if ($vendor_compliance_survey_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_audit when calling addVendorComplianceSurveyAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/audit/{vendorComplianceSurveyAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($vendor_compliance_survey_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_compliance_survey_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addVendorComplianceSurveyTag
+     *
+     * Add new tags for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to add a tag to (required)
+     * @param string $vendor_compliance_survey_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addVendorComplianceSurveyTagWithHttpInfo ($vendor_compliance_survey_id, $vendor_compliance_survey_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addVendorComplianceSurveyTagWithHttpInfo
+     *
+     * Add new tags for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to add a tag to (required)
+     * @param string $vendor_compliance_survey_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorComplianceSurveyTagWithHttpInfo($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
+    {
+        
+        // verify the required parameter 'vendor_compliance_survey_id' is set
+        if ($vendor_compliance_survey_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_id when calling addVendorComplianceSurveyTag');
+        }
+        // verify the required parameter 'vendor_compliance_survey_tag' is set
+        if ($vendor_compliance_survey_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_tag when calling addVendorComplianceSurveyTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($vendor_compliance_survey_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_compliance_survey_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteVendorComplianceSurvey
      *
      * Delete a vendorComplianceSurvey
@@ -227,7 +443,7 @@ class VendorComplianceSurveyApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/vendorComplianceSurvey/{vendorComplianceSurveyId}";
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class VendorComplianceSurveyApi
     }
     
     /**
+     * deleteVendorComplianceSurveyTag
+     *
+     * Delete a tag for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to remove tag from (required)
+     * @param string $vendor_compliance_survey_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteVendorComplianceSurveyTagWithHttpInfo ($vendor_compliance_survey_id, $vendor_compliance_survey_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteVendorComplianceSurveyTagWithHttpInfo
+     *
+     * Delete a tag for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to remove tag from (required)
+     * @param string $vendor_compliance_survey_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteVendorComplianceSurveyTagWithHttpInfo($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
+    {
+        
+        // verify the required parameter 'vendor_compliance_survey_id' is set
+        if ($vendor_compliance_survey_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_id when calling deleteVendorComplianceSurveyTag');
+        }
+        // verify the required parameter 'vendor_compliance_survey_tag' is set
+        if ($vendor_compliance_survey_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_tag when calling deleteVendorComplianceSurveyTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_compliance_survey_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_compliance_survey_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateVendorComplianceSurveyById
+     *
+     * Get a duplicated a vendorComplianceSurvey by id
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to be duplicated. (required)
+     * @return \Infoplus\Model\VendorComplianceSurvey
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateVendorComplianceSurveyById($vendor_compliance_survey_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateVendorComplianceSurveyByIdWithHttpInfo ($vendor_compliance_survey_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateVendorComplianceSurveyByIdWithHttpInfo
+     *
+     * Get a duplicated a vendorComplianceSurvey by id
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to be duplicated. (required)
+     * @return Array of \Infoplus\Model\VendorComplianceSurvey, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateVendorComplianceSurveyByIdWithHttpInfo($vendor_compliance_survey_id)
+    {
+        
+        // verify the required parameter 'vendor_compliance_survey_id' is set
+        if ($vendor_compliance_survey_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_id when calling getDuplicateVendorComplianceSurveyById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_compliance_survey_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\VendorComplianceSurvey'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\VendorComplianceSurvey', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\VendorComplianceSurvey', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getVendorComplianceSurveyByFilter
      *
      * Search vendorComplianceSurveys by filter
@@ -323,7 +749,7 @@ class VendorComplianceSurveyApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/vendorComplianceSurvey/search";
+        $resourcePath = "/beta/vendorComplianceSurvey/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class VendorComplianceSurveyApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/vendorComplianceSurvey/{vendorComplianceSurveyId}";
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class VendorComplianceSurveyApi
     }
     
     /**
+     * getVendorComplianceSurveyTags
+     *
+     * Get the tags for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getVendorComplianceSurveyTags($vendor_compliance_survey_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getVendorComplianceSurveyTagsWithHttpInfo ($vendor_compliance_survey_id);
+        return $response; 
+    }
+
+
+    /**
+     * getVendorComplianceSurveyTagsWithHttpInfo
+     *
+     * Get the tags for a vendorComplianceSurvey.
+     *
+     * @param int $vendor_compliance_survey_id Id of the vendorComplianceSurvey to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getVendorComplianceSurveyTagsWithHttpInfo($vendor_compliance_survey_id)
+    {
+        
+        // verify the required parameter 'vendor_compliance_survey_id' is set
+        if ($vendor_compliance_survey_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_compliance_survey_id when calling getVendorComplianceSurveyTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_compliance_survey_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorComplianceSurveyId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_compliance_survey_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateVendorComplianceSurvey
      *
      * Update a vendorComplianceSurvey
@@ -535,7 +1055,97 @@ class VendorComplianceSurveyApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/vendorComplianceSurvey";
+        $resourcePath = "/beta/vendorComplianceSurvey";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateVendorComplianceSurveyCustomFields
+     *
+     * Update a vendorComplianceSurvey custom fields
+     *
+     * @param \Infoplus\Model\VendorComplianceSurvey $body VendorComplianceSurvey to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateVendorComplianceSurveyCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateVendorComplianceSurveyCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateVendorComplianceSurveyCustomFieldsWithHttpInfo
+     *
+     * Update a vendorComplianceSurvey custom fields
+     *
+     * @param \Infoplus\Model\VendorComplianceSurvey $body VendorComplianceSurvey to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateVendorComplianceSurveyCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateVendorComplianceSurveyCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendorComplianceSurvey/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

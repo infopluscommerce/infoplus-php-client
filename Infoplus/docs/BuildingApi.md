@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBuilding**](BuildingApi.md#addBuilding) | **POST** /v1.0/building | Create a building
-[**deleteBuilding**](BuildingApi.md#deleteBuilding) | **DELETE** /v1.0/building/{buildingId} | Delete a building
-[**getBuildingByFilter**](BuildingApi.md#getBuildingByFilter) | **GET** /v1.0/building/search | Search buildings by filter
-[**getBuildingById**](BuildingApi.md#getBuildingById) | **GET** /v1.0/building/{buildingId} | Get a building by id
-[**updateBuilding**](BuildingApi.md#updateBuilding) | **PUT** /v1.0/building | Update a building
+[**addBuilding**](BuildingApi.md#addBuilding) | **POST** /beta/building | Create a building
+[**addBuildingAudit**](BuildingApi.md#addBuildingAudit) | **PUT** /beta/building/{buildingId}/audit/{buildingAudit} | Add new audit for a building
+[**addBuildingTag**](BuildingApi.md#addBuildingTag) | **PUT** /beta/building/{buildingId}/tag/{buildingTag} | Add new tags for a building.
+[**deleteBuilding**](BuildingApi.md#deleteBuilding) | **DELETE** /beta/building/{buildingId} | Delete a building
+[**deleteBuildingTag**](BuildingApi.md#deleteBuildingTag) | **DELETE** /beta/building/{buildingId}/tag/{buildingTag} | Delete a tag for a building.
+[**getBuildingByFilter**](BuildingApi.md#getBuildingByFilter) | **GET** /beta/building/search | Search buildings by filter
+[**getBuildingById**](BuildingApi.md#getBuildingById) | **GET** /beta/building/{buildingId} | Get a building by id
+[**getBuildingTags**](BuildingApi.md#getBuildingTags) | **GET** /beta/building/{buildingId}/tag | Get the tags for a building.
+[**getDuplicateBuildingById**](BuildingApi.md#getDuplicateBuildingById) | **GET** /beta/building/duplicate/{buildingId} | Get a duplicated a building by id
+[**updateBuilding**](BuildingApi.md#updateBuilding) | **PUT** /beta/building | Update a building
+[**updateBuildingCustomFields**](BuildingApi.md#updateBuildingCustomFields) | **PUT** /beta/building/customFields | Update a building custom fields
 
 
 # **addBuilding**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addBuildingAudit**
+> addBuildingAudit($building_id, $building_audit)
+
+Add new audit for a building
+
+Adds an audit to an existing building.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$building_id = 56; // int | Id of the building to add an audit to
+$building_audit = "building_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addBuildingAudit($building_id, $building_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->addBuildingAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **building_id** | **int**| Id of the building to add an audit to | 
+ **building_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addBuildingTag**
+> addBuildingTag($building_id, $building_tag)
+
+Add new tags for a building.
+
+Adds a tag to an existing building.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$building_id = 56; // int | Id of the building to add a tag to
+$building_tag = "building_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addBuildingTag($building_id, $building_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->addBuildingTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **building_id** | **int**| Id of the building to add a tag to | 
+ **building_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteBuilding**
 > deleteBuilding($building_id)
 
@@ -94,6 +202,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **building_id** | **int**| Id of the building to be deleted. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteBuildingTag**
+> deleteBuildingTag($building_id, $building_tag)
+
+Delete a tag for a building.
+
+Deletes an existing building tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$building_id = 56; // int | Id of the building to remove tag from
+$building_tag = "building_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteBuildingTag($building_id, $building_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->deleteBuildingTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **building_id** | **int**| Id of the building to remove tag from | 
+ **building_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -216,6 +375,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getBuildingTags**
+> getBuildingTags($building_id)
+
+Get the tags for a building.
+
+Get all existing building tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$building_id = 56; // int | Id of the building to get tags for
+
+try { 
+    $api_instance->getBuildingTags($building_id);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->getBuildingTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **building_id** | **int**| Id of the building to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateBuildingById**
+> \Infoplus\Model\Building getDuplicateBuildingById($building_id)
+
+Get a duplicated a building by id
+
+Returns a duplicated building identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$building_id = 56; // int | Id of the building to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateBuildingById($building_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->getDuplicateBuildingById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **building_id** | **int**| Id of the building to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\Building**](Building.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateBuilding**
 > updateBuilding($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateBuilding($body);
 } catch (Exception $e) {
     echo 'Exception when calling BuildingApi->updateBuilding: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Building**](\Infoplus\Model\Building.md)| Building to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBuildingCustomFields**
+> updateBuildingCustomFields($body)
+
+Update a building custom fields
+
+Updates an existing building custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BuildingApi();
+$body = new \Infoplus\Model\Building(); // \Infoplus\Model\Building | Building to be updated.
+
+try { 
+    $api_instance->updateBuildingCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling BuildingApi->updateBuildingCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

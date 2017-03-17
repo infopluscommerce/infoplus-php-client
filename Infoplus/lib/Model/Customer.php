@@ -77,7 +77,7 @@ class Customer implements ArrayAccess
         'area' => 'string',
         'customer_type' => 'string',
         'mass_level' => 'string',
-        'mass_factor' => 'double',
+        'mass_factor' => 'Number',
         'price_level' => 'string',
         'open_date' => '\DateTime',
         'close_date' => '\DateTime',
@@ -95,10 +95,11 @@ class Customer implements ArrayAccess
         'extrinsic_text3' => 'string',
         'extrinsic_number1' => 'int',
         'extrinsic_number2' => 'int',
-        'extrinsic_decimal1' => 'double',
-        'extrinsic_decimal2' => 'double',
+        'extrinsic_decimal1' => 'Number',
+        'extrinsic_decimal2' => 'Number',
         'modify_date' => '\DateTime',
-        'oms_customer_id' => 'int'
+        'oms_customer_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -157,7 +158,8 @@ class Customer implements ArrayAccess
         'extrinsic_decimal1' => 'extrinsicDecimal1',
         'extrinsic_decimal2' => 'extrinsicDecimal2',
         'modify_date' => 'modifyDate',
-        'oms_customer_id' => 'omsCustomerId'
+        'oms_customer_id' => 'omsCustomerId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -216,7 +218,8 @@ class Customer implements ArrayAccess
         'extrinsic_decimal1' => 'setExtrinsicDecimal1',
         'extrinsic_decimal2' => 'setExtrinsicDecimal2',
         'modify_date' => 'setModifyDate',
-        'oms_customer_id' => 'setOmsCustomerId'
+        'oms_customer_id' => 'setOmsCustomerId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -275,7 +278,8 @@ class Customer implements ArrayAccess
         'extrinsic_decimal1' => 'getExtrinsicDecimal1',
         'extrinsic_decimal2' => 'getExtrinsicDecimal2',
         'modify_date' => 'getModifyDate',
-        'oms_customer_id' => 'getOmsCustomerId'
+        'oms_customer_id' => 'getOmsCustomerId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -441,7 +445,7 @@ class Customer implements ArrayAccess
     
     /**
       * $mass_factor 
-      * @var double
+      * @var Number
       */
     protected $mass_factor;
     
@@ -549,13 +553,13 @@ class Customer implements ArrayAccess
     
     /**
       * $extrinsic_decimal1 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal1;
     
     /**
       * $extrinsic_decimal2 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal2;
     
@@ -570,6 +574,12 @@ class Customer implements ArrayAccess
       * @var int
       */
     protected $oms_customer_id;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -628,6 +638,7 @@ class Customer implements ArrayAccess
             $this->extrinsic_decimal2 = $data["extrinsic_decimal2"];
             $this->modify_date = $data["modify_date"];
             $this->oms_customer_id = $data["oms_customer_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -1179,7 +1190,7 @@ class Customer implements ArrayAccess
     
     /**
      * Gets mass_factor
-     * @return double
+     * @return Number
      */
     public function getMassFactor()
     {
@@ -1188,7 +1199,7 @@ class Customer implements ArrayAccess
   
     /**
      * Sets mass_factor
-     * @param double $mass_factor 
+     * @param Number $mass_factor 
      * @return $this
      */
     public function setMassFactor($mass_factor)
@@ -1557,7 +1568,7 @@ class Customer implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal1
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal1()
     {
@@ -1566,7 +1577,7 @@ class Customer implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal1
-     * @param double $extrinsic_decimal1 
+     * @param Number $extrinsic_decimal1 
      * @return $this
      */
     public function setExtrinsicDecimal1($extrinsic_decimal1)
@@ -1578,7 +1589,7 @@ class Customer implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal2
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal2()
     {
@@ -1587,7 +1598,7 @@ class Customer implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal2
-     * @param double $extrinsic_decimal2 
+     * @param Number $extrinsic_decimal2 
      * @return $this
      */
     public function setExtrinsicDecimal2($extrinsic_decimal2)
@@ -1636,6 +1647,27 @@ class Customer implements ArrayAccess
     {
         
         $this->oms_customer_id = $oms_customer_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

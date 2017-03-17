@@ -77,7 +77,7 @@ class Item implements ArrayAccess
         'critical_amount' => 'int',
         'overall_fixed_reorder_point' => 'int',
         'overall_lead_time' => 'int',
-        'list_price' => 'double',
+        'list_price' => 'Number',
         'lot_control_flag' => 'string',
         'max_cycle' => 'int',
         'max_interim' => 'int',
@@ -94,7 +94,7 @@ class Item implements ArrayAccess
         'serial_code' => 'string',
         'unit_code' => 'string',
         'units_per_wrap' => 'int',
-        'weight_per_wrap' => 'double',
+        'weight_per_wrap' => 'Number',
         'void_date' => '\DateTime',
         'wrap_code' => 'string',
         'extrinsic_text1' => 'string',
@@ -102,8 +102,8 @@ class Item implements ArrayAccess
         'extrinsic_text3' => 'string',
         'extrinsic_number1' => 'int',
         'extrinsic_number2' => 'int',
-        'extrinsic_decimal1' => 'double',
-        'extrinsic_decimal2' => 'double',
+        'extrinsic_decimal1' => 'Number',
+        'extrinsic_decimal2' => 'Number',
         'casebreak_enabled' => 'string',
         'modify_date' => '\DateTime',
         'forward_lot_mixing_rule' => 'string',
@@ -111,7 +111,40 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'string',
         'storage_item_mixing_rule' => 'string',
         'allocation_rule' => 'string',
-        'hazmat' => 'string'
+        'barcode_field' => 'string',
+        'warehouse_display_field' => 'string',
+        'product_id_tag_scheme_id' => 'int',
+        'hazmat' => 'string',
+        'is_alcohol' => 'bool',
+        'alcohol_type' => 'string',
+        'alcohol_content' => 'Number',
+        'alcohol_container' => 'string',
+        'alcohol_vintage_year' => 'string',
+        'alcohol_country' => 'string',
+        'alcohol_state' => 'string',
+        'alcohol_region' => 'string',
+        'alcohol_brand' => 'string',
+        'alcohol_upc_code' => 'string',
+        'alcohol_nambca_code' => 'string',
+        'alcohol_unimerc_code' => 'string',
+        'alcohol_scc_code' => 'string',
+        'length' => 'Number',
+        'width' => 'Number',
+        'height' => 'Number',
+        'top_up' => 'bool',
+        'ship_solo' => 'bool',
+        'available_quantity' => 'int',
+        'damaged_quantity' => 'int',
+        'in_fulfillment_process_quantity' => 'int',
+        'on_hand_quantity' => 'int',
+        'open_order_quantity' => 'int',
+        'open_po_quantity' => 'int',
+        'orderable_quantity' => 'int',
+        'unallocatable_quantity' => 'int',
+        'unavailable_quantity' => 'int',
+        'overall_days_on_hand' => 'int',
+        'overall_stock_status' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -183,7 +216,40 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'forwardItemMixingRule',
         'storage_item_mixing_rule' => 'storageItemMixingRule',
         'allocation_rule' => 'allocationRule',
-        'hazmat' => 'hazmat'
+        'barcode_field' => 'barcodeField',
+        'warehouse_display_field' => 'warehouseDisplayField',
+        'product_id_tag_scheme_id' => 'productIdTagSchemeId',
+        'hazmat' => 'hazmat',
+        'is_alcohol' => 'isAlcohol',
+        'alcohol_type' => 'alcoholType',
+        'alcohol_content' => 'alcoholContent',
+        'alcohol_container' => 'alcoholContainer',
+        'alcohol_vintage_year' => 'alcoholVintageYear',
+        'alcohol_country' => 'alcoholCountry',
+        'alcohol_state' => 'alcoholState',
+        'alcohol_region' => 'alcoholRegion',
+        'alcohol_brand' => 'alcoholBrand',
+        'alcohol_upc_code' => 'alcoholUPCCode',
+        'alcohol_nambca_code' => 'alcoholNAMBCACode',
+        'alcohol_unimerc_code' => 'alcoholUNIMERCCode',
+        'alcohol_scc_code' => 'alcoholSCCCode',
+        'length' => 'length',
+        'width' => 'width',
+        'height' => 'height',
+        'top_up' => 'topUp',
+        'ship_solo' => 'shipSolo',
+        'available_quantity' => 'availableQuantity',
+        'damaged_quantity' => 'damagedQuantity',
+        'in_fulfillment_process_quantity' => 'inFulfillmentProcessQuantity',
+        'on_hand_quantity' => 'onHandQuantity',
+        'open_order_quantity' => 'openOrderQuantity',
+        'open_po_quantity' => 'openPOQuantity',
+        'orderable_quantity' => 'orderableQuantity',
+        'unallocatable_quantity' => 'unallocatableQuantity',
+        'unavailable_quantity' => 'unavailableQuantity',
+        'overall_days_on_hand' => 'overallDaysOnHand',
+        'overall_stock_status' => 'overallStockStatus',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -255,7 +321,40 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'setForwardItemMixingRule',
         'storage_item_mixing_rule' => 'setStorageItemMixingRule',
         'allocation_rule' => 'setAllocationRule',
-        'hazmat' => 'setHazmat'
+        'barcode_field' => 'setBarcodeField',
+        'warehouse_display_field' => 'setWarehouseDisplayField',
+        'product_id_tag_scheme_id' => 'setProductIdTagSchemeId',
+        'hazmat' => 'setHazmat',
+        'is_alcohol' => 'setIsAlcohol',
+        'alcohol_type' => 'setAlcoholType',
+        'alcohol_content' => 'setAlcoholContent',
+        'alcohol_container' => 'setAlcoholContainer',
+        'alcohol_vintage_year' => 'setAlcoholVintageYear',
+        'alcohol_country' => 'setAlcoholCountry',
+        'alcohol_state' => 'setAlcoholState',
+        'alcohol_region' => 'setAlcoholRegion',
+        'alcohol_brand' => 'setAlcoholBrand',
+        'alcohol_upc_code' => 'setAlcoholUpcCode',
+        'alcohol_nambca_code' => 'setAlcoholNambcaCode',
+        'alcohol_unimerc_code' => 'setAlcoholUnimercCode',
+        'alcohol_scc_code' => 'setAlcoholSccCode',
+        'length' => 'setLength',
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'top_up' => 'setTopUp',
+        'ship_solo' => 'setShipSolo',
+        'available_quantity' => 'setAvailableQuantity',
+        'damaged_quantity' => 'setDamagedQuantity',
+        'in_fulfillment_process_quantity' => 'setInFulfillmentProcessQuantity',
+        'on_hand_quantity' => 'setOnHandQuantity',
+        'open_order_quantity' => 'setOpenOrderQuantity',
+        'open_po_quantity' => 'setOpenPoQuantity',
+        'orderable_quantity' => 'setOrderableQuantity',
+        'unallocatable_quantity' => 'setUnallocatableQuantity',
+        'unavailable_quantity' => 'setUnavailableQuantity',
+        'overall_days_on_hand' => 'setOverallDaysOnHand',
+        'overall_stock_status' => 'setOverallStockStatus',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -327,7 +426,40 @@ class Item implements ArrayAccess
         'forward_item_mixing_rule' => 'getForwardItemMixingRule',
         'storage_item_mixing_rule' => 'getStorageItemMixingRule',
         'allocation_rule' => 'getAllocationRule',
-        'hazmat' => 'getHazmat'
+        'barcode_field' => 'getBarcodeField',
+        'warehouse_display_field' => 'getWarehouseDisplayField',
+        'product_id_tag_scheme_id' => 'getProductIdTagSchemeId',
+        'hazmat' => 'getHazmat',
+        'is_alcohol' => 'getIsAlcohol',
+        'alcohol_type' => 'getAlcoholType',
+        'alcohol_content' => 'getAlcoholContent',
+        'alcohol_container' => 'getAlcoholContainer',
+        'alcohol_vintage_year' => 'getAlcoholVintageYear',
+        'alcohol_country' => 'getAlcoholCountry',
+        'alcohol_state' => 'getAlcoholState',
+        'alcohol_region' => 'getAlcoholRegion',
+        'alcohol_brand' => 'getAlcoholBrand',
+        'alcohol_upc_code' => 'getAlcoholUpcCode',
+        'alcohol_nambca_code' => 'getAlcoholNambcaCode',
+        'alcohol_unimerc_code' => 'getAlcoholUnimercCode',
+        'alcohol_scc_code' => 'getAlcoholSccCode',
+        'length' => 'getLength',
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'top_up' => 'getTopUp',
+        'ship_solo' => 'getShipSolo',
+        'available_quantity' => 'getAvailableQuantity',
+        'damaged_quantity' => 'getDamagedQuantity',
+        'in_fulfillment_process_quantity' => 'getInFulfillmentProcessQuantity',
+        'on_hand_quantity' => 'getOnHandQuantity',
+        'open_order_quantity' => 'getOpenOrderQuantity',
+        'open_po_quantity' => 'getOpenPoQuantity',
+        'orderable_quantity' => 'getOrderableQuantity',
+        'unallocatable_quantity' => 'getUnallocatableQuantity',
+        'unavailable_quantity' => 'getUnavailableQuantity',
+        'overall_days_on_hand' => 'getOverallDaysOnHand',
+        'overall_stock_status' => 'getOverallStockStatus',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -493,7 +625,7 @@ class Item implements ArrayAccess
     
     /**
       * $list_price 
-      * @var double
+      * @var Number
       */
     protected $list_price;
     
@@ -595,7 +727,7 @@ class Item implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
@@ -643,13 +775,13 @@ class Item implements ArrayAccess
     
     /**
       * $extrinsic_decimal1 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal1;
     
     /**
       * $extrinsic_decimal2 
-      * @var double
+      * @var Number
       */
     protected $extrinsic_decimal2;
     
@@ -696,10 +828,208 @@ class Item implements ArrayAccess
     protected $allocation_rule;
     
     /**
+      * $barcode_field 
+      * @var string
+      */
+    protected $barcode_field;
+    
+    /**
+      * $warehouse_display_field 
+      * @var string
+      */
+    protected $warehouse_display_field;
+    
+    /**
+      * $product_id_tag_scheme_id 
+      * @var int
+      */
+    protected $product_id_tag_scheme_id;
+    
+    /**
       * $hazmat 
       * @var string
       */
     protected $hazmat;
+    
+    /**
+      * $is_alcohol 
+      * @var bool
+      */
+    protected $is_alcohol = false;
+    
+    /**
+      * $alcohol_type 
+      * @var string
+      */
+    protected $alcohol_type;
+    
+    /**
+      * $alcohol_content 
+      * @var Number
+      */
+    protected $alcohol_content;
+    
+    /**
+      * $alcohol_container 
+      * @var string
+      */
+    protected $alcohol_container;
+    
+    /**
+      * $alcohol_vintage_year 
+      * @var string
+      */
+    protected $alcohol_vintage_year;
+    
+    /**
+      * $alcohol_country 
+      * @var string
+      */
+    protected $alcohol_country;
+    
+    /**
+      * $alcohol_state 
+      * @var string
+      */
+    protected $alcohol_state;
+    
+    /**
+      * $alcohol_region 
+      * @var string
+      */
+    protected $alcohol_region;
+    
+    /**
+      * $alcohol_brand 
+      * @var string
+      */
+    protected $alcohol_brand;
+    
+    /**
+      * $alcohol_upc_code 
+      * @var string
+      */
+    protected $alcohol_upc_code;
+    
+    /**
+      * $alcohol_nambca_code 
+      * @var string
+      */
+    protected $alcohol_nambca_code;
+    
+    /**
+      * $alcohol_unimerc_code 
+      * @var string
+      */
+    protected $alcohol_unimerc_code;
+    
+    /**
+      * $alcohol_scc_code 
+      * @var string
+      */
+    protected $alcohol_scc_code;
+    
+    /**
+      * $length 
+      * @var Number
+      */
+    protected $length;
+    
+    /**
+      * $width 
+      * @var Number
+      */
+    protected $width;
+    
+    /**
+      * $height 
+      * @var Number
+      */
+    protected $height;
+    
+    /**
+      * $top_up 
+      * @var bool
+      */
+    protected $top_up = false;
+    
+    /**
+      * $ship_solo 
+      * @var bool
+      */
+    protected $ship_solo = false;
+    
+    /**
+      * $available_quantity 
+      * @var int
+      */
+    protected $available_quantity;
+    
+    /**
+      * $damaged_quantity 
+      * @var int
+      */
+    protected $damaged_quantity;
+    
+    /**
+      * $in_fulfillment_process_quantity 
+      * @var int
+      */
+    protected $in_fulfillment_process_quantity;
+    
+    /**
+      * $on_hand_quantity 
+      * @var int
+      */
+    protected $on_hand_quantity;
+    
+    /**
+      * $open_order_quantity 
+      * @var int
+      */
+    protected $open_order_quantity;
+    
+    /**
+      * $open_po_quantity 
+      * @var int
+      */
+    protected $open_po_quantity;
+    
+    /**
+      * $orderable_quantity 
+      * @var int
+      */
+    protected $orderable_quantity;
+    
+    /**
+      * $unallocatable_quantity 
+      * @var int
+      */
+    protected $unallocatable_quantity;
+    
+    /**
+      * $unavailable_quantity 
+      * @var int
+      */
+    protected $unavailable_quantity;
+    
+    /**
+      * $overall_days_on_hand 
+      * @var int
+      */
+    protected $overall_days_on_hand;
+    
+    /**
+      * $overall_stock_status 
+      * @var string
+      */
+    protected $overall_stock_status;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -770,7 +1100,40 @@ class Item implements ArrayAccess
             $this->forward_item_mixing_rule = $data["forward_item_mixing_rule"];
             $this->storage_item_mixing_rule = $data["storage_item_mixing_rule"];
             $this->allocation_rule = $data["allocation_rule"];
+            $this->barcode_field = $data["barcode_field"];
+            $this->warehouse_display_field = $data["warehouse_display_field"];
+            $this->product_id_tag_scheme_id = $data["product_id_tag_scheme_id"];
             $this->hazmat = $data["hazmat"];
+            $this->is_alcohol = $data["is_alcohol"];
+            $this->alcohol_type = $data["alcohol_type"];
+            $this->alcohol_content = $data["alcohol_content"];
+            $this->alcohol_container = $data["alcohol_container"];
+            $this->alcohol_vintage_year = $data["alcohol_vintage_year"];
+            $this->alcohol_country = $data["alcohol_country"];
+            $this->alcohol_state = $data["alcohol_state"];
+            $this->alcohol_region = $data["alcohol_region"];
+            $this->alcohol_brand = $data["alcohol_brand"];
+            $this->alcohol_upc_code = $data["alcohol_upc_code"];
+            $this->alcohol_nambca_code = $data["alcohol_nambca_code"];
+            $this->alcohol_unimerc_code = $data["alcohol_unimerc_code"];
+            $this->alcohol_scc_code = $data["alcohol_scc_code"];
+            $this->length = $data["length"];
+            $this->width = $data["width"];
+            $this->height = $data["height"];
+            $this->top_up = $data["top_up"];
+            $this->ship_solo = $data["ship_solo"];
+            $this->available_quantity = $data["available_quantity"];
+            $this->damaged_quantity = $data["damaged_quantity"];
+            $this->in_fulfillment_process_quantity = $data["in_fulfillment_process_quantity"];
+            $this->on_hand_quantity = $data["on_hand_quantity"];
+            $this->open_order_quantity = $data["open_order_quantity"];
+            $this->open_po_quantity = $data["open_po_quantity"];
+            $this->orderable_quantity = $data["orderable_quantity"];
+            $this->unallocatable_quantity = $data["unallocatable_quantity"];
+            $this->unavailable_quantity = $data["unavailable_quantity"];
+            $this->overall_days_on_hand = $data["overall_days_on_hand"];
+            $this->overall_stock_status = $data["overall_stock_status"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -1322,7 +1685,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets list_price
-     * @return double
+     * @return Number
      */
     public function getListPrice()
     {
@@ -1331,7 +1694,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets list_price
-     * @param double $list_price 
+     * @param Number $list_price 
      * @return $this
      */
     public function setListPrice($list_price)
@@ -1679,7 +2042,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -1688,7 +2051,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -1847,7 +2210,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal1
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal1()
     {
@@ -1856,7 +2219,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal1
-     * @param double $extrinsic_decimal1 
+     * @param Number $extrinsic_decimal1 
      * @return $this
      */
     public function setExtrinsicDecimal1($extrinsic_decimal1)
@@ -1868,7 +2231,7 @@ class Item implements ArrayAccess
     
     /**
      * Gets extrinsic_decimal2
-     * @return double
+     * @return Number
      */
     public function getExtrinsicDecimal2()
     {
@@ -1877,7 +2240,7 @@ class Item implements ArrayAccess
   
     /**
      * Sets extrinsic_decimal2
-     * @param double $extrinsic_decimal2 
+     * @param Number $extrinsic_decimal2 
      * @return $this
      */
     public function setExtrinsicDecimal2($extrinsic_decimal2)
@@ -2035,6 +2398,69 @@ class Item implements ArrayAccess
     }
     
     /**
+     * Gets barcode_field
+     * @return string
+     */
+    public function getBarcodeField()
+    {
+        return $this->barcode_field;
+    }
+  
+    /**
+     * Sets barcode_field
+     * @param string $barcode_field 
+     * @return $this
+     */
+    public function setBarcodeField($barcode_field)
+    {
+        
+        $this->barcode_field = $barcode_field;
+        return $this;
+    }
+    
+    /**
+     * Gets warehouse_display_field
+     * @return string
+     */
+    public function getWarehouseDisplayField()
+    {
+        return $this->warehouse_display_field;
+    }
+  
+    /**
+     * Sets warehouse_display_field
+     * @param string $warehouse_display_field 
+     * @return $this
+     */
+    public function setWarehouseDisplayField($warehouse_display_field)
+    {
+        
+        $this->warehouse_display_field = $warehouse_display_field;
+        return $this;
+    }
+    
+    /**
+     * Gets product_id_tag_scheme_id
+     * @return int
+     */
+    public function getProductIdTagSchemeId()
+    {
+        return $this->product_id_tag_scheme_id;
+    }
+  
+    /**
+     * Sets product_id_tag_scheme_id
+     * @param int $product_id_tag_scheme_id 
+     * @return $this
+     */
+    public function setProductIdTagSchemeId($product_id_tag_scheme_id)
+    {
+        
+        $this->product_id_tag_scheme_id = $product_id_tag_scheme_id;
+        return $this;
+    }
+    
+    /**
      * Gets hazmat
      * @return string
      */
@@ -2052,6 +2478,636 @@ class Item implements ArrayAccess
     {
         
         $this->hazmat = $hazmat;
+        return $this;
+    }
+    
+    /**
+     * Gets is_alcohol
+     * @return bool
+     */
+    public function getIsAlcohol()
+    {
+        return $this->is_alcohol;
+    }
+  
+    /**
+     * Sets is_alcohol
+     * @param bool $is_alcohol 
+     * @return $this
+     */
+    public function setIsAlcohol($is_alcohol)
+    {
+        
+        $this->is_alcohol = $is_alcohol;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_type
+     * @return string
+     */
+    public function getAlcoholType()
+    {
+        return $this->alcohol_type;
+    }
+  
+    /**
+     * Sets alcohol_type
+     * @param string $alcohol_type 
+     * @return $this
+     */
+    public function setAlcoholType($alcohol_type)
+    {
+        
+        $this->alcohol_type = $alcohol_type;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_content
+     * @return Number
+     */
+    public function getAlcoholContent()
+    {
+        return $this->alcohol_content;
+    }
+  
+    /**
+     * Sets alcohol_content
+     * @param Number $alcohol_content 
+     * @return $this
+     */
+    public function setAlcoholContent($alcohol_content)
+    {
+        
+        $this->alcohol_content = $alcohol_content;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_container
+     * @return string
+     */
+    public function getAlcoholContainer()
+    {
+        return $this->alcohol_container;
+    }
+  
+    /**
+     * Sets alcohol_container
+     * @param string $alcohol_container 
+     * @return $this
+     */
+    public function setAlcoholContainer($alcohol_container)
+    {
+        
+        $this->alcohol_container = $alcohol_container;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_vintage_year
+     * @return string
+     */
+    public function getAlcoholVintageYear()
+    {
+        return $this->alcohol_vintage_year;
+    }
+  
+    /**
+     * Sets alcohol_vintage_year
+     * @param string $alcohol_vintage_year 
+     * @return $this
+     */
+    public function setAlcoholVintageYear($alcohol_vintage_year)
+    {
+        
+        $this->alcohol_vintage_year = $alcohol_vintage_year;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_country
+     * @return string
+     */
+    public function getAlcoholCountry()
+    {
+        return $this->alcohol_country;
+    }
+  
+    /**
+     * Sets alcohol_country
+     * @param string $alcohol_country 
+     * @return $this
+     */
+    public function setAlcoholCountry($alcohol_country)
+    {
+        
+        $this->alcohol_country = $alcohol_country;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_state
+     * @return string
+     */
+    public function getAlcoholState()
+    {
+        return $this->alcohol_state;
+    }
+  
+    /**
+     * Sets alcohol_state
+     * @param string $alcohol_state 
+     * @return $this
+     */
+    public function setAlcoholState($alcohol_state)
+    {
+        
+        $this->alcohol_state = $alcohol_state;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_region
+     * @return string
+     */
+    public function getAlcoholRegion()
+    {
+        return $this->alcohol_region;
+    }
+  
+    /**
+     * Sets alcohol_region
+     * @param string $alcohol_region 
+     * @return $this
+     */
+    public function setAlcoholRegion($alcohol_region)
+    {
+        
+        $this->alcohol_region = $alcohol_region;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_brand
+     * @return string
+     */
+    public function getAlcoholBrand()
+    {
+        return $this->alcohol_brand;
+    }
+  
+    /**
+     * Sets alcohol_brand
+     * @param string $alcohol_brand 
+     * @return $this
+     */
+    public function setAlcoholBrand($alcohol_brand)
+    {
+        
+        $this->alcohol_brand = $alcohol_brand;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_upc_code
+     * @return string
+     */
+    public function getAlcoholUpcCode()
+    {
+        return $this->alcohol_upc_code;
+    }
+  
+    /**
+     * Sets alcohol_upc_code
+     * @param string $alcohol_upc_code 
+     * @return $this
+     */
+    public function setAlcoholUpcCode($alcohol_upc_code)
+    {
+        
+        $this->alcohol_upc_code = $alcohol_upc_code;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_nambca_code
+     * @return string
+     */
+    public function getAlcoholNambcaCode()
+    {
+        return $this->alcohol_nambca_code;
+    }
+  
+    /**
+     * Sets alcohol_nambca_code
+     * @param string $alcohol_nambca_code 
+     * @return $this
+     */
+    public function setAlcoholNambcaCode($alcohol_nambca_code)
+    {
+        
+        $this->alcohol_nambca_code = $alcohol_nambca_code;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_unimerc_code
+     * @return string
+     */
+    public function getAlcoholUnimercCode()
+    {
+        return $this->alcohol_unimerc_code;
+    }
+  
+    /**
+     * Sets alcohol_unimerc_code
+     * @param string $alcohol_unimerc_code 
+     * @return $this
+     */
+    public function setAlcoholUnimercCode($alcohol_unimerc_code)
+    {
+        
+        $this->alcohol_unimerc_code = $alcohol_unimerc_code;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_scc_code
+     * @return string
+     */
+    public function getAlcoholSccCode()
+    {
+        return $this->alcohol_scc_code;
+    }
+  
+    /**
+     * Sets alcohol_scc_code
+     * @param string $alcohol_scc_code 
+     * @return $this
+     */
+    public function setAlcoholSccCode($alcohol_scc_code)
+    {
+        
+        $this->alcohol_scc_code = $alcohol_scc_code;
+        return $this;
+    }
+    
+    /**
+     * Gets length
+     * @return Number
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+  
+    /**
+     * Sets length
+     * @param Number $length 
+     * @return $this
+     */
+    public function setLength($length)
+    {
+        
+        $this->length = $length;
+        return $this;
+    }
+    
+    /**
+     * Gets width
+     * @return Number
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+  
+    /**
+     * Sets width
+     * @param Number $width 
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        
+        $this->width = $width;
+        return $this;
+    }
+    
+    /**
+     * Gets height
+     * @return Number
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+  
+    /**
+     * Sets height
+     * @param Number $height 
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        
+        $this->height = $height;
+        return $this;
+    }
+    
+    /**
+     * Gets top_up
+     * @return bool
+     */
+    public function getTopUp()
+    {
+        return $this->top_up;
+    }
+  
+    /**
+     * Sets top_up
+     * @param bool $top_up 
+     * @return $this
+     */
+    public function setTopUp($top_up)
+    {
+        
+        $this->top_up = $top_up;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_solo
+     * @return bool
+     */
+    public function getShipSolo()
+    {
+        return $this->ship_solo;
+    }
+  
+    /**
+     * Sets ship_solo
+     * @param bool $ship_solo 
+     * @return $this
+     */
+    public function setShipSolo($ship_solo)
+    {
+        
+        $this->ship_solo = $ship_solo;
+        return $this;
+    }
+    
+    /**
+     * Gets available_quantity
+     * @return int
+     */
+    public function getAvailableQuantity()
+    {
+        return $this->available_quantity;
+    }
+  
+    /**
+     * Sets available_quantity
+     * @param int $available_quantity 
+     * @return $this
+     */
+    public function setAvailableQuantity($available_quantity)
+    {
+        
+        $this->available_quantity = $available_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets damaged_quantity
+     * @return int
+     */
+    public function getDamagedQuantity()
+    {
+        return $this->damaged_quantity;
+    }
+  
+    /**
+     * Sets damaged_quantity
+     * @param int $damaged_quantity 
+     * @return $this
+     */
+    public function setDamagedQuantity($damaged_quantity)
+    {
+        
+        $this->damaged_quantity = $damaged_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets in_fulfillment_process_quantity
+     * @return int
+     */
+    public function getInFulfillmentProcessQuantity()
+    {
+        return $this->in_fulfillment_process_quantity;
+    }
+  
+    /**
+     * Sets in_fulfillment_process_quantity
+     * @param int $in_fulfillment_process_quantity 
+     * @return $this
+     */
+    public function setInFulfillmentProcessQuantity($in_fulfillment_process_quantity)
+    {
+        
+        $this->in_fulfillment_process_quantity = $in_fulfillment_process_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets on_hand_quantity
+     * @return int
+     */
+    public function getOnHandQuantity()
+    {
+        return $this->on_hand_quantity;
+    }
+  
+    /**
+     * Sets on_hand_quantity
+     * @param int $on_hand_quantity 
+     * @return $this
+     */
+    public function setOnHandQuantity($on_hand_quantity)
+    {
+        
+        $this->on_hand_quantity = $on_hand_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets open_order_quantity
+     * @return int
+     */
+    public function getOpenOrderQuantity()
+    {
+        return $this->open_order_quantity;
+    }
+  
+    /**
+     * Sets open_order_quantity
+     * @param int $open_order_quantity 
+     * @return $this
+     */
+    public function setOpenOrderQuantity($open_order_quantity)
+    {
+        
+        $this->open_order_quantity = $open_order_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets open_po_quantity
+     * @return int
+     */
+    public function getOpenPoQuantity()
+    {
+        return $this->open_po_quantity;
+    }
+  
+    /**
+     * Sets open_po_quantity
+     * @param int $open_po_quantity 
+     * @return $this
+     */
+    public function setOpenPoQuantity($open_po_quantity)
+    {
+        
+        $this->open_po_quantity = $open_po_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets orderable_quantity
+     * @return int
+     */
+    public function getOrderableQuantity()
+    {
+        return $this->orderable_quantity;
+    }
+  
+    /**
+     * Sets orderable_quantity
+     * @param int $orderable_quantity 
+     * @return $this
+     */
+    public function setOrderableQuantity($orderable_quantity)
+    {
+        
+        $this->orderable_quantity = $orderable_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets unallocatable_quantity
+     * @return int
+     */
+    public function getUnallocatableQuantity()
+    {
+        return $this->unallocatable_quantity;
+    }
+  
+    /**
+     * Sets unallocatable_quantity
+     * @param int $unallocatable_quantity 
+     * @return $this
+     */
+    public function setUnallocatableQuantity($unallocatable_quantity)
+    {
+        
+        $this->unallocatable_quantity = $unallocatable_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets unavailable_quantity
+     * @return int
+     */
+    public function getUnavailableQuantity()
+    {
+        return $this->unavailable_quantity;
+    }
+  
+    /**
+     * Sets unavailable_quantity
+     * @param int $unavailable_quantity 
+     * @return $this
+     */
+    public function setUnavailableQuantity($unavailable_quantity)
+    {
+        
+        $this->unavailable_quantity = $unavailable_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets overall_days_on_hand
+     * @return int
+     */
+    public function getOverallDaysOnHand()
+    {
+        return $this->overall_days_on_hand;
+    }
+  
+    /**
+     * Sets overall_days_on_hand
+     * @param int $overall_days_on_hand 
+     * @return $this
+     */
+    public function setOverallDaysOnHand($overall_days_on_hand)
+    {
+        
+        $this->overall_days_on_hand = $overall_days_on_hand;
+        return $this;
+    }
+    
+    /**
+     * Gets overall_stock_status
+     * @return string
+     */
+    public function getOverallStockStatus()
+    {
+        return $this->overall_stock_status;
+    }
+  
+    /**
+     * Sets overall_stock_status
+     * @param string $overall_stock_status 
+     * @return $this
+     */
+    public function setOverallStockStatus($overall_stock_status)
+    {
+        
+        $this->overall_stock_status = $overall_stock_status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

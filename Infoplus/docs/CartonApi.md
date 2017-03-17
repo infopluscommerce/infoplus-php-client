@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCarton**](CartonApi.md#addCarton) | **POST** /v1.0/carton | Create a carton
-[**deleteCarton**](CartonApi.md#deleteCarton) | **DELETE** /v1.0/carton/{cartonId} | Delete a carton
-[**getCartonByFilter**](CartonApi.md#getCartonByFilter) | **GET** /v1.0/carton/search | Search cartons by filter
-[**getCartonById**](CartonApi.md#getCartonById) | **GET** /v1.0/carton/{cartonId} | Get a carton by id
-[**updateCarton**](CartonApi.md#updateCarton) | **PUT** /v1.0/carton | Update a carton
+[**addCarton**](CartonApi.md#addCarton) | **POST** /beta/carton | Create a carton
+[**addCartonAudit**](CartonApi.md#addCartonAudit) | **PUT** /beta/carton/{cartonId}/audit/{cartonAudit} | Add new audit for a carton
+[**addCartonTag**](CartonApi.md#addCartonTag) | **PUT** /beta/carton/{cartonId}/tag/{cartonTag} | Add new tags for a carton.
+[**deleteCarton**](CartonApi.md#deleteCarton) | **DELETE** /beta/carton/{cartonId} | Delete a carton
+[**deleteCartonTag**](CartonApi.md#deleteCartonTag) | **DELETE** /beta/carton/{cartonId}/tag/{cartonTag} | Delete a tag for a carton.
+[**getCartonByFilter**](CartonApi.md#getCartonByFilter) | **GET** /beta/carton/search | Search cartons by filter
+[**getCartonById**](CartonApi.md#getCartonById) | **GET** /beta/carton/{cartonId} | Get a carton by id
+[**getCartonTags**](CartonApi.md#getCartonTags) | **GET** /beta/carton/{cartonId}/tag | Get the tags for a carton.
+[**getDuplicateCartonById**](CartonApi.md#getDuplicateCartonById) | **GET** /beta/carton/duplicate/{cartonId} | Get a duplicated a carton by id
+[**updateCarton**](CartonApi.md#updateCarton) | **PUT** /beta/carton | Update a carton
+[**updateCartonCustomFields**](CartonApi.md#updateCartonCustomFields) | **PUT** /beta/carton/customFields | Update a carton custom fields
 
 
 # **addCarton**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addCartonAudit**
+> addCartonAudit($carton_id, $carton_audit)
+
+Add new audit for a carton
+
+Adds an audit to an existing carton.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$carton_id = 56; // int | Id of the carton to add an audit to
+$carton_audit = "carton_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addCartonAudit($carton_id, $carton_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->addCartonAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **carton_id** | **int**| Id of the carton to add an audit to | 
+ **carton_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addCartonTag**
+> addCartonTag($carton_id, $carton_tag)
+
+Add new tags for a carton.
+
+Adds a tag to an existing carton.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$carton_id = 56; // int | Id of the carton to add a tag to
+$carton_tag = "carton_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addCartonTag($carton_id, $carton_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->addCartonTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **carton_id** | **int**| Id of the carton to add a tag to | 
+ **carton_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteCarton**
 > deleteCarton($carton_id)
 
@@ -94,6 +202,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **carton_id** | **int**| Id of the carton to be deleted. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteCartonTag**
+> deleteCartonTag($carton_id, $carton_tag)
+
+Delete a tag for a carton.
+
+Deletes an existing carton tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$carton_id = 56; // int | Id of the carton to remove tag from
+$carton_tag = "carton_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteCartonTag($carton_id, $carton_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->deleteCartonTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **carton_id** | **int**| Id of the carton to remove tag from | 
+ **carton_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -216,6 +375,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getCartonTags**
+> getCartonTags($carton_id)
+
+Get the tags for a carton.
+
+Get all existing carton tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$carton_id = 56; // int | Id of the carton to get tags for
+
+try { 
+    $api_instance->getCartonTags($carton_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->getCartonTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **carton_id** | **int**| Id of the carton to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateCartonById**
+> \Infoplus\Model\Carton getDuplicateCartonById($carton_id)
+
+Get a duplicated a carton by id
+
+Returns a duplicated carton identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$carton_id = 56; // int | Id of the carton to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateCartonById($carton_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->getDuplicateCartonById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **carton_id** | **int**| Id of the carton to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\Carton**](Carton.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateCarton**
 > updateCarton($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateCarton($body);
 } catch (Exception $e) {
     echo 'Exception when calling CartonApi->updateCarton: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Carton**](\Infoplus\Model\Carton.md)| Carton to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateCartonCustomFields**
+> updateCartonCustomFields($body)
+
+Update a carton custom fields
+
+Updates an existing carton custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CartonApi();
+$body = new \Infoplus\Model\Carton(); // \Infoplus\Model\Carton | Carton to be updated.
+
+try { 
+    $api_instance->updateCartonCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling CartonApi->updateCartonCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

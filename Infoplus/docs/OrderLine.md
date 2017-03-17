@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**order_no** | **double** |  | 
+**order_no** | [**Number**](Number.md) |  | 
 **lob_id** | **int** |  | 
 **sku** | **string** |  | 
 **po_no_id** | **int** |  | [optional] 
@@ -18,13 +18,16 @@ Name | Type | Description | Notes
 **upc** | **string** |  | [optional] 
 **vendor_sku** | **string** |  | [optional] 
 **order_source_sku** | **string** |  | [optional] 
-**unit_cost** | **double** |  | [optional] 
-**unit_sell** | **double** |  | [optional] 
-**extended_cost** | **double** |  | [optional] 
-**extended_sell** | **double** |  | [optional] 
-**nc_extended_sell** | **double** |  | [optional] 
-**item_weight** | **double** |  | [optional] 
-**weight_per_wrap** | **double** |  | [optional] 
+**unit_cost** | [**Number**](Number.md) |  | [optional] 
+**unit_sell** | [**Number**](Number.md) |  | [optional] 
+**unit_discount** | [**Number**](Number.md) |  | [optional] 
+**extended_cost** | [**Number**](Number.md) |  | [optional] 
+**extended_sell** | [**Number**](Number.md) |  | [optional] 
+**extended_discount** | [**Number**](Number.md) |  | [optional] 
+**nc_extended_sell** | [**Number**](Number.md) |  | [optional] 
+**item_weight** | [**Number**](Number.md) |  | [optional] 
+**production_lot** | **string** |  | [optional] 
+**weight_per_wrap** | [**Number**](Number.md) |  | [optional] 
 **sector** | **string** |  | [optional] 
 **item_account_code_id** | **int** |  | 
 **item_legacy_low_stock_contact_id** | **int** |  | 
@@ -32,6 +35,7 @@ Name | Type | Description | Notes
 **item_sub_group_id** | **int** |  | 
 **item_product_code_id** | **int** |  | [optional] 
 **item_summary_code_id** | **int** |  | 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -51,12 +51,13 @@ class Order implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'order_no' => 'double',
+        'order_no' => 'Number',
         'customer_order_no' => 'string',
         'lob_id' => 'int',
         'warehouse_id' => 'int',
         'order_date' => '\DateTime',
         'customer_no' => 'string',
+        'use_order_no_root' => 'int',
         'first_ship_date' => '\DateTime',
         'last_ship_date' => '\DateTime',
         'deliver_on_date' => '\DateTime',
@@ -68,9 +69,9 @@ class Order implements ArrayAccess
         'legacy_restriction_type' => 'string',
         'alcohol_order_type' => 'string',
         'alternate_usage' => 'string',
-        'authorization_amount' => 'double',
+        'authorization_amount' => 'Number',
         'authorized_by' => 'string',
-        'balance_due' => 'double',
+        'balance_due' => 'Number',
         'batch_no' => 'string',
         'bill_to_attention' => 'string',
         'bill_to_company' => 'string',
@@ -87,31 +88,35 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'int',
         'completion_status' => 'string',
         'parcel_account_id' => 'int',
+        'third_party_parcel_account_id' => 'int',
         'cost_center' => 'string',
         'create_date' => '\DateTime',
         'customer_po_no' => 'string',
         'distribution_channel' => 'string',
-        'distribution_charges' => 'double',
+        'distribution_charges' => 'Number',
         'division' => 'int',
         'entered_by' => 'string',
-        'estimated_weight_lbs' => 'double',
-        'freight' => 'double',
+        'estimated_weight_lbs' => 'Number',
+        'freight' => 'Number',
         'gift_message' => 'string',
-        'group_order_id' => 'double',
+        'group_order_id' => 'Number',
         'hold_code' => 'string',
         'integration_partner_id' => 'int',
         'number_of_line_items' => 'int',
+        'estimated_number_of_picks' => 'int',
         'modify_date' => '\DateTime',
-        'oms_order_id' => 'int',
         'oms_order_no' => 'int',
+        'oms_customer_id' => 'int',
         'order_load_program_id' => 'int',
         'order_message' => 'string',
         'order_reason' => 'int',
         'order_source_id' => 'int',
         'packing_slip_template_id' => 'int',
+        'order_invoice_template_id' => 'int',
         'order_confirmation_email_template_id' => 'int',
         'shipment_confirmation_email_template_id' => 'int',
         'price_level' => 'string',
+        'price_mode' => 'string',
         'priority_code' => 'int',
         'fulfillment_process_id' => 'int',
         'ship_by' => '\DateTime',
@@ -128,16 +133,20 @@ class Order implements ArrayAccess
         'ship_to_country' => 'string',
         'ship_to_phone' => 'string',
         'ship_to_email' => 'string',
-        'shipping_charge' => 'double',
+        'shipping_charge' => 'Number',
         'status' => 'string',
         'stop_back_orders' => 'string',
-        'subtotal' => 'double',
-        'tax' => 'double',
-        'total' => 'double',
-        'total_paid' => 'double',
+        'subtotal' => 'Number',
+        'tax' => 'Number',
+        'total' => 'Number',
+        'total_paid' => 'Number',
         'total_qty' => 'int',
-        'weight_lbs' => 'double',
-        'line_items' => '\Infoplus\Model\OrderLine[]'
+        'weight_lbs' => 'Number',
+        'line_items' => '\Infoplus\Model\OrderLine[]',
+        'extra_order_data' => '\Infoplus\Model\OrderExtraOrderData[]',
+        'extra_line_item_data' => '\Infoplus\Model\OrderExtraLineItemData[]',
+        'external_shipping_system_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -155,6 +164,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'warehouseId',
         'order_date' => 'orderDate',
         'customer_no' => 'customerNo',
+        'use_order_no_root' => 'useOrderNoRoot',
         'first_ship_date' => 'firstShipDate',
         'last_ship_date' => 'lastShipDate',
         'deliver_on_date' => 'deliverOnDate',
@@ -185,6 +195,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'numberOfPallets',
         'completion_status' => 'completionStatus',
         'parcel_account_id' => 'parcelAccountId',
+        'third_party_parcel_account_id' => 'thirdPartyParcelAccountId',
         'cost_center' => 'costCenter',
         'create_date' => 'createDate',
         'customer_po_no' => 'customerPONo',
@@ -199,17 +210,20 @@ class Order implements ArrayAccess
         'hold_code' => 'holdCode',
         'integration_partner_id' => 'integrationPartnerId',
         'number_of_line_items' => 'numberOfLineItems',
+        'estimated_number_of_picks' => 'estimatedNumberOfPicks',
         'modify_date' => 'modifyDate',
-        'oms_order_id' => 'omsOrderId',
         'oms_order_no' => 'omsOrderNo',
+        'oms_customer_id' => 'omsCustomerId',
         'order_load_program_id' => 'orderLoadProgramId',
         'order_message' => 'orderMessage',
         'order_reason' => 'orderReason',
         'order_source_id' => 'orderSourceId',
         'packing_slip_template_id' => 'packingSlipTemplateId',
+        'order_invoice_template_id' => 'orderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'orderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'shipmentConfirmationEmailTemplateId',
         'price_level' => 'priceLevel',
+        'price_mode' => 'priceMode',
         'priority_code' => 'priorityCode',
         'fulfillment_process_id' => 'fulfillmentProcessId',
         'ship_by' => 'shipBy',
@@ -235,7 +249,11 @@ class Order implements ArrayAccess
         'total_paid' => 'totalPaid',
         'total_qty' => 'totalQty',
         'weight_lbs' => 'weightLbs',
-        'line_items' => 'lineItems'
+        'line_items' => 'lineItems',
+        'extra_order_data' => 'extraOrderData',
+        'extra_line_item_data' => 'extraLineItemData',
+        'external_shipping_system_id' => 'externalShippingSystemId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -253,6 +271,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'setWarehouseId',
         'order_date' => 'setOrderDate',
         'customer_no' => 'setCustomerNo',
+        'use_order_no_root' => 'setUseOrderNoRoot',
         'first_ship_date' => 'setFirstShipDate',
         'last_ship_date' => 'setLastShipDate',
         'deliver_on_date' => 'setDeliverOnDate',
@@ -283,6 +302,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'setNumberOfPallets',
         'completion_status' => 'setCompletionStatus',
         'parcel_account_id' => 'setParcelAccountId',
+        'third_party_parcel_account_id' => 'setThirdPartyParcelAccountId',
         'cost_center' => 'setCostCenter',
         'create_date' => 'setCreateDate',
         'customer_po_no' => 'setCustomerPoNo',
@@ -297,17 +317,20 @@ class Order implements ArrayAccess
         'hold_code' => 'setHoldCode',
         'integration_partner_id' => 'setIntegrationPartnerId',
         'number_of_line_items' => 'setNumberOfLineItems',
+        'estimated_number_of_picks' => 'setEstimatedNumberOfPicks',
         'modify_date' => 'setModifyDate',
-        'oms_order_id' => 'setOmsOrderId',
         'oms_order_no' => 'setOmsOrderNo',
+        'oms_customer_id' => 'setOmsCustomerId',
         'order_load_program_id' => 'setOrderLoadProgramId',
         'order_message' => 'setOrderMessage',
         'order_reason' => 'setOrderReason',
         'order_source_id' => 'setOrderSourceId',
         'packing_slip_template_id' => 'setPackingSlipTemplateId',
+        'order_invoice_template_id' => 'setOrderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'setOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'setShipmentConfirmationEmailTemplateId',
         'price_level' => 'setPriceLevel',
+        'price_mode' => 'setPriceMode',
         'priority_code' => 'setPriorityCode',
         'fulfillment_process_id' => 'setFulfillmentProcessId',
         'ship_by' => 'setShipBy',
@@ -333,7 +356,11 @@ class Order implements ArrayAccess
         'total_paid' => 'setTotalPaid',
         'total_qty' => 'setTotalQty',
         'weight_lbs' => 'setWeightLbs',
-        'line_items' => 'setLineItems'
+        'line_items' => 'setLineItems',
+        'extra_order_data' => 'setExtraOrderData',
+        'extra_line_item_data' => 'setExtraLineItemData',
+        'external_shipping_system_id' => 'setExternalShippingSystemId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -351,6 +378,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'getWarehouseId',
         'order_date' => 'getOrderDate',
         'customer_no' => 'getCustomerNo',
+        'use_order_no_root' => 'getUseOrderNoRoot',
         'first_ship_date' => 'getFirstShipDate',
         'last_ship_date' => 'getLastShipDate',
         'deliver_on_date' => 'getDeliverOnDate',
@@ -381,6 +409,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'getNumberOfPallets',
         'completion_status' => 'getCompletionStatus',
         'parcel_account_id' => 'getParcelAccountId',
+        'third_party_parcel_account_id' => 'getThirdPartyParcelAccountId',
         'cost_center' => 'getCostCenter',
         'create_date' => 'getCreateDate',
         'customer_po_no' => 'getCustomerPoNo',
@@ -395,17 +424,20 @@ class Order implements ArrayAccess
         'hold_code' => 'getHoldCode',
         'integration_partner_id' => 'getIntegrationPartnerId',
         'number_of_line_items' => 'getNumberOfLineItems',
+        'estimated_number_of_picks' => 'getEstimatedNumberOfPicks',
         'modify_date' => 'getModifyDate',
-        'oms_order_id' => 'getOmsOrderId',
         'oms_order_no' => 'getOmsOrderNo',
+        'oms_customer_id' => 'getOmsCustomerId',
         'order_load_program_id' => 'getOrderLoadProgramId',
         'order_message' => 'getOrderMessage',
         'order_reason' => 'getOrderReason',
         'order_source_id' => 'getOrderSourceId',
         'packing_slip_template_id' => 'getPackingSlipTemplateId',
+        'order_invoice_template_id' => 'getOrderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'getOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'getShipmentConfirmationEmailTemplateId',
         'price_level' => 'getPriceLevel',
+        'price_mode' => 'getPriceMode',
         'priority_code' => 'getPriorityCode',
         'fulfillment_process_id' => 'getFulfillmentProcessId',
         'ship_by' => 'getShipBy',
@@ -431,7 +463,11 @@ class Order implements ArrayAccess
         'total_paid' => 'getTotalPaid',
         'total_qty' => 'getTotalQty',
         'weight_lbs' => 'getWeightLbs',
-        'line_items' => 'getLineItems'
+        'line_items' => 'getLineItems',
+        'extra_order_data' => 'getExtraOrderData',
+        'extra_line_item_data' => 'getExtraLineItemData',
+        'external_shipping_system_id' => 'getExternalShippingSystemId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -441,7 +477,7 @@ class Order implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -474,6 +510,12 @@ class Order implements ArrayAccess
       * @var string
       */
     protected $customer_no;
+    
+    /**
+      * $use_order_no_root 
+      * @var int
+      */
+    protected $use_order_no_root;
     
     /**
       * $first_ship_date 
@@ -543,7 +585,7 @@ class Order implements ArrayAccess
     
     /**
       * $authorization_amount 
-      * @var double
+      * @var Number
       */
     protected $authorization_amount;
     
@@ -555,7 +597,7 @@ class Order implements ArrayAccess
     
     /**
       * $balance_due 
-      * @var double
+      * @var Number
       */
     protected $balance_due;
     
@@ -656,6 +698,12 @@ class Order implements ArrayAccess
     protected $parcel_account_id;
     
     /**
+      * $third_party_parcel_account_id 
+      * @var int
+      */
+    protected $third_party_parcel_account_id;
+    
+    /**
       * $cost_center 
       * @var string
       */
@@ -681,7 +729,7 @@ class Order implements ArrayAccess
     
     /**
       * $distribution_charges 
-      * @var double
+      * @var Number
       */
     protected $distribution_charges;
     
@@ -699,13 +747,13 @@ class Order implements ArrayAccess
     
     /**
       * $estimated_weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $estimated_weight_lbs;
     
     /**
       * $freight 
-      * @var double
+      * @var Number
       */
     protected $freight;
     
@@ -717,7 +765,7 @@ class Order implements ArrayAccess
     
     /**
       * $group_order_id 
-      * @var double
+      * @var Number
       */
     protected $group_order_id;
     
@@ -740,22 +788,28 @@ class Order implements ArrayAccess
     protected $number_of_line_items;
     
     /**
+      * $estimated_number_of_picks 
+      * @var int
+      */
+    protected $estimated_number_of_picks;
+    
+    /**
       * $modify_date 
       * @var \DateTime
       */
     protected $modify_date;
     
     /**
-      * $oms_order_id 
-      * @var int
-      */
-    protected $oms_order_id;
-    
-    /**
       * $oms_order_no 
       * @var int
       */
     protected $oms_order_no;
+    
+    /**
+      * $oms_customer_id 
+      * @var int
+      */
+    protected $oms_customer_id;
     
     /**
       * $order_load_program_id 
@@ -788,6 +842,12 @@ class Order implements ArrayAccess
     protected $packing_slip_template_id;
     
     /**
+      * $order_invoice_template_id 
+      * @var int
+      */
+    protected $order_invoice_template_id;
+    
+    /**
       * $order_confirmation_email_template_id 
       * @var int
       */
@@ -804,6 +864,12 @@ class Order implements ArrayAccess
       * @var string
       */
     protected $price_level;
+    
+    /**
+      * $price_mode 
+      * @var string
+      */
+    protected $price_mode;
     
     /**
       * $priority_code 
@@ -903,7 +969,7 @@ class Order implements ArrayAccess
     
     /**
       * $shipping_charge 
-      * @var double
+      * @var Number
       */
     protected $shipping_charge;
     
@@ -921,25 +987,25 @@ class Order implements ArrayAccess
     
     /**
       * $subtotal 
-      * @var double
+      * @var Number
       */
     protected $subtotal;
     
     /**
       * $tax 
-      * @var double
+      * @var Number
       */
     protected $tax;
     
     /**
       * $total 
-      * @var double
+      * @var Number
       */
     protected $total;
     
     /**
       * $total_paid 
-      * @var double
+      * @var Number
       */
     protected $total_paid;
     
@@ -951,7 +1017,7 @@ class Order implements ArrayAccess
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
     
@@ -960,6 +1026,30 @@ class Order implements ArrayAccess
       * @var \Infoplus\Model\OrderLine[]
       */
     protected $line_items;
+    
+    /**
+      * $extra_order_data 
+      * @var \Infoplus\Model\OrderExtraOrderData[]
+      */
+    protected $extra_order_data;
+    
+    /**
+      * $extra_line_item_data 
+      * @var \Infoplus\Model\OrderExtraLineItemData[]
+      */
+    protected $extra_line_item_data;
+    
+    /**
+      * $external_shipping_system_id 
+      * @var int
+      */
+    protected $external_shipping_system_id;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -976,6 +1066,7 @@ class Order implements ArrayAccess
             $this->warehouse_id = $data["warehouse_id"];
             $this->order_date = $data["order_date"];
             $this->customer_no = $data["customer_no"];
+            $this->use_order_no_root = $data["use_order_no_root"];
             $this->first_ship_date = $data["first_ship_date"];
             $this->last_ship_date = $data["last_ship_date"];
             $this->deliver_on_date = $data["deliver_on_date"];
@@ -1006,6 +1097,7 @@ class Order implements ArrayAccess
             $this->number_of_pallets = $data["number_of_pallets"];
             $this->completion_status = $data["completion_status"];
             $this->parcel_account_id = $data["parcel_account_id"];
+            $this->third_party_parcel_account_id = $data["third_party_parcel_account_id"];
             $this->cost_center = $data["cost_center"];
             $this->create_date = $data["create_date"];
             $this->customer_po_no = $data["customer_po_no"];
@@ -1020,17 +1112,20 @@ class Order implements ArrayAccess
             $this->hold_code = $data["hold_code"];
             $this->integration_partner_id = $data["integration_partner_id"];
             $this->number_of_line_items = $data["number_of_line_items"];
+            $this->estimated_number_of_picks = $data["estimated_number_of_picks"];
             $this->modify_date = $data["modify_date"];
-            $this->oms_order_id = $data["oms_order_id"];
             $this->oms_order_no = $data["oms_order_no"];
+            $this->oms_customer_id = $data["oms_customer_id"];
             $this->order_load_program_id = $data["order_load_program_id"];
             $this->order_message = $data["order_message"];
             $this->order_reason = $data["order_reason"];
             $this->order_source_id = $data["order_source_id"];
             $this->packing_slip_template_id = $data["packing_slip_template_id"];
+            $this->order_invoice_template_id = $data["order_invoice_template_id"];
             $this->order_confirmation_email_template_id = $data["order_confirmation_email_template_id"];
             $this->shipment_confirmation_email_template_id = $data["shipment_confirmation_email_template_id"];
             $this->price_level = $data["price_level"];
+            $this->price_mode = $data["price_mode"];
             $this->priority_code = $data["priority_code"];
             $this->fulfillment_process_id = $data["fulfillment_process_id"];
             $this->ship_by = $data["ship_by"];
@@ -1057,12 +1152,16 @@ class Order implements ArrayAccess
             $this->total_qty = $data["total_qty"];
             $this->weight_lbs = $data["weight_lbs"];
             $this->line_items = $data["line_items"];
+            $this->extra_order_data = $data["extra_order_data"];
+            $this->extra_line_item_data = $data["extra_line_item_data"];
+            $this->external_shipping_system_id = $data["external_shipping_system_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -1071,7 +1170,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -1183,6 +1282,27 @@ class Order implements ArrayAccess
     {
         
         $this->customer_no = $customer_no;
+        return $this;
+    }
+    
+    /**
+     * Gets use_order_no_root
+     * @return int
+     */
+    public function getUseOrderNoRoot()
+    {
+        return $this->use_order_no_root;
+    }
+  
+    /**
+     * Sets use_order_no_root
+     * @param int $use_order_no_root 
+     * @return $this
+     */
+    public function setUseOrderNoRoot($use_order_no_root)
+    {
+        
+        $this->use_order_no_root = $use_order_no_root;
         return $this;
     }
     
@@ -1419,7 +1539,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets authorization_amount
-     * @return double
+     * @return Number
      */
     public function getAuthorizationAmount()
     {
@@ -1428,7 +1548,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets authorization_amount
-     * @param double $authorization_amount 
+     * @param Number $authorization_amount 
      * @return $this
      */
     public function setAuthorizationAmount($authorization_amount)
@@ -1461,7 +1581,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets balance_due
-     * @return double
+     * @return Number
      */
     public function getBalanceDue()
     {
@@ -1470,7 +1590,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets balance_due
-     * @param double $balance_due 
+     * @param Number $balance_due 
      * @return $this
      */
     public function setBalanceDue($balance_due)
@@ -1817,6 +1937,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets third_party_parcel_account_id
+     * @return int
+     */
+    public function getThirdPartyParcelAccountId()
+    {
+        return $this->third_party_parcel_account_id;
+    }
+  
+    /**
+     * Sets third_party_parcel_account_id
+     * @param int $third_party_parcel_account_id 
+     * @return $this
+     */
+    public function setThirdPartyParcelAccountId($third_party_parcel_account_id)
+    {
+        
+        $this->third_party_parcel_account_id = $third_party_parcel_account_id;
+        return $this;
+    }
+    
+    /**
      * Gets cost_center
      * @return string
      */
@@ -1902,7 +2043,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets distribution_charges
-     * @return double
+     * @return Number
      */
     public function getDistributionCharges()
     {
@@ -1911,7 +2052,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets distribution_charges
-     * @param double $distribution_charges 
+     * @param Number $distribution_charges 
      * @return $this
      */
     public function setDistributionCharges($distribution_charges)
@@ -1965,7 +2106,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets estimated_weight_lbs
-     * @return double
+     * @return Number
      */
     public function getEstimatedWeightLbs()
     {
@@ -1974,7 +2115,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets estimated_weight_lbs
-     * @param double $estimated_weight_lbs 
+     * @param Number $estimated_weight_lbs 
      * @return $this
      */
     public function setEstimatedWeightLbs($estimated_weight_lbs)
@@ -1986,7 +2127,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets freight
-     * @return double
+     * @return Number
      */
     public function getFreight()
     {
@@ -1995,7 +2136,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets freight
-     * @param double $freight 
+     * @param Number $freight 
      * @return $this
      */
     public function setFreight($freight)
@@ -2028,7 +2169,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets group_order_id
-     * @return double
+     * @return Number
      */
     public function getGroupOrderId()
     {
@@ -2037,7 +2178,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets group_order_id
-     * @param double $group_order_id 
+     * @param Number $group_order_id 
      * @return $this
      */
     public function setGroupOrderId($group_order_id)
@@ -2111,6 +2252,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets estimated_number_of_picks
+     * @return int
+     */
+    public function getEstimatedNumberOfPicks()
+    {
+        return $this->estimated_number_of_picks;
+    }
+  
+    /**
+     * Sets estimated_number_of_picks
+     * @param int $estimated_number_of_picks 
+     * @return $this
+     */
+    public function setEstimatedNumberOfPicks($estimated_number_of_picks)
+    {
+        
+        $this->estimated_number_of_picks = $estimated_number_of_picks;
+        return $this;
+    }
+    
+    /**
      * Gets modify_date
      * @return \DateTime
      */
@@ -2132,27 +2294,6 @@ class Order implements ArrayAccess
     }
     
     /**
-     * Gets oms_order_id
-     * @return int
-     */
-    public function getOmsOrderId()
-    {
-        return $this->oms_order_id;
-    }
-  
-    /**
-     * Sets oms_order_id
-     * @param int $oms_order_id 
-     * @return $this
-     */
-    public function setOmsOrderId($oms_order_id)
-    {
-        
-        $this->oms_order_id = $oms_order_id;
-        return $this;
-    }
-    
-    /**
      * Gets oms_order_no
      * @return int
      */
@@ -2170,6 +2311,27 @@ class Order implements ArrayAccess
     {
         
         $this->oms_order_no = $oms_order_no;
+        return $this;
+    }
+    
+    /**
+     * Gets oms_customer_id
+     * @return int
+     */
+    public function getOmsCustomerId()
+    {
+        return $this->oms_customer_id;
+    }
+  
+    /**
+     * Sets oms_customer_id
+     * @param int $oms_customer_id 
+     * @return $this
+     */
+    public function setOmsCustomerId($oms_customer_id)
+    {
+        
+        $this->oms_customer_id = $oms_customer_id;
         return $this;
     }
     
@@ -2279,6 +2441,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets order_invoice_template_id
+     * @return int
+     */
+    public function getOrderInvoiceTemplateId()
+    {
+        return $this->order_invoice_template_id;
+    }
+  
+    /**
+     * Sets order_invoice_template_id
+     * @param int $order_invoice_template_id 
+     * @return $this
+     */
+    public function setOrderInvoiceTemplateId($order_invoice_template_id)
+    {
+        
+        $this->order_invoice_template_id = $order_invoice_template_id;
+        return $this;
+    }
+    
+    /**
      * Gets order_confirmation_email_template_id
      * @return int
      */
@@ -2338,6 +2521,27 @@ class Order implements ArrayAccess
     {
         
         $this->price_level = $price_level;
+        return $this;
+    }
+    
+    /**
+     * Gets price_mode
+     * @return string
+     */
+    public function getPriceMode()
+    {
+        return $this->price_mode;
+    }
+  
+    /**
+     * Sets price_mode
+     * @param string $price_mode 
+     * @return $this
+     */
+    public function setPriceMode($price_mode)
+    {
+        
+        $this->price_mode = $price_mode;
         return $this;
     }
     
@@ -2679,7 +2883,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets shipping_charge
-     * @return double
+     * @return Number
      */
     public function getShippingCharge()
     {
@@ -2688,7 +2892,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets shipping_charge
-     * @param double $shipping_charge 
+     * @param Number $shipping_charge 
      * @return $this
      */
     public function setShippingCharge($shipping_charge)
@@ -2742,7 +2946,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets subtotal
-     * @return double
+     * @return Number
      */
     public function getSubtotal()
     {
@@ -2751,7 +2955,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets subtotal
-     * @param double $subtotal 
+     * @param Number $subtotal 
      * @return $this
      */
     public function setSubtotal($subtotal)
@@ -2763,7 +2967,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets tax
-     * @return double
+     * @return Number
      */
     public function getTax()
     {
@@ -2772,7 +2976,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets tax
-     * @param double $tax 
+     * @param Number $tax 
      * @return $this
      */
     public function setTax($tax)
@@ -2784,7 +2988,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets total
-     * @return double
+     * @return Number
      */
     public function getTotal()
     {
@@ -2793,7 +2997,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets total
-     * @param double $total 
+     * @param Number $total 
      * @return $this
      */
     public function setTotal($total)
@@ -2805,7 +3009,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets total_paid
-     * @return double
+     * @return Number
      */
     public function getTotalPaid()
     {
@@ -2814,7 +3018,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets total_paid
-     * @param double $total_paid 
+     * @param Number $total_paid 
      * @return $this
      */
     public function setTotalPaid($total_paid)
@@ -2847,7 +3051,7 @@ class Order implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -2856,7 +3060,7 @@ class Order implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
@@ -2884,6 +3088,90 @@ class Order implements ArrayAccess
     {
         
         $this->line_items = $line_items;
+        return $this;
+    }
+    
+    /**
+     * Gets extra_order_data
+     * @return \Infoplus\Model\OrderExtraOrderData[]
+     */
+    public function getExtraOrderData()
+    {
+        return $this->extra_order_data;
+    }
+  
+    /**
+     * Sets extra_order_data
+     * @param \Infoplus\Model\OrderExtraOrderData[] $extra_order_data 
+     * @return $this
+     */
+    public function setExtraOrderData($extra_order_data)
+    {
+        
+        $this->extra_order_data = $extra_order_data;
+        return $this;
+    }
+    
+    /**
+     * Gets extra_line_item_data
+     * @return \Infoplus\Model\OrderExtraLineItemData[]
+     */
+    public function getExtraLineItemData()
+    {
+        return $this->extra_line_item_data;
+    }
+  
+    /**
+     * Sets extra_line_item_data
+     * @param \Infoplus\Model\OrderExtraLineItemData[] $extra_line_item_data 
+     * @return $this
+     */
+    public function setExtraLineItemData($extra_line_item_data)
+    {
+        
+        $this->extra_line_item_data = $extra_line_item_data;
+        return $this;
+    }
+    
+    /**
+     * Gets external_shipping_system_id
+     * @return int
+     */
+    public function getExternalShippingSystemId()
+    {
+        return $this->external_shipping_system_id;
+    }
+  
+    /**
+     * Sets external_shipping_system_id
+     * @param int $external_shipping_system_id 
+     * @return $this
+     */
+    public function setExternalShippingSystemId($external_shipping_system_id)
+    {
+        
+        $this->external_shipping_system_id = $external_shipping_system_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

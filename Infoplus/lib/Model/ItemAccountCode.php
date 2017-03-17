@@ -51,8 +51,11 @@ class ItemAccountCode implements ArrayAccess
       * @var string[]
       */
     static $swaggerTypes = array(
-        'id' => 'int',
-        'label' => 'string'
+        'lob_id' => 'int',
+        'internal_id' => 'int',
+        'id' => 'string',
+        'name' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -64,8 +67,11 @@ class ItemAccountCode implements ArrayAccess
       * @var string[] 
       */
     static $attributeMap = array(
+        'lob_id' => 'lobId',
+        'internal_id' => 'internalId',
         'id' => 'id',
-        'label' => 'label'
+        'name' => 'name',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -77,8 +83,11 @@ class ItemAccountCode implements ArrayAccess
       * @var string[]
       */
     static $setters = array(
+        'lob_id' => 'setLobId',
+        'internal_id' => 'setInternalId',
         'id' => 'setId',
-        'label' => 'setLabel'
+        'name' => 'setName',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -90,8 +99,11 @@ class ItemAccountCode implements ArrayAccess
       * @var string[]
       */
     static $getters = array(
+        'lob_id' => 'getLobId',
+        'internal_id' => 'getInternalId',
         'id' => 'getId',
-        'label' => 'getLabel'
+        'name' => 'getName',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -100,16 +112,34 @@ class ItemAccountCode implements ArrayAccess
 
     
     /**
-      * $id 
+      * $lob_id 
       * @var int
+      */
+    protected $lob_id;
+    
+    /**
+      * $internal_id 
+      * @var int
+      */
+    protected $internal_id;
+    
+    /**
+      * $id 
+      * @var string
       */
     protected $id;
     
     /**
-      * $label 
+      * $name 
       * @var string
       */
-    protected $label;
+    protected $name;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -120,14 +150,59 @@ class ItemAccountCode implements ArrayAccess
     {
         
         if ($data != null) {
+            $this->lob_id = $data["lob_id"];
+            $this->internal_id = $data["internal_id"];
             $this->id = $data["id"];
-            $this->label = $data["label"];
+            $this->name = $data["name"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
     /**
-     * Gets id
+     * Gets lob_id
      * @return int
+     */
+    public function getLobId()
+    {
+        return $this->lob_id;
+    }
+  
+    /**
+     * Sets lob_id
+     * @param int $lob_id 
+     * @return $this
+     */
+    public function setLobId($lob_id)
+    {
+        
+        $this->lob_id = $lob_id;
+        return $this;
+    }
+    
+    /**
+     * Gets internal_id
+     * @return int
+     */
+    public function getInternalId()
+    {
+        return $this->internal_id;
+    }
+  
+    /**
+     * Sets internal_id
+     * @param int $internal_id 
+     * @return $this
+     */
+    public function setInternalId($internal_id)
+    {
+        
+        $this->internal_id = $internal_id;
+        return $this;
+    }
+    
+    /**
+     * Gets id
+     * @return string
      */
     public function getId()
     {
@@ -136,7 +211,7 @@ class ItemAccountCode implements ArrayAccess
   
     /**
      * Sets id
-     * @param int $id 
+     * @param string $id 
      * @return $this
      */
     public function setId($id)
@@ -147,23 +222,44 @@ class ItemAccountCode implements ArrayAccess
     }
     
     /**
-     * Gets label
+     * Gets name
      * @return string
      */
-    public function getLabel()
+    public function getName()
     {
-        return $this->label;
+        return $this->name;
     }
   
     /**
-     * Sets label
-     * @param string $label 
+     * Sets name
+     * @param string $name 
      * @return $this
      */
-    public function setLabel($label)
+    public function setName($name)
     {
         
-        $this->label = $label;
+        $this->name = $name;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

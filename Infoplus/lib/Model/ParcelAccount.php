@@ -58,7 +58,8 @@ class ParcelAccount implements ArrayAccess
         'account_no' => 'string',
         'client' => 'int',
         'name' => 'string',
-        'manifest_partner_id' => 'string'
+        'manifest_partner_id' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -77,7 +78,8 @@ class ParcelAccount implements ArrayAccess
         'account_no' => 'accountNo',
         'client' => 'client',
         'name' => 'name',
-        'manifest_partner_id' => 'manifestPartnerId'
+        'manifest_partner_id' => 'manifestPartnerId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -96,7 +98,8 @@ class ParcelAccount implements ArrayAccess
         'account_no' => 'setAccountNo',
         'client' => 'setClient',
         'name' => 'setName',
-        'manifest_partner_id' => 'setManifestPartnerId'
+        'manifest_partner_id' => 'setManifestPartnerId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -115,7 +118,8 @@ class ParcelAccount implements ArrayAccess
         'account_no' => 'getAccountNo',
         'client' => 'getClient',
         'name' => 'getName',
-        'manifest_partner_id' => 'getManifestPartnerId'
+        'manifest_partner_id' => 'getManifestPartnerId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -171,6 +175,12 @@ class ParcelAccount implements ArrayAccess
       */
     protected $manifest_partner_id;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -188,6 +198,7 @@ class ParcelAccount implements ArrayAccess
             $this->client = $data["client"];
             $this->name = $data["name"];
             $this->manifest_partner_id = $data["manifest_partner_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -356,6 +367,27 @@ class ParcelAccount implements ArrayAccess
     {
         
         $this->manifest_partner_id = $manifest_partner_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

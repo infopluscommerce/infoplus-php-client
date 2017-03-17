@@ -92,6 +92,432 @@ class LowStockApi
   
     
     /**
+     * addLowStockAudit
+     *
+     * Add new audit for a lowStock
+     *
+     * @param int $low_stock_id Id of the lowStock to add an audit to (required)
+     * @param string $low_stock_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLowStockAudit($low_stock_id, $low_stock_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLowStockAuditWithHttpInfo ($low_stock_id, $low_stock_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addLowStockAuditWithHttpInfo
+     *
+     * Add new audit for a lowStock
+     *
+     * @param int $low_stock_id Id of the lowStock to add an audit to (required)
+     * @param string $low_stock_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLowStockAuditWithHttpInfo($low_stock_id, $low_stock_audit)
+    {
+        
+        // verify the required parameter 'low_stock_id' is set
+        if ($low_stock_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_id when calling addLowStockAudit');
+        }
+        // verify the required parameter 'low_stock_audit' is set
+        if ($low_stock_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_audit when calling addLowStockAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/lowStock/{lowStockId}/audit/{lowStockAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($low_stock_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($low_stock_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addLowStockTag
+     *
+     * Add new tags for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to add a tag to (required)
+     * @param string $low_stock_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLowStockTag($low_stock_id, $low_stock_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLowStockTagWithHttpInfo ($low_stock_id, $low_stock_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addLowStockTagWithHttpInfo
+     *
+     * Add new tags for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to add a tag to (required)
+     * @param string $low_stock_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLowStockTagWithHttpInfo($low_stock_id, $low_stock_tag)
+    {
+        
+        // verify the required parameter 'low_stock_id' is set
+        if ($low_stock_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_id when calling addLowStockTag');
+        }
+        // verify the required parameter 'low_stock_tag' is set
+        if ($low_stock_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_tag when calling addLowStockTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/lowStock/{lowStockId}/tag/{lowStockTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($low_stock_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($low_stock_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteLowStockTag
+     *
+     * Delete a tag for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to remove tag from (required)
+     * @param string $low_stock_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLowStockTag($low_stock_id, $low_stock_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteLowStockTagWithHttpInfo ($low_stock_id, $low_stock_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteLowStockTagWithHttpInfo
+     *
+     * Delete a tag for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to remove tag from (required)
+     * @param string $low_stock_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLowStockTagWithHttpInfo($low_stock_id, $low_stock_tag)
+    {
+        
+        // verify the required parameter 'low_stock_id' is set
+        if ($low_stock_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_id when calling deleteLowStockTag');
+        }
+        // verify the required parameter 'low_stock_tag' is set
+        if ($low_stock_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_tag when calling deleteLowStockTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/lowStock/{lowStockId}/tag/{lowStockTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($low_stock_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($low_stock_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateLowStockById
+     *
+     * Get a duplicated a lowStock by id
+     *
+     * @param int $low_stock_id Id of the lowStock to be duplicated. (required)
+     * @return \Infoplus\Model\LowStock
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLowStockById($low_stock_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateLowStockByIdWithHttpInfo ($low_stock_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateLowStockByIdWithHttpInfo
+     *
+     * Get a duplicated a lowStock by id
+     *
+     * @param int $low_stock_id Id of the lowStock to be duplicated. (required)
+     * @return Array of \Infoplus\Model\LowStock, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLowStockByIdWithHttpInfo($low_stock_id)
+    {
+        
+        // verify the required parameter 'low_stock_id' is set
+        if ($low_stock_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_id when calling getDuplicateLowStockById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/lowStock/duplicate/{lowStockId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($low_stock_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\LowStock'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\LowStock', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LowStock', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getLowStockByFilter
      *
      * Search lowStocks by filter
@@ -127,7 +553,7 @@ class LowStockApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/lowStock/search";
+        $resourcePath = "/beta/lowStock/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +663,7 @@ class LowStockApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/lowStock/{lowStockId}";
+        $resourcePath = "/beta/lowStock/{lowStockId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -299,6 +725,100 @@ class LowStockApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LowStock', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getLowStockTags
+     *
+     * Get the tags for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLowStockTags($low_stock_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getLowStockTagsWithHttpInfo ($low_stock_id);
+        return $response; 
+    }
+
+
+    /**
+     * getLowStockTagsWithHttpInfo
+     *
+     * Get the tags for a lowStock.
+     *
+     * @param int $low_stock_id Id of the lowStock to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLowStockTagsWithHttpInfo($low_stock_id)
+    {
+        
+        // verify the required parameter 'low_stock_id' is set
+        if ($low_stock_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $low_stock_id when calling getLowStockTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/lowStock/{lowStockId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($low_stock_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "lowStockId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($low_stock_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

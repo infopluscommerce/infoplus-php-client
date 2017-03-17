@@ -61,8 +61,10 @@ class OrderSource implements ArrayAccess
         'require_gs1128_label' => 'bool',
         'shipping_notes' => 'string',
         'packing_slip_id' => 'int',
+        'order_invoice_id' => 'int',
         'order_confirmation_email_id' => 'int',
-        'shipment_confirmation_email_id' => 'int'
+        'shipment_confirmation_email_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -84,8 +86,10 @@ class OrderSource implements ArrayAccess
         'require_gs1128_label' => 'requireGS1128Label',
         'shipping_notes' => 'shippingNotes',
         'packing_slip_id' => 'packingSlipId',
+        'order_invoice_id' => 'orderInvoiceId',
         'order_confirmation_email_id' => 'orderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'shipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'shipmentConfirmationEmailId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -107,8 +111,10 @@ class OrderSource implements ArrayAccess
         'require_gs1128_label' => 'setRequireGs1128Label',
         'shipping_notes' => 'setShippingNotes',
         'packing_slip_id' => 'setPackingSlipId',
+        'order_invoice_id' => 'setOrderInvoiceId',
         'order_confirmation_email_id' => 'setOrderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'setShipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'setShipmentConfirmationEmailId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -130,8 +136,10 @@ class OrderSource implements ArrayAccess
         'require_gs1128_label' => 'getRequireGs1128Label',
         'shipping_notes' => 'getShippingNotes',
         'packing_slip_id' => 'getPackingSlipId',
+        'order_invoice_id' => 'getOrderInvoiceId',
         'order_confirmation_email_id' => 'getOrderConfirmationEmailId',
-        'shipment_confirmation_email_id' => 'getShipmentConfirmationEmailId'
+        'shipment_confirmation_email_id' => 'getShipmentConfirmationEmailId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -200,6 +208,12 @@ class OrderSource implements ArrayAccess
     protected $packing_slip_id;
     
     /**
+      * $order_invoice_id 
+      * @var int
+      */
+    protected $order_invoice_id;
+    
+    /**
       * $order_confirmation_email_id 
       * @var int
       */
@@ -210,6 +224,12 @@ class OrderSource implements ArrayAccess
       * @var int
       */
     protected $shipment_confirmation_email_id;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -230,8 +250,10 @@ class OrderSource implements ArrayAccess
             $this->require_gs1128_label = $data["require_gs1128_label"];
             $this->shipping_notes = $data["shipping_notes"];
             $this->packing_slip_id = $data["packing_slip_id"];
+            $this->order_invoice_id = $data["order_invoice_id"];
             $this->order_confirmation_email_id = $data["order_confirmation_email_id"];
             $this->shipment_confirmation_email_id = $data["shipment_confirmation_email_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -446,6 +468,27 @@ class OrderSource implements ArrayAccess
     }
     
     /**
+     * Gets order_invoice_id
+     * @return int
+     */
+    public function getOrderInvoiceId()
+    {
+        return $this->order_invoice_id;
+    }
+  
+    /**
+     * Sets order_invoice_id
+     * @param int $order_invoice_id 
+     * @return $this
+     */
+    public function setOrderInvoiceId($order_invoice_id)
+    {
+        
+        $this->order_invoice_id = $order_invoice_id;
+        return $this;
+    }
+    
+    /**
      * Gets order_confirmation_email_id
      * @return int
      */
@@ -484,6 +527,27 @@ class OrderSource implements ArrayAccess
     {
         
         $this->shipment_confirmation_email_id = $shipment_confirmation_email_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

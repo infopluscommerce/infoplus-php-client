@@ -4,12 +4,18 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCustomer**](CustomerApi.md#addCustomer) | **POST** /v1.0/customer | Create a customer
-[**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /v1.0/customer/{customerId} | Delete a customer
-[**getByCustomerNo**](CustomerApi.md#getByCustomerNo) | **GET** /v1.0/customer/getByCustomerNo | Get a customer by Customer No
-[**getCustomerByFilter**](CustomerApi.md#getCustomerByFilter) | **GET** /v1.0/customer/search | Search customers by filter
-[**getCustomerById**](CustomerApi.md#getCustomerById) | **GET** /v1.0/customer/{customerId} | Get a customer by id
-[**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /v1.0/customer | Update a customer
+[**addCustomer**](CustomerApi.md#addCustomer) | **POST** /beta/customer | Create a customer
+[**addCustomerAudit**](CustomerApi.md#addCustomerAudit) | **PUT** /beta/customer/{customerId}/audit/{customerAudit} | Add new audit for a customer
+[**addCustomerTag**](CustomerApi.md#addCustomerTag) | **PUT** /beta/customer/{customerId}/tag/{customerTag} | Add new tags for a customer.
+[**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /beta/customer/{customerId} | Delete a customer
+[**deleteCustomerTag**](CustomerApi.md#deleteCustomerTag) | **DELETE** /beta/customer/{customerId}/tag/{customerTag} | Delete a tag for a customer.
+[**getByCustomerNo**](CustomerApi.md#getByCustomerNo) | **GET** /beta/customer/getByCustomerNo | Get a customer by Customer No
+[**getCustomerByFilter**](CustomerApi.md#getCustomerByFilter) | **GET** /beta/customer/search | Search customers by filter
+[**getCustomerById**](CustomerApi.md#getCustomerById) | **GET** /beta/customer/{customerId} | Get a customer by id
+[**getCustomerTags**](CustomerApi.md#getCustomerTags) | **GET** /beta/customer/{customerId}/tag | Get the tags for a customer.
+[**getDuplicateCustomerById**](CustomerApi.md#getDuplicateCustomerById) | **GET** /beta/customer/duplicate/{customerId} | Get a duplicated a customer by id
+[**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /beta/customer | Update a customer
+[**updateCustomerCustomFields**](CustomerApi.md#updateCustomerCustomFields) | **PUT** /beta/customer/customFields | Update a customer custom fields
 
 
 # **addCustomer**
@@ -62,6 +68,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addCustomerAudit**
+> addCustomerAudit($customer_id, $customer_audit)
+
+Add new audit for a customer
+
+Adds an audit to an existing customer.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$customer_id = 56; // int | Id of the customer to add an audit to
+$customer_audit = "customer_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addCustomerAudit($customer_id, $customer_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->addCustomerAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **int**| Id of the customer to add an audit to | 
+ **customer_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addCustomerTag**
+> addCustomerTag($customer_id, $customer_tag)
+
+Add new tags for a customer.
+
+Adds a tag to an existing customer.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$customer_id = 56; // int | Id of the customer to add a tag to
+$customer_tag = "customer_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addCustomerTag($customer_id, $customer_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->addCustomerTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **int**| Id of the customer to add a tag to | 
+ **customer_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteCustomer**
 > deleteCustomer($customer_id)
 
@@ -95,6 +203,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_id** | **int**| Id of the customer to be deleted. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteCustomerTag**
+> deleteCustomerTag($customer_id, $customer_tag)
+
+Delete a tag for a customer.
+
+Deletes an existing customer tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$customer_id = 56; // int | Id of the customer to remove tag from
+$customer_tag = "customer_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteCustomerTag($customer_id, $customer_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->deleteCustomerTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **int**| Id of the customer to remove tag from | 
+ **customer_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -269,6 +428,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getCustomerTags**
+> getCustomerTags($customer_id)
+
+Get the tags for a customer.
+
+Get all existing customer tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$customer_id = 56; // int | Id of the customer to get tags for
+
+try { 
+    $api_instance->getCustomerTags($customer_id);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **int**| Id of the customer to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateCustomerById**
+> \Infoplus\Model\Customer getDuplicateCustomerById($customer_id)
+
+Get a duplicated a customer by id
+
+Returns a duplicated customer identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$customer_id = 56; // int | Id of the customer to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateCustomerById($customer_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getDuplicateCustomerById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_id** | **int**| Id of the customer to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\Customer**](Customer.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateCustomer**
 > updateCustomer($body)
 
@@ -293,6 +551,55 @@ try {
     $api_instance->updateCustomer($body);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->updateCustomer: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\Customer**](\Infoplus\Model\Customer.md)| Customer to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateCustomerCustomFields**
+> updateCustomerCustomFields($body)
+
+Update a customer custom fields
+
+Updates an existing customer custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\CustomerApi();
+$body = new \Infoplus\Model\Customer(); // \Infoplus\Model\Customer | Customer to be updated.
+
+try { 
+    $api_instance->updateCustomerCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->updateCustomerCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

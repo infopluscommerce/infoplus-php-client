@@ -54,20 +54,21 @@ class ExternalShipment implements ArrayAccess
         'id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
-        'order_id' => 'double',
+        'order_id' => 'Number',
         'carrier_id' => 'int',
         'parcel_account_id' => 'int',
         'third_party_parcel_account_id' => 'int',
-        'freight' => 'double',
+        'freight' => 'Number',
         'tracking_no' => 'string',
-        'dim1_in' => 'double',
-        'dim2_in' => 'double',
-        'dim3_in' => 'double',
-        'weight_lbs' => 'double',
-        'dim_weight' => 'double',
+        'dim1_in' => 'Number',
+        'dim2_in' => 'Number',
+        'dim3_in' => 'Number',
+        'weight_lbs' => 'Number',
+        'dim_weight' => 'Number',
         'residential' => 'bool',
         'zone' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -95,7 +96,8 @@ class ExternalShipment implements ArrayAccess
         'dim_weight' => 'dimWeight',
         'residential' => 'residential',
         'zone' => 'zone',
-        'status' => 'status'
+        'status' => 'status',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -123,7 +125,8 @@ class ExternalShipment implements ArrayAccess
         'dim_weight' => 'setDimWeight',
         'residential' => 'setResidential',
         'zone' => 'setZone',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -151,7 +154,8 @@ class ExternalShipment implements ArrayAccess
         'dim_weight' => 'getDimWeight',
         'residential' => 'getResidential',
         'zone' => 'getZone',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -179,7 +183,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
       * $order_id 
-      * @var double
+      * @var Number
       */
     protected $order_id;
     
@@ -203,7 +207,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
       * $freight 
-      * @var double
+      * @var Number
       */
     protected $freight;
     
@@ -215,31 +219,31 @@ class ExternalShipment implements ArrayAccess
     
     /**
       * $dim1_in 
-      * @var double
+      * @var Number
       */
     protected $dim1_in;
     
     /**
       * $dim2_in 
-      * @var double
+      * @var Number
       */
     protected $dim2_in;
     
     /**
       * $dim3_in 
-      * @var double
+      * @var Number
       */
     protected $dim3_in;
     
     /**
       * $weight_lbs 
-      * @var double
+      * @var Number
       */
     protected $weight_lbs;
     
     /**
       * $dim_weight 
-      * @var double
+      * @var Number
       */
     protected $dim_weight;
     
@@ -260,6 +264,12 @@ class ExternalShipment implements ArrayAccess
       * @var string
       */
     protected $status;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
     
 
     /**
@@ -287,6 +297,7 @@ class ExternalShipment implements ArrayAccess
             $this->residential = $data["residential"];
             $this->zone = $data["zone"];
             $this->status = $data["status"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -355,7 +366,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets order_id
-     * @return double
+     * @return Number
      */
     public function getOrderId()
     {
@@ -364,7 +375,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets order_id
-     * @param double $order_id 
+     * @param Number $order_id 
      * @return $this
      */
     public function setOrderId($order_id)
@@ -439,7 +450,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets freight
-     * @return double
+     * @return Number
      */
     public function getFreight()
     {
@@ -448,7 +459,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets freight
-     * @param double $freight 
+     * @param Number $freight 
      * @return $this
      */
     public function setFreight($freight)
@@ -481,7 +492,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets dim1_in
-     * @return double
+     * @return Number
      */
     public function getDim1In()
     {
@@ -490,7 +501,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets dim1_in
-     * @param double $dim1_in 
+     * @param Number $dim1_in 
      * @return $this
      */
     public function setDim1In($dim1_in)
@@ -502,7 +513,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets dim2_in
-     * @return double
+     * @return Number
      */
     public function getDim2In()
     {
@@ -511,7 +522,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets dim2_in
-     * @param double $dim2_in 
+     * @param Number $dim2_in 
      * @return $this
      */
     public function setDim2In($dim2_in)
@@ -523,7 +534,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets dim3_in
-     * @return double
+     * @return Number
      */
     public function getDim3In()
     {
@@ -532,7 +543,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets dim3_in
-     * @param double $dim3_in 
+     * @param Number $dim3_in 
      * @return $this
      */
     public function setDim3In($dim3_in)
@@ -544,7 +555,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets weight_lbs
-     * @return double
+     * @return Number
      */
     public function getWeightLbs()
     {
@@ -553,7 +564,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets weight_lbs
-     * @param double $weight_lbs 
+     * @param Number $weight_lbs 
      * @return $this
      */
     public function setWeightLbs($weight_lbs)
@@ -565,7 +576,7 @@ class ExternalShipment implements ArrayAccess
     
     /**
      * Gets dim_weight
-     * @return double
+     * @return Number
      */
     public function getDimWeight()
     {
@@ -574,7 +585,7 @@ class ExternalShipment implements ArrayAccess
   
     /**
      * Sets dim_weight
-     * @param double $dim_weight 
+     * @param Number $dim_weight 
      * @return $this
      */
     public function setDimWeight($dim_weight)
@@ -644,6 +655,27 @@ class ExternalShipment implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

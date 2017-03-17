@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | 
 **description** | **string** |  | [optional] 
 **warehouse_id** | **int** |  | 
+**last_run_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **order_smart_filter_id** | **int** |  | 
 **location_smart_filter_id** | **int** |  | [optional] 
 **maximum_number_of_orders** | **int** |  | [optional] 
@@ -25,12 +26,18 @@ Name | Type | Description | Notes
 **pick_summary_format** | **string** |  | [optional] 
 **pick_summary_layout** | **string** |  | [optional] 
 **pick_summary_sort** | **string** |  | [optional] 
+**pick_scan_scheme_id** | **int** |  | 
 **cartonize_orders** | **bool** |  | [default to false]
 **auto_ship_casebreak_cartons** | **bool** |  | [optional] [default to false]
 **pre_generate_parcel_labels** | **bool** |  | [optional] [default to false]
+**create_packing_slip** | **string** |  | 
 **override_packing_slip_template_id** | **int** |  | [optional] 
-**create_packing_slip** | **bool** |  | [default to false]
 **create_order_assembly_guide** | **bool** |  | [optional] [default to false]
+**create_order_invoice** | **string** |  | 
+**override_order_invoice_template_id** | **int** |  | [optional] 
+**send_to_external_shipping_system** | **bool** |  | [default to false]
+**external_shipping_system_id** | **int** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

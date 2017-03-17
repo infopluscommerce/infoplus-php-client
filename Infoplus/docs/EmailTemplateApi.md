@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addEmailTemplate**](EmailTemplateApi.md#addEmailTemplate) | **POST** /v1.0/emailTemplate | Create an emailTemplate
-[**deleteEmailTemplate**](EmailTemplateApi.md#deleteEmailTemplate) | **DELETE** /v1.0/emailTemplate/{emailTemplateId} | Delete an emailTemplate
-[**getEmailTemplateByFilter**](EmailTemplateApi.md#getEmailTemplateByFilter) | **GET** /v1.0/emailTemplate/search | Search emailTemplates by filter
-[**getEmailTemplateById**](EmailTemplateApi.md#getEmailTemplateById) | **GET** /v1.0/emailTemplate/{emailTemplateId} | Get an emailTemplate by id
-[**updateEmailTemplate**](EmailTemplateApi.md#updateEmailTemplate) | **PUT** /v1.0/emailTemplate | Update an emailTemplate
+[**addEmailTemplate**](EmailTemplateApi.md#addEmailTemplate) | **POST** /beta/emailTemplate | Create an emailTemplate
+[**addEmailTemplateAudit**](EmailTemplateApi.md#addEmailTemplateAudit) | **PUT** /beta/emailTemplate/{emailTemplateId}/audit/{emailTemplateAudit} | Add new audit for an emailTemplate
+[**addEmailTemplateTag**](EmailTemplateApi.md#addEmailTemplateTag) | **PUT** /beta/emailTemplate/{emailTemplateId}/tag/{emailTemplateTag} | Add new tags for an emailTemplate.
+[**deleteEmailTemplate**](EmailTemplateApi.md#deleteEmailTemplate) | **DELETE** /beta/emailTemplate/{emailTemplateId} | Delete an emailTemplate
+[**deleteEmailTemplateTag**](EmailTemplateApi.md#deleteEmailTemplateTag) | **DELETE** /beta/emailTemplate/{emailTemplateId}/tag/{emailTemplateTag} | Delete a tag for an emailTemplate.
+[**getDuplicateEmailTemplateById**](EmailTemplateApi.md#getDuplicateEmailTemplateById) | **GET** /beta/emailTemplate/duplicate/{emailTemplateId} | Get a duplicated an emailTemplate by id
+[**getEmailTemplateByFilter**](EmailTemplateApi.md#getEmailTemplateByFilter) | **GET** /beta/emailTemplate/search | Search emailTemplates by filter
+[**getEmailTemplateById**](EmailTemplateApi.md#getEmailTemplateById) | **GET** /beta/emailTemplate/{emailTemplateId} | Get an emailTemplate by id
+[**getEmailTemplateTags**](EmailTemplateApi.md#getEmailTemplateTags) | **GET** /beta/emailTemplate/{emailTemplateId}/tag | Get the tags for an emailTemplate.
+[**updateEmailTemplate**](EmailTemplateApi.md#updateEmailTemplate) | **PUT** /beta/emailTemplate | Update an emailTemplate
+[**updateEmailTemplateCustomFields**](EmailTemplateApi.md#updateEmailTemplateCustomFields) | **PUT** /beta/emailTemplate/customFields | Update an emailTemplate custom fields
 
 
 # **addEmailTemplate**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addEmailTemplateAudit**
+> addEmailTemplateAudit($email_template_id, $email_template_audit)
+
+Add new audit for an emailTemplate
+
+Adds an audit to an existing emailTemplate.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$email_template_id = 56; // int | Id of the emailTemplate to add an audit to
+$email_template_audit = "email_template_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addEmailTemplateAudit($email_template_id, $email_template_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->addEmailTemplateAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_template_id** | **int**| Id of the emailTemplate to add an audit to | 
+ **email_template_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addEmailTemplateTag**
+> addEmailTemplateTag($email_template_id, $email_template_tag)
+
+Add new tags for an emailTemplate.
+
+Adds a tag to an existing emailTemplate.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$email_template_id = 56; // int | Id of the emailTemplate to add a tag to
+$email_template_tag = "email_template_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addEmailTemplateTag($email_template_id, $email_template_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->addEmailTemplateTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_template_id** | **int**| Id of the emailTemplate to add a tag to | 
+ **email_template_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteEmailTemplate**
 > deleteEmailTemplate($email_template_id)
 
@@ -98,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteEmailTemplateTag**
+> deleteEmailTemplateTag($email_template_id, $email_template_tag)
+
+Delete a tag for an emailTemplate.
+
+Deletes an existing emailTemplate tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$email_template_id = 56; // int | Id of the emailTemplate to remove tag from
+$email_template_tag = "email_template_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteEmailTemplateTag($email_template_id, $email_template_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->deleteEmailTemplateTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_template_id** | **int**| Id of the emailTemplate to remove tag from | 
+ **email_template_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateEmailTemplateById**
+> \Infoplus\Model\EmailTemplate getDuplicateEmailTemplateById($email_template_id)
+
+Get a duplicated an emailTemplate by id
+
+Returns a duplicated emailTemplate identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$email_template_id = 56; // int | Id of the emailTemplate to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateEmailTemplateById($email_template_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->getDuplicateEmailTemplateById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_template_id** | **int**| Id of the emailTemplate to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\EmailTemplate**](EmailTemplate.md)
 
 ### Authorization
 
@@ -216,6 +425,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getEmailTemplateTags**
+> getEmailTemplateTags($email_template_id)
+
+Get the tags for an emailTemplate.
+
+Get all existing emailTemplate tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$email_template_id = 56; // int | Id of the emailTemplate to get tags for
+
+try { 
+    $api_instance->getEmailTemplateTags($email_template_id);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->getEmailTemplateTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email_template_id** | **int**| Id of the emailTemplate to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateEmailTemplate**
 > updateEmailTemplate($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateEmailTemplate($body);
 } catch (Exception $e) {
     echo 'Exception when calling EmailTemplateApi->updateEmailTemplate: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\EmailTemplate**](\Infoplus\Model\EmailTemplate.md)| EmailTemplate to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateEmailTemplateCustomFields**
+> updateEmailTemplateCustomFields($body)
+
+Update an emailTemplate custom fields
+
+Updates an existing emailTemplate custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\EmailTemplateApi();
+$body = new \Infoplus\Model\EmailTemplate(); // \Infoplus\Model\EmailTemplate | EmailTemplate to be updated.
+
+try { 
+    $api_instance->updateEmailTemplateCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling EmailTemplateApi->updateEmailTemplateCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

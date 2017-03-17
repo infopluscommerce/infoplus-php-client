@@ -13,8 +13,10 @@ Name | Type | Description | Notes
 **require_gs1128_label** | **bool** |  | [optional] [default to false]
 **shipping_notes** | **string** |  | [optional] 
 **packing_slip_id** | **int** |  | [optional] 
+**order_invoice_id** | **int** |  | [optional] 
 **order_confirmation_email_id** | **int** |  | [optional] 
 **shipment_confirmation_email_id** | **int** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

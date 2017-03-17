@@ -79,7 +79,7 @@ class BillOfLading implements ArrayAccess
         'bill_to_zip' => 'string',
         'is_trailer_loaded_by_shipper' => 'bool',
         'by_driver' => 'bool',
-        'cod_amount' => 'double',
+        'cod_amount' => 'Number',
         'fee_terms_collect' => 'bool',
         'fee_terms_prepaid' => 'bool',
         'customer_check_acceptable' => 'bool',
@@ -98,7 +98,8 @@ class BillOfLading implements ArrayAccess
         'by_driver_pieces' => 'bool',
         'special_instructions' => 'string',
         'order_info_lines' => '\Infoplus\Model\BillOfLadingOrderInfoLine[]',
-        'carrier_info_lines' => '\Infoplus\Model\BillOfLadingCarrierInfoLine[]'
+        'carrier_info_lines' => '\Infoplus\Model\BillOfLadingCarrierInfoLine[]',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -157,7 +158,8 @@ class BillOfLading implements ArrayAccess
         'by_driver_pieces' => 'byDriverPieces',
         'special_instructions' => 'specialInstructions',
         'order_info_lines' => 'orderInfoLines',
-        'carrier_info_lines' => 'carrierInfoLines'
+        'carrier_info_lines' => 'carrierInfoLines',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -216,7 +218,8 @@ class BillOfLading implements ArrayAccess
         'by_driver_pieces' => 'setByDriverPieces',
         'special_instructions' => 'setSpecialInstructions',
         'order_info_lines' => 'setOrderInfoLines',
-        'carrier_info_lines' => 'setCarrierInfoLines'
+        'carrier_info_lines' => 'setCarrierInfoLines',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -275,7 +278,8 @@ class BillOfLading implements ArrayAccess
         'by_driver_pieces' => 'getByDriverPieces',
         'special_instructions' => 'getSpecialInstructions',
         'order_info_lines' => 'getOrderInfoLines',
-        'carrier_info_lines' => 'getCarrierInfoLines'
+        'carrier_info_lines' => 'getCarrierInfoLines',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -453,7 +457,7 @@ class BillOfLading implements ArrayAccess
     
     /**
       * $cod_amount 
-      * @var double
+      * @var Number
       */
     protected $cod_amount;
     
@@ -571,6 +575,12 @@ class BillOfLading implements ArrayAccess
       */
     protected $carrier_info_lines;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -628,6 +638,7 @@ class BillOfLading implements ArrayAccess
             $this->special_instructions = $data["special_instructions"];
             $this->order_info_lines = $data["order_info_lines"];
             $this->carrier_info_lines = $data["carrier_info_lines"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -1221,7 +1232,7 @@ class BillOfLading implements ArrayAccess
     
     /**
      * Gets cod_amount
-     * @return double
+     * @return Number
      */
     public function getCodAmount()
     {
@@ -1230,7 +1241,7 @@ class BillOfLading implements ArrayAccess
   
     /**
      * Sets cod_amount
-     * @param double $cod_amount 
+     * @param Number $cod_amount 
      * @return $this
      */
     public function setCodAmount($cod_amount)
@@ -1636,6 +1647,27 @@ class BillOfLading implements ArrayAccess
     {
         
         $this->carrier_info_lines = $carrier_info_lines;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

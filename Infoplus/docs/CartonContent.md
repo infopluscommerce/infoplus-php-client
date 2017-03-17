@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**group_order_id** | **double** |  | [optional] 
-**order_no** | **double** |  | 
+**group_order_id** | [**Number**](Number.md) |  | [optional] 
+**order_no** | [**Number**](Number.md) |  | 
 **carton_no_id** | **int** |  | 
 **line_item_id** | **int** |  | 
 **location** | **string** |  | [optional] 
@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **tote_id** | **string** |  | [optional] 
 **picker_id** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

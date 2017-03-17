@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **bill_to_zip** | **string** |  | [optional] 
 **is_trailer_loaded_by_shipper** | **bool** |  | [optional] [default to false]
 **by_driver** | **bool** |  | [optional] [default to false]
-**cod_amount** | **double** |  | [optional] 
+**cod_amount** | [**Number**](Number.md) |  | [optional] 
 **fee_terms_collect** | **bool** |  | [optional] [default to false]
 **fee_terms_prepaid** | **bool** |  | [optional] [default to false]
 **customer_check_acceptable** | **bool** |  | [optional] [default to false]
@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **special_instructions** | **string** |  | [optional] 
 **order_info_lines** | [**\Infoplus\Model\BillOfLadingOrderInfoLine[]**](BillOfLadingOrderInfoLine.md) |  | [optional] 
 **carrier_info_lines** | [**\Infoplus\Model\BillOfLadingCarrierInfoLine[]**](BillOfLadingCarrierInfoLine.md) |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

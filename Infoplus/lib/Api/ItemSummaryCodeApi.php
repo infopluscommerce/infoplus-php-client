@@ -92,40 +92,40 @@ class ItemSummaryCodeApi
   
     
     /**
-     * getItemSummaryCodeBySearchText
+     * addItemSummaryCode
      *
-     * Search itemSummaryCodes
+     * Create an itemSummaryCode
      *
-     * @param string $search_text Search text, used to filter results. (optional)
-     * @param int $page Result page number.  Defaults to 1. (optional)
-     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
-     * @return \Infoplus\Model\ItemSummaryCode[]
+     * @param \Infoplus\Model\ItemSummaryCode $body ItemSummaryCode to be inserted. (required)
+     * @return \Infoplus\Model\ItemSummaryCode
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getItemSummaryCodeBySearchText($search_text = null, $page = null, $limit = null)
+    public function addItemSummaryCode($body)
     {
-        list($response, $statusCode, $httpHeader) = $this->getItemSummaryCodeBySearchTextWithHttpInfo ($search_text, $page, $limit);
+        list($response, $statusCode, $httpHeader) = $this->addItemSummaryCodeWithHttpInfo ($body);
         return $response; 
     }
 
 
     /**
-     * getItemSummaryCodeBySearchTextWithHttpInfo
+     * addItemSummaryCodeWithHttpInfo
      *
-     * Search itemSummaryCodes
+     * Create an itemSummaryCode
      *
-     * @param string $search_text Search text, used to filter results. (optional)
-     * @param int $page Result page number.  Defaults to 1. (optional)
-     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
-     * @return Array of \Infoplus\Model\ItemSummaryCode[], HTTP status code, HTTP response headers (array of strings)
+     * @param \Infoplus\Model\ItemSummaryCode $body ItemSummaryCode to be inserted. (required)
+     * @return Array of \Infoplus\Model\ItemSummaryCode, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getItemSummaryCodeBySearchTextWithHttpInfo($search_text = null, $page = null, $limit = null)
+    public function addItemSummaryCodeWithHttpInfo($body)
     {
         
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling addItemSummaryCode');
+        }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSummaryCode/search";
+        $resourcePath = "/beta/itemSummaryCode";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -134,23 +134,135 @@ class ItemSummaryCodeApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
   
-        // query params
         
-        if ($search_text !== null) {
-            $queryParams['searchText'] = $this->apiClient->getSerializer()->toQueryValue($search_text);
-        }// query params
         
-        if ($page !== null) {
-            $queryParams['page'] = $this->apiClient->getSerializer()->toQueryValue($page);
-        }// query params
         
-        if ($limit !== null) {
-            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
         }
         
         
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemSummaryCode'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemSummaryCode', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemSummaryCode', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 405:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ApiResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addItemSummaryCodeAudit
+     *
+     * Add new audit for an itemSummaryCode
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to add an audit to (required)
+     * @param string $item_summary_code_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemSummaryCodeAudit($item_summary_code_id, $item_summary_code_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addItemSummaryCodeAuditWithHttpInfo ($item_summary_code_id, $item_summary_code_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addItemSummaryCodeAuditWithHttpInfo
+     *
+     * Add new audit for an itemSummaryCode
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to add an audit to (required)
+     * @param string $item_summary_code_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemSummaryCodeAuditWithHttpInfo($item_summary_code_id, $item_summary_code_audit)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling addItemSummaryCodeAudit');
+        }
+        // verify the required parameter 'item_summary_code_audit' is set
+        if ($item_summary_code_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_audit when calling addItemSummaryCodeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}/audit/{itemSummaryCodeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_summary_code_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_audit),
+                $resourcePath
+            );
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
@@ -174,23 +286,15 @@ class ItemSummaryCodeApi
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
+                $resourcePath, 'PUT',
                 $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\ItemSummaryCode[]'
+                $headerParams
             );
             
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemSummaryCode[]', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
-            case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemSummaryCode[]', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
             }
   
             throw $e;
@@ -198,40 +302,350 @@ class ItemSummaryCodeApi
     }
     
     /**
-     * getTranslateSummaryCodeById
+     * addItemSummaryCodeTag
      *
-     * Get an itemSummaryCode by id
+     * Add new tags for an itemSummaryCode.
      *
-     * @param string $item_summary_code_id Id of itemSummaryCode to be returned. (required)
-     * @return \Infoplus\Model\ItemSummaryCode
+     * @param int $item_summary_code_id Id of the itemSummaryCode to add a tag to (required)
+     * @param string $item_summary_code_tag The tag to add (required)
+     * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getTranslateSummaryCodeById($item_summary_code_id)
+    public function addItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag)
     {
-        list($response, $statusCode, $httpHeader) = $this->getTranslateSummaryCodeByIdWithHttpInfo ($item_summary_code_id);
+        list($response, $statusCode, $httpHeader) = $this->addItemSummaryCodeTagWithHttpInfo ($item_summary_code_id, $item_summary_code_tag);
         return $response; 
     }
 
 
     /**
-     * getTranslateSummaryCodeByIdWithHttpInfo
+     * addItemSummaryCodeTagWithHttpInfo
      *
-     * Get an itemSummaryCode by id
+     * Add new tags for an itemSummaryCode.
      *
-     * @param string $item_summary_code_id Id of itemSummaryCode to be returned. (required)
-     * @return Array of \Infoplus\Model\ItemSummaryCode, HTTP status code, HTTP response headers (array of strings)
+     * @param int $item_summary_code_id Id of the itemSummaryCode to add a tag to (required)
+     * @param string $item_summary_code_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getTranslateSummaryCodeByIdWithHttpInfo($item_summary_code_id)
+    public function addItemSummaryCodeTagWithHttpInfo($item_summary_code_id, $item_summary_code_tag)
     {
         
         // verify the required parameter 'item_summary_code_id' is set
         if ($item_summary_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling getTranslateSummaryCodeById');
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling addItemSummaryCodeTag');
+        }
+        // verify the required parameter 'item_summary_code_tag' is set
+        if ($item_summary_code_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_tag when calling addItemSummaryCodeTag');
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/itemSummaryCode/{itemSummaryCodeId}";
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_summary_code_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteItemSummaryCode
+     *
+     * Delete an itemSummaryCode
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be deleted. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemSummaryCode($item_summary_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteItemSummaryCodeWithHttpInfo ($item_summary_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteItemSummaryCodeWithHttpInfo
+     *
+     * Delete an itemSummaryCode
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be deleted. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemSummaryCodeWithHttpInfo($item_summary_code_id)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling deleteItemSummaryCode');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteItemSummaryCodeTag
+     *
+     * Delete a tag for an itemSummaryCode.
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to remove tag from (required)
+     * @param string $item_summary_code_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteItemSummaryCodeTagWithHttpInfo ($item_summary_code_id, $item_summary_code_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteItemSummaryCodeTagWithHttpInfo
+     *
+     * Delete a tag for an itemSummaryCode.
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to remove tag from (required)
+     * @param string $item_summary_code_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemSummaryCodeTagWithHttpInfo($item_summary_code_id, $item_summary_code_tag)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling deleteItemSummaryCodeTag');
+        }
+        // verify the required parameter 'item_summary_code_tag' is set
+        if ($item_summary_code_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_tag when calling deleteItemSummaryCodeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_summary_code_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateItemSummaryCodeById
+     *
+     * Get a duplicated an itemSummaryCode by id
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be duplicated. (required)
+     * @return \Infoplus\Model\ItemSummaryCode
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemSummaryCodeById($item_summary_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateItemSummaryCodeByIdWithHttpInfo ($item_summary_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateItemSummaryCodeByIdWithHttpInfo
+     *
+     * Get a duplicated an itemSummaryCode by id
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ItemSummaryCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemSummaryCodeByIdWithHttpInfo($item_summary_code_id)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling getDuplicateItemSummaryCodeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/duplicate/{itemSummaryCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -293,6 +707,404 @@ class ItemSummaryCodeApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemSummaryCode', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemSummaryCodeByFilter
+     *
+     * Search itemSummaryCodes by filter
+     *
+     * @param string $filter Query string, used to filter results. (optional)
+     * @param int $page Result page number.  Defaults to 1. (optional)
+     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     * @param string $sort Sort results by specified field. (optional)
+     * @return \Infoplus\Model\ItemSummaryCode[]
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeByFilter($filter = null, $page = null, $limit = null, $sort = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemSummaryCodeByFilterWithHttpInfo ($filter, $page, $limit, $sort);
+        return $response; 
+    }
+
+
+    /**
+     * getItemSummaryCodeByFilterWithHttpInfo
+     *
+     * Search itemSummaryCodes by filter
+     *
+     * @param string $filter Query string, used to filter results. (optional)
+     * @param int $page Result page number.  Defaults to 1. (optional)
+     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     * @param string $sort Sort results by specified field. (optional)
+     * @return Array of \Infoplus\Model\ItemSummaryCode[], HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
+    {
+        
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/search";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        // query params
+        
+        if ($filter !== null) {
+            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($filter);
+        }// query params
+        
+        if ($page !== null) {
+            $queryParams['page'] = $this->apiClient->getSerializer()->toQueryValue($page);
+        }// query params
+        
+        if ($limit !== null) {
+            $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }// query params
+        
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
+        }
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemSummaryCode[]'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemSummaryCode[]', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemSummaryCode[]', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemSummaryCodeById
+     *
+     * Get an itemSummaryCode by id
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be returned. (required)
+     * @return \Infoplus\Model\ItemSummaryCode
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeById($item_summary_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemSummaryCodeByIdWithHttpInfo ($item_summary_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * getItemSummaryCodeByIdWithHttpInfo
+     *
+     * Get an itemSummaryCode by id
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to be returned. (required)
+     * @return Array of \Infoplus\Model\ItemSummaryCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeByIdWithHttpInfo($item_summary_code_id)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling getItemSummaryCodeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemSummaryCode'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemSummaryCode', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemSummaryCode', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemSummaryCodeTags
+     *
+     * Get the tags for an itemSummaryCode.
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeTags($item_summary_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemSummaryCodeTagsWithHttpInfo ($item_summary_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * getItemSummaryCodeTagsWithHttpInfo
+     *
+     * Get the tags for an itemSummaryCode.
+     *
+     * @param int $item_summary_code_id Id of the itemSummaryCode to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemSummaryCodeTagsWithHttpInfo($item_summary_code_id)
+    {
+        
+        // verify the required parameter 'item_summary_code_id' is set
+        if ($item_summary_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_summary_code_id when calling getItemSummaryCodeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode/{itemSummaryCodeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_summary_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemSummaryCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_summary_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateItemSummaryCode
+     *
+     * Update an itemSummaryCode
+     *
+     * @param \Infoplus\Model\ItemSummaryCode $body ItemSummaryCode to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemSummaryCode($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateItemSummaryCodeWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateItemSummaryCodeWithHttpInfo
+     *
+     * Update an itemSummaryCode
+     *
+     * @param \Infoplus\Model\ItemSummaryCode $body ItemSummaryCode to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemSummaryCodeWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateItemSummaryCode');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemSummaryCode";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

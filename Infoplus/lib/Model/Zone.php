@@ -61,7 +61,8 @@ class Zone implements ArrayAccess
         'is_frozen' => 'bool',
         'is_refrigerated' => 'bool',
         'create_date' => '\DateTime',
-        'modify_date' => '\DateTime'
+        'modify_date' => '\DateTime',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -83,7 +84,8 @@ class Zone implements ArrayAccess
         'is_frozen' => 'isFrozen',
         'is_refrigerated' => 'isRefrigerated',
         'create_date' => 'createDate',
-        'modify_date' => 'modifyDate'
+        'modify_date' => 'modifyDate',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -105,7 +107,8 @@ class Zone implements ArrayAccess
         'is_frozen' => 'setIsFrozen',
         'is_refrigerated' => 'setIsRefrigerated',
         'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate'
+        'modify_date' => 'setModifyDate',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -127,7 +130,8 @@ class Zone implements ArrayAccess
         'is_frozen' => 'getIsFrozen',
         'is_refrigerated' => 'getIsRefrigerated',
         'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate'
+        'modify_date' => 'getModifyDate',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -201,6 +205,12 @@ class Zone implements ArrayAccess
       */
     protected $modify_date;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -221,6 +231,7 @@ class Zone implements ArrayAccess
             $this->is_refrigerated = $data["is_refrigerated"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -452,6 +463,27 @@ class Zone implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

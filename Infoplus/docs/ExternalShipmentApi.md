@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addExternalShipment**](ExternalShipmentApi.md#addExternalShipment) | **POST** /v1.0/externalShipment | Create an externalShipment
-[**deleteExternalShipment**](ExternalShipmentApi.md#deleteExternalShipment) | **DELETE** /v1.0/externalShipment/{externalShipmentId} | Delete an externalShipment
-[**getExternalShipmentByFilter**](ExternalShipmentApi.md#getExternalShipmentByFilter) | **GET** /v1.0/externalShipment/search | Search externalShipments by filter
-[**getExternalShipmentById**](ExternalShipmentApi.md#getExternalShipmentById) | **GET** /v1.0/externalShipment/{externalShipmentId} | Get an externalShipment by id
-[**updateExternalShipment**](ExternalShipmentApi.md#updateExternalShipment) | **PUT** /v1.0/externalShipment | Update an externalShipment
+[**addExternalShipment**](ExternalShipmentApi.md#addExternalShipment) | **POST** /beta/externalShipment | Create an externalShipment
+[**addExternalShipmentAudit**](ExternalShipmentApi.md#addExternalShipmentAudit) | **PUT** /beta/externalShipment/{externalShipmentId}/audit/{externalShipmentAudit} | Add new audit for an externalShipment
+[**addExternalShipmentTag**](ExternalShipmentApi.md#addExternalShipmentTag) | **PUT** /beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag} | Add new tags for an externalShipment.
+[**deleteExternalShipment**](ExternalShipmentApi.md#deleteExternalShipment) | **DELETE** /beta/externalShipment/{externalShipmentId} | Delete an externalShipment
+[**deleteExternalShipmentTag**](ExternalShipmentApi.md#deleteExternalShipmentTag) | **DELETE** /beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag} | Delete a tag for an externalShipment.
+[**getDuplicateExternalShipmentById**](ExternalShipmentApi.md#getDuplicateExternalShipmentById) | **GET** /beta/externalShipment/duplicate/{externalShipmentId} | Get a duplicated an externalShipment by id
+[**getExternalShipmentByFilter**](ExternalShipmentApi.md#getExternalShipmentByFilter) | **GET** /beta/externalShipment/search | Search externalShipments by filter
+[**getExternalShipmentById**](ExternalShipmentApi.md#getExternalShipmentById) | **GET** /beta/externalShipment/{externalShipmentId} | Get an externalShipment by id
+[**getExternalShipmentTags**](ExternalShipmentApi.md#getExternalShipmentTags) | **GET** /beta/externalShipment/{externalShipmentId}/tag | Get the tags for an externalShipment.
+[**updateExternalShipment**](ExternalShipmentApi.md#updateExternalShipment) | **PUT** /beta/externalShipment | Update an externalShipment
+[**updateExternalShipmentCustomFields**](ExternalShipmentApi.md#updateExternalShipmentCustomFields) | **PUT** /beta/externalShipment/customFields | Update an externalShipment custom fields
 
 
 # **addExternalShipment**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addExternalShipmentAudit**
+> addExternalShipmentAudit($external_shipment_id, $external_shipment_audit)
+
+Add new audit for an externalShipment
+
+Adds an audit to an existing externalShipment.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$external_shipment_id = 56; // int | Id of the externalShipment to add an audit to
+$external_shipment_audit = "external_shipment_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addExternalShipmentAudit($external_shipment_id, $external_shipment_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->addExternalShipmentAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_shipment_id** | **int**| Id of the externalShipment to add an audit to | 
+ **external_shipment_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addExternalShipmentTag**
+> addExternalShipmentTag($external_shipment_id, $external_shipment_tag)
+
+Add new tags for an externalShipment.
+
+Adds a tag to an existing externalShipment.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$external_shipment_id = 56; // int | Id of the externalShipment to add a tag to
+$external_shipment_tag = "external_shipment_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addExternalShipmentTag($external_shipment_id, $external_shipment_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->addExternalShipmentTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_shipment_id** | **int**| Id of the externalShipment to add a tag to | 
+ **external_shipment_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteExternalShipment**
 > deleteExternalShipment($external_shipment_id)
 
@@ -98,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteExternalShipmentTag**
+> deleteExternalShipmentTag($external_shipment_id, $external_shipment_tag)
+
+Delete a tag for an externalShipment.
+
+Deletes an existing externalShipment tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$external_shipment_id = 56; // int | Id of the externalShipment to remove tag from
+$external_shipment_tag = "external_shipment_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteExternalShipmentTag($external_shipment_id, $external_shipment_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->deleteExternalShipmentTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_shipment_id** | **int**| Id of the externalShipment to remove tag from | 
+ **external_shipment_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateExternalShipmentById**
+> \Infoplus\Model\ExternalShipment getDuplicateExternalShipmentById($external_shipment_id)
+
+Get a duplicated an externalShipment by id
+
+Returns a duplicated externalShipment identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$external_shipment_id = 56; // int | Id of the externalShipment to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateExternalShipmentById($external_shipment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->getDuplicateExternalShipmentById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_shipment_id** | **int**| Id of the externalShipment to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\ExternalShipment**](ExternalShipment.md)
 
 ### Authorization
 
@@ -216,6 +425,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getExternalShipmentTags**
+> getExternalShipmentTags($external_shipment_id)
+
+Get the tags for an externalShipment.
+
+Get all existing externalShipment tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$external_shipment_id = 56; // int | Id of the externalShipment to get tags for
+
+try { 
+    $api_instance->getExternalShipmentTags($external_shipment_id);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->getExternalShipmentTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_shipment_id** | **int**| Id of the externalShipment to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateExternalShipment**
 > updateExternalShipment($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateExternalShipment($body);
 } catch (Exception $e) {
     echo 'Exception when calling ExternalShipmentApi->updateExternalShipment: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\ExternalShipment**](\Infoplus\Model\ExternalShipment.md)| ExternalShipment to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateExternalShipmentCustomFields**
+> updateExternalShipmentCustomFields($body)
+
+Update an externalShipment custom fields
+
+Updates an existing externalShipment custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\ExternalShipmentApi();
+$body = new \Infoplus\Model\ExternalShipment(); // \Infoplus\Model\ExternalShipment | ExternalShipment to be updated.
+
+try { 
+    $api_instance->updateExternalShipmentCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling ExternalShipmentApi->updateExternalShipmentCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

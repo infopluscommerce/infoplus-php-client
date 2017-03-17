@@ -52,7 +52,7 @@ class OrderLine implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'order_no' => 'double',
+        'order_no' => 'Number',
         'lob_id' => 'int',
         'sku' => 'string',
         'po_no_id' => 'int',
@@ -66,20 +66,24 @@ class OrderLine implements ArrayAccess
         'upc' => 'string',
         'vendor_sku' => 'string',
         'order_source_sku' => 'string',
-        'unit_cost' => 'double',
-        'unit_sell' => 'double',
-        'extended_cost' => 'double',
-        'extended_sell' => 'double',
-        'nc_extended_sell' => 'double',
-        'item_weight' => 'double',
-        'weight_per_wrap' => 'double',
+        'unit_cost' => 'Number',
+        'unit_sell' => 'Number',
+        'unit_discount' => 'Number',
+        'extended_cost' => 'Number',
+        'extended_sell' => 'Number',
+        'extended_discount' => 'Number',
+        'nc_extended_sell' => 'Number',
+        'item_weight' => 'Number',
+        'production_lot' => 'string',
+        'weight_per_wrap' => 'Number',
         'sector' => 'string',
         'item_account_code_id' => 'int',
         'item_legacy_low_stock_contact_id' => 'int',
         'item_major_group_id' => 'int',
         'item_sub_group_id' => 'int',
         'item_product_code_id' => 'int',
-        'item_summary_code_id' => 'int'
+        'item_summary_code_id' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -108,10 +112,13 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'orderSourceSKU',
         'unit_cost' => 'unitCost',
         'unit_sell' => 'unitSell',
+        'unit_discount' => 'unitDiscount',
         'extended_cost' => 'extendedCost',
         'extended_sell' => 'extendedSell',
+        'extended_discount' => 'extendedDiscount',
         'nc_extended_sell' => 'ncExtendedSell',
         'item_weight' => 'itemWeight',
+        'production_lot' => 'productionLot',
         'weight_per_wrap' => 'weightPerWrap',
         'sector' => 'sector',
         'item_account_code_id' => 'itemAccountCodeId',
@@ -119,7 +126,8 @@ class OrderLine implements ArrayAccess
         'item_major_group_id' => 'itemMajorGroupId',
         'item_sub_group_id' => 'itemSubGroupId',
         'item_product_code_id' => 'itemProductCodeId',
-        'item_summary_code_id' => 'itemSummaryCodeId'
+        'item_summary_code_id' => 'itemSummaryCodeId',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -148,10 +156,13 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'setOrderSourceSku',
         'unit_cost' => 'setUnitCost',
         'unit_sell' => 'setUnitSell',
+        'unit_discount' => 'setUnitDiscount',
         'extended_cost' => 'setExtendedCost',
         'extended_sell' => 'setExtendedSell',
+        'extended_discount' => 'setExtendedDiscount',
         'nc_extended_sell' => 'setNcExtendedSell',
         'item_weight' => 'setItemWeight',
+        'production_lot' => 'setProductionLot',
         'weight_per_wrap' => 'setWeightPerWrap',
         'sector' => 'setSector',
         'item_account_code_id' => 'setItemAccountCodeId',
@@ -159,7 +170,8 @@ class OrderLine implements ArrayAccess
         'item_major_group_id' => 'setItemMajorGroupId',
         'item_sub_group_id' => 'setItemSubGroupId',
         'item_product_code_id' => 'setItemProductCodeId',
-        'item_summary_code_id' => 'setItemSummaryCodeId'
+        'item_summary_code_id' => 'setItemSummaryCodeId',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -188,10 +200,13 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'getOrderSourceSku',
         'unit_cost' => 'getUnitCost',
         'unit_sell' => 'getUnitSell',
+        'unit_discount' => 'getUnitDiscount',
         'extended_cost' => 'getExtendedCost',
         'extended_sell' => 'getExtendedSell',
+        'extended_discount' => 'getExtendedDiscount',
         'nc_extended_sell' => 'getNcExtendedSell',
         'item_weight' => 'getItemWeight',
+        'production_lot' => 'getProductionLot',
         'weight_per_wrap' => 'getWeightPerWrap',
         'sector' => 'getSector',
         'item_account_code_id' => 'getItemAccountCodeId',
@@ -199,7 +214,8 @@ class OrderLine implements ArrayAccess
         'item_major_group_id' => 'getItemMajorGroupId',
         'item_sub_group_id' => 'getItemSubGroupId',
         'item_product_code_id' => 'getItemProductCodeId',
-        'item_summary_code_id' => 'getItemSummaryCodeId'
+        'item_summary_code_id' => 'getItemSummaryCodeId',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -215,7 +231,7 @@ class OrderLine implements ArrayAccess
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -299,43 +315,61 @@ class OrderLine implements ArrayAccess
     
     /**
       * $unit_cost 
-      * @var double
+      * @var Number
       */
     protected $unit_cost;
     
     /**
       * $unit_sell 
-      * @var double
+      * @var Number
       */
     protected $unit_sell;
     
     /**
+      * $unit_discount 
+      * @var Number
+      */
+    protected $unit_discount;
+    
+    /**
       * $extended_cost 
-      * @var double
+      * @var Number
       */
     protected $extended_cost;
     
     /**
       * $extended_sell 
-      * @var double
+      * @var Number
       */
     protected $extended_sell;
     
     /**
+      * $extended_discount 
+      * @var Number
+      */
+    protected $extended_discount;
+    
+    /**
       * $nc_extended_sell 
-      * @var double
+      * @var Number
       */
     protected $nc_extended_sell;
     
     /**
       * $item_weight 
-      * @var double
+      * @var Number
       */
     protected $item_weight;
     
     /**
+      * $production_lot 
+      * @var string
+      */
+    protected $production_lot;
+    
+    /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
@@ -381,6 +415,12 @@ class OrderLine implements ArrayAccess
       */
     protected $item_summary_code_id;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -407,10 +447,13 @@ class OrderLine implements ArrayAccess
             $this->order_source_sku = $data["order_source_sku"];
             $this->unit_cost = $data["unit_cost"];
             $this->unit_sell = $data["unit_sell"];
+            $this->unit_discount = $data["unit_discount"];
             $this->extended_cost = $data["extended_cost"];
             $this->extended_sell = $data["extended_sell"];
+            $this->extended_discount = $data["extended_discount"];
             $this->nc_extended_sell = $data["nc_extended_sell"];
             $this->item_weight = $data["item_weight"];
+            $this->production_lot = $data["production_lot"];
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->sector = $data["sector"];
             $this->item_account_code_id = $data["item_account_code_id"];
@@ -419,6 +462,7 @@ class OrderLine implements ArrayAccess
             $this->item_sub_group_id = $data["item_sub_group_id"];
             $this->item_product_code_id = $data["item_product_code_id"];
             $this->item_summary_code_id = $data["item_summary_code_id"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -445,7 +489,7 @@ class OrderLine implements ArrayAccess
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -454,7 +498,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -739,7 +783,7 @@ class OrderLine implements ArrayAccess
     
     /**
      * Gets unit_cost
-     * @return double
+     * @return Number
      */
     public function getUnitCost()
     {
@@ -748,7 +792,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets unit_cost
-     * @param double $unit_cost 
+     * @param Number $unit_cost 
      * @return $this
      */
     public function setUnitCost($unit_cost)
@@ -760,7 +804,7 @@ class OrderLine implements ArrayAccess
     
     /**
      * Gets unit_sell
-     * @return double
+     * @return Number
      */
     public function getUnitSell()
     {
@@ -769,7 +813,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets unit_sell
-     * @param double $unit_sell 
+     * @param Number $unit_sell 
      * @return $this
      */
     public function setUnitSell($unit_sell)
@@ -780,8 +824,29 @@ class OrderLine implements ArrayAccess
     }
     
     /**
+     * Gets unit_discount
+     * @return Number
+     */
+    public function getUnitDiscount()
+    {
+        return $this->unit_discount;
+    }
+  
+    /**
+     * Sets unit_discount
+     * @param Number $unit_discount 
+     * @return $this
+     */
+    public function setUnitDiscount($unit_discount)
+    {
+        
+        $this->unit_discount = $unit_discount;
+        return $this;
+    }
+    
+    /**
      * Gets extended_cost
-     * @return double
+     * @return Number
      */
     public function getExtendedCost()
     {
@@ -790,7 +855,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets extended_cost
-     * @param double $extended_cost 
+     * @param Number $extended_cost 
      * @return $this
      */
     public function setExtendedCost($extended_cost)
@@ -802,7 +867,7 @@ class OrderLine implements ArrayAccess
     
     /**
      * Gets extended_sell
-     * @return double
+     * @return Number
      */
     public function getExtendedSell()
     {
@@ -811,7 +876,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets extended_sell
-     * @param double $extended_sell 
+     * @param Number $extended_sell 
      * @return $this
      */
     public function setExtendedSell($extended_sell)
@@ -822,8 +887,29 @@ class OrderLine implements ArrayAccess
     }
     
     /**
+     * Gets extended_discount
+     * @return Number
+     */
+    public function getExtendedDiscount()
+    {
+        return $this->extended_discount;
+    }
+  
+    /**
+     * Sets extended_discount
+     * @param Number $extended_discount 
+     * @return $this
+     */
+    public function setExtendedDiscount($extended_discount)
+    {
+        
+        $this->extended_discount = $extended_discount;
+        return $this;
+    }
+    
+    /**
      * Gets nc_extended_sell
-     * @return double
+     * @return Number
      */
     public function getNcExtendedSell()
     {
@@ -832,7 +918,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets nc_extended_sell
-     * @param double $nc_extended_sell 
+     * @param Number $nc_extended_sell 
      * @return $this
      */
     public function setNcExtendedSell($nc_extended_sell)
@@ -844,7 +930,7 @@ class OrderLine implements ArrayAccess
     
     /**
      * Gets item_weight
-     * @return double
+     * @return Number
      */
     public function getItemWeight()
     {
@@ -853,7 +939,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets item_weight
-     * @param double $item_weight 
+     * @param Number $item_weight 
      * @return $this
      */
     public function setItemWeight($item_weight)
@@ -864,8 +950,29 @@ class OrderLine implements ArrayAccess
     }
     
     /**
+     * Gets production_lot
+     * @return string
+     */
+    public function getProductionLot()
+    {
+        return $this->production_lot;
+    }
+  
+    /**
+     * Sets production_lot
+     * @param string $production_lot 
+     * @return $this
+     */
+    public function setProductionLot($production_lot)
+    {
+        
+        $this->production_lot = $production_lot;
+        return $this;
+    }
+    
+    /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -874,7 +981,7 @@ class OrderLine implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -1028,6 +1135,27 @@ class OrderLine implements ArrayAccess
     {
         
         $this->item_summary_code_id = $item_summary_code_id;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

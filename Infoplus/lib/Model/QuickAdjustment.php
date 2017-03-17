@@ -60,6 +60,8 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'int',
         'message' => 'string',
         'status' => 'string',
+        'product_id_tag' => 'string',
+        'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
   
@@ -81,6 +83,8 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'totalQuantity',
         'message' => 'message',
         'status' => 'status',
+        'product_id_tag' => 'productIdTag',
+        'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
   
@@ -102,6 +106,8 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'setTotalQuantity',
         'message' => 'setMessage',
         'status' => 'setStatus',
+        'product_id_tag' => 'setProductIdTag',
+        'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
   
@@ -123,6 +129,8 @@ class QuickAdjustment implements ArrayAccess
         'total_quantity' => 'getTotalQuantity',
         'message' => 'getMessage',
         'status' => 'getStatus',
+        'product_id_tag' => 'getProductIdTag',
+        'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
   
@@ -186,6 +194,18 @@ class QuickAdjustment implements ArrayAccess
     protected $status;
     
     /**
+      * $product_id_tag 
+      * @var string
+      */
+    protected $product_id_tag;
+    
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
+    /**
       * $sku 
       * @var string
       */
@@ -209,6 +229,8 @@ class QuickAdjustment implements ArrayAccess
             $this->total_quantity = $data["total_quantity"];
             $this->message = $data["message"];
             $this->status = $data["status"];
+            $this->product_id_tag = $data["product_id_tag"];
+            $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
     }
@@ -399,6 +421,48 @@ class QuickAdjustment implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets product_id_tag
+     * @return string
+     */
+    public function getProductIdTag()
+    {
+        return $this->product_id_tag;
+    }
+  
+    /**
+     * Sets product_id_tag
+     * @param string $product_id_tag 
+     * @return $this
+     */
+    public function setProductIdTag($product_id_tag)
+    {
+        
+        $this->product_id_tag = $product_id_tag;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

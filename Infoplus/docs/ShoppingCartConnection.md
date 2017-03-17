@@ -17,12 +17,19 @@ Name | Type | Description | Notes
 **shopping_cart_sku_field_to_map** | **string** |  | 
 **name** | **string** |  | 
 **shopping_cart_store_url** | **string** |  | 
-**access_code** | **string** |  | [optional] 
-**access_token** | **string** |  | [optional] 
+**access_code** | **string** |  | 
+**access_token** | **string** |  | 
+**username** | **string** |  | 
+**password** | **string** |  | 
+**default_carrier_id** | **int** |  | [optional] 
+**order_shipment_level** | **string** |  | 
 **sync_orders** | **bool** |  | [default to false]
 **sync_inventory** | **bool** |  | [default to false]
 **sync_tracking_data** | **bool** |  | [default to false]
+**fulfill_all_items** | **bool** |  | [default to false]
 **sync_inventory_levels_last_run_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**sync_orders_last_run_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

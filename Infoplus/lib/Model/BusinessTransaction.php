@@ -58,7 +58,8 @@ class BusinessTransaction implements ArrayAccess
         'queue_name' => 'string',
         'lob_id' => 'int',
         'message_body' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -77,7 +78,8 @@ class BusinessTransaction implements ArrayAccess
         'queue_name' => 'queueName',
         'lob_id' => 'lobId',
         'message_body' => 'messageBody',
-        'status' => 'status'
+        'status' => 'status',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -96,7 +98,8 @@ class BusinessTransaction implements ArrayAccess
         'queue_name' => 'setQueueName',
         'lob_id' => 'setLobId',
         'message_body' => 'setMessageBody',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -115,7 +118,8 @@ class BusinessTransaction implements ArrayAccess
         'queue_name' => 'getQueueName',
         'lob_id' => 'getLobId',
         'message_body' => 'getMessageBody',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -171,6 +175,12 @@ class BusinessTransaction implements ArrayAccess
       */
     protected $status;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -188,6 +198,7 @@ class BusinessTransaction implements ArrayAccess
             $this->lob_id = $data["lob_id"];
             $this->message_body = $data["message_body"];
             $this->status = $data["status"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -356,6 +367,27 @@ class BusinessTransaction implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

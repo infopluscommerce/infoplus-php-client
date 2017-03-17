@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOrderSource**](OrderSourceApi.md#addOrderSource) | **POST** /v1.0/orderSource | Create an orderSource
-[**deleteOrderSource**](OrderSourceApi.md#deleteOrderSource) | **DELETE** /v1.0/orderSource/{orderSourceId} | Delete an orderSource
-[**getOrderSourceByFilter**](OrderSourceApi.md#getOrderSourceByFilter) | **GET** /v1.0/orderSource/search | Search orderSources by filter
-[**getOrderSourceById**](OrderSourceApi.md#getOrderSourceById) | **GET** /v1.0/orderSource/{orderSourceId} | Get an orderSource by id
-[**updateOrderSource**](OrderSourceApi.md#updateOrderSource) | **PUT** /v1.0/orderSource | Update an orderSource
+[**addOrderSource**](OrderSourceApi.md#addOrderSource) | **POST** /beta/orderSource | Create an orderSource
+[**addOrderSourceAudit**](OrderSourceApi.md#addOrderSourceAudit) | **PUT** /beta/orderSource/{orderSourceId}/audit/{orderSourceAudit} | Add new audit for an orderSource
+[**addOrderSourceTag**](OrderSourceApi.md#addOrderSourceTag) | **PUT** /beta/orderSource/{orderSourceId}/tag/{orderSourceTag} | Add new tags for an orderSource.
+[**deleteOrderSource**](OrderSourceApi.md#deleteOrderSource) | **DELETE** /beta/orderSource/{orderSourceId} | Delete an orderSource
+[**deleteOrderSourceTag**](OrderSourceApi.md#deleteOrderSourceTag) | **DELETE** /beta/orderSource/{orderSourceId}/tag/{orderSourceTag} | Delete a tag for an orderSource.
+[**getDuplicateOrderSourceById**](OrderSourceApi.md#getDuplicateOrderSourceById) | **GET** /beta/orderSource/duplicate/{orderSourceId} | Get a duplicated an orderSource by id
+[**getOrderSourceByFilter**](OrderSourceApi.md#getOrderSourceByFilter) | **GET** /beta/orderSource/search | Search orderSources by filter
+[**getOrderSourceById**](OrderSourceApi.md#getOrderSourceById) | **GET** /beta/orderSource/{orderSourceId} | Get an orderSource by id
+[**getOrderSourceTags**](OrderSourceApi.md#getOrderSourceTags) | **GET** /beta/orderSource/{orderSourceId}/tag | Get the tags for an orderSource.
+[**updateOrderSource**](OrderSourceApi.md#updateOrderSource) | **PUT** /beta/orderSource | Update an orderSource
+[**updateOrderSourceCustomFields**](OrderSourceApi.md#updateOrderSourceCustomFields) | **PUT** /beta/orderSource/customFields | Update an orderSource custom fields
 
 
 # **addOrderSource**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addOrderSourceAudit**
+> addOrderSourceAudit($order_source_id, $order_source_audit)
+
+Add new audit for an orderSource
+
+Adds an audit to an existing orderSource.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$order_source_id = 56; // int | Id of the orderSource to add an audit to
+$order_source_audit = "order_source_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addOrderSourceAudit($order_source_id, $order_source_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->addOrderSourceAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_source_id** | **int**| Id of the orderSource to add an audit to | 
+ **order_source_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addOrderSourceTag**
+> addOrderSourceTag($order_source_id, $order_source_tag)
+
+Add new tags for an orderSource.
+
+Adds a tag to an existing orderSource.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$order_source_id = 56; // int | Id of the orderSource to add a tag to
+$order_source_tag = "order_source_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addOrderSourceTag($order_source_id, $order_source_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->addOrderSourceTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_source_id** | **int**| Id of the orderSource to add a tag to | 
+ **order_source_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteOrderSource**
 > deleteOrderSource($order_source_id)
 
@@ -98,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteOrderSourceTag**
+> deleteOrderSourceTag($order_source_id, $order_source_tag)
+
+Delete a tag for an orderSource.
+
+Deletes an existing orderSource tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$order_source_id = 56; // int | Id of the orderSource to remove tag from
+$order_source_tag = "order_source_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteOrderSourceTag($order_source_id, $order_source_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->deleteOrderSourceTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_source_id** | **int**| Id of the orderSource to remove tag from | 
+ **order_source_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateOrderSourceById**
+> \Infoplus\Model\OrderSource getDuplicateOrderSourceById($order_source_id)
+
+Get a duplicated an orderSource by id
+
+Returns a duplicated orderSource identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$order_source_id = 56; // int | Id of the orderSource to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateOrderSourceById($order_source_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->getDuplicateOrderSourceById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_source_id** | **int**| Id of the orderSource to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\OrderSource**](OrderSource.md)
 
 ### Authorization
 
@@ -216,6 +425,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getOrderSourceTags**
+> getOrderSourceTags($order_source_id)
+
+Get the tags for an orderSource.
+
+Get all existing orderSource tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$order_source_id = 56; // int | Id of the orderSource to get tags for
+
+try { 
+    $api_instance->getOrderSourceTags($order_source_id);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->getOrderSourceTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_source_id** | **int**| Id of the orderSource to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateOrderSource**
 > updateOrderSource($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateOrderSource($body);
 } catch (Exception $e) {
     echo 'Exception when calling OrderSourceApi->updateOrderSource: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\OrderSource**](\Infoplus\Model\OrderSource.md)| OrderSource to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateOrderSourceCustomFields**
+> updateOrderSourceCustomFields($body)
+
+Update an orderSource custom fields
+
+Updates an existing orderSource custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderSourceApi();
+$body = new \Infoplus\Model\OrderSource(); // \Infoplus\Model\OrderSource | OrderSource to be updated.
+
+try { 
+    $api_instance->updateOrderSourceCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderSourceApi->updateOrderSourceCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

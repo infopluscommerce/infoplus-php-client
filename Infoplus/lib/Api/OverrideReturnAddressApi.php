@@ -125,7 +125,7 @@ class OverrideReturnAddressApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/overrideReturnAddress";
+        $resourcePath = "/beta/overrideReturnAddress";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class OverrideReturnAddressApi
     }
     
     /**
+     * addOverrideReturnAddressAudit
+     *
+     * Add new audit for an overrideReturnAddress
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to add an audit to (required)
+     * @param string $override_return_address_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOverrideReturnAddressAudit($override_return_address_id, $override_return_address_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOverrideReturnAddressAuditWithHttpInfo ($override_return_address_id, $override_return_address_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addOverrideReturnAddressAuditWithHttpInfo
+     *
+     * Add new audit for an overrideReturnAddress
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to add an audit to (required)
+     * @param string $override_return_address_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOverrideReturnAddressAuditWithHttpInfo($override_return_address_id, $override_return_address_audit)
+    {
+        
+        // verify the required parameter 'override_return_address_id' is set
+        if ($override_return_address_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_id when calling addOverrideReturnAddressAudit');
+        }
+        // verify the required parameter 'override_return_address_audit' is set
+        if ($override_return_address_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_audit when calling addOverrideReturnAddressAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}/audit/{overrideReturnAddressAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($override_return_address_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($override_return_address_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addOverrideReturnAddressTag
+     *
+     * Add new tags for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to add a tag to (required)
+     * @param string $override_return_address_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOverrideReturnAddressTag($override_return_address_id, $override_return_address_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOverrideReturnAddressTagWithHttpInfo ($override_return_address_id, $override_return_address_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addOverrideReturnAddressTagWithHttpInfo
+     *
+     * Add new tags for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to add a tag to (required)
+     * @param string $override_return_address_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOverrideReturnAddressTagWithHttpInfo($override_return_address_id, $override_return_address_tag)
+    {
+        
+        // verify the required parameter 'override_return_address_id' is set
+        if ($override_return_address_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_id when calling addOverrideReturnAddressTag');
+        }
+        // verify the required parameter 'override_return_address_tag' is set
+        if ($override_return_address_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_tag when calling addOverrideReturnAddressTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($override_return_address_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($override_return_address_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteOverrideReturnAddress
      *
      * Delete an overrideReturnAddress
@@ -227,7 +443,7 @@ class OverrideReturnAddressApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/overrideReturnAddress/{overrideReturnAddressId}";
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -288,6 +504,216 @@ class OverrideReturnAddressApi
     }
     
     /**
+     * deleteOverrideReturnAddressTag
+     *
+     * Delete a tag for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to remove tag from (required)
+     * @param string $override_return_address_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOverrideReturnAddressTag($override_return_address_id, $override_return_address_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteOverrideReturnAddressTagWithHttpInfo ($override_return_address_id, $override_return_address_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteOverrideReturnAddressTagWithHttpInfo
+     *
+     * Delete a tag for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to remove tag from (required)
+     * @param string $override_return_address_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOverrideReturnAddressTagWithHttpInfo($override_return_address_id, $override_return_address_tag)
+    {
+        
+        // verify the required parameter 'override_return_address_id' is set
+        if ($override_return_address_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_id when calling deleteOverrideReturnAddressTag');
+        }
+        // verify the required parameter 'override_return_address_tag' is set
+        if ($override_return_address_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_tag when calling deleteOverrideReturnAddressTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag/{overrideReturnAddressTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($override_return_address_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($override_return_address_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateOverrideReturnAddressById
+     *
+     * Get a duplicated an overrideReturnAddress by id
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to be duplicated. (required)
+     * @return \Infoplus\Model\OverrideReturnAddress
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOverrideReturnAddressById($override_return_address_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateOverrideReturnAddressByIdWithHttpInfo ($override_return_address_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateOverrideReturnAddressByIdWithHttpInfo
+     *
+     * Get a duplicated an overrideReturnAddress by id
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to be duplicated. (required)
+     * @return Array of \Infoplus\Model\OverrideReturnAddress, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOverrideReturnAddressByIdWithHttpInfo($override_return_address_id)
+    {
+        
+        // verify the required parameter 'override_return_address_id' is set
+        if ($override_return_address_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_id when calling getDuplicateOverrideReturnAddressById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/duplicate/{overrideReturnAddressId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($override_return_address_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\OverrideReturnAddress'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\OverrideReturnAddress', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\OverrideReturnAddress', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getOverrideReturnAddressByFilter
      *
      * Search overrideReturnAddresses by filter
@@ -323,7 +749,7 @@ class OverrideReturnAddressApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/overrideReturnAddress/search";
+        $resourcePath = "/beta/overrideReturnAddress/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +859,7 @@ class OverrideReturnAddressApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/overrideReturnAddress/{overrideReturnAddressId}";
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -502,6 +928,100 @@ class OverrideReturnAddressApi
     }
     
     /**
+     * getOverrideReturnAddressTags
+     *
+     * Get the tags for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOverrideReturnAddressTags($override_return_address_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getOverrideReturnAddressTagsWithHttpInfo ($override_return_address_id);
+        return $response; 
+    }
+
+
+    /**
+     * getOverrideReturnAddressTagsWithHttpInfo
+     *
+     * Get the tags for an overrideReturnAddress.
+     *
+     * @param int $override_return_address_id Id of the overrideReturnAddress to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOverrideReturnAddressTagsWithHttpInfo($override_return_address_id)
+    {
+        
+        // verify the required parameter 'override_return_address_id' is set
+        if ($override_return_address_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $override_return_address_id when calling getOverrideReturnAddressTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/{overrideReturnAddressId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($override_return_address_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "overrideReturnAddressId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($override_return_address_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * updateOverrideReturnAddress
      *
      * Update an overrideReturnAddress
@@ -535,7 +1055,97 @@ class OverrideReturnAddressApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/overrideReturnAddress";
+        $resourcePath = "/beta/overrideReturnAddress";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateOverrideReturnAddressCustomFields
+     *
+     * Update an overrideReturnAddress custom fields
+     *
+     * @param \Infoplus\Model\OverrideReturnAddress $body OverrideReturnAddress to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateOverrideReturnAddressCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateOverrideReturnAddressCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateOverrideReturnAddressCustomFieldsWithHttpInfo
+     *
+     * Update an overrideReturnAddress custom fields
+     *
+     * @param \Infoplus\Model\OverrideReturnAddress $body OverrideReturnAddress to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateOverrideReturnAddressCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateOverrideReturnAddressCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/overrideReturnAddress/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

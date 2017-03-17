@@ -52,8 +52,8 @@ class CartonContent implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'group_order_id' => 'double',
-        'order_no' => 'double',
+        'group_order_id' => 'Number',
+        'order_no' => 'Number',
         'carton_no_id' => 'int',
         'line_item_id' => 'int',
         'location' => 'string',
@@ -62,7 +62,8 @@ class CartonContent implements ArrayAccess
         'completed' => '\DateTime',
         'tote_id' => 'string',
         'picker_id' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -85,7 +86,8 @@ class CartonContent implements ArrayAccess
         'completed' => 'completed',
         'tote_id' => 'toteId',
         'picker_id' => 'pickerId',
-        'status' => 'status'
+        'status' => 'status',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -108,7 +110,8 @@ class CartonContent implements ArrayAccess
         'completed' => 'setCompleted',
         'tote_id' => 'setToteId',
         'picker_id' => 'setPickerId',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -131,7 +134,8 @@ class CartonContent implements ArrayAccess
         'completed' => 'getCompleted',
         'tote_id' => 'getToteId',
         'picker_id' => 'getPickerId',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -147,13 +151,13 @@ class CartonContent implements ArrayAccess
     
     /**
       * $group_order_id 
-      * @var double
+      * @var Number
       */
     protected $group_order_id;
     
     /**
       * $order_no 
-      * @var double
+      * @var Number
       */
     protected $order_no;
     
@@ -211,6 +215,12 @@ class CartonContent implements ArrayAccess
       */
     protected $status;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -232,6 +242,7 @@ class CartonContent implements ArrayAccess
             $this->tote_id = $data["tote_id"];
             $this->picker_id = $data["picker_id"];
             $this->status = $data["status"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -258,7 +269,7 @@ class CartonContent implements ArrayAccess
     
     /**
      * Gets group_order_id
-     * @return double
+     * @return Number
      */
     public function getGroupOrderId()
     {
@@ -267,7 +278,7 @@ class CartonContent implements ArrayAccess
   
     /**
      * Sets group_order_id
-     * @param double $group_order_id 
+     * @param Number $group_order_id 
      * @return $this
      */
     public function setGroupOrderId($group_order_id)
@@ -279,7 +290,7 @@ class CartonContent implements ArrayAccess
     
     /**
      * Gets order_no
-     * @return double
+     * @return Number
      */
     public function getOrderNo()
     {
@@ -288,7 +299,7 @@ class CartonContent implements ArrayAccess
   
     /**
      * Sets order_no
-     * @param double $order_no 
+     * @param Number $order_no 
      * @return $this
      */
     public function setOrderNo($order_no)
@@ -484,6 +495,27 @@ class CartonContent implements ArrayAccess
     {
         
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

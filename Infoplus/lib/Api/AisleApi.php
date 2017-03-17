@@ -125,7 +125,7 @@ class AisleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/aisle";
+        $resourcePath = "/beta/aisle";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,6 +194,222 @@ class AisleApi
     }
     
     /**
+     * addAisleAudit
+     *
+     * Add new audit for an aisle
+     *
+     * @param int $aisle_id Id of the aisle to add an audit to (required)
+     * @param string $aisle_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAisleAudit($aisle_id, $aisle_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addAisleAuditWithHttpInfo ($aisle_id, $aisle_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addAisleAuditWithHttpInfo
+     *
+     * Add new audit for an aisle
+     *
+     * @param int $aisle_id Id of the aisle to add an audit to (required)
+     * @param string $aisle_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAisleAuditWithHttpInfo($aisle_id, $aisle_audit)
+    {
+        
+        // verify the required parameter 'aisle_id' is set
+        if ($aisle_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_id when calling addAisleAudit');
+        }
+        // verify the required parameter 'aisle_audit' is set
+        if ($aisle_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_audit when calling addAisleAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/{aisleId}/audit/{aisleAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($aisle_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($aisle_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addAisleTag
+     *
+     * Add new tags for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to add a tag to (required)
+     * @param string $aisle_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAisleTag($aisle_id, $aisle_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addAisleTagWithHttpInfo ($aisle_id, $aisle_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addAisleTagWithHttpInfo
+     *
+     * Add new tags for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to add a tag to (required)
+     * @param string $aisle_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addAisleTagWithHttpInfo($aisle_id, $aisle_tag)
+    {
+        
+        // verify the required parameter 'aisle_id' is set
+        if ($aisle_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_id when calling addAisleTag');
+        }
+        // verify the required parameter 'aisle_tag' is set
+        if ($aisle_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_tag when calling addAisleTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/{aisleId}/tag/{aisleTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($aisle_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($aisle_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteAisle
      *
      * Delete an aisle
@@ -227,7 +443,7 @@ class AisleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/aisle/{aisleId}";
+        $resourcePath = "/beta/aisle/{aisleId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -246,6 +462,114 @@ class AisleApi
             $resourcePath = str_replace(
                 "{" . "aisleId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteAisleTag
+     *
+     * Delete a tag for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to remove tag from (required)
+     * @param string $aisle_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteAisleTag($aisle_id, $aisle_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteAisleTagWithHttpInfo ($aisle_id, $aisle_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteAisleTagWithHttpInfo
+     *
+     * Delete a tag for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to remove tag from (required)
+     * @param string $aisle_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteAisleTagWithHttpInfo($aisle_id, $aisle_tag)
+    {
+        
+        // verify the required parameter 'aisle_id' is set
+        if ($aisle_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_id when calling deleteAisleTag');
+        }
+        // verify the required parameter 'aisle_tag' is set
+        if ($aisle_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_tag when calling deleteAisleTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/{aisleId}/tag/{aisleTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($aisle_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($aisle_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_tag),
                 $resourcePath
             );
         }
@@ -323,7 +647,7 @@ class AisleApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/aisle/search";
+        $resourcePath = "/beta/aisle/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -433,7 +757,203 @@ class AisleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/aisle/{aisleId}";
+        $resourcePath = "/beta/aisle/{aisleId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($aisle_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Aisle'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Aisle', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Aisle', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getAisleTags
+     *
+     * Get the tags for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getAisleTags($aisle_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getAisleTagsWithHttpInfo ($aisle_id);
+        return $response; 
+    }
+
+
+    /**
+     * getAisleTagsWithHttpInfo
+     *
+     * Get the tags for an aisle.
+     *
+     * @param int $aisle_id Id of the aisle to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getAisleTagsWithHttpInfo($aisle_id)
+    {
+        
+        // verify the required parameter 'aisle_id' is set
+        if ($aisle_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_id when calling getAisleTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/{aisleId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($aisle_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "aisleId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($aisle_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateAisleById
+     *
+     * Get a duplicated an aisle by id
+     *
+     * @param int $aisle_id Id of the aisle to be duplicated. (required)
+     * @return \Infoplus\Model\Aisle
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateAisleById($aisle_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateAisleByIdWithHttpInfo ($aisle_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateAisleByIdWithHttpInfo
+     *
+     * Get a duplicated an aisle by id
+     *
+     * @param int $aisle_id Id of the aisle to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Aisle, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateAisleByIdWithHttpInfo($aisle_id)
+    {
+        
+        // verify the required parameter 'aisle_id' is set
+        if ($aisle_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $aisle_id when calling getDuplicateAisleById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/duplicate/{aisleId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -535,7 +1055,97 @@ class AisleApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/aisle";
+        $resourcePath = "/beta/aisle";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateAisleCustomFields
+     *
+     * Update an aisle custom fields
+     *
+     * @param \Infoplus\Model\Aisle $body Aisle to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateAisleCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateAisleCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateAisleCustomFieldsWithHttpInfo
+     *
+     * Update an aisle custom fields
+     *
+     * @param \Infoplus\Model\Aisle $body Aisle to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateAisleCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateAisleCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/aisle/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

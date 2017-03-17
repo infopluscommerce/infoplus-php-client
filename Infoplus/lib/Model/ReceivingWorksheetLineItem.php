@@ -52,6 +52,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $swaggerTypes = array(
         'sku' => 'string',
+        'sku2' => 'string',
         'full_description' => 'string',
         'ordered_qty' => 'int',
         'prev_received_qty' => 'int',
@@ -62,16 +63,18 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'units_per_wrap' => 'int',
         'units_per_case' => 'int',
         'cases_per_pallet' => 'int',
-        'weight_per_wrap' => 'double',
-        'weight_per_case' => 'double',
+        'weight_per_wrap' => 'Number',
+        'weight_per_case' => 'Number',
         'production_lot' => 'string',
+        'product_id_tag' => 'string',
         'revision_date' => 'string',
         'origin' => 'string',
-        'carton_length' => 'double',
-        'carton_width' => 'double',
-        'carton_height' => 'double',
+        'carton_length' => 'Number',
+        'carton_width' => 'Number',
+        'carton_height' => 'Number',
         'put_away_plans' => '\Infoplus\Model\ReceivingWorksheetPutAwayPlan[]',
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'custom_fields' => 'map[string,object]'
     );
   
     static function swaggerTypes() {
@@ -84,6 +87,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $attributeMap = array(
         'sku' => 'sku',
+        'sku2' => 'sku2',
         'full_description' => 'fullDescription',
         'ordered_qty' => 'orderedQty',
         'prev_received_qty' => 'prevReceivedQty',
@@ -97,13 +101,15 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'weightPerWrap',
         'weight_per_case' => 'weightPerCase',
         'production_lot' => 'productionLot',
+        'product_id_tag' => 'productIdTag',
         'revision_date' => 'revisionDate',
         'origin' => 'origin',
         'carton_length' => 'cartonLength',
         'carton_width' => 'cartonWidth',
         'carton_height' => 'cartonHeight',
         'put_away_plans' => 'putAwayPlans',
-        'quantity' => 'quantity'
+        'quantity' => 'quantity',
+        'custom_fields' => 'customFields'
     );
   
     static function attributeMap() {
@@ -116,6 +122,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $setters = array(
         'sku' => 'setSku',
+        'sku2' => 'setSku2',
         'full_description' => 'setFullDescription',
         'ordered_qty' => 'setOrderedQty',
         'prev_received_qty' => 'setPrevReceivedQty',
@@ -129,13 +136,15 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'setWeightPerWrap',
         'weight_per_case' => 'setWeightPerCase',
         'production_lot' => 'setProductionLot',
+        'product_id_tag' => 'setProductIdTag',
         'revision_date' => 'setRevisionDate',
         'origin' => 'setOrigin',
         'carton_length' => 'setCartonLength',
         'carton_width' => 'setCartonWidth',
         'carton_height' => 'setCartonHeight',
         'put_away_plans' => 'setPutAwayPlans',
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'custom_fields' => 'setCustomFields'
     );
   
     static function setters() {
@@ -148,6 +157,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $getters = array(
         'sku' => 'getSku',
+        'sku2' => 'getSku2',
         'full_description' => 'getFullDescription',
         'ordered_qty' => 'getOrderedQty',
         'prev_received_qty' => 'getPrevReceivedQty',
@@ -161,13 +171,15 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'getWeightPerWrap',
         'weight_per_case' => 'getWeightPerCase',
         'production_lot' => 'getProductionLot',
+        'product_id_tag' => 'getProductIdTag',
         'revision_date' => 'getRevisionDate',
         'origin' => 'getOrigin',
         'carton_length' => 'getCartonLength',
         'carton_width' => 'getCartonWidth',
         'carton_height' => 'getCartonHeight',
         'put_away_plans' => 'getPutAwayPlans',
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'custom_fields' => 'getCustomFields'
     );
   
     static function getters() {
@@ -180,6 +192,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       * @var string
       */
     protected $sku;
+    
+    /**
+      * $sku2 
+      * @var string
+      */
+    protected $sku2;
     
     /**
       * $full_description 
@@ -243,13 +261,13 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
       * $weight_per_wrap 
-      * @var double
+      * @var Number
       */
     protected $weight_per_wrap;
     
     /**
       * $weight_per_case 
-      * @var double
+      * @var Number
       */
     protected $weight_per_case;
     
@@ -258,6 +276,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       * @var string
       */
     protected $production_lot;
+    
+    /**
+      * $product_id_tag 
+      * @var string
+      */
+    protected $product_id_tag;
     
     /**
       * $revision_date 
@@ -273,19 +297,19 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
       * $carton_length 
-      * @var double
+      * @var Number
       */
     protected $carton_length;
     
     /**
       * $carton_width 
-      * @var double
+      * @var Number
       */
     protected $carton_width;
     
     /**
       * $carton_height 
-      * @var double
+      * @var Number
       */
     protected $carton_height;
     
@@ -301,6 +325,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     protected $quantity;
     
+    /**
+      * $custom_fields 
+      * @var map[string,object]
+      */
+    protected $custom_fields;
+    
 
     /**
      * Constructor
@@ -311,6 +341,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         
         if ($data != null) {
             $this->sku = $data["sku"];
+            $this->sku2 = $data["sku2"];
             $this->full_description = $data["full_description"];
             $this->ordered_qty = $data["ordered_qty"];
             $this->prev_received_qty = $data["prev_received_qty"];
@@ -324,6 +355,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->weight_per_case = $data["weight_per_case"];
             $this->production_lot = $data["production_lot"];
+            $this->product_id_tag = $data["product_id_tag"];
             $this->revision_date = $data["revision_date"];
             $this->origin = $data["origin"];
             $this->carton_length = $data["carton_length"];
@@ -331,6 +363,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
             $this->carton_height = $data["carton_height"];
             $this->put_away_plans = $data["put_away_plans"];
             $this->quantity = $data["quantity"];
+            $this->custom_fields = $data["custom_fields"];
         }
     }
     
@@ -352,6 +385,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->sku = $sku;
+        return $this;
+    }
+    
+    /**
+     * Gets sku2
+     * @return string
+     */
+    public function getSku2()
+    {
+        return $this->sku2;
+    }
+  
+    /**
+     * Sets sku2
+     * @param string $sku2 
+     * @return $this
+     */
+    public function setSku2($sku2)
+    {
+        
+        $this->sku2 = $sku2;
         return $this;
     }
     
@@ -567,7 +621,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets weight_per_wrap
-     * @return double
+     * @return Number
      */
     public function getWeightPerWrap()
     {
@@ -576,7 +630,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets weight_per_wrap
-     * @param double $weight_per_wrap 
+     * @param Number $weight_per_wrap 
      * @return $this
      */
     public function setWeightPerWrap($weight_per_wrap)
@@ -588,7 +642,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets weight_per_case
-     * @return double
+     * @return Number
      */
     public function getWeightPerCase()
     {
@@ -597,7 +651,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets weight_per_case
-     * @param double $weight_per_case 
+     * @param Number $weight_per_case 
      * @return $this
      */
     public function setWeightPerCase($weight_per_case)
@@ -625,6 +679,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->production_lot = $production_lot;
+        return $this;
+    }
+    
+    /**
+     * Gets product_id_tag
+     * @return string
+     */
+    public function getProductIdTag()
+    {
+        return $this->product_id_tag;
+    }
+  
+    /**
+     * Sets product_id_tag
+     * @param string $product_id_tag 
+     * @return $this
+     */
+    public function setProductIdTag($product_id_tag)
+    {
+        
+        $this->product_id_tag = $product_id_tag;
         return $this;
     }
     
@@ -672,7 +747,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_length
-     * @return double
+     * @return Number
      */
     public function getCartonLength()
     {
@@ -681,7 +756,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_length
-     * @param double $carton_length 
+     * @param Number $carton_length 
      * @return $this
      */
     public function setCartonLength($carton_length)
@@ -693,7 +768,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_width
-     * @return double
+     * @return Number
      */
     public function getCartonWidth()
     {
@@ -702,7 +777,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_width
-     * @param double $carton_width 
+     * @param Number $carton_width 
      * @return $this
      */
     public function setCartonWidth($carton_width)
@@ -714,7 +789,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     
     /**
      * Gets carton_height
-     * @return double
+     * @return Number
      */
     public function getCartonHeight()
     {
@@ -723,7 +798,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
   
     /**
      * Sets carton_height
-     * @param double $carton_height 
+     * @param Number $carton_height 
      * @return $this
      */
     public function setCartonHeight($carton_height)
@@ -772,6 +847,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets custom_fields
+     * @return map[string,object]
+     */
+    public function getCustomFields()
+    {
+        return $this->custom_fields;
+    }
+  
+    /**
+     * Sets custom_fields
+     * @param map[string,object] $custom_fields 
+     * @return $this
+     */
+    public function setCustomFields($custom_fields)
+    {
+        
+        $this->custom_fields = $custom_fields;
         return $this;
     }
     

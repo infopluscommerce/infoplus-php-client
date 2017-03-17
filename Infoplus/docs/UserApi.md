@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserById**](UserApi.md#getUserById) | **GET** /v1.0/user/{userId} | Get an user by id
-[**getUserBySearchText**](UserApi.md#getUserBySearchText) | **GET** /v1.0/user/search | Search users
+[**getUserById**](UserApi.md#getUserById) | **GET** /beta/user/{userId} | Get an user by id
+[**getUserBySearchText**](UserApi.md#getUserBySearchText) | **GET** /beta/user/search | Search users
 
 
 # **getUserById**

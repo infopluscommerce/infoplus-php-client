@@ -125,7 +125,7 @@ class OrderLoadProgramApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/orderLoadProgram/search";
+        $resourcePath = "/beta/orderLoadProgram/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -231,7 +231,7 @@ class OrderLoadProgramApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/orderLoadProgram/{orderLoadProgramId}";
+        $resourcePath = "/beta/orderLoadProgram/{orderLoadProgramId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

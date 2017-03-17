@@ -4,11 +4,17 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addFulfillmentPlan**](FulfillmentPlanApi.md#addFulfillmentPlan) | **POST** /v1.0/fulfillmentPlan | Create a fulfillmentPlan
-[**deleteFulfillmentPlan**](FulfillmentPlanApi.md#deleteFulfillmentPlan) | **DELETE** /v1.0/fulfillmentPlan/{fulfillmentPlanId} | Delete a fulfillmentPlan
-[**getFulfillmentPlanByFilter**](FulfillmentPlanApi.md#getFulfillmentPlanByFilter) | **GET** /v1.0/fulfillmentPlan/search | Search fulfillmentPlans by filter
-[**getFulfillmentPlanById**](FulfillmentPlanApi.md#getFulfillmentPlanById) | **GET** /v1.0/fulfillmentPlan/{fulfillmentPlanId} | Get a fulfillmentPlan by id
-[**updateFulfillmentPlan**](FulfillmentPlanApi.md#updateFulfillmentPlan) | **PUT** /v1.0/fulfillmentPlan | Update a fulfillmentPlan
+[**addFulfillmentPlan**](FulfillmentPlanApi.md#addFulfillmentPlan) | **POST** /beta/fulfillmentPlan | Create a fulfillmentPlan
+[**addFulfillmentPlanAudit**](FulfillmentPlanApi.md#addFulfillmentPlanAudit) | **PUT** /beta/fulfillmentPlan/{fulfillmentPlanId}/audit/{fulfillmentPlanAudit} | Add new audit for a fulfillmentPlan
+[**addFulfillmentPlanTag**](FulfillmentPlanApi.md#addFulfillmentPlanTag) | **PUT** /beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag} | Add new tags for a fulfillmentPlan.
+[**deleteFulfillmentPlan**](FulfillmentPlanApi.md#deleteFulfillmentPlan) | **DELETE** /beta/fulfillmentPlan/{fulfillmentPlanId} | Delete a fulfillmentPlan
+[**deleteFulfillmentPlanTag**](FulfillmentPlanApi.md#deleteFulfillmentPlanTag) | **DELETE** /beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag} | Delete a tag for a fulfillmentPlan.
+[**getDuplicateFulfillmentPlanById**](FulfillmentPlanApi.md#getDuplicateFulfillmentPlanById) | **GET** /beta/fulfillmentPlan/duplicate/{fulfillmentPlanId} | Get a duplicated a fulfillmentPlan by id
+[**getFulfillmentPlanByFilter**](FulfillmentPlanApi.md#getFulfillmentPlanByFilter) | **GET** /beta/fulfillmentPlan/search | Search fulfillmentPlans by filter
+[**getFulfillmentPlanById**](FulfillmentPlanApi.md#getFulfillmentPlanById) | **GET** /beta/fulfillmentPlan/{fulfillmentPlanId} | Get a fulfillmentPlan by id
+[**getFulfillmentPlanTags**](FulfillmentPlanApi.md#getFulfillmentPlanTags) | **GET** /beta/fulfillmentPlan/{fulfillmentPlanId}/tag | Get the tags for a fulfillmentPlan.
+[**updateFulfillmentPlan**](FulfillmentPlanApi.md#updateFulfillmentPlan) | **PUT** /beta/fulfillmentPlan | Update a fulfillmentPlan
+[**updateFulfillmentPlanCustomFields**](FulfillmentPlanApi.md#updateFulfillmentPlanCustomFields) | **PUT** /beta/fulfillmentPlan/customFields | Update a fulfillmentPlan custom fields
 
 
 # **addFulfillmentPlan**
@@ -61,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addFulfillmentPlanAudit**
+> addFulfillmentPlanAudit($fulfillment_plan_id, $fulfillment_plan_audit)
+
+Add new audit for a fulfillmentPlan
+
+Adds an audit to an existing fulfillmentPlan.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$fulfillment_plan_id = 56; // int | Id of the fulfillmentPlan to add an audit to
+$fulfillment_plan_audit = "fulfillment_plan_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addFulfillmentPlanAudit($fulfillment_plan_id, $fulfillment_plan_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->addFulfillmentPlanAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fulfillment_plan_id** | **int**| Id of the fulfillmentPlan to add an audit to | 
+ **fulfillment_plan_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addFulfillmentPlanTag**
+> addFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag)
+
+Add new tags for a fulfillmentPlan.
+
+Adds a tag to an existing fulfillmentPlan.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$fulfillment_plan_id = 56; // int | Id of the fulfillmentPlan to add a tag to
+$fulfillment_plan_tag = "fulfillment_plan_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->addFulfillmentPlanTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fulfillment_plan_id** | **int**| Id of the fulfillmentPlan to add a tag to | 
+ **fulfillment_plan_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteFulfillmentPlan**
 > deleteFulfillmentPlan($fulfillment_plan_id)
 
@@ -98,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteFulfillmentPlanTag**
+> deleteFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag)
+
+Delete a tag for a fulfillmentPlan.
+
+Deletes an existing fulfillmentPlan tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$fulfillment_plan_id = 56; // int | Id of the fulfillmentPlan to remove tag from
+$fulfillment_plan_tag = "fulfillment_plan_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->deleteFulfillmentPlanTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fulfillment_plan_id** | **int**| Id of the fulfillmentPlan to remove tag from | 
+ **fulfillment_plan_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateFulfillmentPlanById**
+> \Infoplus\Model\FulfillmentPlan getDuplicateFulfillmentPlanById($fulfillment_plan_id)
+
+Get a duplicated a fulfillmentPlan by id
+
+Returns a duplicated fulfillmentPlan identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$fulfillment_plan_id = 56; // int | Id of the fulfillmentPlan to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateFulfillmentPlanById($fulfillment_plan_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->getDuplicateFulfillmentPlanById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fulfillment_plan_id** | **int**| Id of the fulfillmentPlan to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\FulfillmentPlan**](FulfillmentPlan.md)
 
 ### Authorization
 
@@ -216,6 +425,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getFulfillmentPlanTags**
+> getFulfillmentPlanTags($fulfillment_plan_id)
+
+Get the tags for a fulfillmentPlan.
+
+Get all existing fulfillmentPlan tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$fulfillment_plan_id = 56; // int | Id of the fulfillmentPlan to get tags for
+
+try { 
+    $api_instance->getFulfillmentPlanTags($fulfillment_plan_id);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->getFulfillmentPlanTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fulfillment_plan_id** | **int**| Id of the fulfillmentPlan to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **updateFulfillmentPlan**
 > updateFulfillmentPlan($body)
 
@@ -240,6 +498,55 @@ try {
     $api_instance->updateFulfillmentPlan($body);
 } catch (Exception $e) {
     echo 'Exception when calling FulfillmentPlanApi->updateFulfillmentPlan: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\FulfillmentPlan**](\Infoplus\Model\FulfillmentPlan.md)| FulfillmentPlan to be updated. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateFulfillmentPlanCustomFields**
+> updateFulfillmentPlanCustomFields($body)
+
+Update a fulfillmentPlan custom fields
+
+Updates an existing fulfillmentPlan custom fields using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\FulfillmentPlanApi();
+$body = new \Infoplus\Model\FulfillmentPlan(); // \Infoplus\Model\FulfillmentPlan | FulfillmentPlan to be updated.
+
+try { 
+    $api_instance->updateFulfillmentPlanCustomFields($body);
+} catch (Exception $e) {
+    echo 'Exception when calling FulfillmentPlanApi->updateFulfillmentPlanCustomFields: ', $e->getMessage(), "\n";
 }
 ?>
 ```

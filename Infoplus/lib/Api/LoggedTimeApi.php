@@ -92,6 +92,432 @@ class LoggedTimeApi
   
     
     /**
+     * addLoggedTimeAudit
+     *
+     * Add new audit for a loggedTime
+     *
+     * @param int $logged_time_id Id of the loggedTime to add an audit to (required)
+     * @param string $logged_time_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLoggedTimeAudit($logged_time_id, $logged_time_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLoggedTimeAuditWithHttpInfo ($logged_time_id, $logged_time_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addLoggedTimeAuditWithHttpInfo
+     *
+     * Add new audit for a loggedTime
+     *
+     * @param int $logged_time_id Id of the loggedTime to add an audit to (required)
+     * @param string $logged_time_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLoggedTimeAuditWithHttpInfo($logged_time_id, $logged_time_audit)
+    {
+        
+        // verify the required parameter 'logged_time_id' is set
+        if ($logged_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_id when calling addLoggedTimeAudit');
+        }
+        // verify the required parameter 'logged_time_audit' is set
+        if ($logged_time_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_audit when calling addLoggedTimeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/{loggedTimeId}/audit/{loggedTimeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($logged_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($logged_time_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addLoggedTimeTag
+     *
+     * Add new tags for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to add a tag to (required)
+     * @param string $logged_time_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLoggedTimeTag($logged_time_id, $logged_time_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLoggedTimeTagWithHttpInfo ($logged_time_id, $logged_time_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addLoggedTimeTagWithHttpInfo
+     *
+     * Add new tags for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to add a tag to (required)
+     * @param string $logged_time_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLoggedTimeTagWithHttpInfo($logged_time_id, $logged_time_tag)
+    {
+        
+        // verify the required parameter 'logged_time_id' is set
+        if ($logged_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_id when calling addLoggedTimeTag');
+        }
+        // verify the required parameter 'logged_time_tag' is set
+        if ($logged_time_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_tag when calling addLoggedTimeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($logged_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($logged_time_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteLoggedTimeTag
+     *
+     * Delete a tag for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to remove tag from (required)
+     * @param string $logged_time_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLoggedTimeTag($logged_time_id, $logged_time_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteLoggedTimeTagWithHttpInfo ($logged_time_id, $logged_time_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteLoggedTimeTagWithHttpInfo
+     *
+     * Delete a tag for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to remove tag from (required)
+     * @param string $logged_time_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLoggedTimeTagWithHttpInfo($logged_time_id, $logged_time_tag)
+    {
+        
+        // verify the required parameter 'logged_time_id' is set
+        if ($logged_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_id when calling deleteLoggedTimeTag');
+        }
+        // verify the required parameter 'logged_time_tag' is set
+        if ($logged_time_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_tag when calling deleteLoggedTimeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($logged_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($logged_time_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateLoggedTimeById
+     *
+     * Get a duplicated a loggedTime by id
+     *
+     * @param int $logged_time_id Id of the loggedTime to be duplicated. (required)
+     * @return \Infoplus\Model\LoggedTime
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLoggedTimeById($logged_time_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateLoggedTimeByIdWithHttpInfo ($logged_time_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateLoggedTimeByIdWithHttpInfo
+     *
+     * Get a duplicated a loggedTime by id
+     *
+     * @param int $logged_time_id Id of the loggedTime to be duplicated. (required)
+     * @return Array of \Infoplus\Model\LoggedTime, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLoggedTimeByIdWithHttpInfo($logged_time_id)
+    {
+        
+        // verify the required parameter 'logged_time_id' is set
+        if ($logged_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_id when calling getDuplicateLoggedTimeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/duplicate/{loggedTimeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($logged_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\LoggedTime'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\LoggedTime', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LoggedTime', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getLoggedTimeByFilter
      *
      * Search loggedTimes by filter
@@ -127,7 +553,7 @@ class LoggedTimeApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/loggedTime/search";
+        $resourcePath = "/beta/loggedTime/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +663,7 @@ class LoggedTimeApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/loggedTime/{loggedTimeId}";
+        $resourcePath = "/beta/loggedTime/{loggedTimeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -299,6 +725,190 @@ class LoggedTimeApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LoggedTime', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getLoggedTimeTags
+     *
+     * Get the tags for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLoggedTimeTags($logged_time_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getLoggedTimeTagsWithHttpInfo ($logged_time_id);
+        return $response; 
+    }
+
+
+    /**
+     * getLoggedTimeTagsWithHttpInfo
+     *
+     * Get the tags for a loggedTime.
+     *
+     * @param int $logged_time_id Id of the loggedTime to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLoggedTimeTagsWithHttpInfo($logged_time_id)
+    {
+        
+        // verify the required parameter 'logged_time_id' is set
+        if ($logged_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $logged_time_id when calling getLoggedTimeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/{loggedTimeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($logged_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "loggedTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($logged_time_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateLoggedTimeCustomFields
+     *
+     * Update a loggedTime custom fields
+     *
+     * @param \Infoplus\Model\LoggedTime $body LoggedTime to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateLoggedTimeCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateLoggedTimeCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateLoggedTimeCustomFieldsWithHttpInfo
+     *
+     * Update a loggedTime custom fields
+     *
+     * @param \Infoplus\Model\LoggedTime $body LoggedTime to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateLoggedTimeCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateLoggedTimeCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/loggedTime/customFields";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;
