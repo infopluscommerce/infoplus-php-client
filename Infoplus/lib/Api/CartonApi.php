@@ -194,6 +194,222 @@ class CartonApi
     }
     
     /**
+     * addCartonAudit
+     *
+     * Add new audit for a carton
+     *
+     * @param int $carton_id Id of the carton to add an audit to (required)
+     * @param string $carton_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCartonAudit($carton_id, $carton_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addCartonAuditWithHttpInfo ($carton_id, $carton_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addCartonAuditWithHttpInfo
+     *
+     * Add new audit for a carton
+     *
+     * @param int $carton_id Id of the carton to add an audit to (required)
+     * @param string $carton_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCartonAuditWithHttpInfo($carton_id, $carton_audit)
+    {
+        
+        // verify the required parameter 'carton_id' is set
+        if ($carton_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_id when calling addCartonAudit');
+        }
+        // verify the required parameter 'carton_audit' is set
+        if ($carton_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_audit when calling addCartonAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/carton/{cartonId}/audit/{cartonAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($carton_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($carton_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addCartonTag
+     *
+     * Add new tags for a carton.
+     *
+     * @param int $carton_id Id of the carton to add a tag to (required)
+     * @param string $carton_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCartonTag($carton_id, $carton_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addCartonTagWithHttpInfo ($carton_id, $carton_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addCartonTagWithHttpInfo
+     *
+     * Add new tags for a carton.
+     *
+     * @param int $carton_id Id of the carton to add a tag to (required)
+     * @param string $carton_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCartonTagWithHttpInfo($carton_id, $carton_tag)
+    {
+        
+        // verify the required parameter 'carton_id' is set
+        if ($carton_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_id when calling addCartonTag');
+        }
+        // verify the required parameter 'carton_tag' is set
+        if ($carton_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_tag when calling addCartonTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/carton/{cartonId}/tag/{cartonTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($carton_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($carton_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteCarton
      *
      * Delete a carton
@@ -246,6 +462,114 @@ class CartonApi
             $resourcePath = str_replace(
                 "{" . "cartonId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteCartonTag
+     *
+     * Delete a tag for a carton.
+     *
+     * @param int $carton_id Id of the carton to remove tag from (required)
+     * @param string $carton_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteCartonTag($carton_id, $carton_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteCartonTagWithHttpInfo ($carton_id, $carton_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteCartonTagWithHttpInfo
+     *
+     * Delete a tag for a carton.
+     *
+     * @param int $carton_id Id of the carton to remove tag from (required)
+     * @param string $carton_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteCartonTagWithHttpInfo($carton_id, $carton_tag)
+    {
+        
+        // verify the required parameter 'carton_id' is set
+        if ($carton_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_id when calling deleteCartonTag');
+        }
+        // verify the required parameter 'carton_tag' is set
+        if ($carton_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_tag when calling deleteCartonTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/carton/{cartonId}/tag/{cartonTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($carton_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($carton_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_tag),
                 $resourcePath
             );
         }
@@ -434,6 +758,202 @@ class CartonApi
   
         // parse inputs
         $resourcePath = "/beta/carton/{cartonId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($carton_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Carton'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Carton', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Carton', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getCartonTags
+     *
+     * Get the tags for a carton.
+     *
+     * @param int $carton_id Id of the carton to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getCartonTags($carton_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getCartonTagsWithHttpInfo ($carton_id);
+        return $response; 
+    }
+
+
+    /**
+     * getCartonTagsWithHttpInfo
+     *
+     * Get the tags for a carton.
+     *
+     * @param int $carton_id Id of the carton to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getCartonTagsWithHttpInfo($carton_id)
+    {
+        
+        // verify the required parameter 'carton_id' is set
+        if ($carton_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_id when calling getCartonTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/carton/{cartonId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($carton_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "cartonId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($carton_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateCartonById
+     *
+     * Get a duplicated a carton by id
+     *
+     * @param int $carton_id Id of the carton to be duplicated. (required)
+     * @return \Infoplus\Model\Carton
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateCartonById($carton_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateCartonByIdWithHttpInfo ($carton_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateCartonByIdWithHttpInfo
+     *
+     * Get a duplicated a carton by id
+     *
+     * @param int $carton_id Id of the carton to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Carton, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateCartonByIdWithHttpInfo($carton_id)
+    {
+        
+        // verify the required parameter 'carton_id' is set
+        if ($carton_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $carton_id when calling getDuplicateCartonById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/carton/duplicate/{cartonId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

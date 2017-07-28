@@ -66,6 +66,46 @@ class InventoryAdjustmentApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addInventoryAdjustmentAudit
+     *
+     * Add new audit for an inventoryAdjustment
+     *
+     */
+    public function test_addInventoryAdjustmentAudit() {
+
+    }
+    
+    /**
+     * Test case for addInventoryAdjustmentTag
+     *
+     * Add new tags for an inventoryAdjustment.
+     *
+     */
+    public function test_addInventoryAdjustmentTag() {
+
+    }
+    
+    /**
+     * Test case for deleteInventoryAdjustmentTag
+     *
+     * Delete a tag for an inventoryAdjustment.
+     *
+     */
+    public function test_deleteInventoryAdjustmentTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateInventoryAdjustmentById
+     *
+     * Get a duplicated an inventoryAdjustment by id
+     *
+     */
+    public function test_getDuplicateInventoryAdjustmentById() {
+
+    }
+    
+    /**
      * Test case for getInventoryAdjustmentByFilter
      *
      * Search inventoryAdjustments by filter
@@ -82,6 +122,16 @@ class InventoryAdjustmentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getInventoryAdjustmentById() {
+
+    }
+    
+    /**
+     * Test case for getInventoryAdjustmentTags
+     *
+     * Get the tags for an inventoryAdjustment.
+     *
+     */
+    public function test_getInventoryAdjustmentTags() {
 
     }
     

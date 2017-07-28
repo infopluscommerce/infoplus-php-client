@@ -76,12 +76,52 @@ class ShoppingCartConnectionApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addShoppingCartConnectionAudit
+     *
+     * Add new audit for a shoppingCartConnection
+     *
+     */
+    public function test_addShoppingCartConnectionAudit() {
+
+    }
+    
+    /**
+     * Test case for addShoppingCartConnectionTag
+     *
+     * Add new tags for a shoppingCartConnection.
+     *
+     */
+    public function test_addShoppingCartConnectionTag() {
+
+    }
+    
+    /**
      * Test case for deleteShoppingCartConnection
      *
      * Delete a shoppingCartConnection
      *
      */
     public function test_deleteShoppingCartConnection() {
+
+    }
+    
+    /**
+     * Test case for deleteShoppingCartConnectionTag
+     *
+     * Delete a tag for a shoppingCartConnection.
+     *
+     */
+    public function test_deleteShoppingCartConnectionTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateShoppingCartConnectionById
+     *
+     * Get a duplicated a shoppingCartConnection by id
+     *
+     */
+    public function test_getDuplicateShoppingCartConnectionById() {
 
     }
     
@@ -102,6 +142,16 @@ class ShoppingCartConnectionApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getShoppingCartConnectionById() {
+
+    }
+    
+    /**
+     * Test case for getShoppingCartConnectionTags
+     *
+     * Get the tags for a shoppingCartConnection.
+     *
+     */
+    public function test_getShoppingCartConnectionTags() {
 
     }
     

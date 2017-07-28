@@ -92,6 +92,432 @@ class ItemReceiptApi
   
     
     /**
+     * addItemReceiptAudit
+     *
+     * Add new audit for an itemReceipt
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to add an audit to (required)
+     * @param string $item_receipt_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemReceiptAudit($item_receipt_id, $item_receipt_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addItemReceiptAuditWithHttpInfo ($item_receipt_id, $item_receipt_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addItemReceiptAuditWithHttpInfo
+     *
+     * Add new audit for an itemReceipt
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to add an audit to (required)
+     * @param string $item_receipt_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemReceiptAuditWithHttpInfo($item_receipt_id, $item_receipt_audit)
+    {
+        
+        // verify the required parameter 'item_receipt_id' is set
+        if ($item_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_id when calling addItemReceiptAudit');
+        }
+        // verify the required parameter 'item_receipt_audit' is set
+        if ($item_receipt_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_audit when calling addItemReceiptAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt/{itemReceiptId}/audit/{itemReceiptAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_receipt_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addItemReceiptTag
+     *
+     * Add new tags for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to add a tag to (required)
+     * @param string $item_receipt_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemReceiptTag($item_receipt_id, $item_receipt_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addItemReceiptTagWithHttpInfo ($item_receipt_id, $item_receipt_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addItemReceiptTagWithHttpInfo
+     *
+     * Add new tags for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to add a tag to (required)
+     * @param string $item_receipt_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemReceiptTagWithHttpInfo($item_receipt_id, $item_receipt_tag)
+    {
+        
+        // verify the required parameter 'item_receipt_id' is set
+        if ($item_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_id when calling addItemReceiptTag');
+        }
+        // verify the required parameter 'item_receipt_tag' is set
+        if ($item_receipt_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_tag when calling addItemReceiptTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_receipt_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteItemReceiptTag
+     *
+     * Delete a tag for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to remove tag from (required)
+     * @param string $item_receipt_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemReceiptTag($item_receipt_id, $item_receipt_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteItemReceiptTagWithHttpInfo ($item_receipt_id, $item_receipt_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteItemReceiptTagWithHttpInfo
+     *
+     * Delete a tag for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to remove tag from (required)
+     * @param string $item_receipt_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemReceiptTagWithHttpInfo($item_receipt_id, $item_receipt_tag)
+    {
+        
+        // verify the required parameter 'item_receipt_id' is set
+        if ($item_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_id when calling deleteItemReceiptTag');
+        }
+        // verify the required parameter 'item_receipt_tag' is set
+        if ($item_receipt_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_tag when calling deleteItemReceiptTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt/{itemReceiptId}/tag/{itemReceiptTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_receipt_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateItemReceiptById
+     *
+     * Get a duplicated an itemReceipt by id
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to be duplicated. (required)
+     * @return \Infoplus\Model\ItemReceipt
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemReceiptById($item_receipt_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateItemReceiptByIdWithHttpInfo ($item_receipt_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateItemReceiptByIdWithHttpInfo
+     *
+     * Get a duplicated an itemReceipt by id
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ItemReceipt, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemReceiptByIdWithHttpInfo($item_receipt_id)
+    {
+        
+        // verify the required parameter 'item_receipt_id' is set
+        if ($item_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_id when calling getDuplicateItemReceiptById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt/duplicate/{itemReceiptId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemReceipt'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemReceipt', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemReceipt', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getItemReceiptByFilter
      *
      * Search itemReceipts by filter
@@ -299,6 +725,190 @@ class ItemReceiptApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemReceipt', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemReceiptTags
+     *
+     * Get the tags for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemReceiptTags($item_receipt_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemReceiptTagsWithHttpInfo ($item_receipt_id);
+        return $response; 
+    }
+
+
+    /**
+     * getItemReceiptTagsWithHttpInfo
+     *
+     * Get the tags for an itemReceipt.
+     *
+     * @param int $item_receipt_id Id of the itemReceipt to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemReceiptTagsWithHttpInfo($item_receipt_id)
+    {
+        
+        // verify the required parameter 'item_receipt_id' is set
+        if ($item_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_receipt_id when calling getItemReceiptTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt/{itemReceiptId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_receipt_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateItemReceipt
+     *
+     * Update an itemReceipt
+     *
+     * @param \Infoplus\Model\ItemReceipt $body ItemReceipt to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemReceipt($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateItemReceiptWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateItemReceiptWithHttpInfo
+     *
+     * Update an itemReceipt
+     *
+     * @param \Infoplus\Model\ItemReceipt $body ItemReceipt to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemReceiptWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateItemReceipt');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemReceipt";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

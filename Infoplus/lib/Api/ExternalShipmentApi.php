@@ -194,6 +194,222 @@ class ExternalShipmentApi
     }
     
     /**
+     * addExternalShipmentAudit
+     *
+     * Add new audit for an externalShipment
+     *
+     * @param int $external_shipment_id Id of the externalShipment to add an audit to (required)
+     * @param string $external_shipment_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addExternalShipmentAudit($external_shipment_id, $external_shipment_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addExternalShipmentAuditWithHttpInfo ($external_shipment_id, $external_shipment_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addExternalShipmentAuditWithHttpInfo
+     *
+     * Add new audit for an externalShipment
+     *
+     * @param int $external_shipment_id Id of the externalShipment to add an audit to (required)
+     * @param string $external_shipment_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addExternalShipmentAuditWithHttpInfo($external_shipment_id, $external_shipment_audit)
+    {
+        
+        // verify the required parameter 'external_shipment_id' is set
+        if ($external_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_id when calling addExternalShipmentAudit');
+        }
+        // verify the required parameter 'external_shipment_audit' is set
+        if ($external_shipment_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_audit when calling addExternalShipmentAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/externalShipment/{externalShipmentId}/audit/{externalShipmentAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($external_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($external_shipment_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addExternalShipmentTag
+     *
+     * Add new tags for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to add a tag to (required)
+     * @param string $external_shipment_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addExternalShipmentTag($external_shipment_id, $external_shipment_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addExternalShipmentTagWithHttpInfo ($external_shipment_id, $external_shipment_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addExternalShipmentTagWithHttpInfo
+     *
+     * Add new tags for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to add a tag to (required)
+     * @param string $external_shipment_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addExternalShipmentTagWithHttpInfo($external_shipment_id, $external_shipment_tag)
+    {
+        
+        // verify the required parameter 'external_shipment_id' is set
+        if ($external_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_id when calling addExternalShipmentTag');
+        }
+        // verify the required parameter 'external_shipment_tag' is set
+        if ($external_shipment_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_tag when calling addExternalShipmentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($external_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($external_shipment_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteExternalShipment
      *
      * Delete an externalShipment
@@ -281,6 +497,216 @@ class ExternalShipmentApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteExternalShipmentTag
+     *
+     * Delete a tag for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to remove tag from (required)
+     * @param string $external_shipment_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteExternalShipmentTag($external_shipment_id, $external_shipment_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteExternalShipmentTagWithHttpInfo ($external_shipment_id, $external_shipment_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteExternalShipmentTagWithHttpInfo
+     *
+     * Delete a tag for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to remove tag from (required)
+     * @param string $external_shipment_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteExternalShipmentTagWithHttpInfo($external_shipment_id, $external_shipment_tag)
+    {
+        
+        // verify the required parameter 'external_shipment_id' is set
+        if ($external_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_id when calling deleteExternalShipmentTag');
+        }
+        // verify the required parameter 'external_shipment_tag' is set
+        if ($external_shipment_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_tag when calling deleteExternalShipmentTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/externalShipment/{externalShipmentId}/tag/{externalShipmentTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($external_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($external_shipment_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateExternalShipmentById
+     *
+     * Get a duplicated an externalShipment by id
+     *
+     * @param int $external_shipment_id Id of the externalShipment to be duplicated. (required)
+     * @return \Infoplus\Model\ExternalShipment
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateExternalShipmentById($external_shipment_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateExternalShipmentByIdWithHttpInfo ($external_shipment_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateExternalShipmentByIdWithHttpInfo
+     *
+     * Get a duplicated an externalShipment by id
+     *
+     * @param int $external_shipment_id Id of the externalShipment to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ExternalShipment, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateExternalShipmentByIdWithHttpInfo($external_shipment_id)
+    {
+        
+        // verify the required parameter 'external_shipment_id' is set
+        if ($external_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_id when calling getDuplicateExternalShipmentById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/externalShipment/duplicate/{externalShipmentId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($external_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ExternalShipment'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ExternalShipment', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ExternalShipment', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class ExternalShipmentApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ExternalShipment', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getExternalShipmentTags
+     *
+     * Get the tags for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getExternalShipmentTags($external_shipment_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getExternalShipmentTagsWithHttpInfo ($external_shipment_id);
+        return $response; 
+    }
+
+
+    /**
+     * getExternalShipmentTagsWithHttpInfo
+     *
+     * Get the tags for an externalShipment.
+     *
+     * @param int $external_shipment_id Id of the externalShipment to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getExternalShipmentTagsWithHttpInfo($external_shipment_id)
+    {
+        
+        // verify the required parameter 'external_shipment_id' is set
+        if ($external_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $external_shipment_id when calling getExternalShipmentTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/externalShipment/{externalShipmentId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($external_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "externalShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($external_shipment_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

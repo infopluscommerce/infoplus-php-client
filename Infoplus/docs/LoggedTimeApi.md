@@ -4,10 +4,218 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addLoggedTimeAudit**](LoggedTimeApi.md#addLoggedTimeAudit) | **PUT** /beta/loggedTime/{loggedTimeId}/audit/{loggedTimeAudit} | Add new audit for a loggedTime
+[**addLoggedTimeTag**](LoggedTimeApi.md#addLoggedTimeTag) | **PUT** /beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag} | Add new tags for a loggedTime.
+[**deleteLoggedTimeTag**](LoggedTimeApi.md#deleteLoggedTimeTag) | **DELETE** /beta/loggedTime/{loggedTimeId}/tag/{loggedTimeTag} | Delete a tag for a loggedTime.
+[**getDuplicateLoggedTimeById**](LoggedTimeApi.md#getDuplicateLoggedTimeById) | **GET** /beta/loggedTime/duplicate/{loggedTimeId} | Get a duplicated a loggedTime by id
 [**getLoggedTimeByFilter**](LoggedTimeApi.md#getLoggedTimeByFilter) | **GET** /beta/loggedTime/search | Search loggedTimes by filter
 [**getLoggedTimeById**](LoggedTimeApi.md#getLoggedTimeById) | **GET** /beta/loggedTime/{loggedTimeId} | Get a loggedTime by id
+[**getLoggedTimeTags**](LoggedTimeApi.md#getLoggedTimeTags) | **GET** /beta/loggedTime/{loggedTimeId}/tag | Get the tags for a loggedTime.
 [**updateLoggedTimeCustomFields**](LoggedTimeApi.md#updateLoggedTimeCustomFields) | **PUT** /beta/loggedTime/customFields | Update a loggedTime custom fields
 
+
+# **addLoggedTimeAudit**
+> addLoggedTimeAudit($logged_time_id, $logged_time_audit)
+
+Add new audit for a loggedTime
+
+Adds an audit to an existing loggedTime.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LoggedTimeApi();
+$logged_time_id = 56; // int | Id of the loggedTime to add an audit to
+$logged_time_audit = "logged_time_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addLoggedTimeAudit($logged_time_id, $logged_time_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling LoggedTimeApi->addLoggedTimeAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logged_time_id** | **int**| Id of the loggedTime to add an audit to | 
+ **logged_time_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addLoggedTimeTag**
+> addLoggedTimeTag($logged_time_id, $logged_time_tag)
+
+Add new tags for a loggedTime.
+
+Adds a tag to an existing loggedTime.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LoggedTimeApi();
+$logged_time_id = 56; // int | Id of the loggedTime to add a tag to
+$logged_time_tag = "logged_time_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addLoggedTimeTag($logged_time_id, $logged_time_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling LoggedTimeApi->addLoggedTimeTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logged_time_id** | **int**| Id of the loggedTime to add a tag to | 
+ **logged_time_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteLoggedTimeTag**
+> deleteLoggedTimeTag($logged_time_id, $logged_time_tag)
+
+Delete a tag for a loggedTime.
+
+Deletes an existing loggedTime tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LoggedTimeApi();
+$logged_time_id = 56; // int | Id of the loggedTime to remove tag from
+$logged_time_tag = "logged_time_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteLoggedTimeTag($logged_time_id, $logged_time_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling LoggedTimeApi->deleteLoggedTimeTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logged_time_id** | **int**| Id of the loggedTime to remove tag from | 
+ **logged_time_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateLoggedTimeById**
+> \Infoplus\Model\LoggedTime getDuplicateLoggedTimeById($logged_time_id)
+
+Get a duplicated a loggedTime by id
+
+Returns a duplicated loggedTime identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LoggedTimeApi();
+$logged_time_id = 56; // int | Id of the loggedTime to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateLoggedTimeById($logged_time_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling LoggedTimeApi->getDuplicateLoggedTimeById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logged_time_id** | **int**| Id of the loggedTime to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\LoggedTime**](LoggedTime.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLoggedTimeByFilter**
 > \Infoplus\Model\LoggedTime[] getLoggedTimeByFilter($filter, $page, $limit, $sort)
@@ -103,6 +311,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\LoggedTime**](LoggedTime.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getLoggedTimeTags**
+> getLoggedTimeTags($logged_time_id)
+
+Get the tags for a loggedTime.
+
+Get all existing loggedTime tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\LoggedTimeApi();
+$logged_time_id = 56; // int | Id of the loggedTime to get tags for
+
+try { 
+    $api_instance->getLoggedTimeTags($logged_time_id);
+} catch (Exception $e) {
+    echo 'Exception when calling LoggedTimeApi->getLoggedTimeTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logged_time_id** | **int**| Id of the loggedTime to get tags for | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

@@ -66,22 +66,102 @@ class ItemSummaryCodeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getItemSummaryCodeBySearchText
+     * Test case for addItemSummaryCode
      *
-     * Search itemSummaryCodes
+     * Create an itemSummaryCode
      *
      */
-    public function test_getItemSummaryCodeBySearchText() {
+    public function test_addItemSummaryCode() {
 
     }
     
     /**
-     * Test case for getTranslateSummaryCodeById
+     * Test case for addItemSummaryCodeAudit
+     *
+     * Add new audit for an itemSummaryCode
+     *
+     */
+    public function test_addItemSummaryCodeAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemSummaryCodeTag
+     *
+     * Add new tags for an itemSummaryCode.
+     *
+     */
+    public function test_addItemSummaryCodeTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemSummaryCode
+     *
+     * Delete an itemSummaryCode
+     *
+     */
+    public function test_deleteItemSummaryCode() {
+
+    }
+    
+    /**
+     * Test case for deleteItemSummaryCodeTag
+     *
+     * Delete a tag for an itemSummaryCode.
+     *
+     */
+    public function test_deleteItemSummaryCodeTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemSummaryCodeById
+     *
+     * Get a duplicated an itemSummaryCode by id
+     *
+     */
+    public function test_getDuplicateItemSummaryCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemSummaryCodeByFilter
+     *
+     * Search itemSummaryCodes by filter
+     *
+     */
+    public function test_getItemSummaryCodeByFilter() {
+
+    }
+    
+    /**
+     * Test case for getItemSummaryCodeById
      *
      * Get an itemSummaryCode by id
      *
      */
-    public function test_getTranslateSummaryCodeById() {
+    public function test_getItemSummaryCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemSummaryCodeTags
+     *
+     * Get the tags for an itemSummaryCode.
+     *
+     */
+    public function test_getItemSummaryCodeTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemSummaryCode
+     *
+     * Update an itemSummaryCode
+     *
+     */
+    public function test_updateItemSummaryCode() {
 
     }
     

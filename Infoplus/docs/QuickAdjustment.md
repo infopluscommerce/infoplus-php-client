@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **total_quantity** | **int** |  | 
 **message** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**product_id_tag** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 **sku** | **string** |  | [optional] 
 

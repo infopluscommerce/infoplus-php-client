@@ -194,6 +194,222 @@ class OrderSourceReservationApi
     }
     
     /**
+     * addOrderSourceReservationAudit
+     *
+     * Add new audit for an orderSourceReservation
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to add an audit to (required)
+     * @param string $order_source_reservation_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderSourceReservationAudit($order_source_reservation_id, $order_source_reservation_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOrderSourceReservationAuditWithHttpInfo ($order_source_reservation_id, $order_source_reservation_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addOrderSourceReservationAuditWithHttpInfo
+     *
+     * Add new audit for an orderSourceReservation
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to add an audit to (required)
+     * @param string $order_source_reservation_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderSourceReservationAuditWithHttpInfo($order_source_reservation_id, $order_source_reservation_audit)
+    {
+        
+        // verify the required parameter 'order_source_reservation_id' is set
+        if ($order_source_reservation_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_id when calling addOrderSourceReservationAudit');
+        }
+        // verify the required parameter 'order_source_reservation_audit' is set
+        if ($order_source_reservation_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_audit when calling addOrderSourceReservationAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/orderSourceReservation/{orderSourceReservationId}/audit/{orderSourceReservationAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($order_source_reservation_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_source_reservation_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addOrderSourceReservationTag
+     *
+     * Add new tags for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to add a tag to (required)
+     * @param string $order_source_reservation_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addOrderSourceReservationTagWithHttpInfo ($order_source_reservation_id, $order_source_reservation_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addOrderSourceReservationTagWithHttpInfo
+     *
+     * Add new tags for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to add a tag to (required)
+     * @param string $order_source_reservation_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addOrderSourceReservationTagWithHttpInfo($order_source_reservation_id, $order_source_reservation_tag)
+    {
+        
+        // verify the required parameter 'order_source_reservation_id' is set
+        if ($order_source_reservation_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_id when calling addOrderSourceReservationTag');
+        }
+        // verify the required parameter 'order_source_reservation_tag' is set
+        if ($order_source_reservation_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_tag when calling addOrderSourceReservationTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/orderSourceReservation/{orderSourceReservationId}/tag/{orderSourceReservationTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($order_source_reservation_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_source_reservation_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteOrderSourceReservation
      *
      * Delete an orderSourceReservation
@@ -281,6 +497,216 @@ class OrderSourceReservationApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteOrderSourceReservationTag
+     *
+     * Delete a tag for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to remove tag from (required)
+     * @param string $order_source_reservation_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteOrderSourceReservationTagWithHttpInfo ($order_source_reservation_id, $order_source_reservation_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteOrderSourceReservationTagWithHttpInfo
+     *
+     * Delete a tag for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to remove tag from (required)
+     * @param string $order_source_reservation_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteOrderSourceReservationTagWithHttpInfo($order_source_reservation_id, $order_source_reservation_tag)
+    {
+        
+        // verify the required parameter 'order_source_reservation_id' is set
+        if ($order_source_reservation_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_id when calling deleteOrderSourceReservationTag');
+        }
+        // verify the required parameter 'order_source_reservation_tag' is set
+        if ($order_source_reservation_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_tag when calling deleteOrderSourceReservationTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/orderSourceReservation/{orderSourceReservationId}/tag/{orderSourceReservationTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_source_reservation_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($order_source_reservation_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateOrderSourceReservationById
+     *
+     * Get a duplicated an orderSourceReservation by id
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to be duplicated. (required)
+     * @return \Infoplus\Model\OrderSourceReservation
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOrderSourceReservationById($order_source_reservation_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateOrderSourceReservationByIdWithHttpInfo ($order_source_reservation_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateOrderSourceReservationByIdWithHttpInfo
+     *
+     * Get a duplicated an orderSourceReservation by id
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to be duplicated. (required)
+     * @return Array of \Infoplus\Model\OrderSourceReservation, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateOrderSourceReservationByIdWithHttpInfo($order_source_reservation_id)
+    {
+        
+        // verify the required parameter 'order_source_reservation_id' is set
+        if ($order_source_reservation_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_id when calling getDuplicateOrderSourceReservationById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/orderSourceReservation/duplicate/{orderSourceReservationId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_source_reservation_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\OrderSourceReservation'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\OrderSourceReservation', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\OrderSourceReservation', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class OrderSourceReservationApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\OrderSourceReservation', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getOrderSourceReservationTags
+     *
+     * Get the tags for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOrderSourceReservationTags($order_source_reservation_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getOrderSourceReservationTagsWithHttpInfo ($order_source_reservation_id);
+        return $response; 
+    }
+
+
+    /**
+     * getOrderSourceReservationTagsWithHttpInfo
+     *
+     * Get the tags for an orderSourceReservation.
+     *
+     * @param int $order_source_reservation_id Id of the orderSourceReservation to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getOrderSourceReservationTagsWithHttpInfo($order_source_reservation_id)
+    {
+        
+        // verify the required parameter 'order_source_reservation_id' is set
+        if ($order_source_reservation_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_source_reservation_id when calling getOrderSourceReservationTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/orderSourceReservation/{orderSourceReservationId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($order_source_reservation_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "orderSourceReservationId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($order_source_reservation_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

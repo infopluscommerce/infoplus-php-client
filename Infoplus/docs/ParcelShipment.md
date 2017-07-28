@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **charged_freight_amount** | [**Number**](Number.md) |  | [optional] 
 **published_freight_amount** | [**Number**](Number.md) |  | [optional] 
 **retail_freight_amount** | [**Number**](Number.md) |  | [optional] 
+**external_shipping_system_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

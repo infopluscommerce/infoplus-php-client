@@ -66,6 +66,46 @@ class WarehouseDocumentApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addWarehouseDocumentAudit
+     *
+     * Add new audit for a warehouseDocument
+     *
+     */
+    public function test_addWarehouseDocumentAudit() {
+
+    }
+    
+    /**
+     * Test case for addWarehouseDocumentTag
+     *
+     * Add new tags for a warehouseDocument.
+     *
+     */
+    public function test_addWarehouseDocumentTag() {
+
+    }
+    
+    /**
+     * Test case for deleteWarehouseDocumentTag
+     *
+     * Delete a tag for a warehouseDocument.
+     *
+     */
+    public function test_deleteWarehouseDocumentTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateWarehouseDocumentById
+     *
+     * Get a duplicated a warehouseDocument by id
+     *
+     */
+    public function test_getDuplicateWarehouseDocumentById() {
+
+    }
+    
+    /**
      * Test case for getWarehouseDocumentByFilter
      *
      * Search warehouseDocuments by filter
@@ -82,6 +122,16 @@ class WarehouseDocumentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getWarehouseDocumentById() {
+
+    }
+    
+    /**
+     * Test case for getWarehouseDocumentTags
+     *
+     * Get the tags for a warehouseDocument.
+     *
+     */
+    public function test_getWarehouseDocumentTags() {
 
     }
     

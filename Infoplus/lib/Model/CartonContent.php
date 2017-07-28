@@ -54,7 +54,7 @@ class CartonContent implements ArrayAccess
         'id' => 'int',
         'group_order_id' => 'Number',
         'order_no' => 'Number',
-        'carton_no_id' => 'int',
+        'carton_id' => 'int',
         'line_item_id' => 'int',
         'location' => 'string',
         'quantity' => 'int',
@@ -78,7 +78,7 @@ class CartonContent implements ArrayAccess
         'id' => 'id',
         'group_order_id' => 'groupOrderId',
         'order_no' => 'orderNo',
-        'carton_no_id' => 'cartonNoId',
+        'carton_id' => 'cartonId',
         'line_item_id' => 'lineItemId',
         'location' => 'location',
         'quantity' => 'quantity',
@@ -102,7 +102,7 @@ class CartonContent implements ArrayAccess
         'id' => 'setId',
         'group_order_id' => 'setGroupOrderId',
         'order_no' => 'setOrderNo',
-        'carton_no_id' => 'setCartonNoId',
+        'carton_id' => 'setCartonId',
         'line_item_id' => 'setLineItemId',
         'location' => 'setLocation',
         'quantity' => 'setQuantity',
@@ -126,7 +126,7 @@ class CartonContent implements ArrayAccess
         'id' => 'getId',
         'group_order_id' => 'getGroupOrderId',
         'order_no' => 'getOrderNo',
-        'carton_no_id' => 'getCartonNoId',
+        'carton_id' => 'getCartonId',
         'line_item_id' => 'getLineItemId',
         'location' => 'getLocation',
         'quantity' => 'getQuantity',
@@ -162,10 +162,10 @@ class CartonContent implements ArrayAccess
     protected $order_no;
     
     /**
-      * $carton_no_id 
+      * $carton_id 
       * @var int
       */
-    protected $carton_no_id;
+    protected $carton_id;
     
     /**
       * $line_item_id 
@@ -233,7 +233,7 @@ class CartonContent implements ArrayAccess
             $this->id = $data["id"];
             $this->group_order_id = $data["group_order_id"];
             $this->order_no = $data["order_no"];
-            $this->carton_no_id = $data["carton_no_id"];
+            $this->carton_id = $data["carton_id"];
             $this->line_item_id = $data["line_item_id"];
             $this->location = $data["location"];
             $this->quantity = $data["quantity"];
@@ -310,23 +310,23 @@ class CartonContent implements ArrayAccess
     }
     
     /**
-     * Gets carton_no_id
+     * Gets carton_id
      * @return int
      */
-    public function getCartonNoId()
+    public function getCartonId()
     {
-        return $this->carton_no_id;
+        return $this->carton_id;
     }
   
     /**
-     * Sets carton_no_id
-     * @param int $carton_no_id 
+     * Sets carton_id
+     * @param int $carton_id 
      * @return $this
      */
-    public function setCartonNoId($carton_no_id)
+    public function setCartonId($carton_id)
     {
         
-        $this->carton_no_id = $carton_no_id;
+        $this->carton_id = $carton_id;
         return $this;
     }
     

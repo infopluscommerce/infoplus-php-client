@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemLowStockCodeTest
+ * ItemLowstockCodeTest
  *
  * PHP version 5
  *
@@ -34,7 +34,7 @@
 namespace Infoplus\Model;
 
 /**
- * ItemLowStockCodeTest Class Doc Comment
+ * ItemLowstockCodeTest Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -43,7 +43,7 @@ namespace Infoplus\Model;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ItemLowStockCodeTest extends \PHPUnit_Framework_TestCase
+class ItemLowstockCodeTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -61,9 +61,9 @@ class ItemLowStockCodeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test ItemLowStockCode
+     * Test ItemLowstockCode
      */
-    public function testItemLowStockCode() {
+    public function testItemLowstockCode() {
 
     }
 

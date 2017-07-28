@@ -76,12 +76,52 @@ class KitApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addKitAudit
+     *
+     * Add new audit for a kit
+     *
+     */
+    public function test_addKitAudit() {
+
+    }
+    
+    /**
+     * Test case for addKitTag
+     *
+     * Add new tags for a kit.
+     *
+     */
+    public function test_addKitTag() {
+
+    }
+    
+    /**
      * Test case for deleteKit
      *
      * Delete a kit
      *
      */
     public function test_deleteKit() {
+
+    }
+    
+    /**
+     * Test case for deleteKitTag
+     *
+     * Delete a tag for a kit.
+     *
+     */
+    public function test_deleteKitTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateKitById
+     *
+     * Get a duplicated a kit by id
+     *
+     */
+    public function test_getDuplicateKitById() {
 
     }
     
@@ -102,6 +142,16 @@ class KitApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getKitById() {
+
+    }
+    
+    /**
+     * Test case for getKitTags
+     *
+     * Get the tags for a kit.
+     *
+     */
+    public function test_getKitTags() {
 
     }
     

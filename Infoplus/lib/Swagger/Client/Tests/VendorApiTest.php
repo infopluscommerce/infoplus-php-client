@@ -76,12 +76,52 @@ class VendorApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addVendorAudit
+     *
+     * Add new audit for a vendor
+     *
+     */
+    public function test_addVendorAudit() {
+
+    }
+    
+    /**
+     * Test case for addVendorTag
+     *
+     * Add new tags for a vendor.
+     *
+     */
+    public function test_addVendorTag() {
+
+    }
+    
+    /**
      * Test case for deleteVendor
      *
      * Delete a vendor
      *
      */
     public function test_deleteVendor() {
+
+    }
+    
+    /**
+     * Test case for deleteVendorTag
+     *
+     * Delete a tag for a vendor.
+     *
+     */
+    public function test_deleteVendorTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateVendorById
+     *
+     * Get a duplicated a vendor by id
+     *
+     */
+    public function test_getDuplicateVendorById() {
 
     }
     
@@ -102,6 +142,16 @@ class VendorApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getVendorById() {
+
+    }
+    
+    /**
+     * Test case for getVendorTags
+     *
+     * Get the tags for a vendor.
+     *
+     */
+    public function test_getVendorTags() {
 
     }
     

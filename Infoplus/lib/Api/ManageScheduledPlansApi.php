@@ -194,6 +194,222 @@ class ManageScheduledPlansApi
     }
     
     /**
+     * addManageScheduledPlansAudit
+     *
+     * Add new audit for a manageScheduledPlans
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to add an audit to (required)
+     * @param string $manage_scheduled_plans_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addManageScheduledPlansAudit($manage_scheduled_plans_id, $manage_scheduled_plans_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addManageScheduledPlansAuditWithHttpInfo ($manage_scheduled_plans_id, $manage_scheduled_plans_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addManageScheduledPlansAuditWithHttpInfo
+     *
+     * Add new audit for a manageScheduledPlans
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to add an audit to (required)
+     * @param string $manage_scheduled_plans_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addManageScheduledPlansAuditWithHttpInfo($manage_scheduled_plans_id, $manage_scheduled_plans_audit)
+    {
+        
+        // verify the required parameter 'manage_scheduled_plans_id' is set
+        if ($manage_scheduled_plans_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_id when calling addManageScheduledPlansAudit');
+        }
+        // verify the required parameter 'manage_scheduled_plans_audit' is set
+        if ($manage_scheduled_plans_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_audit when calling addManageScheduledPlansAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/manageScheduledPlans/{manageScheduledPlansId}/audit/{manageScheduledPlansAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($manage_scheduled_plans_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($manage_scheduled_plans_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addManageScheduledPlansTag
+     *
+     * Add new tags for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to add a tag to (required)
+     * @param string $manage_scheduled_plans_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addManageScheduledPlansTag($manage_scheduled_plans_id, $manage_scheduled_plans_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addManageScheduledPlansTagWithHttpInfo ($manage_scheduled_plans_id, $manage_scheduled_plans_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addManageScheduledPlansTagWithHttpInfo
+     *
+     * Add new tags for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to add a tag to (required)
+     * @param string $manage_scheduled_plans_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addManageScheduledPlansTagWithHttpInfo($manage_scheduled_plans_id, $manage_scheduled_plans_tag)
+    {
+        
+        // verify the required parameter 'manage_scheduled_plans_id' is set
+        if ($manage_scheduled_plans_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_id when calling addManageScheduledPlansTag');
+        }
+        // verify the required parameter 'manage_scheduled_plans_tag' is set
+        if ($manage_scheduled_plans_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_tag when calling addManageScheduledPlansTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($manage_scheduled_plans_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($manage_scheduled_plans_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteManageScheduledPlans
      *
      * Delete a manageScheduledPlans
@@ -281,6 +497,216 @@ class ManageScheduledPlansApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteManageScheduledPlansTag
+     *
+     * Delete a tag for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to remove tag from (required)
+     * @param string $manage_scheduled_plans_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteManageScheduledPlansTag($manage_scheduled_plans_id, $manage_scheduled_plans_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteManageScheduledPlansTagWithHttpInfo ($manage_scheduled_plans_id, $manage_scheduled_plans_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteManageScheduledPlansTagWithHttpInfo
+     *
+     * Delete a tag for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to remove tag from (required)
+     * @param string $manage_scheduled_plans_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteManageScheduledPlansTagWithHttpInfo($manage_scheduled_plans_id, $manage_scheduled_plans_tag)
+    {
+        
+        // verify the required parameter 'manage_scheduled_plans_id' is set
+        if ($manage_scheduled_plans_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_id when calling deleteManageScheduledPlansTag');
+        }
+        // verify the required parameter 'manage_scheduled_plans_tag' is set
+        if ($manage_scheduled_plans_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_tag when calling deleteManageScheduledPlansTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag/{manageScheduledPlansTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($manage_scheduled_plans_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($manage_scheduled_plans_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateManageScheduledPlansById
+     *
+     * Get a duplicated a manageScheduledPlans by id
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to be duplicated. (required)
+     * @return \Infoplus\Model\ManageScheduledPlans
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateManageScheduledPlansById($manage_scheduled_plans_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateManageScheduledPlansByIdWithHttpInfo ($manage_scheduled_plans_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateManageScheduledPlansByIdWithHttpInfo
+     *
+     * Get a duplicated a manageScheduledPlans by id
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ManageScheduledPlans, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateManageScheduledPlansByIdWithHttpInfo($manage_scheduled_plans_id)
+    {
+        
+        // verify the required parameter 'manage_scheduled_plans_id' is set
+        if ($manage_scheduled_plans_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_id when calling getDuplicateManageScheduledPlansById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/manageScheduledPlans/duplicate/{manageScheduledPlansId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($manage_scheduled_plans_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ManageScheduledPlans'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ManageScheduledPlans', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ManageScheduledPlans', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class ManageScheduledPlansApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ManageScheduledPlans', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getManageScheduledPlansTags
+     *
+     * Get the tags for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getManageScheduledPlansTags($manage_scheduled_plans_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getManageScheduledPlansTagsWithHttpInfo ($manage_scheduled_plans_id);
+        return $response; 
+    }
+
+
+    /**
+     * getManageScheduledPlansTagsWithHttpInfo
+     *
+     * Get the tags for a manageScheduledPlans.
+     *
+     * @param int $manage_scheduled_plans_id Id of the manageScheduledPlans to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getManageScheduledPlansTagsWithHttpInfo($manage_scheduled_plans_id)
+    {
+        
+        // verify the required parameter 'manage_scheduled_plans_id' is set
+        if ($manage_scheduled_plans_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $manage_scheduled_plans_id when calling getManageScheduledPlansTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/manageScheduledPlans/{manageScheduledPlansId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($manage_scheduled_plans_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "manageScheduledPlansId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($manage_scheduled_plans_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

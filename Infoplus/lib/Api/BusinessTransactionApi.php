@@ -92,6 +92,330 @@ class BusinessTransactionApi
   
     
     /**
+     * addBusinessTransactionAudit
+     *
+     * Add new audit for a businessTransaction
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to add an audit to (required)
+     * @param string $business_transaction_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBusinessTransactionAudit($business_transaction_id, $business_transaction_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBusinessTransactionAuditWithHttpInfo ($business_transaction_id, $business_transaction_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addBusinessTransactionAuditWithHttpInfo
+     *
+     * Add new audit for a businessTransaction
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to add an audit to (required)
+     * @param string $business_transaction_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBusinessTransactionAuditWithHttpInfo($business_transaction_id, $business_transaction_audit)
+    {
+        
+        // verify the required parameter 'business_transaction_id' is set
+        if ($business_transaction_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_id when calling addBusinessTransactionAudit');
+        }
+        // verify the required parameter 'business_transaction_audit' is set
+        if ($business_transaction_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_audit when calling addBusinessTransactionAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/businessTransaction/{businessTransactionId}/audit/{businessTransactionAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($business_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($business_transaction_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addBusinessTransactionTag
+     *
+     * Add new tags for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to add a tag to (required)
+     * @param string $business_transaction_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBusinessTransactionTag($business_transaction_id, $business_transaction_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBusinessTransactionTagWithHttpInfo ($business_transaction_id, $business_transaction_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addBusinessTransactionTagWithHttpInfo
+     *
+     * Add new tags for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to add a tag to (required)
+     * @param string $business_transaction_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBusinessTransactionTagWithHttpInfo($business_transaction_id, $business_transaction_tag)
+    {
+        
+        // verify the required parameter 'business_transaction_id' is set
+        if ($business_transaction_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_id when calling addBusinessTransactionTag');
+        }
+        // verify the required parameter 'business_transaction_tag' is set
+        if ($business_transaction_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_tag when calling addBusinessTransactionTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/businessTransaction/{businessTransactionId}/tag/{businessTransactionTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($business_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($business_transaction_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteBusinessTransactionTag
+     *
+     * Delete a tag for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to remove tag from (required)
+     * @param string $business_transaction_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBusinessTransactionTag($business_transaction_id, $business_transaction_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteBusinessTransactionTagWithHttpInfo ($business_transaction_id, $business_transaction_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteBusinessTransactionTagWithHttpInfo
+     *
+     * Delete a tag for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to remove tag from (required)
+     * @param string $business_transaction_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBusinessTransactionTagWithHttpInfo($business_transaction_id, $business_transaction_tag)
+    {
+        
+        // verify the required parameter 'business_transaction_id' is set
+        if ($business_transaction_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_id when calling deleteBusinessTransactionTag');
+        }
+        // verify the required parameter 'business_transaction_tag' is set
+        if ($business_transaction_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_tag when calling deleteBusinessTransactionTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/businessTransaction/{businessTransactionId}/tag/{businessTransactionTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($business_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($business_transaction_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getBusinessTransactionByFilter
      *
      * Search businessTransactions by filter
@@ -238,6 +562,202 @@ class BusinessTransactionApi
   
         // parse inputs
         $resourcePath = "/beta/businessTransaction/{businessTransactionId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($business_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\BusinessTransaction'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\BusinessTransaction', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\BusinessTransaction', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getBusinessTransactionTags
+     *
+     * Get the tags for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBusinessTransactionTags($business_transaction_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getBusinessTransactionTagsWithHttpInfo ($business_transaction_id);
+        return $response; 
+    }
+
+
+    /**
+     * getBusinessTransactionTagsWithHttpInfo
+     *
+     * Get the tags for a businessTransaction.
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBusinessTransactionTagsWithHttpInfo($business_transaction_id)
+    {
+        
+        // verify the required parameter 'business_transaction_id' is set
+        if ($business_transaction_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_id when calling getBusinessTransactionTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/businessTransaction/{businessTransactionId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($business_transaction_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "businessTransactionId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($business_transaction_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateBusinessTransactionById
+     *
+     * Get a duplicated a businessTransaction by id
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to be duplicated. (required)
+     * @return \Infoplus\Model\BusinessTransaction
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBusinessTransactionById($business_transaction_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateBusinessTransactionByIdWithHttpInfo ($business_transaction_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateBusinessTransactionByIdWithHttpInfo
+     *
+     * Get a duplicated a businessTransaction by id
+     *
+     * @param int $business_transaction_id Id of the businessTransaction to be duplicated. (required)
+     * @return Array of \Infoplus\Model\BusinessTransaction, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBusinessTransactionByIdWithHttpInfo($business_transaction_id)
+    {
+        
+        // verify the required parameter 'business_transaction_id' is set
+        if ($business_transaction_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $business_transaction_id when calling getDuplicateBusinessTransactionById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/businessTransaction/duplicate/{businessTransactionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

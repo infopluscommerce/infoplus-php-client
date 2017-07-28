@@ -194,6 +194,222 @@ class ZoneApi
     }
     
     /**
+     * addZoneAudit
+     *
+     * Add new audit for a zone
+     *
+     * @param int $zone_id Id of the zone to add an audit to (required)
+     * @param string $zone_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addZoneAudit($zone_id, $zone_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addZoneAuditWithHttpInfo ($zone_id, $zone_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addZoneAuditWithHttpInfo
+     *
+     * Add new audit for a zone
+     *
+     * @param int $zone_id Id of the zone to add an audit to (required)
+     * @param string $zone_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addZoneAuditWithHttpInfo($zone_id, $zone_audit)
+    {
+        
+        // verify the required parameter 'zone_id' is set
+        if ($zone_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_id when calling addZoneAudit');
+        }
+        // verify the required parameter 'zone_audit' is set
+        if ($zone_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_audit when calling addZoneAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/zone/{zoneId}/audit/{zoneAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($zone_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($zone_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addZoneTag
+     *
+     * Add new tags for a zone.
+     *
+     * @param int $zone_id Id of the zone to add a tag to (required)
+     * @param string $zone_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addZoneTag($zone_id, $zone_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addZoneTagWithHttpInfo ($zone_id, $zone_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addZoneTagWithHttpInfo
+     *
+     * Add new tags for a zone.
+     *
+     * @param int $zone_id Id of the zone to add a tag to (required)
+     * @param string $zone_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addZoneTagWithHttpInfo($zone_id, $zone_tag)
+    {
+        
+        // verify the required parameter 'zone_id' is set
+        if ($zone_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_id when calling addZoneTag');
+        }
+        // verify the required parameter 'zone_tag' is set
+        if ($zone_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_tag when calling addZoneTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/zone/{zoneId}/tag/{zoneTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($zone_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($zone_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteZone
      *
      * Delete a zone
@@ -281,6 +497,216 @@ class ZoneApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteZoneTag
+     *
+     * Delete a tag for a zone.
+     *
+     * @param int $zone_id Id of the zone to remove tag from (required)
+     * @param string $zone_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteZoneTag($zone_id, $zone_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteZoneTagWithHttpInfo ($zone_id, $zone_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteZoneTagWithHttpInfo
+     *
+     * Delete a tag for a zone.
+     *
+     * @param int $zone_id Id of the zone to remove tag from (required)
+     * @param string $zone_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteZoneTagWithHttpInfo($zone_id, $zone_tag)
+    {
+        
+        // verify the required parameter 'zone_id' is set
+        if ($zone_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_id when calling deleteZoneTag');
+        }
+        // verify the required parameter 'zone_tag' is set
+        if ($zone_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_tag when calling deleteZoneTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/zone/{zoneId}/tag/{zoneTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($zone_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($zone_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateZoneById
+     *
+     * Get a duplicated a zone by id
+     *
+     * @param int $zone_id Id of the zone to be duplicated. (required)
+     * @return \Infoplus\Model\Zone
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateZoneById($zone_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateZoneByIdWithHttpInfo ($zone_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateZoneByIdWithHttpInfo
+     *
+     * Get a duplicated a zone by id
+     *
+     * @param int $zone_id Id of the zone to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Zone, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateZoneByIdWithHttpInfo($zone_id)
+    {
+        
+        // verify the required parameter 'zone_id' is set
+        if ($zone_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_id when calling getDuplicateZoneById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/zone/duplicate/{zoneId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($zone_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Zone'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Zone', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Zone', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class ZoneApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Zone', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getZoneTags
+     *
+     * Get the tags for a zone.
+     *
+     * @param int $zone_id Id of the zone to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getZoneTags($zone_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getZoneTagsWithHttpInfo ($zone_id);
+        return $response; 
+    }
+
+
+    /**
+     * getZoneTagsWithHttpInfo
+     *
+     * Get the tags for a zone.
+     *
+     * @param int $zone_id Id of the zone to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getZoneTagsWithHttpInfo($zone_id)
+    {
+        
+        // verify the required parameter 'zone_id' is set
+        if ($zone_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $zone_id when calling getZoneTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/zone/{zoneId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($zone_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "zoneId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($zone_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

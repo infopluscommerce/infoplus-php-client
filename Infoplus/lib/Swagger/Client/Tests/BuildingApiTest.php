@@ -76,12 +76,42 @@ class BuildingApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addBuildingAudit
+     *
+     * Add new audit for a building
+     *
+     */
+    public function test_addBuildingAudit() {
+
+    }
+    
+    /**
+     * Test case for addBuildingTag
+     *
+     * Add new tags for a building.
+     *
+     */
+    public function test_addBuildingTag() {
+
+    }
+    
+    /**
      * Test case for deleteBuilding
      *
      * Delete a building
      *
      */
     public function test_deleteBuilding() {
+
+    }
+    
+    /**
+     * Test case for deleteBuildingTag
+     *
+     * Delete a tag for a building.
+     *
+     */
+    public function test_deleteBuildingTag() {
 
     }
     
@@ -102,6 +132,26 @@ class BuildingApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getBuildingById() {
+
+    }
+    
+    /**
+     * Test case for getBuildingTags
+     *
+     * Get the tags for a building.
+     *
+     */
+    public function test_getBuildingTags() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateBuildingById
+     *
+     * Get a duplicated a building by id
+     *
+     */
+    public function test_getDuplicateBuildingById() {
 
     }
     

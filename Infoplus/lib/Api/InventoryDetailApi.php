@@ -92,6 +92,432 @@ class InventoryDetailApi
   
     
     /**
+     * addInventoryDetailAudit
+     *
+     * Add new audit for an inventoryDetail
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to add an audit to (required)
+     * @param string $inventory_detail_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addInventoryDetailAudit($inventory_detail_id, $inventory_detail_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addInventoryDetailAuditWithHttpInfo ($inventory_detail_id, $inventory_detail_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addInventoryDetailAuditWithHttpInfo
+     *
+     * Add new audit for an inventoryDetail
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to add an audit to (required)
+     * @param string $inventory_detail_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addInventoryDetailAuditWithHttpInfo($inventory_detail_id, $inventory_detail_audit)
+    {
+        
+        // verify the required parameter 'inventory_detail_id' is set
+        if ($inventory_detail_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_id when calling addInventoryDetailAudit');
+        }
+        // verify the required parameter 'inventory_detail_audit' is set
+        if ($inventory_detail_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_audit when calling addInventoryDetailAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/inventoryDetail/{inventoryDetailId}/audit/{inventoryDetailAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($inventory_detail_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($inventory_detail_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addInventoryDetailTag
+     *
+     * Add new tags for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to add a tag to (required)
+     * @param string $inventory_detail_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addInventoryDetailTag($inventory_detail_id, $inventory_detail_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addInventoryDetailTagWithHttpInfo ($inventory_detail_id, $inventory_detail_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addInventoryDetailTagWithHttpInfo
+     *
+     * Add new tags for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to add a tag to (required)
+     * @param string $inventory_detail_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addInventoryDetailTagWithHttpInfo($inventory_detail_id, $inventory_detail_tag)
+    {
+        
+        // verify the required parameter 'inventory_detail_id' is set
+        if ($inventory_detail_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_id when calling addInventoryDetailTag');
+        }
+        // verify the required parameter 'inventory_detail_tag' is set
+        if ($inventory_detail_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_tag when calling addInventoryDetailTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($inventory_detail_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($inventory_detail_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteInventoryDetailTag
+     *
+     * Delete a tag for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to remove tag from (required)
+     * @param string $inventory_detail_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteInventoryDetailTag($inventory_detail_id, $inventory_detail_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteInventoryDetailTagWithHttpInfo ($inventory_detail_id, $inventory_detail_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteInventoryDetailTagWithHttpInfo
+     *
+     * Delete a tag for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to remove tag from (required)
+     * @param string $inventory_detail_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteInventoryDetailTagWithHttpInfo($inventory_detail_id, $inventory_detail_tag)
+    {
+        
+        // verify the required parameter 'inventory_detail_id' is set
+        if ($inventory_detail_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_id when calling deleteInventoryDetailTag');
+        }
+        // verify the required parameter 'inventory_detail_tag' is set
+        if ($inventory_detail_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_tag when calling deleteInventoryDetailTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/inventoryDetail/{inventoryDetailId}/tag/{inventoryDetailTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($inventory_detail_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($inventory_detail_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateInventoryDetailById
+     *
+     * Get a duplicated an inventoryDetail by id
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to be duplicated. (required)
+     * @return \Infoplus\Model\InventoryDetail
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateInventoryDetailById($inventory_detail_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateInventoryDetailByIdWithHttpInfo ($inventory_detail_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateInventoryDetailByIdWithHttpInfo
+     *
+     * Get a duplicated an inventoryDetail by id
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to be duplicated. (required)
+     * @return Array of \Infoplus\Model\InventoryDetail, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateInventoryDetailByIdWithHttpInfo($inventory_detail_id)
+    {
+        
+        // verify the required parameter 'inventory_detail_id' is set
+        if ($inventory_detail_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_id when calling getDuplicateInventoryDetailById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/inventoryDetail/duplicate/{inventoryDetailId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($inventory_detail_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\InventoryDetail'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\InventoryDetail', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\InventoryDetail', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getInventoryDetailByFilter
      *
      * Search inventoryDetails by filter
@@ -299,6 +725,100 @@ class InventoryDetailApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\InventoryDetail', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getInventoryDetailTags
+     *
+     * Get the tags for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getInventoryDetailTags($inventory_detail_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getInventoryDetailTagsWithHttpInfo ($inventory_detail_id);
+        return $response; 
+    }
+
+
+    /**
+     * getInventoryDetailTagsWithHttpInfo
+     *
+     * Get the tags for an inventoryDetail.
+     *
+     * @param int $inventory_detail_id Id of the inventoryDetail to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getInventoryDetailTagsWithHttpInfo($inventory_detail_id)
+    {
+        
+        // verify the required parameter 'inventory_detail_id' is set
+        if ($inventory_detail_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventory_detail_id when calling getInventoryDetailTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/inventoryDetail/{inventoryDetailId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($inventory_detail_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "inventoryDetailId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($inventory_detail_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

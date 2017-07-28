@@ -66,6 +66,46 @@ class ItemReceiptApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addItemReceiptAudit
+     *
+     * Add new audit for an itemReceipt
+     *
+     */
+    public function test_addItemReceiptAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemReceiptTag
+     *
+     * Add new tags for an itemReceipt.
+     *
+     */
+    public function test_addItemReceiptTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemReceiptTag
+     *
+     * Delete a tag for an itemReceipt.
+     *
+     */
+    public function test_deleteItemReceiptTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemReceiptById
+     *
+     * Get a duplicated an itemReceipt by id
+     *
+     */
+    public function test_getDuplicateItemReceiptById() {
+
+    }
+    
+    /**
      * Test case for getItemReceiptByFilter
      *
      * Search itemReceipts by filter
@@ -82,6 +122,26 @@ class ItemReceiptApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemReceiptById() {
+
+    }
+    
+    /**
+     * Test case for getItemReceiptTags
+     *
+     * Get the tags for an itemReceipt.
+     *
+     */
+    public function test_getItemReceiptTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemReceipt
+     *
+     * Update an itemReceipt
+     *
+     */
+    public function test_updateItemReceipt() {
 
     }
     

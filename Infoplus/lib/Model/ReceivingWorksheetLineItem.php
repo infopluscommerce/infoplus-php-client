@@ -52,6 +52,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $swaggerTypes = array(
         'sku' => 'string',
+        'sku2' => 'string',
         'full_description' => 'string',
         'ordered_qty' => 'int',
         'prev_received_qty' => 'int',
@@ -65,6 +66,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'Number',
         'weight_per_case' => 'Number',
         'production_lot' => 'string',
+        'product_id_tag' => 'string',
         'revision_date' => 'string',
         'origin' => 'string',
         'carton_length' => 'Number',
@@ -85,6 +87,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $attributeMap = array(
         'sku' => 'sku',
+        'sku2' => 'sku2',
         'full_description' => 'fullDescription',
         'ordered_qty' => 'orderedQty',
         'prev_received_qty' => 'prevReceivedQty',
@@ -98,6 +101,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'weightPerWrap',
         'weight_per_case' => 'weightPerCase',
         'production_lot' => 'productionLot',
+        'product_id_tag' => 'productIdTag',
         'revision_date' => 'revisionDate',
         'origin' => 'origin',
         'carton_length' => 'cartonLength',
@@ -118,6 +122,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $setters = array(
         'sku' => 'setSku',
+        'sku2' => 'setSku2',
         'full_description' => 'setFullDescription',
         'ordered_qty' => 'setOrderedQty',
         'prev_received_qty' => 'setPrevReceivedQty',
@@ -131,6 +136,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'setWeightPerWrap',
         'weight_per_case' => 'setWeightPerCase',
         'production_lot' => 'setProductionLot',
+        'product_id_tag' => 'setProductIdTag',
         'revision_date' => 'setRevisionDate',
         'origin' => 'setOrigin',
         'carton_length' => 'setCartonLength',
@@ -151,6 +157,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       */
     static $getters = array(
         'sku' => 'getSku',
+        'sku2' => 'getSku2',
         'full_description' => 'getFullDescription',
         'ordered_qty' => 'getOrderedQty',
         'prev_received_qty' => 'getPrevReceivedQty',
@@ -164,6 +171,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         'weight_per_wrap' => 'getWeightPerWrap',
         'weight_per_case' => 'getWeightPerCase',
         'production_lot' => 'getProductionLot',
+        'product_id_tag' => 'getProductIdTag',
         'revision_date' => 'getRevisionDate',
         'origin' => 'getOrigin',
         'carton_length' => 'getCartonLength',
@@ -184,6 +192,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
       * @var string
       */
     protected $sku;
+    
+    /**
+      * $sku2 
+      * @var string
+      */
+    protected $sku2;
     
     /**
       * $full_description 
@@ -264,6 +278,12 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     protected $production_lot;
     
     /**
+      * $product_id_tag 
+      * @var string
+      */
+    protected $product_id_tag;
+    
+    /**
       * $revision_date 
       * @var string
       */
@@ -321,6 +341,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
         
         if ($data != null) {
             $this->sku = $data["sku"];
+            $this->sku2 = $data["sku2"];
             $this->full_description = $data["full_description"];
             $this->ordered_qty = $data["ordered_qty"];
             $this->prev_received_qty = $data["prev_received_qty"];
@@ -334,6 +355,7 @@ class ReceivingWorksheetLineItem implements ArrayAccess
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->weight_per_case = $data["weight_per_case"];
             $this->production_lot = $data["production_lot"];
+            $this->product_id_tag = $data["product_id_tag"];
             $this->revision_date = $data["revision_date"];
             $this->origin = $data["origin"];
             $this->carton_length = $data["carton_length"];
@@ -363,6 +385,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->sku = $sku;
+        return $this;
+    }
+    
+    /**
+     * Gets sku2
+     * @return string
+     */
+    public function getSku2()
+    {
+        return $this->sku2;
+    }
+  
+    /**
+     * Sets sku2
+     * @param string $sku2 
+     * @return $this
+     */
+    public function setSku2($sku2)
+    {
+        
+        $this->sku2 = $sku2;
         return $this;
     }
     
@@ -636,6 +679,27 @@ class ReceivingWorksheetLineItem implements ArrayAccess
     {
         
         $this->production_lot = $production_lot;
+        return $this;
+    }
+    
+    /**
+     * Gets product_id_tag
+     * @return string
+     */
+    public function getProductIdTag()
+    {
+        return $this->product_id_tag;
+    }
+  
+    /**
+     * Sets product_id_tag
+     * @param string $product_id_tag 
+     * @return $this
+     */
+    public function setProductIdTag($product_id_tag)
+    {
+        
+        $this->product_id_tag = $product_id_tag;
         return $this;
     }
     

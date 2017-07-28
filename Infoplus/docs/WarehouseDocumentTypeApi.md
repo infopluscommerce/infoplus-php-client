@@ -4,9 +4,217 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addWarehouseDocumentTypeAudit**](WarehouseDocumentTypeApi.md#addWarehouseDocumentTypeAudit) | **PUT** /beta/warehouseDocumentType/{warehouseDocumentTypeId}/audit/{warehouseDocumentTypeAudit} | Add new audit for a warehouseDocumentType
+[**addWarehouseDocumentTypeTag**](WarehouseDocumentTypeApi.md#addWarehouseDocumentTypeTag) | **PUT** /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag} | Add new tags for a warehouseDocumentType.
+[**deleteWarehouseDocumentTypeTag**](WarehouseDocumentTypeApi.md#deleteWarehouseDocumentTypeTag) | **DELETE** /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag/{warehouseDocumentTypeTag} | Delete a tag for a warehouseDocumentType.
+[**getDuplicateWarehouseDocumentTypeById**](WarehouseDocumentTypeApi.md#getDuplicateWarehouseDocumentTypeById) | **GET** /beta/warehouseDocumentType/duplicate/{warehouseDocumentTypeId} | Get a duplicated a warehouseDocumentType by id
 [**getWarehouseDocumentTypeByFilter**](WarehouseDocumentTypeApi.md#getWarehouseDocumentTypeByFilter) | **GET** /beta/warehouseDocumentType/search | Search warehouseDocumentTypes by filter
 [**getWarehouseDocumentTypeById**](WarehouseDocumentTypeApi.md#getWarehouseDocumentTypeById) | **GET** /beta/warehouseDocumentType/{warehouseDocumentTypeId} | Get a warehouseDocumentType by id
+[**getWarehouseDocumentTypeTags**](WarehouseDocumentTypeApi.md#getWarehouseDocumentTypeTags) | **GET** /beta/warehouseDocumentType/{warehouseDocumentTypeId}/tag | Get the tags for a warehouseDocumentType.
 
+
+# **addWarehouseDocumentTypeAudit**
+> addWarehouseDocumentTypeAudit($warehouse_document_type_id, $warehouse_document_type_audit)
+
+Add new audit for a warehouseDocumentType
+
+Adds an audit to an existing warehouseDocumentType.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseDocumentTypeApi();
+$warehouse_document_type_id = 56; // int | Id of the warehouseDocumentType to add an audit to
+$warehouse_document_type_audit = "warehouse_document_type_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addWarehouseDocumentTypeAudit($warehouse_document_type_id, $warehouse_document_type_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseDocumentTypeApi->addWarehouseDocumentTypeAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **warehouse_document_type_id** | **int**| Id of the warehouseDocumentType to add an audit to | 
+ **warehouse_document_type_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addWarehouseDocumentTypeTag**
+> addWarehouseDocumentTypeTag($warehouse_document_type_id, $warehouse_document_type_tag)
+
+Add new tags for a warehouseDocumentType.
+
+Adds a tag to an existing warehouseDocumentType.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseDocumentTypeApi();
+$warehouse_document_type_id = 56; // int | Id of the warehouseDocumentType to add a tag to
+$warehouse_document_type_tag = "warehouse_document_type_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addWarehouseDocumentTypeTag($warehouse_document_type_id, $warehouse_document_type_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseDocumentTypeApi->addWarehouseDocumentTypeTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **warehouse_document_type_id** | **int**| Id of the warehouseDocumentType to add a tag to | 
+ **warehouse_document_type_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteWarehouseDocumentTypeTag**
+> deleteWarehouseDocumentTypeTag($warehouse_document_type_id, $warehouse_document_type_tag)
+
+Delete a tag for a warehouseDocumentType.
+
+Deletes an existing warehouseDocumentType tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseDocumentTypeApi();
+$warehouse_document_type_id = 56; // int | Id of the warehouseDocumentType to remove tag from
+$warehouse_document_type_tag = "warehouse_document_type_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteWarehouseDocumentTypeTag($warehouse_document_type_id, $warehouse_document_type_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseDocumentTypeApi->deleteWarehouseDocumentTypeTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **warehouse_document_type_id** | **int**| Id of the warehouseDocumentType to remove tag from | 
+ **warehouse_document_type_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateWarehouseDocumentTypeById**
+> \Infoplus\Model\WarehouseDocumentType getDuplicateWarehouseDocumentTypeById($warehouse_document_type_id)
+
+Get a duplicated a warehouseDocumentType by id
+
+Returns a duplicated warehouseDocumentType identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseDocumentTypeApi();
+$warehouse_document_type_id = 56; // int | Id of the warehouseDocumentType to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateWarehouseDocumentTypeById($warehouse_document_type_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseDocumentTypeApi->getDuplicateWarehouseDocumentTypeById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **warehouse_document_type_id** | **int**| Id of the warehouseDocumentType to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\WarehouseDocumentType**](WarehouseDocumentType.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWarehouseDocumentTypeByFilter**
 > \Infoplus\Model\WarehouseDocumentType[] getWarehouseDocumentTypeByFilter($filter, $page, $limit, $sort)
@@ -102,6 +310,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\WarehouseDocumentType**](WarehouseDocumentType.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getWarehouseDocumentTypeTags**
+> getWarehouseDocumentTypeTags($warehouse_document_type_id)
+
+Get the tags for a warehouseDocumentType.
+
+Get all existing warehouseDocumentType tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\WarehouseDocumentTypeApi();
+$warehouse_document_type_id = 56; // int | Id of the warehouseDocumentType to get tags for
+
+try { 
+    $api_instance->getWarehouseDocumentTypeTags($warehouse_document_type_id);
+} catch (Exception $e) {
+    echo 'Exception when calling WarehouseDocumentTypeApi->getWarehouseDocumentTypeTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **warehouse_document_type_id** | **int**| Id of the warehouseDocumentType to get tags for | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

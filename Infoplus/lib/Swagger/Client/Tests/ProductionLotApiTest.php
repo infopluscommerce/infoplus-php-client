@@ -66,6 +66,66 @@ class ProductionLotApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addProductionLot
+     *
+     * Create a productionLot
+     *
+     */
+    public function test_addProductionLot() {
+
+    }
+    
+    /**
+     * Test case for addProductionLotAudit
+     *
+     * Add new audit for a productionLot
+     *
+     */
+    public function test_addProductionLotAudit() {
+
+    }
+    
+    /**
+     * Test case for addProductionLotTag
+     *
+     * Add new tags for a productionLot.
+     *
+     */
+    public function test_addProductionLotTag() {
+
+    }
+    
+    /**
+     * Test case for deleteProductionLot
+     *
+     * Delete a productionLot
+     *
+     */
+    public function test_deleteProductionLot() {
+
+    }
+    
+    /**
+     * Test case for deleteProductionLotTag
+     *
+     * Delete a tag for a productionLot.
+     *
+     */
+    public function test_deleteProductionLotTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateProductionLotById
+     *
+     * Get a duplicated a productionLot by id
+     *
+     */
+    public function test_getDuplicateProductionLotById() {
+
+    }
+    
+    /**
      * Test case for getProductionLotByFilter
      *
      * Search productionLots by filter
@@ -82,6 +142,26 @@ class ProductionLotApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getProductionLotById() {
+
+    }
+    
+    /**
+     * Test case for getProductionLotTags
+     *
+     * Get the tags for a productionLot.
+     *
+     */
+    public function test_getProductionLotTags() {
+
+    }
+    
+    /**
+     * Test case for updateProductionLot
+     *
+     * Update a productionLot
+     *
+     */
+    public function test_updateProductionLot() {
 
     }
     

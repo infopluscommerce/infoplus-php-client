@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **pricing_per** | **string** |  | [optional] 
 **generated_item_receipt_id** | **int** |  | [optional] 
 **generated_asn_id** | **int** |  | [optional] 
+**dock_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**product_id_tag** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 **sku** | **string** |  | [optional] 
 

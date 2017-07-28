@@ -76,12 +76,52 @@ class OverrideReturnAddressApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addOverrideReturnAddressAudit
+     *
+     * Add new audit for an overrideReturnAddress
+     *
+     */
+    public function test_addOverrideReturnAddressAudit() {
+
+    }
+    
+    /**
+     * Test case for addOverrideReturnAddressTag
+     *
+     * Add new tags for an overrideReturnAddress.
+     *
+     */
+    public function test_addOverrideReturnAddressTag() {
+
+    }
+    
+    /**
      * Test case for deleteOverrideReturnAddress
      *
      * Delete an overrideReturnAddress
      *
      */
     public function test_deleteOverrideReturnAddress() {
+
+    }
+    
+    /**
+     * Test case for deleteOverrideReturnAddressTag
+     *
+     * Delete a tag for an overrideReturnAddress.
+     *
+     */
+    public function test_deleteOverrideReturnAddressTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateOverrideReturnAddressById
+     *
+     * Get a duplicated an overrideReturnAddress by id
+     *
+     */
+    public function test_getDuplicateOverrideReturnAddressById() {
 
     }
     
@@ -102,6 +142,16 @@ class OverrideReturnAddressApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getOverrideReturnAddressById() {
+
+    }
+    
+    /**
+     * Test case for getOverrideReturnAddressTags
+     *
+     * Get the tags for an overrideReturnAddress.
+     *
+     */
+    public function test_getOverrideReturnAddressTags() {
 
     }
     

@@ -66,22 +66,102 @@ class ItemProductCodeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getItemProductCodeBySearchText
+     * Test case for addItemProductCode
      *
-     * Search itemProductCodes
+     * Create an itemProductCode
      *
      */
-    public function test_getItemProductCodeBySearchText() {
+    public function test_addItemProductCode() {
 
     }
     
     /**
-     * Test case for getTranslateProductCodeById
+     * Test case for addItemProductCodeAudit
+     *
+     * Add new audit for an itemProductCode
+     *
+     */
+    public function test_addItemProductCodeAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemProductCodeTag
+     *
+     * Add new tags for an itemProductCode.
+     *
+     */
+    public function test_addItemProductCodeTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemProductCode
+     *
+     * Delete an itemProductCode
+     *
+     */
+    public function test_deleteItemProductCode() {
+
+    }
+    
+    /**
+     * Test case for deleteItemProductCodeTag
+     *
+     * Delete a tag for an itemProductCode.
+     *
+     */
+    public function test_deleteItemProductCodeTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemProductCodeById
+     *
+     * Get a duplicated an itemProductCode by id
+     *
+     */
+    public function test_getDuplicateItemProductCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemProductCodeByFilter
+     *
+     * Search itemProductCodes by filter
+     *
+     */
+    public function test_getItemProductCodeByFilter() {
+
+    }
+    
+    /**
+     * Test case for getItemProductCodeById
      *
      * Get an itemProductCode by id
      *
      */
-    public function test_getTranslateProductCodeById() {
+    public function test_getItemProductCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemProductCodeTags
+     *
+     * Get the tags for an itemProductCode.
+     *
+     */
+    public function test_getItemProductCodeTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemProductCode
+     *
+     * Update an itemProductCode
+     *
+     */
+    public function test_updateItemProductCode() {
 
     }
     

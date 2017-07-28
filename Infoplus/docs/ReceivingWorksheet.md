@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **status** | **string** |  | [optional] 
 **service_level** | **string** |  | 
 **receiving_process_id** | **int** |  | [optional] 
+**dock_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **created_by** | **int** |  | [optional] 
 **worksheet_name** | **string** |  | 
 **carrier** | **string** |  | [optional] 

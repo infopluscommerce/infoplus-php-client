@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **lob_id** | **int** |  | [optional] 
-**production_lot** | **string** |  | [optional] 
-**quantity** | **int** |  | [optional] 
+**production_lot** | **string** |  | 
+**quantity** | **int** |  | 
 **custom_fields** | **map[string,object]** |  | [optional] 
 **sku** | **string** |  | [optional] 
 

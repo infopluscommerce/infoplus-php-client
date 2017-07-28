@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **weight_lbs** | [**Number**](Number.md) |  | [optional] 
 **lob_id** | **int** |  | 
 **is_active** | **bool** |  | [default to false]
+**predefined_package_type_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

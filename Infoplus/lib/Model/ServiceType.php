@@ -52,7 +52,8 @@ class ServiceType implements ArrayAccess
       */
     static $swaggerTypes = array(
         'service_type' => 'string',
-        'label' => 'string'
+        'label' => 'string',
+        'full_entity_class_name' => 'string'
     );
   
     static function swaggerTypes() {
@@ -65,7 +66,8 @@ class ServiceType implements ArrayAccess
       */
     static $attributeMap = array(
         'service_type' => 'serviceType',
-        'label' => 'label'
+        'label' => 'label',
+        'full_entity_class_name' => 'fullEntityClassName'
     );
   
     static function attributeMap() {
@@ -78,7 +80,8 @@ class ServiceType implements ArrayAccess
       */
     static $setters = array(
         'service_type' => 'setServiceType',
-        'label' => 'setLabel'
+        'label' => 'setLabel',
+        'full_entity_class_name' => 'setFullEntityClassName'
     );
   
     static function setters() {
@@ -91,7 +94,8 @@ class ServiceType implements ArrayAccess
       */
     static $getters = array(
         'service_type' => 'getServiceType',
-        'label' => 'getLabel'
+        'label' => 'getLabel',
+        'full_entity_class_name' => 'getFullEntityClassName'
     );
   
     static function getters() {
@@ -111,6 +115,12 @@ class ServiceType implements ArrayAccess
       */
     protected $label;
     
+    /**
+      * $full_entity_class_name 
+      * @var string
+      */
+    protected $full_entity_class_name;
+    
 
     /**
      * Constructor
@@ -122,6 +132,7 @@ class ServiceType implements ArrayAccess
         if ($data != null) {
             $this->service_type = $data["service_type"];
             $this->label = $data["label"];
+            $this->full_entity_class_name = $data["full_entity_class_name"];
         }
     }
     
@@ -164,6 +175,27 @@ class ServiceType implements ArrayAccess
     {
         
         $this->label = $label;
+        return $this;
+    }
+    
+    /**
+     * Gets full_entity_class_name
+     * @return string
+     */
+    public function getFullEntityClassName()
+    {
+        return $this->full_entity_class_name;
+    }
+  
+    /**
+     * Sets full_entity_class_name
+     * @param string $full_entity_class_name 
+     * @return $this
+     */
+    public function setFullEntityClassName($full_entity_class_name)
+    {
+        
+        $this->full_entity_class_name = $full_entity_class_name;
         return $this;
     }
     

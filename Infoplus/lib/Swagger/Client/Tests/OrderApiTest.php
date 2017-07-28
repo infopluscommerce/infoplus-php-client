@@ -76,12 +76,52 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addOrderAudit
+     *
+     * Add new audit for an order
+     *
+     */
+    public function test_addOrderAudit() {
+
+    }
+    
+    /**
+     * Test case for addOrderTag
+     *
+     * Add new tags for an order.
+     *
+     */
+    public function test_addOrderTag() {
+
+    }
+    
+    /**
      * Test case for deleteOrder
      *
      * Delete an order
      *
      */
     public function test_deleteOrder() {
+
+    }
+    
+    /**
+     * Test case for deleteOrderTag
+     *
+     * Delete a tag for an order.
+     *
+     */
+    public function test_deleteOrderTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateOrderById
+     *
+     * Get a duplicated an order by id
+     *
+     */
+    public function test_getDuplicateOrderById() {
 
     }
     
@@ -102,6 +142,16 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getOrderById() {
+
+    }
+    
+    /**
+     * Test case for getOrderTags
+     *
+     * Get the tags for an order.
+     *
+     */
+    public function test_getOrderTags() {
 
     }
     

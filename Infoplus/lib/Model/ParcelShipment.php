@@ -80,6 +80,7 @@ class ParcelShipment implements ArrayAccess
         'charged_freight_amount' => 'Number',
         'published_freight_amount' => 'Number',
         'retail_freight_amount' => 'Number',
+        'external_shipping_system_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -121,6 +122,7 @@ class ParcelShipment implements ArrayAccess
         'charged_freight_amount' => 'chargedFreightAmount',
         'published_freight_amount' => 'publishedFreightAmount',
         'retail_freight_amount' => 'retailFreightAmount',
+        'external_shipping_system_id' => 'externalShippingSystemId',
         'custom_fields' => 'customFields'
     );
   
@@ -162,6 +164,7 @@ class ParcelShipment implements ArrayAccess
         'charged_freight_amount' => 'setChargedFreightAmount',
         'published_freight_amount' => 'setPublishedFreightAmount',
         'retail_freight_amount' => 'setRetailFreightAmount',
+        'external_shipping_system_id' => 'setExternalShippingSystemId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -203,6 +206,7 @@ class ParcelShipment implements ArrayAccess
         'charged_freight_amount' => 'getChargedFreightAmount',
         'published_freight_amount' => 'getPublishedFreightAmount',
         'retail_freight_amount' => 'getRetailFreightAmount',
+        'external_shipping_system_id' => 'getExternalShippingSystemId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -386,6 +390,12 @@ class ParcelShipment implements ArrayAccess
     protected $retail_freight_amount;
     
     /**
+      * $external_shipping_system_id 
+      * @var int
+      */
+    protected $external_shipping_system_id;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -429,6 +439,7 @@ class ParcelShipment implements ArrayAccess
             $this->charged_freight_amount = $data["charged_freight_amount"];
             $this->published_freight_amount = $data["published_freight_amount"];
             $this->retail_freight_amount = $data["retail_freight_amount"];
+            $this->external_shipping_system_id = $data["external_shipping_system_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -1039,6 +1050,27 @@ class ParcelShipment implements ArrayAccess
     {
         
         $this->retail_freight_amount = $retail_freight_amount;
+        return $this;
+    }
+    
+    /**
+     * Gets external_shipping_system_id
+     * @return int
+     */
+    public function getExternalShippingSystemId()
+    {
+        return $this->external_shipping_system_id;
+    }
+  
+    /**
+     * Sets external_shipping_system_id
+     * @param int $external_shipping_system_id 
+     * @return $this
+     */
+    public function setExternalShippingSystemId($external_shipping_system_id)
+    {
+        
+        $this->external_shipping_system_id = $external_shipping_system_id;
         return $this;
     }
     

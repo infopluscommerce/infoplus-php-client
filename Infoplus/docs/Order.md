@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **warehouse_id** | **int** |  | 
 **order_date** | [**\DateTime**](\DateTime.md) |  | 
 **customer_no** | **string** |  | [optional] 
+**use_order_no_root** | **int** |  | [optional] 
 **first_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **last_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **deliver_on_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
@@ -39,6 +40,7 @@ Name | Type | Description | Notes
 **number_of_pallets** | **int** |  | [optional] 
 **completion_status** | **string** |  | [optional] 
 **parcel_account_id** | **int** |  | [optional] 
+**third_party_parcel_account_id** | **int** |  | [optional] 
 **cost_center** | **string** |  | [optional] 
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **customer_po_no** | **string** |  | [optional] 
@@ -53,6 +55,7 @@ Name | Type | Description | Notes
 **hold_code** | **string** |  | [optional] 
 **integration_partner_id** | **int** |  | [optional] 
 **number_of_line_items** | **int** |  | [optional] 
+**estimated_number_of_picks** | **int** |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **oms_order_no** | **int** |  | [optional] 
 **oms_customer_id** | **int** |  | [optional] 
@@ -61,9 +64,11 @@ Name | Type | Description | Notes
 **order_reason** | **int** |  | [optional] 
 **order_source_id** | **int** |  | [optional] 
 **packing_slip_template_id** | **int** |  | [optional] 
+**order_invoice_template_id** | **int** |  | [optional] 
 **order_confirmation_email_template_id** | **int** |  | [optional] 
 **shipment_confirmation_email_template_id** | **int** |  | [optional] 
 **price_level** | **string** |  | [optional] 
+**price_mode** | **string** |  | [optional] 
 **priority_code** | **int** |  | [optional] 
 **fulfillment_process_id** | **int** |  | [optional] 
 **ship_by** | [**\DateTime**](\DateTime.md) |  | [optional] 
@@ -89,7 +94,11 @@ Name | Type | Description | Notes
 **total_paid** | [**Number**](Number.md) |  | [optional] 
 **total_qty** | **int** |  | [optional] 
 **weight_lbs** | [**Number**](Number.md) |  | [optional] 
+**order_assembly_instructions** | **string** |  | [optional] 
 **line_items** | [**\Infoplus\Model\OrderLine[]**](OrderLine.md) |  | 
+**extra_order_data** | [**\Infoplus\Model\OrderExtraOrderData[]**](OrderExtraOrderData.md) |  | [optional] 
+**extra_line_item_data** | [**\Infoplus\Model\OrderExtraLineItemData[]**](OrderExtraLineItemData.md) |  | [optional] 
+**external_shipping_system_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

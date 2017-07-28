@@ -92,6 +92,432 @@ class WarehouseApi
   
     
     /**
+     * addWarehouseAudit
+     *
+     * Add new audit for a warehouse
+     *
+     * @param int $warehouse_id Id of the warehouse to add an audit to (required)
+     * @param string $warehouse_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseAudit($warehouse_id, $warehouse_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWarehouseAuditWithHttpInfo ($warehouse_id, $warehouse_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addWarehouseAuditWithHttpInfo
+     *
+     * Add new audit for a warehouse
+     *
+     * @param int $warehouse_id Id of the warehouse to add an audit to (required)
+     * @param string $warehouse_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseAuditWithHttpInfo($warehouse_id, $warehouse_audit)
+    {
+        
+        // verify the required parameter 'warehouse_id' is set
+        if ($warehouse_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_id when calling addWarehouseAudit');
+        }
+        // verify the required parameter 'warehouse_audit' is set
+        if ($warehouse_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_audit when calling addWarehouseAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouse/{warehouseId}/audit/{warehouseAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($warehouse_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addWarehouseTag
+     *
+     * Add new tags for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to add a tag to (required)
+     * @param string $warehouse_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseTag($warehouse_id, $warehouse_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWarehouseTagWithHttpInfo ($warehouse_id, $warehouse_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addWarehouseTagWithHttpInfo
+     *
+     * Add new tags for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to add a tag to (required)
+     * @param string $warehouse_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWarehouseTagWithHttpInfo($warehouse_id, $warehouse_tag)
+    {
+        
+        // verify the required parameter 'warehouse_id' is set
+        if ($warehouse_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_id when calling addWarehouseTag');
+        }
+        // verify the required parameter 'warehouse_tag' is set
+        if ($warehouse_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_tag when calling addWarehouseTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouse/{warehouseId}/tag/{warehouseTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($warehouse_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteWarehouseTag
+     *
+     * Delete a tag for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to remove tag from (required)
+     * @param string $warehouse_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWarehouseTag($warehouse_id, $warehouse_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteWarehouseTagWithHttpInfo ($warehouse_id, $warehouse_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteWarehouseTagWithHttpInfo
+     *
+     * Delete a tag for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to remove tag from (required)
+     * @param string $warehouse_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWarehouseTagWithHttpInfo($warehouse_id, $warehouse_tag)
+    {
+        
+        // verify the required parameter 'warehouse_id' is set
+        if ($warehouse_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_id when calling deleteWarehouseTag');
+        }
+        // verify the required parameter 'warehouse_tag' is set
+        if ($warehouse_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_tag when calling deleteWarehouseTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouse/{warehouseId}/tag/{warehouseTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($warehouse_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateWarehouseById
+     *
+     * Get a duplicated a warehouse by id
+     *
+     * @param int $warehouse_id Id of the warehouse to be duplicated. (required)
+     * @return \Infoplus\Model\Warehouse
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWarehouseById($warehouse_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateWarehouseByIdWithHttpInfo ($warehouse_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateWarehouseByIdWithHttpInfo
+     *
+     * Get a duplicated a warehouse by id
+     *
+     * @param int $warehouse_id Id of the warehouse to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Warehouse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWarehouseByIdWithHttpInfo($warehouse_id)
+    {
+        
+        // verify the required parameter 'warehouse_id' is set
+        if ($warehouse_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_id when calling getDuplicateWarehouseById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouse/duplicate/{warehouseId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Warehouse'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Warehouse', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Warehouse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getWarehouseByFilter
      *
      * Search warehouses by filter
@@ -299,6 +725,100 @@ class WarehouseApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Warehouse', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getWarehouseTags
+     *
+     * Get the tags for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWarehouseTags($warehouse_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getWarehouseTagsWithHttpInfo ($warehouse_id);
+        return $response; 
+    }
+
+
+    /**
+     * getWarehouseTagsWithHttpInfo
+     *
+     * Get the tags for a warehouse.
+     *
+     * @param int $warehouse_id Id of the warehouse to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWarehouseTagsWithHttpInfo($warehouse_id)
+    {
+        
+        // verify the required parameter 'warehouse_id' is set
+        if ($warehouse_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $warehouse_id when calling getWarehouseTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/warehouse/{warehouseId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($warehouse_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "warehouseId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($warehouse_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

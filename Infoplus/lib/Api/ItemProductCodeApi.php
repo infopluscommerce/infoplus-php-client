@@ -92,35 +92,659 @@ class ItemProductCodeApi
   
     
     /**
-     * getItemProductCodeBySearchText
+     * addItemProductCode
      *
-     * Search itemProductCodes
+     * Create an itemProductCode
      *
-     * @param string $search_text Search text, used to filter results. (optional)
-     * @param int $page Result page number.  Defaults to 1. (optional)
-     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
-     * @return \Infoplus\Model\ItemProductCode[]
+     * @param \Infoplus\Model\ItemProductCode $body ItemProductCode to be inserted. (required)
+     * @return \Infoplus\Model\ItemProductCode
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getItemProductCodeBySearchText($search_text = null, $page = null, $limit = null)
+    public function addItemProductCode($body)
     {
-        list($response, $statusCode, $httpHeader) = $this->getItemProductCodeBySearchTextWithHttpInfo ($search_text, $page, $limit);
+        list($response, $statusCode, $httpHeader) = $this->addItemProductCodeWithHttpInfo ($body);
         return $response; 
     }
 
 
     /**
-     * getItemProductCodeBySearchTextWithHttpInfo
+     * addItemProductCodeWithHttpInfo
      *
-     * Search itemProductCodes
+     * Create an itemProductCode
      *
-     * @param string $search_text Search text, used to filter results. (optional)
+     * @param \Infoplus\Model\ItemProductCode $body ItemProductCode to be inserted. (required)
+     * @return Array of \Infoplus\Model\ItemProductCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemProductCodeWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling addItemProductCode');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'POST',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemProductCode'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemProductCode', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemProductCode', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            case 405:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ApiResponse', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addItemProductCodeAudit
+     *
+     * Add new audit for an itemProductCode
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to add an audit to (required)
+     * @param string $item_product_code_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemProductCodeAudit($item_product_code_id, $item_product_code_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addItemProductCodeAuditWithHttpInfo ($item_product_code_id, $item_product_code_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addItemProductCodeAuditWithHttpInfo
+     *
+     * Add new audit for an itemProductCode
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to add an audit to (required)
+     * @param string $item_product_code_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemProductCodeAuditWithHttpInfo($item_product_code_id, $item_product_code_audit)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling addItemProductCodeAudit');
+        }
+        // verify the required parameter 'item_product_code_audit' is set
+        if ($item_product_code_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_audit when calling addItemProductCodeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/audit/{itemProductCodeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_product_code_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addItemProductCodeTag
+     *
+     * Add new tags for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to add a tag to (required)
+     * @param string $item_product_code_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemProductCodeTag($item_product_code_id, $item_product_code_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addItemProductCodeTagWithHttpInfo ($item_product_code_id, $item_product_code_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addItemProductCodeTagWithHttpInfo
+     *
+     * Add new tags for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to add a tag to (required)
+     * @param string $item_product_code_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addItemProductCodeTagWithHttpInfo($item_product_code_id, $item_product_code_tag)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling addItemProductCodeTag');
+        }
+        // verify the required parameter 'item_product_code_tag' is set
+        if ($item_product_code_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_tag when calling addItemProductCodeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_product_code_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteItemProductCode
+     *
+     * Delete an itemProductCode
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to be deleted. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemProductCode($item_product_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteItemProductCodeWithHttpInfo ($item_product_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * deleteItemProductCodeWithHttpInfo
+     *
+     * Delete an itemProductCode
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to be deleted. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemProductCodeWithHttpInfo($item_product_code_id)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling deleteItemProductCode');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteItemProductCodeTag
+     *
+     * Delete a tag for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to remove tag from (required)
+     * @param string $item_product_code_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemProductCodeTag($item_product_code_id, $item_product_code_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteItemProductCodeTagWithHttpInfo ($item_product_code_id, $item_product_code_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteItemProductCodeTagWithHttpInfo
+     *
+     * Delete a tag for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to remove tag from (required)
+     * @param string $item_product_code_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteItemProductCodeTagWithHttpInfo($item_product_code_id, $item_product_code_tag)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling deleteItemProductCodeTag');
+        }
+        // verify the required parameter 'item_product_code_tag' is set
+        if ($item_product_code_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_tag when calling deleteItemProductCodeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($item_product_code_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateItemProductCodeById
+     *
+     * Get a duplicated an itemProductCode by id
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to be duplicated. (required)
+     * @return \Infoplus\Model\ItemProductCode
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemProductCodeById($item_product_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateItemProductCodeByIdWithHttpInfo ($item_product_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateItemProductCodeByIdWithHttpInfo
+     *
+     * Get a duplicated an itemProductCode by id
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ItemProductCode, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateItemProductCodeByIdWithHttpInfo($item_product_code_id)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling getDuplicateItemProductCodeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/duplicate/{itemProductCodeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ItemProductCode'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ItemProductCode', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemProductCode', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemProductCodeByFilter
+     *
+     * Search itemProductCodes by filter
+     *
+     * @param string $filter Query string, used to filter results. (optional)
      * @param int $page Result page number.  Defaults to 1. (optional)
      * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     * @param string $sort Sort results by specified field. (optional)
+     * @return \Infoplus\Model\ItemProductCode[]
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemProductCodeByFilter($filter = null, $page = null, $limit = null, $sort = null)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemProductCodeByFilterWithHttpInfo ($filter, $page, $limit, $sort);
+        return $response; 
+    }
+
+
+    /**
+     * getItemProductCodeByFilterWithHttpInfo
+     *
+     * Search itemProductCodes by filter
+     *
+     * @param string $filter Query string, used to filter results. (optional)
+     * @param int $page Result page number.  Defaults to 1. (optional)
+     * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
+     * @param string $sort Sort results by specified field. (optional)
      * @return Array of \Infoplus\Model\ItemProductCode[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getItemProductCodeBySearchTextWithHttpInfo($search_text = null, $page = null, $limit = null)
+    public function getItemProductCodeByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
     {
         
   
@@ -138,8 +762,8 @@ class ItemProductCodeApi
   
         // query params
         
-        if ($search_text !== null) {
-            $queryParams['searchText'] = $this->apiClient->getSerializer()->toQueryValue($search_text);
+        if ($filter !== null) {
+            $queryParams['filter'] = $this->apiClient->getSerializer()->toQueryValue($filter);
         }// query params
         
         if ($page !== null) {
@@ -148,6 +772,10 @@ class ItemProductCodeApi
         
         if ($limit !== null) {
             $queryParams['limit'] = $this->apiClient->getSerializer()->toQueryValue($limit);
+        }// query params
+        
+        if ($sort !== null) {
+            $queryParams['sort'] = $this->apiClient->getSerializer()->toQueryValue($sort);
         }
         
         
@@ -198,36 +826,36 @@ class ItemProductCodeApi
     }
     
     /**
-     * getTranslateProductCodeById
+     * getItemProductCodeById
      *
      * Get an itemProductCode by id
      *
-     * @param string $item_product_code_id Id of itemProductCode to be returned. (required)
+     * @param int $item_product_code_id Id of the itemProductCode to be returned. (required)
      * @return \Infoplus\Model\ItemProductCode
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getTranslateProductCodeById($item_product_code_id)
+    public function getItemProductCodeById($item_product_code_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->getTranslateProductCodeByIdWithHttpInfo ($item_product_code_id);
+        list($response, $statusCode, $httpHeader) = $this->getItemProductCodeByIdWithHttpInfo ($item_product_code_id);
         return $response; 
     }
 
 
     /**
-     * getTranslateProductCodeByIdWithHttpInfo
+     * getItemProductCodeByIdWithHttpInfo
      *
      * Get an itemProductCode by id
      *
-     * @param string $item_product_code_id Id of itemProductCode to be returned. (required)
+     * @param int $item_product_code_id Id of the itemProductCode to be returned. (required)
      * @return Array of \Infoplus\Model\ItemProductCode, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getTranslateProductCodeByIdWithHttpInfo($item_product_code_id)
+    public function getItemProductCodeByIdWithHttpInfo($item_product_code_id)
     {
         
         // verify the required parameter 'item_product_code_id' is set
         if ($item_product_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling getTranslateProductCodeById');
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling getItemProductCodeById');
         }
   
         // parse inputs
@@ -293,6 +921,190 @@ class ItemProductCodeApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ItemProductCode', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getItemProductCodeTags
+     *
+     * Get the tags for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemProductCodeTags($item_product_code_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getItemProductCodeTagsWithHttpInfo ($item_product_code_id);
+        return $response; 
+    }
+
+
+    /**
+     * getItemProductCodeTagsWithHttpInfo
+     *
+     * Get the tags for an itemProductCode.
+     *
+     * @param int $item_product_code_id Id of the itemProductCode to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getItemProductCodeTagsWithHttpInfo($item_product_code_id)
+    {
+        
+        // verify the required parameter 'item_product_code_id' is set
+        if ($item_product_code_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling getItemProductCodeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($item_product_code_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "itemProductCodeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateItemProductCode
+     *
+     * Update an itemProductCode
+     *
+     * @param \Infoplus\Model\ItemProductCode $body ItemProductCode to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemProductCode($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateItemProductCodeWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateItemProductCodeWithHttpInfo
+     *
+     * Update an itemProductCode
+     *
+     * @param \Infoplus\Model\ItemProductCode $body ItemProductCode to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateItemProductCodeWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateItemProductCode');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/itemProductCode";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

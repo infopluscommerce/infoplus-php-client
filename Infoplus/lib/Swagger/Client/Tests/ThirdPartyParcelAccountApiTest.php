@@ -76,12 +76,52 @@ class ThirdPartyParcelAccountApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addThirdPartyParcelAccountAudit
+     *
+     * Add new audit for a thirdPartyParcelAccount
+     *
+     */
+    public function test_addThirdPartyParcelAccountAudit() {
+
+    }
+    
+    /**
+     * Test case for addThirdPartyParcelAccountTag
+     *
+     * Add new tags for a thirdPartyParcelAccount.
+     *
+     */
+    public function test_addThirdPartyParcelAccountTag() {
+
+    }
+    
+    /**
      * Test case for deleteThirdPartyParcelAccount
      *
      * Delete a thirdPartyParcelAccount
      *
      */
     public function test_deleteThirdPartyParcelAccount() {
+
+    }
+    
+    /**
+     * Test case for deleteThirdPartyParcelAccountTag
+     *
+     * Delete a tag for a thirdPartyParcelAccount.
+     *
+     */
+    public function test_deleteThirdPartyParcelAccountTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateThirdPartyParcelAccountById
+     *
+     * Get a duplicated a thirdPartyParcelAccount by id
+     *
+     */
+    public function test_getDuplicateThirdPartyParcelAccountById() {
 
     }
     
@@ -102,6 +142,16 @@ class ThirdPartyParcelAccountApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getThirdPartyParcelAccountById() {
+
+    }
+    
+    /**
+     * Test case for getThirdPartyParcelAccountTags
+     *
+     * Get the tags for a thirdPartyParcelAccount.
+     *
+     */
+    public function test_getThirdPartyParcelAccountTags() {
 
     }
     

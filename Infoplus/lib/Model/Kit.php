@@ -53,7 +53,7 @@ class Kit implements ArrayAccess
     static $swaggerTypes = array(
         'lob_id' => 'int',
         'id' => 'int',
-        'kit_sku_id' => 'int',
+        'kit_sku' => 'string',
         'packaging_type' => 'string',
         'other' => 'string',
         'number_of_components' => 'int',
@@ -73,6 +73,7 @@ class Kit implements ArrayAccess
         'max_inv_qty' => 'int',
         'is_kod' => 'string',
         'kod_type' => 'string',
+        'kit_component_list' => '\Infoplus\Model\KitComponent[]',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -87,7 +88,7 @@ class Kit implements ArrayAccess
     static $attributeMap = array(
         'lob_id' => 'lobId',
         'id' => 'id',
-        'kit_sku_id' => 'kitSKUId',
+        'kit_sku' => 'kitSKU',
         'packaging_type' => 'packagingType',
         'other' => 'other',
         'number_of_components' => 'numberOfComponents',
@@ -107,6 +108,7 @@ class Kit implements ArrayAccess
         'max_inv_qty' => 'maxInvQty',
         'is_kod' => 'isKOD',
         'kod_type' => 'kodType',
+        'kit_component_list' => 'kitComponentList',
         'custom_fields' => 'customFields'
     );
   
@@ -121,7 +123,7 @@ class Kit implements ArrayAccess
     static $setters = array(
         'lob_id' => 'setLobId',
         'id' => 'setId',
-        'kit_sku_id' => 'setKitSkuId',
+        'kit_sku' => 'setKitSku',
         'packaging_type' => 'setPackagingType',
         'other' => 'setOther',
         'number_of_components' => 'setNumberOfComponents',
@@ -141,6 +143,7 @@ class Kit implements ArrayAccess
         'max_inv_qty' => 'setMaxInvQty',
         'is_kod' => 'setIsKod',
         'kod_type' => 'setKodType',
+        'kit_component_list' => 'setKitComponentList',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -155,7 +158,7 @@ class Kit implements ArrayAccess
     static $getters = array(
         'lob_id' => 'getLobId',
         'id' => 'getId',
-        'kit_sku_id' => 'getKitSkuId',
+        'kit_sku' => 'getKitSku',
         'packaging_type' => 'getPackagingType',
         'other' => 'getOther',
         'number_of_components' => 'getNumberOfComponents',
@@ -175,6 +178,7 @@ class Kit implements ArrayAccess
         'max_inv_qty' => 'getMaxInvQty',
         'is_kod' => 'getIsKod',
         'kod_type' => 'getKodType',
+        'kit_component_list' => 'getKitComponentList',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -196,10 +200,10 @@ class Kit implements ArrayAccess
     protected $id;
     
     /**
-      * $kit_sku_id 
-      * @var int
+      * $kit_sku 
+      * @var string
       */
-    protected $kit_sku_id;
+    protected $kit_sku;
     
     /**
       * $packaging_type 
@@ -316,6 +320,12 @@ class Kit implements ArrayAccess
     protected $kod_type;
     
     /**
+      * $kit_component_list 
+      * @var \Infoplus\Model\KitComponent[]
+      */
+    protected $kit_component_list;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -332,7 +342,7 @@ class Kit implements ArrayAccess
         if ($data != null) {
             $this->lob_id = $data["lob_id"];
             $this->id = $data["id"];
-            $this->kit_sku_id = $data["kit_sku_id"];
+            $this->kit_sku = $data["kit_sku"];
             $this->packaging_type = $data["packaging_type"];
             $this->other = $data["other"];
             $this->number_of_components = $data["number_of_components"];
@@ -352,6 +362,7 @@ class Kit implements ArrayAccess
             $this->max_inv_qty = $data["max_inv_qty"];
             $this->is_kod = $data["is_kod"];
             $this->kod_type = $data["kod_type"];
+            $this->kit_component_list = $data["kit_component_list"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -399,23 +410,23 @@ class Kit implements ArrayAccess
     }
     
     /**
-     * Gets kit_sku_id
-     * @return int
+     * Gets kit_sku
+     * @return string
      */
-    public function getKitSkuId()
+    public function getKitSku()
     {
-        return $this->kit_sku_id;
+        return $this->kit_sku;
     }
   
     /**
-     * Sets kit_sku_id
-     * @param int $kit_sku_id 
+     * Sets kit_sku
+     * @param string $kit_sku 
      * @return $this
      */
-    public function setKitSkuId($kit_sku_id)
+    public function setKitSku($kit_sku)
     {
         
-        $this->kit_sku_id = $kit_sku_id;
+        $this->kit_sku = $kit_sku;
         return $this;
     }
     
@@ -815,6 +826,27 @@ class Kit implements ArrayAccess
     {
         
         $this->kod_type = $kod_type;
+        return $this;
+    }
+    
+    /**
+     * Gets kit_component_list
+     * @return \Infoplus\Model\KitComponent[]
+     */
+    public function getKitComponentList()
+    {
+        return $this->kit_component_list;
+    }
+  
+    /**
+     * Sets kit_component_list
+     * @param \Infoplus\Model\KitComponent[] $kit_component_list 
+     * @return $this
+     */
+    public function setKitComponentList($kit_component_list)
+    {
+        
+        $this->kit_component_list = $kit_component_list;
         return $this;
     }
     

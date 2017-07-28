@@ -66,6 +66,46 @@ class LowStockApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addLowStockAudit
+     *
+     * Add new audit for a lowStock
+     *
+     */
+    public function test_addLowStockAudit() {
+
+    }
+    
+    /**
+     * Test case for addLowStockTag
+     *
+     * Add new tags for a lowStock.
+     *
+     */
+    public function test_addLowStockTag() {
+
+    }
+    
+    /**
+     * Test case for deleteLowStockTag
+     *
+     * Delete a tag for a lowStock.
+     *
+     */
+    public function test_deleteLowStockTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateLowStockById
+     *
+     * Get a duplicated a lowStock by id
+     *
+     */
+    public function test_getDuplicateLowStockById() {
+
+    }
+    
+    /**
      * Test case for getLowStockByFilter
      *
      * Search lowStocks by filter
@@ -82,6 +122,16 @@ class LowStockApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLowStockById() {
+
+    }
+    
+    /**
+     * Test case for getLowStockTags
+     *
+     * Get the tags for a lowStock.
+     *
+     */
+    public function test_getLowStockTags() {
 
     }
     

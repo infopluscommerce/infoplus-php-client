@@ -194,6 +194,222 @@ class JobTimeApi
     }
     
     /**
+     * addJobTimeAudit
+     *
+     * Add new audit for a jobTime
+     *
+     * @param int $job_time_id Id of the jobTime to add an audit to (required)
+     * @param string $job_time_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTimeAudit($job_time_id, $job_time_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addJobTimeAuditWithHttpInfo ($job_time_id, $job_time_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addJobTimeAuditWithHttpInfo
+     *
+     * Add new audit for a jobTime
+     *
+     * @param int $job_time_id Id of the jobTime to add an audit to (required)
+     * @param string $job_time_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTimeAuditWithHttpInfo($job_time_id, $job_time_audit)
+    {
+        
+        // verify the required parameter 'job_time_id' is set
+        if ($job_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_id when calling addJobTimeAudit');
+        }
+        // verify the required parameter 'job_time_audit' is set
+        if ($job_time_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_audit when calling addJobTimeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobTime/{jobTimeId}/audit/{jobTimeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($job_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_time_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addJobTimeTag
+     *
+     * Add new tags for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to add a tag to (required)
+     * @param string $job_time_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTimeTag($job_time_id, $job_time_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addJobTimeTagWithHttpInfo ($job_time_id, $job_time_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addJobTimeTagWithHttpInfo
+     *
+     * Add new tags for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to add a tag to (required)
+     * @param string $job_time_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addJobTimeTagWithHttpInfo($job_time_id, $job_time_tag)
+    {
+        
+        // verify the required parameter 'job_time_id' is set
+        if ($job_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_id when calling addJobTimeTag');
+        }
+        // verify the required parameter 'job_time_tag' is set
+        if ($job_time_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_tag when calling addJobTimeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobTime/{jobTimeId}/tag/{jobTimeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($job_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_time_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteJobTime
      *
      * Delete a jobTime
@@ -281,6 +497,216 @@ class JobTimeApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteJobTimeTag
+     *
+     * Delete a tag for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to remove tag from (required)
+     * @param string $job_time_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteJobTimeTag($job_time_id, $job_time_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteJobTimeTagWithHttpInfo ($job_time_id, $job_time_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteJobTimeTagWithHttpInfo
+     *
+     * Delete a tag for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to remove tag from (required)
+     * @param string $job_time_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteJobTimeTagWithHttpInfo($job_time_id, $job_time_tag)
+    {
+        
+        // verify the required parameter 'job_time_id' is set
+        if ($job_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_id when calling deleteJobTimeTag');
+        }
+        // verify the required parameter 'job_time_tag' is set
+        if ($job_time_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_tag when calling deleteJobTimeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobTime/{jobTimeId}/tag/{jobTimeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($job_time_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateJobTimeById
+     *
+     * Get a duplicated a jobTime by id
+     *
+     * @param int $job_time_id Id of the jobTime to be duplicated. (required)
+     * @return \Infoplus\Model\JobTime
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateJobTimeById($job_time_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateJobTimeByIdWithHttpInfo ($job_time_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateJobTimeByIdWithHttpInfo
+     *
+     * Get a duplicated a jobTime by id
+     *
+     * @param int $job_time_id Id of the jobTime to be duplicated. (required)
+     * @return Array of \Infoplus\Model\JobTime, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateJobTimeByIdWithHttpInfo($job_time_id)
+    {
+        
+        // verify the required parameter 'job_time_id' is set
+        if ($job_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_id when calling getDuplicateJobTimeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobTime/duplicate/{jobTimeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\JobTime'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\JobTime', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\JobTime', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class JobTimeApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\JobTime', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getJobTimeTags
+     *
+     * Get the tags for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getJobTimeTags($job_time_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getJobTimeTagsWithHttpInfo ($job_time_id);
+        return $response; 
+    }
+
+
+    /**
+     * getJobTimeTagsWithHttpInfo
+     *
+     * Get the tags for a jobTime.
+     *
+     * @param int $job_time_id Id of the jobTime to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getJobTimeTagsWithHttpInfo($job_time_id)
+    {
+        
+        // verify the required parameter 'job_time_id' is set
+        if ($job_time_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $job_time_id when calling getJobTimeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/jobTime/{jobTimeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($job_time_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "jobTimeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($job_time_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

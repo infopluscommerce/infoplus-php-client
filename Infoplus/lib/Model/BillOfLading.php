@@ -55,28 +55,35 @@ class BillOfLading implements ArrayAccess
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
         'lob_id' => 'int',
+        'order_no' => 'Number',
         'bol_no' => 'string',
         'bol_date' => '\DateTime',
         'ship_from_name' => 'string',
+        'ship_from_attention' => 'string',
         'ship_from_address' => 'string',
         'ship_from_city' => 'string',
         'ship_from_state' => 'string',
         'ship_from_zip' => 'string',
+        'ship_from_country' => 'string',
         'sid' => 'string',
         'is_ship_from_fob' => 'bool',
         'ship_to_name' => 'string',
+        'ship_to_attention' => 'string',
         'ship_to_address' => 'string',
         'ship_to_city' => 'string',
         'ship_to_state' => 'string',
         'ship_to_zip' => 'string',
+        'ship_to_country' => 'string',
         'ship_to_location_no' => 'string',
         'cid' => 'string',
         'is_ship_to_fob' => 'bool',
         'bill_to_name' => 'string',
+        'bill_to_attention' => 'string',
         'bill_to_address' => 'string',
         'bill_to_city' => 'string',
         'bill_to_state' => 'string',
         'bill_to_zip' => 'string',
+        'bill_to_country' => 'string',
         'is_trailer_loaded_by_shipper' => 'bool',
         'by_driver' => 'bool',
         'cod_amount' => 'Number',
@@ -115,28 +122,35 @@ class BillOfLading implements ArrayAccess
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
         'lob_id' => 'lobId',
+        'order_no' => 'orderNo',
         'bol_no' => 'bolNo',
         'bol_date' => 'bolDate',
         'ship_from_name' => 'shipFromName',
+        'ship_from_attention' => 'shipFromAttention',
         'ship_from_address' => 'shipFromAddress',
         'ship_from_city' => 'shipFromCity',
         'ship_from_state' => 'shipFromState',
         'ship_from_zip' => 'shipFromZip',
+        'ship_from_country' => 'shipFromCountry',
         'sid' => 'sid',
         'is_ship_from_fob' => 'isShipFromFOB',
         'ship_to_name' => 'shipToName',
+        'ship_to_attention' => 'shipToAttention',
         'ship_to_address' => 'shipToAddress',
         'ship_to_city' => 'shipToCity',
         'ship_to_state' => 'shipToState',
         'ship_to_zip' => 'shipToZip',
+        'ship_to_country' => 'shipToCountry',
         'ship_to_location_no' => 'shipToLocationNo',
         'cid' => 'cid',
         'is_ship_to_fob' => 'isShipToFOB',
         'bill_to_name' => 'billToName',
+        'bill_to_attention' => 'billToAttention',
         'bill_to_address' => 'billToAddress',
         'bill_to_city' => 'billToCity',
         'bill_to_state' => 'billToState',
         'bill_to_zip' => 'billToZip',
+        'bill_to_country' => 'billToCountry',
         'is_trailer_loaded_by_shipper' => 'isTrailerLoadedByShipper',
         'by_driver' => 'byDriver',
         'cod_amount' => 'codAmount',
@@ -175,28 +189,35 @@ class BillOfLading implements ArrayAccess
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
         'lob_id' => 'setLobId',
+        'order_no' => 'setOrderNo',
         'bol_no' => 'setBolNo',
         'bol_date' => 'setBolDate',
         'ship_from_name' => 'setShipFromName',
+        'ship_from_attention' => 'setShipFromAttention',
         'ship_from_address' => 'setShipFromAddress',
         'ship_from_city' => 'setShipFromCity',
         'ship_from_state' => 'setShipFromState',
         'ship_from_zip' => 'setShipFromZip',
+        'ship_from_country' => 'setShipFromCountry',
         'sid' => 'setSid',
         'is_ship_from_fob' => 'setIsShipFromFob',
         'ship_to_name' => 'setShipToName',
+        'ship_to_attention' => 'setShipToAttention',
         'ship_to_address' => 'setShipToAddress',
         'ship_to_city' => 'setShipToCity',
         'ship_to_state' => 'setShipToState',
         'ship_to_zip' => 'setShipToZip',
+        'ship_to_country' => 'setShipToCountry',
         'ship_to_location_no' => 'setShipToLocationNo',
         'cid' => 'setCid',
         'is_ship_to_fob' => 'setIsShipToFob',
         'bill_to_name' => 'setBillToName',
+        'bill_to_attention' => 'setBillToAttention',
         'bill_to_address' => 'setBillToAddress',
         'bill_to_city' => 'setBillToCity',
         'bill_to_state' => 'setBillToState',
         'bill_to_zip' => 'setBillToZip',
+        'bill_to_country' => 'setBillToCountry',
         'is_trailer_loaded_by_shipper' => 'setIsTrailerLoadedByShipper',
         'by_driver' => 'setByDriver',
         'cod_amount' => 'setCodAmount',
@@ -235,28 +256,35 @@ class BillOfLading implements ArrayAccess
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
         'lob_id' => 'getLobId',
+        'order_no' => 'getOrderNo',
         'bol_no' => 'getBolNo',
         'bol_date' => 'getBolDate',
         'ship_from_name' => 'getShipFromName',
+        'ship_from_attention' => 'getShipFromAttention',
         'ship_from_address' => 'getShipFromAddress',
         'ship_from_city' => 'getShipFromCity',
         'ship_from_state' => 'getShipFromState',
         'ship_from_zip' => 'getShipFromZip',
+        'ship_from_country' => 'getShipFromCountry',
         'sid' => 'getSid',
         'is_ship_from_fob' => 'getIsShipFromFob',
         'ship_to_name' => 'getShipToName',
+        'ship_to_attention' => 'getShipToAttention',
         'ship_to_address' => 'getShipToAddress',
         'ship_to_city' => 'getShipToCity',
         'ship_to_state' => 'getShipToState',
         'ship_to_zip' => 'getShipToZip',
+        'ship_to_country' => 'getShipToCountry',
         'ship_to_location_no' => 'getShipToLocationNo',
         'cid' => 'getCid',
         'is_ship_to_fob' => 'getIsShipToFob',
         'bill_to_name' => 'getBillToName',
+        'bill_to_attention' => 'getBillToAttention',
         'bill_to_address' => 'getBillToAddress',
         'bill_to_city' => 'getBillToCity',
         'bill_to_state' => 'getBillToState',
         'bill_to_zip' => 'getBillToZip',
+        'bill_to_country' => 'getBillToCountry',
         'is_trailer_loaded_by_shipper' => 'getIsTrailerLoadedByShipper',
         'by_driver' => 'getByDriver',
         'cod_amount' => 'getCodAmount',
@@ -312,6 +340,12 @@ class BillOfLading implements ArrayAccess
     protected $lob_id;
     
     /**
+      * $order_no 
+      * @var Number
+      */
+    protected $order_no;
+    
+    /**
       * $bol_no 
       * @var string
       */
@@ -328,6 +362,12 @@ class BillOfLading implements ArrayAccess
       * @var string
       */
     protected $ship_from_name;
+    
+    /**
+      * $ship_from_attention 
+      * @var string
+      */
+    protected $ship_from_attention;
     
     /**
       * $ship_from_address 
@@ -354,6 +394,12 @@ class BillOfLading implements ArrayAccess
     protected $ship_from_zip;
     
     /**
+      * $ship_from_country 
+      * @var string
+      */
+    protected $ship_from_country;
+    
+    /**
       * $sid 
       * @var string
       */
@@ -370,6 +416,12 @@ class BillOfLading implements ArrayAccess
       * @var string
       */
     protected $ship_to_name;
+    
+    /**
+      * $ship_to_attention 
+      * @var string
+      */
+    protected $ship_to_attention;
     
     /**
       * $ship_to_address 
@@ -396,6 +448,12 @@ class BillOfLading implements ArrayAccess
     protected $ship_to_zip;
     
     /**
+      * $ship_to_country 
+      * @var string
+      */
+    protected $ship_to_country;
+    
+    /**
       * $ship_to_location_no 
       * @var string
       */
@@ -420,6 +478,12 @@ class BillOfLading implements ArrayAccess
     protected $bill_to_name;
     
     /**
+      * $bill_to_attention 
+      * @var string
+      */
+    protected $bill_to_attention;
+    
+    /**
       * $bill_to_address 
       * @var string
       */
@@ -442,6 +506,12 @@ class BillOfLading implements ArrayAccess
       * @var string
       */
     protected $bill_to_zip;
+    
+    /**
+      * $bill_to_country 
+      * @var string
+      */
+    protected $bill_to_country;
     
     /**
       * $is_trailer_loaded_by_shipper 
@@ -594,28 +664,35 @@ class BillOfLading implements ArrayAccess
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
             $this->lob_id = $data["lob_id"];
+            $this->order_no = $data["order_no"];
             $this->bol_no = $data["bol_no"];
             $this->bol_date = $data["bol_date"];
             $this->ship_from_name = $data["ship_from_name"];
+            $this->ship_from_attention = $data["ship_from_attention"];
             $this->ship_from_address = $data["ship_from_address"];
             $this->ship_from_city = $data["ship_from_city"];
             $this->ship_from_state = $data["ship_from_state"];
             $this->ship_from_zip = $data["ship_from_zip"];
+            $this->ship_from_country = $data["ship_from_country"];
             $this->sid = $data["sid"];
             $this->is_ship_from_fob = $data["is_ship_from_fob"];
             $this->ship_to_name = $data["ship_to_name"];
+            $this->ship_to_attention = $data["ship_to_attention"];
             $this->ship_to_address = $data["ship_to_address"];
             $this->ship_to_city = $data["ship_to_city"];
             $this->ship_to_state = $data["ship_to_state"];
             $this->ship_to_zip = $data["ship_to_zip"];
+            $this->ship_to_country = $data["ship_to_country"];
             $this->ship_to_location_no = $data["ship_to_location_no"];
             $this->cid = $data["cid"];
             $this->is_ship_to_fob = $data["is_ship_to_fob"];
             $this->bill_to_name = $data["bill_to_name"];
+            $this->bill_to_attention = $data["bill_to_attention"];
             $this->bill_to_address = $data["bill_to_address"];
             $this->bill_to_city = $data["bill_to_city"];
             $this->bill_to_state = $data["bill_to_state"];
             $this->bill_to_zip = $data["bill_to_zip"];
+            $this->bill_to_country = $data["bill_to_country"];
             $this->is_trailer_loaded_by_shipper = $data["is_trailer_loaded_by_shipper"];
             $this->by_driver = $data["by_driver"];
             $this->cod_amount = $data["cod_amount"];
@@ -727,6 +804,27 @@ class BillOfLading implements ArrayAccess
     }
     
     /**
+     * Gets order_no
+     * @return Number
+     */
+    public function getOrderNo()
+    {
+        return $this->order_no;
+    }
+  
+    /**
+     * Sets order_no
+     * @param Number $order_no 
+     * @return $this
+     */
+    public function setOrderNo($order_no)
+    {
+        
+        $this->order_no = $order_no;
+        return $this;
+    }
+    
+    /**
      * Gets bol_no
      * @return string
      */
@@ -786,6 +884,27 @@ class BillOfLading implements ArrayAccess
     {
         
         $this->ship_from_name = $ship_from_name;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_from_attention
+     * @return string
+     */
+    public function getShipFromAttention()
+    {
+        return $this->ship_from_attention;
+    }
+  
+    /**
+     * Sets ship_from_attention
+     * @param string $ship_from_attention 
+     * @return $this
+     */
+    public function setShipFromAttention($ship_from_attention)
+    {
+        
+        $this->ship_from_attention = $ship_from_attention;
         return $this;
     }
     
@@ -874,6 +993,27 @@ class BillOfLading implements ArrayAccess
     }
     
     /**
+     * Gets ship_from_country
+     * @return string
+     */
+    public function getShipFromCountry()
+    {
+        return $this->ship_from_country;
+    }
+  
+    /**
+     * Sets ship_from_country
+     * @param string $ship_from_country 
+     * @return $this
+     */
+    public function setShipFromCountry($ship_from_country)
+    {
+        
+        $this->ship_from_country = $ship_from_country;
+        return $this;
+    }
+    
+    /**
      * Gets sid
      * @return string
      */
@@ -933,6 +1073,27 @@ class BillOfLading implements ArrayAccess
     {
         
         $this->ship_to_name = $ship_to_name;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_attention
+     * @return string
+     */
+    public function getShipToAttention()
+    {
+        return $this->ship_to_attention;
+    }
+  
+    /**
+     * Sets ship_to_attention
+     * @param string $ship_to_attention 
+     * @return $this
+     */
+    public function setShipToAttention($ship_to_attention)
+    {
+        
+        $this->ship_to_attention = $ship_to_attention;
         return $this;
     }
     
@@ -1021,6 +1182,27 @@ class BillOfLading implements ArrayAccess
     }
     
     /**
+     * Gets ship_to_country
+     * @return string
+     */
+    public function getShipToCountry()
+    {
+        return $this->ship_to_country;
+    }
+  
+    /**
+     * Sets ship_to_country
+     * @param string $ship_to_country 
+     * @return $this
+     */
+    public function setShipToCountry($ship_to_country)
+    {
+        
+        $this->ship_to_country = $ship_to_country;
+        return $this;
+    }
+    
+    /**
      * Gets ship_to_location_no
      * @return string
      */
@@ -1105,6 +1287,27 @@ class BillOfLading implements ArrayAccess
     }
     
     /**
+     * Gets bill_to_attention
+     * @return string
+     */
+    public function getBillToAttention()
+    {
+        return $this->bill_to_attention;
+    }
+  
+    /**
+     * Sets bill_to_attention
+     * @param string $bill_to_attention 
+     * @return $this
+     */
+    public function setBillToAttention($bill_to_attention)
+    {
+        
+        $this->bill_to_attention = $bill_to_attention;
+        return $this;
+    }
+    
+    /**
      * Gets bill_to_address
      * @return string
      */
@@ -1185,6 +1388,27 @@ class BillOfLading implements ArrayAccess
     {
         
         $this->bill_to_zip = $bill_to_zip;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_country
+     * @return string
+     */
+    public function getBillToCountry()
+    {
+        return $this->bill_to_country;
+    }
+  
+    /**
+     * Sets bill_to_country
+     * @param string $bill_to_country 
+     * @return $this
+     */
+    public function setBillToCountry($bill_to_country)
+    {
+        
+        $this->bill_to_country = $bill_to_country;
         return $this;
     }
     

@@ -76,12 +76,42 @@ class BillingCodeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addBillingCodeAudit
+     *
+     * Add new audit for a billingCode
+     *
+     */
+    public function test_addBillingCodeAudit() {
+
+    }
+    
+    /**
+     * Test case for addBillingCodeTag
+     *
+     * Add new tags for a billingCode.
+     *
+     */
+    public function test_addBillingCodeTag() {
+
+    }
+    
+    /**
      * Test case for deleteBillingCode
      *
      * Delete a billingCode
      *
      */
     public function test_deleteBillingCode() {
+
+    }
+    
+    /**
+     * Test case for deleteBillingCodeTag
+     *
+     * Delete a tag for a billingCode.
+     *
+     */
+    public function test_deleteBillingCodeTag() {
 
     }
     
@@ -102,6 +132,26 @@ class BillingCodeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getBillingCodeById() {
+
+    }
+    
+    /**
+     * Test case for getBillingCodeTags
+     *
+     * Get the tags for a billingCode.
+     *
+     */
+    public function test_getBillingCodeTags() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateBillingCodeById
+     *
+     * Get a duplicated a billingCode by id
+     *
+     */
+    public function test_getDuplicateBillingCodeById() {
 
     }
     

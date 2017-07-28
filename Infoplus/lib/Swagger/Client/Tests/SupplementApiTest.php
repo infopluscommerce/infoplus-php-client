@@ -76,12 +76,52 @@ class SupplementApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addSupplementAudit
+     *
+     * Add new audit for a supplement
+     *
+     */
+    public function test_addSupplementAudit() {
+
+    }
+    
+    /**
+     * Test case for addSupplementTag
+     *
+     * Add new tags for a supplement.
+     *
+     */
+    public function test_addSupplementTag() {
+
+    }
+    
+    /**
      * Test case for deleteSupplement
      *
      * Delete a supplement
      *
      */
     public function test_deleteSupplement() {
+
+    }
+    
+    /**
+     * Test case for deleteSupplementTag
+     *
+     * Delete a tag for a supplement.
+     *
+     */
+    public function test_deleteSupplementTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateSupplementById
+     *
+     * Get a duplicated a supplement by id
+     *
+     */
+    public function test_getDuplicateSupplementById() {
 
     }
     
@@ -102,6 +142,16 @@ class SupplementApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getSupplementById() {
+
+    }
+    
+    /**
+     * Test case for getSupplementTags
+     *
+     * Get the tags for a supplement.
+     *
+     */
+    public function test_getSupplementTags() {
 
     }
     

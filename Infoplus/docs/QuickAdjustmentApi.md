@@ -5,9 +5,14 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addQuickAdjustment**](QuickAdjustmentApi.md#addQuickAdjustment) | **POST** /beta/quickAdjustment | Create a quickAdjustment
+[**addQuickAdjustmentAudit**](QuickAdjustmentApi.md#addQuickAdjustmentAudit) | **PUT** /beta/quickAdjustment/{quickAdjustmentId}/audit/{quickAdjustmentAudit} | Add new audit for a quickAdjustment
+[**addQuickAdjustmentTag**](QuickAdjustmentApi.md#addQuickAdjustmentTag) | **PUT** /beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag} | Add new tags for a quickAdjustment.
 [**deleteQuickAdjustment**](QuickAdjustmentApi.md#deleteQuickAdjustment) | **DELETE** /beta/quickAdjustment/{quickAdjustmentId} | Delete a quickAdjustment
+[**deleteQuickAdjustmentTag**](QuickAdjustmentApi.md#deleteQuickAdjustmentTag) | **DELETE** /beta/quickAdjustment/{quickAdjustmentId}/tag/{quickAdjustmentTag} | Delete a tag for a quickAdjustment.
+[**getDuplicateQuickAdjustmentById**](QuickAdjustmentApi.md#getDuplicateQuickAdjustmentById) | **GET** /beta/quickAdjustment/duplicate/{quickAdjustmentId} | Get a duplicated a quickAdjustment by id
 [**getQuickAdjustmentByFilter**](QuickAdjustmentApi.md#getQuickAdjustmentByFilter) | **GET** /beta/quickAdjustment/search | Search quickAdjustments by filter
 [**getQuickAdjustmentById**](QuickAdjustmentApi.md#getQuickAdjustmentById) | **GET** /beta/quickAdjustment/{quickAdjustmentId} | Get a quickAdjustment by id
+[**getQuickAdjustmentTags**](QuickAdjustmentApi.md#getQuickAdjustmentTags) | **GET** /beta/quickAdjustment/{quickAdjustmentId}/tag | Get the tags for a quickAdjustment.
 [**updateQuickAdjustment**](QuickAdjustmentApi.md#updateQuickAdjustment) | **PUT** /beta/quickAdjustment | Update a quickAdjustment
 [**updateQuickAdjustmentCustomFields**](QuickAdjustmentApi.md#updateQuickAdjustmentCustomFields) | **PUT** /beta/quickAdjustment/customFields | Update a quickAdjustment custom fields
 
@@ -62,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addQuickAdjustmentAudit**
+> addQuickAdjustmentAudit($quick_adjustment_id, $quick_adjustment_audit)
+
+Add new audit for a quickAdjustment
+
+Adds an audit to an existing quickAdjustment.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickAdjustmentApi();
+$quick_adjustment_id = 56; // int | Id of the quickAdjustment to add an audit to
+$quick_adjustment_audit = "quick_adjustment_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addQuickAdjustmentAudit($quick_adjustment_id, $quick_adjustment_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickAdjustmentApi->addQuickAdjustmentAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_adjustment_id** | **int**| Id of the quickAdjustment to add an audit to | 
+ **quick_adjustment_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addQuickAdjustmentTag**
+> addQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag)
+
+Add new tags for a quickAdjustment.
+
+Adds a tag to an existing quickAdjustment.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickAdjustmentApi();
+$quick_adjustment_id = 56; // int | Id of the quickAdjustment to add a tag to
+$quick_adjustment_tag = "quick_adjustment_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickAdjustmentApi->addQuickAdjustmentTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_adjustment_id** | **int**| Id of the quickAdjustment to add a tag to | 
+ **quick_adjustment_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteQuickAdjustment**
 > deleteQuickAdjustment($quick_adjustment_id)
 
@@ -99,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteQuickAdjustmentTag**
+> deleteQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag)
+
+Delete a tag for a quickAdjustment.
+
+Deletes an existing quickAdjustment tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickAdjustmentApi();
+$quick_adjustment_id = 56; // int | Id of the quickAdjustment to remove tag from
+$quick_adjustment_tag = "quick_adjustment_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteQuickAdjustmentTag($quick_adjustment_id, $quick_adjustment_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickAdjustmentApi->deleteQuickAdjustmentTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_adjustment_id** | **int**| Id of the quickAdjustment to remove tag from | 
+ **quick_adjustment_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateQuickAdjustmentById**
+> \Infoplus\Model\QuickAdjustment getDuplicateQuickAdjustmentById($quick_adjustment_id)
+
+Get a duplicated a quickAdjustment by id
+
+Returns a duplicated quickAdjustment identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickAdjustmentApi();
+$quick_adjustment_id = 56; // int | Id of the quickAdjustment to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateQuickAdjustmentById($quick_adjustment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickAdjustmentApi->getDuplicateQuickAdjustmentById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_adjustment_id** | **int**| Id of the quickAdjustment to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\QuickAdjustment**](QuickAdjustment.md)
 
 ### Authorization
 
@@ -205,6 +413,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\QuickAdjustment**](QuickAdjustment.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getQuickAdjustmentTags**
+> getQuickAdjustmentTags($quick_adjustment_id)
+
+Get the tags for a quickAdjustment.
+
+Get all existing quickAdjustment tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickAdjustmentApi();
+$quick_adjustment_id = 56; // int | Id of the quickAdjustment to get tags for
+
+try { 
+    $api_instance->getQuickAdjustmentTags($quick_adjustment_id);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickAdjustmentApi->getQuickAdjustmentTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_adjustment_id** | **int**| Id of the quickAdjustment to get tags for | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

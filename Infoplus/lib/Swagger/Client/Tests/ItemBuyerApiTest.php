@@ -66,22 +66,102 @@ class ItemBuyerApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getItemBuyerBySearchText
+     * Test case for addItemBuyer
      *
-     * Search itemBuyers
+     * Create an itemBuyer
      *
      */
-    public function test_getItemBuyerBySearchText() {
+    public function test_addItemBuyer() {
 
     }
     
     /**
-     * Test case for getTranslateBuyerById
+     * Test case for addItemBuyerAudit
+     *
+     * Add new audit for an itemBuyer
+     *
+     */
+    public function test_addItemBuyerAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemBuyerTag
+     *
+     * Add new tags for an itemBuyer.
+     *
+     */
+    public function test_addItemBuyerTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemBuyer
+     *
+     * Delete an itemBuyer
+     *
+     */
+    public function test_deleteItemBuyer() {
+
+    }
+    
+    /**
+     * Test case for deleteItemBuyerTag
+     *
+     * Delete a tag for an itemBuyer.
+     *
+     */
+    public function test_deleteItemBuyerTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemBuyerById
+     *
+     * Get a duplicated an itemBuyer by id
+     *
+     */
+    public function test_getDuplicateItemBuyerById() {
+
+    }
+    
+    /**
+     * Test case for getItemBuyerByFilter
+     *
+     * Search itemBuyers by filter
+     *
+     */
+    public function test_getItemBuyerByFilter() {
+
+    }
+    
+    /**
+     * Test case for getItemBuyerById
      *
      * Get an itemBuyer by id
      *
      */
-    public function test_getTranslateBuyerById() {
+    public function test_getItemBuyerById() {
+
+    }
+    
+    /**
+     * Test case for getItemBuyerTags
+     *
+     * Get the tags for an itemBuyer.
+     *
+     */
+    public function test_getItemBuyerTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemBuyer
+     *
+     * Update an itemBuyer
+     *
+     */
+    public function test_updateItemBuyer() {
 
     }
     

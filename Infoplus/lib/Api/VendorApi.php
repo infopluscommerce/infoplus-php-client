@@ -194,6 +194,222 @@ class VendorApi
     }
     
     /**
+     * addVendorAudit
+     *
+     * Add new audit for a vendor
+     *
+     * @param int $vendor_id Id of the vendor to add an audit to (required)
+     * @param string $vendor_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorAudit($vendor_id, $vendor_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addVendorAuditWithHttpInfo ($vendor_id, $vendor_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addVendorAuditWithHttpInfo
+     *
+     * Add new audit for a vendor
+     *
+     * @param int $vendor_id Id of the vendor to add an audit to (required)
+     * @param string $vendor_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorAuditWithHttpInfo($vendor_id, $vendor_audit)
+    {
+        
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_id when calling addVendorAudit');
+        }
+        // verify the required parameter 'vendor_audit' is set
+        if ($vendor_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_audit when calling addVendorAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendor/{vendorId}/audit/{vendorAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addVendorTag
+     *
+     * Add new tags for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to add a tag to (required)
+     * @param string $vendor_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorTag($vendor_id, $vendor_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addVendorTagWithHttpInfo ($vendor_id, $vendor_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addVendorTagWithHttpInfo
+     *
+     * Add new tags for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to add a tag to (required)
+     * @param string $vendor_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addVendorTagWithHttpInfo($vendor_id, $vendor_tag)
+    {
+        
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_id when calling addVendorTag');
+        }
+        // verify the required parameter 'vendor_tag' is set
+        if ($vendor_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_tag when calling addVendorTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendor/{vendorId}/tag/{vendorTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteVendor
      *
      * Delete a vendor
@@ -281,6 +497,216 @@ class VendorApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteVendorTag
+     *
+     * Delete a tag for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to remove tag from (required)
+     * @param string $vendor_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteVendorTag($vendor_id, $vendor_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteVendorTagWithHttpInfo ($vendor_id, $vendor_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteVendorTagWithHttpInfo
+     *
+     * Delete a tag for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to remove tag from (required)
+     * @param string $vendor_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteVendorTagWithHttpInfo($vendor_id, $vendor_tag)
+    {
+        
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_id when calling deleteVendorTag');
+        }
+        // verify the required parameter 'vendor_tag' is set
+        if ($vendor_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_tag when calling deleteVendorTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendor/{vendorId}/tag/{vendorTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($vendor_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateVendorById
+     *
+     * Get a duplicated a vendor by id
+     *
+     * @param int $vendor_id Id of the vendor to be duplicated. (required)
+     * @return \Infoplus\Model\Vendor
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateVendorById($vendor_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateVendorByIdWithHttpInfo ($vendor_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateVendorByIdWithHttpInfo
+     *
+     * Get a duplicated a vendor by id
+     *
+     * @param int $vendor_id Id of the vendor to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Vendor, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateVendorByIdWithHttpInfo($vendor_id)
+    {
+        
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_id when calling getDuplicateVendorById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendor/duplicate/{vendorId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Vendor'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Vendor', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Vendor', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class VendorApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Vendor', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getVendorTags
+     *
+     * Get the tags for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getVendorTags($vendor_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getVendorTagsWithHttpInfo ($vendor_id);
+        return $response; 
+    }
+
+
+    /**
+     * getVendorTagsWithHttpInfo
+     *
+     * Get the tags for a vendor.
+     *
+     * @param int $vendor_id Id of the vendor to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getVendorTagsWithHttpInfo($vendor_id)
+    {
+        
+        // verify the required parameter 'vendor_id' is set
+        if ($vendor_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $vendor_id when calling getVendorTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/vendor/{vendorId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($vendor_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "vendorId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($vendor_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

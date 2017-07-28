@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemLowStockCodeApiTest
+ * ItemLowstockCodeApiTest
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Infoplus\ApiException;
 use \Infoplus\ObjectSerializer;
 
 /**
- * ItemLowStockCodeApiTest Class Doc Comment
+ * ItemLowstockCodeApiTest Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
@@ -47,7 +47,7 @@ use \Infoplus\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemLowStockCodeApiTest extends \PHPUnit_Framework_TestCase
+class ItemLowstockCodeApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -66,22 +66,102 @@ class ItemLowStockCodeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getItemLowStockCodeBySearchText
+     * Test case for addItemLowstockCode
      *
-     * Search itemLowStockCodes
+     * Create an itemLowstockCode
      *
      */
-    public function test_getItemLowStockCodeBySearchText() {
+    public function test_addItemLowstockCode() {
 
     }
     
     /**
-     * Test case for getTranslateLowStockCodeById
+     * Test case for addItemLowstockCodeAudit
      *
-     * Get an itemLowStockCode by id
+     * Add new audit for an itemLowstockCode
      *
      */
-    public function test_getTranslateLowStockCodeById() {
+    public function test_addItemLowstockCodeAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemLowstockCodeTag
+     *
+     * Add new tags for an itemLowstockCode.
+     *
+     */
+    public function test_addItemLowstockCodeTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemLowstockCode
+     *
+     * Delete an itemLowstockCode
+     *
+     */
+    public function test_deleteItemLowstockCode() {
+
+    }
+    
+    /**
+     * Test case for deleteItemLowstockCodeTag
+     *
+     * Delete a tag for an itemLowstockCode.
+     *
+     */
+    public function test_deleteItemLowstockCodeTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemLowstockCodeById
+     *
+     * Get a duplicated an itemLowstockCode by id
+     *
+     */
+    public function test_getDuplicateItemLowstockCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemLowstockCodeByFilter
+     *
+     * Search itemLowstockCodes by filter
+     *
+     */
+    public function test_getItemLowstockCodeByFilter() {
+
+    }
+    
+    /**
+     * Test case for getItemLowstockCodeById
+     *
+     * Get an itemLowstockCode by id
+     *
+     */
+    public function test_getItemLowstockCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemLowstockCodeTags
+     *
+     * Get the tags for an itemLowstockCode.
+     *
+     */
+    public function test_getItemLowstockCodeTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemLowstockCode
+     *
+     * Update an itemLowstockCode
+     *
+     */
+    public function test_updateItemLowstockCode() {
 
     }
     

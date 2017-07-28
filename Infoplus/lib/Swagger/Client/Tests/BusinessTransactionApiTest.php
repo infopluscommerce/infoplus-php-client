@@ -66,6 +66,36 @@ class BusinessTransactionApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addBusinessTransactionAudit
+     *
+     * Add new audit for a businessTransaction
+     *
+     */
+    public function test_addBusinessTransactionAudit() {
+
+    }
+    
+    /**
+     * Test case for addBusinessTransactionTag
+     *
+     * Add new tags for a businessTransaction.
+     *
+     */
+    public function test_addBusinessTransactionTag() {
+
+    }
+    
+    /**
+     * Test case for deleteBusinessTransactionTag
+     *
+     * Delete a tag for a businessTransaction.
+     *
+     */
+    public function test_deleteBusinessTransactionTag() {
+
+    }
+    
+    /**
      * Test case for getBusinessTransactionByFilter
      *
      * Search businessTransactions by filter
@@ -82,6 +112,26 @@ class BusinessTransactionApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getBusinessTransactionById() {
+
+    }
+    
+    /**
+     * Test case for getBusinessTransactionTags
+     *
+     * Get the tags for a businessTransaction.
+     *
+     */
+    public function test_getBusinessTransactionTags() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateBusinessTransactionById
+     *
+     * Get a duplicated a businessTransaction by id
+     *
+     */
+    public function test_getDuplicateBusinessTransactionById() {
 
     }
     

@@ -194,6 +194,222 @@ class CustomerApi
     }
     
     /**
+     * addCustomerAudit
+     *
+     * Add new audit for a customer
+     *
+     * @param int $customer_id Id of the customer to add an audit to (required)
+     * @param string $customer_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCustomerAudit($customer_id, $customer_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addCustomerAuditWithHttpInfo ($customer_id, $customer_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addCustomerAuditWithHttpInfo
+     *
+     * Add new audit for a customer
+     *
+     * @param int $customer_id Id of the customer to add an audit to (required)
+     * @param string $customer_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCustomerAuditWithHttpInfo($customer_id, $customer_audit)
+    {
+        
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_id when calling addCustomerAudit');
+        }
+        // verify the required parameter 'customer_audit' is set
+        if ($customer_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_audit when calling addCustomerAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/customer/{customerId}/audit/{customerAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($customer_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addCustomerTag
+     *
+     * Add new tags for a customer.
+     *
+     * @param int $customer_id Id of the customer to add a tag to (required)
+     * @param string $customer_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCustomerTag($customer_id, $customer_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addCustomerTagWithHttpInfo ($customer_id, $customer_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addCustomerTagWithHttpInfo
+     *
+     * Add new tags for a customer.
+     *
+     * @param int $customer_id Id of the customer to add a tag to (required)
+     * @param string $customer_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addCustomerTagWithHttpInfo($customer_id, $customer_tag)
+    {
+        
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_id when calling addCustomerTag');
+        }
+        // verify the required parameter 'customer_tag' is set
+        if ($customer_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_tag when calling addCustomerTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/customer/{customerId}/tag/{customerTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($customer_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteCustomer
      *
      * Delete a customer
@@ -246,6 +462,114 @@ class CustomerApi
             $resourcePath = str_replace(
                 "{" . "customerId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteCustomerTag
+     *
+     * Delete a tag for a customer.
+     *
+     * @param int $customer_id Id of the customer to remove tag from (required)
+     * @param string $customer_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteCustomerTag($customer_id, $customer_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteCustomerTagWithHttpInfo ($customer_id, $customer_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteCustomerTagWithHttpInfo
+     *
+     * Delete a tag for a customer.
+     *
+     * @param int $customer_id Id of the customer to remove tag from (required)
+     * @param string $customer_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteCustomerTagWithHttpInfo($customer_id, $customer_tag)
+    {
+        
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_id when calling deleteCustomerTag');
+        }
+        // verify the required parameter 'customer_tag' is set
+        if ($customer_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_tag when calling deleteCustomerTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/customer/{customerId}/tag/{customerTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($customer_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_tag),
                 $resourcePath
             );
         }
@@ -542,6 +866,202 @@ class CustomerApi
   
         // parse inputs
         $resourcePath = "/beta/customer/{customerId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Customer'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Customer', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Customer', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getCustomerTags
+     *
+     * Get the tags for a customer.
+     *
+     * @param int $customer_id Id of the customer to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getCustomerTags($customer_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getCustomerTagsWithHttpInfo ($customer_id);
+        return $response; 
+    }
+
+
+    /**
+     * getCustomerTagsWithHttpInfo
+     *
+     * Get the tags for a customer.
+     *
+     * @param int $customer_id Id of the customer to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getCustomerTagsWithHttpInfo($customer_id)
+    {
+        
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_id when calling getCustomerTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/customer/{customerId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($customer_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateCustomerById
+     *
+     * Get a duplicated a customer by id
+     *
+     * @param int $customer_id Id of the customer to be duplicated. (required)
+     * @return \Infoplus\Model\Customer
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateCustomerById($customer_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateCustomerByIdWithHttpInfo ($customer_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateCustomerByIdWithHttpInfo
+     *
+     * Get a duplicated a customer by id
+     *
+     * @param int $customer_id Id of the customer to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Customer, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateCustomerByIdWithHttpInfo($customer_id)
+    {
+        
+        // verify the required parameter 'customer_id' is set
+        if ($customer_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_id when calling getDuplicateCustomerById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/customer/duplicate/{customerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

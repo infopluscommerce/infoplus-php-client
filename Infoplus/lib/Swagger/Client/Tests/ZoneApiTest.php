@@ -76,12 +76,52 @@ class ZoneApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addZoneAudit
+     *
+     * Add new audit for a zone
+     *
+     */
+    public function test_addZoneAudit() {
+
+    }
+    
+    /**
+     * Test case for addZoneTag
+     *
+     * Add new tags for a zone.
+     *
+     */
+    public function test_addZoneTag() {
+
+    }
+    
+    /**
      * Test case for deleteZone
      *
      * Delete a zone
      *
      */
     public function test_deleteZone() {
+
+    }
+    
+    /**
+     * Test case for deleteZoneTag
+     *
+     * Delete a tag for a zone.
+     *
+     */
+    public function test_deleteZoneTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateZoneById
+     *
+     * Get a duplicated a zone by id
+     *
+     */
+    public function test_getDuplicateZoneById() {
 
     }
     
@@ -102,6 +142,16 @@ class ZoneApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getZoneById() {
+
+    }
+    
+    /**
+     * Test case for getZoneTags
+     *
+     * Get the tags for a zone.
+     *
+     */
+    public function test_getZoneTags() {
 
     }
     

@@ -194,6 +194,222 @@ class LocationBillingTypeApi
     }
     
     /**
+     * addLocationBillingTypeAudit
+     *
+     * Add new audit for a locationBillingType
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to add an audit to (required)
+     * @param string $location_billing_type_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationBillingTypeAudit($location_billing_type_id, $location_billing_type_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLocationBillingTypeAuditWithHttpInfo ($location_billing_type_id, $location_billing_type_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addLocationBillingTypeAuditWithHttpInfo
+     *
+     * Add new audit for a locationBillingType
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to add an audit to (required)
+     * @param string $location_billing_type_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationBillingTypeAuditWithHttpInfo($location_billing_type_id, $location_billing_type_audit)
+    {
+        
+        // verify the required parameter 'location_billing_type_id' is set
+        if ($location_billing_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_id when calling addLocationBillingTypeAudit');
+        }
+        // verify the required parameter 'location_billing_type_audit' is set
+        if ($location_billing_type_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_audit when calling addLocationBillingTypeAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationBillingType/{locationBillingTypeId}/audit/{locationBillingTypeAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($location_billing_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_billing_type_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addLocationBillingTypeTag
+     *
+     * Add new tags for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to add a tag to (required)
+     * @param string $location_billing_type_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addLocationBillingTypeTagWithHttpInfo ($location_billing_type_id, $location_billing_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addLocationBillingTypeTagWithHttpInfo
+     *
+     * Add new tags for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to add a tag to (required)
+     * @param string $location_billing_type_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addLocationBillingTypeTagWithHttpInfo($location_billing_type_id, $location_billing_type_tag)
+    {
+        
+        // verify the required parameter 'location_billing_type_id' is set
+        if ($location_billing_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_id when calling addLocationBillingTypeTag');
+        }
+        // verify the required parameter 'location_billing_type_tag' is set
+        if ($location_billing_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_tag when calling addLocationBillingTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($location_billing_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_billing_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteLocationBillingType
      *
      * Delete a locationBillingType
@@ -281,6 +497,216 @@ class LocationBillingTypeApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteLocationBillingTypeTag
+     *
+     * Delete a tag for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to remove tag from (required)
+     * @param string $location_billing_type_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteLocationBillingTypeTagWithHttpInfo ($location_billing_type_id, $location_billing_type_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteLocationBillingTypeTagWithHttpInfo
+     *
+     * Delete a tag for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to remove tag from (required)
+     * @param string $location_billing_type_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteLocationBillingTypeTagWithHttpInfo($location_billing_type_id, $location_billing_type_tag)
+    {
+        
+        // verify the required parameter 'location_billing_type_id' is set
+        if ($location_billing_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_id when calling deleteLocationBillingTypeTag');
+        }
+        // verify the required parameter 'location_billing_type_tag' is set
+        if ($location_billing_type_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_tag when calling deleteLocationBillingTypeTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_billing_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($location_billing_type_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateLocationBillingTypeById
+     *
+     * Get a duplicated a locationBillingType by id
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to be duplicated. (required)
+     * @return \Infoplus\Model\LocationBillingType
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLocationBillingTypeById($location_billing_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateLocationBillingTypeByIdWithHttpInfo ($location_billing_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateLocationBillingTypeByIdWithHttpInfo
+     *
+     * Get a duplicated a locationBillingType by id
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to be duplicated. (required)
+     * @return Array of \Infoplus\Model\LocationBillingType, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateLocationBillingTypeByIdWithHttpInfo($location_billing_type_id)
+    {
+        
+        // verify the required parameter 'location_billing_type_id' is set
+        if ($location_billing_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_id when calling getDuplicateLocationBillingTypeById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationBillingType/duplicate/{locationBillingTypeId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_billing_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\LocationBillingType'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\LocationBillingType', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LocationBillingType', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class LocationBillingTypeApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\LocationBillingType', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getLocationBillingTypeTags
+     *
+     * Get the tags for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLocationBillingTypeTags($location_billing_type_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getLocationBillingTypeTagsWithHttpInfo ($location_billing_type_id);
+        return $response; 
+    }
+
+
+    /**
+     * getLocationBillingTypeTagsWithHttpInfo
+     *
+     * Get the tags for a locationBillingType.
+     *
+     * @param int $location_billing_type_id Id of the locationBillingType to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getLocationBillingTypeTagsWithHttpInfo($location_billing_type_id)
+    {
+        
+        // verify the required parameter 'location_billing_type_id' is set
+        if ($location_billing_type_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $location_billing_type_id when calling getLocationBillingTypeTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/locationBillingType/{locationBillingTypeId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($location_billing_type_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "locationBillingTypeId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($location_billing_type_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

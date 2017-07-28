@@ -66,6 +66,46 @@ class WorkBatchApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addWorkBatchAudit
+     *
+     * Add new audit for a workBatch
+     *
+     */
+    public function test_addWorkBatchAudit() {
+
+    }
+    
+    /**
+     * Test case for addWorkBatchTag
+     *
+     * Add new tags for a workBatch.
+     *
+     */
+    public function test_addWorkBatchTag() {
+
+    }
+    
+    /**
+     * Test case for deleteWorkBatchTag
+     *
+     * Delete a tag for a workBatch.
+     *
+     */
+    public function test_deleteWorkBatchTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateWorkBatchById
+     *
+     * Get a duplicated a workBatch by id
+     *
+     */
+    public function test_getDuplicateWorkBatchById() {
+
+    }
+    
+    /**
      * Test case for getWorkBatchByFilter
      *
      * Search workBatchs by filter
@@ -82,6 +122,16 @@ class WorkBatchApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getWorkBatchById() {
+
+    }
+    
+    /**
+     * Test case for getWorkBatchTags
+     *
+     * Get the tags for a workBatch.
+     *
+     */
+    public function test_getWorkBatchTags() {
 
     }
     

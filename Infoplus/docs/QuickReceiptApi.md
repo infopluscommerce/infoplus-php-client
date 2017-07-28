@@ -5,9 +5,14 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addQuickReceipt**](QuickReceiptApi.md#addQuickReceipt) | **POST** /beta/quickReceipt | Create a quickReceipt
+[**addQuickReceiptAudit**](QuickReceiptApi.md#addQuickReceiptAudit) | **PUT** /beta/quickReceipt/{quickReceiptId}/audit/{quickReceiptAudit} | Add new audit for a quickReceipt
+[**addQuickReceiptTag**](QuickReceiptApi.md#addQuickReceiptTag) | **PUT** /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag} | Add new tags for a quickReceipt.
 [**deleteQuickReceipt**](QuickReceiptApi.md#deleteQuickReceipt) | **DELETE** /beta/quickReceipt/{quickReceiptId} | Delete a quickReceipt
+[**deleteQuickReceiptTag**](QuickReceiptApi.md#deleteQuickReceiptTag) | **DELETE** /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag} | Delete a tag for a quickReceipt.
+[**getDuplicateQuickReceiptById**](QuickReceiptApi.md#getDuplicateQuickReceiptById) | **GET** /beta/quickReceipt/duplicate/{quickReceiptId} | Get a duplicated a quickReceipt by id
 [**getQuickReceiptByFilter**](QuickReceiptApi.md#getQuickReceiptByFilter) | **GET** /beta/quickReceipt/search | Search quickReceipts by filter
 [**getQuickReceiptById**](QuickReceiptApi.md#getQuickReceiptById) | **GET** /beta/quickReceipt/{quickReceiptId} | Get a quickReceipt by id
+[**getQuickReceiptTags**](QuickReceiptApi.md#getQuickReceiptTags) | **GET** /beta/quickReceipt/{quickReceiptId}/tag | Get the tags for a quickReceipt.
 [**updateQuickReceipt**](QuickReceiptApi.md#updateQuickReceipt) | **PUT** /beta/quickReceipt | Update a quickReceipt
 [**updateQuickReceiptCustomFields**](QuickReceiptApi.md#updateQuickReceiptCustomFields) | **PUT** /beta/quickReceipt/customFields | Update a quickReceipt custom fields
 
@@ -62,6 +67,108 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **addQuickReceiptAudit**
+> addQuickReceiptAudit($quick_receipt_id, $quick_receipt_audit)
+
+Add new audit for a quickReceipt
+
+Adds an audit to an existing quickReceipt.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$quick_receipt_id = 56; // int | Id of the quickReceipt to add an audit to
+$quick_receipt_audit = "quick_receipt_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addQuickReceiptAudit($quick_receipt_id, $quick_receipt_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->addQuickReceiptAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_receipt_id** | **int**| Id of the quickReceipt to add an audit to | 
+ **quick_receipt_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addQuickReceiptTag**
+> addQuickReceiptTag($quick_receipt_id, $quick_receipt_tag)
+
+Add new tags for a quickReceipt.
+
+Adds a tag to an existing quickReceipt.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$quick_receipt_id = 56; // int | Id of the quickReceipt to add a tag to
+$quick_receipt_tag = "quick_receipt_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addQuickReceiptTag($quick_receipt_id, $quick_receipt_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->addQuickReceiptTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_receipt_id** | **int**| Id of the quickReceipt to add a tag to | 
+ **quick_receipt_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deleteQuickReceipt**
 > deleteQuickReceipt($quick_receipt_id)
 
@@ -99,6 +206,107 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteQuickReceiptTag**
+> deleteQuickReceiptTag($quick_receipt_id, $quick_receipt_tag)
+
+Delete a tag for a quickReceipt.
+
+Deletes an existing quickReceipt tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$quick_receipt_id = 56; // int | Id of the quickReceipt to remove tag from
+$quick_receipt_tag = "quick_receipt_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteQuickReceiptTag($quick_receipt_id, $quick_receipt_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->deleteQuickReceiptTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_receipt_id** | **int**| Id of the quickReceipt to remove tag from | 
+ **quick_receipt_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateQuickReceiptById**
+> \Infoplus\Model\QuickReceipt getDuplicateQuickReceiptById($quick_receipt_id)
+
+Get a duplicated a quickReceipt by id
+
+Returns a duplicated quickReceipt identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$quick_receipt_id = 56; // int | Id of the quickReceipt to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateQuickReceiptById($quick_receipt_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->getDuplicateQuickReceiptById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_receipt_id** | **int**| Id of the quickReceipt to be duplicated. | 
+
+### Return type
+
+[**\Infoplus\Model\QuickReceipt**](QuickReceipt.md)
 
 ### Authorization
 
@@ -205,6 +413,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\QuickReceipt**](QuickReceipt.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getQuickReceiptTags**
+> getQuickReceiptTags($quick_receipt_id)
+
+Get the tags for a quickReceipt.
+
+Get all existing quickReceipt tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$quick_receipt_id = 56; // int | Id of the quickReceipt to get tags for
+
+try { 
+    $api_instance->getQuickReceiptTags($quick_receipt_id);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->getQuickReceiptTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **quick_receipt_id** | **int**| Id of the quickReceipt to get tags for | 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

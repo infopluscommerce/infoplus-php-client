@@ -92,6 +92,432 @@ class WorkApi
   
     
     /**
+     * addWorkAudit
+     *
+     * Add new audit for a work
+     *
+     * @param int $work_id Id of the work to add an audit to (required)
+     * @param string $work_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWorkAudit($work_id, $work_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWorkAuditWithHttpInfo ($work_id, $work_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addWorkAuditWithHttpInfo
+     *
+     * Add new audit for a work
+     *
+     * @param int $work_id Id of the work to add an audit to (required)
+     * @param string $work_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWorkAuditWithHttpInfo($work_id, $work_audit)
+    {
+        
+        // verify the required parameter 'work_id' is set
+        if ($work_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_id when calling addWorkAudit');
+        }
+        // verify the required parameter 'work_audit' is set
+        if ($work_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_audit when calling addWorkAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/work/{workId}/audit/{workAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($work_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "workId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($work_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "workAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addWorkTag
+     *
+     * Add new tags for a work.
+     *
+     * @param int $work_id Id of the work to add a tag to (required)
+     * @param string $work_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWorkTag($work_id, $work_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addWorkTagWithHttpInfo ($work_id, $work_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addWorkTagWithHttpInfo
+     *
+     * Add new tags for a work.
+     *
+     * @param int $work_id Id of the work to add a tag to (required)
+     * @param string $work_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addWorkTagWithHttpInfo($work_id, $work_tag)
+    {
+        
+        // verify the required parameter 'work_id' is set
+        if ($work_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_id when calling addWorkTag');
+        }
+        // verify the required parameter 'work_tag' is set
+        if ($work_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_tag when calling addWorkTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/work/{workId}/tag/{workTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($work_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "workId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($work_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "workTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteWorkTag
+     *
+     * Delete a tag for a work.
+     *
+     * @param int $work_id Id of the work to remove tag from (required)
+     * @param string $work_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWorkTag($work_id, $work_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteWorkTagWithHttpInfo ($work_id, $work_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteWorkTagWithHttpInfo
+     *
+     * Delete a tag for a work.
+     *
+     * @param int $work_id Id of the work to remove tag from (required)
+     * @param string $work_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteWorkTagWithHttpInfo($work_id, $work_tag)
+    {
+        
+        // verify the required parameter 'work_id' is set
+        if ($work_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_id when calling deleteWorkTag');
+        }
+        // verify the required parameter 'work_tag' is set
+        if ($work_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_tag when calling deleteWorkTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/work/{workId}/tag/{workTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($work_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "workId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($work_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "workTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateWorkById
+     *
+     * Get a duplicated a work by id
+     *
+     * @param int $work_id Id of the work to be duplicated. (required)
+     * @return \Infoplus\Model\Work
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWorkById($work_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateWorkByIdWithHttpInfo ($work_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateWorkByIdWithHttpInfo
+     *
+     * Get a duplicated a work by id
+     *
+     * @param int $work_id Id of the work to be duplicated. (required)
+     * @return Array of \Infoplus\Model\Work, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateWorkByIdWithHttpInfo($work_id)
+    {
+        
+        // verify the required parameter 'work_id' is set
+        if ($work_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_id when calling getDuplicateWorkById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/work/duplicate/{workId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($work_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "workId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\Work'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Work', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Work', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getWorkByFilter
      *
      * Search works by filter
@@ -299,6 +725,100 @@ class WorkApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Work', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getWorkTags
+     *
+     * Get the tags for a work.
+     *
+     * @param int $work_id Id of the work to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWorkTags($work_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getWorkTagsWithHttpInfo ($work_id);
+        return $response; 
+    }
+
+
+    /**
+     * getWorkTagsWithHttpInfo
+     *
+     * Get the tags for a work.
+     *
+     * @param int $work_id Id of the work to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getWorkTagsWithHttpInfo($work_id)
+    {
+        
+        // verify the required parameter 'work_id' is set
+        if ($work_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $work_id when calling getWorkTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/work/{workId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($work_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "workId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($work_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

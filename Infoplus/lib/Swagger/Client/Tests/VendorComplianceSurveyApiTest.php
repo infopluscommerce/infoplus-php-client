@@ -76,12 +76,52 @@ class VendorComplianceSurveyApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addVendorComplianceSurveyAudit
+     *
+     * Add new audit for a vendorComplianceSurvey
+     *
+     */
+    public function test_addVendorComplianceSurveyAudit() {
+
+    }
+    
+    /**
+     * Test case for addVendorComplianceSurveyTag
+     *
+     * Add new tags for a vendorComplianceSurvey.
+     *
+     */
+    public function test_addVendorComplianceSurveyTag() {
+
+    }
+    
+    /**
      * Test case for deleteVendorComplianceSurvey
      *
      * Delete a vendorComplianceSurvey
      *
      */
     public function test_deleteVendorComplianceSurvey() {
+
+    }
+    
+    /**
+     * Test case for deleteVendorComplianceSurveyTag
+     *
+     * Delete a tag for a vendorComplianceSurvey.
+     *
+     */
+    public function test_deleteVendorComplianceSurveyTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateVendorComplianceSurveyById
+     *
+     * Get a duplicated a vendorComplianceSurvey by id
+     *
+     */
+    public function test_getDuplicateVendorComplianceSurveyById() {
 
     }
     
@@ -102,6 +142,16 @@ class VendorComplianceSurveyApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getVendorComplianceSurveyById() {
+
+    }
+    
+    /**
+     * Test case for getVendorComplianceSurveyTags
+     *
+     * Get the tags for a vendorComplianceSurvey.
+     *
+     */
+    public function test_getVendorComplianceSurveyTags() {
 
     }
     

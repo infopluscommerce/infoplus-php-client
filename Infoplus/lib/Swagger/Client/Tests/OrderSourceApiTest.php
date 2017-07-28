@@ -76,12 +76,52 @@ class OrderSourceApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addOrderSourceAudit
+     *
+     * Add new audit for an orderSource
+     *
+     */
+    public function test_addOrderSourceAudit() {
+
+    }
+    
+    /**
+     * Test case for addOrderSourceTag
+     *
+     * Add new tags for an orderSource.
+     *
+     */
+    public function test_addOrderSourceTag() {
+
+    }
+    
+    /**
      * Test case for deleteOrderSource
      *
      * Delete an orderSource
      *
      */
     public function test_deleteOrderSource() {
+
+    }
+    
+    /**
+     * Test case for deleteOrderSourceTag
+     *
+     * Delete a tag for an orderSource.
+     *
+     */
+    public function test_deleteOrderSourceTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateOrderSourceById
+     *
+     * Get a duplicated an orderSource by id
+     *
+     */
+    public function test_getDuplicateOrderSourceById() {
 
     }
     
@@ -102,6 +142,16 @@ class OrderSourceApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getOrderSourceById() {
+
+    }
+    
+    /**
+     * Test case for getOrderSourceTags
+     *
+     * Get the tags for an orderSource.
+     *
+     */
+    public function test_getOrderSourceTags() {
 
     }
     

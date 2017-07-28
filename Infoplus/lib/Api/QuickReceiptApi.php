@@ -194,6 +194,222 @@ class QuickReceiptApi
     }
     
     /**
+     * addQuickReceiptAudit
+     *
+     * Add new audit for a quickReceipt
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to add an audit to (required)
+     * @param string $quick_receipt_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickReceiptAudit($quick_receipt_id, $quick_receipt_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addQuickReceiptAuditWithHttpInfo ($quick_receipt_id, $quick_receipt_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addQuickReceiptAuditWithHttpInfo
+     *
+     * Add new audit for a quickReceipt
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to add an audit to (required)
+     * @param string $quick_receipt_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickReceiptAuditWithHttpInfo($quick_receipt_id, $quick_receipt_audit)
+    {
+        
+        // verify the required parameter 'quick_receipt_id' is set
+        if ($quick_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_id when calling addQuickReceiptAudit');
+        }
+        // verify the required parameter 'quick_receipt_audit' is set
+        if ($quick_receipt_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_audit when calling addQuickReceiptAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}/audit/{quickReceiptAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($quick_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_receipt_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addQuickReceiptTag
+     *
+     * Add new tags for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to add a tag to (required)
+     * @param string $quick_receipt_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickReceiptTag($quick_receipt_id, $quick_receipt_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addQuickReceiptTagWithHttpInfo ($quick_receipt_id, $quick_receipt_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addQuickReceiptTagWithHttpInfo
+     *
+     * Add new tags for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to add a tag to (required)
+     * @param string $quick_receipt_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addQuickReceiptTagWithHttpInfo($quick_receipt_id, $quick_receipt_tag)
+    {
+        
+        // verify the required parameter 'quick_receipt_id' is set
+        if ($quick_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_id when calling addQuickReceiptTag');
+        }
+        // verify the required parameter 'quick_receipt_tag' is set
+        if ($quick_receipt_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_tag when calling addQuickReceiptTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($quick_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_receipt_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteQuickReceipt
      *
      * Delete a quickReceipt
@@ -281,6 +497,216 @@ class QuickReceiptApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteQuickReceiptTag
+     *
+     * Delete a tag for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to remove tag from (required)
+     * @param string $quick_receipt_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteQuickReceiptTag($quick_receipt_id, $quick_receipt_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteQuickReceiptTagWithHttpInfo ($quick_receipt_id, $quick_receipt_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteQuickReceiptTagWithHttpInfo
+     *
+     * Delete a tag for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to remove tag from (required)
+     * @param string $quick_receipt_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteQuickReceiptTagWithHttpInfo($quick_receipt_id, $quick_receipt_tag)
+    {
+        
+        // verify the required parameter 'quick_receipt_id' is set
+        if ($quick_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_id when calling deleteQuickReceiptTag');
+        }
+        // verify the required parameter 'quick_receipt_tag' is set
+        if ($quick_receipt_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_tag when calling deleteQuickReceiptTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($quick_receipt_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateQuickReceiptById
+     *
+     * Get a duplicated a quickReceipt by id
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to be duplicated. (required)
+     * @return \Infoplus\Model\QuickReceipt
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateQuickReceiptById($quick_receipt_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateQuickReceiptByIdWithHttpInfo ($quick_receipt_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateQuickReceiptByIdWithHttpInfo
+     *
+     * Get a duplicated a quickReceipt by id
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to be duplicated. (required)
+     * @return Array of \Infoplus\Model\QuickReceipt, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateQuickReceiptByIdWithHttpInfo($quick_receipt_id)
+    {
+        
+        // verify the required parameter 'quick_receipt_id' is set
+        if ($quick_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_id when calling getDuplicateQuickReceiptById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/duplicate/{quickReceiptId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\QuickReceipt'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\QuickReceipt', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\QuickReceipt', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class QuickReceiptApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\QuickReceipt', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getQuickReceiptTags
+     *
+     * Get the tags for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getQuickReceiptTags($quick_receipt_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getQuickReceiptTagsWithHttpInfo ($quick_receipt_id);
+        return $response; 
+    }
+
+
+    /**
+     * getQuickReceiptTagsWithHttpInfo
+     *
+     * Get the tags for a quickReceipt.
+     *
+     * @param int $quick_receipt_id Id of the quickReceipt to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getQuickReceiptTagsWithHttpInfo($quick_receipt_id)
+    {
+        
+        // verify the required parameter 'quick_receipt_id' is set
+        if ($quick_receipt_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $quick_receipt_id when calling getQuickReceiptTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/quickReceipt/{quickReceiptId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($quick_receipt_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "quickReceiptId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($quick_receipt_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

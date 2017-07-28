@@ -76,12 +76,42 @@ class CartonTypeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addCartonTypeAudit
+     *
+     * Add new audit for a cartonType
+     *
+     */
+    public function test_addCartonTypeAudit() {
+
+    }
+    
+    /**
+     * Test case for addCartonTypeTag
+     *
+     * Add new tags for a cartonType.
+     *
+     */
+    public function test_addCartonTypeTag() {
+
+    }
+    
+    /**
      * Test case for deleteCartonType
      *
      * Delete a cartonType
      *
      */
     public function test_deleteCartonType() {
+
+    }
+    
+    /**
+     * Test case for deleteCartonTypeTag
+     *
+     * Delete a tag for a cartonType.
+     *
+     */
+    public function test_deleteCartonTypeTag() {
 
     }
     
@@ -102,6 +132,26 @@ class CartonTypeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getCartonTypeById() {
+
+    }
+    
+    /**
+     * Test case for getCartonTypeTags
+     *
+     * Get the tags for a cartonType.
+     *
+     */
+    public function test_getCartonTypeTags() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateCartonTypeById
+     *
+     * Get a duplicated a cartonType by id
+     *
+     */
+    public function test_getDuplicateCartonTypeById() {
 
     }
     

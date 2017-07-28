@@ -4,10 +4,168 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addBusinessTransactionAudit**](BusinessTransactionApi.md#addBusinessTransactionAudit) | **PUT** /beta/businessTransaction/{businessTransactionId}/audit/{businessTransactionAudit} | Add new audit for a businessTransaction
+[**addBusinessTransactionTag**](BusinessTransactionApi.md#addBusinessTransactionTag) | **PUT** /beta/businessTransaction/{businessTransactionId}/tag/{businessTransactionTag} | Add new tags for a businessTransaction.
+[**deleteBusinessTransactionTag**](BusinessTransactionApi.md#deleteBusinessTransactionTag) | **DELETE** /beta/businessTransaction/{businessTransactionId}/tag/{businessTransactionTag} | Delete a tag for a businessTransaction.
 [**getBusinessTransactionByFilter**](BusinessTransactionApi.md#getBusinessTransactionByFilter) | **GET** /beta/businessTransaction/search | Search businessTransactions by filter
 [**getBusinessTransactionById**](BusinessTransactionApi.md#getBusinessTransactionById) | **GET** /beta/businessTransaction/{businessTransactionId} | Get a businessTransaction by id
+[**getBusinessTransactionTags**](BusinessTransactionApi.md#getBusinessTransactionTags) | **GET** /beta/businessTransaction/{businessTransactionId}/tag | Get the tags for a businessTransaction.
+[**getDuplicateBusinessTransactionById**](BusinessTransactionApi.md#getDuplicateBusinessTransactionById) | **GET** /beta/businessTransaction/duplicate/{businessTransactionId} | Get a duplicated a businessTransaction by id
 [**updateBusinessTransactionCustomFields**](BusinessTransactionApi.md#updateBusinessTransactionCustomFields) | **PUT** /beta/businessTransaction/customFields | Update a businessTransaction custom fields
 
+
+# **addBusinessTransactionAudit**
+> addBusinessTransactionAudit($business_transaction_id, $business_transaction_audit)
+
+Add new audit for a businessTransaction
+
+Adds an audit to an existing businessTransaction.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BusinessTransactionApi();
+$business_transaction_id = 56; // int | Id of the businessTransaction to add an audit to
+$business_transaction_audit = "business_transaction_audit_example"; // string | The audit to add
+
+try { 
+    $api_instance->addBusinessTransactionAudit($business_transaction_id, $business_transaction_audit);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessTransactionApi->addBusinessTransactionAudit: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business_transaction_id** | **int**| Id of the businessTransaction to add an audit to | 
+ **business_transaction_audit** | **string**| The audit to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **addBusinessTransactionTag**
+> addBusinessTransactionTag($business_transaction_id, $business_transaction_tag)
+
+Add new tags for a businessTransaction.
+
+Adds a tag to an existing businessTransaction.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BusinessTransactionApi();
+$business_transaction_id = 56; // int | Id of the businessTransaction to add a tag to
+$business_transaction_tag = "business_transaction_tag_example"; // string | The tag to add
+
+try { 
+    $api_instance->addBusinessTransactionTag($business_transaction_id, $business_transaction_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessTransactionApi->addBusinessTransactionTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business_transaction_id** | **int**| Id of the businessTransaction to add a tag to | 
+ **business_transaction_tag** | **string**| The tag to add | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteBusinessTransactionTag**
+> deleteBusinessTransactionTag($business_transaction_id, $business_transaction_tag)
+
+Delete a tag for a businessTransaction.
+
+Deletes an existing businessTransaction tag using the specified data.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BusinessTransactionApi();
+$business_transaction_id = 56; // int | Id of the businessTransaction to remove tag from
+$business_transaction_tag = "business_transaction_tag_example"; // string | The tag to delete
+
+try { 
+    $api_instance->deleteBusinessTransactionTag($business_transaction_id, $business_transaction_tag);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessTransactionApi->deleteBusinessTransactionTag: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business_transaction_id** | **int**| Id of the businessTransaction to remove tag from | 
+ **business_transaction_tag** | **string**| The tag to delete | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBusinessTransactionByFilter**
 > \Infoplus\Model\BusinessTransaction[] getBusinessTransactionByFilter($filter, $page, $limit, $sort)
@@ -99,6 +257,105 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **business_transaction_id** | **int**| Id of the businessTransaction to be returned. | 
+
+### Return type
+
+[**\Infoplus\Model\BusinessTransaction**](BusinessTransaction.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getBusinessTransactionTags**
+> getBusinessTransactionTags($business_transaction_id)
+
+Get the tags for a businessTransaction.
+
+Get all existing businessTransaction tags.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BusinessTransactionApi();
+$business_transaction_id = 56; // int | Id of the businessTransaction to get tags for
+
+try { 
+    $api_instance->getBusinessTransactionTags($business_transaction_id);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessTransactionApi->getBusinessTransactionTags: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business_transaction_id** | **int**| Id of the businessTransaction to get tags for | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDuplicateBusinessTransactionById**
+> \Infoplus\Model\BusinessTransaction getDuplicateBusinessTransactionById($business_transaction_id)
+
+Get a duplicated a businessTransaction by id
+
+Returns a duplicated businessTransaction identified by the specified id.
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\BusinessTransactionApi();
+$business_transaction_id = 56; // int | Id of the businessTransaction to be duplicated.
+
+try { 
+    $result = $api_instance->getDuplicateBusinessTransactionById($business_transaction_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BusinessTransactionApi->getDuplicateBusinessTransactionById: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **business_transaction_id** | **int**| Id of the businessTransaction to be duplicated. | 
 
 ### Return type
 

@@ -76,12 +76,52 @@ class LocationFootprintApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addLocationFootprintAudit
+     *
+     * Add new audit for a locationFootprint
+     *
+     */
+    public function test_addLocationFootprintAudit() {
+
+    }
+    
+    /**
+     * Test case for addLocationFootprintTag
+     *
+     * Add new tags for a locationFootprint.
+     *
+     */
+    public function test_addLocationFootprintTag() {
+
+    }
+    
+    /**
      * Test case for deleteLocationFootprint
      *
      * Delete a locationFootprint
      *
      */
     public function test_deleteLocationFootprint() {
+
+    }
+    
+    /**
+     * Test case for deleteLocationFootprintTag
+     *
+     * Delete a tag for a locationFootprint.
+     *
+     */
+    public function test_deleteLocationFootprintTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateLocationFootprintById
+     *
+     * Get a duplicated a locationFootprint by id
+     *
+     */
+    public function test_getDuplicateLocationFootprintById() {
 
     }
     
@@ -102,6 +142,16 @@ class LocationFootprintApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLocationFootprintById() {
+
+    }
+    
+    /**
+     * Test case for getLocationFootprintTags
+     *
+     * Get the tags for a locationFootprint.
+     *
+     */
+    public function test_getLocationFootprintTags() {
 
     }
     

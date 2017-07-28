@@ -76,12 +76,52 @@ class ReplenishmentPlanApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addReplenishmentPlanAudit
+     *
+     * Add new audit for a replenishmentPlan
+     *
+     */
+    public function test_addReplenishmentPlanAudit() {
+
+    }
+    
+    /**
+     * Test case for addReplenishmentPlanTag
+     *
+     * Add new tags for a replenishmentPlan.
+     *
+     */
+    public function test_addReplenishmentPlanTag() {
+
+    }
+    
+    /**
      * Test case for deleteReplenishmentPlan
      *
      * Delete a replenishmentPlan
      *
      */
     public function test_deleteReplenishmentPlan() {
+
+    }
+    
+    /**
+     * Test case for deleteReplenishmentPlanTag
+     *
+     * Delete a tag for a replenishmentPlan.
+     *
+     */
+    public function test_deleteReplenishmentPlanTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateReplenishmentPlanById
+     *
+     * Get a duplicated a replenishmentPlan by id
+     *
+     */
+    public function test_getDuplicateReplenishmentPlanById() {
 
     }
     
@@ -102,6 +142,16 @@ class ReplenishmentPlanApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getReplenishmentPlanById() {
+
+    }
+    
+    /**
+     * Test case for getReplenishmentPlanTags
+     *
+     * Get the tags for a replenishmentPlan.
+     *
+     */
+    public function test_getReplenishmentPlanTags() {
 
     }
     

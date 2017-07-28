@@ -20,13 +20,16 @@ Name | Type | Description | Notes
 **order_source_sku** | **string** |  | [optional] 
 **unit_cost** | [**Number**](Number.md) |  | [optional] 
 **unit_sell** | [**Number**](Number.md) |  | [optional] 
+**unit_discount** | [**Number**](Number.md) |  | [optional] 
 **extended_cost** | [**Number**](Number.md) |  | [optional] 
 **extended_sell** | [**Number**](Number.md) |  | [optional] 
+**extended_discount** | [**Number**](Number.md) |  | [optional] 
 **nc_extended_sell** | [**Number**](Number.md) |  | [optional] 
 **item_weight** | [**Number**](Number.md) |  | [optional] 
 **production_lot** | **string** |  | [optional] 
 **weight_per_wrap** | [**Number**](Number.md) |  | [optional] 
 **sector** | **string** |  | [optional] 
+**order_assembly_instructions** | **string** |  | [optional] 
 **item_account_code_id** | **int** |  | 
 **item_legacy_low_stock_contact_id** | **int** |  | 
 **item_major_group_id** | **int** |  | 

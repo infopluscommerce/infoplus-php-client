@@ -194,6 +194,222 @@ class BillOfLadingApi
     }
     
     /**
+     * addBillOfLadingAudit
+     *
+     * Add new audit for a billOfLading
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to add an audit to (required)
+     * @param string $bill_of_lading_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillOfLadingAudit($bill_of_lading_id, $bill_of_lading_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBillOfLadingAuditWithHttpInfo ($bill_of_lading_id, $bill_of_lading_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addBillOfLadingAuditWithHttpInfo
+     *
+     * Add new audit for a billOfLading
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to add an audit to (required)
+     * @param string $bill_of_lading_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillOfLadingAuditWithHttpInfo($bill_of_lading_id, $bill_of_lading_audit)
+    {
+        
+        // verify the required parameter 'bill_of_lading_id' is set
+        if ($bill_of_lading_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_id when calling addBillOfLadingAudit');
+        }
+        // verify the required parameter 'bill_of_lading_audit' is set
+        if ($bill_of_lading_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_audit when calling addBillOfLadingAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($bill_of_lading_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($bill_of_lading_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addBillOfLadingTag
+     *
+     * Add new tags for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to add a tag to (required)
+     * @param string $bill_of_lading_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addBillOfLadingTagWithHttpInfo ($bill_of_lading_id, $bill_of_lading_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addBillOfLadingTagWithHttpInfo
+     *
+     * Add new tags for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to add a tag to (required)
+     * @param string $bill_of_lading_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addBillOfLadingTagWithHttpInfo($bill_of_lading_id, $bill_of_lading_tag)
+    {
+        
+        // verify the required parameter 'bill_of_lading_id' is set
+        if ($bill_of_lading_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_id when calling addBillOfLadingTag');
+        }
+        // verify the required parameter 'bill_of_lading_tag' is set
+        if ($bill_of_lading_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_tag when calling addBillOfLadingTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($bill_of_lading_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($bill_of_lading_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteBillOfLading
      *
      * Delete a billOfLading
@@ -246,6 +462,114 @@ class BillOfLadingApi
             $resourcePath = str_replace(
                 "{" . "billOfLadingId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteBillOfLadingTag
+     *
+     * Delete a tag for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to remove tag from (required)
+     * @param string $bill_of_lading_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteBillOfLadingTagWithHttpInfo ($bill_of_lading_id, $bill_of_lading_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteBillOfLadingTagWithHttpInfo
+     *
+     * Delete a tag for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to remove tag from (required)
+     * @param string $bill_of_lading_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteBillOfLadingTagWithHttpInfo($bill_of_lading_id, $bill_of_lading_tag)
+    {
+        
+        // verify the required parameter 'bill_of_lading_id' is set
+        if ($bill_of_lading_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_id when calling deleteBillOfLadingTag');
+        }
+        // verify the required parameter 'bill_of_lading_tag' is set
+        if ($bill_of_lading_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_tag when calling deleteBillOfLadingTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($bill_of_lading_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($bill_of_lading_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_tag),
                 $resourcePath
             );
         }
@@ -434,6 +758,202 @@ class BillOfLadingApi
   
         // parse inputs
         $resourcePath = "/beta/billOfLading/{billOfLadingId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($bill_of_lading_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\BillOfLading'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\BillOfLading', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\BillOfLading', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getBillOfLadingTags
+     *
+     * Get the tags for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBillOfLadingTags($bill_of_lading_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getBillOfLadingTagsWithHttpInfo ($bill_of_lading_id);
+        return $response; 
+    }
+
+
+    /**
+     * getBillOfLadingTagsWithHttpInfo
+     *
+     * Get the tags for a billOfLading.
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getBillOfLadingTagsWithHttpInfo($bill_of_lading_id)
+    {
+        
+        // verify the required parameter 'bill_of_lading_id' is set
+        if ($bill_of_lading_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_id when calling getBillOfLadingTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billOfLading/{billOfLadingId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($bill_of_lading_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "billOfLadingId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($bill_of_lading_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateBillOfLadingById
+     *
+     * Get a duplicated a billOfLading by id
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to be duplicated. (required)
+     * @return \Infoplus\Model\BillOfLading
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBillOfLadingById($bill_of_lading_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateBillOfLadingByIdWithHttpInfo ($bill_of_lading_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateBillOfLadingByIdWithHttpInfo
+     *
+     * Get a duplicated a billOfLading by id
+     *
+     * @param int $bill_of_lading_id Id of the billOfLading to be duplicated. (required)
+     * @return Array of \Infoplus\Model\BillOfLading, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateBillOfLadingByIdWithHttpInfo($bill_of_lading_id)
+    {
+        
+        // verify the required parameter 'bill_of_lading_id' is set
+        if ($bill_of_lading_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $bill_of_lading_id when calling getDuplicateBillOfLadingById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/billOfLading/duplicate/{billOfLadingId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

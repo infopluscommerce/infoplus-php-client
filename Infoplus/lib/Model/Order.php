@@ -57,6 +57,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'int',
         'order_date' => '\DateTime',
         'customer_no' => 'string',
+        'use_order_no_root' => 'int',
         'first_ship_date' => '\DateTime',
         'last_ship_date' => '\DateTime',
         'deliver_on_date' => '\DateTime',
@@ -87,6 +88,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'int',
         'completion_status' => 'string',
         'parcel_account_id' => 'int',
+        'third_party_parcel_account_id' => 'int',
         'cost_center' => 'string',
         'create_date' => '\DateTime',
         'customer_po_no' => 'string',
@@ -101,6 +103,7 @@ class Order implements ArrayAccess
         'hold_code' => 'string',
         'integration_partner_id' => 'int',
         'number_of_line_items' => 'int',
+        'estimated_number_of_picks' => 'int',
         'modify_date' => '\DateTime',
         'oms_order_no' => 'int',
         'oms_customer_id' => 'int',
@@ -109,9 +112,11 @@ class Order implements ArrayAccess
         'order_reason' => 'int',
         'order_source_id' => 'int',
         'packing_slip_template_id' => 'int',
+        'order_invoice_template_id' => 'int',
         'order_confirmation_email_template_id' => 'int',
         'shipment_confirmation_email_template_id' => 'int',
         'price_level' => 'string',
+        'price_mode' => 'string',
         'priority_code' => 'int',
         'fulfillment_process_id' => 'int',
         'ship_by' => '\DateTime',
@@ -137,7 +142,11 @@ class Order implements ArrayAccess
         'total_paid' => 'Number',
         'total_qty' => 'int',
         'weight_lbs' => 'Number',
+        'order_assembly_instructions' => 'string',
         'line_items' => '\Infoplus\Model\OrderLine[]',
+        'extra_order_data' => '\Infoplus\Model\OrderExtraOrderData[]',
+        'extra_line_item_data' => '\Infoplus\Model\OrderExtraLineItemData[]',
+        'external_shipping_system_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -156,6 +165,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'warehouseId',
         'order_date' => 'orderDate',
         'customer_no' => 'customerNo',
+        'use_order_no_root' => 'useOrderNoRoot',
         'first_ship_date' => 'firstShipDate',
         'last_ship_date' => 'lastShipDate',
         'deliver_on_date' => 'deliverOnDate',
@@ -186,6 +196,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'numberOfPallets',
         'completion_status' => 'completionStatus',
         'parcel_account_id' => 'parcelAccountId',
+        'third_party_parcel_account_id' => 'thirdPartyParcelAccountId',
         'cost_center' => 'costCenter',
         'create_date' => 'createDate',
         'customer_po_no' => 'customerPONo',
@@ -200,6 +211,7 @@ class Order implements ArrayAccess
         'hold_code' => 'holdCode',
         'integration_partner_id' => 'integrationPartnerId',
         'number_of_line_items' => 'numberOfLineItems',
+        'estimated_number_of_picks' => 'estimatedNumberOfPicks',
         'modify_date' => 'modifyDate',
         'oms_order_no' => 'omsOrderNo',
         'oms_customer_id' => 'omsCustomerId',
@@ -208,9 +220,11 @@ class Order implements ArrayAccess
         'order_reason' => 'orderReason',
         'order_source_id' => 'orderSourceId',
         'packing_slip_template_id' => 'packingSlipTemplateId',
+        'order_invoice_template_id' => 'orderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'orderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'shipmentConfirmationEmailTemplateId',
         'price_level' => 'priceLevel',
+        'price_mode' => 'priceMode',
         'priority_code' => 'priorityCode',
         'fulfillment_process_id' => 'fulfillmentProcessId',
         'ship_by' => 'shipBy',
@@ -236,7 +250,11 @@ class Order implements ArrayAccess
         'total_paid' => 'totalPaid',
         'total_qty' => 'totalQty',
         'weight_lbs' => 'weightLbs',
+        'order_assembly_instructions' => 'orderAssemblyInstructions',
         'line_items' => 'lineItems',
+        'extra_order_data' => 'extraOrderData',
+        'extra_line_item_data' => 'extraLineItemData',
+        'external_shipping_system_id' => 'externalShippingSystemId',
         'custom_fields' => 'customFields'
     );
   
@@ -255,6 +273,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'setWarehouseId',
         'order_date' => 'setOrderDate',
         'customer_no' => 'setCustomerNo',
+        'use_order_no_root' => 'setUseOrderNoRoot',
         'first_ship_date' => 'setFirstShipDate',
         'last_ship_date' => 'setLastShipDate',
         'deliver_on_date' => 'setDeliverOnDate',
@@ -285,6 +304,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'setNumberOfPallets',
         'completion_status' => 'setCompletionStatus',
         'parcel_account_id' => 'setParcelAccountId',
+        'third_party_parcel_account_id' => 'setThirdPartyParcelAccountId',
         'cost_center' => 'setCostCenter',
         'create_date' => 'setCreateDate',
         'customer_po_no' => 'setCustomerPoNo',
@@ -299,6 +319,7 @@ class Order implements ArrayAccess
         'hold_code' => 'setHoldCode',
         'integration_partner_id' => 'setIntegrationPartnerId',
         'number_of_line_items' => 'setNumberOfLineItems',
+        'estimated_number_of_picks' => 'setEstimatedNumberOfPicks',
         'modify_date' => 'setModifyDate',
         'oms_order_no' => 'setOmsOrderNo',
         'oms_customer_id' => 'setOmsCustomerId',
@@ -307,9 +328,11 @@ class Order implements ArrayAccess
         'order_reason' => 'setOrderReason',
         'order_source_id' => 'setOrderSourceId',
         'packing_slip_template_id' => 'setPackingSlipTemplateId',
+        'order_invoice_template_id' => 'setOrderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'setOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'setShipmentConfirmationEmailTemplateId',
         'price_level' => 'setPriceLevel',
+        'price_mode' => 'setPriceMode',
         'priority_code' => 'setPriorityCode',
         'fulfillment_process_id' => 'setFulfillmentProcessId',
         'ship_by' => 'setShipBy',
@@ -335,7 +358,11 @@ class Order implements ArrayAccess
         'total_paid' => 'setTotalPaid',
         'total_qty' => 'setTotalQty',
         'weight_lbs' => 'setWeightLbs',
+        'order_assembly_instructions' => 'setOrderAssemblyInstructions',
         'line_items' => 'setLineItems',
+        'extra_order_data' => 'setExtraOrderData',
+        'extra_line_item_data' => 'setExtraLineItemData',
+        'external_shipping_system_id' => 'setExternalShippingSystemId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -354,6 +381,7 @@ class Order implements ArrayAccess
         'warehouse_id' => 'getWarehouseId',
         'order_date' => 'getOrderDate',
         'customer_no' => 'getCustomerNo',
+        'use_order_no_root' => 'getUseOrderNoRoot',
         'first_ship_date' => 'getFirstShipDate',
         'last_ship_date' => 'getLastShipDate',
         'deliver_on_date' => 'getDeliverOnDate',
@@ -384,6 +412,7 @@ class Order implements ArrayAccess
         'number_of_pallets' => 'getNumberOfPallets',
         'completion_status' => 'getCompletionStatus',
         'parcel_account_id' => 'getParcelAccountId',
+        'third_party_parcel_account_id' => 'getThirdPartyParcelAccountId',
         'cost_center' => 'getCostCenter',
         'create_date' => 'getCreateDate',
         'customer_po_no' => 'getCustomerPoNo',
@@ -398,6 +427,7 @@ class Order implements ArrayAccess
         'hold_code' => 'getHoldCode',
         'integration_partner_id' => 'getIntegrationPartnerId',
         'number_of_line_items' => 'getNumberOfLineItems',
+        'estimated_number_of_picks' => 'getEstimatedNumberOfPicks',
         'modify_date' => 'getModifyDate',
         'oms_order_no' => 'getOmsOrderNo',
         'oms_customer_id' => 'getOmsCustomerId',
@@ -406,9 +436,11 @@ class Order implements ArrayAccess
         'order_reason' => 'getOrderReason',
         'order_source_id' => 'getOrderSourceId',
         'packing_slip_template_id' => 'getPackingSlipTemplateId',
+        'order_invoice_template_id' => 'getOrderInvoiceTemplateId',
         'order_confirmation_email_template_id' => 'getOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'getShipmentConfirmationEmailTemplateId',
         'price_level' => 'getPriceLevel',
+        'price_mode' => 'getPriceMode',
         'priority_code' => 'getPriorityCode',
         'fulfillment_process_id' => 'getFulfillmentProcessId',
         'ship_by' => 'getShipBy',
@@ -434,7 +466,11 @@ class Order implements ArrayAccess
         'total_paid' => 'getTotalPaid',
         'total_qty' => 'getTotalQty',
         'weight_lbs' => 'getWeightLbs',
+        'order_assembly_instructions' => 'getOrderAssemblyInstructions',
         'line_items' => 'getLineItems',
+        'extra_order_data' => 'getExtraOrderData',
+        'extra_line_item_data' => 'getExtraLineItemData',
+        'external_shipping_system_id' => 'getExternalShippingSystemId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -478,6 +514,12 @@ class Order implements ArrayAccess
       * @var string
       */
     protected $customer_no;
+    
+    /**
+      * $use_order_no_root 
+      * @var int
+      */
+    protected $use_order_no_root;
     
     /**
       * $first_ship_date 
@@ -660,6 +702,12 @@ class Order implements ArrayAccess
     protected $parcel_account_id;
     
     /**
+      * $third_party_parcel_account_id 
+      * @var int
+      */
+    protected $third_party_parcel_account_id;
+    
+    /**
       * $cost_center 
       * @var string
       */
@@ -744,6 +792,12 @@ class Order implements ArrayAccess
     protected $number_of_line_items;
     
     /**
+      * $estimated_number_of_picks 
+      * @var int
+      */
+    protected $estimated_number_of_picks;
+    
+    /**
       * $modify_date 
       * @var \DateTime
       */
@@ -792,6 +846,12 @@ class Order implements ArrayAccess
     protected $packing_slip_template_id;
     
     /**
+      * $order_invoice_template_id 
+      * @var int
+      */
+    protected $order_invoice_template_id;
+    
+    /**
       * $order_confirmation_email_template_id 
       * @var int
       */
@@ -808,6 +868,12 @@ class Order implements ArrayAccess
       * @var string
       */
     protected $price_level;
+    
+    /**
+      * $price_mode 
+      * @var string
+      */
+    protected $price_mode;
     
     /**
       * $priority_code 
@@ -960,10 +1026,34 @@ class Order implements ArrayAccess
     protected $weight_lbs;
     
     /**
+      * $order_assembly_instructions 
+      * @var string
+      */
+    protected $order_assembly_instructions;
+    
+    /**
       * $line_items 
       * @var \Infoplus\Model\OrderLine[]
       */
     protected $line_items;
+    
+    /**
+      * $extra_order_data 
+      * @var \Infoplus\Model\OrderExtraOrderData[]
+      */
+    protected $extra_order_data;
+    
+    /**
+      * $extra_line_item_data 
+      * @var \Infoplus\Model\OrderExtraLineItemData[]
+      */
+    protected $extra_line_item_data;
+    
+    /**
+      * $external_shipping_system_id 
+      * @var int
+      */
+    protected $external_shipping_system_id;
     
     /**
       * $custom_fields 
@@ -986,6 +1076,7 @@ class Order implements ArrayAccess
             $this->warehouse_id = $data["warehouse_id"];
             $this->order_date = $data["order_date"];
             $this->customer_no = $data["customer_no"];
+            $this->use_order_no_root = $data["use_order_no_root"];
             $this->first_ship_date = $data["first_ship_date"];
             $this->last_ship_date = $data["last_ship_date"];
             $this->deliver_on_date = $data["deliver_on_date"];
@@ -1016,6 +1107,7 @@ class Order implements ArrayAccess
             $this->number_of_pallets = $data["number_of_pallets"];
             $this->completion_status = $data["completion_status"];
             $this->parcel_account_id = $data["parcel_account_id"];
+            $this->third_party_parcel_account_id = $data["third_party_parcel_account_id"];
             $this->cost_center = $data["cost_center"];
             $this->create_date = $data["create_date"];
             $this->customer_po_no = $data["customer_po_no"];
@@ -1030,6 +1122,7 @@ class Order implements ArrayAccess
             $this->hold_code = $data["hold_code"];
             $this->integration_partner_id = $data["integration_partner_id"];
             $this->number_of_line_items = $data["number_of_line_items"];
+            $this->estimated_number_of_picks = $data["estimated_number_of_picks"];
             $this->modify_date = $data["modify_date"];
             $this->oms_order_no = $data["oms_order_no"];
             $this->oms_customer_id = $data["oms_customer_id"];
@@ -1038,9 +1131,11 @@ class Order implements ArrayAccess
             $this->order_reason = $data["order_reason"];
             $this->order_source_id = $data["order_source_id"];
             $this->packing_slip_template_id = $data["packing_slip_template_id"];
+            $this->order_invoice_template_id = $data["order_invoice_template_id"];
             $this->order_confirmation_email_template_id = $data["order_confirmation_email_template_id"];
             $this->shipment_confirmation_email_template_id = $data["shipment_confirmation_email_template_id"];
             $this->price_level = $data["price_level"];
+            $this->price_mode = $data["price_mode"];
             $this->priority_code = $data["priority_code"];
             $this->fulfillment_process_id = $data["fulfillment_process_id"];
             $this->ship_by = $data["ship_by"];
@@ -1066,7 +1161,11 @@ class Order implements ArrayAccess
             $this->total_paid = $data["total_paid"];
             $this->total_qty = $data["total_qty"];
             $this->weight_lbs = $data["weight_lbs"];
+            $this->order_assembly_instructions = $data["order_assembly_instructions"];
             $this->line_items = $data["line_items"];
+            $this->extra_order_data = $data["extra_order_data"];
+            $this->extra_line_item_data = $data["extra_line_item_data"];
+            $this->external_shipping_system_id = $data["external_shipping_system_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -1194,6 +1293,27 @@ class Order implements ArrayAccess
     {
         
         $this->customer_no = $customer_no;
+        return $this;
+    }
+    
+    /**
+     * Gets use_order_no_root
+     * @return int
+     */
+    public function getUseOrderNoRoot()
+    {
+        return $this->use_order_no_root;
+    }
+  
+    /**
+     * Sets use_order_no_root
+     * @param int $use_order_no_root 
+     * @return $this
+     */
+    public function setUseOrderNoRoot($use_order_no_root)
+    {
+        
+        $this->use_order_no_root = $use_order_no_root;
         return $this;
     }
     
@@ -1828,6 +1948,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets third_party_parcel_account_id
+     * @return int
+     */
+    public function getThirdPartyParcelAccountId()
+    {
+        return $this->third_party_parcel_account_id;
+    }
+  
+    /**
+     * Sets third_party_parcel_account_id
+     * @param int $third_party_parcel_account_id 
+     * @return $this
+     */
+    public function setThirdPartyParcelAccountId($third_party_parcel_account_id)
+    {
+        
+        $this->third_party_parcel_account_id = $third_party_parcel_account_id;
+        return $this;
+    }
+    
+    /**
      * Gets cost_center
      * @return string
      */
@@ -2122,6 +2263,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets estimated_number_of_picks
+     * @return int
+     */
+    public function getEstimatedNumberOfPicks()
+    {
+        return $this->estimated_number_of_picks;
+    }
+  
+    /**
+     * Sets estimated_number_of_picks
+     * @param int $estimated_number_of_picks 
+     * @return $this
+     */
+    public function setEstimatedNumberOfPicks($estimated_number_of_picks)
+    {
+        
+        $this->estimated_number_of_picks = $estimated_number_of_picks;
+        return $this;
+    }
+    
+    /**
      * Gets modify_date
      * @return \DateTime
      */
@@ -2290,6 +2452,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets order_invoice_template_id
+     * @return int
+     */
+    public function getOrderInvoiceTemplateId()
+    {
+        return $this->order_invoice_template_id;
+    }
+  
+    /**
+     * Sets order_invoice_template_id
+     * @param int $order_invoice_template_id 
+     * @return $this
+     */
+    public function setOrderInvoiceTemplateId($order_invoice_template_id)
+    {
+        
+        $this->order_invoice_template_id = $order_invoice_template_id;
+        return $this;
+    }
+    
+    /**
      * Gets order_confirmation_email_template_id
      * @return int
      */
@@ -2349,6 +2532,27 @@ class Order implements ArrayAccess
     {
         
         $this->price_level = $price_level;
+        return $this;
+    }
+    
+    /**
+     * Gets price_mode
+     * @return string
+     */
+    public function getPriceMode()
+    {
+        return $this->price_mode;
+    }
+  
+    /**
+     * Sets price_mode
+     * @param string $price_mode 
+     * @return $this
+     */
+    public function setPriceMode($price_mode)
+    {
+        
+        $this->price_mode = $price_mode;
         return $this;
     }
     
@@ -2878,6 +3082,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets order_assembly_instructions
+     * @return string
+     */
+    public function getOrderAssemblyInstructions()
+    {
+        return $this->order_assembly_instructions;
+    }
+  
+    /**
+     * Sets order_assembly_instructions
+     * @param string $order_assembly_instructions 
+     * @return $this
+     */
+    public function setOrderAssemblyInstructions($order_assembly_instructions)
+    {
+        
+        $this->order_assembly_instructions = $order_assembly_instructions;
+        return $this;
+    }
+    
+    /**
      * Gets line_items
      * @return \Infoplus\Model\OrderLine[]
      */
@@ -2895,6 +3120,69 @@ class Order implements ArrayAccess
     {
         
         $this->line_items = $line_items;
+        return $this;
+    }
+    
+    /**
+     * Gets extra_order_data
+     * @return \Infoplus\Model\OrderExtraOrderData[]
+     */
+    public function getExtraOrderData()
+    {
+        return $this->extra_order_data;
+    }
+  
+    /**
+     * Sets extra_order_data
+     * @param \Infoplus\Model\OrderExtraOrderData[] $extra_order_data 
+     * @return $this
+     */
+    public function setExtraOrderData($extra_order_data)
+    {
+        
+        $this->extra_order_data = $extra_order_data;
+        return $this;
+    }
+    
+    /**
+     * Gets extra_line_item_data
+     * @return \Infoplus\Model\OrderExtraLineItemData[]
+     */
+    public function getExtraLineItemData()
+    {
+        return $this->extra_line_item_data;
+    }
+  
+    /**
+     * Sets extra_line_item_data
+     * @param \Infoplus\Model\OrderExtraLineItemData[] $extra_line_item_data 
+     * @return $this
+     */
+    public function setExtraLineItemData($extra_line_item_data)
+    {
+        
+        $this->extra_line_item_data = $extra_line_item_data;
+        return $this;
+    }
+    
+    /**
+     * Gets external_shipping_system_id
+     * @return int
+     */
+    public function getExternalShippingSystemId()
+    {
+        return $this->external_shipping_system_id;
+    }
+  
+    /**
+     * Sets external_shipping_system_id
+     * @param int $external_shipping_system_id 
+     * @return $this
+     */
+    public function setExternalShippingSystemId($external_shipping_system_id)
+    {
+        
+        $this->external_shipping_system_id = $external_shipping_system_id;
         return $this;
     }
     

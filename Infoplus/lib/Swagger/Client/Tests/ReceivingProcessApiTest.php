@@ -66,12 +66,52 @@ class ReceivingProcessApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addReceivingProcessAudit
+     *
+     * Add new audit for a receivingProcess
+     *
+     */
+    public function test_addReceivingProcessAudit() {
+
+    }
+    
+    /**
+     * Test case for addReceivingProcessTag
+     *
+     * Add new tags for a receivingProcess.
+     *
+     */
+    public function test_addReceivingProcessTag() {
+
+    }
+    
+    /**
      * Test case for deleteReceivingProcess
      *
      * Delete a receivingProcess
      *
      */
     public function test_deleteReceivingProcess() {
+
+    }
+    
+    /**
+     * Test case for deleteReceivingProcessTag
+     *
+     * Delete a tag for a receivingProcess.
+     *
+     */
+    public function test_deleteReceivingProcessTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateReceivingProcessById
+     *
+     * Get a duplicated a receivingProcess by id
+     *
+     */
+    public function test_getDuplicateReceivingProcessById() {
 
     }
     
@@ -92,6 +132,16 @@ class ReceivingProcessApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getReceivingProcessById() {
+
+    }
+    
+    /**
+     * Test case for getReceivingProcessTags
+     *
+     * Get the tags for a receivingProcess.
+     *
+     */
+    public function test_getReceivingProcessTags() {
 
     }
     

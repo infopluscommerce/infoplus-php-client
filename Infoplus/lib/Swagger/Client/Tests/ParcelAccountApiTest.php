@@ -66,6 +66,46 @@ class ParcelAccountApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
+     * Test case for addParcelAccountAudit
+     *
+     * Add new audit for a parcelAccount
+     *
+     */
+    public function test_addParcelAccountAudit() {
+
+    }
+    
+    /**
+     * Test case for addParcelAccountTag
+     *
+     * Add new tags for a parcelAccount.
+     *
+     */
+    public function test_addParcelAccountTag() {
+
+    }
+    
+    /**
+     * Test case for deleteParcelAccountTag
+     *
+     * Delete a tag for a parcelAccount.
+     *
+     */
+    public function test_deleteParcelAccountTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateParcelAccountById
+     *
+     * Get a duplicated a parcelAccount by id
+     *
+     */
+    public function test_getDuplicateParcelAccountById() {
+
+    }
+    
+    /**
      * Test case for getParcelAccountByFilter
      *
      * Search parcelAccounts by filter
@@ -82,6 +122,16 @@ class ParcelAccountApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getParcelAccountById() {
+
+    }
+    
+    /**
+     * Test case for getParcelAccountTags
+     *
+     * Get the tags for a parcelAccount.
+     *
+     */
+    public function test_getParcelAccountTags() {
 
     }
     

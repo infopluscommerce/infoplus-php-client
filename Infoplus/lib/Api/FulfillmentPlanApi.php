@@ -194,6 +194,222 @@ class FulfillmentPlanApi
     }
     
     /**
+     * addFulfillmentPlanAudit
+     *
+     * Add new audit for a fulfillmentPlan
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to add an audit to (required)
+     * @param string $fulfillment_plan_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addFulfillmentPlanAudit($fulfillment_plan_id, $fulfillment_plan_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addFulfillmentPlanAuditWithHttpInfo ($fulfillment_plan_id, $fulfillment_plan_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addFulfillmentPlanAuditWithHttpInfo
+     *
+     * Add new audit for a fulfillmentPlan
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to add an audit to (required)
+     * @param string $fulfillment_plan_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addFulfillmentPlanAuditWithHttpInfo($fulfillment_plan_id, $fulfillment_plan_audit)
+    {
+        
+        // verify the required parameter 'fulfillment_plan_id' is set
+        if ($fulfillment_plan_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_id when calling addFulfillmentPlanAudit');
+        }
+        // verify the required parameter 'fulfillment_plan_audit' is set
+        if ($fulfillment_plan_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_audit when calling addFulfillmentPlanAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/fulfillmentPlan/{fulfillmentPlanId}/audit/{fulfillmentPlanAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($fulfillment_plan_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($fulfillment_plan_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addFulfillmentPlanTag
+     *
+     * Add new tags for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to add a tag to (required)
+     * @param string $fulfillment_plan_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addFulfillmentPlanTagWithHttpInfo ($fulfillment_plan_id, $fulfillment_plan_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addFulfillmentPlanTagWithHttpInfo
+     *
+     * Add new tags for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to add a tag to (required)
+     * @param string $fulfillment_plan_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addFulfillmentPlanTagWithHttpInfo($fulfillment_plan_id, $fulfillment_plan_tag)
+    {
+        
+        // verify the required parameter 'fulfillment_plan_id' is set
+        if ($fulfillment_plan_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_id when calling addFulfillmentPlanTag');
+        }
+        // verify the required parameter 'fulfillment_plan_tag' is set
+        if ($fulfillment_plan_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_tag when calling addFulfillmentPlanTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($fulfillment_plan_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($fulfillment_plan_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * deleteFulfillmentPlan
      *
      * Delete a fulfillmentPlan
@@ -281,6 +497,216 @@ class FulfillmentPlanApi
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteFulfillmentPlanTag
+     *
+     * Delete a tag for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to remove tag from (required)
+     * @param string $fulfillment_plan_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteFulfillmentPlanTag($fulfillment_plan_id, $fulfillment_plan_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteFulfillmentPlanTagWithHttpInfo ($fulfillment_plan_id, $fulfillment_plan_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteFulfillmentPlanTagWithHttpInfo
+     *
+     * Delete a tag for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to remove tag from (required)
+     * @param string $fulfillment_plan_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteFulfillmentPlanTagWithHttpInfo($fulfillment_plan_id, $fulfillment_plan_tag)
+    {
+        
+        // verify the required parameter 'fulfillment_plan_id' is set
+        if ($fulfillment_plan_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_id when calling deleteFulfillmentPlanTag');
+        }
+        // verify the required parameter 'fulfillment_plan_tag' is set
+        if ($fulfillment_plan_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_tag when calling deleteFulfillmentPlanTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag/{fulfillmentPlanTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($fulfillment_plan_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($fulfillment_plan_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateFulfillmentPlanById
+     *
+     * Get a duplicated a fulfillmentPlan by id
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to be duplicated. (required)
+     * @return \Infoplus\Model\FulfillmentPlan
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateFulfillmentPlanById($fulfillment_plan_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateFulfillmentPlanByIdWithHttpInfo ($fulfillment_plan_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateFulfillmentPlanByIdWithHttpInfo
+     *
+     * Get a duplicated a fulfillmentPlan by id
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to be duplicated. (required)
+     * @return Array of \Infoplus\Model\FulfillmentPlan, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateFulfillmentPlanByIdWithHttpInfo($fulfillment_plan_id)
+    {
+        
+        // verify the required parameter 'fulfillment_plan_id' is set
+        if ($fulfillment_plan_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_id when calling getDuplicateFulfillmentPlanById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/fulfillmentPlan/duplicate/{fulfillmentPlanId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($fulfillment_plan_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\FulfillmentPlan'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\FulfillmentPlan', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\FulfillmentPlan', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
             }
   
             throw $e;
@@ -495,6 +921,100 @@ class FulfillmentPlanApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\FulfillmentPlan', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getFulfillmentPlanTags
+     *
+     * Get the tags for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getFulfillmentPlanTags($fulfillment_plan_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getFulfillmentPlanTagsWithHttpInfo ($fulfillment_plan_id);
+        return $response; 
+    }
+
+
+    /**
+     * getFulfillmentPlanTagsWithHttpInfo
+     *
+     * Get the tags for a fulfillmentPlan.
+     *
+     * @param int $fulfillment_plan_id Id of the fulfillmentPlan to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getFulfillmentPlanTagsWithHttpInfo($fulfillment_plan_id)
+    {
+        
+        // verify the required parameter 'fulfillment_plan_id' is set
+        if ($fulfillment_plan_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $fulfillment_plan_id when calling getFulfillmentPlanTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/fulfillmentPlan/{fulfillmentPlanId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($fulfillment_plan_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "fulfillmentPlanId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($fulfillment_plan_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

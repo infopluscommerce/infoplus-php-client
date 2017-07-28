@@ -52,7 +52,8 @@ class User implements ArrayAccess
       */
     static $swaggerTypes = array(
         'user_id' => 'int',
-        'label' => 'string'
+        'label' => 'string',
+        'full_entity_class_name' => 'string'
     );
   
     static function swaggerTypes() {
@@ -65,7 +66,8 @@ class User implements ArrayAccess
       */
     static $attributeMap = array(
         'user_id' => 'userId',
-        'label' => 'label'
+        'label' => 'label',
+        'full_entity_class_name' => 'fullEntityClassName'
     );
   
     static function attributeMap() {
@@ -78,7 +80,8 @@ class User implements ArrayAccess
       */
     static $setters = array(
         'user_id' => 'setUserId',
-        'label' => 'setLabel'
+        'label' => 'setLabel',
+        'full_entity_class_name' => 'setFullEntityClassName'
     );
   
     static function setters() {
@@ -91,7 +94,8 @@ class User implements ArrayAccess
       */
     static $getters = array(
         'user_id' => 'getUserId',
-        'label' => 'getLabel'
+        'label' => 'getLabel',
+        'full_entity_class_name' => 'getFullEntityClassName'
     );
   
     static function getters() {
@@ -111,6 +115,12 @@ class User implements ArrayAccess
       */
     protected $label;
     
+    /**
+      * $full_entity_class_name 
+      * @var string
+      */
+    protected $full_entity_class_name;
+    
 
     /**
      * Constructor
@@ -122,6 +132,7 @@ class User implements ArrayAccess
         if ($data != null) {
             $this->user_id = $data["user_id"];
             $this->label = $data["label"];
+            $this->full_entity_class_name = $data["full_entity_class_name"];
         }
     }
     
@@ -164,6 +175,27 @@ class User implements ArrayAccess
     {
         
         $this->label = $label;
+        return $this;
+    }
+    
+    /**
+     * Gets full_entity_class_name
+     * @return string
+     */
+    public function getFullEntityClassName()
+    {
+        return $this->full_entity_class_name;
+    }
+  
+    /**
+     * Sets full_entity_class_name
+     * @param string $full_entity_class_name 
+     * @return $this
+     */
+    public function setFullEntityClassName($full_entity_class_name)
+    {
+        
+        $this->full_entity_class_name = $full_entity_class_name;
         return $this;
     }
     

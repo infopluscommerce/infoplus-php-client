@@ -63,6 +63,7 @@ class CartonType implements ArrayAccess
         'weight_lbs' => 'Number',
         'lob_id' => 'int',
         'is_active' => 'bool',
+        'predefined_package_type_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -87,6 +88,7 @@ class CartonType implements ArrayAccess
         'weight_lbs' => 'weightLbs',
         'lob_id' => 'lobId',
         'is_active' => 'isActive',
+        'predefined_package_type_id' => 'predefinedPackageTypeId',
         'custom_fields' => 'customFields'
     );
   
@@ -111,6 +113,7 @@ class CartonType implements ArrayAccess
         'weight_lbs' => 'setWeightLbs',
         'lob_id' => 'setLobId',
         'is_active' => 'setIsActive',
+        'predefined_package_type_id' => 'setPredefinedPackageTypeId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -135,6 +138,7 @@ class CartonType implements ArrayAccess
         'weight_lbs' => 'getWeightLbs',
         'lob_id' => 'getLobId',
         'is_active' => 'getIsActive',
+        'predefined_package_type_id' => 'getPredefinedPackageTypeId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -216,6 +220,12 @@ class CartonType implements ArrayAccess
     protected $is_active = false;
     
     /**
+      * $predefined_package_type_id 
+      * @var int
+      */
+    protected $predefined_package_type_id;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -242,6 +252,7 @@ class CartonType implements ArrayAccess
             $this->weight_lbs = $data["weight_lbs"];
             $this->lob_id = $data["lob_id"];
             $this->is_active = $data["is_active"];
+            $this->predefined_package_type_id = $data["predefined_package_type_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -495,6 +506,27 @@ class CartonType implements ArrayAccess
     {
         
         $this->is_active = $is_active;
+        return $this;
+    }
+    
+    /**
+     * Gets predefined_package_type_id
+     * @return int
+     */
+    public function getPredefinedPackageTypeId()
+    {
+        return $this->predefined_package_type_id;
+    }
+  
+    /**
+     * Sets predefined_package_type_id
+     * @param int $predefined_package_type_id 
+     * @return $this
+     */
+    public function setPredefinedPackageTypeId($predefined_package_type_id)
+    {
+        
+        $this->predefined_package_type_id = $predefined_package_type_id;
         return $this;
     }
     

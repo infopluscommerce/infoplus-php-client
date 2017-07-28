@@ -76,12 +76,52 @@ class QuickReceiptApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for addQuickReceiptAudit
+     *
+     * Add new audit for a quickReceipt
+     *
+     */
+    public function test_addQuickReceiptAudit() {
+
+    }
+    
+    /**
+     * Test case for addQuickReceiptTag
+     *
+     * Add new tags for a quickReceipt.
+     *
+     */
+    public function test_addQuickReceiptTag() {
+
+    }
+    
+    /**
      * Test case for deleteQuickReceipt
      *
      * Delete a quickReceipt
      *
      */
     public function test_deleteQuickReceipt() {
+
+    }
+    
+    /**
+     * Test case for deleteQuickReceiptTag
+     *
+     * Delete a tag for a quickReceipt.
+     *
+     */
+    public function test_deleteQuickReceiptTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateQuickReceiptById
+     *
+     * Get a duplicated a quickReceipt by id
+     *
+     */
+    public function test_getDuplicateQuickReceiptById() {
 
     }
     
@@ -102,6 +142,16 @@ class QuickReceiptApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getQuickReceiptById() {
+
+    }
+    
+    /**
+     * Test case for getQuickReceiptTags
+     *
+     * Get the tags for a quickReceipt.
+     *
+     */
+    public function test_getQuickReceiptTags() {
 
     }
     

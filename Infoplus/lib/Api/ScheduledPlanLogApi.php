@@ -92,6 +92,432 @@ class ScheduledPlanLogApi
   
     
     /**
+     * addScheduledPlanLogAudit
+     *
+     * Add new audit for a scheduledPlanLog
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to add an audit to (required)
+     * @param string $scheduled_plan_log_audit The audit to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addScheduledPlanLogAudit($scheduled_plan_log_id, $scheduled_plan_log_audit)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addScheduledPlanLogAuditWithHttpInfo ($scheduled_plan_log_id, $scheduled_plan_log_audit);
+        return $response; 
+    }
+
+
+    /**
+     * addScheduledPlanLogAuditWithHttpInfo
+     *
+     * Add new audit for a scheduledPlanLog
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to add an audit to (required)
+     * @param string $scheduled_plan_log_audit The audit to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addScheduledPlanLogAuditWithHttpInfo($scheduled_plan_log_id, $scheduled_plan_log_audit)
+    {
+        
+        // verify the required parameter 'scheduled_plan_log_id' is set
+        if ($scheduled_plan_log_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_id when calling addScheduledPlanLogAudit');
+        }
+        // verify the required parameter 'scheduled_plan_log_audit' is set
+        if ($scheduled_plan_log_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_audit when calling addScheduledPlanLogAudit');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/scheduledPlanLog/{scheduledPlanLogId}/audit/{scheduledPlanLogAudit}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($scheduled_plan_log_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($scheduled_plan_log_audit !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_audit),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * addScheduledPlanLogTag
+     *
+     * Add new tags for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to add a tag to (required)
+     * @param string $scheduled_plan_log_tag The tag to add (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addScheduledPlanLogTag($scheduled_plan_log_id, $scheduled_plan_log_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->addScheduledPlanLogTagWithHttpInfo ($scheduled_plan_log_id, $scheduled_plan_log_tag);
+        return $response; 
+    }
+
+
+    /**
+     * addScheduledPlanLogTagWithHttpInfo
+     *
+     * Add new tags for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to add a tag to (required)
+     * @param string $scheduled_plan_log_tag The tag to add (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function addScheduledPlanLogTagWithHttpInfo($scheduled_plan_log_id, $scheduled_plan_log_tag)
+    {
+        
+        // verify the required parameter 'scheduled_plan_log_id' is set
+        if ($scheduled_plan_log_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_id when calling addScheduledPlanLogTag');
+        }
+        // verify the required parameter 'scheduled_plan_log_tag' is set
+        if ($scheduled_plan_log_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_tag when calling addScheduledPlanLogTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/scheduledPlanLog/{scheduledPlanLogId}/tag/{scheduledPlanLogTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        // path params
+        
+        if ($scheduled_plan_log_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($scheduled_plan_log_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * deleteScheduledPlanLogTag
+     *
+     * Delete a tag for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to remove tag from (required)
+     * @param string $scheduled_plan_log_tag The tag to delete (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteScheduledPlanLogTag($scheduled_plan_log_id, $scheduled_plan_log_tag)
+    {
+        list($response, $statusCode, $httpHeader) = $this->deleteScheduledPlanLogTagWithHttpInfo ($scheduled_plan_log_id, $scheduled_plan_log_tag);
+        return $response; 
+    }
+
+
+    /**
+     * deleteScheduledPlanLogTagWithHttpInfo
+     *
+     * Delete a tag for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to remove tag from (required)
+     * @param string $scheduled_plan_log_tag The tag to delete (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function deleteScheduledPlanLogTagWithHttpInfo($scheduled_plan_log_id, $scheduled_plan_log_tag)
+    {
+        
+        // verify the required parameter 'scheduled_plan_log_id' is set
+        if ($scheduled_plan_log_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_id when calling deleteScheduledPlanLogTag');
+        }
+        // verify the required parameter 'scheduled_plan_log_tag' is set
+        if ($scheduled_plan_log_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_tag when calling deleteScheduledPlanLogTag');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/scheduledPlanLog/{scheduledPlanLogId}/tag/{scheduledPlanLogTag}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($scheduled_plan_log_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_id),
+                $resourcePath
+            );
+        }// path params
+        
+        if ($scheduled_plan_log_tag !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_tag),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'DELETE',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getDuplicateScheduledPlanLogById
+     *
+     * Get a duplicated a scheduledPlanLog by id
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to be duplicated. (required)
+     * @return \Infoplus\Model\ScheduledPlanLog
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateScheduledPlanLogById($scheduled_plan_log_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateScheduledPlanLogByIdWithHttpInfo ($scheduled_plan_log_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateScheduledPlanLogByIdWithHttpInfo
+     *
+     * Get a duplicated a scheduledPlanLog by id
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ScheduledPlanLog, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateScheduledPlanLogByIdWithHttpInfo($scheduled_plan_log_id)
+    {
+        
+        // verify the required parameter 'scheduled_plan_log_id' is set
+        if ($scheduled_plan_log_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_id when calling getDuplicateScheduledPlanLogById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/scheduledPlanLog/duplicate/{scheduledPlanLogId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($scheduled_plan_log_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ScheduledPlanLog'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ScheduledPlanLog', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ScheduledPlanLog', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getScheduledPlanLogByFilter
      *
      * Search scheduledPlanLogs by filter
@@ -299,6 +725,100 @@ class ScheduledPlanLogApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ScheduledPlanLog', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * getScheduledPlanLogTags
+     *
+     * Get the tags for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to get tags for (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getScheduledPlanLogTags($scheduled_plan_log_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getScheduledPlanLogTagsWithHttpInfo ($scheduled_plan_log_id);
+        return $response; 
+    }
+
+
+    /**
+     * getScheduledPlanLogTagsWithHttpInfo
+     *
+     * Get the tags for a scheduledPlanLog.
+     *
+     * @param int $scheduled_plan_log_id Id of the scheduledPlanLog to get tags for (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getScheduledPlanLogTagsWithHttpInfo($scheduled_plan_log_id)
+    {
+        
+        // verify the required parameter 'scheduled_plan_log_id' is set
+        if ($scheduled_plan_log_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $scheduled_plan_log_id when calling getScheduledPlanLogTags');
+        }
+  
+        // parse inputs
+        $resourcePath = "/beta/scheduledPlanLog/{scheduledPlanLogId}/tag";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($scheduled_plan_log_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "scheduledPlanLogId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($scheduled_plan_log_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

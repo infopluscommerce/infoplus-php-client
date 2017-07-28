@@ -66,22 +66,102 @@ class ItemAccountCodeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getItemAccountCodeBySearchText
+     * Test case for addItemAccountCode
      *
-     * Search itemAccountCodes
+     * Create an itemAccountCode
      *
      */
-    public function test_getItemAccountCodeBySearchText() {
+    public function test_addItemAccountCode() {
 
     }
     
     /**
-     * Test case for getTranslateAccountCodeById
+     * Test case for addItemAccountCodeAudit
+     *
+     * Add new audit for an itemAccountCode
+     *
+     */
+    public function test_addItemAccountCodeAudit() {
+
+    }
+    
+    /**
+     * Test case for addItemAccountCodeTag
+     *
+     * Add new tags for an itemAccountCode.
+     *
+     */
+    public function test_addItemAccountCodeTag() {
+
+    }
+    
+    /**
+     * Test case for deleteItemAccountCode
+     *
+     * Delete an itemAccountCode
+     *
+     */
+    public function test_deleteItemAccountCode() {
+
+    }
+    
+    /**
+     * Test case for deleteItemAccountCodeTag
+     *
+     * Delete a tag for an itemAccountCode.
+     *
+     */
+    public function test_deleteItemAccountCodeTag() {
+
+    }
+    
+    /**
+     * Test case for getDuplicateItemAccountCodeById
+     *
+     * Get a duplicated an itemAccountCode by id
+     *
+     */
+    public function test_getDuplicateItemAccountCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemAccountCodeByFilter
+     *
+     * Search itemAccountCodes by filter
+     *
+     */
+    public function test_getItemAccountCodeByFilter() {
+
+    }
+    
+    /**
+     * Test case for getItemAccountCodeById
      *
      * Get an itemAccountCode by id
      *
      */
-    public function test_getTranslateAccountCodeById() {
+    public function test_getItemAccountCodeById() {
+
+    }
+    
+    /**
+     * Test case for getItemAccountCodeTags
+     *
+     * Get the tags for an itemAccountCode.
+     *
+     */
+    public function test_getItemAccountCodeTags() {
+
+    }
+    
+    /**
+     * Test case for updateItemAccountCode
+     *
+     * Update an itemAccountCode
+     *
+     */
+    public function test_updateItemAccountCode() {
 
     }
     

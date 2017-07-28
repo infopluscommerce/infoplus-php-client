@@ -52,8 +52,8 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'lob' => 'int',
-        'sku_id' => 'int',
+        'lob_id' => 'int',
+        'sku' => 'string',
         'po_no_id' => 'int',
         'adjustment_date' => '\DateTime',
         'adjustment_time' => 'string',
@@ -77,8 +77,8 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
-        'lob' => 'lob',
-        'sku_id' => 'skuId',
+        'lob_id' => 'lobId',
+        'sku' => 'sku',
         'po_no_id' => 'poNoId',
         'adjustment_date' => 'adjustmentDate',
         'adjustment_time' => 'adjustmentTime',
@@ -102,8 +102,8 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'lob' => 'setLob',
-        'sku_id' => 'setSkuId',
+        'lob_id' => 'setLobId',
+        'sku' => 'setSku',
         'po_no_id' => 'setPoNoId',
         'adjustment_date' => 'setAdjustmentDate',
         'adjustment_time' => 'setAdjustmentTime',
@@ -127,8 +127,8 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'lob' => 'getLob',
-        'sku_id' => 'getSkuId',
+        'lob_id' => 'getLobId',
+        'sku' => 'getSku',
         'po_no_id' => 'getPoNoId',
         'adjustment_date' => 'getAdjustmentDate',
         'adjustment_time' => 'getAdjustmentTime',
@@ -154,16 +154,16 @@ class InventoryAdjustment implements ArrayAccess
     protected $id;
     
     /**
-      * $lob 
+      * $lob_id 
       * @var int
       */
-    protected $lob;
+    protected $lob_id;
     
     /**
-      * $sku_id 
-      * @var int
+      * $sku 
+      * @var string
       */
-    protected $sku_id;
+    protected $sku;
     
     /**
       * $po_no_id 
@@ -241,8 +241,8 @@ class InventoryAdjustment implements ArrayAccess
         
         if ($data != null) {
             $this->id = $data["id"];
-            $this->lob = $data["lob"];
-            $this->sku_id = $data["sku_id"];
+            $this->lob_id = $data["lob_id"];
+            $this->sku = $data["sku"];
             $this->po_no_id = $data["po_no_id"];
             $this->adjustment_date = $data["adjustment_date"];
             $this->adjustment_time = $data["adjustment_time"];
@@ -279,44 +279,44 @@ class InventoryAdjustment implements ArrayAccess
     }
     
     /**
-     * Gets lob
+     * Gets lob_id
      * @return int
      */
-    public function getLob()
+    public function getLobId()
     {
-        return $this->lob;
+        return $this->lob_id;
     }
   
     /**
-     * Sets lob
-     * @param int $lob 
+     * Sets lob_id
+     * @param int $lob_id 
      * @return $this
      */
-    public function setLob($lob)
+    public function setLobId($lob_id)
     {
         
-        $this->lob = $lob;
+        $this->lob_id = $lob_id;
         return $this;
     }
     
     /**
-     * Gets sku_id
-     * @return int
+     * Gets sku
+     * @return string
      */
-    public function getSkuId()
+    public function getSku()
     {
-        return $this->sku_id;
+        return $this->sku;
     }
   
     /**
-     * Sets sku_id
-     * @param int $sku_id 
+     * Sets sku
+     * @param string $sku 
      * @return $this
      */
-    public function setSkuId($sku_id)
+    public function setSku($sku)
     {
         
-        $this->sku_id = $sku_id;
+        $this->sku = $sku;
         return $this;
     }
     

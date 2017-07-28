@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lob_id** | **int** |  | 
 **id** | **int** |  | [optional] 
-**kit_sku_id** | **int** |  | 
+**kit_sku** | **string** |  | 
 **packaging_type** | **string** |  | [optional] 
 **other** | **string** |  | [optional] 
 **number_of_components** | **int** |  | [optional] 
@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **max_inv_qty** | **int** |  | [optional] 
 **is_kod** | **string** |  | 
 **kod_type** | **string** |  | 
+**kit_component_list** | [**\Infoplus\Model\KitComponent[]**](KitComponent.md) |  | 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
