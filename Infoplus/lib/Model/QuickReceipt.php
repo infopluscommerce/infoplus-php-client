@@ -76,7 +76,7 @@ class QuickReceipt implements ArrayAccess
         'carton_width' => 'Number',
         'carton_height' => 'Number',
         'cost' => 'Number',
-        'sell' => 'Number',
+        'sell_price' => 'Number',
         'pricing_per' => 'string',
         'generated_item_receipt_id' => 'int',
         'generated_asn_id' => 'int',
@@ -120,7 +120,7 @@ class QuickReceipt implements ArrayAccess
         'carton_width' => 'cartonWidth',
         'carton_height' => 'cartonHeight',
         'cost' => 'cost',
-        'sell' => 'sell',
+        'sell_price' => 'sellPrice',
         'pricing_per' => 'pricingPer',
         'generated_item_receipt_id' => 'generatedItemReceiptId',
         'generated_asn_id' => 'generatedASNId',
@@ -164,7 +164,7 @@ class QuickReceipt implements ArrayAccess
         'carton_width' => 'setCartonWidth',
         'carton_height' => 'setCartonHeight',
         'cost' => 'setCost',
-        'sell' => 'setSell',
+        'sell_price' => 'setSellPrice',
         'pricing_per' => 'setPricingPer',
         'generated_item_receipt_id' => 'setGeneratedItemReceiptId',
         'generated_asn_id' => 'setGeneratedAsnId',
@@ -208,7 +208,7 @@ class QuickReceipt implements ArrayAccess
         'carton_width' => 'getCartonWidth',
         'carton_height' => 'getCartonHeight',
         'cost' => 'getCost',
-        'sell' => 'getSell',
+        'sell_price' => 'getSellPrice',
         'pricing_per' => 'getPricingPer',
         'generated_item_receipt_id' => 'getGeneratedItemReceiptId',
         'generated_asn_id' => 'getGeneratedAsnId',
@@ -374,10 +374,10 @@ class QuickReceipt implements ArrayAccess
     protected $cost;
     
     /**
-      * $sell 
+      * $sell_price 
       * @var Number
       */
-    protected $sell;
+    protected $sell_price;
     
     /**
       * $pricing_per 
@@ -455,7 +455,7 @@ class QuickReceipt implements ArrayAccess
             $this->carton_width = $data["carton_width"];
             $this->carton_height = $data["carton_height"];
             $this->cost = $data["cost"];
-            $this->sell = $data["sell"];
+            $this->sell_price = $data["sell_price"];
             $this->pricing_per = $data["pricing_per"];
             $this->generated_item_receipt_id = $data["generated_item_receipt_id"];
             $this->generated_asn_id = $data["generated_asn_id"];
@@ -992,23 +992,23 @@ class QuickReceipt implements ArrayAccess
     }
     
     /**
-     * Gets sell
+     * Gets sell_price
      * @return Number
      */
-    public function getSell()
+    public function getSellPrice()
     {
-        return $this->sell;
+        return $this->sell_price;
     }
   
     /**
-     * Sets sell
-     * @param Number $sell 
+     * Sets sell_price
+     * @param Number $sell_price 
      * @return $this
      */
-    public function setSell($sell)
+    public function setSellPrice($sell_price)
     {
         
-        $this->sell = $sell;
+        $this->sell_price = $sell_price;
         return $this;
     }
     

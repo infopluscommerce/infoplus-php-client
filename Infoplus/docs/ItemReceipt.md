@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **legacy_po_no** | **string** |  | [optional] 
 **warehouse_id** | **int** |  | 
 **order_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**full_description** | **string** |  | [optional] 
 **fact_cost** | [**Number**](Number.md) |  | [optional] 
 **ml_cost** | [**Number**](Number.md) |  | [optional] 
 **sku** | **string** |  | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 **wrap_code** | **string** |  | 
 **units_per_wrap** | **int** |  | 
 **cost** | [**Number**](Number.md) |  | [optional] 
-**sell** | [**Number**](Number.md) |  | [optional] 
+**sell_price** | [**Number**](Number.md) |  | [optional] 
 **pricing_per** | **string** |  | [optional] 
 **max_freight** | [**Number**](Number.md) |  | [optional] 
 **charge_freight** | **string** |  | 

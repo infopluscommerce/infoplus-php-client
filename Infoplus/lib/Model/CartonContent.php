@@ -54,6 +54,7 @@ class CartonContent implements ArrayAccess
         'id' => 'int',
         'group_order_id' => 'Number',
         'order_no' => 'Number',
+        'carton_no' => 'int',
         'carton_id' => 'int',
         'line_item_id' => 'int',
         'location' => 'string',
@@ -78,6 +79,7 @@ class CartonContent implements ArrayAccess
         'id' => 'id',
         'group_order_id' => 'groupOrderId',
         'order_no' => 'orderNo',
+        'carton_no' => 'cartonNo',
         'carton_id' => 'cartonId',
         'line_item_id' => 'lineItemId',
         'location' => 'location',
@@ -102,6 +104,7 @@ class CartonContent implements ArrayAccess
         'id' => 'setId',
         'group_order_id' => 'setGroupOrderId',
         'order_no' => 'setOrderNo',
+        'carton_no' => 'setCartonNo',
         'carton_id' => 'setCartonId',
         'line_item_id' => 'setLineItemId',
         'location' => 'setLocation',
@@ -126,6 +129,7 @@ class CartonContent implements ArrayAccess
         'id' => 'getId',
         'group_order_id' => 'getGroupOrderId',
         'order_no' => 'getOrderNo',
+        'carton_no' => 'getCartonNo',
         'carton_id' => 'getCartonId',
         'line_item_id' => 'getLineItemId',
         'location' => 'getLocation',
@@ -160,6 +164,12 @@ class CartonContent implements ArrayAccess
       * @var Number
       */
     protected $order_no;
+    
+    /**
+      * $carton_no 
+      * @var int
+      */
+    protected $carton_no;
     
     /**
       * $carton_id 
@@ -233,6 +243,7 @@ class CartonContent implements ArrayAccess
             $this->id = $data["id"];
             $this->group_order_id = $data["group_order_id"];
             $this->order_no = $data["order_no"];
+            $this->carton_no = $data["carton_no"];
             $this->carton_id = $data["carton_id"];
             $this->line_item_id = $data["line_item_id"];
             $this->location = $data["location"];
@@ -306,6 +317,27 @@ class CartonContent implements ArrayAccess
     {
         
         $this->order_no = $order_no;
+        return $this;
+    }
+    
+    /**
+     * Gets carton_no
+     * @return int
+     */
+    public function getCartonNo()
+    {
+        return $this->carton_no;
+    }
+  
+    /**
+     * Sets carton_no
+     * @param int $carton_no 
+     * @return $this
+     */
+    public function setCartonNo($carton_no)
+    {
+        
+        $this->carton_no = $carton_no;
         return $this;
     }
     

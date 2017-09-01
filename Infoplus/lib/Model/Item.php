@@ -77,7 +77,8 @@ class Item implements ArrayAccess
         'critical_amount' => 'int',
         'overall_fixed_reorder_point' => 'int',
         'overall_lead_time' => 'int',
-        'list_price' => 'Number',
+        'sell_price' => 'Number',
+        'pricing_per' => 'string',
         'lot_control_flag' => 'string',
         'max_cycle' => 'int',
         'max_interim' => 'int',
@@ -105,6 +106,9 @@ class Item implements ArrayAccess
         'extrinsic_decimal1' => 'Number',
         'extrinsic_decimal2' => 'Number',
         'casebreak_enabled' => 'string',
+        'vendor_id' => 'int',
+        'vendor_price' => 'Number',
+        'vendor_per' => 'string',
         'modify_date' => '\DateTime',
         'forward_lot_mixing_rule' => 'string',
         'storage_lot_mixing_rule' => 'string',
@@ -183,7 +187,8 @@ class Item implements ArrayAccess
         'critical_amount' => 'criticalAmount',
         'overall_fixed_reorder_point' => 'overallFixedReorderPoint',
         'overall_lead_time' => 'overallLeadTime',
-        'list_price' => 'listPrice',
+        'sell_price' => 'sellPrice',
+        'pricing_per' => 'pricingPer',
         'lot_control_flag' => 'lotControlFlag',
         'max_cycle' => 'maxCycle',
         'max_interim' => 'maxInterim',
@@ -211,6 +216,9 @@ class Item implements ArrayAccess
         'extrinsic_decimal1' => 'extrinsicDecimal1',
         'extrinsic_decimal2' => 'extrinsicDecimal2',
         'casebreak_enabled' => 'casebreakEnabled',
+        'vendor_id' => 'vendorId',
+        'vendor_price' => 'vendorPrice',
+        'vendor_per' => 'vendorPer',
         'modify_date' => 'modifyDate',
         'forward_lot_mixing_rule' => 'forwardLotMixingRule',
         'storage_lot_mixing_rule' => 'storageLotMixingRule',
@@ -289,7 +297,8 @@ class Item implements ArrayAccess
         'critical_amount' => 'setCriticalAmount',
         'overall_fixed_reorder_point' => 'setOverallFixedReorderPoint',
         'overall_lead_time' => 'setOverallLeadTime',
-        'list_price' => 'setListPrice',
+        'sell_price' => 'setSellPrice',
+        'pricing_per' => 'setPricingPer',
         'lot_control_flag' => 'setLotControlFlag',
         'max_cycle' => 'setMaxCycle',
         'max_interim' => 'setMaxInterim',
@@ -317,6 +326,9 @@ class Item implements ArrayAccess
         'extrinsic_decimal1' => 'setExtrinsicDecimal1',
         'extrinsic_decimal2' => 'setExtrinsicDecimal2',
         'casebreak_enabled' => 'setCasebreakEnabled',
+        'vendor_id' => 'setVendorId',
+        'vendor_price' => 'setVendorPrice',
+        'vendor_per' => 'setVendorPer',
         'modify_date' => 'setModifyDate',
         'forward_lot_mixing_rule' => 'setForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'setStorageLotMixingRule',
@@ -395,7 +407,8 @@ class Item implements ArrayAccess
         'critical_amount' => 'getCriticalAmount',
         'overall_fixed_reorder_point' => 'getOverallFixedReorderPoint',
         'overall_lead_time' => 'getOverallLeadTime',
-        'list_price' => 'getListPrice',
+        'sell_price' => 'getSellPrice',
+        'pricing_per' => 'getPricingPer',
         'lot_control_flag' => 'getLotControlFlag',
         'max_cycle' => 'getMaxCycle',
         'max_interim' => 'getMaxInterim',
@@ -423,6 +436,9 @@ class Item implements ArrayAccess
         'extrinsic_decimal1' => 'getExtrinsicDecimal1',
         'extrinsic_decimal2' => 'getExtrinsicDecimal2',
         'casebreak_enabled' => 'getCasebreakEnabled',
+        'vendor_id' => 'getVendorId',
+        'vendor_price' => 'getVendorPrice',
+        'vendor_per' => 'getVendorPer',
         'modify_date' => 'getModifyDate',
         'forward_lot_mixing_rule' => 'getForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'getStorageLotMixingRule',
@@ -628,10 +644,16 @@ class Item implements ArrayAccess
     protected $overall_lead_time;
     
     /**
-      * $list_price 
+      * $sell_price 
       * @var Number
       */
-    protected $list_price;
+    protected $sell_price;
+    
+    /**
+      * $pricing_per 
+      * @var string
+      */
+    protected $pricing_per;
     
     /**
       * $lot_control_flag 
@@ -794,6 +816,24 @@ class Item implements ArrayAccess
       * @var string
       */
     protected $casebreak_enabled;
+    
+    /**
+      * $vendor_id 
+      * @var int
+      */
+    protected $vendor_id;
+    
+    /**
+      * $vendor_price 
+      * @var Number
+      */
+    protected $vendor_price;
+    
+    /**
+      * $vendor_per 
+      * @var string
+      */
+    protected $vendor_per;
     
     /**
       * $modify_date 
@@ -1076,7 +1116,8 @@ class Item implements ArrayAccess
             $this->critical_amount = $data["critical_amount"];
             $this->overall_fixed_reorder_point = $data["overall_fixed_reorder_point"];
             $this->overall_lead_time = $data["overall_lead_time"];
-            $this->list_price = $data["list_price"];
+            $this->sell_price = $data["sell_price"];
+            $this->pricing_per = $data["pricing_per"];
             $this->lot_control_flag = $data["lot_control_flag"];
             $this->max_cycle = $data["max_cycle"];
             $this->max_interim = $data["max_interim"];
@@ -1104,6 +1145,9 @@ class Item implements ArrayAccess
             $this->extrinsic_decimal1 = $data["extrinsic_decimal1"];
             $this->extrinsic_decimal2 = $data["extrinsic_decimal2"];
             $this->casebreak_enabled = $data["casebreak_enabled"];
+            $this->vendor_id = $data["vendor_id"];
+            $this->vendor_price = $data["vendor_price"];
+            $this->vendor_per = $data["vendor_per"];
             $this->modify_date = $data["modify_date"];
             $this->forward_lot_mixing_rule = $data["forward_lot_mixing_rule"];
             $this->storage_lot_mixing_rule = $data["storage_lot_mixing_rule"];
@@ -1695,23 +1739,44 @@ class Item implements ArrayAccess
     }
     
     /**
-     * Gets list_price
+     * Gets sell_price
      * @return Number
      */
-    public function getListPrice()
+    public function getSellPrice()
     {
-        return $this->list_price;
+        return $this->sell_price;
     }
   
     /**
-     * Sets list_price
-     * @param Number $list_price 
+     * Sets sell_price
+     * @param Number $sell_price 
      * @return $this
      */
-    public function setListPrice($list_price)
+    public function setSellPrice($sell_price)
     {
         
-        $this->list_price = $list_price;
+        $this->sell_price = $sell_price;
+        return $this;
+    }
+    
+    /**
+     * Gets pricing_per
+     * @return string
+     */
+    public function getPricingPer()
+    {
+        return $this->pricing_per;
+    }
+  
+    /**
+     * Sets pricing_per
+     * @param string $pricing_per 
+     * @return $this
+     */
+    public function setPricingPer($pricing_per)
+    {
+        
+        $this->pricing_per = $pricing_per;
         return $this;
     }
     
@@ -2279,6 +2344,69 @@ class Item implements ArrayAccess
     {
         
         $this->casebreak_enabled = $casebreak_enabled;
+        return $this;
+    }
+    
+    /**
+     * Gets vendor_id
+     * @return int
+     */
+    public function getVendorId()
+    {
+        return $this->vendor_id;
+    }
+  
+    /**
+     * Sets vendor_id
+     * @param int $vendor_id 
+     * @return $this
+     */
+    public function setVendorId($vendor_id)
+    {
+        
+        $this->vendor_id = $vendor_id;
+        return $this;
+    }
+    
+    /**
+     * Gets vendor_price
+     * @return Number
+     */
+    public function getVendorPrice()
+    {
+        return $this->vendor_price;
+    }
+  
+    /**
+     * Sets vendor_price
+     * @param Number $vendor_price 
+     * @return $this
+     */
+    public function setVendorPrice($vendor_price)
+    {
+        
+        $this->vendor_price = $vendor_price;
+        return $this;
+    }
+    
+    /**
+     * Gets vendor_per
+     * @return string
+     */
+    public function getVendorPer()
+    {
+        return $this->vendor_per;
+    }
+  
+    /**
+     * Sets vendor_per
+     * @param string $vendor_per 
+     * @return $this
+     */
+    public function setVendorPer($vendor_per)
+    {
+        
+        $this->vendor_per = $vendor_per;
         return $this;
     }
     

@@ -63,6 +63,7 @@ class FulfillmentProcess implements ArrayAccess
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
         'order_limit' => 'int',
+        'version' => 'string',
         'number_of_orders' => 'int',
         'number_of_lines' => 'int',
         'number_of_sk_us' => 'int',
@@ -123,6 +124,7 @@ class FulfillmentProcess implements ArrayAccess
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
         'order_limit' => 'orderLimit',
+        'version' => 'version',
         'number_of_orders' => 'numberOfOrders',
         'number_of_lines' => 'numberOfLines',
         'number_of_sk_us' => 'numberOfSKUs',
@@ -183,6 +185,7 @@ class FulfillmentProcess implements ArrayAccess
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
         'order_limit' => 'setOrderLimit',
+        'version' => 'setVersion',
         'number_of_orders' => 'setNumberOfOrders',
         'number_of_lines' => 'setNumberOfLines',
         'number_of_sk_us' => 'setNumberOfSkUs',
@@ -243,6 +246,7 @@ class FulfillmentProcess implements ArrayAccess
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
         'order_limit' => 'getOrderLimit',
+        'version' => 'getVersion',
         'number_of_orders' => 'getNumberOfOrders',
         'number_of_lines' => 'getNumberOfLines',
         'number_of_sk_us' => 'getNumberOfSkUs',
@@ -358,6 +362,12 @@ class FulfillmentProcess implements ArrayAccess
       * @var int
       */
     protected $order_limit;
+    
+    /**
+      * $version 
+      * @var string
+      */
+    protected $version;
     
     /**
       * $number_of_orders 
@@ -602,6 +612,7 @@ class FulfillmentProcess implements ArrayAccess
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
             $this->order_limit = $data["order_limit"];
+            $this->version = $data["version"];
             $this->number_of_orders = $data["number_of_orders"];
             $this->number_of_lines = $data["number_of_lines"];
             $this->number_of_sk_us = $data["number_of_sk_us"];
@@ -891,6 +902,27 @@ class FulfillmentProcess implements ArrayAccess
     {
         
         $this->order_limit = $order_limit;
+        return $this;
+    }
+    
+    /**
+     * Gets version
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+  
+    /**
+     * Sets version
+     * @param string $version 
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        
+        $this->version = $version;
         return $this;
     }
     

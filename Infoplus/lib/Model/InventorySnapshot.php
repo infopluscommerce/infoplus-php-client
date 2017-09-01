@@ -59,6 +59,9 @@ class InventorySnapshot implements ArrayAccess
         'is_mixed_receipts' => 'bool',
         'quantity' => 'int',
         'address' => 'string',
+        'number_of_cases' => 'int',
+        'inventory_value' => 'Number',
+        'inventory_age_days' => 'int',
         'warehouse_id' => 'int',
         'warehouse_name' => 'string',
         'warehouse_zone_id' => 'int',
@@ -86,7 +89,7 @@ class InventorySnapshot implements ArrayAccess
         'warehouse_location_priority_code' => 'int',
         'warehouse_location_allow_item_mixing' => 'bool',
         'warehouse_location_cost' => 'int',
-        'control_no' => 'string',
+        'sku' => 'string',
         'item_vendor_sku' => 'string',
         'item_upc' => 'string',
         'item_major_group' => 'int',
@@ -151,6 +154,9 @@ class InventorySnapshot implements ArrayAccess
         'is_mixed_receipts' => 'isMixedReceipts',
         'quantity' => 'quantity',
         'address' => 'address',
+        'number_of_cases' => 'numberOfCases',
+        'inventory_value' => 'inventoryValue',
+        'inventory_age_days' => 'inventoryAgeDays',
         'warehouse_id' => 'warehouseId',
         'warehouse_name' => 'warehouseName',
         'warehouse_zone_id' => 'warehouseZoneId',
@@ -178,7 +184,7 @@ class InventorySnapshot implements ArrayAccess
         'warehouse_location_priority_code' => 'warehouseLocationPriorityCode',
         'warehouse_location_allow_item_mixing' => 'warehouseLocationAllowItemMixing',
         'warehouse_location_cost' => 'warehouseLocationCost',
-        'control_no' => 'controlNo',
+        'sku' => 'sku',
         'item_vendor_sku' => 'itemVendorSku',
         'item_upc' => 'itemUpc',
         'item_major_group' => 'itemMajorGroup',
@@ -243,6 +249,9 @@ class InventorySnapshot implements ArrayAccess
         'is_mixed_receipts' => 'setIsMixedReceipts',
         'quantity' => 'setQuantity',
         'address' => 'setAddress',
+        'number_of_cases' => 'setNumberOfCases',
+        'inventory_value' => 'setInventoryValue',
+        'inventory_age_days' => 'setInventoryAgeDays',
         'warehouse_id' => 'setWarehouseId',
         'warehouse_name' => 'setWarehouseName',
         'warehouse_zone_id' => 'setWarehouseZoneId',
@@ -270,7 +279,7 @@ class InventorySnapshot implements ArrayAccess
         'warehouse_location_priority_code' => 'setWarehouseLocationPriorityCode',
         'warehouse_location_allow_item_mixing' => 'setWarehouseLocationAllowItemMixing',
         'warehouse_location_cost' => 'setWarehouseLocationCost',
-        'control_no' => 'setControlNo',
+        'sku' => 'setSku',
         'item_vendor_sku' => 'setItemVendorSku',
         'item_upc' => 'setItemUpc',
         'item_major_group' => 'setItemMajorGroup',
@@ -335,6 +344,9 @@ class InventorySnapshot implements ArrayAccess
         'is_mixed_receipts' => 'getIsMixedReceipts',
         'quantity' => 'getQuantity',
         'address' => 'getAddress',
+        'number_of_cases' => 'getNumberOfCases',
+        'inventory_value' => 'getInventoryValue',
+        'inventory_age_days' => 'getInventoryAgeDays',
         'warehouse_id' => 'getWarehouseId',
         'warehouse_name' => 'getWarehouseName',
         'warehouse_zone_id' => 'getWarehouseZoneId',
@@ -362,7 +374,7 @@ class InventorySnapshot implements ArrayAccess
         'warehouse_location_priority_code' => 'getWarehouseLocationPriorityCode',
         'warehouse_location_allow_item_mixing' => 'getWarehouseLocationAllowItemMixing',
         'warehouse_location_cost' => 'getWarehouseLocationCost',
-        'control_no' => 'getControlNo',
+        'sku' => 'getSku',
         'item_vendor_sku' => 'getItemVendorSku',
         'item_upc' => 'getItemUpc',
         'item_major_group' => 'getItemMajorGroup',
@@ -462,6 +474,24 @@ class InventorySnapshot implements ArrayAccess
       * @var string
       */
     protected $address;
+    
+    /**
+      * $number_of_cases 
+      * @var int
+      */
+    protected $number_of_cases;
+    
+    /**
+      * $inventory_value 
+      * @var Number
+      */
+    protected $inventory_value;
+    
+    /**
+      * $inventory_age_days 
+      * @var int
+      */
+    protected $inventory_age_days;
     
     /**
       * $warehouse_id 
@@ -626,10 +656,10 @@ class InventorySnapshot implements ArrayAccess
     protected $warehouse_location_cost;
     
     /**
-      * $control_no 
+      * $sku 
       * @var string
       */
-    protected $control_no;
+    protected $sku;
     
     /**
       * $item_vendor_sku 
@@ -918,6 +948,9 @@ class InventorySnapshot implements ArrayAccess
             $this->is_mixed_receipts = $data["is_mixed_receipts"];
             $this->quantity = $data["quantity"];
             $this->address = $data["address"];
+            $this->number_of_cases = $data["number_of_cases"];
+            $this->inventory_value = $data["inventory_value"];
+            $this->inventory_age_days = $data["inventory_age_days"];
             $this->warehouse_id = $data["warehouse_id"];
             $this->warehouse_name = $data["warehouse_name"];
             $this->warehouse_zone_id = $data["warehouse_zone_id"];
@@ -945,7 +978,7 @@ class InventorySnapshot implements ArrayAccess
             $this->warehouse_location_priority_code = $data["warehouse_location_priority_code"];
             $this->warehouse_location_allow_item_mixing = $data["warehouse_location_allow_item_mixing"];
             $this->warehouse_location_cost = $data["warehouse_location_cost"];
-            $this->control_no = $data["control_no"];
+            $this->sku = $data["sku"];
             $this->item_vendor_sku = $data["item_vendor_sku"];
             $this->item_upc = $data["item_upc"];
             $this->item_major_group = $data["item_major_group"];
@@ -1159,6 +1192,69 @@ class InventorySnapshot implements ArrayAccess
     {
         
         $this->address = $address;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_cases
+     * @return int
+     */
+    public function getNumberOfCases()
+    {
+        return $this->number_of_cases;
+    }
+  
+    /**
+     * Sets number_of_cases
+     * @param int $number_of_cases 
+     * @return $this
+     */
+    public function setNumberOfCases($number_of_cases)
+    {
+        
+        $this->number_of_cases = $number_of_cases;
+        return $this;
+    }
+    
+    /**
+     * Gets inventory_value
+     * @return Number
+     */
+    public function getInventoryValue()
+    {
+        return $this->inventory_value;
+    }
+  
+    /**
+     * Sets inventory_value
+     * @param Number $inventory_value 
+     * @return $this
+     */
+    public function setInventoryValue($inventory_value)
+    {
+        
+        $this->inventory_value = $inventory_value;
+        return $this;
+    }
+    
+    /**
+     * Gets inventory_age_days
+     * @return int
+     */
+    public function getInventoryAgeDays()
+    {
+        return $this->inventory_age_days;
+    }
+  
+    /**
+     * Sets inventory_age_days
+     * @param int $inventory_age_days 
+     * @return $this
+     */
+    public function setInventoryAgeDays($inventory_age_days)
+    {
+        
+        $this->inventory_age_days = $inventory_age_days;
         return $this;
     }
     
@@ -1730,23 +1826,23 @@ class InventorySnapshot implements ArrayAccess
     }
     
     /**
-     * Gets control_no
+     * Gets sku
      * @return string
      */
-    public function getControlNo()
+    public function getSku()
     {
-        return $this->control_no;
+        return $this->sku;
     }
   
     /**
-     * Sets control_no
-     * @param string $control_no 
+     * Sets sku
+     * @param string $sku 
      * @return $this
      */
-    public function setControlNo($control_no)
+    public function setSku($sku)
     {
         
-        $this->control_no = $control_no;
+        $this->sku = $sku;
         return $this;
     }
     

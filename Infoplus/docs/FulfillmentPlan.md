@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **order_smart_filter_id** | **int** |  | 
 **location_smart_filter_id** | **int** |  | [optional] 
 **maximum_number_of_orders** | **int** |  | [optional] 
+**version** | **string** |  | [optional] 
 **create_pick_work** | **bool** |  | [default to false]
 **picking_rule** | **string** |  | [optional] 
 **layout_rule** | **string** |  | [optional] 

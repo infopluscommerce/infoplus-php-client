@@ -58,8 +58,10 @@ class OrderLineActivity implements ArrayAccess
         'lob_id' => 'int',
         'sku' => 'string',
         'po_no_id' => 'int',
+        'order_create_date' => '\DateTime',
+        'order_modify_date' => '\DateTime',
         'cross_dock' => 'int',
-        'process_no' => 'int',
+        'process_no_id' => 'int',
         'ordered_qty' => 'int',
         'allowed_qty' => 'int',
         'shipped_qty' => 'int',
@@ -97,6 +99,9 @@ class OrderLineActivity implements ArrayAccess
         'weight_per_wrap' => 'Number',
         'item_weight' => 'Number',
         'production_lot' => 'string',
+        'number_of_wraps' => 'int',
+        'number_of_cases' => 'int',
+        'number_of_touches' => 'int',
         'alcohol_type_id' => 'int',
         'alcohol_type_name' => 'string',
         'alcohol_content' => 'Number',
@@ -113,6 +118,103 @@ class OrderLineActivity implements ArrayAccess
         'alcohol_nabca_code' => 'string',
         'alcohol_unimerc_code' => 'string',
         'alcohol_scc_code' => 'string',
+        'alternate_usage' => 'string',
+        'group_order_id' => 'Number',
+        'order_status' => 'string',
+        'order_status_name' => 'string',
+        'carrier_id' => 'int',
+        'carrier_name' => 'string',
+        'media_code' => 'string',
+        'legacy_restriction_type' => 'string',
+        'req_type_name' => 'string',
+        'service_type_id' => 'string',
+        'service_type_name' => 'string',
+        'alcohol_order_type' => 'string',
+        'distribution_channel' => 'string',
+        'distribution_channel_name' => 'string',
+        'priority_code' => 'int',
+        'order_date' => '\DateTime',
+        'entered_by' => 'string',
+        'order_reason' => 'int',
+        'customer_order_no' => 'string',
+        'price_level' => 'string',
+        'ship_by' => '\DateTime',
+        'stop_back_orders' => 'string',
+        'order_source_id' => 'int',
+        'order_source_name' => 'string',
+        'integration_partner_id' => 'int',
+        'integration_partner_name' => 'string',
+        'order_load_program_id' => 'int',
+        'order_load_program_name' => 'string',
+        'oms_order_no' => 'int',
+        'oms_customer_id' => 'int',
+        'ship_to_attention' => 'string',
+        'ship_to_company' => 'string',
+        'ship_to_street' => 'string',
+        'ship_to_street2' => 'string',
+        'ship_to_street3' => 'string',
+        'ship_to_city' => 'string',
+        'ship_to_state' => 'string',
+        'ship_to_zip' => 'string',
+        'ship_to_country' => 'string',
+        'ship_to_phone' => 'string',
+        'ship_to_email' => 'string',
+        'bill_to_attention' => 'string',
+        'bill_to_company' => 'string',
+        'bill_to_street' => 'string',
+        'bill_to_street2' => 'string',
+        'bill_to_street3' => 'string',
+        'bill_to_city' => 'string',
+        'bill_to_state' => 'string',
+        'bill_to_zip' => 'string',
+        'bill_to_country' => 'string',
+        'bill_to_phone' => 'string',
+        'bill_to_email' => 'string',
+        'order_ship_date' => '\DateTime',
+        'freight' => 'Number',
+        'order_weight_lbs' => 'Number',
+        'order_estimated_weight_lbs' => 'Number',
+        'number_of_pallets' => 'int',
+        'number_of_line_items' => 'int',
+        'completion_status' => 'string',
+        'hold_code' => 'string',
+        'ship_code' => 'string',
+        'order_message' => 'string',
+        'division' => 'int',
+        'cost_center' => 'string',
+        'authorized_by' => 'string',
+        'batch_no' => 'string',
+        'first_ship_date' => '\DateTime',
+        'last_ship_date' => '\DateTime',
+        'deliver_on_date' => '\DateTime',
+        'customer_po_no' => 'string',
+        'ship_via' => 'string',
+        'need_by_date' => '\DateTime',
+        'total' => 'Number',
+        'balance_due' => 'Number',
+        'total_paid' => 'Number',
+        'authorization_amount' => 'Number',
+        'subtotal' => 'Number',
+        'tax_on_freight' => 'Number',
+        'tax' => 'Number',
+        'distribution_charges' => 'Number',
+        'shipping_charge' => 'Number',
+        'total_discount' => 'Number',
+        'parcel_account_id' => 'int',
+        'packing_slip_template_id' => 'int',
+        'gift_message' => 'string',
+        'branch_sector' => 'string',
+        'branch_area' => 'string',
+        'branch_customer_type' => 'string',
+        'branch_id' => 'string',
+        'order_code' => 'string',
+        'lead_package_id' => 'string',
+        'total_qty' => 'int',
+        'estimated_number_of_picks' => 'int',
+        'order_confirmation_email_template_id' => 'int',
+        'shipment_confirmation_email_template_id' => 'int',
+        'order_invoice_template_id' => 'int',
+        'price_mode' => 'string',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -132,8 +234,10 @@ class OrderLineActivity implements ArrayAccess
         'lob_id' => 'lobId',
         'sku' => 'sku',
         'po_no_id' => 'poNoId',
+        'order_create_date' => 'orderCreateDate',
+        'order_modify_date' => 'orderModifyDate',
         'cross_dock' => 'crossDock',
-        'process_no' => 'processNo',
+        'process_no_id' => 'processNoId',
         'ordered_qty' => 'orderedQty',
         'allowed_qty' => 'allowedQty',
         'shipped_qty' => 'shippedQty',
@@ -171,6 +275,9 @@ class OrderLineActivity implements ArrayAccess
         'weight_per_wrap' => 'weightPerWrap',
         'item_weight' => 'itemWeight',
         'production_lot' => 'productionLot',
+        'number_of_wraps' => 'numberOfWraps',
+        'number_of_cases' => 'numberOfCases',
+        'number_of_touches' => 'numberOfTouches',
         'alcohol_type_id' => 'alcoholTypeId',
         'alcohol_type_name' => 'alcoholTypeName',
         'alcohol_content' => 'alcoholContent',
@@ -187,6 +294,103 @@ class OrderLineActivity implements ArrayAccess
         'alcohol_nabca_code' => 'alcoholNABCACode',
         'alcohol_unimerc_code' => 'alcoholUNIMERCCode',
         'alcohol_scc_code' => 'alcoholSCCCode',
+        'alternate_usage' => 'alternateUsage',
+        'group_order_id' => 'groupOrderId',
+        'order_status' => 'orderStatus',
+        'order_status_name' => 'orderStatusName',
+        'carrier_id' => 'carrierId',
+        'carrier_name' => 'carrierName',
+        'media_code' => 'mediaCode',
+        'legacy_restriction_type' => 'legacyRestrictionType',
+        'req_type_name' => 'reqTypeName',
+        'service_type_id' => 'serviceTypeId',
+        'service_type_name' => 'serviceTypeName',
+        'alcohol_order_type' => 'alcoholOrderType',
+        'distribution_channel' => 'distributionChannel',
+        'distribution_channel_name' => 'distributionChannelName',
+        'priority_code' => 'priorityCode',
+        'order_date' => 'orderDate',
+        'entered_by' => 'enteredBy',
+        'order_reason' => 'orderReason',
+        'customer_order_no' => 'customerOrderNo',
+        'price_level' => 'priceLevel',
+        'ship_by' => 'shipBy',
+        'stop_back_orders' => 'stopBackOrders',
+        'order_source_id' => 'orderSourceId',
+        'order_source_name' => 'orderSourceName',
+        'integration_partner_id' => 'integrationPartnerId',
+        'integration_partner_name' => 'integrationPartnerName',
+        'order_load_program_id' => 'orderLoadProgramId',
+        'order_load_program_name' => 'orderLoadProgramName',
+        'oms_order_no' => 'omsOrderNo',
+        'oms_customer_id' => 'omsCustomerId',
+        'ship_to_attention' => 'shipToAttention',
+        'ship_to_company' => 'shipToCompany',
+        'ship_to_street' => 'shipToStreet',
+        'ship_to_street2' => 'shipToStreet2',
+        'ship_to_street3' => 'shipToStreet3',
+        'ship_to_city' => 'shipToCity',
+        'ship_to_state' => 'shipToState',
+        'ship_to_zip' => 'shipToZip',
+        'ship_to_country' => 'shipToCountry',
+        'ship_to_phone' => 'shipToPhone',
+        'ship_to_email' => 'shipToEmail',
+        'bill_to_attention' => 'billToAttention',
+        'bill_to_company' => 'billToCompany',
+        'bill_to_street' => 'billToStreet',
+        'bill_to_street2' => 'billToStreet2',
+        'bill_to_street3' => 'billToStreet3',
+        'bill_to_city' => 'billToCity',
+        'bill_to_state' => 'billToState',
+        'bill_to_zip' => 'billToZip',
+        'bill_to_country' => 'billToCountry',
+        'bill_to_phone' => 'billToPhone',
+        'bill_to_email' => 'billToEmail',
+        'order_ship_date' => 'orderShipDate',
+        'freight' => 'freight',
+        'order_weight_lbs' => 'orderWeightLbs',
+        'order_estimated_weight_lbs' => 'orderEstimatedWeightLbs',
+        'number_of_pallets' => 'numberOfPallets',
+        'number_of_line_items' => 'numberOfLineItems',
+        'completion_status' => 'completionStatus',
+        'hold_code' => 'holdCode',
+        'ship_code' => 'shipCode',
+        'order_message' => 'orderMessage',
+        'division' => 'division',
+        'cost_center' => 'costCenter',
+        'authorized_by' => 'authorizedBy',
+        'batch_no' => 'batchNo',
+        'first_ship_date' => 'firstShipDate',
+        'last_ship_date' => 'lastShipDate',
+        'deliver_on_date' => 'deliverOnDate',
+        'customer_po_no' => 'customerPONo',
+        'ship_via' => 'shipVia',
+        'need_by_date' => 'needByDate',
+        'total' => 'total',
+        'balance_due' => 'balanceDue',
+        'total_paid' => 'totalPaid',
+        'authorization_amount' => 'authorizationAmount',
+        'subtotal' => 'subtotal',
+        'tax_on_freight' => 'taxOnFreight',
+        'tax' => 'tax',
+        'distribution_charges' => 'distributionCharges',
+        'shipping_charge' => 'shippingCharge',
+        'total_discount' => 'totalDiscount',
+        'parcel_account_id' => 'parcelAccountId',
+        'packing_slip_template_id' => 'packingSlipTemplateId',
+        'gift_message' => 'giftMessage',
+        'branch_sector' => 'branchSector',
+        'branch_area' => 'branchArea',
+        'branch_customer_type' => 'branchCustomerType',
+        'branch_id' => 'branchId',
+        'order_code' => 'orderCode',
+        'lead_package_id' => 'leadPackageId',
+        'total_qty' => 'totalQty',
+        'estimated_number_of_picks' => 'estimatedNumberOfPicks',
+        'order_confirmation_email_template_id' => 'orderConfirmationEmailTemplateId',
+        'shipment_confirmation_email_template_id' => 'shipmentConfirmationEmailTemplateId',
+        'order_invoice_template_id' => 'orderInvoiceTemplateId',
+        'price_mode' => 'priceMode',
         'custom_fields' => 'customFields'
     );
   
@@ -206,8 +410,10 @@ class OrderLineActivity implements ArrayAccess
         'lob_id' => 'setLobId',
         'sku' => 'setSku',
         'po_no_id' => 'setPoNoId',
+        'order_create_date' => 'setOrderCreateDate',
+        'order_modify_date' => 'setOrderModifyDate',
         'cross_dock' => 'setCrossDock',
-        'process_no' => 'setProcessNo',
+        'process_no_id' => 'setProcessNoId',
         'ordered_qty' => 'setOrderedQty',
         'allowed_qty' => 'setAllowedQty',
         'shipped_qty' => 'setShippedQty',
@@ -245,6 +451,9 @@ class OrderLineActivity implements ArrayAccess
         'weight_per_wrap' => 'setWeightPerWrap',
         'item_weight' => 'setItemWeight',
         'production_lot' => 'setProductionLot',
+        'number_of_wraps' => 'setNumberOfWraps',
+        'number_of_cases' => 'setNumberOfCases',
+        'number_of_touches' => 'setNumberOfTouches',
         'alcohol_type_id' => 'setAlcoholTypeId',
         'alcohol_type_name' => 'setAlcoholTypeName',
         'alcohol_content' => 'setAlcoholContent',
@@ -261,6 +470,103 @@ class OrderLineActivity implements ArrayAccess
         'alcohol_nabca_code' => 'setAlcoholNabcaCode',
         'alcohol_unimerc_code' => 'setAlcoholUnimercCode',
         'alcohol_scc_code' => 'setAlcoholSccCode',
+        'alternate_usage' => 'setAlternateUsage',
+        'group_order_id' => 'setGroupOrderId',
+        'order_status' => 'setOrderStatus',
+        'order_status_name' => 'setOrderStatusName',
+        'carrier_id' => 'setCarrierId',
+        'carrier_name' => 'setCarrierName',
+        'media_code' => 'setMediaCode',
+        'legacy_restriction_type' => 'setLegacyRestrictionType',
+        'req_type_name' => 'setReqTypeName',
+        'service_type_id' => 'setServiceTypeId',
+        'service_type_name' => 'setServiceTypeName',
+        'alcohol_order_type' => 'setAlcoholOrderType',
+        'distribution_channel' => 'setDistributionChannel',
+        'distribution_channel_name' => 'setDistributionChannelName',
+        'priority_code' => 'setPriorityCode',
+        'order_date' => 'setOrderDate',
+        'entered_by' => 'setEnteredBy',
+        'order_reason' => 'setOrderReason',
+        'customer_order_no' => 'setCustomerOrderNo',
+        'price_level' => 'setPriceLevel',
+        'ship_by' => 'setShipBy',
+        'stop_back_orders' => 'setStopBackOrders',
+        'order_source_id' => 'setOrderSourceId',
+        'order_source_name' => 'setOrderSourceName',
+        'integration_partner_id' => 'setIntegrationPartnerId',
+        'integration_partner_name' => 'setIntegrationPartnerName',
+        'order_load_program_id' => 'setOrderLoadProgramId',
+        'order_load_program_name' => 'setOrderLoadProgramName',
+        'oms_order_no' => 'setOmsOrderNo',
+        'oms_customer_id' => 'setOmsCustomerId',
+        'ship_to_attention' => 'setShipToAttention',
+        'ship_to_company' => 'setShipToCompany',
+        'ship_to_street' => 'setShipToStreet',
+        'ship_to_street2' => 'setShipToStreet2',
+        'ship_to_street3' => 'setShipToStreet3',
+        'ship_to_city' => 'setShipToCity',
+        'ship_to_state' => 'setShipToState',
+        'ship_to_zip' => 'setShipToZip',
+        'ship_to_country' => 'setShipToCountry',
+        'ship_to_phone' => 'setShipToPhone',
+        'ship_to_email' => 'setShipToEmail',
+        'bill_to_attention' => 'setBillToAttention',
+        'bill_to_company' => 'setBillToCompany',
+        'bill_to_street' => 'setBillToStreet',
+        'bill_to_street2' => 'setBillToStreet2',
+        'bill_to_street3' => 'setBillToStreet3',
+        'bill_to_city' => 'setBillToCity',
+        'bill_to_state' => 'setBillToState',
+        'bill_to_zip' => 'setBillToZip',
+        'bill_to_country' => 'setBillToCountry',
+        'bill_to_phone' => 'setBillToPhone',
+        'bill_to_email' => 'setBillToEmail',
+        'order_ship_date' => 'setOrderShipDate',
+        'freight' => 'setFreight',
+        'order_weight_lbs' => 'setOrderWeightLbs',
+        'order_estimated_weight_lbs' => 'setOrderEstimatedWeightLbs',
+        'number_of_pallets' => 'setNumberOfPallets',
+        'number_of_line_items' => 'setNumberOfLineItems',
+        'completion_status' => 'setCompletionStatus',
+        'hold_code' => 'setHoldCode',
+        'ship_code' => 'setShipCode',
+        'order_message' => 'setOrderMessage',
+        'division' => 'setDivision',
+        'cost_center' => 'setCostCenter',
+        'authorized_by' => 'setAuthorizedBy',
+        'batch_no' => 'setBatchNo',
+        'first_ship_date' => 'setFirstShipDate',
+        'last_ship_date' => 'setLastShipDate',
+        'deliver_on_date' => 'setDeliverOnDate',
+        'customer_po_no' => 'setCustomerPoNo',
+        'ship_via' => 'setShipVia',
+        'need_by_date' => 'setNeedByDate',
+        'total' => 'setTotal',
+        'balance_due' => 'setBalanceDue',
+        'total_paid' => 'setTotalPaid',
+        'authorization_amount' => 'setAuthorizationAmount',
+        'subtotal' => 'setSubtotal',
+        'tax_on_freight' => 'setTaxOnFreight',
+        'tax' => 'setTax',
+        'distribution_charges' => 'setDistributionCharges',
+        'shipping_charge' => 'setShippingCharge',
+        'total_discount' => 'setTotalDiscount',
+        'parcel_account_id' => 'setParcelAccountId',
+        'packing_slip_template_id' => 'setPackingSlipTemplateId',
+        'gift_message' => 'setGiftMessage',
+        'branch_sector' => 'setBranchSector',
+        'branch_area' => 'setBranchArea',
+        'branch_customer_type' => 'setBranchCustomerType',
+        'branch_id' => 'setBranchId',
+        'order_code' => 'setOrderCode',
+        'lead_package_id' => 'setLeadPackageId',
+        'total_qty' => 'setTotalQty',
+        'estimated_number_of_picks' => 'setEstimatedNumberOfPicks',
+        'order_confirmation_email_template_id' => 'setOrderConfirmationEmailTemplateId',
+        'shipment_confirmation_email_template_id' => 'setShipmentConfirmationEmailTemplateId',
+        'order_invoice_template_id' => 'setOrderInvoiceTemplateId',
+        'price_mode' => 'setPriceMode',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -280,8 +586,10 @@ class OrderLineActivity implements ArrayAccess
         'lob_id' => 'getLobId',
         'sku' => 'getSku',
         'po_no_id' => 'getPoNoId',
+        'order_create_date' => 'getOrderCreateDate',
+        'order_modify_date' => 'getOrderModifyDate',
         'cross_dock' => 'getCrossDock',
-        'process_no' => 'getProcessNo',
+        'process_no_id' => 'getProcessNoId',
         'ordered_qty' => 'getOrderedQty',
         'allowed_qty' => 'getAllowedQty',
         'shipped_qty' => 'getShippedQty',
@@ -319,6 +627,9 @@ class OrderLineActivity implements ArrayAccess
         'weight_per_wrap' => 'getWeightPerWrap',
         'item_weight' => 'getItemWeight',
         'production_lot' => 'getProductionLot',
+        'number_of_wraps' => 'getNumberOfWraps',
+        'number_of_cases' => 'getNumberOfCases',
+        'number_of_touches' => 'getNumberOfTouches',
         'alcohol_type_id' => 'getAlcoholTypeId',
         'alcohol_type_name' => 'getAlcoholTypeName',
         'alcohol_content' => 'getAlcoholContent',
@@ -335,6 +646,103 @@ class OrderLineActivity implements ArrayAccess
         'alcohol_nabca_code' => 'getAlcoholNabcaCode',
         'alcohol_unimerc_code' => 'getAlcoholUnimercCode',
         'alcohol_scc_code' => 'getAlcoholSccCode',
+        'alternate_usage' => 'getAlternateUsage',
+        'group_order_id' => 'getGroupOrderId',
+        'order_status' => 'getOrderStatus',
+        'order_status_name' => 'getOrderStatusName',
+        'carrier_id' => 'getCarrierId',
+        'carrier_name' => 'getCarrierName',
+        'media_code' => 'getMediaCode',
+        'legacy_restriction_type' => 'getLegacyRestrictionType',
+        'req_type_name' => 'getReqTypeName',
+        'service_type_id' => 'getServiceTypeId',
+        'service_type_name' => 'getServiceTypeName',
+        'alcohol_order_type' => 'getAlcoholOrderType',
+        'distribution_channel' => 'getDistributionChannel',
+        'distribution_channel_name' => 'getDistributionChannelName',
+        'priority_code' => 'getPriorityCode',
+        'order_date' => 'getOrderDate',
+        'entered_by' => 'getEnteredBy',
+        'order_reason' => 'getOrderReason',
+        'customer_order_no' => 'getCustomerOrderNo',
+        'price_level' => 'getPriceLevel',
+        'ship_by' => 'getShipBy',
+        'stop_back_orders' => 'getStopBackOrders',
+        'order_source_id' => 'getOrderSourceId',
+        'order_source_name' => 'getOrderSourceName',
+        'integration_partner_id' => 'getIntegrationPartnerId',
+        'integration_partner_name' => 'getIntegrationPartnerName',
+        'order_load_program_id' => 'getOrderLoadProgramId',
+        'order_load_program_name' => 'getOrderLoadProgramName',
+        'oms_order_no' => 'getOmsOrderNo',
+        'oms_customer_id' => 'getOmsCustomerId',
+        'ship_to_attention' => 'getShipToAttention',
+        'ship_to_company' => 'getShipToCompany',
+        'ship_to_street' => 'getShipToStreet',
+        'ship_to_street2' => 'getShipToStreet2',
+        'ship_to_street3' => 'getShipToStreet3',
+        'ship_to_city' => 'getShipToCity',
+        'ship_to_state' => 'getShipToState',
+        'ship_to_zip' => 'getShipToZip',
+        'ship_to_country' => 'getShipToCountry',
+        'ship_to_phone' => 'getShipToPhone',
+        'ship_to_email' => 'getShipToEmail',
+        'bill_to_attention' => 'getBillToAttention',
+        'bill_to_company' => 'getBillToCompany',
+        'bill_to_street' => 'getBillToStreet',
+        'bill_to_street2' => 'getBillToStreet2',
+        'bill_to_street3' => 'getBillToStreet3',
+        'bill_to_city' => 'getBillToCity',
+        'bill_to_state' => 'getBillToState',
+        'bill_to_zip' => 'getBillToZip',
+        'bill_to_country' => 'getBillToCountry',
+        'bill_to_phone' => 'getBillToPhone',
+        'bill_to_email' => 'getBillToEmail',
+        'order_ship_date' => 'getOrderShipDate',
+        'freight' => 'getFreight',
+        'order_weight_lbs' => 'getOrderWeightLbs',
+        'order_estimated_weight_lbs' => 'getOrderEstimatedWeightLbs',
+        'number_of_pallets' => 'getNumberOfPallets',
+        'number_of_line_items' => 'getNumberOfLineItems',
+        'completion_status' => 'getCompletionStatus',
+        'hold_code' => 'getHoldCode',
+        'ship_code' => 'getShipCode',
+        'order_message' => 'getOrderMessage',
+        'division' => 'getDivision',
+        'cost_center' => 'getCostCenter',
+        'authorized_by' => 'getAuthorizedBy',
+        'batch_no' => 'getBatchNo',
+        'first_ship_date' => 'getFirstShipDate',
+        'last_ship_date' => 'getLastShipDate',
+        'deliver_on_date' => 'getDeliverOnDate',
+        'customer_po_no' => 'getCustomerPoNo',
+        'ship_via' => 'getShipVia',
+        'need_by_date' => 'getNeedByDate',
+        'total' => 'getTotal',
+        'balance_due' => 'getBalanceDue',
+        'total_paid' => 'getTotalPaid',
+        'authorization_amount' => 'getAuthorizationAmount',
+        'subtotal' => 'getSubtotal',
+        'tax_on_freight' => 'getTaxOnFreight',
+        'tax' => 'getTax',
+        'distribution_charges' => 'getDistributionCharges',
+        'shipping_charge' => 'getShippingCharge',
+        'total_discount' => 'getTotalDiscount',
+        'parcel_account_id' => 'getParcelAccountId',
+        'packing_slip_template_id' => 'getPackingSlipTemplateId',
+        'gift_message' => 'getGiftMessage',
+        'branch_sector' => 'getBranchSector',
+        'branch_area' => 'getBranchArea',
+        'branch_customer_type' => 'getBranchCustomerType',
+        'branch_id' => 'getBranchId',
+        'order_code' => 'getOrderCode',
+        'lead_package_id' => 'getLeadPackageId',
+        'total_qty' => 'getTotalQty',
+        'estimated_number_of_picks' => 'getEstimatedNumberOfPicks',
+        'order_confirmation_email_template_id' => 'getOrderConfirmationEmailTemplateId',
+        'shipment_confirmation_email_template_id' => 'getShipmentConfirmationEmailTemplateId',
+        'order_invoice_template_id' => 'getOrderInvoiceTemplateId',
+        'price_mode' => 'getPriceMode',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -386,16 +794,28 @@ class OrderLineActivity implements ArrayAccess
     protected $po_no_id;
     
     /**
+      * $order_create_date 
+      * @var \DateTime
+      */
+    protected $order_create_date;
+    
+    /**
+      * $order_modify_date 
+      * @var \DateTime
+      */
+    protected $order_modify_date;
+    
+    /**
       * $cross_dock 
       * @var int
       */
     protected $cross_dock;
     
     /**
-      * $process_no 
+      * $process_no_id 
       * @var int
       */
-    protected $process_no;
+    protected $process_no_id;
     
     /**
       * $ordered_qty 
@@ -620,6 +1040,24 @@ class OrderLineActivity implements ArrayAccess
     protected $production_lot;
     
     /**
+      * $number_of_wraps 
+      * @var int
+      */
+    protected $number_of_wraps;
+    
+    /**
+      * $number_of_cases 
+      * @var int
+      */
+    protected $number_of_cases;
+    
+    /**
+      * $number_of_touches 
+      * @var int
+      */
+    protected $number_of_touches;
+    
+    /**
       * $alcohol_type_id 
       * @var int
       */
@@ -716,6 +1154,588 @@ class OrderLineActivity implements ArrayAccess
     protected $alcohol_scc_code;
     
     /**
+      * $alternate_usage 
+      * @var string
+      */
+    protected $alternate_usage;
+    
+    /**
+      * $group_order_id 
+      * @var Number
+      */
+    protected $group_order_id;
+    
+    /**
+      * $order_status 
+      * @var string
+      */
+    protected $order_status;
+    
+    /**
+      * $order_status_name 
+      * @var string
+      */
+    protected $order_status_name;
+    
+    /**
+      * $carrier_id 
+      * @var int
+      */
+    protected $carrier_id;
+    
+    /**
+      * $carrier_name 
+      * @var string
+      */
+    protected $carrier_name;
+    
+    /**
+      * $media_code 
+      * @var string
+      */
+    protected $media_code;
+    
+    /**
+      * $legacy_restriction_type 
+      * @var string
+      */
+    protected $legacy_restriction_type;
+    
+    /**
+      * $req_type_name 
+      * @var string
+      */
+    protected $req_type_name;
+    
+    /**
+      * $service_type_id 
+      * @var string
+      */
+    protected $service_type_id;
+    
+    /**
+      * $service_type_name 
+      * @var string
+      */
+    protected $service_type_name;
+    
+    /**
+      * $alcohol_order_type 
+      * @var string
+      */
+    protected $alcohol_order_type;
+    
+    /**
+      * $distribution_channel 
+      * @var string
+      */
+    protected $distribution_channel;
+    
+    /**
+      * $distribution_channel_name 
+      * @var string
+      */
+    protected $distribution_channel_name;
+    
+    /**
+      * $priority_code 
+      * @var int
+      */
+    protected $priority_code;
+    
+    /**
+      * $order_date 
+      * @var \DateTime
+      */
+    protected $order_date;
+    
+    /**
+      * $entered_by 
+      * @var string
+      */
+    protected $entered_by;
+    
+    /**
+      * $order_reason 
+      * @var int
+      */
+    protected $order_reason;
+    
+    /**
+      * $customer_order_no 
+      * @var string
+      */
+    protected $customer_order_no;
+    
+    /**
+      * $price_level 
+      * @var string
+      */
+    protected $price_level;
+    
+    /**
+      * $ship_by 
+      * @var \DateTime
+      */
+    protected $ship_by;
+    
+    /**
+      * $stop_back_orders 
+      * @var string
+      */
+    protected $stop_back_orders;
+    
+    /**
+      * $order_source_id 
+      * @var int
+      */
+    protected $order_source_id;
+    
+    /**
+      * $order_source_name 
+      * @var string
+      */
+    protected $order_source_name;
+    
+    /**
+      * $integration_partner_id 
+      * @var int
+      */
+    protected $integration_partner_id;
+    
+    /**
+      * $integration_partner_name 
+      * @var string
+      */
+    protected $integration_partner_name;
+    
+    /**
+      * $order_load_program_id 
+      * @var int
+      */
+    protected $order_load_program_id;
+    
+    /**
+      * $order_load_program_name 
+      * @var string
+      */
+    protected $order_load_program_name;
+    
+    /**
+      * $oms_order_no 
+      * @var int
+      */
+    protected $oms_order_no;
+    
+    /**
+      * $oms_customer_id 
+      * @var int
+      */
+    protected $oms_customer_id;
+    
+    /**
+      * $ship_to_attention 
+      * @var string
+      */
+    protected $ship_to_attention;
+    
+    /**
+      * $ship_to_company 
+      * @var string
+      */
+    protected $ship_to_company;
+    
+    /**
+      * $ship_to_street 
+      * @var string
+      */
+    protected $ship_to_street;
+    
+    /**
+      * $ship_to_street2 
+      * @var string
+      */
+    protected $ship_to_street2;
+    
+    /**
+      * $ship_to_street3 
+      * @var string
+      */
+    protected $ship_to_street3;
+    
+    /**
+      * $ship_to_city 
+      * @var string
+      */
+    protected $ship_to_city;
+    
+    /**
+      * $ship_to_state 
+      * @var string
+      */
+    protected $ship_to_state;
+    
+    /**
+      * $ship_to_zip 
+      * @var string
+      */
+    protected $ship_to_zip;
+    
+    /**
+      * $ship_to_country 
+      * @var string
+      */
+    protected $ship_to_country;
+    
+    /**
+      * $ship_to_phone 
+      * @var string
+      */
+    protected $ship_to_phone;
+    
+    /**
+      * $ship_to_email 
+      * @var string
+      */
+    protected $ship_to_email;
+    
+    /**
+      * $bill_to_attention 
+      * @var string
+      */
+    protected $bill_to_attention;
+    
+    /**
+      * $bill_to_company 
+      * @var string
+      */
+    protected $bill_to_company;
+    
+    /**
+      * $bill_to_street 
+      * @var string
+      */
+    protected $bill_to_street;
+    
+    /**
+      * $bill_to_street2 
+      * @var string
+      */
+    protected $bill_to_street2;
+    
+    /**
+      * $bill_to_street3 
+      * @var string
+      */
+    protected $bill_to_street3;
+    
+    /**
+      * $bill_to_city 
+      * @var string
+      */
+    protected $bill_to_city;
+    
+    /**
+      * $bill_to_state 
+      * @var string
+      */
+    protected $bill_to_state;
+    
+    /**
+      * $bill_to_zip 
+      * @var string
+      */
+    protected $bill_to_zip;
+    
+    /**
+      * $bill_to_country 
+      * @var string
+      */
+    protected $bill_to_country;
+    
+    /**
+      * $bill_to_phone 
+      * @var string
+      */
+    protected $bill_to_phone;
+    
+    /**
+      * $bill_to_email 
+      * @var string
+      */
+    protected $bill_to_email;
+    
+    /**
+      * $order_ship_date 
+      * @var \DateTime
+      */
+    protected $order_ship_date;
+    
+    /**
+      * $freight 
+      * @var Number
+      */
+    protected $freight;
+    
+    /**
+      * $order_weight_lbs 
+      * @var Number
+      */
+    protected $order_weight_lbs;
+    
+    /**
+      * $order_estimated_weight_lbs 
+      * @var Number
+      */
+    protected $order_estimated_weight_lbs;
+    
+    /**
+      * $number_of_pallets 
+      * @var int
+      */
+    protected $number_of_pallets;
+    
+    /**
+      * $number_of_line_items 
+      * @var int
+      */
+    protected $number_of_line_items;
+    
+    /**
+      * $completion_status 
+      * @var string
+      */
+    protected $completion_status;
+    
+    /**
+      * $hold_code 
+      * @var string
+      */
+    protected $hold_code;
+    
+    /**
+      * $ship_code 
+      * @var string
+      */
+    protected $ship_code;
+    
+    /**
+      * $order_message 
+      * @var string
+      */
+    protected $order_message;
+    
+    /**
+      * $division 
+      * @var int
+      */
+    protected $division;
+    
+    /**
+      * $cost_center 
+      * @var string
+      */
+    protected $cost_center;
+    
+    /**
+      * $authorized_by 
+      * @var string
+      */
+    protected $authorized_by;
+    
+    /**
+      * $batch_no 
+      * @var string
+      */
+    protected $batch_no;
+    
+    /**
+      * $first_ship_date 
+      * @var \DateTime
+      */
+    protected $first_ship_date;
+    
+    /**
+      * $last_ship_date 
+      * @var \DateTime
+      */
+    protected $last_ship_date;
+    
+    /**
+      * $deliver_on_date 
+      * @var \DateTime
+      */
+    protected $deliver_on_date;
+    
+    /**
+      * $customer_po_no 
+      * @var string
+      */
+    protected $customer_po_no;
+    
+    /**
+      * $ship_via 
+      * @var string
+      */
+    protected $ship_via;
+    
+    /**
+      * $need_by_date 
+      * @var \DateTime
+      */
+    protected $need_by_date;
+    
+    /**
+      * $total 
+      * @var Number
+      */
+    protected $total;
+    
+    /**
+      * $balance_due 
+      * @var Number
+      */
+    protected $balance_due;
+    
+    /**
+      * $total_paid 
+      * @var Number
+      */
+    protected $total_paid;
+    
+    /**
+      * $authorization_amount 
+      * @var Number
+      */
+    protected $authorization_amount;
+    
+    /**
+      * $subtotal 
+      * @var Number
+      */
+    protected $subtotal;
+    
+    /**
+      * $tax_on_freight 
+      * @var Number
+      */
+    protected $tax_on_freight;
+    
+    /**
+      * $tax 
+      * @var Number
+      */
+    protected $tax;
+    
+    /**
+      * $distribution_charges 
+      * @var Number
+      */
+    protected $distribution_charges;
+    
+    /**
+      * $shipping_charge 
+      * @var Number
+      */
+    protected $shipping_charge;
+    
+    /**
+      * $total_discount 
+      * @var Number
+      */
+    protected $total_discount;
+    
+    /**
+      * $parcel_account_id 
+      * @var int
+      */
+    protected $parcel_account_id;
+    
+    /**
+      * $packing_slip_template_id 
+      * @var int
+      */
+    protected $packing_slip_template_id;
+    
+    /**
+      * $gift_message 
+      * @var string
+      */
+    protected $gift_message;
+    
+    /**
+      * $branch_sector 
+      * @var string
+      */
+    protected $branch_sector;
+    
+    /**
+      * $branch_area 
+      * @var string
+      */
+    protected $branch_area;
+    
+    /**
+      * $branch_customer_type 
+      * @var string
+      */
+    protected $branch_customer_type;
+    
+    /**
+      * $branch_id 
+      * @var string
+      */
+    protected $branch_id;
+    
+    /**
+      * $order_code 
+      * @var string
+      */
+    protected $order_code;
+    
+    /**
+      * $lead_package_id 
+      * @var string
+      */
+    protected $lead_package_id;
+    
+    /**
+      * $total_qty 
+      * @var int
+      */
+    protected $total_qty;
+    
+    /**
+      * $estimated_number_of_picks 
+      * @var int
+      */
+    protected $estimated_number_of_picks;
+    
+    /**
+      * $order_confirmation_email_template_id 
+      * @var int
+      */
+    protected $order_confirmation_email_template_id;
+    
+    /**
+      * $shipment_confirmation_email_template_id 
+      * @var int
+      */
+    protected $shipment_confirmation_email_template_id;
+    
+    /**
+      * $order_invoice_template_id 
+      * @var int
+      */
+    protected $order_invoice_template_id;
+    
+    /**
+      * $price_mode 
+      * @var string
+      */
+    protected $price_mode;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -737,8 +1757,10 @@ class OrderLineActivity implements ArrayAccess
             $this->lob_id = $data["lob_id"];
             $this->sku = $data["sku"];
             $this->po_no_id = $data["po_no_id"];
+            $this->order_create_date = $data["order_create_date"];
+            $this->order_modify_date = $data["order_modify_date"];
             $this->cross_dock = $data["cross_dock"];
-            $this->process_no = $data["process_no"];
+            $this->process_no_id = $data["process_no_id"];
             $this->ordered_qty = $data["ordered_qty"];
             $this->allowed_qty = $data["allowed_qty"];
             $this->shipped_qty = $data["shipped_qty"];
@@ -776,6 +1798,9 @@ class OrderLineActivity implements ArrayAccess
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->item_weight = $data["item_weight"];
             $this->production_lot = $data["production_lot"];
+            $this->number_of_wraps = $data["number_of_wraps"];
+            $this->number_of_cases = $data["number_of_cases"];
+            $this->number_of_touches = $data["number_of_touches"];
             $this->alcohol_type_id = $data["alcohol_type_id"];
             $this->alcohol_type_name = $data["alcohol_type_name"];
             $this->alcohol_content = $data["alcohol_content"];
@@ -792,6 +1817,103 @@ class OrderLineActivity implements ArrayAccess
             $this->alcohol_nabca_code = $data["alcohol_nabca_code"];
             $this->alcohol_unimerc_code = $data["alcohol_unimerc_code"];
             $this->alcohol_scc_code = $data["alcohol_scc_code"];
+            $this->alternate_usage = $data["alternate_usage"];
+            $this->group_order_id = $data["group_order_id"];
+            $this->order_status = $data["order_status"];
+            $this->order_status_name = $data["order_status_name"];
+            $this->carrier_id = $data["carrier_id"];
+            $this->carrier_name = $data["carrier_name"];
+            $this->media_code = $data["media_code"];
+            $this->legacy_restriction_type = $data["legacy_restriction_type"];
+            $this->req_type_name = $data["req_type_name"];
+            $this->service_type_id = $data["service_type_id"];
+            $this->service_type_name = $data["service_type_name"];
+            $this->alcohol_order_type = $data["alcohol_order_type"];
+            $this->distribution_channel = $data["distribution_channel"];
+            $this->distribution_channel_name = $data["distribution_channel_name"];
+            $this->priority_code = $data["priority_code"];
+            $this->order_date = $data["order_date"];
+            $this->entered_by = $data["entered_by"];
+            $this->order_reason = $data["order_reason"];
+            $this->customer_order_no = $data["customer_order_no"];
+            $this->price_level = $data["price_level"];
+            $this->ship_by = $data["ship_by"];
+            $this->stop_back_orders = $data["stop_back_orders"];
+            $this->order_source_id = $data["order_source_id"];
+            $this->order_source_name = $data["order_source_name"];
+            $this->integration_partner_id = $data["integration_partner_id"];
+            $this->integration_partner_name = $data["integration_partner_name"];
+            $this->order_load_program_id = $data["order_load_program_id"];
+            $this->order_load_program_name = $data["order_load_program_name"];
+            $this->oms_order_no = $data["oms_order_no"];
+            $this->oms_customer_id = $data["oms_customer_id"];
+            $this->ship_to_attention = $data["ship_to_attention"];
+            $this->ship_to_company = $data["ship_to_company"];
+            $this->ship_to_street = $data["ship_to_street"];
+            $this->ship_to_street2 = $data["ship_to_street2"];
+            $this->ship_to_street3 = $data["ship_to_street3"];
+            $this->ship_to_city = $data["ship_to_city"];
+            $this->ship_to_state = $data["ship_to_state"];
+            $this->ship_to_zip = $data["ship_to_zip"];
+            $this->ship_to_country = $data["ship_to_country"];
+            $this->ship_to_phone = $data["ship_to_phone"];
+            $this->ship_to_email = $data["ship_to_email"];
+            $this->bill_to_attention = $data["bill_to_attention"];
+            $this->bill_to_company = $data["bill_to_company"];
+            $this->bill_to_street = $data["bill_to_street"];
+            $this->bill_to_street2 = $data["bill_to_street2"];
+            $this->bill_to_street3 = $data["bill_to_street3"];
+            $this->bill_to_city = $data["bill_to_city"];
+            $this->bill_to_state = $data["bill_to_state"];
+            $this->bill_to_zip = $data["bill_to_zip"];
+            $this->bill_to_country = $data["bill_to_country"];
+            $this->bill_to_phone = $data["bill_to_phone"];
+            $this->bill_to_email = $data["bill_to_email"];
+            $this->order_ship_date = $data["order_ship_date"];
+            $this->freight = $data["freight"];
+            $this->order_weight_lbs = $data["order_weight_lbs"];
+            $this->order_estimated_weight_lbs = $data["order_estimated_weight_lbs"];
+            $this->number_of_pallets = $data["number_of_pallets"];
+            $this->number_of_line_items = $data["number_of_line_items"];
+            $this->completion_status = $data["completion_status"];
+            $this->hold_code = $data["hold_code"];
+            $this->ship_code = $data["ship_code"];
+            $this->order_message = $data["order_message"];
+            $this->division = $data["division"];
+            $this->cost_center = $data["cost_center"];
+            $this->authorized_by = $data["authorized_by"];
+            $this->batch_no = $data["batch_no"];
+            $this->first_ship_date = $data["first_ship_date"];
+            $this->last_ship_date = $data["last_ship_date"];
+            $this->deliver_on_date = $data["deliver_on_date"];
+            $this->customer_po_no = $data["customer_po_no"];
+            $this->ship_via = $data["ship_via"];
+            $this->need_by_date = $data["need_by_date"];
+            $this->total = $data["total"];
+            $this->balance_due = $data["balance_due"];
+            $this->total_paid = $data["total_paid"];
+            $this->authorization_amount = $data["authorization_amount"];
+            $this->subtotal = $data["subtotal"];
+            $this->tax_on_freight = $data["tax_on_freight"];
+            $this->tax = $data["tax"];
+            $this->distribution_charges = $data["distribution_charges"];
+            $this->shipping_charge = $data["shipping_charge"];
+            $this->total_discount = $data["total_discount"];
+            $this->parcel_account_id = $data["parcel_account_id"];
+            $this->packing_slip_template_id = $data["packing_slip_template_id"];
+            $this->gift_message = $data["gift_message"];
+            $this->branch_sector = $data["branch_sector"];
+            $this->branch_area = $data["branch_area"];
+            $this->branch_customer_type = $data["branch_customer_type"];
+            $this->branch_id = $data["branch_id"];
+            $this->order_code = $data["order_code"];
+            $this->lead_package_id = $data["lead_package_id"];
+            $this->total_qty = $data["total_qty"];
+            $this->estimated_number_of_picks = $data["estimated_number_of_picks"];
+            $this->order_confirmation_email_template_id = $data["order_confirmation_email_template_id"];
+            $this->shipment_confirmation_email_template_id = $data["shipment_confirmation_email_template_id"];
+            $this->order_invoice_template_id = $data["order_invoice_template_id"];
+            $this->price_mode = $data["price_mode"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -944,6 +2066,48 @@ class OrderLineActivity implements ArrayAccess
     }
     
     /**
+     * Gets order_create_date
+     * @return \DateTime
+     */
+    public function getOrderCreateDate()
+    {
+        return $this->order_create_date;
+    }
+  
+    /**
+     * Sets order_create_date
+     * @param \DateTime $order_create_date 
+     * @return $this
+     */
+    public function setOrderCreateDate($order_create_date)
+    {
+        
+        $this->order_create_date = $order_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets order_modify_date
+     * @return \DateTime
+     */
+    public function getOrderModifyDate()
+    {
+        return $this->order_modify_date;
+    }
+  
+    /**
+     * Sets order_modify_date
+     * @param \DateTime $order_modify_date 
+     * @return $this
+     */
+    public function setOrderModifyDate($order_modify_date)
+    {
+        
+        $this->order_modify_date = $order_modify_date;
+        return $this;
+    }
+    
+    /**
      * Gets cross_dock
      * @return int
      */
@@ -965,23 +2129,23 @@ class OrderLineActivity implements ArrayAccess
     }
     
     /**
-     * Gets process_no
+     * Gets process_no_id
      * @return int
      */
-    public function getProcessNo()
+    public function getProcessNoId()
     {
-        return $this->process_no;
+        return $this->process_no_id;
     }
   
     /**
-     * Sets process_no
-     * @param int $process_no 
+     * Sets process_no_id
+     * @param int $process_no_id 
      * @return $this
      */
-    public function setProcessNo($process_no)
+    public function setProcessNoId($process_no_id)
     {
         
-        $this->process_no = $process_no;
+        $this->process_no_id = $process_no_id;
         return $this;
     }
     
@@ -1763,6 +2927,69 @@ class OrderLineActivity implements ArrayAccess
     }
     
     /**
+     * Gets number_of_wraps
+     * @return int
+     */
+    public function getNumberOfWraps()
+    {
+        return $this->number_of_wraps;
+    }
+  
+    /**
+     * Sets number_of_wraps
+     * @param int $number_of_wraps 
+     * @return $this
+     */
+    public function setNumberOfWraps($number_of_wraps)
+    {
+        
+        $this->number_of_wraps = $number_of_wraps;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_cases
+     * @return int
+     */
+    public function getNumberOfCases()
+    {
+        return $this->number_of_cases;
+    }
+  
+    /**
+     * Sets number_of_cases
+     * @param int $number_of_cases 
+     * @return $this
+     */
+    public function setNumberOfCases($number_of_cases)
+    {
+        
+        $this->number_of_cases = $number_of_cases;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_touches
+     * @return int
+     */
+    public function getNumberOfTouches()
+    {
+        return $this->number_of_touches;
+    }
+  
+    /**
+     * Sets number_of_touches
+     * @param int $number_of_touches 
+     * @return $this
+     */
+    public function setNumberOfTouches($number_of_touches)
+    {
+        
+        $this->number_of_touches = $number_of_touches;
+        return $this;
+    }
+    
+    /**
      * Gets alcohol_type_id
      * @return int
      */
@@ -2095,6 +3322,2043 @@ class OrderLineActivity implements ArrayAccess
     {
         
         $this->alcohol_scc_code = $alcohol_scc_code;
+        return $this;
+    }
+    
+    /**
+     * Gets alternate_usage
+     * @return string
+     */
+    public function getAlternateUsage()
+    {
+        return $this->alternate_usage;
+    }
+  
+    /**
+     * Sets alternate_usage
+     * @param string $alternate_usage 
+     * @return $this
+     */
+    public function setAlternateUsage($alternate_usage)
+    {
+        
+        $this->alternate_usage = $alternate_usage;
+        return $this;
+    }
+    
+    /**
+     * Gets group_order_id
+     * @return Number
+     */
+    public function getGroupOrderId()
+    {
+        return $this->group_order_id;
+    }
+  
+    /**
+     * Sets group_order_id
+     * @param Number $group_order_id 
+     * @return $this
+     */
+    public function setGroupOrderId($group_order_id)
+    {
+        
+        $this->group_order_id = $group_order_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_status
+     * @return string
+     */
+    public function getOrderStatus()
+    {
+        return $this->order_status;
+    }
+  
+    /**
+     * Sets order_status
+     * @param string $order_status 
+     * @return $this
+     */
+    public function setOrderStatus($order_status)
+    {
+        
+        $this->order_status = $order_status;
+        return $this;
+    }
+    
+    /**
+     * Gets order_status_name
+     * @return string
+     */
+    public function getOrderStatusName()
+    {
+        return $this->order_status_name;
+    }
+  
+    /**
+     * Sets order_status_name
+     * @param string $order_status_name 
+     * @return $this
+     */
+    public function setOrderStatusName($order_status_name)
+    {
+        
+        $this->order_status_name = $order_status_name;
+        return $this;
+    }
+    
+    /**
+     * Gets carrier_id
+     * @return int
+     */
+    public function getCarrierId()
+    {
+        return $this->carrier_id;
+    }
+  
+    /**
+     * Sets carrier_id
+     * @param int $carrier_id 
+     * @return $this
+     */
+    public function setCarrierId($carrier_id)
+    {
+        
+        $this->carrier_id = $carrier_id;
+        return $this;
+    }
+    
+    /**
+     * Gets carrier_name
+     * @return string
+     */
+    public function getCarrierName()
+    {
+        return $this->carrier_name;
+    }
+  
+    /**
+     * Sets carrier_name
+     * @param string $carrier_name 
+     * @return $this
+     */
+    public function setCarrierName($carrier_name)
+    {
+        
+        $this->carrier_name = $carrier_name;
+        return $this;
+    }
+    
+    /**
+     * Gets media_code
+     * @return string
+     */
+    public function getMediaCode()
+    {
+        return $this->media_code;
+    }
+  
+    /**
+     * Sets media_code
+     * @param string $media_code 
+     * @return $this
+     */
+    public function setMediaCode($media_code)
+    {
+        
+        $this->media_code = $media_code;
+        return $this;
+    }
+    
+    /**
+     * Gets legacy_restriction_type
+     * @return string
+     */
+    public function getLegacyRestrictionType()
+    {
+        return $this->legacy_restriction_type;
+    }
+  
+    /**
+     * Sets legacy_restriction_type
+     * @param string $legacy_restriction_type 
+     * @return $this
+     */
+    public function setLegacyRestrictionType($legacy_restriction_type)
+    {
+        
+        $this->legacy_restriction_type = $legacy_restriction_type;
+        return $this;
+    }
+    
+    /**
+     * Gets req_type_name
+     * @return string
+     */
+    public function getReqTypeName()
+    {
+        return $this->req_type_name;
+    }
+  
+    /**
+     * Sets req_type_name
+     * @param string $req_type_name 
+     * @return $this
+     */
+    public function setReqTypeName($req_type_name)
+    {
+        
+        $this->req_type_name = $req_type_name;
+        return $this;
+    }
+    
+    /**
+     * Gets service_type_id
+     * @return string
+     */
+    public function getServiceTypeId()
+    {
+        return $this->service_type_id;
+    }
+  
+    /**
+     * Sets service_type_id
+     * @param string $service_type_id 
+     * @return $this
+     */
+    public function setServiceTypeId($service_type_id)
+    {
+        
+        $this->service_type_id = $service_type_id;
+        return $this;
+    }
+    
+    /**
+     * Gets service_type_name
+     * @return string
+     */
+    public function getServiceTypeName()
+    {
+        return $this->service_type_name;
+    }
+  
+    /**
+     * Sets service_type_name
+     * @param string $service_type_name 
+     * @return $this
+     */
+    public function setServiceTypeName($service_type_name)
+    {
+        
+        $this->service_type_name = $service_type_name;
+        return $this;
+    }
+    
+    /**
+     * Gets alcohol_order_type
+     * @return string
+     */
+    public function getAlcoholOrderType()
+    {
+        return $this->alcohol_order_type;
+    }
+  
+    /**
+     * Sets alcohol_order_type
+     * @param string $alcohol_order_type 
+     * @return $this
+     */
+    public function setAlcoholOrderType($alcohol_order_type)
+    {
+        
+        $this->alcohol_order_type = $alcohol_order_type;
+        return $this;
+    }
+    
+    /**
+     * Gets distribution_channel
+     * @return string
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distribution_channel;
+    }
+  
+    /**
+     * Sets distribution_channel
+     * @param string $distribution_channel 
+     * @return $this
+     */
+    public function setDistributionChannel($distribution_channel)
+    {
+        
+        $this->distribution_channel = $distribution_channel;
+        return $this;
+    }
+    
+    /**
+     * Gets distribution_channel_name
+     * @return string
+     */
+    public function getDistributionChannelName()
+    {
+        return $this->distribution_channel_name;
+    }
+  
+    /**
+     * Sets distribution_channel_name
+     * @param string $distribution_channel_name 
+     * @return $this
+     */
+    public function setDistributionChannelName($distribution_channel_name)
+    {
+        
+        $this->distribution_channel_name = $distribution_channel_name;
+        return $this;
+    }
+    
+    /**
+     * Gets priority_code
+     * @return int
+     */
+    public function getPriorityCode()
+    {
+        return $this->priority_code;
+    }
+  
+    /**
+     * Sets priority_code
+     * @param int $priority_code 
+     * @return $this
+     */
+    public function setPriorityCode($priority_code)
+    {
+        
+        $this->priority_code = $priority_code;
+        return $this;
+    }
+    
+    /**
+     * Gets order_date
+     * @return \DateTime
+     */
+    public function getOrderDate()
+    {
+        return $this->order_date;
+    }
+  
+    /**
+     * Sets order_date
+     * @param \DateTime $order_date 
+     * @return $this
+     */
+    public function setOrderDate($order_date)
+    {
+        
+        $this->order_date = $order_date;
+        return $this;
+    }
+    
+    /**
+     * Gets entered_by
+     * @return string
+     */
+    public function getEnteredBy()
+    {
+        return $this->entered_by;
+    }
+  
+    /**
+     * Sets entered_by
+     * @param string $entered_by 
+     * @return $this
+     */
+    public function setEnteredBy($entered_by)
+    {
+        
+        $this->entered_by = $entered_by;
+        return $this;
+    }
+    
+    /**
+     * Gets order_reason
+     * @return int
+     */
+    public function getOrderReason()
+    {
+        return $this->order_reason;
+    }
+  
+    /**
+     * Sets order_reason
+     * @param int $order_reason 
+     * @return $this
+     */
+    public function setOrderReason($order_reason)
+    {
+        
+        $this->order_reason = $order_reason;
+        return $this;
+    }
+    
+    /**
+     * Gets customer_order_no
+     * @return string
+     */
+    public function getCustomerOrderNo()
+    {
+        return $this->customer_order_no;
+    }
+  
+    /**
+     * Sets customer_order_no
+     * @param string $customer_order_no 
+     * @return $this
+     */
+    public function setCustomerOrderNo($customer_order_no)
+    {
+        
+        $this->customer_order_no = $customer_order_no;
+        return $this;
+    }
+    
+    /**
+     * Gets price_level
+     * @return string
+     */
+    public function getPriceLevel()
+    {
+        return $this->price_level;
+    }
+  
+    /**
+     * Sets price_level
+     * @param string $price_level 
+     * @return $this
+     */
+    public function setPriceLevel($price_level)
+    {
+        
+        $this->price_level = $price_level;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_by
+     * @return \DateTime
+     */
+    public function getShipBy()
+    {
+        return $this->ship_by;
+    }
+  
+    /**
+     * Sets ship_by
+     * @param \DateTime $ship_by 
+     * @return $this
+     */
+    public function setShipBy($ship_by)
+    {
+        
+        $this->ship_by = $ship_by;
+        return $this;
+    }
+    
+    /**
+     * Gets stop_back_orders
+     * @return string
+     */
+    public function getStopBackOrders()
+    {
+        return $this->stop_back_orders;
+    }
+  
+    /**
+     * Sets stop_back_orders
+     * @param string $stop_back_orders 
+     * @return $this
+     */
+    public function setStopBackOrders($stop_back_orders)
+    {
+        
+        $this->stop_back_orders = $stop_back_orders;
+        return $this;
+    }
+    
+    /**
+     * Gets order_source_id
+     * @return int
+     */
+    public function getOrderSourceId()
+    {
+        return $this->order_source_id;
+    }
+  
+    /**
+     * Sets order_source_id
+     * @param int $order_source_id 
+     * @return $this
+     */
+    public function setOrderSourceId($order_source_id)
+    {
+        
+        $this->order_source_id = $order_source_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_source_name
+     * @return string
+     */
+    public function getOrderSourceName()
+    {
+        return $this->order_source_name;
+    }
+  
+    /**
+     * Sets order_source_name
+     * @param string $order_source_name 
+     * @return $this
+     */
+    public function setOrderSourceName($order_source_name)
+    {
+        
+        $this->order_source_name = $order_source_name;
+        return $this;
+    }
+    
+    /**
+     * Gets integration_partner_id
+     * @return int
+     */
+    public function getIntegrationPartnerId()
+    {
+        return $this->integration_partner_id;
+    }
+  
+    /**
+     * Sets integration_partner_id
+     * @param int $integration_partner_id 
+     * @return $this
+     */
+    public function setIntegrationPartnerId($integration_partner_id)
+    {
+        
+        $this->integration_partner_id = $integration_partner_id;
+        return $this;
+    }
+    
+    /**
+     * Gets integration_partner_name
+     * @return string
+     */
+    public function getIntegrationPartnerName()
+    {
+        return $this->integration_partner_name;
+    }
+  
+    /**
+     * Sets integration_partner_name
+     * @param string $integration_partner_name 
+     * @return $this
+     */
+    public function setIntegrationPartnerName($integration_partner_name)
+    {
+        
+        $this->integration_partner_name = $integration_partner_name;
+        return $this;
+    }
+    
+    /**
+     * Gets order_load_program_id
+     * @return int
+     */
+    public function getOrderLoadProgramId()
+    {
+        return $this->order_load_program_id;
+    }
+  
+    /**
+     * Sets order_load_program_id
+     * @param int $order_load_program_id 
+     * @return $this
+     */
+    public function setOrderLoadProgramId($order_load_program_id)
+    {
+        
+        $this->order_load_program_id = $order_load_program_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_load_program_name
+     * @return string
+     */
+    public function getOrderLoadProgramName()
+    {
+        return $this->order_load_program_name;
+    }
+  
+    /**
+     * Sets order_load_program_name
+     * @param string $order_load_program_name 
+     * @return $this
+     */
+    public function setOrderLoadProgramName($order_load_program_name)
+    {
+        
+        $this->order_load_program_name = $order_load_program_name;
+        return $this;
+    }
+    
+    /**
+     * Gets oms_order_no
+     * @return int
+     */
+    public function getOmsOrderNo()
+    {
+        return $this->oms_order_no;
+    }
+  
+    /**
+     * Sets oms_order_no
+     * @param int $oms_order_no 
+     * @return $this
+     */
+    public function setOmsOrderNo($oms_order_no)
+    {
+        
+        $this->oms_order_no = $oms_order_no;
+        return $this;
+    }
+    
+    /**
+     * Gets oms_customer_id
+     * @return int
+     */
+    public function getOmsCustomerId()
+    {
+        return $this->oms_customer_id;
+    }
+  
+    /**
+     * Sets oms_customer_id
+     * @param int $oms_customer_id 
+     * @return $this
+     */
+    public function setOmsCustomerId($oms_customer_id)
+    {
+        
+        $this->oms_customer_id = $oms_customer_id;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_attention
+     * @return string
+     */
+    public function getShipToAttention()
+    {
+        return $this->ship_to_attention;
+    }
+  
+    /**
+     * Sets ship_to_attention
+     * @param string $ship_to_attention 
+     * @return $this
+     */
+    public function setShipToAttention($ship_to_attention)
+    {
+        
+        $this->ship_to_attention = $ship_to_attention;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_company
+     * @return string
+     */
+    public function getShipToCompany()
+    {
+        return $this->ship_to_company;
+    }
+  
+    /**
+     * Sets ship_to_company
+     * @param string $ship_to_company 
+     * @return $this
+     */
+    public function setShipToCompany($ship_to_company)
+    {
+        
+        $this->ship_to_company = $ship_to_company;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_street
+     * @return string
+     */
+    public function getShipToStreet()
+    {
+        return $this->ship_to_street;
+    }
+  
+    /**
+     * Sets ship_to_street
+     * @param string $ship_to_street 
+     * @return $this
+     */
+    public function setShipToStreet($ship_to_street)
+    {
+        
+        $this->ship_to_street = $ship_to_street;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_street2
+     * @return string
+     */
+    public function getShipToStreet2()
+    {
+        return $this->ship_to_street2;
+    }
+  
+    /**
+     * Sets ship_to_street2
+     * @param string $ship_to_street2 
+     * @return $this
+     */
+    public function setShipToStreet2($ship_to_street2)
+    {
+        
+        $this->ship_to_street2 = $ship_to_street2;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_street3
+     * @return string
+     */
+    public function getShipToStreet3()
+    {
+        return $this->ship_to_street3;
+    }
+  
+    /**
+     * Sets ship_to_street3
+     * @param string $ship_to_street3 
+     * @return $this
+     */
+    public function setShipToStreet3($ship_to_street3)
+    {
+        
+        $this->ship_to_street3 = $ship_to_street3;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_city
+     * @return string
+     */
+    public function getShipToCity()
+    {
+        return $this->ship_to_city;
+    }
+  
+    /**
+     * Sets ship_to_city
+     * @param string $ship_to_city 
+     * @return $this
+     */
+    public function setShipToCity($ship_to_city)
+    {
+        
+        $this->ship_to_city = $ship_to_city;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_state
+     * @return string
+     */
+    public function getShipToState()
+    {
+        return $this->ship_to_state;
+    }
+  
+    /**
+     * Sets ship_to_state
+     * @param string $ship_to_state 
+     * @return $this
+     */
+    public function setShipToState($ship_to_state)
+    {
+        
+        $this->ship_to_state = $ship_to_state;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_zip
+     * @return string
+     */
+    public function getShipToZip()
+    {
+        return $this->ship_to_zip;
+    }
+  
+    /**
+     * Sets ship_to_zip
+     * @param string $ship_to_zip 
+     * @return $this
+     */
+    public function setShipToZip($ship_to_zip)
+    {
+        
+        $this->ship_to_zip = $ship_to_zip;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_country
+     * @return string
+     */
+    public function getShipToCountry()
+    {
+        return $this->ship_to_country;
+    }
+  
+    /**
+     * Sets ship_to_country
+     * @param string $ship_to_country 
+     * @return $this
+     */
+    public function setShipToCountry($ship_to_country)
+    {
+        
+        $this->ship_to_country = $ship_to_country;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_phone
+     * @return string
+     */
+    public function getShipToPhone()
+    {
+        return $this->ship_to_phone;
+    }
+  
+    /**
+     * Sets ship_to_phone
+     * @param string $ship_to_phone 
+     * @return $this
+     */
+    public function setShipToPhone($ship_to_phone)
+    {
+        
+        $this->ship_to_phone = $ship_to_phone;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_to_email
+     * @return string
+     */
+    public function getShipToEmail()
+    {
+        return $this->ship_to_email;
+    }
+  
+    /**
+     * Sets ship_to_email
+     * @param string $ship_to_email 
+     * @return $this
+     */
+    public function setShipToEmail($ship_to_email)
+    {
+        
+        $this->ship_to_email = $ship_to_email;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_attention
+     * @return string
+     */
+    public function getBillToAttention()
+    {
+        return $this->bill_to_attention;
+    }
+  
+    /**
+     * Sets bill_to_attention
+     * @param string $bill_to_attention 
+     * @return $this
+     */
+    public function setBillToAttention($bill_to_attention)
+    {
+        
+        $this->bill_to_attention = $bill_to_attention;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_company
+     * @return string
+     */
+    public function getBillToCompany()
+    {
+        return $this->bill_to_company;
+    }
+  
+    /**
+     * Sets bill_to_company
+     * @param string $bill_to_company 
+     * @return $this
+     */
+    public function setBillToCompany($bill_to_company)
+    {
+        
+        $this->bill_to_company = $bill_to_company;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_street
+     * @return string
+     */
+    public function getBillToStreet()
+    {
+        return $this->bill_to_street;
+    }
+  
+    /**
+     * Sets bill_to_street
+     * @param string $bill_to_street 
+     * @return $this
+     */
+    public function setBillToStreet($bill_to_street)
+    {
+        
+        $this->bill_to_street = $bill_to_street;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_street2
+     * @return string
+     */
+    public function getBillToStreet2()
+    {
+        return $this->bill_to_street2;
+    }
+  
+    /**
+     * Sets bill_to_street2
+     * @param string $bill_to_street2 
+     * @return $this
+     */
+    public function setBillToStreet2($bill_to_street2)
+    {
+        
+        $this->bill_to_street2 = $bill_to_street2;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_street3
+     * @return string
+     */
+    public function getBillToStreet3()
+    {
+        return $this->bill_to_street3;
+    }
+  
+    /**
+     * Sets bill_to_street3
+     * @param string $bill_to_street3 
+     * @return $this
+     */
+    public function setBillToStreet3($bill_to_street3)
+    {
+        
+        $this->bill_to_street3 = $bill_to_street3;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_city
+     * @return string
+     */
+    public function getBillToCity()
+    {
+        return $this->bill_to_city;
+    }
+  
+    /**
+     * Sets bill_to_city
+     * @param string $bill_to_city 
+     * @return $this
+     */
+    public function setBillToCity($bill_to_city)
+    {
+        
+        $this->bill_to_city = $bill_to_city;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_state
+     * @return string
+     */
+    public function getBillToState()
+    {
+        return $this->bill_to_state;
+    }
+  
+    /**
+     * Sets bill_to_state
+     * @param string $bill_to_state 
+     * @return $this
+     */
+    public function setBillToState($bill_to_state)
+    {
+        
+        $this->bill_to_state = $bill_to_state;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_zip
+     * @return string
+     */
+    public function getBillToZip()
+    {
+        return $this->bill_to_zip;
+    }
+  
+    /**
+     * Sets bill_to_zip
+     * @param string $bill_to_zip 
+     * @return $this
+     */
+    public function setBillToZip($bill_to_zip)
+    {
+        
+        $this->bill_to_zip = $bill_to_zip;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_country
+     * @return string
+     */
+    public function getBillToCountry()
+    {
+        return $this->bill_to_country;
+    }
+  
+    /**
+     * Sets bill_to_country
+     * @param string $bill_to_country 
+     * @return $this
+     */
+    public function setBillToCountry($bill_to_country)
+    {
+        
+        $this->bill_to_country = $bill_to_country;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_phone
+     * @return string
+     */
+    public function getBillToPhone()
+    {
+        return $this->bill_to_phone;
+    }
+  
+    /**
+     * Sets bill_to_phone
+     * @param string $bill_to_phone 
+     * @return $this
+     */
+    public function setBillToPhone($bill_to_phone)
+    {
+        
+        $this->bill_to_phone = $bill_to_phone;
+        return $this;
+    }
+    
+    /**
+     * Gets bill_to_email
+     * @return string
+     */
+    public function getBillToEmail()
+    {
+        return $this->bill_to_email;
+    }
+  
+    /**
+     * Sets bill_to_email
+     * @param string $bill_to_email 
+     * @return $this
+     */
+    public function setBillToEmail($bill_to_email)
+    {
+        
+        $this->bill_to_email = $bill_to_email;
+        return $this;
+    }
+    
+    /**
+     * Gets order_ship_date
+     * @return \DateTime
+     */
+    public function getOrderShipDate()
+    {
+        return $this->order_ship_date;
+    }
+  
+    /**
+     * Sets order_ship_date
+     * @param \DateTime $order_ship_date 
+     * @return $this
+     */
+    public function setOrderShipDate($order_ship_date)
+    {
+        
+        $this->order_ship_date = $order_ship_date;
+        return $this;
+    }
+    
+    /**
+     * Gets freight
+     * @return Number
+     */
+    public function getFreight()
+    {
+        return $this->freight;
+    }
+  
+    /**
+     * Sets freight
+     * @param Number $freight 
+     * @return $this
+     */
+    public function setFreight($freight)
+    {
+        
+        $this->freight = $freight;
+        return $this;
+    }
+    
+    /**
+     * Gets order_weight_lbs
+     * @return Number
+     */
+    public function getOrderWeightLbs()
+    {
+        return $this->order_weight_lbs;
+    }
+  
+    /**
+     * Sets order_weight_lbs
+     * @param Number $order_weight_lbs 
+     * @return $this
+     */
+    public function setOrderWeightLbs($order_weight_lbs)
+    {
+        
+        $this->order_weight_lbs = $order_weight_lbs;
+        return $this;
+    }
+    
+    /**
+     * Gets order_estimated_weight_lbs
+     * @return Number
+     */
+    public function getOrderEstimatedWeightLbs()
+    {
+        return $this->order_estimated_weight_lbs;
+    }
+  
+    /**
+     * Sets order_estimated_weight_lbs
+     * @param Number $order_estimated_weight_lbs 
+     * @return $this
+     */
+    public function setOrderEstimatedWeightLbs($order_estimated_weight_lbs)
+    {
+        
+        $this->order_estimated_weight_lbs = $order_estimated_weight_lbs;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_pallets
+     * @return int
+     */
+    public function getNumberOfPallets()
+    {
+        return $this->number_of_pallets;
+    }
+  
+    /**
+     * Sets number_of_pallets
+     * @param int $number_of_pallets 
+     * @return $this
+     */
+    public function setNumberOfPallets($number_of_pallets)
+    {
+        
+        $this->number_of_pallets = $number_of_pallets;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_line_items
+     * @return int
+     */
+    public function getNumberOfLineItems()
+    {
+        return $this->number_of_line_items;
+    }
+  
+    /**
+     * Sets number_of_line_items
+     * @param int $number_of_line_items 
+     * @return $this
+     */
+    public function setNumberOfLineItems($number_of_line_items)
+    {
+        
+        $this->number_of_line_items = $number_of_line_items;
+        return $this;
+    }
+    
+    /**
+     * Gets completion_status
+     * @return string
+     */
+    public function getCompletionStatus()
+    {
+        return $this->completion_status;
+    }
+  
+    /**
+     * Sets completion_status
+     * @param string $completion_status 
+     * @return $this
+     */
+    public function setCompletionStatus($completion_status)
+    {
+        
+        $this->completion_status = $completion_status;
+        return $this;
+    }
+    
+    /**
+     * Gets hold_code
+     * @return string
+     */
+    public function getHoldCode()
+    {
+        return $this->hold_code;
+    }
+  
+    /**
+     * Sets hold_code
+     * @param string $hold_code 
+     * @return $this
+     */
+    public function setHoldCode($hold_code)
+    {
+        
+        $this->hold_code = $hold_code;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_code
+     * @return string
+     */
+    public function getShipCode()
+    {
+        return $this->ship_code;
+    }
+  
+    /**
+     * Sets ship_code
+     * @param string $ship_code 
+     * @return $this
+     */
+    public function setShipCode($ship_code)
+    {
+        
+        $this->ship_code = $ship_code;
+        return $this;
+    }
+    
+    /**
+     * Gets order_message
+     * @return string
+     */
+    public function getOrderMessage()
+    {
+        return $this->order_message;
+    }
+  
+    /**
+     * Sets order_message
+     * @param string $order_message 
+     * @return $this
+     */
+    public function setOrderMessage($order_message)
+    {
+        
+        $this->order_message = $order_message;
+        return $this;
+    }
+    
+    /**
+     * Gets division
+     * @return int
+     */
+    public function getDivision()
+    {
+        return $this->division;
+    }
+  
+    /**
+     * Sets division
+     * @param int $division 
+     * @return $this
+     */
+    public function setDivision($division)
+    {
+        
+        $this->division = $division;
+        return $this;
+    }
+    
+    /**
+     * Gets cost_center
+     * @return string
+     */
+    public function getCostCenter()
+    {
+        return $this->cost_center;
+    }
+  
+    /**
+     * Sets cost_center
+     * @param string $cost_center 
+     * @return $this
+     */
+    public function setCostCenter($cost_center)
+    {
+        
+        $this->cost_center = $cost_center;
+        return $this;
+    }
+    
+    /**
+     * Gets authorized_by
+     * @return string
+     */
+    public function getAuthorizedBy()
+    {
+        return $this->authorized_by;
+    }
+  
+    /**
+     * Sets authorized_by
+     * @param string $authorized_by 
+     * @return $this
+     */
+    public function setAuthorizedBy($authorized_by)
+    {
+        
+        $this->authorized_by = $authorized_by;
+        return $this;
+    }
+    
+    /**
+     * Gets batch_no
+     * @return string
+     */
+    public function getBatchNo()
+    {
+        return $this->batch_no;
+    }
+  
+    /**
+     * Sets batch_no
+     * @param string $batch_no 
+     * @return $this
+     */
+    public function setBatchNo($batch_no)
+    {
+        
+        $this->batch_no = $batch_no;
+        return $this;
+    }
+    
+    /**
+     * Gets first_ship_date
+     * @return \DateTime
+     */
+    public function getFirstShipDate()
+    {
+        return $this->first_ship_date;
+    }
+  
+    /**
+     * Sets first_ship_date
+     * @param \DateTime $first_ship_date 
+     * @return $this
+     */
+    public function setFirstShipDate($first_ship_date)
+    {
+        
+        $this->first_ship_date = $first_ship_date;
+        return $this;
+    }
+    
+    /**
+     * Gets last_ship_date
+     * @return \DateTime
+     */
+    public function getLastShipDate()
+    {
+        return $this->last_ship_date;
+    }
+  
+    /**
+     * Sets last_ship_date
+     * @param \DateTime $last_ship_date 
+     * @return $this
+     */
+    public function setLastShipDate($last_ship_date)
+    {
+        
+        $this->last_ship_date = $last_ship_date;
+        return $this;
+    }
+    
+    /**
+     * Gets deliver_on_date
+     * @return \DateTime
+     */
+    public function getDeliverOnDate()
+    {
+        return $this->deliver_on_date;
+    }
+  
+    /**
+     * Sets deliver_on_date
+     * @param \DateTime $deliver_on_date 
+     * @return $this
+     */
+    public function setDeliverOnDate($deliver_on_date)
+    {
+        
+        $this->deliver_on_date = $deliver_on_date;
+        return $this;
+    }
+    
+    /**
+     * Gets customer_po_no
+     * @return string
+     */
+    public function getCustomerPoNo()
+    {
+        return $this->customer_po_no;
+    }
+  
+    /**
+     * Sets customer_po_no
+     * @param string $customer_po_no 
+     * @return $this
+     */
+    public function setCustomerPoNo($customer_po_no)
+    {
+        
+        $this->customer_po_no = $customer_po_no;
+        return $this;
+    }
+    
+    /**
+     * Gets ship_via
+     * @return string
+     */
+    public function getShipVia()
+    {
+        return $this->ship_via;
+    }
+  
+    /**
+     * Sets ship_via
+     * @param string $ship_via 
+     * @return $this
+     */
+    public function setShipVia($ship_via)
+    {
+        
+        $this->ship_via = $ship_via;
+        return $this;
+    }
+    
+    /**
+     * Gets need_by_date
+     * @return \DateTime
+     */
+    public function getNeedByDate()
+    {
+        return $this->need_by_date;
+    }
+  
+    /**
+     * Sets need_by_date
+     * @param \DateTime $need_by_date 
+     * @return $this
+     */
+    public function setNeedByDate($need_by_date)
+    {
+        
+        $this->need_by_date = $need_by_date;
+        return $this;
+    }
+    
+    /**
+     * Gets total
+     * @return Number
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+  
+    /**
+     * Sets total
+     * @param Number $total 
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        
+        $this->total = $total;
+        return $this;
+    }
+    
+    /**
+     * Gets balance_due
+     * @return Number
+     */
+    public function getBalanceDue()
+    {
+        return $this->balance_due;
+    }
+  
+    /**
+     * Sets balance_due
+     * @param Number $balance_due 
+     * @return $this
+     */
+    public function setBalanceDue($balance_due)
+    {
+        
+        $this->balance_due = $balance_due;
+        return $this;
+    }
+    
+    /**
+     * Gets total_paid
+     * @return Number
+     */
+    public function getTotalPaid()
+    {
+        return $this->total_paid;
+    }
+  
+    /**
+     * Sets total_paid
+     * @param Number $total_paid 
+     * @return $this
+     */
+    public function setTotalPaid($total_paid)
+    {
+        
+        $this->total_paid = $total_paid;
+        return $this;
+    }
+    
+    /**
+     * Gets authorization_amount
+     * @return Number
+     */
+    public function getAuthorizationAmount()
+    {
+        return $this->authorization_amount;
+    }
+  
+    /**
+     * Sets authorization_amount
+     * @param Number $authorization_amount 
+     * @return $this
+     */
+    public function setAuthorizationAmount($authorization_amount)
+    {
+        
+        $this->authorization_amount = $authorization_amount;
+        return $this;
+    }
+    
+    /**
+     * Gets subtotal
+     * @return Number
+     */
+    public function getSubtotal()
+    {
+        return $this->subtotal;
+    }
+  
+    /**
+     * Sets subtotal
+     * @param Number $subtotal 
+     * @return $this
+     */
+    public function setSubtotal($subtotal)
+    {
+        
+        $this->subtotal = $subtotal;
+        return $this;
+    }
+    
+    /**
+     * Gets tax_on_freight
+     * @return Number
+     */
+    public function getTaxOnFreight()
+    {
+        return $this->tax_on_freight;
+    }
+  
+    /**
+     * Sets tax_on_freight
+     * @param Number $tax_on_freight 
+     * @return $this
+     */
+    public function setTaxOnFreight($tax_on_freight)
+    {
+        
+        $this->tax_on_freight = $tax_on_freight;
+        return $this;
+    }
+    
+    /**
+     * Gets tax
+     * @return Number
+     */
+    public function getTax()
+    {
+        return $this->tax;
+    }
+  
+    /**
+     * Sets tax
+     * @param Number $tax 
+     * @return $this
+     */
+    public function setTax($tax)
+    {
+        
+        $this->tax = $tax;
+        return $this;
+    }
+    
+    /**
+     * Gets distribution_charges
+     * @return Number
+     */
+    public function getDistributionCharges()
+    {
+        return $this->distribution_charges;
+    }
+  
+    /**
+     * Sets distribution_charges
+     * @param Number $distribution_charges 
+     * @return $this
+     */
+    public function setDistributionCharges($distribution_charges)
+    {
+        
+        $this->distribution_charges = $distribution_charges;
+        return $this;
+    }
+    
+    /**
+     * Gets shipping_charge
+     * @return Number
+     */
+    public function getShippingCharge()
+    {
+        return $this->shipping_charge;
+    }
+  
+    /**
+     * Sets shipping_charge
+     * @param Number $shipping_charge 
+     * @return $this
+     */
+    public function setShippingCharge($shipping_charge)
+    {
+        
+        $this->shipping_charge = $shipping_charge;
+        return $this;
+    }
+    
+    /**
+     * Gets total_discount
+     * @return Number
+     */
+    public function getTotalDiscount()
+    {
+        return $this->total_discount;
+    }
+  
+    /**
+     * Sets total_discount
+     * @param Number $total_discount 
+     * @return $this
+     */
+    public function setTotalDiscount($total_discount)
+    {
+        
+        $this->total_discount = $total_discount;
+        return $this;
+    }
+    
+    /**
+     * Gets parcel_account_id
+     * @return int
+     */
+    public function getParcelAccountId()
+    {
+        return $this->parcel_account_id;
+    }
+  
+    /**
+     * Sets parcel_account_id
+     * @param int $parcel_account_id 
+     * @return $this
+     */
+    public function setParcelAccountId($parcel_account_id)
+    {
+        
+        $this->parcel_account_id = $parcel_account_id;
+        return $this;
+    }
+    
+    /**
+     * Gets packing_slip_template_id
+     * @return int
+     */
+    public function getPackingSlipTemplateId()
+    {
+        return $this->packing_slip_template_id;
+    }
+  
+    /**
+     * Sets packing_slip_template_id
+     * @param int $packing_slip_template_id 
+     * @return $this
+     */
+    public function setPackingSlipTemplateId($packing_slip_template_id)
+    {
+        
+        $this->packing_slip_template_id = $packing_slip_template_id;
+        return $this;
+    }
+    
+    /**
+     * Gets gift_message
+     * @return string
+     */
+    public function getGiftMessage()
+    {
+        return $this->gift_message;
+    }
+  
+    /**
+     * Sets gift_message
+     * @param string $gift_message 
+     * @return $this
+     */
+    public function setGiftMessage($gift_message)
+    {
+        
+        $this->gift_message = $gift_message;
+        return $this;
+    }
+    
+    /**
+     * Gets branch_sector
+     * @return string
+     */
+    public function getBranchSector()
+    {
+        return $this->branch_sector;
+    }
+  
+    /**
+     * Sets branch_sector
+     * @param string $branch_sector 
+     * @return $this
+     */
+    public function setBranchSector($branch_sector)
+    {
+        
+        $this->branch_sector = $branch_sector;
+        return $this;
+    }
+    
+    /**
+     * Gets branch_area
+     * @return string
+     */
+    public function getBranchArea()
+    {
+        return $this->branch_area;
+    }
+  
+    /**
+     * Sets branch_area
+     * @param string $branch_area 
+     * @return $this
+     */
+    public function setBranchArea($branch_area)
+    {
+        
+        $this->branch_area = $branch_area;
+        return $this;
+    }
+    
+    /**
+     * Gets branch_customer_type
+     * @return string
+     */
+    public function getBranchCustomerType()
+    {
+        return $this->branch_customer_type;
+    }
+  
+    /**
+     * Sets branch_customer_type
+     * @param string $branch_customer_type 
+     * @return $this
+     */
+    public function setBranchCustomerType($branch_customer_type)
+    {
+        
+        $this->branch_customer_type = $branch_customer_type;
+        return $this;
+    }
+    
+    /**
+     * Gets branch_id
+     * @return string
+     */
+    public function getBranchId()
+    {
+        return $this->branch_id;
+    }
+  
+    /**
+     * Sets branch_id
+     * @param string $branch_id 
+     * @return $this
+     */
+    public function setBranchId($branch_id)
+    {
+        
+        $this->branch_id = $branch_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_code
+     * @return string
+     */
+    public function getOrderCode()
+    {
+        return $this->order_code;
+    }
+  
+    /**
+     * Sets order_code
+     * @param string $order_code 
+     * @return $this
+     */
+    public function setOrderCode($order_code)
+    {
+        
+        $this->order_code = $order_code;
+        return $this;
+    }
+    
+    /**
+     * Gets lead_package_id
+     * @return string
+     */
+    public function getLeadPackageId()
+    {
+        return $this->lead_package_id;
+    }
+  
+    /**
+     * Sets lead_package_id
+     * @param string $lead_package_id 
+     * @return $this
+     */
+    public function setLeadPackageId($lead_package_id)
+    {
+        
+        $this->lead_package_id = $lead_package_id;
+        return $this;
+    }
+    
+    /**
+     * Gets total_qty
+     * @return int
+     */
+    public function getTotalQty()
+    {
+        return $this->total_qty;
+    }
+  
+    /**
+     * Sets total_qty
+     * @param int $total_qty 
+     * @return $this
+     */
+    public function setTotalQty($total_qty)
+    {
+        
+        $this->total_qty = $total_qty;
+        return $this;
+    }
+    
+    /**
+     * Gets estimated_number_of_picks
+     * @return int
+     */
+    public function getEstimatedNumberOfPicks()
+    {
+        return $this->estimated_number_of_picks;
+    }
+  
+    /**
+     * Sets estimated_number_of_picks
+     * @param int $estimated_number_of_picks 
+     * @return $this
+     */
+    public function setEstimatedNumberOfPicks($estimated_number_of_picks)
+    {
+        
+        $this->estimated_number_of_picks = $estimated_number_of_picks;
+        return $this;
+    }
+    
+    /**
+     * Gets order_confirmation_email_template_id
+     * @return int
+     */
+    public function getOrderConfirmationEmailTemplateId()
+    {
+        return $this->order_confirmation_email_template_id;
+    }
+  
+    /**
+     * Sets order_confirmation_email_template_id
+     * @param int $order_confirmation_email_template_id 
+     * @return $this
+     */
+    public function setOrderConfirmationEmailTemplateId($order_confirmation_email_template_id)
+    {
+        
+        $this->order_confirmation_email_template_id = $order_confirmation_email_template_id;
+        return $this;
+    }
+    
+    /**
+     * Gets shipment_confirmation_email_template_id
+     * @return int
+     */
+    public function getShipmentConfirmationEmailTemplateId()
+    {
+        return $this->shipment_confirmation_email_template_id;
+    }
+  
+    /**
+     * Sets shipment_confirmation_email_template_id
+     * @param int $shipment_confirmation_email_template_id 
+     * @return $this
+     */
+    public function setShipmentConfirmationEmailTemplateId($shipment_confirmation_email_template_id)
+    {
+        
+        $this->shipment_confirmation_email_template_id = $shipment_confirmation_email_template_id;
+        return $this;
+    }
+    
+    /**
+     * Gets order_invoice_template_id
+     * @return int
+     */
+    public function getOrderInvoiceTemplateId()
+    {
+        return $this->order_invoice_template_id;
+    }
+  
+    /**
+     * Sets order_invoice_template_id
+     * @param int $order_invoice_template_id 
+     * @return $this
+     */
+    public function setOrderInvoiceTemplateId($order_invoice_template_id)
+    {
+        
+        $this->order_invoice_template_id = $order_invoice_template_id;
+        return $this;
+    }
+    
+    /**
+     * Gets price_mode
+     * @return string
+     */
+    public function getPriceMode()
+    {
+        return $this->price_mode;
+    }
+  
+    /**
+     * Sets price_mode
+     * @param string $price_mode 
+     * @return $this
+     */
+    public function setPriceMode($price_mode)
+    {
+        
+        $this->price_mode = $price_mode;
         return $this;
     }
     

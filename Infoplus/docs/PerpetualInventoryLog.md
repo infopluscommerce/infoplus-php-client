@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
+**item_receipt_location_id** | **int** |  | [optional] 
 **item_receipt_id** | **int** |  | [optional] 
 **sku_id** | **int** |  | [optional] 
 **asn_id** | **int** |  | [optional] 

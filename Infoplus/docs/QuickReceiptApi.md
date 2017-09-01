@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**addQuickReceiptTag**](QuickReceiptApi.md#addQuickReceiptTag) | **PUT** /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag} | Add new tags for a quickReceipt.
 [**deleteQuickReceipt**](QuickReceiptApi.md#deleteQuickReceipt) | **DELETE** /beta/quickReceipt/{quickReceiptId} | Delete a quickReceipt
 [**deleteQuickReceiptTag**](QuickReceiptApi.md#deleteQuickReceiptTag) | **DELETE** /beta/quickReceipt/{quickReceiptId}/tag/{quickReceiptTag} | Delete a tag for a quickReceipt.
+[**executeQuickReceipt**](QuickReceiptApi.md#executeQuickReceipt) | **POST** /beta/quickReceipt/executeQuickReceipt | Run the ExecuteQuickReceipt process.
 [**getDuplicateQuickReceiptById**](QuickReceiptApi.md#getDuplicateQuickReceiptById) | **GET** /beta/quickReceipt/duplicate/{quickReceiptId} | Get a duplicated a quickReceipt by id
 [**getQuickReceiptByFilter**](QuickReceiptApi.md#getQuickReceiptByFilter) | **GET** /beta/quickReceipt/search | Search quickReceipts by filter
 [**getQuickReceiptById**](QuickReceiptApi.md#getQuickReceiptById) | **GET** /beta/quickReceipt/{quickReceiptId} | Get a quickReceipt by id
@@ -257,6 +258,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **executeQuickReceipt**
+> \Infoplus\Model\ProcessOutputAPIModel[] executeQuickReceipt($body)
+
+Run the ExecuteQuickReceipt process.
+
+
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\QuickReceiptApi();
+$body = new \Infoplus\Model\ExecuteQuickReceiptInputAPIModel(); // \Infoplus\Model\ExecuteQuickReceiptInputAPIModel | Input data for ExecuteQuickReceipt process.
+
+try { 
+    $result = $api_instance->executeQuickReceipt($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling QuickReceiptApi->executeQuickReceipt: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\ExecuteQuickReceiptInputAPIModel**](\Infoplus\Model\ExecuteQuickReceiptInputAPIModel.md)| Input data for ExecuteQuickReceipt process. | 
+
+### Return type
+
+[**\Infoplus\Model\ProcessOutputAPIModel[]**](ProcessOutputAPIModel.md)
 
 ### Authorization
 

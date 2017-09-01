@@ -61,6 +61,7 @@ class FulfillmentPlan implements ArrayAccess
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
         'maximum_number_of_orders' => 'int',
+        'version' => 'string',
         'create_pick_work' => 'bool',
         'picking_rule' => 'string',
         'layout_rule' => 'string',
@@ -107,6 +108,7 @@ class FulfillmentPlan implements ArrayAccess
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
         'maximum_number_of_orders' => 'maximumNumberOfOrders',
+        'version' => 'version',
         'create_pick_work' => 'createPickWork',
         'picking_rule' => 'pickingRule',
         'layout_rule' => 'layoutRule',
@@ -153,6 +155,7 @@ class FulfillmentPlan implements ArrayAccess
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
         'maximum_number_of_orders' => 'setMaximumNumberOfOrders',
+        'version' => 'setVersion',
         'create_pick_work' => 'setCreatePickWork',
         'picking_rule' => 'setPickingRule',
         'layout_rule' => 'setLayoutRule',
@@ -199,6 +202,7 @@ class FulfillmentPlan implements ArrayAccess
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
         'maximum_number_of_orders' => 'getMaximumNumberOfOrders',
+        'version' => 'getVersion',
         'create_pick_work' => 'getCreatePickWork',
         'picking_rule' => 'getPickingRule',
         'layout_rule' => 'getLayoutRule',
@@ -290,6 +294,12 @@ class FulfillmentPlan implements ArrayAccess
       * @var int
       */
     protected $maximum_number_of_orders;
+    
+    /**
+      * $version 
+      * @var string
+      */
+    protected $version;
     
     /**
       * $create_pick_work 
@@ -460,6 +470,7 @@ class FulfillmentPlan implements ArrayAccess
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
             $this->maximum_number_of_orders = $data["maximum_number_of_orders"];
+            $this->version = $data["version"];
             $this->create_pick_work = $data["create_pick_work"];
             $this->picking_rule = $data["picking_rule"];
             $this->layout_rule = $data["layout_rule"];
@@ -695,6 +706,27 @@ class FulfillmentPlan implements ArrayAccess
     {
         
         $this->maximum_number_of_orders = $maximum_number_of_orders;
+        return $this;
+    }
+    
+    /**
+     * Gets version
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+  
+    /**
+     * Sets version
+     * @param string $version 
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        
+        $this->version = $version;
         return $this;
     }
     

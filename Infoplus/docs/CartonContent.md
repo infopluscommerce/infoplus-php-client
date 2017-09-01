@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **group_order_id** | [**Number**](Number.md) |  | [optional] 
 **order_no** | [**Number**](Number.md) |  | 
+**carton_no** | **int** |  | [optional] 
 **carton_id** | **int** |  | 
 **line_item_id** | **int** |  | 
 **location** | **string** |  | [optional] 

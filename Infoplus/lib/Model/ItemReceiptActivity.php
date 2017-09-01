@@ -54,6 +54,8 @@ class ItemReceiptActivity implements ArrayAccess
         'id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
+        'receipt_asn_create_date' => '\DateTime',
+        'receipt_modify_date' => '\DateTime',
         'item_receipt_id' => 'int',
         'lob_id' => 'int',
         'po_no' => 'string',
@@ -63,14 +65,20 @@ class ItemReceiptActivity implements ArrayAccess
         'receipt_revision_date' => 'string',
         'receipt_production_lot' => 'string',
         'receipt_receive_date' => '\DateTime',
+        'receipt_receive_quantity' => 'int',
+        'receipt_number_of_cases' => 'int',
         'receipt_status' => 'string',
         'receipt_status_name' => 'string',
         'receipt_unit_code' => 'int',
         'receipt_unit_code_text' => 'string',
         'receipt_wrap_code' => 'int',
         'receipt_wrap_code_text' => 'string',
+        'receipt_wrap_unit_weight' => 'Number',
         'receipt_case_weight' => 'Number',
         'receipt_product_id_tag' => 'string',
+        'receipt_entered_by' => 'string',
+        'receipt_received_by' => 'string',
+        'receipt_type' => 'string',
         'warehouse_id' => 'int',
         'warehouse_name' => 'string',
         'item_id' => 'int',
@@ -139,6 +147,8 @@ class ItemReceiptActivity implements ArrayAccess
         'id' => 'id',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
+        'receipt_asn_create_date' => 'receiptASNCreateDate',
+        'receipt_modify_date' => 'receiptModifyDate',
         'item_receipt_id' => 'itemReceiptId',
         'lob_id' => 'lobId',
         'po_no' => 'poNo',
@@ -148,14 +158,20 @@ class ItemReceiptActivity implements ArrayAccess
         'receipt_revision_date' => 'receiptRevisionDate',
         'receipt_production_lot' => 'receiptProductionLot',
         'receipt_receive_date' => 'receiptReceiveDate',
+        'receipt_receive_quantity' => 'receiptReceiveQuantity',
+        'receipt_number_of_cases' => 'receiptNumberOfCases',
         'receipt_status' => 'receiptStatus',
         'receipt_status_name' => 'receiptStatusName',
         'receipt_unit_code' => 'receiptUnitCode',
         'receipt_unit_code_text' => 'receiptUnitCodeText',
         'receipt_wrap_code' => 'receiptWrapCode',
         'receipt_wrap_code_text' => 'receiptWrapCodeText',
+        'receipt_wrap_unit_weight' => 'receiptWrapUnitWeight',
         'receipt_case_weight' => 'receiptCaseWeight',
         'receipt_product_id_tag' => 'receiptProductIdTag',
+        'receipt_entered_by' => 'receiptEnteredBy',
+        'receipt_received_by' => 'receiptReceivedBy',
+        'receipt_type' => 'receiptType',
         'warehouse_id' => 'warehouseId',
         'warehouse_name' => 'warehouseName',
         'item_id' => 'itemId',
@@ -224,6 +240,8 @@ class ItemReceiptActivity implements ArrayAccess
         'id' => 'setId',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
+        'receipt_asn_create_date' => 'setReceiptAsnCreateDate',
+        'receipt_modify_date' => 'setReceiptModifyDate',
         'item_receipt_id' => 'setItemReceiptId',
         'lob_id' => 'setLobId',
         'po_no' => 'setPoNo',
@@ -233,14 +251,20 @@ class ItemReceiptActivity implements ArrayAccess
         'receipt_revision_date' => 'setReceiptRevisionDate',
         'receipt_production_lot' => 'setReceiptProductionLot',
         'receipt_receive_date' => 'setReceiptReceiveDate',
+        'receipt_receive_quantity' => 'setReceiptReceiveQuantity',
+        'receipt_number_of_cases' => 'setReceiptNumberOfCases',
         'receipt_status' => 'setReceiptStatus',
         'receipt_status_name' => 'setReceiptStatusName',
         'receipt_unit_code' => 'setReceiptUnitCode',
         'receipt_unit_code_text' => 'setReceiptUnitCodeText',
         'receipt_wrap_code' => 'setReceiptWrapCode',
         'receipt_wrap_code_text' => 'setReceiptWrapCodeText',
+        'receipt_wrap_unit_weight' => 'setReceiptWrapUnitWeight',
         'receipt_case_weight' => 'setReceiptCaseWeight',
         'receipt_product_id_tag' => 'setReceiptProductIdTag',
+        'receipt_entered_by' => 'setReceiptEnteredBy',
+        'receipt_received_by' => 'setReceiptReceivedBy',
+        'receipt_type' => 'setReceiptType',
         'warehouse_id' => 'setWarehouseId',
         'warehouse_name' => 'setWarehouseName',
         'item_id' => 'setItemId',
@@ -309,6 +333,8 @@ class ItemReceiptActivity implements ArrayAccess
         'id' => 'getId',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
+        'receipt_asn_create_date' => 'getReceiptAsnCreateDate',
+        'receipt_modify_date' => 'getReceiptModifyDate',
         'item_receipt_id' => 'getItemReceiptId',
         'lob_id' => 'getLobId',
         'po_no' => 'getPoNo',
@@ -318,14 +344,20 @@ class ItemReceiptActivity implements ArrayAccess
         'receipt_revision_date' => 'getReceiptRevisionDate',
         'receipt_production_lot' => 'getReceiptProductionLot',
         'receipt_receive_date' => 'getReceiptReceiveDate',
+        'receipt_receive_quantity' => 'getReceiptReceiveQuantity',
+        'receipt_number_of_cases' => 'getReceiptNumberOfCases',
         'receipt_status' => 'getReceiptStatus',
         'receipt_status_name' => 'getReceiptStatusName',
         'receipt_unit_code' => 'getReceiptUnitCode',
         'receipt_unit_code_text' => 'getReceiptUnitCodeText',
         'receipt_wrap_code' => 'getReceiptWrapCode',
         'receipt_wrap_code_text' => 'getReceiptWrapCodeText',
+        'receipt_wrap_unit_weight' => 'getReceiptWrapUnitWeight',
         'receipt_case_weight' => 'getReceiptCaseWeight',
         'receipt_product_id_tag' => 'getReceiptProductIdTag',
+        'receipt_entered_by' => 'getReceiptEnteredBy',
+        'receipt_received_by' => 'getReceiptReceivedBy',
+        'receipt_type' => 'getReceiptType',
         'warehouse_id' => 'getWarehouseId',
         'warehouse_name' => 'getWarehouseName',
         'item_id' => 'getItemId',
@@ -406,6 +438,18 @@ class ItemReceiptActivity implements ArrayAccess
     protected $modify_date;
     
     /**
+      * $receipt_asn_create_date 
+      * @var \DateTime
+      */
+    protected $receipt_asn_create_date;
+    
+    /**
+      * $receipt_modify_date 
+      * @var \DateTime
+      */
+    protected $receipt_modify_date;
+    
+    /**
       * $item_receipt_id 
       * @var int
       */
@@ -460,6 +504,18 @@ class ItemReceiptActivity implements ArrayAccess
     protected $receipt_receive_date;
     
     /**
+      * $receipt_receive_quantity 
+      * @var int
+      */
+    protected $receipt_receive_quantity;
+    
+    /**
+      * $receipt_number_of_cases 
+      * @var int
+      */
+    protected $receipt_number_of_cases;
+    
+    /**
       * $receipt_status 
       * @var string
       */
@@ -496,6 +552,12 @@ class ItemReceiptActivity implements ArrayAccess
     protected $receipt_wrap_code_text;
     
     /**
+      * $receipt_wrap_unit_weight 
+      * @var Number
+      */
+    protected $receipt_wrap_unit_weight;
+    
+    /**
       * $receipt_case_weight 
       * @var Number
       */
@@ -506,6 +568,24 @@ class ItemReceiptActivity implements ArrayAccess
       * @var string
       */
     protected $receipt_product_id_tag;
+    
+    /**
+      * $receipt_entered_by 
+      * @var string
+      */
+    protected $receipt_entered_by;
+    
+    /**
+      * $receipt_received_by 
+      * @var string
+      */
+    protected $receipt_received_by;
+    
+    /**
+      * $receipt_type 
+      * @var string
+      */
+    protected $receipt_type;
     
     /**
       * $warehouse_id 
@@ -843,6 +923,8 @@ class ItemReceiptActivity implements ArrayAccess
             $this->id = $data["id"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
+            $this->receipt_asn_create_date = $data["receipt_asn_create_date"];
+            $this->receipt_modify_date = $data["receipt_modify_date"];
             $this->item_receipt_id = $data["item_receipt_id"];
             $this->lob_id = $data["lob_id"];
             $this->po_no = $data["po_no"];
@@ -852,14 +934,20 @@ class ItemReceiptActivity implements ArrayAccess
             $this->receipt_revision_date = $data["receipt_revision_date"];
             $this->receipt_production_lot = $data["receipt_production_lot"];
             $this->receipt_receive_date = $data["receipt_receive_date"];
+            $this->receipt_receive_quantity = $data["receipt_receive_quantity"];
+            $this->receipt_number_of_cases = $data["receipt_number_of_cases"];
             $this->receipt_status = $data["receipt_status"];
             $this->receipt_status_name = $data["receipt_status_name"];
             $this->receipt_unit_code = $data["receipt_unit_code"];
             $this->receipt_unit_code_text = $data["receipt_unit_code_text"];
             $this->receipt_wrap_code = $data["receipt_wrap_code"];
             $this->receipt_wrap_code_text = $data["receipt_wrap_code_text"];
+            $this->receipt_wrap_unit_weight = $data["receipt_wrap_unit_weight"];
             $this->receipt_case_weight = $data["receipt_case_weight"];
             $this->receipt_product_id_tag = $data["receipt_product_id_tag"];
+            $this->receipt_entered_by = $data["receipt_entered_by"];
+            $this->receipt_received_by = $data["receipt_received_by"];
+            $this->receipt_type = $data["receipt_type"];
             $this->warehouse_id = $data["warehouse_id"];
             $this->warehouse_name = $data["warehouse_name"];
             $this->item_id = $data["item_id"];
@@ -977,6 +1065,48 @@ class ItemReceiptActivity implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_asn_create_date
+     * @return \DateTime
+     */
+    public function getReceiptAsnCreateDate()
+    {
+        return $this->receipt_asn_create_date;
+    }
+  
+    /**
+     * Sets receipt_asn_create_date
+     * @param \DateTime $receipt_asn_create_date 
+     * @return $this
+     */
+    public function setReceiptAsnCreateDate($receipt_asn_create_date)
+    {
+        
+        $this->receipt_asn_create_date = $receipt_asn_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_modify_date
+     * @return \DateTime
+     */
+    public function getReceiptModifyDate()
+    {
+        return $this->receipt_modify_date;
+    }
+  
+    /**
+     * Sets receipt_modify_date
+     * @param \DateTime $receipt_modify_date 
+     * @return $this
+     */
+    public function setReceiptModifyDate($receipt_modify_date)
+    {
+        
+        $this->receipt_modify_date = $receipt_modify_date;
         return $this;
     }
     
@@ -1170,6 +1300,48 @@ class ItemReceiptActivity implements ArrayAccess
     }
     
     /**
+     * Gets receipt_receive_quantity
+     * @return int
+     */
+    public function getReceiptReceiveQuantity()
+    {
+        return $this->receipt_receive_quantity;
+    }
+  
+    /**
+     * Sets receipt_receive_quantity
+     * @param int $receipt_receive_quantity 
+     * @return $this
+     */
+    public function setReceiptReceiveQuantity($receipt_receive_quantity)
+    {
+        
+        $this->receipt_receive_quantity = $receipt_receive_quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_number_of_cases
+     * @return int
+     */
+    public function getReceiptNumberOfCases()
+    {
+        return $this->receipt_number_of_cases;
+    }
+  
+    /**
+     * Sets receipt_number_of_cases
+     * @param int $receipt_number_of_cases 
+     * @return $this
+     */
+    public function setReceiptNumberOfCases($receipt_number_of_cases)
+    {
+        
+        $this->receipt_number_of_cases = $receipt_number_of_cases;
+        return $this;
+    }
+    
+    /**
      * Gets receipt_status
      * @return string
      */
@@ -1296,6 +1468,27 @@ class ItemReceiptActivity implements ArrayAccess
     }
     
     /**
+     * Gets receipt_wrap_unit_weight
+     * @return Number
+     */
+    public function getReceiptWrapUnitWeight()
+    {
+        return $this->receipt_wrap_unit_weight;
+    }
+  
+    /**
+     * Sets receipt_wrap_unit_weight
+     * @param Number $receipt_wrap_unit_weight 
+     * @return $this
+     */
+    public function setReceiptWrapUnitWeight($receipt_wrap_unit_weight)
+    {
+        
+        $this->receipt_wrap_unit_weight = $receipt_wrap_unit_weight;
+        return $this;
+    }
+    
+    /**
      * Gets receipt_case_weight
      * @return Number
      */
@@ -1334,6 +1527,69 @@ class ItemReceiptActivity implements ArrayAccess
     {
         
         $this->receipt_product_id_tag = $receipt_product_id_tag;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_entered_by
+     * @return string
+     */
+    public function getReceiptEnteredBy()
+    {
+        return $this->receipt_entered_by;
+    }
+  
+    /**
+     * Sets receipt_entered_by
+     * @param string $receipt_entered_by 
+     * @return $this
+     */
+    public function setReceiptEnteredBy($receipt_entered_by)
+    {
+        
+        $this->receipt_entered_by = $receipt_entered_by;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_received_by
+     * @return string
+     */
+    public function getReceiptReceivedBy()
+    {
+        return $this->receipt_received_by;
+    }
+  
+    /**
+     * Sets receipt_received_by
+     * @param string $receipt_received_by 
+     * @return $this
+     */
+    public function setReceiptReceivedBy($receipt_received_by)
+    {
+        
+        $this->receipt_received_by = $receipt_received_by;
+        return $this;
+    }
+    
+    /**
+     * Gets receipt_type
+     * @return string
+     */
+    public function getReceiptType()
+    {
+        return $this->receipt_type;
+    }
+  
+    /**
+     * Sets receipt_type
+     * @param string $receipt_type 
+     * @return $this
+     */
+    public function setReceiptType($receipt_type)
+    {
+        
+        $this->receipt_type = $receipt_type;
         return $this;
     }
     

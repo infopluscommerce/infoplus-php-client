@@ -52,6 +52,7 @@ class PerpetualInventoryLog implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
+        'item_receipt_location_id' => 'int',
         'item_receipt_id' => 'int',
         'sku_id' => 'int',
         'asn_id' => 'int',
@@ -149,6 +150,7 @@ class PerpetualInventoryLog implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
+        'item_receipt_location_id' => 'itemReceiptLocationId',
         'item_receipt_id' => 'itemReceiptId',
         'sku_id' => 'skuId',
         'asn_id' => 'asnId',
@@ -246,6 +248,7 @@ class PerpetualInventoryLog implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
+        'item_receipt_location_id' => 'setItemReceiptLocationId',
         'item_receipt_id' => 'setItemReceiptId',
         'sku_id' => 'setSkuId',
         'asn_id' => 'setAsnId',
@@ -343,6 +346,7 @@ class PerpetualInventoryLog implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
+        'item_receipt_location_id' => 'getItemReceiptLocationId',
         'item_receipt_id' => 'getItemReceiptId',
         'sku_id' => 'getSkuId',
         'asn_id' => 'getAsnId',
@@ -440,6 +444,12 @@ class PerpetualInventoryLog implements ArrayAccess
       * @var int
       */
     protected $id;
+    
+    /**
+      * $item_receipt_location_id 
+      * @var int
+      */
+    protected $item_receipt_location_id;
     
     /**
       * $item_receipt_id 
@@ -961,6 +971,7 @@ class PerpetualInventoryLog implements ArrayAccess
         
         if ($data != null) {
             $this->id = $data["id"];
+            $this->item_receipt_location_id = $data["item_receipt_location_id"];
             $this->item_receipt_id = $data["item_receipt_id"];
             $this->sku_id = $data["sku_id"];
             $this->asn_id = $data["asn_id"];
@@ -1067,6 +1078,27 @@ class PerpetualInventoryLog implements ArrayAccess
     {
         
         $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Gets item_receipt_location_id
+     * @return int
+     */
+    public function getItemReceiptLocationId()
+    {
+        return $this->item_receipt_location_id;
+    }
+  
+    /**
+     * Sets item_receipt_location_id
+     * @param int $item_receipt_location_id 
+     * @return $this
+     */
+    public function setItemReceiptLocationId($item_receipt_location_id)
+    {
+        
+        $this->item_receipt_location_id = $item_receipt_location_id;
         return $this;
     }
     

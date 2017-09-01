@@ -81,6 +81,8 @@ class CartonActivity implements ArrayAccess
         'charged_freight_amount' => 'Number',
         'published_freight_amount' => 'Number',
         'retail_freight_amount' => 'Number',
+        'carton_create_date' => '\DateTime',
+        'carton_modify_date' => '\DateTime',
         'alternate_usage' => 'string',
         'group_order_id' => 'Number',
         'order_status' => 'string',
@@ -103,6 +105,7 @@ class CartonActivity implements ArrayAccess
         'customer_order_no' => 'string',
         'price_level' => 'string',
         'order_create_date' => '\DateTime',
+        'order_modify_date' => '\DateTime',
         'ship_by' => '\DateTime',
         'stop_back_orders' => 'string',
         'order_source_id' => 'int',
@@ -224,6 +227,8 @@ class CartonActivity implements ArrayAccess
         'charged_freight_amount' => 'chargedFreightAmount',
         'published_freight_amount' => 'publishedFreightAmount',
         'retail_freight_amount' => 'retailFreightAmount',
+        'carton_create_date' => 'cartonCreateDate',
+        'carton_modify_date' => 'cartonModifyDate',
         'alternate_usage' => 'alternateUsage',
         'group_order_id' => 'groupOrderId',
         'order_status' => 'orderStatus',
@@ -246,6 +251,7 @@ class CartonActivity implements ArrayAccess
         'customer_order_no' => 'customerOrderNo',
         'price_level' => 'priceLevel',
         'order_create_date' => 'orderCreateDate',
+        'order_modify_date' => 'orderModifyDate',
         'ship_by' => 'shipBy',
         'stop_back_orders' => 'stopBackOrders',
         'order_source_id' => 'orderSourceId',
@@ -367,6 +373,8 @@ class CartonActivity implements ArrayAccess
         'charged_freight_amount' => 'setChargedFreightAmount',
         'published_freight_amount' => 'setPublishedFreightAmount',
         'retail_freight_amount' => 'setRetailFreightAmount',
+        'carton_create_date' => 'setCartonCreateDate',
+        'carton_modify_date' => 'setCartonModifyDate',
         'alternate_usage' => 'setAlternateUsage',
         'group_order_id' => 'setGroupOrderId',
         'order_status' => 'setOrderStatus',
@@ -389,6 +397,7 @@ class CartonActivity implements ArrayAccess
         'customer_order_no' => 'setCustomerOrderNo',
         'price_level' => 'setPriceLevel',
         'order_create_date' => 'setOrderCreateDate',
+        'order_modify_date' => 'setOrderModifyDate',
         'ship_by' => 'setShipBy',
         'stop_back_orders' => 'setStopBackOrders',
         'order_source_id' => 'setOrderSourceId',
@@ -510,6 +519,8 @@ class CartonActivity implements ArrayAccess
         'charged_freight_amount' => 'getChargedFreightAmount',
         'published_freight_amount' => 'getPublishedFreightAmount',
         'retail_freight_amount' => 'getRetailFreightAmount',
+        'carton_create_date' => 'getCartonCreateDate',
+        'carton_modify_date' => 'getCartonModifyDate',
         'alternate_usage' => 'getAlternateUsage',
         'group_order_id' => 'getGroupOrderId',
         'order_status' => 'getOrderStatus',
@@ -532,6 +543,7 @@ class CartonActivity implements ArrayAccess
         'customer_order_no' => 'getCustomerOrderNo',
         'price_level' => 'getPriceLevel',
         'order_create_date' => 'getOrderCreateDate',
+        'order_modify_date' => 'getOrderModifyDate',
         'ship_by' => 'getShipBy',
         'stop_back_orders' => 'getStopBackOrders',
         'order_source_id' => 'getOrderSourceId',
@@ -800,6 +812,18 @@ class CartonActivity implements ArrayAccess
     protected $retail_freight_amount;
     
     /**
+      * $carton_create_date 
+      * @var \DateTime
+      */
+    protected $carton_create_date;
+    
+    /**
+      * $carton_modify_date 
+      * @var \DateTime
+      */
+    protected $carton_modify_date;
+    
+    /**
       * $alternate_usage 
       * @var string
       */
@@ -930,6 +954,12 @@ class CartonActivity implements ArrayAccess
       * @var \DateTime
       */
     protected $order_create_date;
+    
+    /**
+      * $order_modify_date 
+      * @var \DateTime
+      */
+    protected $order_modify_date;
     
     /**
       * $ship_by 
@@ -1450,6 +1480,8 @@ class CartonActivity implements ArrayAccess
             $this->charged_freight_amount = $data["charged_freight_amount"];
             $this->published_freight_amount = $data["published_freight_amount"];
             $this->retail_freight_amount = $data["retail_freight_amount"];
+            $this->carton_create_date = $data["carton_create_date"];
+            $this->carton_modify_date = $data["carton_modify_date"];
             $this->alternate_usage = $data["alternate_usage"];
             $this->group_order_id = $data["group_order_id"];
             $this->order_status = $data["order_status"];
@@ -1472,6 +1504,7 @@ class CartonActivity implements ArrayAccess
             $this->customer_order_no = $data["customer_order_no"];
             $this->price_level = $data["price_level"];
             $this->order_create_date = $data["order_create_date"];
+            $this->order_modify_date = $data["order_modify_date"];
             $this->ship_by = $data["ship_by"];
             $this->stop_back_orders = $data["stop_back_orders"];
             $this->order_source_id = $data["order_source_id"];
@@ -2186,6 +2219,48 @@ class CartonActivity implements ArrayAccess
     }
     
     /**
+     * Gets carton_create_date
+     * @return \DateTime
+     */
+    public function getCartonCreateDate()
+    {
+        return $this->carton_create_date;
+    }
+  
+    /**
+     * Sets carton_create_date
+     * @param \DateTime $carton_create_date 
+     * @return $this
+     */
+    public function setCartonCreateDate($carton_create_date)
+    {
+        
+        $this->carton_create_date = $carton_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets carton_modify_date
+     * @return \DateTime
+     */
+    public function getCartonModifyDate()
+    {
+        return $this->carton_modify_date;
+    }
+  
+    /**
+     * Sets carton_modify_date
+     * @param \DateTime $carton_modify_date 
+     * @return $this
+     */
+    public function setCartonModifyDate($carton_modify_date)
+    {
+        
+        $this->carton_modify_date = $carton_modify_date;
+        return $this;
+    }
+    
+    /**
      * Gets alternate_usage
      * @return string
      */
@@ -2644,6 +2719,27 @@ class CartonActivity implements ArrayAccess
     {
         
         $this->order_create_date = $order_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets order_modify_date
+     * @return \DateTime
+     */
+    public function getOrderModifyDate()
+    {
+        return $this->order_modify_date;
+    }
+  
+    /**
+     * Sets order_modify_date
+     * @param \DateTime $order_modify_date 
+     * @return $this
+     */
+    public function setOrderModifyDate($order_modify_date)
+    {
+        
+        $this->order_modify_date = $order_modify_date;
         return $this;
     }
     

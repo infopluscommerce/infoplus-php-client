@@ -29,7 +29,8 @@ Name | Type | Description | Notes
 **critical_amount** | **int** |  | 
 **overall_fixed_reorder_point** | **int** |  | [optional] 
 **overall_lead_time** | **int** |  | [optional] 
-**list_price** | [**Number**](Number.md) |  | [optional] 
+**sell_price** | [**Number**](Number.md) |  | [optional] 
+**pricing_per** | **string** |  | [optional] 
 **lot_control_flag** | **string** |  | [optional] 
 **max_cycle** | **int** |  | 
 **max_interim** | **int** |  | 
@@ -57,6 +58,9 @@ Name | Type | Description | Notes
 **extrinsic_decimal1** | [**Number**](Number.md) |  | [optional] 
 **extrinsic_decimal2** | [**Number**](Number.md) |  | [optional] 
 **casebreak_enabled** | **string** |  | [optional] 
+**vendor_id** | **int** |  | [optional] 
+**vendor_price** | [**Number**](Number.md) |  | [optional] 
+**vendor_per** | **string** |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **forward_lot_mixing_rule** | **string** |  | 
 **storage_lot_mixing_rule** | **string** |  | 

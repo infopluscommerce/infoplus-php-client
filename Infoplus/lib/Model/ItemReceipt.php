@@ -57,6 +57,7 @@ class ItemReceipt implements ArrayAccess
         'legacy_po_no' => 'string',
         'warehouse_id' => 'int',
         'order_date' => '\DateTime',
+        'full_description' => 'string',
         'fact_cost' => 'Number',
         'ml_cost' => 'Number',
         'sku' => 'string',
@@ -66,7 +67,7 @@ class ItemReceipt implements ArrayAccess
         'wrap_code' => 'string',
         'units_per_wrap' => 'int',
         'cost' => 'Number',
-        'sell' => 'Number',
+        'sell_price' => 'Number',
         'pricing_per' => 'string',
         'max_freight' => 'Number',
         'charge_freight' => 'string',
@@ -139,6 +140,7 @@ class ItemReceipt implements ArrayAccess
         'legacy_po_no' => 'legacyPoNo',
         'warehouse_id' => 'warehouseId',
         'order_date' => 'orderDate',
+        'full_description' => 'fullDescription',
         'fact_cost' => 'factCost',
         'ml_cost' => 'mlCost',
         'sku' => 'sku',
@@ -148,7 +150,7 @@ class ItemReceipt implements ArrayAccess
         'wrap_code' => 'wrapCode',
         'units_per_wrap' => 'unitsPerWrap',
         'cost' => 'cost',
-        'sell' => 'sell',
+        'sell_price' => 'sellPrice',
         'pricing_per' => 'pricingPer',
         'max_freight' => 'maxFreight',
         'charge_freight' => 'chargeFreight',
@@ -221,6 +223,7 @@ class ItemReceipt implements ArrayAccess
         'legacy_po_no' => 'setLegacyPoNo',
         'warehouse_id' => 'setWarehouseId',
         'order_date' => 'setOrderDate',
+        'full_description' => 'setFullDescription',
         'fact_cost' => 'setFactCost',
         'ml_cost' => 'setMlCost',
         'sku' => 'setSku',
@@ -230,7 +233,7 @@ class ItemReceipt implements ArrayAccess
         'wrap_code' => 'setWrapCode',
         'units_per_wrap' => 'setUnitsPerWrap',
         'cost' => 'setCost',
-        'sell' => 'setSell',
+        'sell_price' => 'setSellPrice',
         'pricing_per' => 'setPricingPer',
         'max_freight' => 'setMaxFreight',
         'charge_freight' => 'setChargeFreight',
@@ -303,6 +306,7 @@ class ItemReceipt implements ArrayAccess
         'legacy_po_no' => 'getLegacyPoNo',
         'warehouse_id' => 'getWarehouseId',
         'order_date' => 'getOrderDate',
+        'full_description' => 'getFullDescription',
         'fact_cost' => 'getFactCost',
         'ml_cost' => 'getMlCost',
         'sku' => 'getSku',
@@ -312,7 +316,7 @@ class ItemReceipt implements ArrayAccess
         'wrap_code' => 'getWrapCode',
         'units_per_wrap' => 'getUnitsPerWrap',
         'cost' => 'getCost',
-        'sell' => 'getSell',
+        'sell_price' => 'getSellPrice',
         'pricing_per' => 'getPricingPer',
         'max_freight' => 'getMaxFreight',
         'charge_freight' => 'getChargeFreight',
@@ -412,6 +416,12 @@ class ItemReceipt implements ArrayAccess
     protected $order_date;
     
     /**
+      * $full_description 
+      * @var string
+      */
+    protected $full_description;
+    
+    /**
       * $fact_cost 
       * @var Number
       */
@@ -466,10 +476,10 @@ class ItemReceipt implements ArrayAccess
     protected $cost;
     
     /**
-      * $sell 
+      * $sell_price 
       * @var Number
       */
-    protected $sell;
+    protected $sell_price;
     
     /**
       * $pricing_per 
@@ -816,6 +826,7 @@ class ItemReceipt implements ArrayAccess
             $this->legacy_po_no = $data["legacy_po_no"];
             $this->warehouse_id = $data["warehouse_id"];
             $this->order_date = $data["order_date"];
+            $this->full_description = $data["full_description"];
             $this->fact_cost = $data["fact_cost"];
             $this->ml_cost = $data["ml_cost"];
             $this->sku = $data["sku"];
@@ -825,7 +836,7 @@ class ItemReceipt implements ArrayAccess
             $this->wrap_code = $data["wrap_code"];
             $this->units_per_wrap = $data["units_per_wrap"];
             $this->cost = $data["cost"];
-            $this->sell = $data["sell"];
+            $this->sell_price = $data["sell_price"];
             $this->pricing_per = $data["pricing_per"];
             $this->max_freight = $data["max_freight"];
             $this->charge_freight = $data["charge_freight"];
@@ -1007,6 +1018,27 @@ class ItemReceipt implements ArrayAccess
     {
         
         $this->order_date = $order_date;
+        return $this;
+    }
+    
+    /**
+     * Gets full_description
+     * @return string
+     */
+    public function getFullDescription()
+    {
+        return $this->full_description;
+    }
+  
+    /**
+     * Sets full_description
+     * @param string $full_description 
+     * @return $this
+     */
+    public function setFullDescription($full_description)
+    {
+        
+        $this->full_description = $full_description;
         return $this;
     }
     
@@ -1200,23 +1232,23 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
-     * Gets sell
+     * Gets sell_price
      * @return Number
      */
-    public function getSell()
+    public function getSellPrice()
     {
-        return $this->sell;
+        return $this->sell_price;
     }
   
     /**
-     * Sets sell
-     * @param Number $sell 
+     * Sets sell_price
+     * @param Number $sell_price 
      * @return $this
      */
-    public function setSell($sell)
+    public function setSellPrice($sell_price)
     {
         
-        $this->sell = $sell;
+        $this->sell_price = $sell_price;
         return $this;
     }
     

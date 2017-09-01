@@ -76,7 +76,8 @@ class OrderActivity implements ArrayAccess
         'order_reason' => 'int',
         'customer_order_no' => 'string',
         'price_level' => 'string',
-        'entry_time' => '\DateTime',
+        'order_create_date' => '\DateTime',
+        'order_modify_date' => '\DateTime',
         'ship_by' => '\DateTime',
         'stop_back_orders' => 'string',
         'warehouse_id' => 'int',
@@ -152,6 +153,9 @@ class OrderActivity implements ArrayAccess
         'lead_package_id' => 'string',
         'delivered_date' => '\DateTime',
         'total_qty' => 'int',
+        'number_of_wraps' => 'int',
+        'number_of_cases' => 'int',
+        'number_of_touches' => 'int',
         'estimated_number_of_picks' => 'int',
         'order_confirmation_email_template_id' => 'int',
         'shipment_confirmation_email_template_id' => 'int',
@@ -196,7 +200,8 @@ class OrderActivity implements ArrayAccess
         'order_reason' => 'orderReason',
         'customer_order_no' => 'customerOrderNo',
         'price_level' => 'priceLevel',
-        'entry_time' => 'entryTime',
+        'order_create_date' => 'orderCreateDate',
+        'order_modify_date' => 'orderModifyDate',
         'ship_by' => 'shipBy',
         'stop_back_orders' => 'stopBackOrders',
         'warehouse_id' => 'warehouseId',
@@ -272,6 +277,9 @@ class OrderActivity implements ArrayAccess
         'lead_package_id' => 'leadPackageId',
         'delivered_date' => 'deliveredDate',
         'total_qty' => 'totalQty',
+        'number_of_wraps' => 'numberOfWraps',
+        'number_of_cases' => 'numberOfCases',
+        'number_of_touches' => 'numberOfTouches',
         'estimated_number_of_picks' => 'estimatedNumberOfPicks',
         'order_confirmation_email_template_id' => 'orderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'shipmentConfirmationEmailTemplateId',
@@ -316,7 +324,8 @@ class OrderActivity implements ArrayAccess
         'order_reason' => 'setOrderReason',
         'customer_order_no' => 'setCustomerOrderNo',
         'price_level' => 'setPriceLevel',
-        'entry_time' => 'setEntryTime',
+        'order_create_date' => 'setOrderCreateDate',
+        'order_modify_date' => 'setOrderModifyDate',
         'ship_by' => 'setShipBy',
         'stop_back_orders' => 'setStopBackOrders',
         'warehouse_id' => 'setWarehouseId',
@@ -392,6 +401,9 @@ class OrderActivity implements ArrayAccess
         'lead_package_id' => 'setLeadPackageId',
         'delivered_date' => 'setDeliveredDate',
         'total_qty' => 'setTotalQty',
+        'number_of_wraps' => 'setNumberOfWraps',
+        'number_of_cases' => 'setNumberOfCases',
+        'number_of_touches' => 'setNumberOfTouches',
         'estimated_number_of_picks' => 'setEstimatedNumberOfPicks',
         'order_confirmation_email_template_id' => 'setOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'setShipmentConfirmationEmailTemplateId',
@@ -436,7 +448,8 @@ class OrderActivity implements ArrayAccess
         'order_reason' => 'getOrderReason',
         'customer_order_no' => 'getCustomerOrderNo',
         'price_level' => 'getPriceLevel',
-        'entry_time' => 'getEntryTime',
+        'order_create_date' => 'getOrderCreateDate',
+        'order_modify_date' => 'getOrderModifyDate',
         'ship_by' => 'getShipBy',
         'stop_back_orders' => 'getStopBackOrders',
         'warehouse_id' => 'getWarehouseId',
@@ -512,6 +525,9 @@ class OrderActivity implements ArrayAccess
         'lead_package_id' => 'getLeadPackageId',
         'delivered_date' => 'getDeliveredDate',
         'total_qty' => 'getTotalQty',
+        'number_of_wraps' => 'getNumberOfWraps',
+        'number_of_cases' => 'getNumberOfCases',
+        'number_of_touches' => 'getNumberOfTouches',
         'estimated_number_of_picks' => 'getEstimatedNumberOfPicks',
         'order_confirmation_email_template_id' => 'getOrderConfirmationEmailTemplateId',
         'shipment_confirmation_email_template_id' => 'getShipmentConfirmationEmailTemplateId',
@@ -678,10 +694,16 @@ class OrderActivity implements ArrayAccess
     protected $price_level;
     
     /**
-      * $entry_time 
+      * $order_create_date 
       * @var \DateTime
       */
-    protected $entry_time;
+    protected $order_create_date;
+    
+    /**
+      * $order_modify_date 
+      * @var \DateTime
+      */
+    protected $order_modify_date;
     
     /**
       * $ship_by 
@@ -1134,6 +1156,24 @@ class OrderActivity implements ArrayAccess
     protected $total_qty;
     
     /**
+      * $number_of_wraps 
+      * @var int
+      */
+    protected $number_of_wraps;
+    
+    /**
+      * $number_of_cases 
+      * @var int
+      */
+    protected $number_of_cases;
+    
+    /**
+      * $number_of_touches 
+      * @var int
+      */
+    protected $number_of_touches;
+    
+    /**
       * $estimated_number_of_picks 
       * @var int
       */
@@ -1215,7 +1255,8 @@ class OrderActivity implements ArrayAccess
             $this->order_reason = $data["order_reason"];
             $this->customer_order_no = $data["customer_order_no"];
             $this->price_level = $data["price_level"];
-            $this->entry_time = $data["entry_time"];
+            $this->order_create_date = $data["order_create_date"];
+            $this->order_modify_date = $data["order_modify_date"];
             $this->ship_by = $data["ship_by"];
             $this->stop_back_orders = $data["stop_back_orders"];
             $this->warehouse_id = $data["warehouse_id"];
@@ -1291,6 +1332,9 @@ class OrderActivity implements ArrayAccess
             $this->lead_package_id = $data["lead_package_id"];
             $this->delivered_date = $data["delivered_date"];
             $this->total_qty = $data["total_qty"];
+            $this->number_of_wraps = $data["number_of_wraps"];
+            $this->number_of_cases = $data["number_of_cases"];
+            $this->number_of_touches = $data["number_of_touches"];
             $this->estimated_number_of_picks = $data["estimated_number_of_picks"];
             $this->order_confirmation_email_template_id = $data["order_confirmation_email_template_id"];
             $this->shipment_confirmation_email_template_id = $data["shipment_confirmation_email_template_id"];
@@ -1828,23 +1872,44 @@ class OrderActivity implements ArrayAccess
     }
     
     /**
-     * Gets entry_time
+     * Gets order_create_date
      * @return \DateTime
      */
-    public function getEntryTime()
+    public function getOrderCreateDate()
     {
-        return $this->entry_time;
+        return $this->order_create_date;
     }
   
     /**
-     * Sets entry_time
-     * @param \DateTime $entry_time 
+     * Sets order_create_date
+     * @param \DateTime $order_create_date 
      * @return $this
      */
-    public function setEntryTime($entry_time)
+    public function setOrderCreateDate($order_create_date)
     {
         
-        $this->entry_time = $entry_time;
+        $this->order_create_date = $order_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets order_modify_date
+     * @return \DateTime
+     */
+    public function getOrderModifyDate()
+    {
+        return $this->order_modify_date;
+    }
+  
+    /**
+     * Sets order_modify_date
+     * @param \DateTime $order_modify_date 
+     * @return $this
+     */
+    public function setOrderModifyDate($order_modify_date)
+    {
+        
+        $this->order_modify_date = $order_modify_date;
         return $this;
     }
     
@@ -3420,6 +3485,69 @@ class OrderActivity implements ArrayAccess
     {
         
         $this->total_qty = $total_qty;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_wraps
+     * @return int
+     */
+    public function getNumberOfWraps()
+    {
+        return $this->number_of_wraps;
+    }
+  
+    /**
+     * Sets number_of_wraps
+     * @param int $number_of_wraps 
+     * @return $this
+     */
+    public function setNumberOfWraps($number_of_wraps)
+    {
+        
+        $this->number_of_wraps = $number_of_wraps;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_cases
+     * @return int
+     */
+    public function getNumberOfCases()
+    {
+        return $this->number_of_cases;
+    }
+  
+    /**
+     * Sets number_of_cases
+     * @param int $number_of_cases 
+     * @return $this
+     */
+    public function setNumberOfCases($number_of_cases)
+    {
+        
+        $this->number_of_cases = $number_of_cases;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_touches
+     * @return int
+     */
+    public function getNumberOfTouches()
+    {
+        return $this->number_of_touches;
+    }
+  
+    /**
+     * Sets number_of_touches
+     * @param int $number_of_touches 
+     * @return $this
+     */
+    public function setNumberOfTouches($number_of_touches)
+    {
+        
+        $this->number_of_touches = $number_of_touches;
         return $this;
     }
     

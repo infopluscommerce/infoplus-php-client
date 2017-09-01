@@ -124,6 +124,8 @@ class WorkActivity implements ArrayAccess
         'destination_priority_code' => 'int',
         'destination_cost' => 'int',
         'destination_allow_item_mixing' => 'bool',
+        'work_create_date' => '\DateTime',
+        'work_modify_date' => '\DateTime',
         'master_ref' => 'int',
         'weight_per_wrap' => 'Number',
         'sku' => 'string',
@@ -133,6 +135,10 @@ class WorkActivity implements ArrayAccess
         'unit_code' => 'string',
         'wrap_code' => 'string',
         'units_per_wrap' => 'int',
+        'quantity' => 'int',
+        'number_of_wraps' => 'int',
+        'number_of_cases' => 'int',
+        'pick_touches' => 'int',
         'class_restriction' => 'string',
         'max_cycle' => 'int',
         'max_interim' => 'int',
@@ -282,6 +288,8 @@ class WorkActivity implements ArrayAccess
         'destination_priority_code' => 'destinationPriorityCode',
         'destination_cost' => 'destinationCost',
         'destination_allow_item_mixing' => 'destinationAllowItemMixing',
+        'work_create_date' => 'workCreateDate',
+        'work_modify_date' => 'workModifyDate',
         'master_ref' => 'masterRef',
         'weight_per_wrap' => 'weightPerWrap',
         'sku' => 'sku',
@@ -291,6 +299,10 @@ class WorkActivity implements ArrayAccess
         'unit_code' => 'unitCode',
         'wrap_code' => 'wrapCode',
         'units_per_wrap' => 'unitsPerWrap',
+        'quantity' => 'quantity',
+        'number_of_wraps' => 'numberOfWraps',
+        'number_of_cases' => 'numberOfCases',
+        'pick_touches' => 'pickTouches',
         'class_restriction' => 'classRestriction',
         'max_cycle' => 'maxCycle',
         'max_interim' => 'maxInterim',
@@ -440,6 +452,8 @@ class WorkActivity implements ArrayAccess
         'destination_priority_code' => 'setDestinationPriorityCode',
         'destination_cost' => 'setDestinationCost',
         'destination_allow_item_mixing' => 'setDestinationAllowItemMixing',
+        'work_create_date' => 'setWorkCreateDate',
+        'work_modify_date' => 'setWorkModifyDate',
         'master_ref' => 'setMasterRef',
         'weight_per_wrap' => 'setWeightPerWrap',
         'sku' => 'setSku',
@@ -449,6 +463,10 @@ class WorkActivity implements ArrayAccess
         'unit_code' => 'setUnitCode',
         'wrap_code' => 'setWrapCode',
         'units_per_wrap' => 'setUnitsPerWrap',
+        'quantity' => 'setQuantity',
+        'number_of_wraps' => 'setNumberOfWraps',
+        'number_of_cases' => 'setNumberOfCases',
+        'pick_touches' => 'setPickTouches',
         'class_restriction' => 'setClassRestriction',
         'max_cycle' => 'setMaxCycle',
         'max_interim' => 'setMaxInterim',
@@ -598,6 +616,8 @@ class WorkActivity implements ArrayAccess
         'destination_priority_code' => 'getDestinationPriorityCode',
         'destination_cost' => 'getDestinationCost',
         'destination_allow_item_mixing' => 'getDestinationAllowItemMixing',
+        'work_create_date' => 'getWorkCreateDate',
+        'work_modify_date' => 'getWorkModifyDate',
         'master_ref' => 'getMasterRef',
         'weight_per_wrap' => 'getWeightPerWrap',
         'sku' => 'getSku',
@@ -607,6 +627,10 @@ class WorkActivity implements ArrayAccess
         'unit_code' => 'getUnitCode',
         'wrap_code' => 'getWrapCode',
         'units_per_wrap' => 'getUnitsPerWrap',
+        'quantity' => 'getQuantity',
+        'number_of_wraps' => 'getNumberOfWraps',
+        'number_of_cases' => 'getNumberOfCases',
+        'pick_touches' => 'getPickTouches',
         'class_restriction' => 'getClassRestriction',
         'max_cycle' => 'getMaxCycle',
         'max_interim' => 'getMaxInterim',
@@ -1118,6 +1142,18 @@ class WorkActivity implements ArrayAccess
     protected $destination_allow_item_mixing = false;
     
     /**
+      * $work_create_date 
+      * @var \DateTime
+      */
+    protected $work_create_date;
+    
+    /**
+      * $work_modify_date 
+      * @var \DateTime
+      */
+    protected $work_modify_date;
+    
+    /**
       * $master_ref 
       * @var int
       */
@@ -1170,6 +1206,30 @@ class WorkActivity implements ArrayAccess
       * @var int
       */
     protected $units_per_wrap;
+    
+    /**
+      * $quantity 
+      * @var int
+      */
+    protected $quantity;
+    
+    /**
+      * $number_of_wraps 
+      * @var int
+      */
+    protected $number_of_wraps;
+    
+    /**
+      * $number_of_cases 
+      * @var int
+      */
+    protected $number_of_cases;
+    
+    /**
+      * $pick_touches 
+      * @var int
+      */
+    protected $pick_touches;
     
     /**
       * $class_restriction 
@@ -1643,6 +1703,8 @@ class WorkActivity implements ArrayAccess
             $this->destination_priority_code = $data["destination_priority_code"];
             $this->destination_cost = $data["destination_cost"];
             $this->destination_allow_item_mixing = $data["destination_allow_item_mixing"];
+            $this->work_create_date = $data["work_create_date"];
+            $this->work_modify_date = $data["work_modify_date"];
             $this->master_ref = $data["master_ref"];
             $this->weight_per_wrap = $data["weight_per_wrap"];
             $this->sku = $data["sku"];
@@ -1652,6 +1714,10 @@ class WorkActivity implements ArrayAccess
             $this->unit_code = $data["unit_code"];
             $this->wrap_code = $data["wrap_code"];
             $this->units_per_wrap = $data["units_per_wrap"];
+            $this->quantity = $data["quantity"];
+            $this->number_of_wraps = $data["number_of_wraps"];
+            $this->number_of_cases = $data["number_of_cases"];
+            $this->pick_touches = $data["pick_touches"];
             $this->class_restriction = $data["class_restriction"];
             $this->max_cycle = $data["max_cycle"];
             $this->max_interim = $data["max_interim"];
@@ -3254,6 +3320,48 @@ class WorkActivity implements ArrayAccess
     }
     
     /**
+     * Gets work_create_date
+     * @return \DateTime
+     */
+    public function getWorkCreateDate()
+    {
+        return $this->work_create_date;
+    }
+  
+    /**
+     * Sets work_create_date
+     * @param \DateTime $work_create_date 
+     * @return $this
+     */
+    public function setWorkCreateDate($work_create_date)
+    {
+        
+        $this->work_create_date = $work_create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets work_modify_date
+     * @return \DateTime
+     */
+    public function getWorkModifyDate()
+    {
+        return $this->work_modify_date;
+    }
+  
+    /**
+     * Sets work_modify_date
+     * @param \DateTime $work_modify_date 
+     * @return $this
+     */
+    public function setWorkModifyDate($work_modify_date)
+    {
+        
+        $this->work_modify_date = $work_modify_date;
+        return $this;
+    }
+    
+    /**
      * Gets master_ref
      * @return int
      */
@@ -3439,6 +3547,90 @@ class WorkActivity implements ArrayAccess
     {
         
         $this->units_per_wrap = $units_per_wrap;
+        return $this;
+    }
+    
+    /**
+     * Gets quantity
+     * @return int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+  
+    /**
+     * Sets quantity
+     * @param int $quantity 
+     * @return $this
+     */
+    public function setQuantity($quantity)
+    {
+        
+        $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_wraps
+     * @return int
+     */
+    public function getNumberOfWraps()
+    {
+        return $this->number_of_wraps;
+    }
+  
+    /**
+     * Sets number_of_wraps
+     * @param int $number_of_wraps 
+     * @return $this
+     */
+    public function setNumberOfWraps($number_of_wraps)
+    {
+        
+        $this->number_of_wraps = $number_of_wraps;
+        return $this;
+    }
+    
+    /**
+     * Gets number_of_cases
+     * @return int
+     */
+    public function getNumberOfCases()
+    {
+        return $this->number_of_cases;
+    }
+  
+    /**
+     * Sets number_of_cases
+     * @param int $number_of_cases 
+     * @return $this
+     */
+    public function setNumberOfCases($number_of_cases)
+    {
+        
+        $this->number_of_cases = $number_of_cases;
+        return $this;
+    }
+    
+    /**
+     * Gets pick_touches
+     * @return int
+     */
+    public function getPickTouches()
+    {
+        return $this->pick_touches;
+    }
+  
+    /**
+     * Sets pick_touches
+     * @param int $pick_touches 
+     * @return $this
+     */
+    public function setPickTouches($pick_touches)
+    {
+        
+        $this->pick_touches = $pick_touches;
         return $this;
     }
     

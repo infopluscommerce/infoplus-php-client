@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **order_smart_filter_id** | **int** |  | [optional] 
 **location_smart_filter_id** | **int** |  | [optional] 
 **order_limit** | **int** |  | [optional] 
+**version** | **string** |  | [optional] 
 **number_of_orders** | **int** |  | [optional] 
 **number_of_lines** | **int** |  | [optional] 
 **number_of_sk_us** | **int** |  | [optional] 

@@ -76,6 +76,8 @@ Name | Type | Description | Notes
 **destination_priority_code** | **int** |  | [optional] 
 **destination_cost** | **int** |  | [optional] 
 **destination_allow_item_mixing** | **bool** |  | [default to false]
+**work_create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**work_modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **master_ref** | **int** |  | [optional] 
 **weight_per_wrap** | [**Number**](Number.md) |  | [optional] 
 **sku** | **string** |  | 
@@ -85,6 +87,10 @@ Name | Type | Description | Notes
 **unit_code** | **string** |  | 
 **wrap_code** | **string** |  | 
 **units_per_wrap** | **int** |  | 
+**quantity** | **int** |  | [optional] 
+**number_of_wraps** | **int** |  | [optional] 
+**number_of_cases** | **int** |  | [optional] 
+**pick_touches** | **int** |  | [optional] 
 **class_restriction** | **string** |  | 
 **max_cycle** | **int** |  | 
 **max_interim** | **int** |  | 

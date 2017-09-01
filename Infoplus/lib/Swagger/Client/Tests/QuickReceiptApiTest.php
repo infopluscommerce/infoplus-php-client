@@ -116,6 +116,16 @@ class QuickReceiptApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for executeQuickReceipt
+     *
+     * Run the ExecuteQuickReceipt process.
+     *
+     */
+    public function test_executeQuickReceipt() {
+
+    }
+    
+    /**
      * Test case for getDuplicateQuickReceiptById
      *
      * Get a duplicated a quickReceipt by id

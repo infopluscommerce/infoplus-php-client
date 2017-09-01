@@ -116,6 +116,16 @@ class QuickAdjustmentApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Test case for executeQuickAdjustment
+     *
+     * Run the ExecuteQuickAdjustment process.
+     *
+     */
+    public function test_executeQuickAdjustment() {
+
+    }
+    
+    /**
      * Test case for getDuplicateQuickAdjustmentById
      *
      * Get a duplicated a quickAdjustment by id

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **carton_width** | [**Number**](Number.md) |  | [optional] 
 **carton_height** | [**Number**](Number.md) |  | [optional] 
 **cost** | [**Number**](Number.md) |  | [optional] 
-**sell** | [**Number**](Number.md) |  | [optional] 
+**sell_price** | [**Number**](Number.md) |  | [optional] 
 **pricing_per** | **string** |  | [optional] 
 **generated_item_receipt_id** | **int** |  | [optional] 
 **generated_asn_id** | **int** |  | [optional] 
