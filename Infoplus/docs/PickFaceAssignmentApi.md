@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addPickFaceAssignment**](PickFaceAssignmentApi.md#addPickFaceAssignment) | **POST** /beta/pickFaceAssignment | Create a pickFaceAssignment
-[**addPickFaceAssignmentAudit**](PickFaceAssignmentApi.md#addPickFaceAssignmentAudit) | **PUT** /beta/pickFaceAssignment/{pickFaceAssignmentId}/audit/{pickFaceAssignmentAudit} | Add new audit for a pickFaceAssignment
-[**addPickFaceAssignmentTag**](PickFaceAssignmentApi.md#addPickFaceAssignmentTag) | **PUT** /beta/pickFaceAssignment/{pickFaceAssignmentId}/tag/{pickFaceAssignmentTag} | Add new tags for a pickFaceAssignment.
-[**deletePickFaceAssignment**](PickFaceAssignmentApi.md#deletePickFaceAssignment) | **DELETE** /beta/pickFaceAssignment/{pickFaceAssignmentId} | Delete a pickFaceAssignment
-[**deletePickFaceAssignmentTag**](PickFaceAssignmentApi.md#deletePickFaceAssignmentTag) | **DELETE** /beta/pickFaceAssignment/{pickFaceAssignmentId}/tag/{pickFaceAssignmentTag} | Delete a tag for a pickFaceAssignment.
-[**getDuplicatePickFaceAssignmentById**](PickFaceAssignmentApi.md#getDuplicatePickFaceAssignmentById) | **GET** /beta/pickFaceAssignment/duplicate/{pickFaceAssignmentId} | Get a duplicated a pickFaceAssignment by id
-[**getPickFaceAssignmentByFilter**](PickFaceAssignmentApi.md#getPickFaceAssignmentByFilter) | **GET** /beta/pickFaceAssignment/search | Search pickFaceAssignments by filter
-[**getPickFaceAssignmentById**](PickFaceAssignmentApi.md#getPickFaceAssignmentById) | **GET** /beta/pickFaceAssignment/{pickFaceAssignmentId} | Get a pickFaceAssignment by id
-[**getPickFaceAssignmentTags**](PickFaceAssignmentApi.md#getPickFaceAssignmentTags) | **GET** /beta/pickFaceAssignment/{pickFaceAssignmentId}/tag | Get the tags for a pickFaceAssignment.
-[**updatePickFaceAssignment**](PickFaceAssignmentApi.md#updatePickFaceAssignment) | **PUT** /beta/pickFaceAssignment | Update a pickFaceAssignment
-[**updatePickFaceAssignmentCustomFields**](PickFaceAssignmentApi.md#updatePickFaceAssignmentCustomFields) | **PUT** /beta/pickFaceAssignment/customFields | Update a pickFaceAssignment custom fields
+[**addPickFaceAssignment**](PickFaceAssignmentApi.md#addPickFaceAssignment) | **POST** /v2.0/pickFaceAssignment | Create a pickFaceAssignment
+[**deletePickFaceAssignment**](PickFaceAssignmentApi.md#deletePickFaceAssignment) | **DELETE** /v2.0/pickFaceAssignment/{pickFaceAssignmentId} | Delete a pickFaceAssignment
+[**getDuplicatePickFaceAssignmentById**](PickFaceAssignmentApi.md#getDuplicatePickFaceAssignmentById) | **GET** /v2.0/pickFaceAssignment/duplicate/{pickFaceAssignmentId} | Get a duplicated a pickFaceAssignment by id
+[**getPickFaceAssignmentByFilter**](PickFaceAssignmentApi.md#getPickFaceAssignmentByFilter) | **GET** /v2.0/pickFaceAssignment/search | Search pickFaceAssignments by filter
+[**getPickFaceAssignmentById**](PickFaceAssignmentApi.md#getPickFaceAssignmentById) | **GET** /v2.0/pickFaceAssignment/{pickFaceAssignmentId} | Get a pickFaceAssignment by id
+[**updatePickFaceAssignment**](PickFaceAssignmentApi.md#updatePickFaceAssignment) | **PUT** /v2.0/pickFaceAssignment | Update a pickFaceAssignment
+[**updatePickFaceAssignmentCustomFields**](PickFaceAssignmentApi.md#updatePickFaceAssignmentCustomFields) | **PUT** /v2.0/pickFaceAssignment/customFields | Update a pickFaceAssignment custom fields
 
 
 # **addPickFaceAssignment**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addPickFaceAssignmentAudit**
-> addPickFaceAssignmentAudit($pick_face_assignment_id, $pick_face_assignment_audit)
-
-Add new audit for a pickFaceAssignment
-
-Adds an audit to an existing pickFaceAssignment.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\PickFaceAssignmentApi();
-$pick_face_assignment_id = 56; // int | Id of the pickFaceAssignment to add an audit to
-$pick_face_assignment_audit = "pick_face_assignment_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addPickFaceAssignmentAudit($pick_face_assignment_id, $pick_face_assignment_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling PickFaceAssignmentApi->addPickFaceAssignmentAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pick_face_assignment_id** | **int**| Id of the pickFaceAssignment to add an audit to | 
- **pick_face_assignment_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addPickFaceAssignmentTag**
-> addPickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag)
-
-Add new tags for a pickFaceAssignment.
-
-Adds a tag to an existing pickFaceAssignment.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\PickFaceAssignmentApi();
-$pick_face_assignment_id = 56; // int | Id of the pickFaceAssignment to add a tag to
-$pick_face_assignment_tag = "pick_face_assignment_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addPickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling PickFaceAssignmentApi->addPickFaceAssignmentTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pick_face_assignment_id** | **int**| Id of the pickFaceAssignment to add a tag to | 
- **pick_face_assignment_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deletePickFaceAssignment**
 > deletePickFaceAssignment($pick_face_assignment_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pick_face_assignment_id** | **int**| Id of the pickFaceAssignment to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deletePickFaceAssignmentTag**
-> deletePickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag)
-
-Delete a tag for a pickFaceAssignment.
-
-Deletes an existing pickFaceAssignment tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\PickFaceAssignmentApi();
-$pick_face_assignment_id = 56; // int | Id of the pickFaceAssignment to remove tag from
-$pick_face_assignment_tag = "pick_face_assignment_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deletePickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling PickFaceAssignmentApi->deletePickFaceAssignmentTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pick_face_assignment_id** | **int**| Id of the pickFaceAssignment to remove tag from | 
- **pick_face_assignment_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\PickFaceAssignment**](PickFaceAssignment.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getPickFaceAssignmentTags**
-> getPickFaceAssignmentTags($pick_face_assignment_id)
-
-Get the tags for a pickFaceAssignment.
-
-Get all existing pickFaceAssignment tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\PickFaceAssignmentApi();
-$pick_face_assignment_id = 56; // int | Id of the pickFaceAssignment to get tags for
-
-try { 
-    $api_instance->getPickFaceAssignmentTags($pick_face_assignment_id);
-} catch (Exception $e) {
-    echo 'Exception when calling PickFaceAssignmentApi->getPickFaceAssignmentTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pick_face_assignment_id** | **int**| Id of the pickFaceAssignment to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

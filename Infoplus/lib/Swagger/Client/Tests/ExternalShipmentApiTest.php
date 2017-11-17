@@ -76,42 +76,12 @@ class ExternalShipmentApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addExternalShipmentAudit
-     *
-     * Add new audit for an externalShipment
-     *
-     */
-    public function test_addExternalShipmentAudit() {
-
-    }
-    
-    /**
-     * Test case for addExternalShipmentTag
-     *
-     * Add new tags for an externalShipment.
-     *
-     */
-    public function test_addExternalShipmentTag() {
-
-    }
-    
-    /**
      * Test case for deleteExternalShipment
      *
      * Delete an externalShipment
      *
      */
     public function test_deleteExternalShipment() {
-
-    }
-    
-    /**
-     * Test case for deleteExternalShipmentTag
-     *
-     * Delete a tag for an externalShipment.
-     *
-     */
-    public function test_deleteExternalShipmentTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ExternalShipmentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getExternalShipmentById() {
-
-    }
-    
-    /**
-     * Test case for getExternalShipmentTags
-     *
-     * Get the tags for an externalShipment.
-     *
-     */
-    public function test_getExternalShipmentTags() {
 
     }
     

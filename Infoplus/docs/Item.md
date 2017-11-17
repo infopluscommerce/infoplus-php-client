@@ -64,8 +64,6 @@ Name | Type | Description | Notes
 **storage_item_mixing_rule** | **string** |  | 
 **allocation_rule** | **string** |  | 
 **barcode_field** | **string** |  | [optional] 
-**warehouse_display_field** | **string** |  | [optional] 
-**product_id_tag_scheme_id** | **int** |  | [optional] 
 **hazmat** | **string** |  | 
 **is_alcohol** | **bool** |  | [optional] [default to false]
 **alcohol_type** | **string** |  | [optional] 
@@ -85,17 +83,6 @@ Name | Type | Description | Notes
 **height** | [**Number**](Number.md) |  | [optional] 
 **top_up** | **bool** |  | [optional] [default to false]
 **ship_solo** | **bool** |  | [optional] [default to false]
-**available_quantity** | **int** |  | [optional] 
-**damaged_quantity** | **int** |  | [optional] 
-**in_fulfillment_process_quantity** | **int** |  | [optional] 
-**on_hand_quantity** | **int** |  | [optional] 
-**open_order_quantity** | **int** |  | [optional] 
-**open_po_quantity** | **int** |  | [optional] 
-**orderable_quantity** | **int** |  | [optional] 
-**unallocatable_quantity** | **int** |  | [optional] 
-**unavailable_quantity** | **int** |  | [optional] 
-**overall_days_on_hand** | **int** |  | [optional] 
-**overall_stock_status** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

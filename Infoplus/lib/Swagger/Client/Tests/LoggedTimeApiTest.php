@@ -66,36 +66,6 @@ class LoggedTimeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addLoggedTimeAudit
-     *
-     * Add new audit for a loggedTime
-     *
-     */
-    public function test_addLoggedTimeAudit() {
-
-    }
-    
-    /**
-     * Test case for addLoggedTimeTag
-     *
-     * Add new tags for a loggedTime.
-     *
-     */
-    public function test_addLoggedTimeTag() {
-
-    }
-    
-    /**
-     * Test case for deleteLoggedTimeTag
-     *
-     * Delete a tag for a loggedTime.
-     *
-     */
-    public function test_deleteLoggedTimeTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateLoggedTimeById
      *
      * Get a duplicated a loggedTime by id
@@ -122,16 +92,6 @@ class LoggedTimeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLoggedTimeById() {
-
-    }
-    
-    /**
-     * Test case for getLoggedTimeTags
-     *
-     * Get the tags for a loggedTime.
-     *
-     */
-    public function test_getLoggedTimeTags() {
 
     }
     

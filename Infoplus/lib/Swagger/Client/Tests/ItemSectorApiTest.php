@@ -76,42 +76,12 @@ class ItemSectorApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemSectorAudit
-     *
-     * Add new audit for an itemSector
-     *
-     */
-    public function test_addItemSectorAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemSectorTag
-     *
-     * Add new tags for an itemSector.
-     *
-     */
-    public function test_addItemSectorTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemSector
      *
      * Delete an itemSector
      *
      */
     public function test_deleteItemSector() {
-
-    }
-    
-    /**
-     * Test case for deleteItemSectorTag
-     *
-     * Delete a tag for an itemSector.
-     *
-     */
-    public function test_deleteItemSectorTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemSectorApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemSectorById() {
-
-    }
-    
-    /**
-     * Test case for getItemSectorTags
-     *
-     * Get the tags for an itemSector.
-     *
-     */
-    public function test_getItemSectorTags() {
 
     }
     

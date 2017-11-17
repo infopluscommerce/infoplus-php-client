@@ -76,42 +76,12 @@ class ItemAccountCodeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemAccountCodeAudit
-     *
-     * Add new audit for an itemAccountCode
-     *
-     */
-    public function test_addItemAccountCodeAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemAccountCodeTag
-     *
-     * Add new tags for an itemAccountCode.
-     *
-     */
-    public function test_addItemAccountCodeTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemAccountCode
      *
      * Delete an itemAccountCode
      *
      */
     public function test_deleteItemAccountCode() {
-
-    }
-    
-    /**
-     * Test case for deleteItemAccountCodeTag
-     *
-     * Delete a tag for an itemAccountCode.
-     *
-     */
-    public function test_deleteItemAccountCodeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemAccountCodeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemAccountCodeById() {
-
-    }
-    
-    /**
-     * Test case for getItemAccountCodeTags
-     *
-     * Get the tags for an itemAccountCode.
-     *
-     */
-    public function test_getItemAccountCodeTags() {
 
     }
     

@@ -80,8 +80,6 @@ class QuickReceipt implements ArrayAccess
         'pricing_per' => 'string',
         'generated_item_receipt_id' => 'int',
         'generated_asn_id' => 'int',
-        'dock_date' => '\DateTime',
-        'product_id_tag' => 'string',
         'custom_fields' => 'map[string,object]',
         'sku' => 'string'
     );
@@ -124,8 +122,6 @@ class QuickReceipt implements ArrayAccess
         'pricing_per' => 'pricingPer',
         'generated_item_receipt_id' => 'generatedItemReceiptId',
         'generated_asn_id' => 'generatedASNId',
-        'dock_date' => 'dockDate',
-        'product_id_tag' => 'productIdTag',
         'custom_fields' => 'customFields',
         'sku' => 'sku'
     );
@@ -168,8 +164,6 @@ class QuickReceipt implements ArrayAccess
         'pricing_per' => 'setPricingPer',
         'generated_item_receipt_id' => 'setGeneratedItemReceiptId',
         'generated_asn_id' => 'setGeneratedAsnId',
-        'dock_date' => 'setDockDate',
-        'product_id_tag' => 'setProductIdTag',
         'custom_fields' => 'setCustomFields',
         'sku' => 'setSku'
     );
@@ -212,8 +206,6 @@ class QuickReceipt implements ArrayAccess
         'pricing_per' => 'getPricingPer',
         'generated_item_receipt_id' => 'getGeneratedItemReceiptId',
         'generated_asn_id' => 'getGeneratedAsnId',
-        'dock_date' => 'getDockDate',
-        'product_id_tag' => 'getProductIdTag',
         'custom_fields' => 'getCustomFields',
         'sku' => 'getSku'
     );
@@ -398,18 +390,6 @@ class QuickReceipt implements ArrayAccess
     protected $generated_asn_id;
     
     /**
-      * $dock_date 
-      * @var \DateTime
-      */
-    protected $dock_date;
-    
-    /**
-      * $product_id_tag 
-      * @var string
-      */
-    protected $product_id_tag;
-    
-    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -459,8 +439,6 @@ class QuickReceipt implements ArrayAccess
             $this->pricing_per = $data["pricing_per"];
             $this->generated_item_receipt_id = $data["generated_item_receipt_id"];
             $this->generated_asn_id = $data["generated_asn_id"];
-            $this->dock_date = $data["dock_date"];
-            $this->product_id_tag = $data["product_id_tag"];
             $this->custom_fields = $data["custom_fields"];
             $this->sku = $data["sku"];
         }
@@ -1072,48 +1050,6 @@ class QuickReceipt implements ArrayAccess
     {
         
         $this->generated_asn_id = $generated_asn_id;
-        return $this;
-    }
-    
-    /**
-     * Gets dock_date
-     * @return \DateTime
-     */
-    public function getDockDate()
-    {
-        return $this->dock_date;
-    }
-  
-    /**
-     * Sets dock_date
-     * @param \DateTime $dock_date 
-     * @return $this
-     */
-    public function setDockDate($dock_date)
-    {
-        
-        $this->dock_date = $dock_date;
-        return $this;
-    }
-    
-    /**
-     * Gets product_id_tag
-     * @return string
-     */
-    public function getProductIdTag()
-    {
-        return $this->product_id_tag;
-    }
-  
-    /**
-     * Sets product_id_tag
-     * @param string $product_id_tag 
-     * @return $this
-     */
-    public function setProductIdTag($product_id_tag)
-    {
-        
-        $this->product_id_tag = $product_id_tag;
         return $this;
     }
     

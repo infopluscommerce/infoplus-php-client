@@ -59,7 +59,6 @@ class ReceivingWorksheet implements ArrayAccess
         'status' => 'string',
         'service_level' => 'string',
         'receiving_process_id' => 'int',
-        'dock_date' => '\DateTime',
         'created_by' => 'int',
         'worksheet_name' => 'string',
         'carrier' => 'string',
@@ -90,7 +89,6 @@ class ReceivingWorksheet implements ArrayAccess
         'status' => 'status',
         'service_level' => 'serviceLevel',
         'receiving_process_id' => 'receivingProcessId',
-        'dock_date' => 'dockDate',
         'created_by' => 'createdBy',
         'worksheet_name' => 'worksheetName',
         'carrier' => 'carrier',
@@ -121,7 +119,6 @@ class ReceivingWorksheet implements ArrayAccess
         'status' => 'setStatus',
         'service_level' => 'setServiceLevel',
         'receiving_process_id' => 'setReceivingProcessId',
-        'dock_date' => 'setDockDate',
         'created_by' => 'setCreatedBy',
         'worksheet_name' => 'setWorksheetName',
         'carrier' => 'setCarrier',
@@ -152,7 +149,6 @@ class ReceivingWorksheet implements ArrayAccess
         'status' => 'getStatus',
         'service_level' => 'getServiceLevel',
         'receiving_process_id' => 'getReceivingProcessId',
-        'dock_date' => 'getDockDate',
         'created_by' => 'getCreatedBy',
         'worksheet_name' => 'getWorksheetName',
         'carrier' => 'getCarrier',
@@ -218,12 +214,6 @@ class ReceivingWorksheet implements ArrayAccess
       * @var int
       */
     protected $receiving_process_id;
-    
-    /**
-      * $dock_date 
-      * @var \DateTime
-      */
-    protected $dock_date;
     
     /**
       * $created_by 
@@ -308,7 +298,6 @@ class ReceivingWorksheet implements ArrayAccess
             $this->status = $data["status"];
             $this->service_level = $data["service_level"];
             $this->receiving_process_id = $data["receiving_process_id"];
-            $this->dock_date = $data["dock_date"];
             $this->created_by = $data["created_by"];
             $this->worksheet_name = $data["worksheet_name"];
             $this->carrier = $data["carrier"];
@@ -488,27 +477,6 @@ class ReceivingWorksheet implements ArrayAccess
     {
         
         $this->receiving_process_id = $receiving_process_id;
-        return $this;
-    }
-    
-    /**
-     * Gets dock_date
-     * @return \DateTime
-     */
-    public function getDockDate()
-    {
-        return $this->dock_date;
-    }
-  
-    /**
-     * Sets dock_date
-     * @param \DateTime $dock_date 
-     * @return $this
-     */
-    public function setDockDate($dock_date)
-    {
-        
-        $this->dock_date = $dock_date;
         return $this;
     }
     

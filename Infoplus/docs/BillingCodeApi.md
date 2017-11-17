@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillingCode**](BillingCodeApi.md#addBillingCode) | **POST** /beta/billingCode | Create a billingCode
-[**addBillingCodeAudit**](BillingCodeApi.md#addBillingCodeAudit) | **PUT** /beta/billingCode/{billingCodeId}/audit/{billingCodeAudit} | Add new audit for a billingCode
-[**addBillingCodeTag**](BillingCodeApi.md#addBillingCodeTag) | **PUT** /beta/billingCode/{billingCodeId}/tag/{billingCodeTag} | Add new tags for a billingCode.
-[**deleteBillingCode**](BillingCodeApi.md#deleteBillingCode) | **DELETE** /beta/billingCode/{billingCodeId} | Delete a billingCode
-[**deleteBillingCodeTag**](BillingCodeApi.md#deleteBillingCodeTag) | **DELETE** /beta/billingCode/{billingCodeId}/tag/{billingCodeTag} | Delete a tag for a billingCode.
-[**getBillingCodeByFilter**](BillingCodeApi.md#getBillingCodeByFilter) | **GET** /beta/billingCode/search | Search billingCodes by filter
-[**getBillingCodeById**](BillingCodeApi.md#getBillingCodeById) | **GET** /beta/billingCode/{billingCodeId} | Get a billingCode by id
-[**getBillingCodeTags**](BillingCodeApi.md#getBillingCodeTags) | **GET** /beta/billingCode/{billingCodeId}/tag | Get the tags for a billingCode.
-[**getDuplicateBillingCodeById**](BillingCodeApi.md#getDuplicateBillingCodeById) | **GET** /beta/billingCode/duplicate/{billingCodeId} | Get a duplicated a billingCode by id
-[**updateBillingCode**](BillingCodeApi.md#updateBillingCode) | **PUT** /beta/billingCode | Update a billingCode
-[**updateBillingCodeCustomFields**](BillingCodeApi.md#updateBillingCodeCustomFields) | **PUT** /beta/billingCode/customFields | Update a billingCode custom fields
+[**addBillingCode**](BillingCodeApi.md#addBillingCode) | **POST** /v2.0/billingCode | Create a billingCode
+[**deleteBillingCode**](BillingCodeApi.md#deleteBillingCode) | **DELETE** /v2.0/billingCode/{billingCodeId} | Delete a billingCode
+[**getBillingCodeByFilter**](BillingCodeApi.md#getBillingCodeByFilter) | **GET** /v2.0/billingCode/search | Search billingCodes by filter
+[**getBillingCodeById**](BillingCodeApi.md#getBillingCodeById) | **GET** /v2.0/billingCode/{billingCodeId} | Get a billingCode by id
+[**getDuplicateBillingCodeById**](BillingCodeApi.md#getDuplicateBillingCodeById) | **GET** /v2.0/billingCode/duplicate/{billingCodeId} | Get a duplicated a billingCode by id
+[**updateBillingCode**](BillingCodeApi.md#updateBillingCode) | **PUT** /v2.0/billingCode | Update a billingCode
+[**updateBillingCodeCustomFields**](BillingCodeApi.md#updateBillingCodeCustomFields) | **PUT** /v2.0/billingCode/customFields | Update a billingCode custom fields
 
 
 # **addBillingCode**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addBillingCodeAudit**
-> addBillingCodeAudit($billing_code_id, $billing_code_audit)
-
-Add new audit for a billingCode
-
-Adds an audit to an existing billingCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeApi();
-$billing_code_id = 56; // int | Id of the billingCode to add an audit to
-$billing_code_audit = "billing_code_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addBillingCodeAudit($billing_code_id, $billing_code_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeApi->addBillingCodeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_id** | **int**| Id of the billingCode to add an audit to | 
- **billing_code_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addBillingCodeTag**
-> addBillingCodeTag($billing_code_id, $billing_code_tag)
-
-Add new tags for a billingCode.
-
-Adds a tag to an existing billingCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeApi();
-$billing_code_id = 56; // int | Id of the billingCode to add a tag to
-$billing_code_tag = "billing_code_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addBillingCodeTag($billing_code_id, $billing_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeApi->addBillingCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_id** | **int**| Id of the billingCode to add a tag to | 
- **billing_code_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteBillingCode**
 > deleteBillingCode($billing_code_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **billing_code_id** | **int**| Id of the billingCode to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteBillingCodeTag**
-> deleteBillingCodeTag($billing_code_id, $billing_code_tag)
-
-Delete a tag for a billingCode.
-
-Deletes an existing billingCode tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeApi();
-$billing_code_id = 56; // int | Id of the billingCode to remove tag from
-$billing_code_tag = "billing_code_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteBillingCodeTag($billing_code_id, $billing_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeApi->deleteBillingCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_id** | **int**| Id of the billingCode to remove tag from | 
- **billing_code_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -363,55 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\BillingCode**](BillingCode.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getBillingCodeTags**
-> getBillingCodeTags($billing_code_id)
-
-Get the tags for a billingCode.
-
-Get all existing billingCode tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeApi();
-$billing_code_id = 56; // int | Id of the billingCode to get tags for
-
-try { 
-    $api_instance->getBillingCodeTags($billing_code_id);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeApi->getBillingCodeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_id** | **int**| Id of the billingCode to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

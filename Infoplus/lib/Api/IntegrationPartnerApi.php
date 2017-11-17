@@ -125,7 +125,7 @@ class IntegrationPartnerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/integrationPartner/{integrationPartnerId}";
+        $resourcePath = "/v2.0/integrationPartner/{integrationPartnerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class IntegrationPartnerApi
         
   
         // parse inputs
-        $resourcePath = "/beta/integrationPartner/search";
+        $resourcePath = "/v2.0/integrationPartner/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

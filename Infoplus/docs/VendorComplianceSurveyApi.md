@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addVendorComplianceSurvey**](VendorComplianceSurveyApi.md#addVendorComplianceSurvey) | **POST** /beta/vendorComplianceSurvey | Create a vendorComplianceSurvey
-[**addVendorComplianceSurveyAudit**](VendorComplianceSurveyApi.md#addVendorComplianceSurveyAudit) | **PUT** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/audit/{vendorComplianceSurveyAudit} | Add new audit for a vendorComplianceSurvey
-[**addVendorComplianceSurveyTag**](VendorComplianceSurveyApi.md#addVendorComplianceSurveyTag) | **PUT** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag} | Add new tags for a vendorComplianceSurvey.
-[**deleteVendorComplianceSurvey**](VendorComplianceSurveyApi.md#deleteVendorComplianceSurvey) | **DELETE** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId} | Delete a vendorComplianceSurvey
-[**deleteVendorComplianceSurveyTag**](VendorComplianceSurveyApi.md#deleteVendorComplianceSurveyTag) | **DELETE** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag/{vendorComplianceSurveyTag} | Delete a tag for a vendorComplianceSurvey.
-[**getDuplicateVendorComplianceSurveyById**](VendorComplianceSurveyApi.md#getDuplicateVendorComplianceSurveyById) | **GET** /beta/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId} | Get a duplicated a vendorComplianceSurvey by id
-[**getVendorComplianceSurveyByFilter**](VendorComplianceSurveyApi.md#getVendorComplianceSurveyByFilter) | **GET** /beta/vendorComplianceSurvey/search | Search vendorComplianceSurveys by filter
-[**getVendorComplianceSurveyById**](VendorComplianceSurveyApi.md#getVendorComplianceSurveyById) | **GET** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId} | Get a vendorComplianceSurvey by id
-[**getVendorComplianceSurveyTags**](VendorComplianceSurveyApi.md#getVendorComplianceSurveyTags) | **GET** /beta/vendorComplianceSurvey/{vendorComplianceSurveyId}/tag | Get the tags for a vendorComplianceSurvey.
-[**updateVendorComplianceSurvey**](VendorComplianceSurveyApi.md#updateVendorComplianceSurvey) | **PUT** /beta/vendorComplianceSurvey | Update a vendorComplianceSurvey
-[**updateVendorComplianceSurveyCustomFields**](VendorComplianceSurveyApi.md#updateVendorComplianceSurveyCustomFields) | **PUT** /beta/vendorComplianceSurvey/customFields | Update a vendorComplianceSurvey custom fields
+[**addVendorComplianceSurvey**](VendorComplianceSurveyApi.md#addVendorComplianceSurvey) | **POST** /v2.0/vendorComplianceSurvey | Create a vendorComplianceSurvey
+[**deleteVendorComplianceSurvey**](VendorComplianceSurveyApi.md#deleteVendorComplianceSurvey) | **DELETE** /v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId} | Delete a vendorComplianceSurvey
+[**getDuplicateVendorComplianceSurveyById**](VendorComplianceSurveyApi.md#getDuplicateVendorComplianceSurveyById) | **GET** /v2.0/vendorComplianceSurvey/duplicate/{vendorComplianceSurveyId} | Get a duplicated a vendorComplianceSurvey by id
+[**getVendorComplianceSurveyByFilter**](VendorComplianceSurveyApi.md#getVendorComplianceSurveyByFilter) | **GET** /v2.0/vendorComplianceSurvey/search | Search vendorComplianceSurveys by filter
+[**getVendorComplianceSurveyById**](VendorComplianceSurveyApi.md#getVendorComplianceSurveyById) | **GET** /v2.0/vendorComplianceSurvey/{vendorComplianceSurveyId} | Get a vendorComplianceSurvey by id
+[**updateVendorComplianceSurvey**](VendorComplianceSurveyApi.md#updateVendorComplianceSurvey) | **PUT** /v2.0/vendorComplianceSurvey | Update a vendorComplianceSurvey
+[**updateVendorComplianceSurveyCustomFields**](VendorComplianceSurveyApi.md#updateVendorComplianceSurveyCustomFields) | **PUT** /v2.0/vendorComplianceSurvey/customFields | Update a vendorComplianceSurvey custom fields
 
 
 # **addVendorComplianceSurvey**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addVendorComplianceSurveyAudit**
-> addVendorComplianceSurveyAudit($vendor_compliance_survey_id, $vendor_compliance_survey_audit)
-
-Add new audit for a vendorComplianceSurvey
-
-Adds an audit to an existing vendorComplianceSurvey.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorComplianceSurveyApi();
-$vendor_compliance_survey_id = 56; // int | Id of the vendorComplianceSurvey to add an audit to
-$vendor_compliance_survey_audit = "vendor_compliance_survey_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addVendorComplianceSurveyAudit($vendor_compliance_survey_id, $vendor_compliance_survey_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorComplianceSurveyApi->addVendorComplianceSurveyAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_compliance_survey_id** | **int**| Id of the vendorComplianceSurvey to add an audit to | 
- **vendor_compliance_survey_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addVendorComplianceSurveyTag**
-> addVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
-
-Add new tags for a vendorComplianceSurvey.
-
-Adds a tag to an existing vendorComplianceSurvey.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorComplianceSurveyApi();
-$vendor_compliance_survey_id = 56; // int | Id of the vendorComplianceSurvey to add a tag to
-$vendor_compliance_survey_tag = "vendor_compliance_survey_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorComplianceSurveyApi->addVendorComplianceSurveyTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_compliance_survey_id** | **int**| Id of the vendorComplianceSurvey to add a tag to | 
- **vendor_compliance_survey_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteVendorComplianceSurvey**
 > deleteVendorComplianceSurvey($vendor_compliance_survey_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vendor_compliance_survey_id** | **int**| Id of the vendorComplianceSurvey to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteVendorComplianceSurveyTag**
-> deleteVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag)
-
-Delete a tag for a vendorComplianceSurvey.
-
-Deletes an existing vendorComplianceSurvey tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorComplianceSurveyApi();
-$vendor_compliance_survey_id = 56; // int | Id of the vendorComplianceSurvey to remove tag from
-$vendor_compliance_survey_tag = "vendor_compliance_survey_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteVendorComplianceSurveyTag($vendor_compliance_survey_id, $vendor_compliance_survey_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorComplianceSurveyApi->deleteVendorComplianceSurveyTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_compliance_survey_id** | **int**| Id of the vendorComplianceSurvey to remove tag from | 
- **vendor_compliance_survey_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\VendorComplianceSurvey**](VendorComplianceSurvey.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getVendorComplianceSurveyTags**
-> getVendorComplianceSurveyTags($vendor_compliance_survey_id)
-
-Get the tags for a vendorComplianceSurvey.
-
-Get all existing vendorComplianceSurvey tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorComplianceSurveyApi();
-$vendor_compliance_survey_id = 56; // int | Id of the vendorComplianceSurvey to get tags for
-
-try { 
-    $api_instance->getVendorComplianceSurveyTags($vendor_compliance_survey_id);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorComplianceSurveyApi->getVendorComplianceSurveyTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_compliance_survey_id** | **int**| Id of the vendorComplianceSurvey to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

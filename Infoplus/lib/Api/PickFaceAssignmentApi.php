@@ -125,7 +125,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment";
+        $resourcePath = "/v2.0/pickFaceAssignment";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class PickFaceAssignmentApi
     }
     
     /**
-     * addPickFaceAssignmentAudit
-     *
-     * Add new audit for a pickFaceAssignment
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to add an audit to (required)
-     * @param string $pick_face_assignment_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addPickFaceAssignmentAudit($pick_face_assignment_id, $pick_face_assignment_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addPickFaceAssignmentAuditWithHttpInfo ($pick_face_assignment_id, $pick_face_assignment_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addPickFaceAssignmentAuditWithHttpInfo
-     *
-     * Add new audit for a pickFaceAssignment
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to add an audit to (required)
-     * @param string $pick_face_assignment_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addPickFaceAssignmentAuditWithHttpInfo($pick_face_assignment_id, $pick_face_assignment_audit)
-    {
-        
-        // verify the required parameter 'pick_face_assignment_id' is set
-        if ($pick_face_assignment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_id when calling addPickFaceAssignmentAudit');
-        }
-        // verify the required parameter 'pick_face_assignment_audit' is set
-        if ($pick_face_assignment_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_audit when calling addPickFaceAssignmentAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}/audit/{pickFaceAssignmentAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($pick_face_assignment_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($pick_face_assignment_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addPickFaceAssignmentTag
-     *
-     * Add new tags for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to add a tag to (required)
-     * @param string $pick_face_assignment_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addPickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addPickFaceAssignmentTagWithHttpInfo ($pick_face_assignment_id, $pick_face_assignment_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addPickFaceAssignmentTagWithHttpInfo
-     *
-     * Add new tags for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to add a tag to (required)
-     * @param string $pick_face_assignment_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addPickFaceAssignmentTagWithHttpInfo($pick_face_assignment_id, $pick_face_assignment_tag)
-    {
-        
-        // verify the required parameter 'pick_face_assignment_id' is set
-        if ($pick_face_assignment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_id when calling addPickFaceAssignmentTag');
-        }
-        // verify the required parameter 'pick_face_assignment_tag' is set
-        if ($pick_face_assignment_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_tag when calling addPickFaceAssignmentTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}/tag/{pickFaceAssignmentTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($pick_face_assignment_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($pick_face_assignment_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deletePickFaceAssignment
      *
      * Delete a pickFaceAssignment
@@ -443,7 +227,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}";
+        $resourcePath = "/v2.0/pickFaceAssignment/{pickFaceAssignmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class PickFaceAssignmentApi
             $resourcePath = str_replace(
                 "{" . "pickFaceAssignmentId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deletePickFaceAssignmentTag
-     *
-     * Delete a tag for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to remove tag from (required)
-     * @param string $pick_face_assignment_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deletePickFaceAssignmentTag($pick_face_assignment_id, $pick_face_assignment_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deletePickFaceAssignmentTagWithHttpInfo ($pick_face_assignment_id, $pick_face_assignment_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deletePickFaceAssignmentTagWithHttpInfo
-     *
-     * Delete a tag for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to remove tag from (required)
-     * @param string $pick_face_assignment_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deletePickFaceAssignmentTagWithHttpInfo($pick_face_assignment_id, $pick_face_assignment_tag)
-    {
-        
-        // verify the required parameter 'pick_face_assignment_id' is set
-        if ($pick_face_assignment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_id when calling deletePickFaceAssignmentTag');
-        }
-        // verify the required parameter 'pick_face_assignment_tag' is set
-        if ($pick_face_assignment_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_tag when calling deletePickFaceAssignmentTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}/tag/{pickFaceAssignmentTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($pick_face_assignment_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($pick_face_assignment_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/duplicate/{pickFaceAssignmentId}";
+        $resourcePath = "/v2.0/pickFaceAssignment/duplicate/{pickFaceAssignmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class PickFaceAssignmentApi
         
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/search";
+        $resourcePath = "/v2.0/pickFaceAssignment/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}";
+        $resourcePath = "/v2.0/pickFaceAssignment/{pickFaceAssignmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class PickFaceAssignmentApi
     }
     
     /**
-     * getPickFaceAssignmentTags
-     *
-     * Get the tags for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getPickFaceAssignmentTags($pick_face_assignment_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getPickFaceAssignmentTagsWithHttpInfo ($pick_face_assignment_id);
-        return $response; 
-    }
-
-
-    /**
-     * getPickFaceAssignmentTagsWithHttpInfo
-     *
-     * Get the tags for a pickFaceAssignment.
-     *
-     * @param int $pick_face_assignment_id Id of the pickFaceAssignment to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getPickFaceAssignmentTagsWithHttpInfo($pick_face_assignment_id)
-    {
-        
-        // verify the required parameter 'pick_face_assignment_id' is set
-        if ($pick_face_assignment_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $pick_face_assignment_id when calling getPickFaceAssignmentTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/{pickFaceAssignmentId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($pick_face_assignment_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "pickFaceAssignmentId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($pick_face_assignment_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updatePickFaceAssignment
      *
      * Update a pickFaceAssignment
@@ -1055,7 +637,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment";
+        $resourcePath = "/v2.0/pickFaceAssignment";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class PickFaceAssignmentApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/pickFaceAssignment/customFields";
+        $resourcePath = "/v2.0/pickFaceAssignment/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

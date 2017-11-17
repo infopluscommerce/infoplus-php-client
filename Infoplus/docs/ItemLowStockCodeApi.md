@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemLowstockCode**](ItemLowstockCodeApi.md#addItemLowstockCode) | **POST** /beta/itemLowstockCode | Create an itemLowstockCode
-[**addItemLowstockCodeAudit**](ItemLowstockCodeApi.md#addItemLowstockCodeAudit) | **PUT** /beta/itemLowstockCode/{itemLowstockCodeId}/audit/{itemLowstockCodeAudit} | Add new audit for an itemLowstockCode
-[**addItemLowstockCodeTag**](ItemLowstockCodeApi.md#addItemLowstockCodeTag) | **PUT** /beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag} | Add new tags for an itemLowstockCode.
-[**deleteItemLowstockCode**](ItemLowstockCodeApi.md#deleteItemLowstockCode) | **DELETE** /beta/itemLowstockCode/{itemLowstockCodeId} | Delete an itemLowstockCode
-[**deleteItemLowstockCodeTag**](ItemLowstockCodeApi.md#deleteItemLowstockCodeTag) | **DELETE** /beta/itemLowstockCode/{itemLowstockCodeId}/tag/{itemLowstockCodeTag} | Delete a tag for an itemLowstockCode.
-[**getDuplicateItemLowstockCodeById**](ItemLowstockCodeApi.md#getDuplicateItemLowstockCodeById) | **GET** /beta/itemLowstockCode/duplicate/{itemLowstockCodeId} | Get a duplicated an itemLowstockCode by id
-[**getItemLowstockCodeByFilter**](ItemLowstockCodeApi.md#getItemLowstockCodeByFilter) | **GET** /beta/itemLowstockCode/search | Search itemLowstockCodes by filter
-[**getItemLowstockCodeById**](ItemLowstockCodeApi.md#getItemLowstockCodeById) | **GET** /beta/itemLowstockCode/{itemLowstockCodeId} | Get an itemLowstockCode by id
-[**getItemLowstockCodeTags**](ItemLowstockCodeApi.md#getItemLowstockCodeTags) | **GET** /beta/itemLowstockCode/{itemLowstockCodeId}/tag | Get the tags for an itemLowstockCode.
-[**updateItemLowstockCode**](ItemLowstockCodeApi.md#updateItemLowstockCode) | **PUT** /beta/itemLowstockCode | Update an itemLowstockCode
+[**addItemLowstockCode**](ItemLowstockCodeApi.md#addItemLowstockCode) | **POST** /v2.0/itemLowstockCode | Create an itemLowstockCode
+[**deleteItemLowstockCode**](ItemLowstockCodeApi.md#deleteItemLowstockCode) | **DELETE** /v2.0/itemLowstockCode/{itemLowstockCodeId} | Delete an itemLowstockCode
+[**getDuplicateItemLowstockCodeById**](ItemLowstockCodeApi.md#getDuplicateItemLowstockCodeById) | **GET** /v2.0/itemLowstockCode/duplicate/{itemLowstockCodeId} | Get a duplicated an itemLowstockCode by id
+[**getItemLowstockCodeByFilter**](ItemLowstockCodeApi.md#getItemLowstockCodeByFilter) | **GET** /v2.0/itemLowstockCode/search | Search itemLowstockCodes by filter
+[**getItemLowstockCodeById**](ItemLowstockCodeApi.md#getItemLowstockCodeById) | **GET** /v2.0/itemLowstockCode/{itemLowstockCodeId} | Get an itemLowstockCode by id
+[**updateItemLowstockCode**](ItemLowstockCodeApi.md#updateItemLowstockCode) | **PUT** /v2.0/itemLowstockCode | Update an itemLowstockCode
 
 
 # **addItemLowstockCode**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemLowstockCodeAudit**
-> addItemLowstockCodeAudit($item_lowstock_code_id, $item_lowstock_code_audit)
-
-Add new audit for an itemLowstockCode
-
-Adds an audit to an existing itemLowstockCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemLowstockCodeApi();
-$item_lowstock_code_id = 56; // int | Id of the itemLowstockCode to add an audit to
-$item_lowstock_code_audit = "item_lowstock_code_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemLowstockCodeAudit($item_lowstock_code_id, $item_lowstock_code_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemLowstockCodeApi->addItemLowstockCodeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_lowstock_code_id** | **int**| Id of the itemLowstockCode to add an audit to | 
- **item_lowstock_code_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemLowstockCodeTag**
-> addItemLowstockCodeTag($item_lowstock_code_id, $item_lowstock_code_tag)
-
-Add new tags for an itemLowstockCode.
-
-Adds a tag to an existing itemLowstockCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemLowstockCodeApi();
-$item_lowstock_code_id = 56; // int | Id of the itemLowstockCode to add a tag to
-$item_lowstock_code_tag = "item_lowstock_code_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemLowstockCodeTag($item_lowstock_code_id, $item_lowstock_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemLowstockCodeApi->addItemLowstockCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_lowstock_code_id** | **int**| Id of the itemLowstockCode to add a tag to | 
- **item_lowstock_code_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemLowstockCode**
 > deleteItemLowstockCode($item_lowstock_code_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_lowstock_code_id** | **int**| Id of the itemLowstockCode to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemLowstockCodeTag**
-> deleteItemLowstockCodeTag($item_lowstock_code_id, $item_lowstock_code_tag)
-
-Delete a tag for an itemLowstockCode.
-
-Deletes an existing itemLowstockCode tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemLowstockCodeApi();
-$item_lowstock_code_id = 56; // int | Id of the itemLowstockCode to remove tag from
-$item_lowstock_code_tag = "item_lowstock_code_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemLowstockCodeTag($item_lowstock_code_id, $item_lowstock_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemLowstockCodeApi->deleteItemLowstockCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_lowstock_code_id** | **int**| Id of the itemLowstockCode to remove tag from | 
- **item_lowstock_code_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemLowstockCode**](ItemLowstockCode.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemLowstockCodeTags**
-> getItemLowstockCodeTags($item_lowstock_code_id)
-
-Get the tags for an itemLowstockCode.
-
-Get all existing itemLowstockCode tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemLowstockCodeApi();
-$item_lowstock_code_id = 56; // int | Id of the itemLowstockCode to get tags for
-
-try { 
-    $api_instance->getItemLowstockCodeTags($item_lowstock_code_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemLowstockCodeApi->getItemLowstockCodeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_lowstock_code_id** | **int**| Id of the itemLowstockCode to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

@@ -76,42 +76,12 @@ class ItemSummaryCodeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemSummaryCodeAudit
-     *
-     * Add new audit for an itemSummaryCode
-     *
-     */
-    public function test_addItemSummaryCodeAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemSummaryCodeTag
-     *
-     * Add new tags for an itemSummaryCode.
-     *
-     */
-    public function test_addItemSummaryCodeTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemSummaryCode
      *
      * Delete an itemSummaryCode
      *
      */
     public function test_deleteItemSummaryCode() {
-
-    }
-    
-    /**
-     * Test case for deleteItemSummaryCodeTag
-     *
-     * Delete a tag for an itemSummaryCode.
-     *
-     */
-    public function test_deleteItemSummaryCodeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemSummaryCodeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemSummaryCodeById() {
-
-    }
-    
-    /**
-     * Test case for getItemSummaryCodeTags
-     *
-     * Get the tags for an itemSummaryCode.
-     *
-     */
-    public function test_getItemSummaryCodeTags() {
 
     }
     

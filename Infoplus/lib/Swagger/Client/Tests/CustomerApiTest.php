@@ -76,42 +76,12 @@ class CustomerApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addCustomerAudit
-     *
-     * Add new audit for a customer
-     *
-     */
-    public function test_addCustomerAudit() {
-
-    }
-    
-    /**
-     * Test case for addCustomerTag
-     *
-     * Add new tags for a customer.
-     *
-     */
-    public function test_addCustomerTag() {
-
-    }
-    
-    /**
      * Test case for deleteCustomer
      *
      * Delete a customer
      *
      */
     public function test_deleteCustomer() {
-
-    }
-    
-    /**
-     * Test case for deleteCustomerTag
-     *
-     * Delete a tag for a customer.
-     *
-     */
-    public function test_deleteCustomerTag() {
 
     }
     
@@ -142,16 +112,6 @@ class CustomerApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getCustomerById() {
-
-    }
-    
-    /**
-     * Test case for getCustomerTags
-     *
-     * Get the tags for a customer.
-     *
-     */
-    public function test_getCustomerTags() {
 
     }
     

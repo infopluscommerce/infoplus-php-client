@@ -76,42 +76,12 @@ class EmailTemplateApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addEmailTemplateAudit
-     *
-     * Add new audit for an emailTemplate
-     *
-     */
-    public function test_addEmailTemplateAudit() {
-
-    }
-    
-    /**
-     * Test case for addEmailTemplateTag
-     *
-     * Add new tags for an emailTemplate.
-     *
-     */
-    public function test_addEmailTemplateTag() {
-
-    }
-    
-    /**
      * Test case for deleteEmailTemplate
      *
      * Delete an emailTemplate
      *
      */
     public function test_deleteEmailTemplate() {
-
-    }
-    
-    /**
-     * Test case for deleteEmailTemplateTag
-     *
-     * Delete a tag for an emailTemplate.
-     *
-     */
-    public function test_deleteEmailTemplateTag() {
 
     }
     
@@ -142,16 +112,6 @@ class EmailTemplateApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getEmailTemplateById() {
-
-    }
-    
-    /**
-     * Test case for getEmailTemplateTags
-     *
-     * Get the tags for an emailTemplate.
-     *
-     */
-    public function test_getEmailTemplateTags() {
 
     }
     

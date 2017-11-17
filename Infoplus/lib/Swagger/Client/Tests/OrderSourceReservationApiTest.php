@@ -76,42 +76,12 @@ class OrderSourceReservationApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addOrderSourceReservationAudit
-     *
-     * Add new audit for an orderSourceReservation
-     *
-     */
-    public function test_addOrderSourceReservationAudit() {
-
-    }
-    
-    /**
-     * Test case for addOrderSourceReservationTag
-     *
-     * Add new tags for an orderSourceReservation.
-     *
-     */
-    public function test_addOrderSourceReservationTag() {
-
-    }
-    
-    /**
      * Test case for deleteOrderSourceReservation
      *
      * Delete an orderSourceReservation
      *
      */
     public function test_deleteOrderSourceReservation() {
-
-    }
-    
-    /**
-     * Test case for deleteOrderSourceReservationTag
-     *
-     * Delete a tag for an orderSourceReservation.
-     *
-     */
-    public function test_deleteOrderSourceReservationTag() {
 
     }
     
@@ -142,16 +112,6 @@ class OrderSourceReservationApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getOrderSourceReservationById() {
-
-    }
-    
-    /**
-     * Test case for getOrderSourceReservationTags
-     *
-     * Get the tags for an orderSourceReservation.
-     *
-     */
-    public function test_getOrderSourceReservationTags() {
 
     }
     

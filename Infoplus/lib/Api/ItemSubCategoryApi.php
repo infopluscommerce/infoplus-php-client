@@ -125,7 +125,7 @@ class ItemSubCategoryApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory";
+        $resourcePath = "/v2.0/itemSubCategory";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ItemSubCategoryApi
     }
     
     /**
-     * addItemSubCategoryAudit
-     *
-     * Add new audit for an itemSubCategory
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to add an audit to (required)
-     * @param string $item_sub_category_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSubCategoryAudit($item_sub_category_id, $item_sub_category_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemSubCategoryAuditWithHttpInfo ($item_sub_category_id, $item_sub_category_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addItemSubCategoryAuditWithHttpInfo
-     *
-     * Add new audit for an itemSubCategory
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to add an audit to (required)
-     * @param string $item_sub_category_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSubCategoryAuditWithHttpInfo($item_sub_category_id, $item_sub_category_audit)
-    {
-        
-        // verify the required parameter 'item_sub_category_id' is set
-        if ($item_sub_category_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_id when calling addItemSubCategoryAudit');
-        }
-        // verify the required parameter 'item_sub_category_audit' is set
-        if ($item_sub_category_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_audit when calling addItemSubCategoryAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}/audit/{itemSubCategoryAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_sub_category_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sub_category_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addItemSubCategoryTag
-     *
-     * Add new tags for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to add a tag to (required)
-     * @param string $item_sub_category_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSubCategoryTag($item_sub_category_id, $item_sub_category_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemSubCategoryTagWithHttpInfo ($item_sub_category_id, $item_sub_category_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addItemSubCategoryTagWithHttpInfo
-     *
-     * Add new tags for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to add a tag to (required)
-     * @param string $item_sub_category_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSubCategoryTagWithHttpInfo($item_sub_category_id, $item_sub_category_tag)
-    {
-        
-        // verify the required parameter 'item_sub_category_id' is set
-        if ($item_sub_category_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_id when calling addItemSubCategoryTag');
-        }
-        // verify the required parameter 'item_sub_category_tag' is set
-        if ($item_sub_category_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_tag when calling addItemSubCategoryTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}/tag/{itemSubCategoryTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_sub_category_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sub_category_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteItemSubCategory
      *
      * Delete an itemSubCategory
@@ -443,7 +227,7 @@ class ItemSubCategoryApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}";
+        $resourcePath = "/v2.0/itemSubCategory/{itemSubCategoryId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ItemSubCategoryApi
             $resourcePath = str_replace(
                 "{" . "itemSubCategoryId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($item_sub_category_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteItemSubCategoryTag
-     *
-     * Delete a tag for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to remove tag from (required)
-     * @param string $item_sub_category_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemSubCategoryTag($item_sub_category_id, $item_sub_category_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteItemSubCategoryTagWithHttpInfo ($item_sub_category_id, $item_sub_category_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteItemSubCategoryTagWithHttpInfo
-     *
-     * Delete a tag for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to remove tag from (required)
-     * @param string $item_sub_category_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemSubCategoryTagWithHttpInfo($item_sub_category_id, $item_sub_category_tag)
-    {
-        
-        // verify the required parameter 'item_sub_category_id' is set
-        if ($item_sub_category_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_id when calling deleteItemSubCategoryTag');
-        }
-        // verify the required parameter 'item_sub_category_tag' is set
-        if ($item_sub_category_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_tag when calling deleteItemSubCategoryTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}/tag/{itemSubCategoryTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_sub_category_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sub_category_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ItemSubCategoryApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory/duplicate/{itemSubCategoryId}";
+        $resourcePath = "/v2.0/itemSubCategory/duplicate/{itemSubCategoryId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ItemSubCategoryApi
         
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory/search";
+        $resourcePath = "/v2.0/itemSubCategory/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ItemSubCategoryApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}";
+        $resourcePath = "/v2.0/itemSubCategory/{itemSubCategoryId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ItemSubCategoryApi
     }
     
     /**
-     * getItemSubCategoryTags
-     *
-     * Get the tags for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemSubCategoryTags($item_sub_category_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getItemSubCategoryTagsWithHttpInfo ($item_sub_category_id);
-        return $response; 
-    }
-
-
-    /**
-     * getItemSubCategoryTagsWithHttpInfo
-     *
-     * Get the tags for an itemSubCategory.
-     *
-     * @param int $item_sub_category_id Id of the itemSubCategory to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemSubCategoryTagsWithHttpInfo($item_sub_category_id)
-    {
-        
-        // verify the required parameter 'item_sub_category_id' is set
-        if ($item_sub_category_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sub_category_id when calling getItemSubCategoryTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSubCategory/{itemSubCategoryId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_sub_category_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSubCategoryId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sub_category_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateItemSubCategory
      *
      * Update an itemSubCategory
@@ -1055,7 +637,7 @@ class ItemSubCategoryApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSubCategory";
+        $resourcePath = "/v2.0/itemSubCategory";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -125,7 +125,7 @@ class ItemActivityTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemActivityType/{itemActivityTypeId}";
+        $resourcePath = "/v2.0/itemActivityType/{itemActivityTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class ItemActivityTypeApi
         
   
         // parse inputs
-        $resourcePath = "/beta/itemActivityType/search";
+        $resourcePath = "/v2.0/itemActivityType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -76,42 +76,12 @@ class ItemLowstockCodeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemLowstockCodeAudit
-     *
-     * Add new audit for an itemLowstockCode
-     *
-     */
-    public function test_addItemLowstockCodeAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemLowstockCodeTag
-     *
-     * Add new tags for an itemLowstockCode.
-     *
-     */
-    public function test_addItemLowstockCodeTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemLowstockCode
      *
      * Delete an itemLowstockCode
      *
      */
     public function test_deleteItemLowstockCode() {
-
-    }
-    
-    /**
-     * Test case for deleteItemLowstockCodeTag
-     *
-     * Delete a tag for an itemLowstockCode.
-     *
-     */
-    public function test_deleteItemLowstockCodeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemLowstockCodeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemLowstockCodeById() {
-
-    }
-    
-    /**
-     * Test case for getItemLowstockCodeTags
-     *
-     * Get the tags for an itemLowstockCode.
-     *
-     */
-    public function test_getItemLowstockCodeTags() {
 
     }
     

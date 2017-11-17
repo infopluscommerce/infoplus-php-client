@@ -96,7 +96,6 @@ class Asn implements ArrayAccess
         'used_by' => 'string',
         'line_items' => '\Infoplus\Model\ItemReceipt[]',
         'status' => 'string',
-        'transfer_order_id' => 'Number',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -154,7 +153,6 @@ class Asn implements ArrayAccess
         'used_by' => 'usedBy',
         'line_items' => 'lineItems',
         'status' => 'status',
-        'transfer_order_id' => 'transferOrderId',
         'custom_fields' => 'customFields'
     );
   
@@ -212,7 +210,6 @@ class Asn implements ArrayAccess
         'used_by' => 'setUsedBy',
         'line_items' => 'setLineItems',
         'status' => 'setStatus',
-        'transfer_order_id' => 'setTransferOrderId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -270,7 +267,6 @@ class Asn implements ArrayAccess
         'used_by' => 'getUsedBy',
         'line_items' => 'getLineItems',
         'status' => 'getStatus',
-        'transfer_order_id' => 'getTransferOrderId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -550,12 +546,6 @@ class Asn implements ArrayAccess
     protected $status;
     
     /**
-      * $transfer_order_id 
-      * @var Number
-      */
-    protected $transfer_order_id;
-    
-    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -615,7 +605,6 @@ class Asn implements ArrayAccess
             $this->used_by = $data["used_by"];
             $this->line_items = $data["line_items"];
             $this->status = $data["status"];
-            $this->transfer_order_id = $data["transfer_order_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -1562,27 +1551,6 @@ class Asn implements ArrayAccess
     {
         
         $this->status = $status;
-        return $this;
-    }
-    
-    /**
-     * Gets transfer_order_id
-     * @return Number
-     */
-    public function getTransferOrderId()
-    {
-        return $this->transfer_order_id;
-    }
-  
-    /**
-     * Sets transfer_order_id
-     * @param Number $transfer_order_id 
-     * @return $this
-     */
-    public function setTransferOrderId($transfer_order_id)
-    {
-        
-        $this->transfer_order_id = $transfer_order_id;
         return $this;
     }
     

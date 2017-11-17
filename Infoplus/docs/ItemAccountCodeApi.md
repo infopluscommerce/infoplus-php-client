@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemAccountCode**](ItemAccountCodeApi.md#addItemAccountCode) | **POST** /beta/itemAccountCode | Create an itemAccountCode
-[**addItemAccountCodeAudit**](ItemAccountCodeApi.md#addItemAccountCodeAudit) | **PUT** /beta/itemAccountCode/{itemAccountCodeId}/audit/{itemAccountCodeAudit} | Add new audit for an itemAccountCode
-[**addItemAccountCodeTag**](ItemAccountCodeApi.md#addItemAccountCodeTag) | **PUT** /beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag} | Add new tags for an itemAccountCode.
-[**deleteItemAccountCode**](ItemAccountCodeApi.md#deleteItemAccountCode) | **DELETE** /beta/itemAccountCode/{itemAccountCodeId} | Delete an itemAccountCode
-[**deleteItemAccountCodeTag**](ItemAccountCodeApi.md#deleteItemAccountCodeTag) | **DELETE** /beta/itemAccountCode/{itemAccountCodeId}/tag/{itemAccountCodeTag} | Delete a tag for an itemAccountCode.
-[**getDuplicateItemAccountCodeById**](ItemAccountCodeApi.md#getDuplicateItemAccountCodeById) | **GET** /beta/itemAccountCode/duplicate/{itemAccountCodeId} | Get a duplicated an itemAccountCode by id
-[**getItemAccountCodeByFilter**](ItemAccountCodeApi.md#getItemAccountCodeByFilter) | **GET** /beta/itemAccountCode/search | Search itemAccountCodes by filter
-[**getItemAccountCodeById**](ItemAccountCodeApi.md#getItemAccountCodeById) | **GET** /beta/itemAccountCode/{itemAccountCodeId} | Get an itemAccountCode by id
-[**getItemAccountCodeTags**](ItemAccountCodeApi.md#getItemAccountCodeTags) | **GET** /beta/itemAccountCode/{itemAccountCodeId}/tag | Get the tags for an itemAccountCode.
-[**updateItemAccountCode**](ItemAccountCodeApi.md#updateItemAccountCode) | **PUT** /beta/itemAccountCode | Update an itemAccountCode
+[**addItemAccountCode**](ItemAccountCodeApi.md#addItemAccountCode) | **POST** /v2.0/itemAccountCode | Create an itemAccountCode
+[**deleteItemAccountCode**](ItemAccountCodeApi.md#deleteItemAccountCode) | **DELETE** /v2.0/itemAccountCode/{itemAccountCodeId} | Delete an itemAccountCode
+[**getDuplicateItemAccountCodeById**](ItemAccountCodeApi.md#getDuplicateItemAccountCodeById) | **GET** /v2.0/itemAccountCode/duplicate/{itemAccountCodeId} | Get a duplicated an itemAccountCode by id
+[**getItemAccountCodeByFilter**](ItemAccountCodeApi.md#getItemAccountCodeByFilter) | **GET** /v2.0/itemAccountCode/search | Search itemAccountCodes by filter
+[**getItemAccountCodeById**](ItemAccountCodeApi.md#getItemAccountCodeById) | **GET** /v2.0/itemAccountCode/{itemAccountCodeId} | Get an itemAccountCode by id
+[**updateItemAccountCode**](ItemAccountCodeApi.md#updateItemAccountCode) | **PUT** /v2.0/itemAccountCode | Update an itemAccountCode
 
 
 # **addItemAccountCode**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemAccountCodeAudit**
-> addItemAccountCodeAudit($item_account_code_id, $item_account_code_audit)
-
-Add new audit for an itemAccountCode
-
-Adds an audit to an existing itemAccountCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemAccountCodeApi();
-$item_account_code_id = 56; // int | Id of the itemAccountCode to add an audit to
-$item_account_code_audit = "item_account_code_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemAccountCodeAudit($item_account_code_id, $item_account_code_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemAccountCodeApi->addItemAccountCodeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_account_code_id** | **int**| Id of the itemAccountCode to add an audit to | 
- **item_account_code_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemAccountCodeTag**
-> addItemAccountCodeTag($item_account_code_id, $item_account_code_tag)
-
-Add new tags for an itemAccountCode.
-
-Adds a tag to an existing itemAccountCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemAccountCodeApi();
-$item_account_code_id = 56; // int | Id of the itemAccountCode to add a tag to
-$item_account_code_tag = "item_account_code_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemAccountCodeTag($item_account_code_id, $item_account_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemAccountCodeApi->addItemAccountCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_account_code_id** | **int**| Id of the itemAccountCode to add a tag to | 
- **item_account_code_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemAccountCode**
 > deleteItemAccountCode($item_account_code_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_account_code_id** | **int**| Id of the itemAccountCode to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemAccountCodeTag**
-> deleteItemAccountCodeTag($item_account_code_id, $item_account_code_tag)
-
-Delete a tag for an itemAccountCode.
-
-Deletes an existing itemAccountCode tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemAccountCodeApi();
-$item_account_code_id = 56; // int | Id of the itemAccountCode to remove tag from
-$item_account_code_tag = "item_account_code_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemAccountCodeTag($item_account_code_id, $item_account_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemAccountCodeApi->deleteItemAccountCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_account_code_id** | **int**| Id of the itemAccountCode to remove tag from | 
- **item_account_code_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemAccountCode**](ItemAccountCode.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemAccountCodeTags**
-> getItemAccountCodeTags($item_account_code_id)
-
-Get the tags for an itemAccountCode.
-
-Get all existing itemAccountCode tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemAccountCodeApi();
-$item_account_code_id = 56; // int | Id of the itemAccountCode to get tags for
-
-try { 
-    $api_instance->getItemAccountCodeTags($item_account_code_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemAccountCodeApi->getItemAccountCodeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_account_code_id** | **int**| Id of the itemAccountCode to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

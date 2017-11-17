@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemSummaryCode**](ItemSummaryCodeApi.md#addItemSummaryCode) | **POST** /beta/itemSummaryCode | Create an itemSummaryCode
-[**addItemSummaryCodeAudit**](ItemSummaryCodeApi.md#addItemSummaryCodeAudit) | **PUT** /beta/itemSummaryCode/{itemSummaryCodeId}/audit/{itemSummaryCodeAudit} | Add new audit for an itemSummaryCode
-[**addItemSummaryCodeTag**](ItemSummaryCodeApi.md#addItemSummaryCodeTag) | **PUT** /beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag} | Add new tags for an itemSummaryCode.
-[**deleteItemSummaryCode**](ItemSummaryCodeApi.md#deleteItemSummaryCode) | **DELETE** /beta/itemSummaryCode/{itemSummaryCodeId} | Delete an itemSummaryCode
-[**deleteItemSummaryCodeTag**](ItemSummaryCodeApi.md#deleteItemSummaryCodeTag) | **DELETE** /beta/itemSummaryCode/{itemSummaryCodeId}/tag/{itemSummaryCodeTag} | Delete a tag for an itemSummaryCode.
-[**getDuplicateItemSummaryCodeById**](ItemSummaryCodeApi.md#getDuplicateItemSummaryCodeById) | **GET** /beta/itemSummaryCode/duplicate/{itemSummaryCodeId} | Get a duplicated an itemSummaryCode by id
-[**getItemSummaryCodeByFilter**](ItemSummaryCodeApi.md#getItemSummaryCodeByFilter) | **GET** /beta/itemSummaryCode/search | Search itemSummaryCodes by filter
-[**getItemSummaryCodeById**](ItemSummaryCodeApi.md#getItemSummaryCodeById) | **GET** /beta/itemSummaryCode/{itemSummaryCodeId} | Get an itemSummaryCode by id
-[**getItemSummaryCodeTags**](ItemSummaryCodeApi.md#getItemSummaryCodeTags) | **GET** /beta/itemSummaryCode/{itemSummaryCodeId}/tag | Get the tags for an itemSummaryCode.
-[**updateItemSummaryCode**](ItemSummaryCodeApi.md#updateItemSummaryCode) | **PUT** /beta/itemSummaryCode | Update an itemSummaryCode
+[**addItemSummaryCode**](ItemSummaryCodeApi.md#addItemSummaryCode) | **POST** /v2.0/itemSummaryCode | Create an itemSummaryCode
+[**deleteItemSummaryCode**](ItemSummaryCodeApi.md#deleteItemSummaryCode) | **DELETE** /v2.0/itemSummaryCode/{itemSummaryCodeId} | Delete an itemSummaryCode
+[**getDuplicateItemSummaryCodeById**](ItemSummaryCodeApi.md#getDuplicateItemSummaryCodeById) | **GET** /v2.0/itemSummaryCode/duplicate/{itemSummaryCodeId} | Get a duplicated an itemSummaryCode by id
+[**getItemSummaryCodeByFilter**](ItemSummaryCodeApi.md#getItemSummaryCodeByFilter) | **GET** /v2.0/itemSummaryCode/search | Search itemSummaryCodes by filter
+[**getItemSummaryCodeById**](ItemSummaryCodeApi.md#getItemSummaryCodeById) | **GET** /v2.0/itemSummaryCode/{itemSummaryCodeId} | Get an itemSummaryCode by id
+[**updateItemSummaryCode**](ItemSummaryCodeApi.md#updateItemSummaryCode) | **PUT** /v2.0/itemSummaryCode | Update an itemSummaryCode
 
 
 # **addItemSummaryCode**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemSummaryCodeAudit**
-> addItemSummaryCodeAudit($item_summary_code_id, $item_summary_code_audit)
-
-Add new audit for an itemSummaryCode
-
-Adds an audit to an existing itemSummaryCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSummaryCodeApi();
-$item_summary_code_id = 56; // int | Id of the itemSummaryCode to add an audit to
-$item_summary_code_audit = "item_summary_code_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemSummaryCodeAudit($item_summary_code_id, $item_summary_code_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSummaryCodeApi->addItemSummaryCodeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_summary_code_id** | **int**| Id of the itemSummaryCode to add an audit to | 
- **item_summary_code_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemSummaryCodeTag**
-> addItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag)
-
-Add new tags for an itemSummaryCode.
-
-Adds a tag to an existing itemSummaryCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSummaryCodeApi();
-$item_summary_code_id = 56; // int | Id of the itemSummaryCode to add a tag to
-$item_summary_code_tag = "item_summary_code_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSummaryCodeApi->addItemSummaryCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_summary_code_id** | **int**| Id of the itemSummaryCode to add a tag to | 
- **item_summary_code_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemSummaryCode**
 > deleteItemSummaryCode($item_summary_code_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_summary_code_id** | **int**| Id of the itemSummaryCode to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemSummaryCodeTag**
-> deleteItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag)
-
-Delete a tag for an itemSummaryCode.
-
-Deletes an existing itemSummaryCode tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSummaryCodeApi();
-$item_summary_code_id = 56; // int | Id of the itemSummaryCode to remove tag from
-$item_summary_code_tag = "item_summary_code_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemSummaryCodeTag($item_summary_code_id, $item_summary_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSummaryCodeApi->deleteItemSummaryCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_summary_code_id** | **int**| Id of the itemSummaryCode to remove tag from | 
- **item_summary_code_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemSummaryCode**](ItemSummaryCode.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemSummaryCodeTags**
-> getItemSummaryCodeTags($item_summary_code_id)
-
-Get the tags for an itemSummaryCode.
-
-Get all existing itemSummaryCode tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSummaryCodeApi();
-$item_summary_code_id = 56; // int | Id of the itemSummaryCode to get tags for
-
-try { 
-    $api_instance->getItemSummaryCodeTags($item_summary_code_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSummaryCodeApi->getItemSummaryCodeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_summary_code_id** | **int**| Id of the itemSummaryCode to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

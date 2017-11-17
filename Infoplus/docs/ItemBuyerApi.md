@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemBuyer**](ItemBuyerApi.md#addItemBuyer) | **POST** /beta/itemBuyer | Create an itemBuyer
-[**addItemBuyerAudit**](ItemBuyerApi.md#addItemBuyerAudit) | **PUT** /beta/itemBuyer/{itemBuyerId}/audit/{itemBuyerAudit} | Add new audit for an itemBuyer
-[**addItemBuyerTag**](ItemBuyerApi.md#addItemBuyerTag) | **PUT** /beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag} | Add new tags for an itemBuyer.
-[**deleteItemBuyer**](ItemBuyerApi.md#deleteItemBuyer) | **DELETE** /beta/itemBuyer/{itemBuyerId} | Delete an itemBuyer
-[**deleteItemBuyerTag**](ItemBuyerApi.md#deleteItemBuyerTag) | **DELETE** /beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag} | Delete a tag for an itemBuyer.
-[**getDuplicateItemBuyerById**](ItemBuyerApi.md#getDuplicateItemBuyerById) | **GET** /beta/itemBuyer/duplicate/{itemBuyerId} | Get a duplicated an itemBuyer by id
-[**getItemBuyerByFilter**](ItemBuyerApi.md#getItemBuyerByFilter) | **GET** /beta/itemBuyer/search | Search itemBuyers by filter
-[**getItemBuyerById**](ItemBuyerApi.md#getItemBuyerById) | **GET** /beta/itemBuyer/{itemBuyerId} | Get an itemBuyer by id
-[**getItemBuyerTags**](ItemBuyerApi.md#getItemBuyerTags) | **GET** /beta/itemBuyer/{itemBuyerId}/tag | Get the tags for an itemBuyer.
-[**updateItemBuyer**](ItemBuyerApi.md#updateItemBuyer) | **PUT** /beta/itemBuyer | Update an itemBuyer
+[**addItemBuyer**](ItemBuyerApi.md#addItemBuyer) | **POST** /v2.0/itemBuyer | Create an itemBuyer
+[**deleteItemBuyer**](ItemBuyerApi.md#deleteItemBuyer) | **DELETE** /v2.0/itemBuyer/{itemBuyerId} | Delete an itemBuyer
+[**getDuplicateItemBuyerById**](ItemBuyerApi.md#getDuplicateItemBuyerById) | **GET** /v2.0/itemBuyer/duplicate/{itemBuyerId} | Get a duplicated an itemBuyer by id
+[**getItemBuyerByFilter**](ItemBuyerApi.md#getItemBuyerByFilter) | **GET** /v2.0/itemBuyer/search | Search itemBuyers by filter
+[**getItemBuyerById**](ItemBuyerApi.md#getItemBuyerById) | **GET** /v2.0/itemBuyer/{itemBuyerId} | Get an itemBuyer by id
+[**updateItemBuyer**](ItemBuyerApi.md#updateItemBuyer) | **PUT** /v2.0/itemBuyer | Update an itemBuyer
 
 
 # **addItemBuyer**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemBuyerAudit**
-> addItemBuyerAudit($item_buyer_id, $item_buyer_audit)
-
-Add new audit for an itemBuyer
-
-Adds an audit to an existing itemBuyer.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemBuyerApi();
-$item_buyer_id = 56; // int | Id of the itemBuyer to add an audit to
-$item_buyer_audit = "item_buyer_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemBuyerAudit($item_buyer_id, $item_buyer_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemBuyerApi->addItemBuyerAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_buyer_id** | **int**| Id of the itemBuyer to add an audit to | 
- **item_buyer_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemBuyerTag**
-> addItemBuyerTag($item_buyer_id, $item_buyer_tag)
-
-Add new tags for an itemBuyer.
-
-Adds a tag to an existing itemBuyer.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemBuyerApi();
-$item_buyer_id = 56; // int | Id of the itemBuyer to add a tag to
-$item_buyer_tag = "item_buyer_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemBuyerTag($item_buyer_id, $item_buyer_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemBuyerApi->addItemBuyerTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_buyer_id** | **int**| Id of the itemBuyer to add a tag to | 
- **item_buyer_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemBuyer**
 > deleteItemBuyer($item_buyer_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_buyer_id** | **int**| Id of the itemBuyer to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemBuyerTag**
-> deleteItemBuyerTag($item_buyer_id, $item_buyer_tag)
-
-Delete a tag for an itemBuyer.
-
-Deletes an existing itemBuyer tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemBuyerApi();
-$item_buyer_id = 56; // int | Id of the itemBuyer to remove tag from
-$item_buyer_tag = "item_buyer_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemBuyerTag($item_buyer_id, $item_buyer_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemBuyerApi->deleteItemBuyerTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_buyer_id** | **int**| Id of the itemBuyer to remove tag from | 
- **item_buyer_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemBuyer**](ItemBuyer.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemBuyerTags**
-> getItemBuyerTags($item_buyer_id)
-
-Get the tags for an itemBuyer.
-
-Get all existing itemBuyer tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemBuyerApi();
-$item_buyer_id = 56; // int | Id of the itemBuyer to get tags for
-
-try { 
-    $api_instance->getItemBuyerTags($item_buyer_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemBuyerApi->getItemBuyerTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_buyer_id** | **int**| Id of the itemBuyer to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

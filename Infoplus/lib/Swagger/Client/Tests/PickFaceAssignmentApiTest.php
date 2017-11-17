@@ -76,42 +76,12 @@ class PickFaceAssignmentApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addPickFaceAssignmentAudit
-     *
-     * Add new audit for a pickFaceAssignment
-     *
-     */
-    public function test_addPickFaceAssignmentAudit() {
-
-    }
-    
-    /**
-     * Test case for addPickFaceAssignmentTag
-     *
-     * Add new tags for a pickFaceAssignment.
-     *
-     */
-    public function test_addPickFaceAssignmentTag() {
-
-    }
-    
-    /**
      * Test case for deletePickFaceAssignment
      *
      * Delete a pickFaceAssignment
      *
      */
     public function test_deletePickFaceAssignment() {
-
-    }
-    
-    /**
-     * Test case for deletePickFaceAssignmentTag
-     *
-     * Delete a tag for a pickFaceAssignment.
-     *
-     */
-    public function test_deletePickFaceAssignmentTag() {
 
     }
     
@@ -142,16 +112,6 @@ class PickFaceAssignmentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getPickFaceAssignmentById() {
-
-    }
-    
-    /**
-     * Test case for getPickFaceAssignmentTags
-     *
-     * Get the tags for a pickFaceAssignment.
-     *
-     */
-    public function test_getPickFaceAssignmentTags() {
 
     }
     

@@ -76,42 +76,12 @@ class LocationBillingTypeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addLocationBillingTypeAudit
-     *
-     * Add new audit for a locationBillingType
-     *
-     */
-    public function test_addLocationBillingTypeAudit() {
-
-    }
-    
-    /**
-     * Test case for addLocationBillingTypeTag
-     *
-     * Add new tags for a locationBillingType.
-     *
-     */
-    public function test_addLocationBillingTypeTag() {
-
-    }
-    
-    /**
      * Test case for deleteLocationBillingType
      *
      * Delete a locationBillingType
      *
      */
     public function test_deleteLocationBillingType() {
-
-    }
-    
-    /**
-     * Test case for deleteLocationBillingTypeTag
-     *
-     * Delete a tag for a locationBillingType.
-     *
-     */
-    public function test_deleteLocationBillingTypeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class LocationBillingTypeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLocationBillingTypeById() {
-
-    }
-    
-    /**
-     * Test case for getLocationBillingTypeTags
-     *
-     * Get the tags for a locationBillingType.
-     *
-     */
-    public function test_getLocationBillingTypeTags() {
 
     }
     

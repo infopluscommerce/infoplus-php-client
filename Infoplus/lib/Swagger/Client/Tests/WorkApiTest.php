@@ -66,36 +66,6 @@ class WorkApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addWorkAudit
-     *
-     * Add new audit for a work
-     *
-     */
-    public function test_addWorkAudit() {
-
-    }
-    
-    /**
-     * Test case for addWorkTag
-     *
-     * Add new tags for a work.
-     *
-     */
-    public function test_addWorkTag() {
-
-    }
-    
-    /**
-     * Test case for deleteWorkTag
-     *
-     * Delete a tag for a work.
-     *
-     */
-    public function test_deleteWorkTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateWorkById
      *
      * Get a duplicated a work by id
@@ -122,16 +92,6 @@ class WorkApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getWorkById() {
-
-    }
-    
-    /**
-     * Test case for getWorkTags
-     *
-     * Get the tags for a work.
-     *
-     */
-    public function test_getWorkTags() {
 
     }
     

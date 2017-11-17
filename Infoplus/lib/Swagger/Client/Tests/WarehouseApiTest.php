@@ -66,36 +66,6 @@ class WarehouseApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addWarehouseAudit
-     *
-     * Add new audit for a warehouse
-     *
-     */
-    public function test_addWarehouseAudit() {
-
-    }
-    
-    /**
-     * Test case for addWarehouseTag
-     *
-     * Add new tags for a warehouse.
-     *
-     */
-    public function test_addWarehouseTag() {
-
-    }
-    
-    /**
-     * Test case for deleteWarehouseTag
-     *
-     * Delete a tag for a warehouse.
-     *
-     */
-    public function test_deleteWarehouseTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateWarehouseById
      *
      * Get a duplicated a warehouse by id
@@ -122,16 +92,6 @@ class WarehouseApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getWarehouseById() {
-
-    }
-    
-    /**
-     * Test case for getWarehouseTags
-     *
-     * Get the tags for a warehouse.
-     *
-     */
-    public function test_getWarehouseTags() {
 
     }
     

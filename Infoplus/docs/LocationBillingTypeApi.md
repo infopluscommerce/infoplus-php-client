@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLocationBillingType**](LocationBillingTypeApi.md#addLocationBillingType) | **POST** /beta/locationBillingType | Create a locationBillingType
-[**addLocationBillingTypeAudit**](LocationBillingTypeApi.md#addLocationBillingTypeAudit) | **PUT** /beta/locationBillingType/{locationBillingTypeId}/audit/{locationBillingTypeAudit} | Add new audit for a locationBillingType
-[**addLocationBillingTypeTag**](LocationBillingTypeApi.md#addLocationBillingTypeTag) | **PUT** /beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag} | Add new tags for a locationBillingType.
-[**deleteLocationBillingType**](LocationBillingTypeApi.md#deleteLocationBillingType) | **DELETE** /beta/locationBillingType/{locationBillingTypeId} | Delete a locationBillingType
-[**deleteLocationBillingTypeTag**](LocationBillingTypeApi.md#deleteLocationBillingTypeTag) | **DELETE** /beta/locationBillingType/{locationBillingTypeId}/tag/{locationBillingTypeTag} | Delete a tag for a locationBillingType.
-[**getDuplicateLocationBillingTypeById**](LocationBillingTypeApi.md#getDuplicateLocationBillingTypeById) | **GET** /beta/locationBillingType/duplicate/{locationBillingTypeId} | Get a duplicated a locationBillingType by id
-[**getLocationBillingTypeByFilter**](LocationBillingTypeApi.md#getLocationBillingTypeByFilter) | **GET** /beta/locationBillingType/search | Search locationBillingTypes by filter
-[**getLocationBillingTypeById**](LocationBillingTypeApi.md#getLocationBillingTypeById) | **GET** /beta/locationBillingType/{locationBillingTypeId} | Get a locationBillingType by id
-[**getLocationBillingTypeTags**](LocationBillingTypeApi.md#getLocationBillingTypeTags) | **GET** /beta/locationBillingType/{locationBillingTypeId}/tag | Get the tags for a locationBillingType.
-[**updateLocationBillingType**](LocationBillingTypeApi.md#updateLocationBillingType) | **PUT** /beta/locationBillingType | Update a locationBillingType
-[**updateLocationBillingTypeCustomFields**](LocationBillingTypeApi.md#updateLocationBillingTypeCustomFields) | **PUT** /beta/locationBillingType/customFields | Update a locationBillingType custom fields
+[**addLocationBillingType**](LocationBillingTypeApi.md#addLocationBillingType) | **POST** /v2.0/locationBillingType | Create a locationBillingType
+[**deleteLocationBillingType**](LocationBillingTypeApi.md#deleteLocationBillingType) | **DELETE** /v2.0/locationBillingType/{locationBillingTypeId} | Delete a locationBillingType
+[**getDuplicateLocationBillingTypeById**](LocationBillingTypeApi.md#getDuplicateLocationBillingTypeById) | **GET** /v2.0/locationBillingType/duplicate/{locationBillingTypeId} | Get a duplicated a locationBillingType by id
+[**getLocationBillingTypeByFilter**](LocationBillingTypeApi.md#getLocationBillingTypeByFilter) | **GET** /v2.0/locationBillingType/search | Search locationBillingTypes by filter
+[**getLocationBillingTypeById**](LocationBillingTypeApi.md#getLocationBillingTypeById) | **GET** /v2.0/locationBillingType/{locationBillingTypeId} | Get a locationBillingType by id
+[**updateLocationBillingType**](LocationBillingTypeApi.md#updateLocationBillingType) | **PUT** /v2.0/locationBillingType | Update a locationBillingType
+[**updateLocationBillingTypeCustomFields**](LocationBillingTypeApi.md#updateLocationBillingTypeCustomFields) | **PUT** /v2.0/locationBillingType/customFields | Update a locationBillingType custom fields
 
 
 # **addLocationBillingType**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addLocationBillingTypeAudit**
-> addLocationBillingTypeAudit($location_billing_type_id, $location_billing_type_audit)
-
-Add new audit for a locationBillingType
-
-Adds an audit to an existing locationBillingType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationBillingTypeApi();
-$location_billing_type_id = 56; // int | Id of the locationBillingType to add an audit to
-$location_billing_type_audit = "location_billing_type_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addLocationBillingTypeAudit($location_billing_type_id, $location_billing_type_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationBillingTypeApi->addLocationBillingTypeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_billing_type_id** | **int**| Id of the locationBillingType to add an audit to | 
- **location_billing_type_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addLocationBillingTypeTag**
-> addLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag)
-
-Add new tags for a locationBillingType.
-
-Adds a tag to an existing locationBillingType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationBillingTypeApi();
-$location_billing_type_id = 56; // int | Id of the locationBillingType to add a tag to
-$location_billing_type_tag = "location_billing_type_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationBillingTypeApi->addLocationBillingTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_billing_type_id** | **int**| Id of the locationBillingType to add a tag to | 
- **location_billing_type_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteLocationBillingType**
 > deleteLocationBillingType($location_billing_type_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **location_billing_type_id** | **int**| Id of the locationBillingType to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteLocationBillingTypeTag**
-> deleteLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag)
-
-Delete a tag for a locationBillingType.
-
-Deletes an existing locationBillingType tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationBillingTypeApi();
-$location_billing_type_id = 56; // int | Id of the locationBillingType to remove tag from
-$location_billing_type_tag = "location_billing_type_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteLocationBillingTypeTag($location_billing_type_id, $location_billing_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationBillingTypeApi->deleteLocationBillingTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_billing_type_id** | **int**| Id of the locationBillingType to remove tag from | 
- **location_billing_type_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\LocationBillingType**](LocationBillingType.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getLocationBillingTypeTags**
-> getLocationBillingTypeTags($location_billing_type_id)
-
-Get the tags for a locationBillingType.
-
-Get all existing locationBillingType tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationBillingTypeApi();
-$location_billing_type_id = 56; // int | Id of the locationBillingType to get tags for
-
-try { 
-    $api_instance->getLocationBillingTypeTags($location_billing_type_id);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationBillingTypeApi->getLocationBillingTypeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_billing_type_id** | **int**| Id of the locationBillingType to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

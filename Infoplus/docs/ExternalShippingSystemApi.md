@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addExternalShippingSystem**](ExternalShippingSystemApi.md#addExternalShippingSystem) | **POST** /beta/externalShippingSystem | Create an externalShippingSystem
-[**addExternalShippingSystemAudit**](ExternalShippingSystemApi.md#addExternalShippingSystemAudit) | **PUT** /beta/externalShippingSystem/{externalShippingSystemId}/audit/{externalShippingSystemAudit} | Add new audit for an externalShippingSystem
-[**addExternalShippingSystemTag**](ExternalShippingSystemApi.md#addExternalShippingSystemTag) | **PUT** /beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag} | Add new tags for an externalShippingSystem.
-[**deleteExternalShippingSystem**](ExternalShippingSystemApi.md#deleteExternalShippingSystem) | **DELETE** /beta/externalShippingSystem/{externalShippingSystemId} | Delete an externalShippingSystem
-[**deleteExternalShippingSystemTag**](ExternalShippingSystemApi.md#deleteExternalShippingSystemTag) | **DELETE** /beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag} | Delete a tag for an externalShippingSystem.
-[**getDuplicateExternalShippingSystemById**](ExternalShippingSystemApi.md#getDuplicateExternalShippingSystemById) | **GET** /beta/externalShippingSystem/duplicate/{externalShippingSystemId} | Get a duplicated an externalShippingSystem by id
-[**getExternalShippingSystemByFilter**](ExternalShippingSystemApi.md#getExternalShippingSystemByFilter) | **GET** /beta/externalShippingSystem/search | Search externalShippingSystems by filter
-[**getExternalShippingSystemById**](ExternalShippingSystemApi.md#getExternalShippingSystemById) | **GET** /beta/externalShippingSystem/{externalShippingSystemId} | Get an externalShippingSystem by id
-[**getExternalShippingSystemTags**](ExternalShippingSystemApi.md#getExternalShippingSystemTags) | **GET** /beta/externalShippingSystem/{externalShippingSystemId}/tag | Get the tags for an externalShippingSystem.
-[**updateExternalShippingSystem**](ExternalShippingSystemApi.md#updateExternalShippingSystem) | **PUT** /beta/externalShippingSystem | Update an externalShippingSystem
-[**updateExternalShippingSystemCustomFields**](ExternalShippingSystemApi.md#updateExternalShippingSystemCustomFields) | **PUT** /beta/externalShippingSystem/customFields | Update an externalShippingSystem custom fields
+[**addExternalShippingSystem**](ExternalShippingSystemApi.md#addExternalShippingSystem) | **POST** /v2.0/externalShippingSystem | Create an externalShippingSystem
+[**deleteExternalShippingSystem**](ExternalShippingSystemApi.md#deleteExternalShippingSystem) | **DELETE** /v2.0/externalShippingSystem/{externalShippingSystemId} | Delete an externalShippingSystem
+[**getDuplicateExternalShippingSystemById**](ExternalShippingSystemApi.md#getDuplicateExternalShippingSystemById) | **GET** /v2.0/externalShippingSystem/duplicate/{externalShippingSystemId} | Get a duplicated an externalShippingSystem by id
+[**getExternalShippingSystemByFilter**](ExternalShippingSystemApi.md#getExternalShippingSystemByFilter) | **GET** /v2.0/externalShippingSystem/search | Search externalShippingSystems by filter
+[**getExternalShippingSystemById**](ExternalShippingSystemApi.md#getExternalShippingSystemById) | **GET** /v2.0/externalShippingSystem/{externalShippingSystemId} | Get an externalShippingSystem by id
+[**updateExternalShippingSystem**](ExternalShippingSystemApi.md#updateExternalShippingSystem) | **PUT** /v2.0/externalShippingSystem | Update an externalShippingSystem
+[**updateExternalShippingSystemCustomFields**](ExternalShippingSystemApi.md#updateExternalShippingSystemCustomFields) | **PUT** /v2.0/externalShippingSystem/customFields | Update an externalShippingSystem custom fields
 
 
 # **addExternalShippingSystem**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addExternalShippingSystemAudit**
-> addExternalShippingSystemAudit($external_shipping_system_id, $external_shipping_system_audit)
-
-Add new audit for an externalShippingSystem
-
-Adds an audit to an existing externalShippingSystem.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ExternalShippingSystemApi();
-$external_shipping_system_id = 56; // int | Id of the externalShippingSystem to add an audit to
-$external_shipping_system_audit = "external_shipping_system_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addExternalShippingSystemAudit($external_shipping_system_id, $external_shipping_system_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ExternalShippingSystemApi->addExternalShippingSystemAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **external_shipping_system_id** | **int**| Id of the externalShippingSystem to add an audit to | 
- **external_shipping_system_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addExternalShippingSystemTag**
-> addExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag)
-
-Add new tags for an externalShippingSystem.
-
-Adds a tag to an existing externalShippingSystem.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ExternalShippingSystemApi();
-$external_shipping_system_id = 56; // int | Id of the externalShippingSystem to add a tag to
-$external_shipping_system_tag = "external_shipping_system_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ExternalShippingSystemApi->addExternalShippingSystemTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **external_shipping_system_id** | **int**| Id of the externalShippingSystem to add a tag to | 
- **external_shipping_system_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteExternalShippingSystem**
 > deleteExternalShippingSystem($external_shipping_system_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **external_shipping_system_id** | **int**| Id of the externalShippingSystem to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteExternalShippingSystemTag**
-> deleteExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag)
-
-Delete a tag for an externalShippingSystem.
-
-Deletes an existing externalShippingSystem tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ExternalShippingSystemApi();
-$external_shipping_system_id = 56; // int | Id of the externalShippingSystem to remove tag from
-$external_shipping_system_tag = "external_shipping_system_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ExternalShippingSystemApi->deleteExternalShippingSystemTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **external_shipping_system_id** | **int**| Id of the externalShippingSystem to remove tag from | 
- **external_shipping_system_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ExternalShippingSystem**](ExternalShippingSystem.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getExternalShippingSystemTags**
-> getExternalShippingSystemTags($external_shipping_system_id)
-
-Get the tags for an externalShippingSystem.
-
-Get all existing externalShippingSystem tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ExternalShippingSystemApi();
-$external_shipping_system_id = 56; // int | Id of the externalShippingSystem to get tags for
-
-try { 
-    $api_instance->getExternalShippingSystemTags($external_shipping_system_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ExternalShippingSystemApi->getExternalShippingSystemTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **external_shipping_system_id** | **int**| Id of the externalShippingSystem to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

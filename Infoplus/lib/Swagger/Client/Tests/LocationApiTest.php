@@ -76,42 +76,12 @@ class LocationApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addLocationAudit
-     *
-     * Add new audit for a location
-     *
-     */
-    public function test_addLocationAudit() {
-
-    }
-    
-    /**
-     * Test case for addLocationTag
-     *
-     * Add new tags for a location.
-     *
-     */
-    public function test_addLocationTag() {
-
-    }
-    
-    /**
      * Test case for deleteLocation
      *
      * Delete a location
      *
      */
     public function test_deleteLocation() {
-
-    }
-    
-    /**
-     * Test case for deleteLocationTag
-     *
-     * Delete a tag for a location.
-     *
-     */
-    public function test_deleteLocationTag() {
 
     }
     
@@ -142,16 +112,6 @@ class LocationApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLocationById() {
-
-    }
-    
-    /**
-     * Test case for getLocationTags
-     *
-     * Get the tags for a location.
-     *
-     */
-    public function test_getLocationTags() {
 
     }
     

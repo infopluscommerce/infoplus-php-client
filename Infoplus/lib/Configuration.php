@@ -516,7 +516,7 @@ class Configuration
         $report  = "PHP SDK (Infoplus) Debug Report:\n";
         $report .= "    OS: ".php_uname()."\n";
         $report .= "    PHP Version: ".phpversion()."\n";
-        $report .= "    OpenAPI Spec Version: beta\n";
+        $report .= "    OpenAPI Spec Version: v2.0\n";
         $report .= "    SDK Package Version: 1.0.0\n";
         $report .= "    Temp Folder Path: ".self::getDefaultConfiguration()->getTempFolderPath()."\n";
 

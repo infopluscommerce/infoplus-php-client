@@ -125,7 +125,7 @@ class CarrierApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/carrier/{carrierId}";
+        $resourcePath = "/v2.0/carrier/{carrierId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class CarrierApi
         
   
         // parse inputs
-        $resourcePath = "/beta/carrier/search";
+        $resourcePath = "/v2.0/carrier/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

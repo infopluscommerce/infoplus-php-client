@@ -76,42 +76,12 @@ class ReceivingWorksheetApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addReceivingWorksheetAudit
-     *
-     * Add new audit for a receivingWorksheet
-     *
-     */
-    public function test_addReceivingWorksheetAudit() {
-
-    }
-    
-    /**
-     * Test case for addReceivingWorksheetTag
-     *
-     * Add new tags for a receivingWorksheet.
-     *
-     */
-    public function test_addReceivingWorksheetTag() {
-
-    }
-    
-    /**
      * Test case for deleteReceivingWorksheet
      *
      * Delete a receivingWorksheet
      *
      */
     public function test_deleteReceivingWorksheet() {
-
-    }
-    
-    /**
-     * Test case for deleteReceivingWorksheetTag
-     *
-     * Delete a tag for a receivingWorksheet.
-     *
-     */
-    public function test_deleteReceivingWorksheetTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ReceivingWorksheetApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getReceivingWorksheetById() {
-
-    }
-    
-    /**
-     * Test case for getReceivingWorksheetTags
-     *
-     * Get the tags for a receivingWorksheet.
-     *
-     */
-    public function test_getReceivingWorksheetTags() {
 
     }
     

@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemProductCode**](ItemProductCodeApi.md#addItemProductCode) | **POST** /beta/itemProductCode | Create an itemProductCode
-[**addItemProductCodeAudit**](ItemProductCodeApi.md#addItemProductCodeAudit) | **PUT** /beta/itemProductCode/{itemProductCodeId}/audit/{itemProductCodeAudit} | Add new audit for an itemProductCode
-[**addItemProductCodeTag**](ItemProductCodeApi.md#addItemProductCodeTag) | **PUT** /beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag} | Add new tags for an itemProductCode.
-[**deleteItemProductCode**](ItemProductCodeApi.md#deleteItemProductCode) | **DELETE** /beta/itemProductCode/{itemProductCodeId} | Delete an itemProductCode
-[**deleteItemProductCodeTag**](ItemProductCodeApi.md#deleteItemProductCodeTag) | **DELETE** /beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag} | Delete a tag for an itemProductCode.
-[**getDuplicateItemProductCodeById**](ItemProductCodeApi.md#getDuplicateItemProductCodeById) | **GET** /beta/itemProductCode/duplicate/{itemProductCodeId} | Get a duplicated an itemProductCode by id
-[**getItemProductCodeByFilter**](ItemProductCodeApi.md#getItemProductCodeByFilter) | **GET** /beta/itemProductCode/search | Search itemProductCodes by filter
-[**getItemProductCodeById**](ItemProductCodeApi.md#getItemProductCodeById) | **GET** /beta/itemProductCode/{itemProductCodeId} | Get an itemProductCode by id
-[**getItemProductCodeTags**](ItemProductCodeApi.md#getItemProductCodeTags) | **GET** /beta/itemProductCode/{itemProductCodeId}/tag | Get the tags for an itemProductCode.
-[**updateItemProductCode**](ItemProductCodeApi.md#updateItemProductCode) | **PUT** /beta/itemProductCode | Update an itemProductCode
+[**addItemProductCode**](ItemProductCodeApi.md#addItemProductCode) | **POST** /v2.0/itemProductCode | Create an itemProductCode
+[**deleteItemProductCode**](ItemProductCodeApi.md#deleteItemProductCode) | **DELETE** /v2.0/itemProductCode/{itemProductCodeId} | Delete an itemProductCode
+[**getDuplicateItemProductCodeById**](ItemProductCodeApi.md#getDuplicateItemProductCodeById) | **GET** /v2.0/itemProductCode/duplicate/{itemProductCodeId} | Get a duplicated an itemProductCode by id
+[**getItemProductCodeByFilter**](ItemProductCodeApi.md#getItemProductCodeByFilter) | **GET** /v2.0/itemProductCode/search | Search itemProductCodes by filter
+[**getItemProductCodeById**](ItemProductCodeApi.md#getItemProductCodeById) | **GET** /v2.0/itemProductCode/{itemProductCodeId} | Get an itemProductCode by id
+[**updateItemProductCode**](ItemProductCodeApi.md#updateItemProductCode) | **PUT** /v2.0/itemProductCode | Update an itemProductCode
 
 
 # **addItemProductCode**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemProductCodeAudit**
-> addItemProductCodeAudit($item_product_code_id, $item_product_code_audit)
-
-Add new audit for an itemProductCode
-
-Adds an audit to an existing itemProductCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemProductCodeApi();
-$item_product_code_id = 56; // int | Id of the itemProductCode to add an audit to
-$item_product_code_audit = "item_product_code_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemProductCodeAudit($item_product_code_id, $item_product_code_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemProductCodeApi->addItemProductCodeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_product_code_id** | **int**| Id of the itemProductCode to add an audit to | 
- **item_product_code_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemProductCodeTag**
-> addItemProductCodeTag($item_product_code_id, $item_product_code_tag)
-
-Add new tags for an itemProductCode.
-
-Adds a tag to an existing itemProductCode.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemProductCodeApi();
-$item_product_code_id = 56; // int | Id of the itemProductCode to add a tag to
-$item_product_code_tag = "item_product_code_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemProductCodeTag($item_product_code_id, $item_product_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemProductCodeApi->addItemProductCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_product_code_id** | **int**| Id of the itemProductCode to add a tag to | 
- **item_product_code_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemProductCode**
 > deleteItemProductCode($item_product_code_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_product_code_id** | **int**| Id of the itemProductCode to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemProductCodeTag**
-> deleteItemProductCodeTag($item_product_code_id, $item_product_code_tag)
-
-Delete a tag for an itemProductCode.
-
-Deletes an existing itemProductCode tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemProductCodeApi();
-$item_product_code_id = 56; // int | Id of the itemProductCode to remove tag from
-$item_product_code_tag = "item_product_code_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemProductCodeTag($item_product_code_id, $item_product_code_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemProductCodeApi->deleteItemProductCodeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_product_code_id** | **int**| Id of the itemProductCode to remove tag from | 
- **item_product_code_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemProductCode**](ItemProductCode.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemProductCodeTags**
-> getItemProductCodeTags($item_product_code_id)
-
-Get the tags for an itemProductCode.
-
-Get all existing itemProductCode tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemProductCodeApi();
-$item_product_code_id = 56; // int | Id of the itemProductCode to get tags for
-
-try { 
-    $api_instance->getItemProductCodeTags($item_product_code_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemProductCodeApi->getItemProductCodeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_product_code_id** | **int**| Id of the itemProductCode to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

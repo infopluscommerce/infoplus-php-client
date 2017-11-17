@@ -76,42 +76,12 @@ class ItemSubCategoryApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemSubCategoryAudit
-     *
-     * Add new audit for an itemSubCategory
-     *
-     */
-    public function test_addItemSubCategoryAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemSubCategoryTag
-     *
-     * Add new tags for an itemSubCategory.
-     *
-     */
-    public function test_addItemSubCategoryTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemSubCategory
      *
      * Delete an itemSubCategory
      *
      */
     public function test_deleteItemSubCategory() {
-
-    }
-    
-    /**
-     * Test case for deleteItemSubCategoryTag
-     *
-     * Delete a tag for an itemSubCategory.
-     *
-     */
-    public function test_deleteItemSubCategoryTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemSubCategoryApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemSubCategoryById() {
-
-    }
-    
-    /**
-     * Test case for getItemSubCategoryTags
-     *
-     * Get the tags for an itemSubCategory.
-     *
-     */
-    public function test_getItemSubCategoryTags() {
 
     }
     

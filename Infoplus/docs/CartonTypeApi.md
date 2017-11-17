@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addCartonType**](CartonTypeApi.md#addCartonType) | **POST** /beta/cartonType | Create a cartonType
-[**addCartonTypeAudit**](CartonTypeApi.md#addCartonTypeAudit) | **PUT** /beta/cartonType/{cartonTypeId}/audit/{cartonTypeAudit} | Add new audit for a cartonType
-[**addCartonTypeTag**](CartonTypeApi.md#addCartonTypeTag) | **PUT** /beta/cartonType/{cartonTypeId}/tag/{cartonTypeTag} | Add new tags for a cartonType.
-[**deleteCartonType**](CartonTypeApi.md#deleteCartonType) | **DELETE** /beta/cartonType/{cartonTypeId} | Delete a cartonType
-[**deleteCartonTypeTag**](CartonTypeApi.md#deleteCartonTypeTag) | **DELETE** /beta/cartonType/{cartonTypeId}/tag/{cartonTypeTag} | Delete a tag for a cartonType.
-[**getCartonTypeByFilter**](CartonTypeApi.md#getCartonTypeByFilter) | **GET** /beta/cartonType/search | Search cartonTypes by filter
-[**getCartonTypeById**](CartonTypeApi.md#getCartonTypeById) | **GET** /beta/cartonType/{cartonTypeId} | Get a cartonType by id
-[**getCartonTypeTags**](CartonTypeApi.md#getCartonTypeTags) | **GET** /beta/cartonType/{cartonTypeId}/tag | Get the tags for a cartonType.
-[**getDuplicateCartonTypeById**](CartonTypeApi.md#getDuplicateCartonTypeById) | **GET** /beta/cartonType/duplicate/{cartonTypeId} | Get a duplicated a cartonType by id
-[**updateCartonType**](CartonTypeApi.md#updateCartonType) | **PUT** /beta/cartonType | Update a cartonType
-[**updateCartonTypeCustomFields**](CartonTypeApi.md#updateCartonTypeCustomFields) | **PUT** /beta/cartonType/customFields | Update a cartonType custom fields
+[**addCartonType**](CartonTypeApi.md#addCartonType) | **POST** /v2.0/cartonType | Create a cartonType
+[**deleteCartonType**](CartonTypeApi.md#deleteCartonType) | **DELETE** /v2.0/cartonType/{cartonTypeId} | Delete a cartonType
+[**getCartonTypeByFilter**](CartonTypeApi.md#getCartonTypeByFilter) | **GET** /v2.0/cartonType/search | Search cartonTypes by filter
+[**getCartonTypeById**](CartonTypeApi.md#getCartonTypeById) | **GET** /v2.0/cartonType/{cartonTypeId} | Get a cartonType by id
+[**getDuplicateCartonTypeById**](CartonTypeApi.md#getDuplicateCartonTypeById) | **GET** /v2.0/cartonType/duplicate/{cartonTypeId} | Get a duplicated a cartonType by id
+[**updateCartonType**](CartonTypeApi.md#updateCartonType) | **PUT** /v2.0/cartonType | Update a cartonType
+[**updateCartonTypeCustomFields**](CartonTypeApi.md#updateCartonTypeCustomFields) | **PUT** /v2.0/cartonType/customFields | Update a cartonType custom fields
 
 
 # **addCartonType**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addCartonTypeAudit**
-> addCartonTypeAudit($carton_type_id, $carton_type_audit)
-
-Add new audit for a cartonType
-
-Adds an audit to an existing cartonType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\CartonTypeApi();
-$carton_type_id = 56; // int | Id of the cartonType to add an audit to
-$carton_type_audit = "carton_type_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addCartonTypeAudit($carton_type_id, $carton_type_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling CartonTypeApi->addCartonTypeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **carton_type_id** | **int**| Id of the cartonType to add an audit to | 
- **carton_type_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addCartonTypeTag**
-> addCartonTypeTag($carton_type_id, $carton_type_tag)
-
-Add new tags for a cartonType.
-
-Adds a tag to an existing cartonType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\CartonTypeApi();
-$carton_type_id = 56; // int | Id of the cartonType to add a tag to
-$carton_type_tag = "carton_type_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addCartonTypeTag($carton_type_id, $carton_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling CartonTypeApi->addCartonTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **carton_type_id** | **int**| Id of the cartonType to add a tag to | 
- **carton_type_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteCartonType**
 > deleteCartonType($carton_type_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **carton_type_id** | **int**| Id of the cartonType to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteCartonTypeTag**
-> deleteCartonTypeTag($carton_type_id, $carton_type_tag)
-
-Delete a tag for a cartonType.
-
-Deletes an existing cartonType tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\CartonTypeApi();
-$carton_type_id = 56; // int | Id of the cartonType to remove tag from
-$carton_type_tag = "carton_type_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteCartonTypeTag($carton_type_id, $carton_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling CartonTypeApi->deleteCartonTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **carton_type_id** | **int**| Id of the cartonType to remove tag from | 
- **carton_type_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -363,55 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\CartonType**](CartonType.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getCartonTypeTags**
-> getCartonTypeTags($carton_type_id)
-
-Get the tags for a cartonType.
-
-Get all existing cartonType tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\CartonTypeApi();
-$carton_type_id = 56; // int | Id of the cartonType to get tags for
-
-try { 
-    $api_instance->getCartonTypeTags($carton_type_id);
-} catch (Exception $e) {
-    echo 'Exception when calling CartonTypeApi->getCartonTypeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **carton_type_id** | **int**| Id of the cartonType to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

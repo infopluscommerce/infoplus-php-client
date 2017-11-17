@@ -66,36 +66,6 @@ class OrderLineApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addOrderLineAudit
-     *
-     * Add new audit for an orderLine
-     *
-     */
-    public function test_addOrderLineAudit() {
-
-    }
-    
-    /**
-     * Test case for addOrderLineTag
-     *
-     * Add new tags for an orderLine.
-     *
-     */
-    public function test_addOrderLineTag() {
-
-    }
-    
-    /**
-     * Test case for deleteOrderLineTag
-     *
-     * Delete a tag for an orderLine.
-     *
-     */
-    public function test_deleteOrderLineTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateOrderLineById
      *
      * Get a duplicated an orderLine by id
@@ -122,16 +92,6 @@ class OrderLineApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getOrderLineById() {
-
-    }
-    
-    /**
-     * Test case for getOrderLineTags
-     *
-     * Get the tags for an orderLine.
-     *
-     */
-    public function test_getOrderLineTags() {
 
     }
     

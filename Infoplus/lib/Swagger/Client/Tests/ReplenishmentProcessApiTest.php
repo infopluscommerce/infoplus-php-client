@@ -66,36 +66,6 @@ class ReplenishmentProcessApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addReplenishmentProcessAudit
-     *
-     * Add new audit for a replenishmentProcess
-     *
-     */
-    public function test_addReplenishmentProcessAudit() {
-
-    }
-    
-    /**
-     * Test case for addReplenishmentProcessTag
-     *
-     * Add new tags for a replenishmentProcess.
-     *
-     */
-    public function test_addReplenishmentProcessTag() {
-
-    }
-    
-    /**
-     * Test case for deleteReplenishmentProcessTag
-     *
-     * Delete a tag for a replenishmentProcess.
-     *
-     */
-    public function test_deleteReplenishmentProcessTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateReplenishmentProcessById
      *
      * Get a duplicated a replenishmentProcess by id
@@ -122,16 +92,6 @@ class ReplenishmentProcessApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getReplenishmentProcessById() {
-
-    }
-    
-    /**
-     * Test case for getReplenishmentProcessTags
-     *
-     * Get the tags for a replenishmentProcess.
-     *
-     */
-    public function test_getReplenishmentProcessTags() {
 
     }
     

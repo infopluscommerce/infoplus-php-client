@@ -66,36 +66,6 @@ class ReplenishmentApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addReplenishmentAudit
-     *
-     * Add new audit for a replenishment
-     *
-     */
-    public function test_addReplenishmentAudit() {
-
-    }
-    
-    /**
-     * Test case for addReplenishmentTag
-     *
-     * Add new tags for a replenishment.
-     *
-     */
-    public function test_addReplenishmentTag() {
-
-    }
-    
-    /**
-     * Test case for deleteReplenishmentTag
-     *
-     * Delete a tag for a replenishment.
-     *
-     */
-    public function test_deleteReplenishmentTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateReplenishmentById
      *
      * Get a duplicated a replenishment by id
@@ -122,16 +92,6 @@ class ReplenishmentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getReplenishmentById() {
-
-    }
-    
-    /**
-     * Test case for getReplenishmentTags
-     *
-     * Get the tags for a replenishment.
-     *
-     */
-    public function test_getReplenishmentTags() {
 
     }
     

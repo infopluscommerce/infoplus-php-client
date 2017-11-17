@@ -125,7 +125,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer";
+        $resourcePath = "/v2.0/itemBuyer";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ItemBuyerApi
     }
     
     /**
-     * addItemBuyerAudit
-     *
-     * Add new audit for an itemBuyer
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to add an audit to (required)
-     * @param string $item_buyer_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemBuyerAudit($item_buyer_id, $item_buyer_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemBuyerAuditWithHttpInfo ($item_buyer_id, $item_buyer_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addItemBuyerAuditWithHttpInfo
-     *
-     * Add new audit for an itemBuyer
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to add an audit to (required)
-     * @param string $item_buyer_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemBuyerAuditWithHttpInfo($item_buyer_id, $item_buyer_audit)
-    {
-        
-        // verify the required parameter 'item_buyer_id' is set
-        if ($item_buyer_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_id when calling addItemBuyerAudit');
-        }
-        // verify the required parameter 'item_buyer_audit' is set
-        if ($item_buyer_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_audit when calling addItemBuyerAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}/audit/{itemBuyerAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_buyer_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_buyer_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addItemBuyerTag
-     *
-     * Add new tags for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to add a tag to (required)
-     * @param string $item_buyer_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemBuyerTag($item_buyer_id, $item_buyer_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemBuyerTagWithHttpInfo ($item_buyer_id, $item_buyer_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addItemBuyerTagWithHttpInfo
-     *
-     * Add new tags for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to add a tag to (required)
-     * @param string $item_buyer_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemBuyerTagWithHttpInfo($item_buyer_id, $item_buyer_tag)
-    {
-        
-        // verify the required parameter 'item_buyer_id' is set
-        if ($item_buyer_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_id when calling addItemBuyerTag');
-        }
-        // verify the required parameter 'item_buyer_tag' is set
-        if ($item_buyer_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_tag when calling addItemBuyerTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_buyer_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_buyer_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteItemBuyer
      *
      * Delete an itemBuyer
@@ -443,7 +227,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}";
+        $resourcePath = "/v2.0/itemBuyer/{itemBuyerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ItemBuyerApi
             $resourcePath = str_replace(
                 "{" . "itemBuyerId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($item_buyer_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteItemBuyerTag
-     *
-     * Delete a tag for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to remove tag from (required)
-     * @param string $item_buyer_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemBuyerTag($item_buyer_id, $item_buyer_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteItemBuyerTagWithHttpInfo ($item_buyer_id, $item_buyer_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteItemBuyerTagWithHttpInfo
-     *
-     * Delete a tag for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to remove tag from (required)
-     * @param string $item_buyer_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemBuyerTagWithHttpInfo($item_buyer_id, $item_buyer_tag)
-    {
-        
-        // verify the required parameter 'item_buyer_id' is set
-        if ($item_buyer_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_id when calling deleteItemBuyerTag');
-        }
-        // verify the required parameter 'item_buyer_tag' is set
-        if ($item_buyer_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_tag when calling deleteItemBuyerTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}/tag/{itemBuyerTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_buyer_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_buyer_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer/duplicate/{itemBuyerId}";
+        $resourcePath = "/v2.0/itemBuyer/duplicate/{itemBuyerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ItemBuyerApi
         
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer/search";
+        $resourcePath = "/v2.0/itemBuyer/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}";
+        $resourcePath = "/v2.0/itemBuyer/{itemBuyerId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ItemBuyerApi
     }
     
     /**
-     * getItemBuyerTags
-     *
-     * Get the tags for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemBuyerTags($item_buyer_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getItemBuyerTagsWithHttpInfo ($item_buyer_id);
-        return $response; 
-    }
-
-
-    /**
-     * getItemBuyerTagsWithHttpInfo
-     *
-     * Get the tags for an itemBuyer.
-     *
-     * @param int $item_buyer_id Id of the itemBuyer to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemBuyerTagsWithHttpInfo($item_buyer_id)
-    {
-        
-        // verify the required parameter 'item_buyer_id' is set
-        if ($item_buyer_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_buyer_id when calling getItemBuyerTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemBuyer/{itemBuyerId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_buyer_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemBuyerId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_buyer_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateItemBuyer
      *
      * Update an itemBuyer
@@ -1055,7 +637,7 @@ class ItemBuyerApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemBuyer";
+        $resourcePath = "/v2.0/itemBuyer";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

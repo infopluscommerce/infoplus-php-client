@@ -76,42 +76,12 @@ class QuickAdjustmentApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addQuickAdjustmentAudit
-     *
-     * Add new audit for a quickAdjustment
-     *
-     */
-    public function test_addQuickAdjustmentAudit() {
-
-    }
-    
-    /**
-     * Test case for addQuickAdjustmentTag
-     *
-     * Add new tags for a quickAdjustment.
-     *
-     */
-    public function test_addQuickAdjustmentTag() {
-
-    }
-    
-    /**
      * Test case for deleteQuickAdjustment
      *
      * Delete a quickAdjustment
      *
      */
     public function test_deleteQuickAdjustment() {
-
-    }
-    
-    /**
-     * Test case for deleteQuickAdjustmentTag
-     *
-     * Delete a tag for a quickAdjustment.
-     *
-     */
-    public function test_deleteQuickAdjustmentTag() {
 
     }
     
@@ -142,16 +112,6 @@ class QuickAdjustmentApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getQuickAdjustmentById() {
-
-    }
-    
-    /**
-     * Test case for getQuickAdjustmentTags
-     *
-     * Get the tags for a quickAdjustment.
-     *
-     */
-    public function test_getQuickAdjustmentTags() {
 
     }
     

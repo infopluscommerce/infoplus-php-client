@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addJobType**](JobTypeApi.md#addJobType) | **POST** /beta/jobType | Create a jobType
-[**addJobTypeAudit**](JobTypeApi.md#addJobTypeAudit) | **PUT** /beta/jobType/{jobTypeId}/audit/{jobTypeAudit} | Add new audit for a jobType
-[**addJobTypeTag**](JobTypeApi.md#addJobTypeTag) | **PUT** /beta/jobType/{jobTypeId}/tag/{jobTypeTag} | Add new tags for a jobType.
-[**deleteJobType**](JobTypeApi.md#deleteJobType) | **DELETE** /beta/jobType/{jobTypeId} | Delete a jobType
-[**deleteJobTypeTag**](JobTypeApi.md#deleteJobTypeTag) | **DELETE** /beta/jobType/{jobTypeId}/tag/{jobTypeTag} | Delete a tag for a jobType.
-[**getDuplicateJobTypeById**](JobTypeApi.md#getDuplicateJobTypeById) | **GET** /beta/jobType/duplicate/{jobTypeId} | Get a duplicated a jobType by id
-[**getJobTypeByFilter**](JobTypeApi.md#getJobTypeByFilter) | **GET** /beta/jobType/search | Search jobTypes by filter
-[**getJobTypeById**](JobTypeApi.md#getJobTypeById) | **GET** /beta/jobType/{jobTypeId} | Get a jobType by id
-[**getJobTypeTags**](JobTypeApi.md#getJobTypeTags) | **GET** /beta/jobType/{jobTypeId}/tag | Get the tags for a jobType.
-[**updateJobType**](JobTypeApi.md#updateJobType) | **PUT** /beta/jobType | Update a jobType
-[**updateJobTypeCustomFields**](JobTypeApi.md#updateJobTypeCustomFields) | **PUT** /beta/jobType/customFields | Update a jobType custom fields
+[**addJobType**](JobTypeApi.md#addJobType) | **POST** /v2.0/jobType | Create a jobType
+[**deleteJobType**](JobTypeApi.md#deleteJobType) | **DELETE** /v2.0/jobType/{jobTypeId} | Delete a jobType
+[**getDuplicateJobTypeById**](JobTypeApi.md#getDuplicateJobTypeById) | **GET** /v2.0/jobType/duplicate/{jobTypeId} | Get a duplicated a jobType by id
+[**getJobTypeByFilter**](JobTypeApi.md#getJobTypeByFilter) | **GET** /v2.0/jobType/search | Search jobTypes by filter
+[**getJobTypeById**](JobTypeApi.md#getJobTypeById) | **GET** /v2.0/jobType/{jobTypeId} | Get a jobType by id
+[**updateJobType**](JobTypeApi.md#updateJobType) | **PUT** /v2.0/jobType | Update a jobType
+[**updateJobTypeCustomFields**](JobTypeApi.md#updateJobTypeCustomFields) | **PUT** /v2.0/jobType/customFields | Update a jobType custom fields
 
 
 # **addJobType**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addJobTypeAudit**
-> addJobTypeAudit($job_type_id, $job_type_audit)
-
-Add new audit for a jobType
-
-Adds an audit to an existing jobType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\JobTypeApi();
-$job_type_id = 56; // int | Id of the jobType to add an audit to
-$job_type_audit = "job_type_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addJobTypeAudit($job_type_id, $job_type_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling JobTypeApi->addJobTypeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **job_type_id** | **int**| Id of the jobType to add an audit to | 
- **job_type_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addJobTypeTag**
-> addJobTypeTag($job_type_id, $job_type_tag)
-
-Add new tags for a jobType.
-
-Adds a tag to an existing jobType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\JobTypeApi();
-$job_type_id = 56; // int | Id of the jobType to add a tag to
-$job_type_tag = "job_type_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addJobTypeTag($job_type_id, $job_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling JobTypeApi->addJobTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **job_type_id** | **int**| Id of the jobType to add a tag to | 
- **job_type_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteJobType**
 > deleteJobType($job_type_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_type_id** | **int**| Id of the jobType to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteJobTypeTag**
-> deleteJobTypeTag($job_type_id, $job_type_tag)
-
-Delete a tag for a jobType.
-
-Deletes an existing jobType tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\JobTypeApi();
-$job_type_id = 56; // int | Id of the jobType to remove tag from
-$job_type_tag = "job_type_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteJobTypeTag($job_type_id, $job_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling JobTypeApi->deleteJobTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **job_type_id** | **int**| Id of the jobType to remove tag from | 
- **job_type_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\JobType**](JobType.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getJobTypeTags**
-> getJobTypeTags($job_type_id)
-
-Get the tags for a jobType.
-
-Get all existing jobType tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\JobTypeApi();
-$job_type_id = 56; // int | Id of the jobType to get tags for
-
-try { 
-    $api_instance->getJobTypeTags($job_type_id);
-} catch (Exception $e) {
-    echo 'Exception when calling JobTypeApi->getJobTypeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **job_type_id** | **int**| Id of the jobType to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

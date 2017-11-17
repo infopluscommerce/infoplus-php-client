@@ -76,42 +76,12 @@ class LocationAddressSchemeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addLocationAddressSchemeAudit
-     *
-     * Add new audit for a locationAddressScheme
-     *
-     */
-    public function test_addLocationAddressSchemeAudit() {
-
-    }
-    
-    /**
-     * Test case for addLocationAddressSchemeTag
-     *
-     * Add new tags for a locationAddressScheme.
-     *
-     */
-    public function test_addLocationAddressSchemeTag() {
-
-    }
-    
-    /**
      * Test case for deleteLocationAddressScheme
      *
      * Delete a locationAddressScheme
      *
      */
     public function test_deleteLocationAddressScheme() {
-
-    }
-    
-    /**
-     * Test case for deleteLocationAddressSchemeTag
-     *
-     * Delete a tag for a locationAddressScheme.
-     *
-     */
-    public function test_deleteLocationAddressSchemeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class LocationAddressSchemeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLocationAddressSchemeById() {
-
-    }
-    
-    /**
-     * Test case for getLocationAddressSchemeTags
-     *
-     * Get the tags for a locationAddressScheme.
-     *
-     */
-    public function test_getLocationAddressSchemeTags() {
 
     }
     

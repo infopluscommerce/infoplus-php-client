@@ -4,118 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addReceivingProcessAudit**](ReceivingProcessApi.md#addReceivingProcessAudit) | **PUT** /beta/receivingProcess/{receivingProcessId}/audit/{receivingProcessAudit} | Add new audit for a receivingProcess
-[**addReceivingProcessTag**](ReceivingProcessApi.md#addReceivingProcessTag) | **PUT** /beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag} | Add new tags for a receivingProcess.
-[**deleteReceivingProcess**](ReceivingProcessApi.md#deleteReceivingProcess) | **DELETE** /beta/receivingProcess/{receivingProcessId} | Delete a receivingProcess
-[**deleteReceivingProcessTag**](ReceivingProcessApi.md#deleteReceivingProcessTag) | **DELETE** /beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag} | Delete a tag for a receivingProcess.
-[**getDuplicateReceivingProcessById**](ReceivingProcessApi.md#getDuplicateReceivingProcessById) | **GET** /beta/receivingProcess/duplicate/{receivingProcessId} | Get a duplicated a receivingProcess by id
-[**getReceivingProcessByFilter**](ReceivingProcessApi.md#getReceivingProcessByFilter) | **GET** /beta/receivingProcess/search | Search receivingProcesses by filter
-[**getReceivingProcessById**](ReceivingProcessApi.md#getReceivingProcessById) | **GET** /beta/receivingProcess/{receivingProcessId} | Get a receivingProcess by id
-[**getReceivingProcessTags**](ReceivingProcessApi.md#getReceivingProcessTags) | **GET** /beta/receivingProcess/{receivingProcessId}/tag | Get the tags for a receivingProcess.
-[**updateReceivingProcessCustomFields**](ReceivingProcessApi.md#updateReceivingProcessCustomFields) | **PUT** /beta/receivingProcess/customFields | Update a receivingProcess custom fields
+[**deleteReceivingProcess**](ReceivingProcessApi.md#deleteReceivingProcess) | **DELETE** /v2.0/receivingProcess/{receivingProcessId} | Delete a receivingProcess
+[**getDuplicateReceivingProcessById**](ReceivingProcessApi.md#getDuplicateReceivingProcessById) | **GET** /v2.0/receivingProcess/duplicate/{receivingProcessId} | Get a duplicated a receivingProcess by id
+[**getReceivingProcessByFilter**](ReceivingProcessApi.md#getReceivingProcessByFilter) | **GET** /v2.0/receivingProcess/search | Search receivingProcesses by filter
+[**getReceivingProcessById**](ReceivingProcessApi.md#getReceivingProcessById) | **GET** /v2.0/receivingProcess/{receivingProcessId} | Get a receivingProcess by id
+[**updateReceivingProcessCustomFields**](ReceivingProcessApi.md#updateReceivingProcessCustomFields) | **PUT** /v2.0/receivingProcess/customFields | Update a receivingProcess custom fields
 
-
-# **addReceivingProcessAudit**
-> addReceivingProcessAudit($receiving_process_id, $receiving_process_audit)
-
-Add new audit for a receivingProcess
-
-Adds an audit to an existing receivingProcess.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ReceivingProcessApi();
-$receiving_process_id = 56; // int | Id of the receivingProcess to add an audit to
-$receiving_process_audit = "receiving_process_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addReceivingProcessAudit($receiving_process_id, $receiving_process_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ReceivingProcessApi->addReceivingProcessAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **receiving_process_id** | **int**| Id of the receivingProcess to add an audit to | 
- **receiving_process_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addReceivingProcessTag**
-> addReceivingProcessTag($receiving_process_id, $receiving_process_tag)
-
-Add new tags for a receivingProcess.
-
-Adds a tag to an existing receivingProcess.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ReceivingProcessApi();
-$receiving_process_id = 56; // int | Id of the receivingProcess to add a tag to
-$receiving_process_tag = "receiving_process_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addReceivingProcessTag($receiving_process_id, $receiving_process_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ReceivingProcessApi->addReceivingProcessTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **receiving_process_id** | **int**| Id of the receivingProcess to add a tag to | 
- **receiving_process_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteReceivingProcess**
 > deleteReceivingProcess($receiving_process_id)
@@ -150,57 +44,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **receiving_process_id** | **int**| Id of the receivingProcess to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteReceivingProcessTag**
-> deleteReceivingProcessTag($receiving_process_id, $receiving_process_tag)
-
-Delete a tag for a receivingProcess.
-
-Deletes an existing receivingProcess tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ReceivingProcessApi();
-$receiving_process_id = 56; // int | Id of the receivingProcess to remove tag from
-$receiving_process_tag = "receiving_process_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteReceivingProcessTag($receiving_process_id, $receiving_process_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ReceivingProcessApi->deleteReceivingProcessTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **receiving_process_id** | **int**| Id of the receivingProcess to remove tag from | 
- **receiving_process_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -361,55 +204,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ReceivingProcess**](ReceivingProcess.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getReceivingProcessTags**
-> getReceivingProcessTags($receiving_process_id)
-
-Get the tags for a receivingProcess.
-
-Get all existing receivingProcess tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ReceivingProcessApi();
-$receiving_process_id = 56; // int | Id of the receivingProcess to get tags for
-
-try { 
-    $api_instance->getReceivingProcessTags($receiving_process_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ReceivingProcessApi->getReceivingProcessTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **receiving_process_id** | **int**| Id of the receivingProcess to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

@@ -125,7 +125,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ThirdPartyParcelAccountApi
     }
     
     /**
-     * addThirdPartyParcelAccountAudit
-     *
-     * Add new audit for a thirdPartyParcelAccount
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to add an audit to (required)
-     * @param string $third_party_parcel_account_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addThirdPartyParcelAccountAudit($third_party_parcel_account_id, $third_party_parcel_account_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addThirdPartyParcelAccountAuditWithHttpInfo ($third_party_parcel_account_id, $third_party_parcel_account_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addThirdPartyParcelAccountAuditWithHttpInfo
-     *
-     * Add new audit for a thirdPartyParcelAccount
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to add an audit to (required)
-     * @param string $third_party_parcel_account_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addThirdPartyParcelAccountAuditWithHttpInfo($third_party_parcel_account_id, $third_party_parcel_account_audit)
-    {
-        
-        // verify the required parameter 'third_party_parcel_account_id' is set
-        if ($third_party_parcel_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_id when calling addThirdPartyParcelAccountAudit');
-        }
-        // verify the required parameter 'third_party_parcel_account_audit' is set
-        if ($third_party_parcel_account_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_audit when calling addThirdPartyParcelAccountAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/audit/{thirdPartyParcelAccountAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($third_party_parcel_account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($third_party_parcel_account_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addThirdPartyParcelAccountTag
-     *
-     * Add new tags for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to add a tag to (required)
-     * @param string $third_party_parcel_account_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addThirdPartyParcelAccountTag($third_party_parcel_account_id, $third_party_parcel_account_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addThirdPartyParcelAccountTagWithHttpInfo ($third_party_parcel_account_id, $third_party_parcel_account_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addThirdPartyParcelAccountTagWithHttpInfo
-     *
-     * Add new tags for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to add a tag to (required)
-     * @param string $third_party_parcel_account_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addThirdPartyParcelAccountTagWithHttpInfo($third_party_parcel_account_id, $third_party_parcel_account_tag)
-    {
-        
-        // verify the required parameter 'third_party_parcel_account_id' is set
-        if ($third_party_parcel_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_id when calling addThirdPartyParcelAccountTag');
-        }
-        // verify the required parameter 'third_party_parcel_account_tag' is set
-        if ($third_party_parcel_account_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_tag when calling addThirdPartyParcelAccountTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($third_party_parcel_account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($third_party_parcel_account_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteThirdPartyParcelAccount
      *
      * Delete a thirdPartyParcelAccount
@@ -443,7 +227,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ThirdPartyParcelAccountApi
             $resourcePath = str_replace(
                 "{" . "thirdPartyParcelAccountId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteThirdPartyParcelAccountTag
-     *
-     * Delete a tag for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to remove tag from (required)
-     * @param string $third_party_parcel_account_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteThirdPartyParcelAccountTag($third_party_parcel_account_id, $third_party_parcel_account_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteThirdPartyParcelAccountTagWithHttpInfo ($third_party_parcel_account_id, $third_party_parcel_account_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteThirdPartyParcelAccountTagWithHttpInfo
-     *
-     * Delete a tag for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to remove tag from (required)
-     * @param string $third_party_parcel_account_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteThirdPartyParcelAccountTagWithHttpInfo($third_party_parcel_account_id, $third_party_parcel_account_tag)
-    {
-        
-        // verify the required parameter 'third_party_parcel_account_id' is set
-        if ($third_party_parcel_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_id when calling deleteThirdPartyParcelAccountTag');
-        }
-        // verify the required parameter 'third_party_parcel_account_tag' is set
-        if ($third_party_parcel_account_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_tag when calling deleteThirdPartyParcelAccountTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag/{thirdPartyParcelAccountTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($third_party_parcel_account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($third_party_parcel_account_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/duplicate/{thirdPartyParcelAccountId}";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount/duplicate/{thirdPartyParcelAccountId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ThirdPartyParcelAccountApi
         
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/search";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount/{thirdPartyParcelAccountId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ThirdPartyParcelAccountApi
     }
     
     /**
-     * getThirdPartyParcelAccountTags
-     *
-     * Get the tags for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getThirdPartyParcelAccountTags($third_party_parcel_account_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getThirdPartyParcelAccountTagsWithHttpInfo ($third_party_parcel_account_id);
-        return $response; 
-    }
-
-
-    /**
-     * getThirdPartyParcelAccountTagsWithHttpInfo
-     *
-     * Get the tags for a thirdPartyParcelAccount.
-     *
-     * @param int $third_party_parcel_account_id Id of the thirdPartyParcelAccount to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getThirdPartyParcelAccountTagsWithHttpInfo($third_party_parcel_account_id)
-    {
-        
-        // verify the required parameter 'third_party_parcel_account_id' is set
-        if ($third_party_parcel_account_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $third_party_parcel_account_id when calling getThirdPartyParcelAccountTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/{thirdPartyParcelAccountId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($third_party_parcel_account_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "thirdPartyParcelAccountId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($third_party_parcel_account_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateThirdPartyParcelAccount
      *
      * Update a thirdPartyParcelAccount
@@ -1055,7 +637,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class ThirdPartyParcelAccountApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/thirdPartyParcelAccount/customFields";
+        $resourcePath = "/v2.0/thirdPartyParcelAccount/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

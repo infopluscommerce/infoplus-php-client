@@ -66,36 +66,6 @@ class InventoryDetailApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addInventoryDetailAudit
-     *
-     * Add new audit for an inventoryDetail
-     *
-     */
-    public function test_addInventoryDetailAudit() {
-
-    }
-    
-    /**
-     * Test case for addInventoryDetailTag
-     *
-     * Add new tags for an inventoryDetail.
-     *
-     */
-    public function test_addInventoryDetailTag() {
-
-    }
-    
-    /**
-     * Test case for deleteInventoryDetailTag
-     *
-     * Delete a tag for an inventoryDetail.
-     *
-     */
-    public function test_deleteInventoryDetailTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateInventoryDetailById
      *
      * Get a duplicated an inventoryDetail by id
@@ -122,16 +92,6 @@ class InventoryDetailApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getInventoryDetailById() {
-
-    }
-    
-    /**
-     * Test case for getInventoryDetailTags
-     *
-     * Get the tags for an inventoryDetail.
-     *
-     */
-    public function test_getInventoryDetailTags() {
 
     }
     

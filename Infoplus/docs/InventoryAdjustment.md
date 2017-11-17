@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**lob_id** | **int** |  | [optional] 
+**lob** | **int** |  | [optional] 
 **sku_id** | **int** |  | [optional] 
 **po_no_id** | **int** |  | [optional] 
 **adjustment_date** | [**\DateTime**](\DateTime.md) |  | [optional] 

@@ -76,42 +76,12 @@ class JobTypeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addJobTypeAudit
-     *
-     * Add new audit for a jobType
-     *
-     */
-    public function test_addJobTypeAudit() {
-
-    }
-    
-    /**
-     * Test case for addJobTypeTag
-     *
-     * Add new tags for a jobType.
-     *
-     */
-    public function test_addJobTypeTag() {
-
-    }
-    
-    /**
      * Test case for deleteJobType
      *
      * Delete a jobType
      *
      */
     public function test_deleteJobType() {
-
-    }
-    
-    /**
-     * Test case for deleteJobTypeTag
-     *
-     * Delete a tag for a jobType.
-     *
-     */
-    public function test_deleteJobTypeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class JobTypeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getJobTypeById() {
-
-    }
-    
-    /**
-     * Test case for getJobTypeTags
-     *
-     * Get the tags for a jobType.
-     *
-     */
-    public function test_getJobTypeTags() {
 
     }
     

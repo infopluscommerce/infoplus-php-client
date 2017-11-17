@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getServiceTypeById**](ServiceTypeApi.md#getServiceTypeById) | **GET** /beta/serviceType/{serviceTypeId} | Get a serviceType by id
-[**getServiceTypeBySearchText**](ServiceTypeApi.md#getServiceTypeBySearchText) | **GET** /beta/serviceType/search | Search serviceTypes
+[**getServiceTypeById**](ServiceTypeApi.md#getServiceTypeById) | **GET** /v2.0/serviceType/{serviceTypeId} | Get a serviceType by id
+[**getServiceTypeBySearchText**](ServiceTypeApi.md#getServiceTypeBySearchText) | **GET** /v2.0/serviceType/search | Search serviceTypes
 
 
 # **getServiceTypeById**

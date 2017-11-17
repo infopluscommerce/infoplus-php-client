@@ -57,7 +57,6 @@ class FulfillmentPlan implements ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'warehouse_id' => 'int',
-        'last_run_time' => '\DateTime',
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
         'maximum_number_of_orders' => 'int',
@@ -78,13 +77,9 @@ class FulfillmentPlan implements ArrayAccess
         'cartonize_orders' => 'bool',
         'auto_ship_casebreak_cartons' => 'bool',
         'pre_generate_parcel_labels' => 'bool',
-        'create_packing_slip' => 'string',
         'override_packing_slip_template_id' => 'int',
+        'create_packing_slip' => 'bool',
         'create_order_assembly_guide' => 'bool',
-        'create_order_invoice' => 'string',
-        'override_order_invoice_template_id' => 'int',
-        'send_to_external_shipping_system' => 'bool',
-        'external_shipping_system_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -103,7 +98,6 @@ class FulfillmentPlan implements ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'warehouse_id' => 'warehouseId',
-        'last_run_time' => 'lastRunTime',
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
         'maximum_number_of_orders' => 'maximumNumberOfOrders',
@@ -124,13 +118,9 @@ class FulfillmentPlan implements ArrayAccess
         'cartonize_orders' => 'cartonizeOrders',
         'auto_ship_casebreak_cartons' => 'autoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'preGenerateParcelLabels',
-        'create_packing_slip' => 'createPackingSlip',
         'override_packing_slip_template_id' => 'overridePackingSlipTemplateId',
+        'create_packing_slip' => 'createPackingSlip',
         'create_order_assembly_guide' => 'createOrderAssemblyGuide',
-        'create_order_invoice' => 'createOrderInvoice',
-        'override_order_invoice_template_id' => 'overrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'sendToExternalShippingSystem',
-        'external_shipping_system_id' => 'externalShippingSystemId',
         'custom_fields' => 'customFields'
     );
   
@@ -149,7 +139,6 @@ class FulfillmentPlan implements ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'warehouse_id' => 'setWarehouseId',
-        'last_run_time' => 'setLastRunTime',
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
         'maximum_number_of_orders' => 'setMaximumNumberOfOrders',
@@ -170,13 +159,9 @@ class FulfillmentPlan implements ArrayAccess
         'cartonize_orders' => 'setCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'setAutoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'setPreGenerateParcelLabels',
-        'create_packing_slip' => 'setCreatePackingSlip',
         'override_packing_slip_template_id' => 'setOverridePackingSlipTemplateId',
+        'create_packing_slip' => 'setCreatePackingSlip',
         'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide',
-        'create_order_invoice' => 'setCreateOrderInvoice',
-        'override_order_invoice_template_id' => 'setOverrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'setSendToExternalShippingSystem',
-        'external_shipping_system_id' => 'setExternalShippingSystemId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -195,7 +180,6 @@ class FulfillmentPlan implements ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'warehouse_id' => 'getWarehouseId',
-        'last_run_time' => 'getLastRunTime',
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
         'maximum_number_of_orders' => 'getMaximumNumberOfOrders',
@@ -216,13 +200,9 @@ class FulfillmentPlan implements ArrayAccess
         'cartonize_orders' => 'getCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'getAutoShipCasebreakCartons',
         'pre_generate_parcel_labels' => 'getPreGenerateParcelLabels',
-        'create_packing_slip' => 'getCreatePackingSlip',
         'override_packing_slip_template_id' => 'getOverridePackingSlipTemplateId',
+        'create_packing_slip' => 'getCreatePackingSlip',
         'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide',
-        'create_order_invoice' => 'getCreateOrderInvoice',
-        'override_order_invoice_template_id' => 'getOverrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'getSendToExternalShippingSystem',
-        'external_shipping_system_id' => 'getExternalShippingSystemId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -266,12 +246,6 @@ class FulfillmentPlan implements ArrayAccess
       * @var int
       */
     protected $warehouse_id;
-    
-    /**
-      * $last_run_time 
-      * @var \DateTime
-      */
-    protected $last_run_time;
     
     /**
       * $order_smart_filter_id 
@@ -394,46 +368,22 @@ class FulfillmentPlan implements ArrayAccess
     protected $pre_generate_parcel_labels = false;
     
     /**
-      * $create_packing_slip 
-      * @var string
-      */
-    protected $create_packing_slip;
-    
-    /**
       * $override_packing_slip_template_id 
       * @var int
       */
     protected $override_packing_slip_template_id;
     
     /**
+      * $create_packing_slip 
+      * @var bool
+      */
+    protected $create_packing_slip = false;
+    
+    /**
       * $create_order_assembly_guide 
       * @var bool
       */
     protected $create_order_assembly_guide = false;
-    
-    /**
-      * $create_order_invoice 
-      * @var string
-      */
-    protected $create_order_invoice;
-    
-    /**
-      * $override_order_invoice_template_id 
-      * @var int
-      */
-    protected $override_order_invoice_template_id;
-    
-    /**
-      * $send_to_external_shipping_system 
-      * @var bool
-      */
-    protected $send_to_external_shipping_system = false;
-    
-    /**
-      * $external_shipping_system_id 
-      * @var int
-      */
-    protected $external_shipping_system_id;
     
     /**
       * $custom_fields 
@@ -456,7 +406,6 @@ class FulfillmentPlan implements ArrayAccess
             $this->name = $data["name"];
             $this->description = $data["description"];
             $this->warehouse_id = $data["warehouse_id"];
-            $this->last_run_time = $data["last_run_time"];
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
             $this->maximum_number_of_orders = $data["maximum_number_of_orders"];
@@ -477,13 +426,9 @@ class FulfillmentPlan implements ArrayAccess
             $this->cartonize_orders = $data["cartonize_orders"];
             $this->auto_ship_casebreak_cartons = $data["auto_ship_casebreak_cartons"];
             $this->pre_generate_parcel_labels = $data["pre_generate_parcel_labels"];
-            $this->create_packing_slip = $data["create_packing_slip"];
             $this->override_packing_slip_template_id = $data["override_packing_slip_template_id"];
+            $this->create_packing_slip = $data["create_packing_slip"];
             $this->create_order_assembly_guide = $data["create_order_assembly_guide"];
-            $this->create_order_invoice = $data["create_order_invoice"];
-            $this->override_order_invoice_template_id = $data["override_order_invoice_template_id"];
-            $this->send_to_external_shipping_system = $data["send_to_external_shipping_system"];
-            $this->external_shipping_system_id = $data["external_shipping_system_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -611,27 +556,6 @@ class FulfillmentPlan implements ArrayAccess
     {
         
         $this->warehouse_id = $warehouse_id;
-        return $this;
-    }
-    
-    /**
-     * Gets last_run_time
-     * @return \DateTime
-     */
-    public function getLastRunTime()
-    {
-        return $this->last_run_time;
-    }
-  
-    /**
-     * Sets last_run_time
-     * @param \DateTime $last_run_time 
-     * @return $this
-     */
-    public function setLastRunTime($last_run_time)
-    {
-        
-        $this->last_run_time = $last_run_time;
         return $this;
     }
     
@@ -1056,27 +980,6 @@ class FulfillmentPlan implements ArrayAccess
     }
     
     /**
-     * Gets create_packing_slip
-     * @return string
-     */
-    public function getCreatePackingSlip()
-    {
-        return $this->create_packing_slip;
-    }
-  
-    /**
-     * Sets create_packing_slip
-     * @param string $create_packing_slip 
-     * @return $this
-     */
-    public function setCreatePackingSlip($create_packing_slip)
-    {
-        
-        $this->create_packing_slip = $create_packing_slip;
-        return $this;
-    }
-    
-    /**
      * Gets override_packing_slip_template_id
      * @return int
      */
@@ -1098,6 +1001,27 @@ class FulfillmentPlan implements ArrayAccess
     }
     
     /**
+     * Gets create_packing_slip
+     * @return bool
+     */
+    public function getCreatePackingSlip()
+    {
+        return $this->create_packing_slip;
+    }
+  
+    /**
+     * Sets create_packing_slip
+     * @param bool $create_packing_slip 
+     * @return $this
+     */
+    public function setCreatePackingSlip($create_packing_slip)
+    {
+        
+        $this->create_packing_slip = $create_packing_slip;
+        return $this;
+    }
+    
+    /**
      * Gets create_order_assembly_guide
      * @return bool
      */
@@ -1115,90 +1039,6 @@ class FulfillmentPlan implements ArrayAccess
     {
         
         $this->create_order_assembly_guide = $create_order_assembly_guide;
-        return $this;
-    }
-    
-    /**
-     * Gets create_order_invoice
-     * @return string
-     */
-    public function getCreateOrderInvoice()
-    {
-        return $this->create_order_invoice;
-    }
-  
-    /**
-     * Sets create_order_invoice
-     * @param string $create_order_invoice 
-     * @return $this
-     */
-    public function setCreateOrderInvoice($create_order_invoice)
-    {
-        
-        $this->create_order_invoice = $create_order_invoice;
-        return $this;
-    }
-    
-    /**
-     * Gets override_order_invoice_template_id
-     * @return int
-     */
-    public function getOverrideOrderInvoiceTemplateId()
-    {
-        return $this->override_order_invoice_template_id;
-    }
-  
-    /**
-     * Sets override_order_invoice_template_id
-     * @param int $override_order_invoice_template_id 
-     * @return $this
-     */
-    public function setOverrideOrderInvoiceTemplateId($override_order_invoice_template_id)
-    {
-        
-        $this->override_order_invoice_template_id = $override_order_invoice_template_id;
-        return $this;
-    }
-    
-    /**
-     * Gets send_to_external_shipping_system
-     * @return bool
-     */
-    public function getSendToExternalShippingSystem()
-    {
-        return $this->send_to_external_shipping_system;
-    }
-  
-    /**
-     * Sets send_to_external_shipping_system
-     * @param bool $send_to_external_shipping_system 
-     * @return $this
-     */
-    public function setSendToExternalShippingSystem($send_to_external_shipping_system)
-    {
-        
-        $this->send_to_external_shipping_system = $send_to_external_shipping_system;
-        return $this;
-    }
-    
-    /**
-     * Gets external_shipping_system_id
-     * @return int
-     */
-    public function getExternalShippingSystemId()
-    {
-        return $this->external_shipping_system_id;
-    }
-  
-    /**
-     * Sets external_shipping_system_id
-     * @param int $external_shipping_system_id 
-     * @return $this
-     */
-    public function setExternalShippingSystemId($external_shipping_system_id)
-    {
-        
-        $this->external_shipping_system_id = $external_shipping_system_id;
         return $this;
     }
     

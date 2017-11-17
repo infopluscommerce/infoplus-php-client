@@ -125,7 +125,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection";
+        $resourcePath = "/v2.0/shoppingCartConnection";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ShoppingCartConnectionApi
     }
     
     /**
-     * addShoppingCartConnectionAudit
-     *
-     * Add new audit for a shoppingCartConnection
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to add an audit to (required)
-     * @param string $shopping_cart_connection_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addShoppingCartConnectionAudit($shopping_cart_connection_id, $shopping_cart_connection_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addShoppingCartConnectionAuditWithHttpInfo ($shopping_cart_connection_id, $shopping_cart_connection_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addShoppingCartConnectionAuditWithHttpInfo
-     *
-     * Add new audit for a shoppingCartConnection
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to add an audit to (required)
-     * @param string $shopping_cart_connection_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addShoppingCartConnectionAuditWithHttpInfo($shopping_cart_connection_id, $shopping_cart_connection_audit)
-    {
-        
-        // verify the required parameter 'shopping_cart_connection_id' is set
-        if ($shopping_cart_connection_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_id when calling addShoppingCartConnectionAudit');
-        }
-        // verify the required parameter 'shopping_cart_connection_audit' is set
-        if ($shopping_cart_connection_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_audit when calling addShoppingCartConnectionAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/audit/{shoppingCartConnectionAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($shopping_cart_connection_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($shopping_cart_connection_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addShoppingCartConnectionTag
-     *
-     * Add new tags for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to add a tag to (required)
-     * @param string $shopping_cart_connection_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addShoppingCartConnectionTag($shopping_cart_connection_id, $shopping_cart_connection_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addShoppingCartConnectionTagWithHttpInfo ($shopping_cart_connection_id, $shopping_cart_connection_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addShoppingCartConnectionTagWithHttpInfo
-     *
-     * Add new tags for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to add a tag to (required)
-     * @param string $shopping_cart_connection_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addShoppingCartConnectionTagWithHttpInfo($shopping_cart_connection_id, $shopping_cart_connection_tag)
-    {
-        
-        // verify the required parameter 'shopping_cart_connection_id' is set
-        if ($shopping_cart_connection_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_id when calling addShoppingCartConnectionTag');
-        }
-        // verify the required parameter 'shopping_cart_connection_tag' is set
-        if ($shopping_cart_connection_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_tag when calling addShoppingCartConnectionTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($shopping_cart_connection_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($shopping_cart_connection_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteShoppingCartConnection
      *
      * Delete a shoppingCartConnection
@@ -443,7 +227,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}";
+        $resourcePath = "/v2.0/shoppingCartConnection/{shoppingCartConnectionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ShoppingCartConnectionApi
             $resourcePath = str_replace(
                 "{" . "shoppingCartConnectionId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteShoppingCartConnectionTag
-     *
-     * Delete a tag for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to remove tag from (required)
-     * @param string $shopping_cart_connection_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteShoppingCartConnectionTag($shopping_cart_connection_id, $shopping_cart_connection_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteShoppingCartConnectionTagWithHttpInfo ($shopping_cart_connection_id, $shopping_cart_connection_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteShoppingCartConnectionTagWithHttpInfo
-     *
-     * Delete a tag for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to remove tag from (required)
-     * @param string $shopping_cart_connection_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteShoppingCartConnectionTagWithHttpInfo($shopping_cart_connection_id, $shopping_cart_connection_tag)
-    {
-        
-        // verify the required parameter 'shopping_cart_connection_id' is set
-        if ($shopping_cart_connection_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_id when calling deleteShoppingCartConnectionTag');
-        }
-        // verify the required parameter 'shopping_cart_connection_tag' is set
-        if ($shopping_cart_connection_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_tag when calling deleteShoppingCartConnectionTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag/{shoppingCartConnectionTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($shopping_cart_connection_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($shopping_cart_connection_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/duplicate/{shoppingCartConnectionId}";
+        $resourcePath = "/v2.0/shoppingCartConnection/duplicate/{shoppingCartConnectionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ShoppingCartConnectionApi
         
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/search";
+        $resourcePath = "/v2.0/shoppingCartConnection/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}";
+        $resourcePath = "/v2.0/shoppingCartConnection/{shoppingCartConnectionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ShoppingCartConnectionApi
     }
     
     /**
-     * getShoppingCartConnectionTags
-     *
-     * Get the tags for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getShoppingCartConnectionTags($shopping_cart_connection_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getShoppingCartConnectionTagsWithHttpInfo ($shopping_cart_connection_id);
-        return $response; 
-    }
-
-
-    /**
-     * getShoppingCartConnectionTagsWithHttpInfo
-     *
-     * Get the tags for a shoppingCartConnection.
-     *
-     * @param int $shopping_cart_connection_id Id of the shoppingCartConnection to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getShoppingCartConnectionTagsWithHttpInfo($shopping_cart_connection_id)
-    {
-        
-        // verify the required parameter 'shopping_cart_connection_id' is set
-        if ($shopping_cart_connection_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shopping_cart_connection_id when calling getShoppingCartConnectionTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/{shoppingCartConnectionId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($shopping_cart_connection_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "shoppingCartConnectionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($shopping_cart_connection_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateShoppingCartConnection
      *
      * Update a shoppingCartConnection
@@ -1055,7 +637,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection";
+        $resourcePath = "/v2.0/shoppingCartConnection";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class ShoppingCartConnectionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/shoppingCartConnection/customFields";
+        $resourcePath = "/v2.0/shoppingCartConnection/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

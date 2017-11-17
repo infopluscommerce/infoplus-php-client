@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillingCodeType**](BillingCodeTypeApi.md#addBillingCodeType) | **POST** /beta/billingCodeType | Create a billingCodeType
-[**addBillingCodeTypeAudit**](BillingCodeTypeApi.md#addBillingCodeTypeAudit) | **PUT** /beta/billingCodeType/{billingCodeTypeId}/audit/{billingCodeTypeAudit} | Add new audit for a billingCodeType
-[**addBillingCodeTypeTag**](BillingCodeTypeApi.md#addBillingCodeTypeTag) | **PUT** /beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag} | Add new tags for a billingCodeType.
-[**deleteBillingCodeType**](BillingCodeTypeApi.md#deleteBillingCodeType) | **DELETE** /beta/billingCodeType/{billingCodeTypeId} | Delete a billingCodeType
-[**deleteBillingCodeTypeTag**](BillingCodeTypeApi.md#deleteBillingCodeTypeTag) | **DELETE** /beta/billingCodeType/{billingCodeTypeId}/tag/{billingCodeTypeTag} | Delete a tag for a billingCodeType.
-[**getBillingCodeTypeByFilter**](BillingCodeTypeApi.md#getBillingCodeTypeByFilter) | **GET** /beta/billingCodeType/search | Search billingCodeTypes by filter
-[**getBillingCodeTypeById**](BillingCodeTypeApi.md#getBillingCodeTypeById) | **GET** /beta/billingCodeType/{billingCodeTypeId} | Get a billingCodeType by id
-[**getBillingCodeTypeTags**](BillingCodeTypeApi.md#getBillingCodeTypeTags) | **GET** /beta/billingCodeType/{billingCodeTypeId}/tag | Get the tags for a billingCodeType.
-[**getDuplicateBillingCodeTypeById**](BillingCodeTypeApi.md#getDuplicateBillingCodeTypeById) | **GET** /beta/billingCodeType/duplicate/{billingCodeTypeId} | Get a duplicated a billingCodeType by id
-[**updateBillingCodeType**](BillingCodeTypeApi.md#updateBillingCodeType) | **PUT** /beta/billingCodeType | Update a billingCodeType
-[**updateBillingCodeTypeCustomFields**](BillingCodeTypeApi.md#updateBillingCodeTypeCustomFields) | **PUT** /beta/billingCodeType/customFields | Update a billingCodeType custom fields
+[**addBillingCodeType**](BillingCodeTypeApi.md#addBillingCodeType) | **POST** /v2.0/billingCodeType | Create a billingCodeType
+[**deleteBillingCodeType**](BillingCodeTypeApi.md#deleteBillingCodeType) | **DELETE** /v2.0/billingCodeType/{billingCodeTypeId} | Delete a billingCodeType
+[**getBillingCodeTypeByFilter**](BillingCodeTypeApi.md#getBillingCodeTypeByFilter) | **GET** /v2.0/billingCodeType/search | Search billingCodeTypes by filter
+[**getBillingCodeTypeById**](BillingCodeTypeApi.md#getBillingCodeTypeById) | **GET** /v2.0/billingCodeType/{billingCodeTypeId} | Get a billingCodeType by id
+[**getDuplicateBillingCodeTypeById**](BillingCodeTypeApi.md#getDuplicateBillingCodeTypeById) | **GET** /v2.0/billingCodeType/duplicate/{billingCodeTypeId} | Get a duplicated a billingCodeType by id
+[**updateBillingCodeType**](BillingCodeTypeApi.md#updateBillingCodeType) | **PUT** /v2.0/billingCodeType | Update a billingCodeType
+[**updateBillingCodeTypeCustomFields**](BillingCodeTypeApi.md#updateBillingCodeTypeCustomFields) | **PUT** /v2.0/billingCodeType/customFields | Update a billingCodeType custom fields
 
 
 # **addBillingCodeType**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addBillingCodeTypeAudit**
-> addBillingCodeTypeAudit($billing_code_type_id, $billing_code_type_audit)
-
-Add new audit for a billingCodeType
-
-Adds an audit to an existing billingCodeType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeTypeApi();
-$billing_code_type_id = 56; // int | Id of the billingCodeType to add an audit to
-$billing_code_type_audit = "billing_code_type_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addBillingCodeTypeAudit($billing_code_type_id, $billing_code_type_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeTypeApi->addBillingCodeTypeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_type_id** | **int**| Id of the billingCodeType to add an audit to | 
- **billing_code_type_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addBillingCodeTypeTag**
-> addBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag)
-
-Add new tags for a billingCodeType.
-
-Adds a tag to an existing billingCodeType.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeTypeApi();
-$billing_code_type_id = 56; // int | Id of the billingCodeType to add a tag to
-$billing_code_type_tag = "billing_code_type_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeTypeApi->addBillingCodeTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_type_id** | **int**| Id of the billingCodeType to add a tag to | 
- **billing_code_type_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteBillingCodeType**
 > deleteBillingCodeType($billing_code_type_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **billing_code_type_id** | **int**| Id of the billingCodeType to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteBillingCodeTypeTag**
-> deleteBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag)
-
-Delete a tag for a billingCodeType.
-
-Deletes an existing billingCodeType tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeTypeApi();
-$billing_code_type_id = 56; // int | Id of the billingCodeType to remove tag from
-$billing_code_type_tag = "billing_code_type_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteBillingCodeTypeTag($billing_code_type_id, $billing_code_type_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeTypeApi->deleteBillingCodeTypeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_type_id** | **int**| Id of the billingCodeType to remove tag from | 
- **billing_code_type_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -363,55 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\BillingCodeType**](BillingCodeType.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getBillingCodeTypeTags**
-> getBillingCodeTypeTags($billing_code_type_id)
-
-Get the tags for a billingCodeType.
-
-Get all existing billingCodeType tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillingCodeTypeApi();
-$billing_code_type_id = 56; // int | Id of the billingCodeType to get tags for
-
-try { 
-    $api_instance->getBillingCodeTypeTags($billing_code_type_id);
-} catch (Exception $e) {
-    echo 'Exception when calling BillingCodeTypeApi->getBillingCodeTypeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **billing_code_type_id** | **int**| Id of the billingCodeType to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

@@ -76,42 +76,12 @@ class CartonApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addCartonAudit
-     *
-     * Add new audit for a carton
-     *
-     */
-    public function test_addCartonAudit() {
-
-    }
-    
-    /**
-     * Test case for addCartonTag
-     *
-     * Add new tags for a carton.
-     *
-     */
-    public function test_addCartonTag() {
-
-    }
-    
-    /**
      * Test case for deleteCarton
      *
      * Delete a carton
      *
      */
     public function test_deleteCarton() {
-
-    }
-    
-    /**
-     * Test case for deleteCartonTag
-     *
-     * Delete a tag for a carton.
-     *
-     */
-    public function test_deleteCartonTag() {
 
     }
     
@@ -132,16 +102,6 @@ class CartonApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getCartonById() {
-
-    }
-    
-    /**
-     * Test case for getCartonTags
-     *
-     * Get the tags for a carton.
-     *
-     */
-    public function test_getCartonTags() {
 
     }
     

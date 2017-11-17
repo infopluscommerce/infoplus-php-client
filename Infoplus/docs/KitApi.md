@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addKit**](KitApi.md#addKit) | **POST** /beta/kit | Create a kit
-[**addKitAudit**](KitApi.md#addKitAudit) | **PUT** /beta/kit/{kitId}/audit/{kitAudit} | Add new audit for a kit
-[**addKitTag**](KitApi.md#addKitTag) | **PUT** /beta/kit/{kitId}/tag/{kitTag} | Add new tags for a kit.
-[**deleteKit**](KitApi.md#deleteKit) | **DELETE** /beta/kit/{kitId} | Delete a kit
-[**deleteKitTag**](KitApi.md#deleteKitTag) | **DELETE** /beta/kit/{kitId}/tag/{kitTag} | Delete a tag for a kit.
-[**getDuplicateKitById**](KitApi.md#getDuplicateKitById) | **GET** /beta/kit/duplicate/{kitId} | Get a duplicated a kit by id
-[**getKitByFilter**](KitApi.md#getKitByFilter) | **GET** /beta/kit/search | Search kits by filter
-[**getKitById**](KitApi.md#getKitById) | **GET** /beta/kit/{kitId} | Get a kit by id
-[**getKitTags**](KitApi.md#getKitTags) | **GET** /beta/kit/{kitId}/tag | Get the tags for a kit.
-[**updateKit**](KitApi.md#updateKit) | **PUT** /beta/kit | Update a kit
-[**updateKitCustomFields**](KitApi.md#updateKitCustomFields) | **PUT** /beta/kit/customFields | Update a kit custom fields
+[**addKit**](KitApi.md#addKit) | **POST** /v2.0/kit | Create a kit
+[**deleteKit**](KitApi.md#deleteKit) | **DELETE** /v2.0/kit/{kitId} | Delete a kit
+[**getDuplicateKitById**](KitApi.md#getDuplicateKitById) | **GET** /v2.0/kit/duplicate/{kitId} | Get a duplicated a kit by id
+[**getKitByFilter**](KitApi.md#getKitByFilter) | **GET** /v2.0/kit/search | Search kits by filter
+[**getKitById**](KitApi.md#getKitById) | **GET** /v2.0/kit/{kitId} | Get a kit by id
+[**updateKit**](KitApi.md#updateKit) | **PUT** /v2.0/kit | Update a kit
+[**updateKitCustomFields**](KitApi.md#updateKitCustomFields) | **PUT** /v2.0/kit/customFields | Update a kit custom fields
 
 
 # **addKit**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addKitAudit**
-> addKitAudit($kit_id, $kit_audit)
-
-Add new audit for a kit
-
-Adds an audit to an existing kit.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\KitApi();
-$kit_id = 56; // int | Id of the kit to add an audit to
-$kit_audit = "kit_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addKitAudit($kit_id, $kit_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling KitApi->addKitAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **kit_id** | **int**| Id of the kit to add an audit to | 
- **kit_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addKitTag**
-> addKitTag($kit_id, $kit_tag)
-
-Add new tags for a kit.
-
-Adds a tag to an existing kit.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\KitApi();
-$kit_id = 56; // int | Id of the kit to add a tag to
-$kit_tag = "kit_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addKitTag($kit_id, $kit_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling KitApi->addKitTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **kit_id** | **int**| Id of the kit to add a tag to | 
- **kit_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteKit**
 > deleteKit($kit_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **kit_id** | **int**| Id of the kit to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteKitTag**
-> deleteKitTag($kit_id, $kit_tag)
-
-Delete a tag for a kit.
-
-Deletes an existing kit tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\KitApi();
-$kit_id = 56; // int | Id of the kit to remove tag from
-$kit_tag = "kit_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteKitTag($kit_id, $kit_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling KitApi->deleteKitTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **kit_id** | **int**| Id of the kit to remove tag from | 
- **kit_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\Kit**](Kit.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getKitTags**
-> getKitTags($kit_id)
-
-Get the tags for a kit.
-
-Get all existing kit tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\KitApi();
-$kit_id = 56; // int | Id of the kit to get tags for
-
-try { 
-    $api_instance->getKitTags($kit_id);
-} catch (Exception $e) {
-    echo 'Exception when calling KitApi->getKitTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **kit_id** | **int**| Id of the kit to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

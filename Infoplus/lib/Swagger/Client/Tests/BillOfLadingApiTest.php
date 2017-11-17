@@ -76,42 +76,12 @@ class BillOfLadingApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addBillOfLadingAudit
-     *
-     * Add new audit for a billOfLading
-     *
-     */
-    public function test_addBillOfLadingAudit() {
-
-    }
-    
-    /**
-     * Test case for addBillOfLadingTag
-     *
-     * Add new tags for a billOfLading.
-     *
-     */
-    public function test_addBillOfLadingTag() {
-
-    }
-    
-    /**
      * Test case for deleteBillOfLading
      *
      * Delete a billOfLading
      *
      */
     public function test_deleteBillOfLading() {
-
-    }
-    
-    /**
-     * Test case for deleteBillOfLadingTag
-     *
-     * Delete a tag for a billOfLading.
-     *
-     */
-    public function test_deleteBillOfLadingTag() {
 
     }
     
@@ -132,16 +102,6 @@ class BillOfLadingApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getBillOfLadingById() {
-
-    }
-    
-    /**
-     * Test case for getBillOfLadingTags
-     *
-     * Get the tags for a billOfLading.
-     *
-     */
-    public function test_getBillOfLadingTags() {
 
     }
     

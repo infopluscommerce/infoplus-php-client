@@ -125,7 +125,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement";
+        $resourcePath = "/v2.0/supplement";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class SupplementApi
     }
     
     /**
-     * addSupplementAudit
-     *
-     * Add new audit for a supplement
-     *
-     * @param int $supplement_id Id of the supplement to add an audit to (required)
-     * @param string $supplement_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSupplementAudit($supplement_id, $supplement_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addSupplementAuditWithHttpInfo ($supplement_id, $supplement_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addSupplementAuditWithHttpInfo
-     *
-     * Add new audit for a supplement
-     *
-     * @param int $supplement_id Id of the supplement to add an audit to (required)
-     * @param string $supplement_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSupplementAuditWithHttpInfo($supplement_id, $supplement_audit)
-    {
-        
-        // verify the required parameter 'supplement_id' is set
-        if ($supplement_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_id when calling addSupplementAudit');
-        }
-        // verify the required parameter 'supplement_audit' is set
-        if ($supplement_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_audit when calling addSupplementAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}/audit/{supplementAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($supplement_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($supplement_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addSupplementTag
-     *
-     * Add new tags for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to add a tag to (required)
-     * @param string $supplement_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSupplementTag($supplement_id, $supplement_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addSupplementTagWithHttpInfo ($supplement_id, $supplement_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addSupplementTagWithHttpInfo
-     *
-     * Add new tags for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to add a tag to (required)
-     * @param string $supplement_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSupplementTagWithHttpInfo($supplement_id, $supplement_tag)
-    {
-        
-        // verify the required parameter 'supplement_id' is set
-        if ($supplement_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_id when calling addSupplementTag');
-        }
-        // verify the required parameter 'supplement_tag' is set
-        if ($supplement_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_tag when calling addSupplementTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}/tag/{supplementTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($supplement_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($supplement_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteSupplement
      *
      * Delete a supplement
@@ -443,7 +227,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}";
+        $resourcePath = "/v2.0/supplement/{supplementId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class SupplementApi
             $resourcePath = str_replace(
                 "{" . "supplementId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($supplement_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteSupplementTag
-     *
-     * Delete a tag for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to remove tag from (required)
-     * @param string $supplement_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteSupplementTag($supplement_id, $supplement_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteSupplementTagWithHttpInfo ($supplement_id, $supplement_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteSupplementTagWithHttpInfo
-     *
-     * Delete a tag for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to remove tag from (required)
-     * @param string $supplement_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteSupplementTagWithHttpInfo($supplement_id, $supplement_tag)
-    {
-        
-        // verify the required parameter 'supplement_id' is set
-        if ($supplement_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_id when calling deleteSupplementTag');
-        }
-        // verify the required parameter 'supplement_tag' is set
-        if ($supplement_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_tag when calling deleteSupplementTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}/tag/{supplementTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($supplement_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($supplement_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement/duplicate/{supplementId}";
+        $resourcePath = "/v2.0/supplement/duplicate/{supplementId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class SupplementApi
         
   
         // parse inputs
-        $resourcePath = "/beta/supplement/search";
+        $resourcePath = "/v2.0/supplement/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}";
+        $resourcePath = "/v2.0/supplement/{supplementId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class SupplementApi
     }
     
     /**
-     * getSupplementTags
-     *
-     * Get the tags for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getSupplementTags($supplement_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getSupplementTagsWithHttpInfo ($supplement_id);
-        return $response; 
-    }
-
-
-    /**
-     * getSupplementTagsWithHttpInfo
-     *
-     * Get the tags for a supplement.
-     *
-     * @param int $supplement_id Id of the supplement to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getSupplementTagsWithHttpInfo($supplement_id)
-    {
-        
-        // verify the required parameter 'supplement_id' is set
-        if ($supplement_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $supplement_id when calling getSupplementTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/supplement/{supplementId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($supplement_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "supplementId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($supplement_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateSupplement
      *
      * Update a supplement
@@ -1055,7 +637,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement";
+        $resourcePath = "/v2.0/supplement";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class SupplementApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/supplement/customFields";
+        $resourcePath = "/v2.0/supplement/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLegacyLowstockContact**](LegacyLowstockContactApi.md#addLegacyLowstockContact) | **POST** /beta/legacyLowstockContact | Create a legacyLowstockContact
-[**addLegacyLowstockContactAudit**](LegacyLowstockContactApi.md#addLegacyLowstockContactAudit) | **PUT** /beta/legacyLowstockContact/{legacyLowstockContactId}/audit/{legacyLowstockContactAudit} | Add new audit for a legacyLowstockContact
-[**addLegacyLowstockContactTag**](LegacyLowstockContactApi.md#addLegacyLowstockContactTag) | **PUT** /beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag} | Add new tags for a legacyLowstockContact.
-[**deleteLegacyLowstockContact**](LegacyLowstockContactApi.md#deleteLegacyLowstockContact) | **DELETE** /beta/legacyLowstockContact/{legacyLowstockContactId} | Delete a legacyLowstockContact
-[**deleteLegacyLowstockContactTag**](LegacyLowstockContactApi.md#deleteLegacyLowstockContactTag) | **DELETE** /beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag} | Delete a tag for a legacyLowstockContact.
-[**getDuplicateLegacyLowstockContactById**](LegacyLowstockContactApi.md#getDuplicateLegacyLowstockContactById) | **GET** /beta/legacyLowstockContact/duplicate/{legacyLowstockContactId} | Get a duplicated a legacyLowstockContact by id
-[**getLegacyLowstockContactByFilter**](LegacyLowstockContactApi.md#getLegacyLowstockContactByFilter) | **GET** /beta/legacyLowstockContact/search | Search legacyLowstockContacts by filter
-[**getLegacyLowstockContactById**](LegacyLowstockContactApi.md#getLegacyLowstockContactById) | **GET** /beta/legacyLowstockContact/{legacyLowstockContactId} | Get a legacyLowstockContact by id
-[**getLegacyLowstockContactTags**](LegacyLowstockContactApi.md#getLegacyLowstockContactTags) | **GET** /beta/legacyLowstockContact/{legacyLowstockContactId}/tag | Get the tags for a legacyLowstockContact.
-[**updateLegacyLowstockContact**](LegacyLowstockContactApi.md#updateLegacyLowstockContact) | **PUT** /beta/legacyLowstockContact | Update a legacyLowstockContact
+[**addLegacyLowstockContact**](LegacyLowstockContactApi.md#addLegacyLowstockContact) | **POST** /v2.0/legacyLowstockContact | Create a legacyLowstockContact
+[**deleteLegacyLowstockContact**](LegacyLowstockContactApi.md#deleteLegacyLowstockContact) | **DELETE** /v2.0/legacyLowstockContact/{legacyLowstockContactId} | Delete a legacyLowstockContact
+[**getDuplicateLegacyLowstockContactById**](LegacyLowstockContactApi.md#getDuplicateLegacyLowstockContactById) | **GET** /v2.0/legacyLowstockContact/duplicate/{legacyLowstockContactId} | Get a duplicated a legacyLowstockContact by id
+[**getLegacyLowstockContactByFilter**](LegacyLowstockContactApi.md#getLegacyLowstockContactByFilter) | **GET** /v2.0/legacyLowstockContact/search | Search legacyLowstockContacts by filter
+[**getLegacyLowstockContactById**](LegacyLowstockContactApi.md#getLegacyLowstockContactById) | **GET** /v2.0/legacyLowstockContact/{legacyLowstockContactId} | Get a legacyLowstockContact by id
+[**updateLegacyLowstockContact**](LegacyLowstockContactApi.md#updateLegacyLowstockContact) | **PUT** /v2.0/legacyLowstockContact | Update a legacyLowstockContact
 
 
 # **addLegacyLowstockContact**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addLegacyLowstockContactAudit**
-> addLegacyLowstockContactAudit($legacy_lowstock_contact_id, $legacy_lowstock_contact_audit)
-
-Add new audit for a legacyLowstockContact
-
-Adds an audit to an existing legacyLowstockContact.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LegacyLowstockContactApi();
-$legacy_lowstock_contact_id = 56; // int | Id of the legacyLowstockContact to add an audit to
-$legacy_lowstock_contact_audit = "legacy_lowstock_contact_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addLegacyLowstockContactAudit($legacy_lowstock_contact_id, $legacy_lowstock_contact_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling LegacyLowstockContactApi->addLegacyLowstockContactAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **legacy_lowstock_contact_id** | **int**| Id of the legacyLowstockContact to add an audit to | 
- **legacy_lowstock_contact_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addLegacyLowstockContactTag**
-> addLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-
-Add new tags for a legacyLowstockContact.
-
-Adds a tag to an existing legacyLowstockContact.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LegacyLowstockContactApi();
-$legacy_lowstock_contact_id = 56; // int | Id of the legacyLowstockContact to add a tag to
-$legacy_lowstock_contact_tag = "legacy_lowstock_contact_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LegacyLowstockContactApi->addLegacyLowstockContactTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **legacy_lowstock_contact_id** | **int**| Id of the legacyLowstockContact to add a tag to | 
- **legacy_lowstock_contact_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteLegacyLowstockContact**
 > deleteLegacyLowstockContact($legacy_lowstock_contact_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **legacy_lowstock_contact_id** | **int**| Id of the legacyLowstockContact to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteLegacyLowstockContactTag**
-> deleteLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-
-Delete a tag for a legacyLowstockContact.
-
-Deletes an existing legacyLowstockContact tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LegacyLowstockContactApi();
-$legacy_lowstock_contact_id = 56; // int | Id of the legacyLowstockContact to remove tag from
-$legacy_lowstock_contact_tag = "legacy_lowstock_contact_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LegacyLowstockContactApi->deleteLegacyLowstockContactTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **legacy_lowstock_contact_id** | **int**| Id of the legacyLowstockContact to remove tag from | 
- **legacy_lowstock_contact_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\LegacyLowstockContact**](LegacyLowstockContact.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getLegacyLowstockContactTags**
-> getLegacyLowstockContactTags($legacy_lowstock_contact_id)
-
-Get the tags for a legacyLowstockContact.
-
-Get all existing legacyLowstockContact tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LegacyLowstockContactApi();
-$legacy_lowstock_contact_id = 56; // int | Id of the legacyLowstockContact to get tags for
-
-try { 
-    $api_instance->getLegacyLowstockContactTags($legacy_lowstock_contact_id);
-} catch (Exception $e) {
-    echo 'Exception when calling LegacyLowstockContactApi->getLegacyLowstockContactTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **legacy_lowstock_contact_id** | **int**| Id of the legacyLowstockContact to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

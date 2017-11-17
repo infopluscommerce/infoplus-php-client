@@ -44,13 +44,9 @@ Name | Type | Description | Notes
 **ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **auto_ship_casebreak_cartons** | **bool** |  | [optional] [default to false]
 **cartonize_orders** | **bool** |  | [optional] [default to false]
-**create_packing_slip** | **string** |  | 
+**create_packing_slip** | **bool** |  | [optional] [default to false]
 **override_packing_slip_template_id** | **int** |  | [optional] 
 **create_order_assembly_guide** | **bool** |  | [optional] [default to false]
-**create_order_invoice** | **string** |  | 
-**override_order_invoice_template_id** | **int** |  | [optional] 
-**send_to_external_shipping_system** | **bool** |  | [default to false]
-**external_shipping_system_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

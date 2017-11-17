@@ -76,42 +76,12 @@ class SubstitutionApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addSubstitutionAudit
-     *
-     * Add new audit for a substitution
-     *
-     */
-    public function test_addSubstitutionAudit() {
-
-    }
-    
-    /**
-     * Test case for addSubstitutionTag
-     *
-     * Add new tags for a substitution.
-     *
-     */
-    public function test_addSubstitutionTag() {
-
-    }
-    
-    /**
      * Test case for deleteSubstitution
      *
      * Delete a substitution
      *
      */
     public function test_deleteSubstitution() {
-
-    }
-    
-    /**
-     * Test case for deleteSubstitutionTag
-     *
-     * Delete a tag for a substitution.
-     *
-     */
-    public function test_deleteSubstitutionTag() {
 
     }
     
@@ -142,16 +112,6 @@ class SubstitutionApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getSubstitutionById() {
-
-    }
-    
-    /**
-     * Test case for getSubstitutionTags
-     *
-     * Get the tags for a substitution.
-     *
-     */
-    public function test_getSubstitutionTags() {
 
     }
     

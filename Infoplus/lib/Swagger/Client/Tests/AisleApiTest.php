@@ -76,42 +76,12 @@ class AisleApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addAisleAudit
-     *
-     * Add new audit for an aisle
-     *
-     */
-    public function test_addAisleAudit() {
-
-    }
-    
-    /**
-     * Test case for addAisleTag
-     *
-     * Add new tags for an aisle.
-     *
-     */
-    public function test_addAisleTag() {
-
-    }
-    
-    /**
      * Test case for deleteAisle
      *
      * Delete an aisle
      *
      */
     public function test_deleteAisle() {
-
-    }
-    
-    /**
-     * Test case for deleteAisleTag
-     *
-     * Delete a tag for an aisle.
-     *
-     */
-    public function test_deleteAisleTag() {
 
     }
     
@@ -132,16 +102,6 @@ class AisleApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getAisleById() {
-
-    }
-    
-    /**
-     * Test case for getAisleTags
-     *
-     * Get the tags for an aisle.
-     *
-     */
-    public function test_getAisleTags() {
 
     }
     

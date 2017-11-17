@@ -76,42 +76,12 @@ class LegacyLowstockContactApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addLegacyLowstockContactAudit
-     *
-     * Add new audit for a legacyLowstockContact
-     *
-     */
-    public function test_addLegacyLowstockContactAudit() {
-
-    }
-    
-    /**
-     * Test case for addLegacyLowstockContactTag
-     *
-     * Add new tags for a legacyLowstockContact.
-     *
-     */
-    public function test_addLegacyLowstockContactTag() {
-
-    }
-    
-    /**
      * Test case for deleteLegacyLowstockContact
      *
      * Delete a legacyLowstockContact
      *
      */
     public function test_deleteLegacyLowstockContact() {
-
-    }
-    
-    /**
-     * Test case for deleteLegacyLowstockContactTag
-     *
-     * Delete a tag for a legacyLowstockContact.
-     *
-     */
-    public function test_deleteLegacyLowstockContactTag() {
 
     }
     
@@ -142,16 +112,6 @@ class LegacyLowstockContactApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getLegacyLowstockContactById() {
-
-    }
-    
-    /**
-     * Test case for getLegacyLowstockContactTags
-     *
-     * Get the tags for a legacyLowstockContact.
-     *
-     */
-    public function test_getLegacyLowstockContactTags() {
 
     }
     

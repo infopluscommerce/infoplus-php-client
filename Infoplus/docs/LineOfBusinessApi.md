@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLineOfBusinessById**](LineOfBusinessApi.md#getLineOfBusinessById) | **GET** /beta/lineOfBusiness/{lineOfBusinessId} | Get a lineOfBusiness by id
-[**getLineOfBusinessBySearchText**](LineOfBusinessApi.md#getLineOfBusinessBySearchText) | **GET** /beta/lineOfBusiness/search | Search lineOfBusinesses
+[**getLineOfBusinessById**](LineOfBusinessApi.md#getLineOfBusinessById) | **GET** /v2.0/lineOfBusiness/{lineOfBusinessId} | Get a lineOfBusiness by id
+[**getLineOfBusinessBySearchText**](LineOfBusinessApi.md#getLineOfBusinessBySearchText) | **GET** /v2.0/lineOfBusiness/search | Search lineOfBusinesses
 
 
 # **getLineOfBusinessById**

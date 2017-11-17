@@ -1,6 +1,6 @@
 <?php
 /**
- * ParcelAccountApiTest
+ * ParcelShipmentApiTest
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Infoplus\ApiException;
 use \Infoplus\ObjectSerializer;
 
 /**
- * ParcelAccountApiTest Class Doc Comment
+ * ParcelShipmentApiTest Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
@@ -47,7 +47,7 @@ use \Infoplus\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ParcelAccountApiTest extends \PHPUnit_Framework_TestCase
+class ParcelShipmentApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -66,42 +66,42 @@ class ParcelAccountApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for getDuplicateParcelAccountById
+     * Test case for getDuplicateParcelShipmentById
      *
-     * Get a duplicated a parcelAccount by id
+     * Get a duplicated a parcelShipment by id
      *
      */
-    public function test_getDuplicateParcelAccountById() {
+    public function test_getDuplicateParcelShipmentById() {
 
     }
     
     /**
-     * Test case for getParcelAccountByFilter
+     * Test case for getParcelShipmentByFilter
      *
-     * Search parcelAccounts by filter
+     * Search parcelShipments by filter
      *
      */
-    public function test_getParcelAccountByFilter() {
+    public function test_getParcelShipmentByFilter() {
 
     }
     
     /**
-     * Test case for getParcelAccountById
+     * Test case for getParcelShipmentById
      *
-     * Get a parcelAccount by id
+     * Get a parcelShipment by id
      *
      */
-    public function test_getParcelAccountById() {
+    public function test_getParcelShipmentById() {
 
     }
     
     /**
-     * Test case for updateParcelAccountCustomFields
+     * Test case for updateParcelShipmentCustomFields
      *
-     * Update a parcelAccount custom fields
+     * Update a parcelShipment custom fields
      *
      */
-    public function test_updateParcelAccountCustomFields() {
+    public function test_updateParcelShipmentCustomFields() {
 
     }
     

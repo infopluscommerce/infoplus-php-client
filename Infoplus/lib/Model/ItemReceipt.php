@@ -111,13 +111,12 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'string',
         'line_no' => 'int',
         'prod_lot' => 'string',
-        'product_id_tag' => 'string',
         'units_per_case' => 'int',
         'case_weight' => 'Number',
         'height' => 'Number',
         'width' => 'Number',
         'length' => 'Number',
-        'dock_date' => '\DateTime',
+        'dock_time' => '\DateTime',
         'modify_date' => '\DateTime',
         'impressions' => 'int',
         'asn_line' => 'int',
@@ -193,13 +192,12 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'receivedBy',
         'line_no' => 'lineNo',
         'prod_lot' => 'prodLot',
-        'product_id_tag' => 'productIdTag',
         'units_per_case' => 'unitsPerCase',
         'case_weight' => 'caseWeight',
         'height' => 'height',
         'width' => 'width',
         'length' => 'length',
-        'dock_date' => 'dockDate',
+        'dock_time' => 'dockTime',
         'modify_date' => 'modifyDate',
         'impressions' => 'impressions',
         'asn_line' => 'asnLine',
@@ -275,13 +273,12 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'setReceivedBy',
         'line_no' => 'setLineNo',
         'prod_lot' => 'setProdLot',
-        'product_id_tag' => 'setProductIdTag',
         'units_per_case' => 'setUnitsPerCase',
         'case_weight' => 'setCaseWeight',
         'height' => 'setHeight',
         'width' => 'setWidth',
         'length' => 'setLength',
-        'dock_date' => 'setDockDate',
+        'dock_time' => 'setDockTime',
         'modify_date' => 'setModifyDate',
         'impressions' => 'setImpressions',
         'asn_line' => 'setAsnLine',
@@ -357,13 +354,12 @@ class ItemReceipt implements ArrayAccess
         'received_by' => 'getReceivedBy',
         'line_no' => 'getLineNo',
         'prod_lot' => 'getProdLot',
-        'product_id_tag' => 'getProductIdTag',
         'units_per_case' => 'getUnitsPerCase',
         'case_weight' => 'getCaseWeight',
         'height' => 'getHeight',
         'width' => 'getWidth',
         'length' => 'getLength',
-        'dock_date' => 'getDockDate',
+        'dock_time' => 'getDockTime',
         'modify_date' => 'getModifyDate',
         'impressions' => 'getImpressions',
         'asn_line' => 'getAsnLine',
@@ -736,12 +732,6 @@ class ItemReceipt implements ArrayAccess
     protected $prod_lot;
     
     /**
-      * $product_id_tag 
-      * @var string
-      */
-    protected $product_id_tag;
-    
-    /**
       * $units_per_case 
       * @var int
       */
@@ -772,10 +762,10 @@ class ItemReceipt implements ArrayAccess
     protected $length;
     
     /**
-      * $dock_date 
+      * $dock_time 
       * @var \DateTime
       */
-    protected $dock_date;
+    protected $dock_time;
     
     /**
       * $modify_date 
@@ -870,13 +860,12 @@ class ItemReceipt implements ArrayAccess
             $this->received_by = $data["received_by"];
             $this->line_no = $data["line_no"];
             $this->prod_lot = $data["prod_lot"];
-            $this->product_id_tag = $data["product_id_tag"];
             $this->units_per_case = $data["units_per_case"];
             $this->case_weight = $data["case_weight"];
             $this->height = $data["height"];
             $this->width = $data["width"];
             $this->length = $data["length"];
-            $this->dock_date = $data["dock_date"];
+            $this->dock_time = $data["dock_time"];
             $this->modify_date = $data["modify_date"];
             $this->impressions = $data["impressions"];
             $this->asn_line = $data["asn_line"];
@@ -2145,27 +2134,6 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
-     * Gets product_id_tag
-     * @return string
-     */
-    public function getProductIdTag()
-    {
-        return $this->product_id_tag;
-    }
-  
-    /**
-     * Sets product_id_tag
-     * @param string $product_id_tag 
-     * @return $this
-     */
-    public function setProductIdTag($product_id_tag)
-    {
-        
-        $this->product_id_tag = $product_id_tag;
-        return $this;
-    }
-    
-    /**
      * Gets units_per_case
      * @return int
      */
@@ -2271,23 +2239,23 @@ class ItemReceipt implements ArrayAccess
     }
     
     /**
-     * Gets dock_date
+     * Gets dock_time
      * @return \DateTime
      */
-    public function getDockDate()
+    public function getDockTime()
     {
-        return $this->dock_date;
+        return $this->dock_time;
     }
   
     /**
-     * Sets dock_date
-     * @param \DateTime $dock_date 
+     * Sets dock_time
+     * @param \DateTime $dock_time 
      * @return $this
      */
-    public function setDockDate($dock_date)
+    public function setDockTime($dock_time)
     {
         
-        $this->dock_date = $dock_date;
+        $this->dock_time = $dock_time;
         return $this;
     }
     

@@ -76,42 +76,12 @@ class ItemProductCodeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemProductCodeAudit
-     *
-     * Add new audit for an itemProductCode
-     *
-     */
-    public function test_addItemProductCodeAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemProductCodeTag
-     *
-     * Add new tags for an itemProductCode.
-     *
-     */
-    public function test_addItemProductCodeTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemProductCode
      *
      * Delete an itemProductCode
      *
      */
     public function test_deleteItemProductCode() {
-
-    }
-    
-    /**
-     * Test case for deleteItemProductCodeTag
-     *
-     * Delete a tag for an itemProductCode.
-     *
-     */
-    public function test_deleteItemProductCodeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemProductCodeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemProductCodeById() {
-
-    }
-    
-    /**
-     * Test case for getItemProductCodeTags
-     *
-     * Get the tags for an itemProductCode.
-     *
-     */
-    public function test_getItemProductCodeTags() {
 
     }
     

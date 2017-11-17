@@ -125,7 +125,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn";
+        $resourcePath = "/v2.0/asn";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class AsnApi
     }
     
     /**
-     * addAsnAudit
-     *
-     * Add new audit for an asn
-     *
-     * @param int $asn_id Id of the asn to add an audit to (required)
-     * @param string $asn_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addAsnAudit($asn_id, $asn_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addAsnAuditWithHttpInfo ($asn_id, $asn_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addAsnAuditWithHttpInfo
-     *
-     * Add new audit for an asn
-     *
-     * @param int $asn_id Id of the asn to add an audit to (required)
-     * @param string $asn_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addAsnAuditWithHttpInfo($asn_id, $asn_audit)
-    {
-        
-        // verify the required parameter 'asn_id' is set
-        if ($asn_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_id when calling addAsnAudit');
-        }
-        // verify the required parameter 'asn_audit' is set
-        if ($asn_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_audit when calling addAsnAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/asn/{asnId}/audit/{asnAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($asn_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($asn_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addAsnTag
-     *
-     * Add new tags for an asn.
-     *
-     * @param int $asn_id Id of the asn to add a tag to (required)
-     * @param string $asn_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addAsnTag($asn_id, $asn_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addAsnTagWithHttpInfo ($asn_id, $asn_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addAsnTagWithHttpInfo
-     *
-     * Add new tags for an asn.
-     *
-     * @param int $asn_id Id of the asn to add a tag to (required)
-     * @param string $asn_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addAsnTagWithHttpInfo($asn_id, $asn_tag)
-    {
-        
-        // verify the required parameter 'asn_id' is set
-        if ($asn_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_id when calling addAsnTag');
-        }
-        // verify the required parameter 'asn_tag' is set
-        if ($asn_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_tag when calling addAsnTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/asn/{asnId}/tag/{asnTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($asn_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($asn_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteAsn
      *
      * Delete an asn
@@ -443,7 +227,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn/{asnId}";
+        $resourcePath = "/v2.0/asn/{asnId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class AsnApi
             $resourcePath = str_replace(
                 "{" . "asnId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($asn_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteAsnTag
-     *
-     * Delete a tag for an asn.
-     *
-     * @param int $asn_id Id of the asn to remove tag from (required)
-     * @param string $asn_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteAsnTag($asn_id, $asn_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteAsnTagWithHttpInfo ($asn_id, $asn_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteAsnTagWithHttpInfo
-     *
-     * Delete a tag for an asn.
-     *
-     * @param int $asn_id Id of the asn to remove tag from (required)
-     * @param string $asn_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteAsnTagWithHttpInfo($asn_id, $asn_tag)
-    {
-        
-        // verify the required parameter 'asn_id' is set
-        if ($asn_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_id when calling deleteAsnTag');
-        }
-        // verify the required parameter 'asn_tag' is set
-        if ($asn_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_tag when calling deleteAsnTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/asn/{asnId}/tag/{asnTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($asn_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($asn_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_tag),
                 $resourcePath
             );
         }
@@ -647,7 +323,7 @@ class AsnApi
         
   
         // parse inputs
-        $resourcePath = "/beta/asn/search";
+        $resourcePath = "/v2.0/asn/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -757,7 +433,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn/{asnId}";
+        $resourcePath = "/v2.0/asn/{asnId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -826,100 +502,6 @@ class AsnApi
     }
     
     /**
-     * getAsnTags
-     *
-     * Get the tags for an asn.
-     *
-     * @param int $asn_id Id of the asn to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getAsnTags($asn_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getAsnTagsWithHttpInfo ($asn_id);
-        return $response; 
-    }
-
-
-    /**
-     * getAsnTagsWithHttpInfo
-     *
-     * Get the tags for an asn.
-     *
-     * @param int $asn_id Id of the asn to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getAsnTagsWithHttpInfo($asn_id)
-    {
-        
-        // verify the required parameter 'asn_id' is set
-        if ($asn_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $asn_id when calling getAsnTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/asn/{asnId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($asn_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "asnId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($asn_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * getDuplicateAsnById
      *
      * Get a duplicated an asn by id
@@ -953,7 +535,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn/duplicate/{asnId}";
+        $resourcePath = "/v2.0/asn/duplicate/{asnId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1055,7 +637,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn";
+        $resourcePath = "/v2.0/asn";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class AsnApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/asn/customFields";
+        $resourcePath = "/v2.0/asn/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

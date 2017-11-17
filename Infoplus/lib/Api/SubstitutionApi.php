@@ -125,7 +125,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution";
+        $resourcePath = "/v2.0/substitution";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class SubstitutionApi
     }
     
     /**
-     * addSubstitutionAudit
-     *
-     * Add new audit for a substitution
-     *
-     * @param int $substitution_id Id of the substitution to add an audit to (required)
-     * @param string $substitution_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSubstitutionAudit($substitution_id, $substitution_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addSubstitutionAuditWithHttpInfo ($substitution_id, $substitution_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addSubstitutionAuditWithHttpInfo
-     *
-     * Add new audit for a substitution
-     *
-     * @param int $substitution_id Id of the substitution to add an audit to (required)
-     * @param string $substitution_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSubstitutionAuditWithHttpInfo($substitution_id, $substitution_audit)
-    {
-        
-        // verify the required parameter 'substitution_id' is set
-        if ($substitution_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_id when calling addSubstitutionAudit');
-        }
-        // verify the required parameter 'substitution_audit' is set
-        if ($substitution_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_audit when calling addSubstitutionAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}/audit/{substitutionAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($substitution_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($substitution_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addSubstitutionTag
-     *
-     * Add new tags for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to add a tag to (required)
-     * @param string $substitution_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSubstitutionTag($substitution_id, $substitution_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addSubstitutionTagWithHttpInfo ($substitution_id, $substitution_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addSubstitutionTagWithHttpInfo
-     *
-     * Add new tags for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to add a tag to (required)
-     * @param string $substitution_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addSubstitutionTagWithHttpInfo($substitution_id, $substitution_tag)
-    {
-        
-        // verify the required parameter 'substitution_id' is set
-        if ($substitution_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_id when calling addSubstitutionTag');
-        }
-        // verify the required parameter 'substitution_tag' is set
-        if ($substitution_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_tag when calling addSubstitutionTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}/tag/{substitutionTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($substitution_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($substitution_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteSubstitution
      *
      * Delete a substitution
@@ -443,7 +227,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}";
+        $resourcePath = "/v2.0/substitution/{substitutionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class SubstitutionApi
             $resourcePath = str_replace(
                 "{" . "substitutionId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($substitution_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteSubstitutionTag
-     *
-     * Delete a tag for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to remove tag from (required)
-     * @param string $substitution_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteSubstitutionTag($substitution_id, $substitution_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteSubstitutionTagWithHttpInfo ($substitution_id, $substitution_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteSubstitutionTagWithHttpInfo
-     *
-     * Delete a tag for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to remove tag from (required)
-     * @param string $substitution_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteSubstitutionTagWithHttpInfo($substitution_id, $substitution_tag)
-    {
-        
-        // verify the required parameter 'substitution_id' is set
-        if ($substitution_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_id when calling deleteSubstitutionTag');
-        }
-        // verify the required parameter 'substitution_tag' is set
-        if ($substitution_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_tag when calling deleteSubstitutionTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}/tag/{substitutionTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($substitution_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($substitution_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution/duplicate/{substitutionId}";
+        $resourcePath = "/v2.0/substitution/duplicate/{substitutionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class SubstitutionApi
         
   
         // parse inputs
-        $resourcePath = "/beta/substitution/search";
+        $resourcePath = "/v2.0/substitution/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}";
+        $resourcePath = "/v2.0/substitution/{substitutionId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class SubstitutionApi
     }
     
     /**
-     * getSubstitutionTags
-     *
-     * Get the tags for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getSubstitutionTags($substitution_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getSubstitutionTagsWithHttpInfo ($substitution_id);
-        return $response; 
-    }
-
-
-    /**
-     * getSubstitutionTagsWithHttpInfo
-     *
-     * Get the tags for a substitution.
-     *
-     * @param int $substitution_id Id of the substitution to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getSubstitutionTagsWithHttpInfo($substitution_id)
-    {
-        
-        // verify the required parameter 'substitution_id' is set
-        if ($substitution_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $substitution_id when calling getSubstitutionTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/substitution/{substitutionId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($substitution_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "substitutionId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($substitution_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateSubstitution
      *
      * Update a substitution
@@ -1055,7 +637,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution";
+        $resourcePath = "/v2.0/substitution";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class SubstitutionApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/substitution/customFields";
+        $resourcePath = "/v2.0/substitution/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -76,42 +76,12 @@ class FulfillmentPlanApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addFulfillmentPlanAudit
-     *
-     * Add new audit for a fulfillmentPlan
-     *
-     */
-    public function test_addFulfillmentPlanAudit() {
-
-    }
-    
-    /**
-     * Test case for addFulfillmentPlanTag
-     *
-     * Add new tags for a fulfillmentPlan.
-     *
-     */
-    public function test_addFulfillmentPlanTag() {
-
-    }
-    
-    /**
      * Test case for deleteFulfillmentPlan
      *
      * Delete a fulfillmentPlan
      *
      */
     public function test_deleteFulfillmentPlan() {
-
-    }
-    
-    /**
-     * Test case for deleteFulfillmentPlanTag
-     *
-     * Delete a tag for a fulfillmentPlan.
-     *
-     */
-    public function test_deleteFulfillmentPlanTag() {
 
     }
     
@@ -142,16 +112,6 @@ class FulfillmentPlanApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getFulfillmentPlanById() {
-
-    }
-    
-    /**
-     * Test case for getFulfillmentPlanTags
-     *
-     * Get the tags for a fulfillmentPlan.
-     *
-     */
-    public function test_getFulfillmentPlanTags() {
 
     }
     

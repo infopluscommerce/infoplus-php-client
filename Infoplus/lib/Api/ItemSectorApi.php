@@ -125,7 +125,7 @@ class ItemSectorApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSector";
+        $resourcePath = "/v2.0/itemSector";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ItemSectorApi
     }
     
     /**
-     * addItemSectorAudit
-     *
-     * Add new audit for an itemSector
-     *
-     * @param int $item_sector_id Id of the itemSector to add an audit to (required)
-     * @param string $item_sector_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSectorAudit($item_sector_id, $item_sector_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemSectorAuditWithHttpInfo ($item_sector_id, $item_sector_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addItemSectorAuditWithHttpInfo
-     *
-     * Add new audit for an itemSector
-     *
-     * @param int $item_sector_id Id of the itemSector to add an audit to (required)
-     * @param string $item_sector_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSectorAuditWithHttpInfo($item_sector_id, $item_sector_audit)
-    {
-        
-        // verify the required parameter 'item_sector_id' is set
-        if ($item_sector_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_id when calling addItemSectorAudit');
-        }
-        // verify the required parameter 'item_sector_audit' is set
-        if ($item_sector_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_audit when calling addItemSectorAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}/audit/{itemSectorAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_sector_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sector_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addItemSectorTag
-     *
-     * Add new tags for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to add a tag to (required)
-     * @param string $item_sector_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSectorTag($item_sector_id, $item_sector_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemSectorTagWithHttpInfo ($item_sector_id, $item_sector_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addItemSectorTagWithHttpInfo
-     *
-     * Add new tags for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to add a tag to (required)
-     * @param string $item_sector_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemSectorTagWithHttpInfo($item_sector_id, $item_sector_tag)
-    {
-        
-        // verify the required parameter 'item_sector_id' is set
-        if ($item_sector_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_id when calling addItemSectorTag');
-        }
-        // verify the required parameter 'item_sector_tag' is set
-        if ($item_sector_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_tag when calling addItemSectorTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}/tag/{itemSectorTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_sector_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sector_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteItemSector
      *
      * Delete an itemSector
@@ -443,7 +227,7 @@ class ItemSectorApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}";
+        $resourcePath = "/v2.0/itemSector/{itemSectorId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ItemSectorApi
             $resourcePath = str_replace(
                 "{" . "itemSectorId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($item_sector_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteItemSectorTag
-     *
-     * Delete a tag for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to remove tag from (required)
-     * @param string $item_sector_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemSectorTag($item_sector_id, $item_sector_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteItemSectorTagWithHttpInfo ($item_sector_id, $item_sector_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteItemSectorTagWithHttpInfo
-     *
-     * Delete a tag for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to remove tag from (required)
-     * @param string $item_sector_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemSectorTagWithHttpInfo($item_sector_id, $item_sector_tag)
-    {
-        
-        // verify the required parameter 'item_sector_id' is set
-        if ($item_sector_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_id when calling deleteItemSectorTag');
-        }
-        // verify the required parameter 'item_sector_tag' is set
-        if ($item_sector_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_tag when calling deleteItemSectorTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}/tag/{itemSectorTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_sector_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_sector_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ItemSectorApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSector/duplicate/{itemSectorId}";
+        $resourcePath = "/v2.0/itemSector/duplicate/{itemSectorId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ItemSectorApi
         
   
         // parse inputs
-        $resourcePath = "/beta/itemSector/search";
+        $resourcePath = "/v2.0/itemSector/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ItemSectorApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}";
+        $resourcePath = "/v2.0/itemSector/{itemSectorId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ItemSectorApi
     }
     
     /**
-     * getItemSectorTags
-     *
-     * Get the tags for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemSectorTags($item_sector_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getItemSectorTagsWithHttpInfo ($item_sector_id);
-        return $response; 
-    }
-
-
-    /**
-     * getItemSectorTagsWithHttpInfo
-     *
-     * Get the tags for an itemSector.
-     *
-     * @param int $item_sector_id Id of the itemSector to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemSectorTagsWithHttpInfo($item_sector_id)
-    {
-        
-        // verify the required parameter 'item_sector_id' is set
-        if ($item_sector_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_sector_id when calling getItemSectorTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemSector/{itemSectorId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_sector_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemSectorId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_sector_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateItemSector
      *
      * Update an itemSector
@@ -1055,7 +637,7 @@ class ItemSectorApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemSector";
+        $resourcePath = "/v2.0/itemSector";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

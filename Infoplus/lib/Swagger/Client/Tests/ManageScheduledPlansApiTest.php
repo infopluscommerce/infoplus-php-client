@@ -76,42 +76,12 @@ class ManageScheduledPlansApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addManageScheduledPlansAudit
-     *
-     * Add new audit for a manageScheduledPlans
-     *
-     */
-    public function test_addManageScheduledPlansAudit() {
-
-    }
-    
-    /**
-     * Test case for addManageScheduledPlansTag
-     *
-     * Add new tags for a manageScheduledPlans.
-     *
-     */
-    public function test_addManageScheduledPlansTag() {
-
-    }
-    
-    /**
      * Test case for deleteManageScheduledPlans
      *
      * Delete a manageScheduledPlans
      *
      */
     public function test_deleteManageScheduledPlans() {
-
-    }
-    
-    /**
-     * Test case for deleteManageScheduledPlansTag
-     *
-     * Delete a tag for a manageScheduledPlans.
-     *
-     */
-    public function test_deleteManageScheduledPlansTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ManageScheduledPlansApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getManageScheduledPlansById() {
-
-    }
-    
-    /**
-     * Test case for getManageScheduledPlansTags
-     *
-     * Get the tags for a manageScheduledPlans.
-     *
-     */
-    public function test_getManageScheduledPlansTags() {
 
     }
     

@@ -66,36 +66,6 @@ class ScheduledPlanLogApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addScheduledPlanLogAudit
-     *
-     * Add new audit for a scheduledPlanLog
-     *
-     */
-    public function test_addScheduledPlanLogAudit() {
-
-    }
-    
-    /**
-     * Test case for addScheduledPlanLogTag
-     *
-     * Add new tags for a scheduledPlanLog.
-     *
-     */
-    public function test_addScheduledPlanLogTag() {
-
-    }
-    
-    /**
-     * Test case for deleteScheduledPlanLogTag
-     *
-     * Delete a tag for a scheduledPlanLog.
-     *
-     */
-    public function test_deleteScheduledPlanLogTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateScheduledPlanLogById
      *
      * Get a duplicated a scheduledPlanLog by id
@@ -122,16 +92,6 @@ class ScheduledPlanLogApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getScheduledPlanLogById() {
-
-    }
-    
-    /**
-     * Test case for getScheduledPlanLogTags
-     *
-     * Get the tags for a scheduledPlanLog.
-     *
-     */
-    public function test_getScheduledPlanLogTags() {
 
     }
     

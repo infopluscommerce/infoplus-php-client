@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCarrierById**](CarrierApi.md#getCarrierById) | **GET** /beta/carrier/{carrierId} | Get a carrier by id
-[**getCarrierBySearchText**](CarrierApi.md#getCarrierBySearchText) | **GET** /beta/carrier/search | Search carriers
+[**getCarrierById**](CarrierApi.md#getCarrierById) | **GET** /v2.0/carrier/{carrierId} | Get a carrier by id
+[**getCarrierBySearchText**](CarrierApi.md#getCarrierBySearchText) | **GET** /v2.0/carrier/search | Search carriers
 
 
 # **getCarrierById**

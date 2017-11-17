@@ -125,7 +125,7 @@ class LineOfBusinessApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/lineOfBusiness/{lineOfBusinessId}";
+        $resourcePath = "/v2.0/lineOfBusiness/{lineOfBusinessId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class LineOfBusinessApi
         
   
         // parse inputs
-        $resourcePath = "/beta/lineOfBusiness/search";
+        $resourcePath = "/v2.0/lineOfBusiness/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

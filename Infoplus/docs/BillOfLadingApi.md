@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addBillOfLading**](BillOfLadingApi.md#addBillOfLading) | **POST** /beta/billOfLading | Create a billOfLading
-[**addBillOfLadingAudit**](BillOfLadingApi.md#addBillOfLadingAudit) | **PUT** /beta/billOfLading/{billOfLadingId}/audit/{billOfLadingAudit} | Add new audit for a billOfLading
-[**addBillOfLadingTag**](BillOfLadingApi.md#addBillOfLadingTag) | **PUT** /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag} | Add new tags for a billOfLading.
-[**deleteBillOfLading**](BillOfLadingApi.md#deleteBillOfLading) | **DELETE** /beta/billOfLading/{billOfLadingId} | Delete a billOfLading
-[**deleteBillOfLadingTag**](BillOfLadingApi.md#deleteBillOfLadingTag) | **DELETE** /beta/billOfLading/{billOfLadingId}/tag/{billOfLadingTag} | Delete a tag for a billOfLading.
-[**getBillOfLadingByFilter**](BillOfLadingApi.md#getBillOfLadingByFilter) | **GET** /beta/billOfLading/search | Search billOfLadings by filter
-[**getBillOfLadingById**](BillOfLadingApi.md#getBillOfLadingById) | **GET** /beta/billOfLading/{billOfLadingId} | Get a billOfLading by id
-[**getBillOfLadingTags**](BillOfLadingApi.md#getBillOfLadingTags) | **GET** /beta/billOfLading/{billOfLadingId}/tag | Get the tags for a billOfLading.
-[**getDuplicateBillOfLadingById**](BillOfLadingApi.md#getDuplicateBillOfLadingById) | **GET** /beta/billOfLading/duplicate/{billOfLadingId} | Get a duplicated a billOfLading by id
-[**updateBillOfLading**](BillOfLadingApi.md#updateBillOfLading) | **PUT** /beta/billOfLading | Update a billOfLading
-[**updateBillOfLadingCustomFields**](BillOfLadingApi.md#updateBillOfLadingCustomFields) | **PUT** /beta/billOfLading/customFields | Update a billOfLading custom fields
+[**addBillOfLading**](BillOfLadingApi.md#addBillOfLading) | **POST** /v2.0/billOfLading | Create a billOfLading
+[**deleteBillOfLading**](BillOfLadingApi.md#deleteBillOfLading) | **DELETE** /v2.0/billOfLading/{billOfLadingId} | Delete a billOfLading
+[**getBillOfLadingByFilter**](BillOfLadingApi.md#getBillOfLadingByFilter) | **GET** /v2.0/billOfLading/search | Search billOfLadings by filter
+[**getBillOfLadingById**](BillOfLadingApi.md#getBillOfLadingById) | **GET** /v2.0/billOfLading/{billOfLadingId} | Get a billOfLading by id
+[**getDuplicateBillOfLadingById**](BillOfLadingApi.md#getDuplicateBillOfLadingById) | **GET** /v2.0/billOfLading/duplicate/{billOfLadingId} | Get a duplicated a billOfLading by id
+[**updateBillOfLading**](BillOfLadingApi.md#updateBillOfLading) | **PUT** /v2.0/billOfLading | Update a billOfLading
+[**updateBillOfLadingCustomFields**](BillOfLadingApi.md#updateBillOfLadingCustomFields) | **PUT** /v2.0/billOfLading/customFields | Update a billOfLading custom fields
 
 
 # **addBillOfLading**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addBillOfLadingAudit**
-> addBillOfLadingAudit($bill_of_lading_id, $bill_of_lading_audit)
-
-Add new audit for a billOfLading
-
-Adds an audit to an existing billOfLading.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillOfLadingApi();
-$bill_of_lading_id = 56; // int | Id of the billOfLading to add an audit to
-$bill_of_lading_audit = "bill_of_lading_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addBillOfLadingAudit($bill_of_lading_id, $bill_of_lading_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling BillOfLadingApi->addBillOfLadingAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bill_of_lading_id** | **int**| Id of the billOfLading to add an audit to | 
- **bill_of_lading_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addBillOfLadingTag**
-> addBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag)
-
-Add new tags for a billOfLading.
-
-Adds a tag to an existing billOfLading.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillOfLadingApi();
-$bill_of_lading_id = 56; // int | Id of the billOfLading to add a tag to
-$bill_of_lading_tag = "bill_of_lading_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillOfLadingApi->addBillOfLadingTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bill_of_lading_id** | **int**| Id of the billOfLading to add a tag to | 
- **bill_of_lading_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteBillOfLading**
 > deleteBillOfLading($bill_of_lading_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bill_of_lading_id** | **int**| Id of the billOfLading to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteBillOfLadingTag**
-> deleteBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag)
-
-Delete a tag for a billOfLading.
-
-Deletes an existing billOfLading tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillOfLadingApi();
-$bill_of_lading_id = 56; // int | Id of the billOfLading to remove tag from
-$bill_of_lading_tag = "bill_of_lading_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteBillOfLadingTag($bill_of_lading_id, $bill_of_lading_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling BillOfLadingApi->deleteBillOfLadingTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bill_of_lading_id** | **int**| Id of the billOfLading to remove tag from | 
- **bill_of_lading_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -363,55 +206,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\BillOfLading**](BillOfLading.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getBillOfLadingTags**
-> getBillOfLadingTags($bill_of_lading_id)
-
-Get the tags for a billOfLading.
-
-Get all existing billOfLading tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\BillOfLadingApi();
-$bill_of_lading_id = 56; // int | Id of the billOfLading to get tags for
-
-try { 
-    $api_instance->getBillOfLadingTags($bill_of_lading_id);
-} catch (Exception $e) {
-    echo 'Exception when calling BillOfLadingApi->getBillOfLadingTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **bill_of_lading_id** | **int**| Id of the billOfLading to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

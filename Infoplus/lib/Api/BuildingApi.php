@@ -125,7 +125,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building";
+        $resourcePath = "/v2.0/building";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class BuildingApi
     }
     
     /**
-     * addBuildingAudit
-     *
-     * Add new audit for a building
-     *
-     * @param int $building_id Id of the building to add an audit to (required)
-     * @param string $building_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addBuildingAudit($building_id, $building_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addBuildingAuditWithHttpInfo ($building_id, $building_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addBuildingAuditWithHttpInfo
-     *
-     * Add new audit for a building
-     *
-     * @param int $building_id Id of the building to add an audit to (required)
-     * @param string $building_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addBuildingAuditWithHttpInfo($building_id, $building_audit)
-    {
-        
-        // verify the required parameter 'building_id' is set
-        if ($building_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_id when calling addBuildingAudit');
-        }
-        // verify the required parameter 'building_audit' is set
-        if ($building_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_audit when calling addBuildingAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/building/{buildingId}/audit/{buildingAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($building_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($building_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addBuildingTag
-     *
-     * Add new tags for a building.
-     *
-     * @param int $building_id Id of the building to add a tag to (required)
-     * @param string $building_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addBuildingTag($building_id, $building_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addBuildingTagWithHttpInfo ($building_id, $building_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addBuildingTagWithHttpInfo
-     *
-     * Add new tags for a building.
-     *
-     * @param int $building_id Id of the building to add a tag to (required)
-     * @param string $building_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addBuildingTagWithHttpInfo($building_id, $building_tag)
-    {
-        
-        // verify the required parameter 'building_id' is set
-        if ($building_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_id when calling addBuildingTag');
-        }
-        // verify the required parameter 'building_tag' is set
-        if ($building_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_tag when calling addBuildingTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/building/{buildingId}/tag/{buildingTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($building_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($building_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteBuilding
      *
      * Delete a building
@@ -443,7 +227,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building/{buildingId}";
+        $resourcePath = "/v2.0/building/{buildingId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class BuildingApi
             $resourcePath = str_replace(
                 "{" . "buildingId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($building_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteBuildingTag
-     *
-     * Delete a tag for a building.
-     *
-     * @param int $building_id Id of the building to remove tag from (required)
-     * @param string $building_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteBuildingTag($building_id, $building_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteBuildingTagWithHttpInfo ($building_id, $building_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteBuildingTagWithHttpInfo
-     *
-     * Delete a tag for a building.
-     *
-     * @param int $building_id Id of the building to remove tag from (required)
-     * @param string $building_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteBuildingTagWithHttpInfo($building_id, $building_tag)
-    {
-        
-        // verify the required parameter 'building_id' is set
-        if ($building_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_id when calling deleteBuildingTag');
-        }
-        // verify the required parameter 'building_tag' is set
-        if ($building_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_tag when calling deleteBuildingTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/building/{buildingId}/tag/{buildingTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($building_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($building_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_tag),
                 $resourcePath
             );
         }
@@ -647,7 +323,7 @@ class BuildingApi
         
   
         // parse inputs
-        $resourcePath = "/beta/building/search";
+        $resourcePath = "/v2.0/building/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -757,7 +433,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building/{buildingId}";
+        $resourcePath = "/v2.0/building/{buildingId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -826,100 +502,6 @@ class BuildingApi
     }
     
     /**
-     * getBuildingTags
-     *
-     * Get the tags for a building.
-     *
-     * @param int $building_id Id of the building to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getBuildingTags($building_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getBuildingTagsWithHttpInfo ($building_id);
-        return $response; 
-    }
-
-
-    /**
-     * getBuildingTagsWithHttpInfo
-     *
-     * Get the tags for a building.
-     *
-     * @param int $building_id Id of the building to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getBuildingTagsWithHttpInfo($building_id)
-    {
-        
-        // verify the required parameter 'building_id' is set
-        if ($building_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $building_id when calling getBuildingTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/building/{buildingId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($building_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "buildingId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($building_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * getDuplicateBuildingById
      *
      * Get a duplicated a building by id
@@ -953,7 +535,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building/duplicate/{buildingId}";
+        $resourcePath = "/v2.0/building/duplicate/{buildingId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1055,7 +637,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building";
+        $resourcePath = "/v2.0/building";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class BuildingApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/building/customFields";
+        $resourcePath = "/v2.0/building/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

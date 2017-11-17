@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addVendor**](VendorApi.md#addVendor) | **POST** /beta/vendor | Create a vendor
-[**addVendorAudit**](VendorApi.md#addVendorAudit) | **PUT** /beta/vendor/{vendorId}/audit/{vendorAudit} | Add new audit for a vendor
-[**addVendorTag**](VendorApi.md#addVendorTag) | **PUT** /beta/vendor/{vendorId}/tag/{vendorTag} | Add new tags for a vendor.
-[**deleteVendor**](VendorApi.md#deleteVendor) | **DELETE** /beta/vendor/{vendorId} | Delete a vendor
-[**deleteVendorTag**](VendorApi.md#deleteVendorTag) | **DELETE** /beta/vendor/{vendorId}/tag/{vendorTag} | Delete a tag for a vendor.
-[**getDuplicateVendorById**](VendorApi.md#getDuplicateVendorById) | **GET** /beta/vendor/duplicate/{vendorId} | Get a duplicated a vendor by id
-[**getVendorByFilter**](VendorApi.md#getVendorByFilter) | **GET** /beta/vendor/search | Search vendors by filter
-[**getVendorById**](VendorApi.md#getVendorById) | **GET** /beta/vendor/{vendorId} | Get a vendor by id
-[**getVendorTags**](VendorApi.md#getVendorTags) | **GET** /beta/vendor/{vendorId}/tag | Get the tags for a vendor.
-[**updateVendor**](VendorApi.md#updateVendor) | **PUT** /beta/vendor | Update a vendor
-[**updateVendorCustomFields**](VendorApi.md#updateVendorCustomFields) | **PUT** /beta/vendor/customFields | Update a vendor custom fields
+[**addVendor**](VendorApi.md#addVendor) | **POST** /v2.0/vendor | Create a vendor
+[**deleteVendor**](VendorApi.md#deleteVendor) | **DELETE** /v2.0/vendor/{vendorId} | Delete a vendor
+[**getDuplicateVendorById**](VendorApi.md#getDuplicateVendorById) | **GET** /v2.0/vendor/duplicate/{vendorId} | Get a duplicated a vendor by id
+[**getVendorByFilter**](VendorApi.md#getVendorByFilter) | **GET** /v2.0/vendor/search | Search vendors by filter
+[**getVendorById**](VendorApi.md#getVendorById) | **GET** /v2.0/vendor/{vendorId} | Get a vendor by id
+[**updateVendor**](VendorApi.md#updateVendor) | **PUT** /v2.0/vendor | Update a vendor
+[**updateVendorCustomFields**](VendorApi.md#updateVendorCustomFields) | **PUT** /v2.0/vendor/customFields | Update a vendor custom fields
 
 
 # **addVendor**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addVendorAudit**
-> addVendorAudit($vendor_id, $vendor_audit)
-
-Add new audit for a vendor
-
-Adds an audit to an existing vendor.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorApi();
-$vendor_id = 56; // int | Id of the vendor to add an audit to
-$vendor_audit = "vendor_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addVendorAudit($vendor_id, $vendor_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorApi->addVendorAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_id** | **int**| Id of the vendor to add an audit to | 
- **vendor_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addVendorTag**
-> addVendorTag($vendor_id, $vendor_tag)
-
-Add new tags for a vendor.
-
-Adds a tag to an existing vendor.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorApi();
-$vendor_id = 56; // int | Id of the vendor to add a tag to
-$vendor_tag = "vendor_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addVendorTag($vendor_id, $vendor_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorApi->addVendorTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_id** | **int**| Id of the vendor to add a tag to | 
- **vendor_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteVendor**
 > deleteVendor($vendor_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **vendor_id** | **int**| Id of the vendor to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteVendorTag**
-> deleteVendorTag($vendor_id, $vendor_tag)
-
-Delete a tag for a vendor.
-
-Deletes an existing vendor tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorApi();
-$vendor_id = 56; // int | Id of the vendor to remove tag from
-$vendor_tag = "vendor_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteVendorTag($vendor_id, $vendor_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorApi->deleteVendorTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_id** | **int**| Id of the vendor to remove tag from | 
- **vendor_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\Vendor**](Vendor.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getVendorTags**
-> getVendorTags($vendor_id)
-
-Get the tags for a vendor.
-
-Get all existing vendor tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\VendorApi();
-$vendor_id = 56; // int | Id of the vendor to get tags for
-
-try { 
-    $api_instance->getVendorTags($vendor_id);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorApi->getVendorTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendor_id** | **int**| Id of the vendor to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

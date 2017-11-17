@@ -52,7 +52,7 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $swaggerTypes = array(
         'id' => 'int',
-        'lob_id' => 'int',
+        'lob' => 'int',
         'sku_id' => 'int',
         'po_no_id' => 'int',
         'adjustment_date' => '\DateTime',
@@ -77,7 +77,7 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $attributeMap = array(
         'id' => 'id',
-        'lob_id' => 'lobId',
+        'lob' => 'lob',
         'sku_id' => 'skuId',
         'po_no_id' => 'poNoId',
         'adjustment_date' => 'adjustmentDate',
@@ -102,7 +102,7 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $setters = array(
         'id' => 'setId',
-        'lob_id' => 'setLobId',
+        'lob' => 'setLob',
         'sku_id' => 'setSkuId',
         'po_no_id' => 'setPoNoId',
         'adjustment_date' => 'setAdjustmentDate',
@@ -127,7 +127,7 @@ class InventoryAdjustment implements ArrayAccess
       */
     static $getters = array(
         'id' => 'getId',
-        'lob_id' => 'getLobId',
+        'lob' => 'getLob',
         'sku_id' => 'getSkuId',
         'po_no_id' => 'getPoNoId',
         'adjustment_date' => 'getAdjustmentDate',
@@ -154,10 +154,10 @@ class InventoryAdjustment implements ArrayAccess
     protected $id;
     
     /**
-      * $lob_id 
+      * $lob 
       * @var int
       */
-    protected $lob_id;
+    protected $lob;
     
     /**
       * $sku_id 
@@ -241,7 +241,7 @@ class InventoryAdjustment implements ArrayAccess
         
         if ($data != null) {
             $this->id = $data["id"];
-            $this->lob_id = $data["lob_id"];
+            $this->lob = $data["lob"];
             $this->sku_id = $data["sku_id"];
             $this->po_no_id = $data["po_no_id"];
             $this->adjustment_date = $data["adjustment_date"];
@@ -279,23 +279,23 @@ class InventoryAdjustment implements ArrayAccess
     }
     
     /**
-     * Gets lob_id
+     * Gets lob
      * @return int
      */
-    public function getLobId()
+    public function getLob()
     {
-        return $this->lob_id;
+        return $this->lob;
     }
   
     /**
-     * Sets lob_id
-     * @param int $lob_id 
+     * Sets lob
+     * @param int $lob 
      * @return $this
      */
-    public function setLobId($lob_id)
+    public function setLob($lob)
     {
         
-        $this->lob_id = $lob_id;
+        $this->lob = $lob;
         return $this;
     }
     

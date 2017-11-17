@@ -66,36 +66,6 @@ class FulfillmentProcessApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addFulfillmentProcessAudit
-     *
-     * Add new audit for a fulfillmentProcess
-     *
-     */
-    public function test_addFulfillmentProcessAudit() {
-
-    }
-    
-    /**
-     * Test case for addFulfillmentProcessTag
-     *
-     * Add new tags for a fulfillmentProcess.
-     *
-     */
-    public function test_addFulfillmentProcessTag() {
-
-    }
-    
-    /**
-     * Test case for deleteFulfillmentProcessTag
-     *
-     * Delete a tag for a fulfillmentProcess.
-     *
-     */
-    public function test_deleteFulfillmentProcessTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateFulfillmentProcessById
      *
      * Get a duplicated a fulfillmentProcess by id
@@ -122,16 +92,6 @@ class FulfillmentProcessApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getFulfillmentProcessById() {
-
-    }
-    
-    /**
-     * Test case for getFulfillmentProcessTags
-     *
-     * Get the tags for a fulfillmentProcess.
-     *
-     */
-    public function test_getFulfillmentProcessTags() {
 
     }
     

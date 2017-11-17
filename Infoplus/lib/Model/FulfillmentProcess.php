@@ -92,13 +92,9 @@ class FulfillmentProcess implements ArrayAccess
         'ship_date' => '\DateTime',
         'auto_ship_casebreak_cartons' => 'bool',
         'cartonize_orders' => 'bool',
-        'create_packing_slip' => 'string',
+        'create_packing_slip' => 'bool',
         'override_packing_slip_template_id' => 'int',
         'create_order_assembly_guide' => 'bool',
-        'create_order_invoice' => 'string',
-        'override_order_invoice_template_id' => 'int',
-        'send_to_external_shipping_system' => 'bool',
-        'external_shipping_system_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -155,10 +151,6 @@ class FulfillmentProcess implements ArrayAccess
         'create_packing_slip' => 'createPackingSlip',
         'override_packing_slip_template_id' => 'overridePackingSlipTemplateId',
         'create_order_assembly_guide' => 'createOrderAssemblyGuide',
-        'create_order_invoice' => 'createOrderInvoice',
-        'override_order_invoice_template_id' => 'overrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'sendToExternalShippingSystem',
-        'external_shipping_system_id' => 'externalShippingSystemId',
         'custom_fields' => 'customFields'
     );
   
@@ -215,10 +207,6 @@ class FulfillmentProcess implements ArrayAccess
         'create_packing_slip' => 'setCreatePackingSlip',
         'override_packing_slip_template_id' => 'setOverridePackingSlipTemplateId',
         'create_order_assembly_guide' => 'setCreateOrderAssemblyGuide',
-        'create_order_invoice' => 'setCreateOrderInvoice',
-        'override_order_invoice_template_id' => 'setOverrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'setSendToExternalShippingSystem',
-        'external_shipping_system_id' => 'setExternalShippingSystemId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -275,10 +263,6 @@ class FulfillmentProcess implements ArrayAccess
         'create_packing_slip' => 'getCreatePackingSlip',
         'override_packing_slip_template_id' => 'getOverridePackingSlipTemplateId',
         'create_order_assembly_guide' => 'getCreateOrderAssemblyGuide',
-        'create_order_invoice' => 'getCreateOrderInvoice',
-        'override_order_invoice_template_id' => 'getOverrideOrderInvoiceTemplateId',
-        'send_to_external_shipping_system' => 'getSendToExternalShippingSystem',
-        'external_shipping_system_id' => 'getExternalShippingSystemId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -535,9 +519,9 @@ class FulfillmentProcess implements ArrayAccess
     
     /**
       * $create_packing_slip 
-      * @var string
+      * @var bool
       */
-    protected $create_packing_slip;
+    protected $create_packing_slip = false;
     
     /**
       * $override_packing_slip_template_id 
@@ -550,30 +534,6 @@ class FulfillmentProcess implements ArrayAccess
       * @var bool
       */
     protected $create_order_assembly_guide = false;
-    
-    /**
-      * $create_order_invoice 
-      * @var string
-      */
-    protected $create_order_invoice;
-    
-    /**
-      * $override_order_invoice_template_id 
-      * @var int
-      */
-    protected $override_order_invoice_template_id;
-    
-    /**
-      * $send_to_external_shipping_system 
-      * @var bool
-      */
-    protected $send_to_external_shipping_system = false;
-    
-    /**
-      * $external_shipping_system_id 
-      * @var int
-      */
-    protected $external_shipping_system_id;
     
     /**
       * $custom_fields 
@@ -634,10 +594,6 @@ class FulfillmentProcess implements ArrayAccess
             $this->create_packing_slip = $data["create_packing_slip"];
             $this->override_packing_slip_template_id = $data["override_packing_slip_template_id"];
             $this->create_order_assembly_guide = $data["create_order_assembly_guide"];
-            $this->create_order_invoice = $data["create_order_invoice"];
-            $this->override_order_invoice_template_id = $data["override_order_invoice_template_id"];
-            $this->send_to_external_shipping_system = $data["send_to_external_shipping_system"];
-            $this->external_shipping_system_id = $data["external_shipping_system_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -1505,7 +1461,7 @@ class FulfillmentProcess implements ArrayAccess
     
     /**
      * Gets create_packing_slip
-     * @return string
+     * @return bool
      */
     public function getCreatePackingSlip()
     {
@@ -1514,7 +1470,7 @@ class FulfillmentProcess implements ArrayAccess
   
     /**
      * Sets create_packing_slip
-     * @param string $create_packing_slip 
+     * @param bool $create_packing_slip 
      * @return $this
      */
     public function setCreatePackingSlip($create_packing_slip)
@@ -1563,90 +1519,6 @@ class FulfillmentProcess implements ArrayAccess
     {
         
         $this->create_order_assembly_guide = $create_order_assembly_guide;
-        return $this;
-    }
-    
-    /**
-     * Gets create_order_invoice
-     * @return string
-     */
-    public function getCreateOrderInvoice()
-    {
-        return $this->create_order_invoice;
-    }
-  
-    /**
-     * Sets create_order_invoice
-     * @param string $create_order_invoice 
-     * @return $this
-     */
-    public function setCreateOrderInvoice($create_order_invoice)
-    {
-        
-        $this->create_order_invoice = $create_order_invoice;
-        return $this;
-    }
-    
-    /**
-     * Gets override_order_invoice_template_id
-     * @return int
-     */
-    public function getOverrideOrderInvoiceTemplateId()
-    {
-        return $this->override_order_invoice_template_id;
-    }
-  
-    /**
-     * Sets override_order_invoice_template_id
-     * @param int $override_order_invoice_template_id 
-     * @return $this
-     */
-    public function setOverrideOrderInvoiceTemplateId($override_order_invoice_template_id)
-    {
-        
-        $this->override_order_invoice_template_id = $override_order_invoice_template_id;
-        return $this;
-    }
-    
-    /**
-     * Gets send_to_external_shipping_system
-     * @return bool
-     */
-    public function getSendToExternalShippingSystem()
-    {
-        return $this->send_to_external_shipping_system;
-    }
-  
-    /**
-     * Sets send_to_external_shipping_system
-     * @param bool $send_to_external_shipping_system 
-     * @return $this
-     */
-    public function setSendToExternalShippingSystem($send_to_external_shipping_system)
-    {
-        
-        $this->send_to_external_shipping_system = $send_to_external_shipping_system;
-        return $this;
-    }
-    
-    /**
-     * Gets external_shipping_system_id
-     * @return int
-     */
-    public function getExternalShippingSystemId()
-    {
-        return $this->external_shipping_system_id;
-    }
-  
-    /**
-     * Sets external_shipping_system_id
-     * @param int $external_shipping_system_id 
-     * @return $this
-     */
-    public function setExternalShippingSystemId($external_shipping_system_id)
-    {
-        
-        $this->external_shipping_system_id = $external_shipping_system_id;
         return $this;
     }
     

@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLocationFootprint**](LocationFootprintApi.md#addLocationFootprint) | **POST** /beta/locationFootprint | Create a locationFootprint
-[**addLocationFootprintAudit**](LocationFootprintApi.md#addLocationFootprintAudit) | **PUT** /beta/locationFootprint/{locationFootprintId}/audit/{locationFootprintAudit} | Add new audit for a locationFootprint
-[**addLocationFootprintTag**](LocationFootprintApi.md#addLocationFootprintTag) | **PUT** /beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag} | Add new tags for a locationFootprint.
-[**deleteLocationFootprint**](LocationFootprintApi.md#deleteLocationFootprint) | **DELETE** /beta/locationFootprint/{locationFootprintId} | Delete a locationFootprint
-[**deleteLocationFootprintTag**](LocationFootprintApi.md#deleteLocationFootprintTag) | **DELETE** /beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag} | Delete a tag for a locationFootprint.
-[**getDuplicateLocationFootprintById**](LocationFootprintApi.md#getDuplicateLocationFootprintById) | **GET** /beta/locationFootprint/duplicate/{locationFootprintId} | Get a duplicated a locationFootprint by id
-[**getLocationFootprintByFilter**](LocationFootprintApi.md#getLocationFootprintByFilter) | **GET** /beta/locationFootprint/search | Search locationFootprints by filter
-[**getLocationFootprintById**](LocationFootprintApi.md#getLocationFootprintById) | **GET** /beta/locationFootprint/{locationFootprintId} | Get a locationFootprint by id
-[**getLocationFootprintTags**](LocationFootprintApi.md#getLocationFootprintTags) | **GET** /beta/locationFootprint/{locationFootprintId}/tag | Get the tags for a locationFootprint.
-[**updateLocationFootprint**](LocationFootprintApi.md#updateLocationFootprint) | **PUT** /beta/locationFootprint | Update a locationFootprint
-[**updateLocationFootprintCustomFields**](LocationFootprintApi.md#updateLocationFootprintCustomFields) | **PUT** /beta/locationFootprint/customFields | Update a locationFootprint custom fields
+[**addLocationFootprint**](LocationFootprintApi.md#addLocationFootprint) | **POST** /v2.0/locationFootprint | Create a locationFootprint
+[**deleteLocationFootprint**](LocationFootprintApi.md#deleteLocationFootprint) | **DELETE** /v2.0/locationFootprint/{locationFootprintId} | Delete a locationFootprint
+[**getDuplicateLocationFootprintById**](LocationFootprintApi.md#getDuplicateLocationFootprintById) | **GET** /v2.0/locationFootprint/duplicate/{locationFootprintId} | Get a duplicated a locationFootprint by id
+[**getLocationFootprintByFilter**](LocationFootprintApi.md#getLocationFootprintByFilter) | **GET** /v2.0/locationFootprint/search | Search locationFootprints by filter
+[**getLocationFootprintById**](LocationFootprintApi.md#getLocationFootprintById) | **GET** /v2.0/locationFootprint/{locationFootprintId} | Get a locationFootprint by id
+[**updateLocationFootprint**](LocationFootprintApi.md#updateLocationFootprint) | **PUT** /v2.0/locationFootprint | Update a locationFootprint
+[**updateLocationFootprintCustomFields**](LocationFootprintApi.md#updateLocationFootprintCustomFields) | **PUT** /v2.0/locationFootprint/customFields | Update a locationFootprint custom fields
 
 
 # **addLocationFootprint**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addLocationFootprintAudit**
-> addLocationFootprintAudit($location_footprint_id, $location_footprint_audit)
-
-Add new audit for a locationFootprint
-
-Adds an audit to an existing locationFootprint.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationFootprintApi();
-$location_footprint_id = 56; // int | Id of the locationFootprint to add an audit to
-$location_footprint_audit = "location_footprint_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addLocationFootprintAudit($location_footprint_id, $location_footprint_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationFootprintApi->addLocationFootprintAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_footprint_id** | **int**| Id of the locationFootprint to add an audit to | 
- **location_footprint_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addLocationFootprintTag**
-> addLocationFootprintTag($location_footprint_id, $location_footprint_tag)
-
-Add new tags for a locationFootprint.
-
-Adds a tag to an existing locationFootprint.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationFootprintApi();
-$location_footprint_id = 56; // int | Id of the locationFootprint to add a tag to
-$location_footprint_tag = "location_footprint_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addLocationFootprintTag($location_footprint_id, $location_footprint_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationFootprintApi->addLocationFootprintTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_footprint_id** | **int**| Id of the locationFootprint to add a tag to | 
- **location_footprint_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteLocationFootprint**
 > deleteLocationFootprint($location_footprint_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **location_footprint_id** | **int**| Id of the locationFootprint to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteLocationFootprintTag**
-> deleteLocationFootprintTag($location_footprint_id, $location_footprint_tag)
-
-Delete a tag for a locationFootprint.
-
-Deletes an existing locationFootprint tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationFootprintApi();
-$location_footprint_id = 56; // int | Id of the locationFootprint to remove tag from
-$location_footprint_tag = "location_footprint_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteLocationFootprintTag($location_footprint_id, $location_footprint_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationFootprintApi->deleteLocationFootprintTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_footprint_id** | **int**| Id of the locationFootprint to remove tag from | 
- **location_footprint_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\LocationFootprint**](LocationFootprint.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getLocationFootprintTags**
-> getLocationFootprintTags($location_footprint_id)
-
-Get the tags for a locationFootprint.
-
-Get all existing locationFootprint tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationFootprintApi();
-$location_footprint_id = 56; // int | Id of the locationFootprint to get tags for
-
-try { 
-    $api_instance->getLocationFootprintTags($location_footprint_id);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationFootprintApi->getLocationFootprintTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_footprint_id** | **int**| Id of the locationFootprint to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

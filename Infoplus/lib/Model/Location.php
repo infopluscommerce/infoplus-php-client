@@ -67,7 +67,6 @@ class Location implements ArrayAccess
         'number' => 'int',
         'online' => 'bool',
         'priority_code' => 'int',
-        'cost' => 'int',
         'allow_item_mixing' => 'bool',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
@@ -99,7 +98,6 @@ class Location implements ArrayAccess
         'number' => 'number',
         'online' => 'online',
         'priority_code' => 'priorityCode',
-        'cost' => 'cost',
         'allow_item_mixing' => 'allowItemMixing',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
@@ -131,7 +129,6 @@ class Location implements ArrayAccess
         'number' => 'setNumber',
         'online' => 'setOnline',
         'priority_code' => 'setPriorityCode',
-        'cost' => 'setCost',
         'allow_item_mixing' => 'setAllowItemMixing',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
@@ -163,7 +160,6 @@ class Location implements ArrayAccess
         'number' => 'getNumber',
         'online' => 'getOnline',
         'priority_code' => 'getPriorityCode',
-        'cost' => 'getCost',
         'allow_item_mixing' => 'getAllowItemMixing',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
@@ -272,12 +268,6 @@ class Location implements ArrayAccess
     protected $priority_code;
     
     /**
-      * $cost 
-      * @var int
-      */
-    protected $cost;
-    
-    /**
       * $allow_item_mixing 
       * @var bool
       */
@@ -326,7 +316,6 @@ class Location implements ArrayAccess
             $this->number = $data["number"];
             $this->online = $data["online"];
             $this->priority_code = $data["priority_code"];
-            $this->cost = $data["cost"];
             $this->allow_item_mixing = $data["allow_item_mixing"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
@@ -667,27 +656,6 @@ class Location implements ArrayAccess
     {
         
         $this->priority_code = $priority_code;
-        return $this;
-    }
-    
-    /**
-     * Gets cost
-     * @return int
-     */
-    public function getCost()
-    {
-        return $this->cost;
-    }
-  
-    /**
-     * Sets cost
-     * @param int $cost 
-     * @return $this
-     */
-    public function setCost($cost)
-    {
-        
-        $this->cost = $cost;
         return $this;
     }
     

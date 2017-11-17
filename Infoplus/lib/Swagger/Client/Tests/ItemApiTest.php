@@ -76,42 +76,12 @@ class ItemApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemAudit
-     *
-     * Add new audit for an item
-     *
-     */
-    public function test_addItemAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemTag
-     *
-     * Add new tags for an item.
-     *
-     */
-    public function test_addItemTag() {
-
-    }
-    
-    /**
      * Test case for deleteItem
      *
      * Delete an item
      *
      */
     public function test_deleteItem() {
-
-    }
-    
-    /**
-     * Test case for deleteItemTag
-     *
-     * Delete a tag for an item.
-     *
-     */
-    public function test_deleteItemTag() {
 
     }
     
@@ -152,16 +122,6 @@ class ItemApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemById() {
-
-    }
-    
-    /**
-     * Test case for getItemTags
-     *
-     * Get the tags for an item.
-     *
-     */
-    public function test_getItemTags() {
 
     }
     

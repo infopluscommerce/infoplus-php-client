@@ -76,42 +76,12 @@ class ExternalShippingSystemApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addExternalShippingSystemAudit
-     *
-     * Add new audit for an externalShippingSystem
-     *
-     */
-    public function test_addExternalShippingSystemAudit() {
-
-    }
-    
-    /**
-     * Test case for addExternalShippingSystemTag
-     *
-     * Add new tags for an externalShippingSystem.
-     *
-     */
-    public function test_addExternalShippingSystemTag() {
-
-    }
-    
-    /**
      * Test case for deleteExternalShippingSystem
      *
      * Delete an externalShippingSystem
      *
      */
     public function test_deleteExternalShippingSystem() {
-
-    }
-    
-    /**
-     * Test case for deleteExternalShippingSystemTag
-     *
-     * Delete a tag for an externalShippingSystem.
-     *
-     */
-    public function test_deleteExternalShippingSystemTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ExternalShippingSystemApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getExternalShippingSystemById() {
-
-    }
-    
-    /**
-     * Test case for getExternalShippingSystemTags
-     *
-     * Get the tags for an externalShippingSystem.
-     *
-     */
-    public function test_getExternalShippingSystemTags() {
 
     }
     

@@ -125,7 +125,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource";
+        $resourcePath = "/v2.0/orderSource";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class OrderSourceApi
     }
     
     /**
-     * addOrderSourceAudit
-     *
-     * Add new audit for an orderSource
-     *
-     * @param int $order_source_id Id of the orderSource to add an audit to (required)
-     * @param string $order_source_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addOrderSourceAudit($order_source_id, $order_source_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addOrderSourceAuditWithHttpInfo ($order_source_id, $order_source_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addOrderSourceAuditWithHttpInfo
-     *
-     * Add new audit for an orderSource
-     *
-     * @param int $order_source_id Id of the orderSource to add an audit to (required)
-     * @param string $order_source_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addOrderSourceAuditWithHttpInfo($order_source_id, $order_source_audit)
-    {
-        
-        // verify the required parameter 'order_source_id' is set
-        if ($order_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_id when calling addOrderSourceAudit');
-        }
-        // verify the required parameter 'order_source_audit' is set
-        if ($order_source_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_audit when calling addOrderSourceAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}/audit/{orderSourceAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($order_source_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($order_source_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addOrderSourceTag
-     *
-     * Add new tags for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to add a tag to (required)
-     * @param string $order_source_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addOrderSourceTag($order_source_id, $order_source_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addOrderSourceTagWithHttpInfo ($order_source_id, $order_source_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addOrderSourceTagWithHttpInfo
-     *
-     * Add new tags for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to add a tag to (required)
-     * @param string $order_source_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addOrderSourceTagWithHttpInfo($order_source_id, $order_source_tag)
-    {
-        
-        // verify the required parameter 'order_source_id' is set
-        if ($order_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_id when calling addOrderSourceTag');
-        }
-        // verify the required parameter 'order_source_tag' is set
-        if ($order_source_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_tag when calling addOrderSourceTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}/tag/{orderSourceTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($order_source_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($order_source_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteOrderSource
      *
      * Delete an orderSource
@@ -443,7 +227,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}";
+        $resourcePath = "/v2.0/orderSource/{orderSourceId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class OrderSourceApi
             $resourcePath = str_replace(
                 "{" . "orderSourceId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($order_source_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteOrderSourceTag
-     *
-     * Delete a tag for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to remove tag from (required)
-     * @param string $order_source_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteOrderSourceTag($order_source_id, $order_source_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteOrderSourceTagWithHttpInfo ($order_source_id, $order_source_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteOrderSourceTagWithHttpInfo
-     *
-     * Delete a tag for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to remove tag from (required)
-     * @param string $order_source_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteOrderSourceTagWithHttpInfo($order_source_id, $order_source_tag)
-    {
-        
-        // verify the required parameter 'order_source_id' is set
-        if ($order_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_id when calling deleteOrderSourceTag');
-        }
-        // verify the required parameter 'order_source_tag' is set
-        if ($order_source_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_tag when calling deleteOrderSourceTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}/tag/{orderSourceTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($order_source_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($order_source_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource/duplicate/{orderSourceId}";
+        $resourcePath = "/v2.0/orderSource/duplicate/{orderSourceId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class OrderSourceApi
         
   
         // parse inputs
-        $resourcePath = "/beta/orderSource/search";
+        $resourcePath = "/v2.0/orderSource/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}";
+        $resourcePath = "/v2.0/orderSource/{orderSourceId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class OrderSourceApi
     }
     
     /**
-     * getOrderSourceTags
-     *
-     * Get the tags for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getOrderSourceTags($order_source_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getOrderSourceTagsWithHttpInfo ($order_source_id);
-        return $response; 
-    }
-
-
-    /**
-     * getOrderSourceTagsWithHttpInfo
-     *
-     * Get the tags for an orderSource.
-     *
-     * @param int $order_source_id Id of the orderSource to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getOrderSourceTagsWithHttpInfo($order_source_id)
-    {
-        
-        // verify the required parameter 'order_source_id' is set
-        if ($order_source_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_source_id when calling getOrderSourceTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/orderSource/{orderSourceId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($order_source_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderSourceId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_source_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateOrderSource
      *
      * Update an orderSource
@@ -1055,7 +637,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource";
+        $resourcePath = "/v2.0/orderSource";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class OrderSourceApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/orderSource/customFields";
+        $resourcePath = "/v2.0/orderSource/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -125,7 +125,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem";
+        $resourcePath = "/v2.0/externalShippingSystem";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ExternalShippingSystemApi
     }
     
     /**
-     * addExternalShippingSystemAudit
-     *
-     * Add new audit for an externalShippingSystem
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to add an audit to (required)
-     * @param string $external_shipping_system_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addExternalShippingSystemAudit($external_shipping_system_id, $external_shipping_system_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addExternalShippingSystemAuditWithHttpInfo ($external_shipping_system_id, $external_shipping_system_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addExternalShippingSystemAuditWithHttpInfo
-     *
-     * Add new audit for an externalShippingSystem
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to add an audit to (required)
-     * @param string $external_shipping_system_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addExternalShippingSystemAuditWithHttpInfo($external_shipping_system_id, $external_shipping_system_audit)
-    {
-        
-        // verify the required parameter 'external_shipping_system_id' is set
-        if ($external_shipping_system_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_id when calling addExternalShippingSystemAudit');
-        }
-        // verify the required parameter 'external_shipping_system_audit' is set
-        if ($external_shipping_system_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_audit when calling addExternalShippingSystemAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}/audit/{externalShippingSystemAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($external_shipping_system_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($external_shipping_system_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addExternalShippingSystemTag
-     *
-     * Add new tags for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to add a tag to (required)
-     * @param string $external_shipping_system_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addExternalShippingSystemTagWithHttpInfo ($external_shipping_system_id, $external_shipping_system_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addExternalShippingSystemTagWithHttpInfo
-     *
-     * Add new tags for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to add a tag to (required)
-     * @param string $external_shipping_system_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addExternalShippingSystemTagWithHttpInfo($external_shipping_system_id, $external_shipping_system_tag)
-    {
-        
-        // verify the required parameter 'external_shipping_system_id' is set
-        if ($external_shipping_system_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_id when calling addExternalShippingSystemTag');
-        }
-        // verify the required parameter 'external_shipping_system_tag' is set
-        if ($external_shipping_system_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_tag when calling addExternalShippingSystemTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($external_shipping_system_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($external_shipping_system_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteExternalShippingSystem
      *
      * Delete an externalShippingSystem
@@ -443,7 +227,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}";
+        $resourcePath = "/v2.0/externalShippingSystem/{externalShippingSystemId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ExternalShippingSystemApi
             $resourcePath = str_replace(
                 "{" . "externalShippingSystemId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($external_shipping_system_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteExternalShippingSystemTag
-     *
-     * Delete a tag for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to remove tag from (required)
-     * @param string $external_shipping_system_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteExternalShippingSystemTag($external_shipping_system_id, $external_shipping_system_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteExternalShippingSystemTagWithHttpInfo ($external_shipping_system_id, $external_shipping_system_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteExternalShippingSystemTagWithHttpInfo
-     *
-     * Delete a tag for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to remove tag from (required)
-     * @param string $external_shipping_system_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteExternalShippingSystemTagWithHttpInfo($external_shipping_system_id, $external_shipping_system_tag)
-    {
-        
-        // verify the required parameter 'external_shipping_system_id' is set
-        if ($external_shipping_system_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_id when calling deleteExternalShippingSystemTag');
-        }
-        // verify the required parameter 'external_shipping_system_tag' is set
-        if ($external_shipping_system_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_tag when calling deleteExternalShippingSystemTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}/tag/{externalShippingSystemTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($external_shipping_system_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($external_shipping_system_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/duplicate/{externalShippingSystemId}";
+        $resourcePath = "/v2.0/externalShippingSystem/duplicate/{externalShippingSystemId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ExternalShippingSystemApi
         
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/search";
+        $resourcePath = "/v2.0/externalShippingSystem/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}";
+        $resourcePath = "/v2.0/externalShippingSystem/{externalShippingSystemId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ExternalShippingSystemApi
     }
     
     /**
-     * getExternalShippingSystemTags
-     *
-     * Get the tags for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getExternalShippingSystemTags($external_shipping_system_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getExternalShippingSystemTagsWithHttpInfo ($external_shipping_system_id);
-        return $response; 
-    }
-
-
-    /**
-     * getExternalShippingSystemTagsWithHttpInfo
-     *
-     * Get the tags for an externalShippingSystem.
-     *
-     * @param int $external_shipping_system_id Id of the externalShippingSystem to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getExternalShippingSystemTagsWithHttpInfo($external_shipping_system_id)
-    {
-        
-        // verify the required parameter 'external_shipping_system_id' is set
-        if ($external_shipping_system_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $external_shipping_system_id when calling getExternalShippingSystemTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/{externalShippingSystemId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($external_shipping_system_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "externalShippingSystemId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($external_shipping_system_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateExternalShippingSystem
      *
      * Update an externalShippingSystem
@@ -1055,7 +637,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem";
+        $resourcePath = "/v2.0/externalShippingSystem";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class ExternalShippingSystemApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/externalShippingSystem/customFields";
+        $resourcePath = "/v2.0/externalShippingSystem/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

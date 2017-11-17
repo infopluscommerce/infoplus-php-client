@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOrderSourceReservation**](OrderSourceReservationApi.md#addOrderSourceReservation) | **POST** /beta/orderSourceReservation | Create an orderSourceReservation
-[**addOrderSourceReservationAudit**](OrderSourceReservationApi.md#addOrderSourceReservationAudit) | **PUT** /beta/orderSourceReservation/{orderSourceReservationId}/audit/{orderSourceReservationAudit} | Add new audit for an orderSourceReservation
-[**addOrderSourceReservationTag**](OrderSourceReservationApi.md#addOrderSourceReservationTag) | **PUT** /beta/orderSourceReservation/{orderSourceReservationId}/tag/{orderSourceReservationTag} | Add new tags for an orderSourceReservation.
-[**deleteOrderSourceReservation**](OrderSourceReservationApi.md#deleteOrderSourceReservation) | **DELETE** /beta/orderSourceReservation/{orderSourceReservationId} | Delete an orderSourceReservation
-[**deleteOrderSourceReservationTag**](OrderSourceReservationApi.md#deleteOrderSourceReservationTag) | **DELETE** /beta/orderSourceReservation/{orderSourceReservationId}/tag/{orderSourceReservationTag} | Delete a tag for an orderSourceReservation.
-[**getDuplicateOrderSourceReservationById**](OrderSourceReservationApi.md#getDuplicateOrderSourceReservationById) | **GET** /beta/orderSourceReservation/duplicate/{orderSourceReservationId} | Get a duplicated an orderSourceReservation by id
-[**getOrderSourceReservationByFilter**](OrderSourceReservationApi.md#getOrderSourceReservationByFilter) | **GET** /beta/orderSourceReservation/search | Search orderSourceReservations by filter
-[**getOrderSourceReservationById**](OrderSourceReservationApi.md#getOrderSourceReservationById) | **GET** /beta/orderSourceReservation/{orderSourceReservationId} | Get an orderSourceReservation by id
-[**getOrderSourceReservationTags**](OrderSourceReservationApi.md#getOrderSourceReservationTags) | **GET** /beta/orderSourceReservation/{orderSourceReservationId}/tag | Get the tags for an orderSourceReservation.
-[**updateOrderSourceReservation**](OrderSourceReservationApi.md#updateOrderSourceReservation) | **PUT** /beta/orderSourceReservation | Update an orderSourceReservation
-[**updateOrderSourceReservationCustomFields**](OrderSourceReservationApi.md#updateOrderSourceReservationCustomFields) | **PUT** /beta/orderSourceReservation/customFields | Update an orderSourceReservation custom fields
+[**addOrderSourceReservation**](OrderSourceReservationApi.md#addOrderSourceReservation) | **POST** /v2.0/orderSourceReservation | Create an orderSourceReservation
+[**deleteOrderSourceReservation**](OrderSourceReservationApi.md#deleteOrderSourceReservation) | **DELETE** /v2.0/orderSourceReservation/{orderSourceReservationId} | Delete an orderSourceReservation
+[**getDuplicateOrderSourceReservationById**](OrderSourceReservationApi.md#getDuplicateOrderSourceReservationById) | **GET** /v2.0/orderSourceReservation/duplicate/{orderSourceReservationId} | Get a duplicated an orderSourceReservation by id
+[**getOrderSourceReservationByFilter**](OrderSourceReservationApi.md#getOrderSourceReservationByFilter) | **GET** /v2.0/orderSourceReservation/search | Search orderSourceReservations by filter
+[**getOrderSourceReservationById**](OrderSourceReservationApi.md#getOrderSourceReservationById) | **GET** /v2.0/orderSourceReservation/{orderSourceReservationId} | Get an orderSourceReservation by id
+[**updateOrderSourceReservation**](OrderSourceReservationApi.md#updateOrderSourceReservation) | **PUT** /v2.0/orderSourceReservation | Update an orderSourceReservation
+[**updateOrderSourceReservationCustomFields**](OrderSourceReservationApi.md#updateOrderSourceReservationCustomFields) | **PUT** /v2.0/orderSourceReservation/customFields | Update an orderSourceReservation custom fields
 
 
 # **addOrderSourceReservation**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addOrderSourceReservationAudit**
-> addOrderSourceReservationAudit($order_source_reservation_id, $order_source_reservation_audit)
-
-Add new audit for an orderSourceReservation
-
-Adds an audit to an existing orderSourceReservation.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderSourceReservationApi();
-$order_source_reservation_id = 56; // int | Id of the orderSourceReservation to add an audit to
-$order_source_reservation_audit = "order_source_reservation_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addOrderSourceReservationAudit($order_source_reservation_id, $order_source_reservation_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderSourceReservationApi->addOrderSourceReservationAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_source_reservation_id** | **int**| Id of the orderSourceReservation to add an audit to | 
- **order_source_reservation_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addOrderSourceReservationTag**
-> addOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag)
-
-Add new tags for an orderSourceReservation.
-
-Adds a tag to an existing orderSourceReservation.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderSourceReservationApi();
-$order_source_reservation_id = 56; // int | Id of the orderSourceReservation to add a tag to
-$order_source_reservation_tag = "order_source_reservation_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderSourceReservationApi->addOrderSourceReservationTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_source_reservation_id** | **int**| Id of the orderSourceReservation to add a tag to | 
- **order_source_reservation_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteOrderSourceReservation**
 > deleteOrderSourceReservation($order_source_reservation_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_source_reservation_id** | **int**| Id of the orderSourceReservation to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteOrderSourceReservationTag**
-> deleteOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag)
-
-Delete a tag for an orderSourceReservation.
-
-Deletes an existing orderSourceReservation tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderSourceReservationApi();
-$order_source_reservation_id = 56; // int | Id of the orderSourceReservation to remove tag from
-$order_source_reservation_tag = "order_source_reservation_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteOrderSourceReservationTag($order_source_reservation_id, $order_source_reservation_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderSourceReservationApi->deleteOrderSourceReservationTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_source_reservation_id** | **int**| Id of the orderSourceReservation to remove tag from | 
- **order_source_reservation_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\OrderSourceReservation**](OrderSourceReservation.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getOrderSourceReservationTags**
-> getOrderSourceReservationTags($order_source_reservation_id)
-
-Get the tags for an orderSourceReservation.
-
-Get all existing orderSourceReservation tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderSourceReservationApi();
-$order_source_reservation_id = 56; // int | Id of the orderSourceReservation to get tags for
-
-try { 
-    $api_instance->getOrderSourceReservationTags($order_source_reservation_id);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderSourceReservationApi->getOrderSourceReservationTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_source_reservation_id** | **int**| Id of the orderSourceReservation to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

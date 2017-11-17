@@ -4,16 +4,12 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addItemSector**](ItemSectorApi.md#addItemSector) | **POST** /beta/itemSector | Create an itemSector
-[**addItemSectorAudit**](ItemSectorApi.md#addItemSectorAudit) | **PUT** /beta/itemSector/{itemSectorId}/audit/{itemSectorAudit} | Add new audit for an itemSector
-[**addItemSectorTag**](ItemSectorApi.md#addItemSectorTag) | **PUT** /beta/itemSector/{itemSectorId}/tag/{itemSectorTag} | Add new tags for an itemSector.
-[**deleteItemSector**](ItemSectorApi.md#deleteItemSector) | **DELETE** /beta/itemSector/{itemSectorId} | Delete an itemSector
-[**deleteItemSectorTag**](ItemSectorApi.md#deleteItemSectorTag) | **DELETE** /beta/itemSector/{itemSectorId}/tag/{itemSectorTag} | Delete a tag for an itemSector.
-[**getDuplicateItemSectorById**](ItemSectorApi.md#getDuplicateItemSectorById) | **GET** /beta/itemSector/duplicate/{itemSectorId} | Get a duplicated an itemSector by id
-[**getItemSectorByFilter**](ItemSectorApi.md#getItemSectorByFilter) | **GET** /beta/itemSector/search | Search itemSectors by filter
-[**getItemSectorById**](ItemSectorApi.md#getItemSectorById) | **GET** /beta/itemSector/{itemSectorId} | Get an itemSector by id
-[**getItemSectorTags**](ItemSectorApi.md#getItemSectorTags) | **GET** /beta/itemSector/{itemSectorId}/tag | Get the tags for an itemSector.
-[**updateItemSector**](ItemSectorApi.md#updateItemSector) | **PUT** /beta/itemSector | Update an itemSector
+[**addItemSector**](ItemSectorApi.md#addItemSector) | **POST** /v2.0/itemSector | Create an itemSector
+[**deleteItemSector**](ItemSectorApi.md#deleteItemSector) | **DELETE** /v2.0/itemSector/{itemSectorId} | Delete an itemSector
+[**getDuplicateItemSectorById**](ItemSectorApi.md#getDuplicateItemSectorById) | **GET** /v2.0/itemSector/duplicate/{itemSectorId} | Get a duplicated an itemSector by id
+[**getItemSectorByFilter**](ItemSectorApi.md#getItemSectorByFilter) | **GET** /v2.0/itemSector/search | Search itemSectors by filter
+[**getItemSectorById**](ItemSectorApi.md#getItemSectorById) | **GET** /v2.0/itemSector/{itemSectorId} | Get an itemSector by id
+[**updateItemSector**](ItemSectorApi.md#updateItemSector) | **PUT** /v2.0/itemSector | Update an itemSector
 
 
 # **addItemSector**
@@ -66,108 +62,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addItemSectorAudit**
-> addItemSectorAudit($item_sector_id, $item_sector_audit)
-
-Add new audit for an itemSector
-
-Adds an audit to an existing itemSector.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSectorApi();
-$item_sector_id = 56; // int | Id of the itemSector to add an audit to
-$item_sector_audit = "item_sector_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addItemSectorAudit($item_sector_id, $item_sector_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSectorApi->addItemSectorAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_sector_id** | **int**| Id of the itemSector to add an audit to | 
- **item_sector_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addItemSectorTag**
-> addItemSectorTag($item_sector_id, $item_sector_tag)
-
-Add new tags for an itemSector.
-
-Adds a tag to an existing itemSector.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSectorApi();
-$item_sector_id = 56; // int | Id of the itemSector to add a tag to
-$item_sector_tag = "item_sector_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addItemSectorTag($item_sector_id, $item_sector_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSectorApi->addItemSectorTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_sector_id** | **int**| Id of the itemSector to add a tag to | 
- **item_sector_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteItemSector**
 > deleteItemSector($item_sector_id)
 
@@ -201,57 +95,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_sector_id** | **int**| Id of the itemSector to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteItemSectorTag**
-> deleteItemSectorTag($item_sector_id, $item_sector_tag)
-
-Delete a tag for an itemSector.
-
-Deletes an existing itemSector tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSectorApi();
-$item_sector_id = 56; // int | Id of the itemSector to remove tag from
-$item_sector_tag = "item_sector_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteItemSectorTag($item_sector_id, $item_sector_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSectorApi->deleteItemSectorTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_sector_id** | **int**| Id of the itemSector to remove tag from | 
- **item_sector_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -412,55 +255,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\ItemSector**](ItemSector.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getItemSectorTags**
-> getItemSectorTags($item_sector_id)
-
-Get the tags for an itemSector.
-
-Get all existing itemSector tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\ItemSectorApi();
-$item_sector_id = 56; // int | Id of the itemSector to get tags for
-
-try { 
-    $api_instance->getItemSectorTags($item_sector_id);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemSectorApi->getItemSectorTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item_sector_id** | **int**| Id of the itemSector to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

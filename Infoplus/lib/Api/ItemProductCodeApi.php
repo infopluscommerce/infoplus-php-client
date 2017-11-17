@@ -125,7 +125,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode";
+        $resourcePath = "/v2.0/itemProductCode";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class ItemProductCodeApi
     }
     
     /**
-     * addItemProductCodeAudit
-     *
-     * Add new audit for an itemProductCode
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to add an audit to (required)
-     * @param string $item_product_code_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemProductCodeAudit($item_product_code_id, $item_product_code_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemProductCodeAuditWithHttpInfo ($item_product_code_id, $item_product_code_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addItemProductCodeAuditWithHttpInfo
-     *
-     * Add new audit for an itemProductCode
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to add an audit to (required)
-     * @param string $item_product_code_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemProductCodeAuditWithHttpInfo($item_product_code_id, $item_product_code_audit)
-    {
-        
-        // verify the required parameter 'item_product_code_id' is set
-        if ($item_product_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling addItemProductCodeAudit');
-        }
-        // verify the required parameter 'item_product_code_audit' is set
-        if ($item_product_code_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_audit when calling addItemProductCodeAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/audit/{itemProductCodeAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_product_code_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_product_code_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addItemProductCodeTag
-     *
-     * Add new tags for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to add a tag to (required)
-     * @param string $item_product_code_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemProductCodeTag($item_product_code_id, $item_product_code_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addItemProductCodeTagWithHttpInfo ($item_product_code_id, $item_product_code_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addItemProductCodeTagWithHttpInfo
-     *
-     * Add new tags for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to add a tag to (required)
-     * @param string $item_product_code_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addItemProductCodeTagWithHttpInfo($item_product_code_id, $item_product_code_tag)
-    {
-        
-        // verify the required parameter 'item_product_code_id' is set
-        if ($item_product_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling addItemProductCodeTag');
-        }
-        // verify the required parameter 'item_product_code_tag' is set
-        if ($item_product_code_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_tag when calling addItemProductCodeTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($item_product_code_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_product_code_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteItemProductCode
      *
      * Delete an itemProductCode
@@ -443,7 +227,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}";
+        $resourcePath = "/v2.0/itemProductCode/{itemProductCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class ItemProductCodeApi
             $resourcePath = str_replace(
                 "{" . "itemProductCodeId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteItemProductCodeTag
-     *
-     * Delete a tag for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to remove tag from (required)
-     * @param string $item_product_code_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemProductCodeTag($item_product_code_id, $item_product_code_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteItemProductCodeTagWithHttpInfo ($item_product_code_id, $item_product_code_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteItemProductCodeTagWithHttpInfo
-     *
-     * Delete a tag for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to remove tag from (required)
-     * @param string $item_product_code_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteItemProductCodeTagWithHttpInfo($item_product_code_id, $item_product_code_tag)
-    {
-        
-        // verify the required parameter 'item_product_code_id' is set
-        if ($item_product_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling deleteItemProductCodeTag');
-        }
-        // verify the required parameter 'item_product_code_tag' is set
-        if ($item_product_code_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_tag when calling deleteItemProductCodeTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag/{itemProductCodeTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_product_code_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($item_product_code_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode/duplicate/{itemProductCodeId}";
+        $resourcePath = "/v2.0/itemProductCode/duplicate/{itemProductCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class ItemProductCodeApi
         
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode/search";
+        $resourcePath = "/v2.0/itemProductCode/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}";
+        $resourcePath = "/v2.0/itemProductCode/{itemProductCodeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class ItemProductCodeApi
     }
     
     /**
-     * getItemProductCodeTags
-     *
-     * Get the tags for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemProductCodeTags($item_product_code_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getItemProductCodeTagsWithHttpInfo ($item_product_code_id);
-        return $response; 
-    }
-
-
-    /**
-     * getItemProductCodeTagsWithHttpInfo
-     *
-     * Get the tags for an itemProductCode.
-     *
-     * @param int $item_product_code_id Id of the itemProductCode to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getItemProductCodeTagsWithHttpInfo($item_product_code_id)
-    {
-        
-        // verify the required parameter 'item_product_code_id' is set
-        if ($item_product_code_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item_product_code_id when calling getItemProductCodeTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/itemProductCode/{itemProductCodeId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($item_product_code_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "itemProductCodeId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($item_product_code_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateItemProductCode
      *
      * Update an itemProductCode
@@ -1055,7 +637,7 @@ class ItemProductCodeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/itemProductCode";
+        $resourcePath = "/v2.0/itemProductCode";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

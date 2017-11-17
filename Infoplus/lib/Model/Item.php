@@ -112,8 +112,6 @@ class Item implements ArrayAccess
         'storage_item_mixing_rule' => 'string',
         'allocation_rule' => 'string',
         'barcode_field' => 'string',
-        'warehouse_display_field' => 'string',
-        'product_id_tag_scheme_id' => 'int',
         'hazmat' => 'string',
         'is_alcohol' => 'bool',
         'alcohol_type' => 'string',
@@ -133,17 +131,6 @@ class Item implements ArrayAccess
         'height' => 'Number',
         'top_up' => 'bool',
         'ship_solo' => 'bool',
-        'available_quantity' => 'int',
-        'damaged_quantity' => 'int',
-        'in_fulfillment_process_quantity' => 'int',
-        'on_hand_quantity' => 'int',
-        'open_order_quantity' => 'int',
-        'open_po_quantity' => 'int',
-        'orderable_quantity' => 'int',
-        'unallocatable_quantity' => 'int',
-        'unavailable_quantity' => 'int',
-        'overall_days_on_hand' => 'int',
-        'overall_stock_status' => 'string',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -217,8 +204,6 @@ class Item implements ArrayAccess
         'storage_item_mixing_rule' => 'storageItemMixingRule',
         'allocation_rule' => 'allocationRule',
         'barcode_field' => 'barcodeField',
-        'warehouse_display_field' => 'warehouseDisplayField',
-        'product_id_tag_scheme_id' => 'productIdTagSchemeId',
         'hazmat' => 'hazmat',
         'is_alcohol' => 'isAlcohol',
         'alcohol_type' => 'alcoholType',
@@ -238,17 +223,6 @@ class Item implements ArrayAccess
         'height' => 'height',
         'top_up' => 'topUp',
         'ship_solo' => 'shipSolo',
-        'available_quantity' => 'availableQuantity',
-        'damaged_quantity' => 'damagedQuantity',
-        'in_fulfillment_process_quantity' => 'inFulfillmentProcessQuantity',
-        'on_hand_quantity' => 'onHandQuantity',
-        'open_order_quantity' => 'openOrderQuantity',
-        'open_po_quantity' => 'openPOQuantity',
-        'orderable_quantity' => 'orderableQuantity',
-        'unallocatable_quantity' => 'unallocatableQuantity',
-        'unavailable_quantity' => 'unavailableQuantity',
-        'overall_days_on_hand' => 'overallDaysOnHand',
-        'overall_stock_status' => 'overallStockStatus',
         'custom_fields' => 'customFields'
     );
   
@@ -322,8 +296,6 @@ class Item implements ArrayAccess
         'storage_item_mixing_rule' => 'setStorageItemMixingRule',
         'allocation_rule' => 'setAllocationRule',
         'barcode_field' => 'setBarcodeField',
-        'warehouse_display_field' => 'setWarehouseDisplayField',
-        'product_id_tag_scheme_id' => 'setProductIdTagSchemeId',
         'hazmat' => 'setHazmat',
         'is_alcohol' => 'setIsAlcohol',
         'alcohol_type' => 'setAlcoholType',
@@ -343,17 +315,6 @@ class Item implements ArrayAccess
         'height' => 'setHeight',
         'top_up' => 'setTopUp',
         'ship_solo' => 'setShipSolo',
-        'available_quantity' => 'setAvailableQuantity',
-        'damaged_quantity' => 'setDamagedQuantity',
-        'in_fulfillment_process_quantity' => 'setInFulfillmentProcessQuantity',
-        'on_hand_quantity' => 'setOnHandQuantity',
-        'open_order_quantity' => 'setOpenOrderQuantity',
-        'open_po_quantity' => 'setOpenPoQuantity',
-        'orderable_quantity' => 'setOrderableQuantity',
-        'unallocatable_quantity' => 'setUnallocatableQuantity',
-        'unavailable_quantity' => 'setUnavailableQuantity',
-        'overall_days_on_hand' => 'setOverallDaysOnHand',
-        'overall_stock_status' => 'setOverallStockStatus',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -427,8 +388,6 @@ class Item implements ArrayAccess
         'storage_item_mixing_rule' => 'getStorageItemMixingRule',
         'allocation_rule' => 'getAllocationRule',
         'barcode_field' => 'getBarcodeField',
-        'warehouse_display_field' => 'getWarehouseDisplayField',
-        'product_id_tag_scheme_id' => 'getProductIdTagSchemeId',
         'hazmat' => 'getHazmat',
         'is_alcohol' => 'getIsAlcohol',
         'alcohol_type' => 'getAlcoholType',
@@ -448,17 +407,6 @@ class Item implements ArrayAccess
         'height' => 'getHeight',
         'top_up' => 'getTopUp',
         'ship_solo' => 'getShipSolo',
-        'available_quantity' => 'getAvailableQuantity',
-        'damaged_quantity' => 'getDamagedQuantity',
-        'in_fulfillment_process_quantity' => 'getInFulfillmentProcessQuantity',
-        'on_hand_quantity' => 'getOnHandQuantity',
-        'open_order_quantity' => 'getOpenOrderQuantity',
-        'open_po_quantity' => 'getOpenPoQuantity',
-        'orderable_quantity' => 'getOrderableQuantity',
-        'unallocatable_quantity' => 'getUnallocatableQuantity',
-        'unavailable_quantity' => 'getUnavailableQuantity',
-        'overall_days_on_hand' => 'getOverallDaysOnHand',
-        'overall_stock_status' => 'getOverallStockStatus',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -834,18 +782,6 @@ class Item implements ArrayAccess
     protected $barcode_field;
     
     /**
-      * $warehouse_display_field 
-      * @var string
-      */
-    protected $warehouse_display_field;
-    
-    /**
-      * $product_id_tag_scheme_id 
-      * @var int
-      */
-    protected $product_id_tag_scheme_id;
-    
-    /**
       * $hazmat 
       * @var string
       */
@@ -960,72 +896,6 @@ class Item implements ArrayAccess
     protected $ship_solo = false;
     
     /**
-      * $available_quantity 
-      * @var int
-      */
-    protected $available_quantity;
-    
-    /**
-      * $damaged_quantity 
-      * @var int
-      */
-    protected $damaged_quantity;
-    
-    /**
-      * $in_fulfillment_process_quantity 
-      * @var int
-      */
-    protected $in_fulfillment_process_quantity;
-    
-    /**
-      * $on_hand_quantity 
-      * @var int
-      */
-    protected $on_hand_quantity;
-    
-    /**
-      * $open_order_quantity 
-      * @var int
-      */
-    protected $open_order_quantity;
-    
-    /**
-      * $open_po_quantity 
-      * @var int
-      */
-    protected $open_po_quantity;
-    
-    /**
-      * $orderable_quantity 
-      * @var int
-      */
-    protected $orderable_quantity;
-    
-    /**
-      * $unallocatable_quantity 
-      * @var int
-      */
-    protected $unallocatable_quantity;
-    
-    /**
-      * $unavailable_quantity 
-      * @var int
-      */
-    protected $unavailable_quantity;
-    
-    /**
-      * $overall_days_on_hand 
-      * @var int
-      */
-    protected $overall_days_on_hand;
-    
-    /**
-      * $overall_stock_status 
-      * @var string
-      */
-    protected $overall_stock_status;
-    
-    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -1101,8 +971,6 @@ class Item implements ArrayAccess
             $this->storage_item_mixing_rule = $data["storage_item_mixing_rule"];
             $this->allocation_rule = $data["allocation_rule"];
             $this->barcode_field = $data["barcode_field"];
-            $this->warehouse_display_field = $data["warehouse_display_field"];
-            $this->product_id_tag_scheme_id = $data["product_id_tag_scheme_id"];
             $this->hazmat = $data["hazmat"];
             $this->is_alcohol = $data["is_alcohol"];
             $this->alcohol_type = $data["alcohol_type"];
@@ -1122,17 +990,6 @@ class Item implements ArrayAccess
             $this->height = $data["height"];
             $this->top_up = $data["top_up"];
             $this->ship_solo = $data["ship_solo"];
-            $this->available_quantity = $data["available_quantity"];
-            $this->damaged_quantity = $data["damaged_quantity"];
-            $this->in_fulfillment_process_quantity = $data["in_fulfillment_process_quantity"];
-            $this->on_hand_quantity = $data["on_hand_quantity"];
-            $this->open_order_quantity = $data["open_order_quantity"];
-            $this->open_po_quantity = $data["open_po_quantity"];
-            $this->orderable_quantity = $data["orderable_quantity"];
-            $this->unallocatable_quantity = $data["unallocatable_quantity"];
-            $this->unavailable_quantity = $data["unavailable_quantity"];
-            $this->overall_days_on_hand = $data["overall_days_on_hand"];
-            $this->overall_stock_status = $data["overall_stock_status"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -2419,48 +2276,6 @@ class Item implements ArrayAccess
     }
     
     /**
-     * Gets warehouse_display_field
-     * @return string
-     */
-    public function getWarehouseDisplayField()
-    {
-        return $this->warehouse_display_field;
-    }
-  
-    /**
-     * Sets warehouse_display_field
-     * @param string $warehouse_display_field 
-     * @return $this
-     */
-    public function setWarehouseDisplayField($warehouse_display_field)
-    {
-        
-        $this->warehouse_display_field = $warehouse_display_field;
-        return $this;
-    }
-    
-    /**
-     * Gets product_id_tag_scheme_id
-     * @return int
-     */
-    public function getProductIdTagSchemeId()
-    {
-        return $this->product_id_tag_scheme_id;
-    }
-  
-    /**
-     * Sets product_id_tag_scheme_id
-     * @param int $product_id_tag_scheme_id 
-     * @return $this
-     */
-    public function setProductIdTagSchemeId($product_id_tag_scheme_id)
-    {
-        
-        $this->product_id_tag_scheme_id = $product_id_tag_scheme_id;
-        return $this;
-    }
-    
-    /**
      * Gets hazmat
      * @return string
      */
@@ -2856,237 +2671,6 @@ class Item implements ArrayAccess
     {
         
         $this->ship_solo = $ship_solo;
-        return $this;
-    }
-    
-    /**
-     * Gets available_quantity
-     * @return int
-     */
-    public function getAvailableQuantity()
-    {
-        return $this->available_quantity;
-    }
-  
-    /**
-     * Sets available_quantity
-     * @param int $available_quantity 
-     * @return $this
-     */
-    public function setAvailableQuantity($available_quantity)
-    {
-        
-        $this->available_quantity = $available_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets damaged_quantity
-     * @return int
-     */
-    public function getDamagedQuantity()
-    {
-        return $this->damaged_quantity;
-    }
-  
-    /**
-     * Sets damaged_quantity
-     * @param int $damaged_quantity 
-     * @return $this
-     */
-    public function setDamagedQuantity($damaged_quantity)
-    {
-        
-        $this->damaged_quantity = $damaged_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets in_fulfillment_process_quantity
-     * @return int
-     */
-    public function getInFulfillmentProcessQuantity()
-    {
-        return $this->in_fulfillment_process_quantity;
-    }
-  
-    /**
-     * Sets in_fulfillment_process_quantity
-     * @param int $in_fulfillment_process_quantity 
-     * @return $this
-     */
-    public function setInFulfillmentProcessQuantity($in_fulfillment_process_quantity)
-    {
-        
-        $this->in_fulfillment_process_quantity = $in_fulfillment_process_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets on_hand_quantity
-     * @return int
-     */
-    public function getOnHandQuantity()
-    {
-        return $this->on_hand_quantity;
-    }
-  
-    /**
-     * Sets on_hand_quantity
-     * @param int $on_hand_quantity 
-     * @return $this
-     */
-    public function setOnHandQuantity($on_hand_quantity)
-    {
-        
-        $this->on_hand_quantity = $on_hand_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets open_order_quantity
-     * @return int
-     */
-    public function getOpenOrderQuantity()
-    {
-        return $this->open_order_quantity;
-    }
-  
-    /**
-     * Sets open_order_quantity
-     * @param int $open_order_quantity 
-     * @return $this
-     */
-    public function setOpenOrderQuantity($open_order_quantity)
-    {
-        
-        $this->open_order_quantity = $open_order_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets open_po_quantity
-     * @return int
-     */
-    public function getOpenPoQuantity()
-    {
-        return $this->open_po_quantity;
-    }
-  
-    /**
-     * Sets open_po_quantity
-     * @param int $open_po_quantity 
-     * @return $this
-     */
-    public function setOpenPoQuantity($open_po_quantity)
-    {
-        
-        $this->open_po_quantity = $open_po_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets orderable_quantity
-     * @return int
-     */
-    public function getOrderableQuantity()
-    {
-        return $this->orderable_quantity;
-    }
-  
-    /**
-     * Sets orderable_quantity
-     * @param int $orderable_quantity 
-     * @return $this
-     */
-    public function setOrderableQuantity($orderable_quantity)
-    {
-        
-        $this->orderable_quantity = $orderable_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets unallocatable_quantity
-     * @return int
-     */
-    public function getUnallocatableQuantity()
-    {
-        return $this->unallocatable_quantity;
-    }
-  
-    /**
-     * Sets unallocatable_quantity
-     * @param int $unallocatable_quantity 
-     * @return $this
-     */
-    public function setUnallocatableQuantity($unallocatable_quantity)
-    {
-        
-        $this->unallocatable_quantity = $unallocatable_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets unavailable_quantity
-     * @return int
-     */
-    public function getUnavailableQuantity()
-    {
-        return $this->unavailable_quantity;
-    }
-  
-    /**
-     * Sets unavailable_quantity
-     * @param int $unavailable_quantity 
-     * @return $this
-     */
-    public function setUnavailableQuantity($unavailable_quantity)
-    {
-        
-        $this->unavailable_quantity = $unavailable_quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets overall_days_on_hand
-     * @return int
-     */
-    public function getOverallDaysOnHand()
-    {
-        return $this->overall_days_on_hand;
-    }
-  
-    /**
-     * Sets overall_days_on_hand
-     * @param int $overall_days_on_hand 
-     * @return $this
-     */
-    public function setOverallDaysOnHand($overall_days_on_hand)
-    {
-        
-        $this->overall_days_on_hand = $overall_days_on_hand;
-        return $this;
-    }
-    
-    /**
-     * Gets overall_stock_status
-     * @return string
-     */
-    public function getOverallStockStatus()
-    {
-        return $this->overall_stock_status;
-    }
-  
-    /**
-     * Sets overall_stock_status
-     * @param string $overall_stock_status 
-     * @return $this
-     */
-    public function setOverallStockStatus($overall_stock_status)
-    {
-        
-        $this->overall_stock_status = $overall_stock_status;
         return $this;
     }
     

@@ -125,7 +125,7 @@ class LegacyLowstockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact";
+        $resourcePath = "/v2.0/legacyLowstockContact";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class LegacyLowstockContactApi
     }
     
     /**
-     * addLegacyLowstockContactAudit
-     *
-     * Add new audit for a legacyLowstockContact
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to add an audit to (required)
-     * @param string $legacy_lowstock_contact_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLegacyLowstockContactAudit($legacy_lowstock_contact_id, $legacy_lowstock_contact_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLegacyLowstockContactAuditWithHttpInfo ($legacy_lowstock_contact_id, $legacy_lowstock_contact_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addLegacyLowstockContactAuditWithHttpInfo
-     *
-     * Add new audit for a legacyLowstockContact
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to add an audit to (required)
-     * @param string $legacy_lowstock_contact_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLegacyLowstockContactAuditWithHttpInfo($legacy_lowstock_contact_id, $legacy_lowstock_contact_audit)
-    {
-        
-        // verify the required parameter 'legacy_lowstock_contact_id' is set
-        if ($legacy_lowstock_contact_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_id when calling addLegacyLowstockContactAudit');
-        }
-        // verify the required parameter 'legacy_lowstock_contact_audit' is set
-        if ($legacy_lowstock_contact_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_audit when calling addLegacyLowstockContactAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}/audit/{legacyLowstockContactAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($legacy_lowstock_contact_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($legacy_lowstock_contact_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addLegacyLowstockContactTag
-     *
-     * Add new tags for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to add a tag to (required)
-     * @param string $legacy_lowstock_contact_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLegacyLowstockContactTagWithHttpInfo ($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addLegacyLowstockContactTagWithHttpInfo
-     *
-     * Add new tags for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to add a tag to (required)
-     * @param string $legacy_lowstock_contact_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLegacyLowstockContactTagWithHttpInfo($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-    {
-        
-        // verify the required parameter 'legacy_lowstock_contact_id' is set
-        if ($legacy_lowstock_contact_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_id when calling addLegacyLowstockContactTag');
-        }
-        // verify the required parameter 'legacy_lowstock_contact_tag' is set
-        if ($legacy_lowstock_contact_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_tag when calling addLegacyLowstockContactTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($legacy_lowstock_contact_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($legacy_lowstock_contact_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteLegacyLowstockContact
      *
      * Delete a legacyLowstockContact
@@ -443,7 +227,7 @@ class LegacyLowstockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}";
+        $resourcePath = "/v2.0/legacyLowstockContact/{legacyLowstockContactId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class LegacyLowstockContactApi
             $resourcePath = str_replace(
                 "{" . "legacyLowstockContactId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteLegacyLowstockContactTag
-     *
-     * Delete a tag for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to remove tag from (required)
-     * @param string $legacy_lowstock_contact_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLegacyLowstockContactTag($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteLegacyLowstockContactTagWithHttpInfo ($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteLegacyLowstockContactTagWithHttpInfo
-     *
-     * Delete a tag for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to remove tag from (required)
-     * @param string $legacy_lowstock_contact_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLegacyLowstockContactTagWithHttpInfo($legacy_lowstock_contact_id, $legacy_lowstock_contact_tag)
-    {
-        
-        // verify the required parameter 'legacy_lowstock_contact_id' is set
-        if ($legacy_lowstock_contact_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_id when calling deleteLegacyLowstockContactTag');
-        }
-        // verify the required parameter 'legacy_lowstock_contact_tag' is set
-        if ($legacy_lowstock_contact_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_tag when calling deleteLegacyLowstockContactTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag/{legacyLowstockContactTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($legacy_lowstock_contact_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($legacy_lowstock_contact_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class LegacyLowstockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/duplicate/{legacyLowstockContactId}";
+        $resourcePath = "/v2.0/legacyLowstockContact/duplicate/{legacyLowstockContactId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class LegacyLowstockContactApi
         
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/search";
+        $resourcePath = "/v2.0/legacyLowstockContact/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class LegacyLowstockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}";
+        $resourcePath = "/v2.0/legacyLowstockContact/{legacyLowstockContactId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class LegacyLowstockContactApi
     }
     
     /**
-     * getLegacyLowstockContactTags
-     *
-     * Get the tags for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLegacyLowstockContactTags($legacy_lowstock_contact_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getLegacyLowstockContactTagsWithHttpInfo ($legacy_lowstock_contact_id);
-        return $response; 
-    }
-
-
-    /**
-     * getLegacyLowstockContactTagsWithHttpInfo
-     *
-     * Get the tags for a legacyLowstockContact.
-     *
-     * @param int $legacy_lowstock_contact_id Id of the legacyLowstockContact to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLegacyLowstockContactTagsWithHttpInfo($legacy_lowstock_contact_id)
-    {
-        
-        // verify the required parameter 'legacy_lowstock_contact_id' is set
-        if ($legacy_lowstock_contact_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $legacy_lowstock_contact_id when calling getLegacyLowstockContactTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact/{legacyLowstockContactId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($legacy_lowstock_contact_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "legacyLowstockContactId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($legacy_lowstock_contact_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateLegacyLowstockContact
      *
      * Update a legacyLowstockContact
@@ -1055,7 +637,7 @@ class LegacyLowstockContactApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/legacyLowstockContact";
+        $resourcePath = "/v2.0/legacyLowstockContact";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

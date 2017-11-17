@@ -68,10 +68,8 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'string',
         'unit_cost' => 'Number',
         'unit_sell' => 'Number',
-        'unit_discount' => 'Number',
         'extended_cost' => 'Number',
         'extended_sell' => 'Number',
-        'extended_discount' => 'Number',
         'nc_extended_sell' => 'Number',
         'item_weight' => 'Number',
         'production_lot' => 'string',
@@ -112,10 +110,8 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'orderSourceSKU',
         'unit_cost' => 'unitCost',
         'unit_sell' => 'unitSell',
-        'unit_discount' => 'unitDiscount',
         'extended_cost' => 'extendedCost',
         'extended_sell' => 'extendedSell',
-        'extended_discount' => 'extendedDiscount',
         'nc_extended_sell' => 'ncExtendedSell',
         'item_weight' => 'itemWeight',
         'production_lot' => 'productionLot',
@@ -156,10 +152,8 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'setOrderSourceSku',
         'unit_cost' => 'setUnitCost',
         'unit_sell' => 'setUnitSell',
-        'unit_discount' => 'setUnitDiscount',
         'extended_cost' => 'setExtendedCost',
         'extended_sell' => 'setExtendedSell',
-        'extended_discount' => 'setExtendedDiscount',
         'nc_extended_sell' => 'setNcExtendedSell',
         'item_weight' => 'setItemWeight',
         'production_lot' => 'setProductionLot',
@@ -200,10 +194,8 @@ class OrderLine implements ArrayAccess
         'order_source_sku' => 'getOrderSourceSku',
         'unit_cost' => 'getUnitCost',
         'unit_sell' => 'getUnitSell',
-        'unit_discount' => 'getUnitDiscount',
         'extended_cost' => 'getExtendedCost',
         'extended_sell' => 'getExtendedSell',
-        'extended_discount' => 'getExtendedDiscount',
         'nc_extended_sell' => 'getNcExtendedSell',
         'item_weight' => 'getItemWeight',
         'production_lot' => 'getProductionLot',
@@ -326,12 +318,6 @@ class OrderLine implements ArrayAccess
     protected $unit_sell;
     
     /**
-      * $unit_discount 
-      * @var Number
-      */
-    protected $unit_discount;
-    
-    /**
       * $extended_cost 
       * @var Number
       */
@@ -342,12 +328,6 @@ class OrderLine implements ArrayAccess
       * @var Number
       */
     protected $extended_sell;
-    
-    /**
-      * $extended_discount 
-      * @var Number
-      */
-    protected $extended_discount;
     
     /**
       * $nc_extended_sell 
@@ -447,10 +427,8 @@ class OrderLine implements ArrayAccess
             $this->order_source_sku = $data["order_source_sku"];
             $this->unit_cost = $data["unit_cost"];
             $this->unit_sell = $data["unit_sell"];
-            $this->unit_discount = $data["unit_discount"];
             $this->extended_cost = $data["extended_cost"];
             $this->extended_sell = $data["extended_sell"];
-            $this->extended_discount = $data["extended_discount"];
             $this->nc_extended_sell = $data["nc_extended_sell"];
             $this->item_weight = $data["item_weight"];
             $this->production_lot = $data["production_lot"];
@@ -824,27 +802,6 @@ class OrderLine implements ArrayAccess
     }
     
     /**
-     * Gets unit_discount
-     * @return Number
-     */
-    public function getUnitDiscount()
-    {
-        return $this->unit_discount;
-    }
-  
-    /**
-     * Sets unit_discount
-     * @param Number $unit_discount 
-     * @return $this
-     */
-    public function setUnitDiscount($unit_discount)
-    {
-        
-        $this->unit_discount = $unit_discount;
-        return $this;
-    }
-    
-    /**
      * Gets extended_cost
      * @return Number
      */
@@ -883,27 +840,6 @@ class OrderLine implements ArrayAccess
     {
         
         $this->extended_sell = $extended_sell;
-        return $this;
-    }
-    
-    /**
-     * Gets extended_discount
-     * @return Number
-     */
-    public function getExtendedDiscount()
-    {
-        return $this->extended_discount;
-    }
-  
-    /**
-     * Sets extended_discount
-     * @param Number $extended_discount 
-     * @return $this
-     */
-    public function setExtendedDiscount($extended_discount)
-    {
-        
-        $this->extended_discount = $extended_discount;
         return $this;
     }
     

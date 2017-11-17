@@ -125,7 +125,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate";
+        $resourcePath = "/v2.0/emailTemplate";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class EmailTemplateApi
     }
     
     /**
-     * addEmailTemplateAudit
-     *
-     * Add new audit for an emailTemplate
-     *
-     * @param int $email_template_id Id of the emailTemplate to add an audit to (required)
-     * @param string $email_template_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addEmailTemplateAudit($email_template_id, $email_template_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addEmailTemplateAuditWithHttpInfo ($email_template_id, $email_template_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addEmailTemplateAuditWithHttpInfo
-     *
-     * Add new audit for an emailTemplate
-     *
-     * @param int $email_template_id Id of the emailTemplate to add an audit to (required)
-     * @param string $email_template_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addEmailTemplateAuditWithHttpInfo($email_template_id, $email_template_audit)
-    {
-        
-        // verify the required parameter 'email_template_id' is set
-        if ($email_template_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_id when calling addEmailTemplateAudit');
-        }
-        // verify the required parameter 'email_template_audit' is set
-        if ($email_template_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_audit when calling addEmailTemplateAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}/audit/{emailTemplateAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($email_template_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($email_template_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addEmailTemplateTag
-     *
-     * Add new tags for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to add a tag to (required)
-     * @param string $email_template_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addEmailTemplateTag($email_template_id, $email_template_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addEmailTemplateTagWithHttpInfo ($email_template_id, $email_template_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addEmailTemplateTagWithHttpInfo
-     *
-     * Add new tags for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to add a tag to (required)
-     * @param string $email_template_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addEmailTemplateTagWithHttpInfo($email_template_id, $email_template_tag)
-    {
-        
-        // verify the required parameter 'email_template_id' is set
-        if ($email_template_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_id when calling addEmailTemplateTag');
-        }
-        // verify the required parameter 'email_template_tag' is set
-        if ($email_template_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_tag when calling addEmailTemplateTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}/tag/{emailTemplateTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($email_template_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($email_template_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteEmailTemplate
      *
      * Delete an emailTemplate
@@ -443,7 +227,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}";
+        $resourcePath = "/v2.0/emailTemplate/{emailTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class EmailTemplateApi
             $resourcePath = str_replace(
                 "{" . "emailTemplateId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($email_template_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteEmailTemplateTag
-     *
-     * Delete a tag for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to remove tag from (required)
-     * @param string $email_template_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteEmailTemplateTag($email_template_id, $email_template_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteEmailTemplateTagWithHttpInfo ($email_template_id, $email_template_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteEmailTemplateTagWithHttpInfo
-     *
-     * Delete a tag for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to remove tag from (required)
-     * @param string $email_template_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteEmailTemplateTagWithHttpInfo($email_template_id, $email_template_tag)
-    {
-        
-        // verify the required parameter 'email_template_id' is set
-        if ($email_template_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_id when calling deleteEmailTemplateTag');
-        }
-        // verify the required parameter 'email_template_tag' is set
-        if ($email_template_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_tag when calling deleteEmailTemplateTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}/tag/{emailTemplateTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($email_template_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($email_template_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate/duplicate/{emailTemplateId}";
+        $resourcePath = "/v2.0/emailTemplate/duplicate/{emailTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class EmailTemplateApi
         
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate/search";
+        $resourcePath = "/v2.0/emailTemplate/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}";
+        $resourcePath = "/v2.0/emailTemplate/{emailTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class EmailTemplateApi
     }
     
     /**
-     * getEmailTemplateTags
-     *
-     * Get the tags for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getEmailTemplateTags($email_template_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getEmailTemplateTagsWithHttpInfo ($email_template_id);
-        return $response; 
-    }
-
-
-    /**
-     * getEmailTemplateTagsWithHttpInfo
-     *
-     * Get the tags for an emailTemplate.
-     *
-     * @param int $email_template_id Id of the emailTemplate to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getEmailTemplateTagsWithHttpInfo($email_template_id)
-    {
-        
-        // verify the required parameter 'email_template_id' is set
-        if ($email_template_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $email_template_id when calling getEmailTemplateTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/emailTemplate/{emailTemplateId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($email_template_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "emailTemplateId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($email_template_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateEmailTemplate
      *
      * Update an emailTemplate
@@ -1055,7 +637,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate";
+        $resourcePath = "/v2.0/emailTemplate";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class EmailTemplateApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/emailTemplate/customFields";
+        $resourcePath = "/v2.0/emailTemplate/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -66,36 +66,6 @@ class WarehouseDocumentTypeApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addWarehouseDocumentTypeAudit
-     *
-     * Add new audit for a warehouseDocumentType
-     *
-     */
-    public function test_addWarehouseDocumentTypeAudit() {
-
-    }
-    
-    /**
-     * Test case for addWarehouseDocumentTypeTag
-     *
-     * Add new tags for a warehouseDocumentType.
-     *
-     */
-    public function test_addWarehouseDocumentTypeTag() {
-
-    }
-    
-    /**
-     * Test case for deleteWarehouseDocumentTypeTag
-     *
-     * Delete a tag for a warehouseDocumentType.
-     *
-     */
-    public function test_deleteWarehouseDocumentTypeTag() {
-
-    }
-    
-    /**
      * Test case for getDuplicateWarehouseDocumentTypeById
      *
      * Get a duplicated a warehouseDocumentType by id
@@ -122,16 +92,6 @@ class WarehouseDocumentTypeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getWarehouseDocumentTypeById() {
-
-    }
-    
-    /**
-     * Test case for getWarehouseDocumentTypeTags
-     *
-     * Get the tags for a warehouseDocumentType.
-     *
-     */
-    public function test_getWarehouseDocumentTypeTags() {
 
     }
     

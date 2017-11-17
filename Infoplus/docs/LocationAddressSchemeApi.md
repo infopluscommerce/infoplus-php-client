@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addLocationAddressScheme**](LocationAddressSchemeApi.md#addLocationAddressScheme) | **POST** /beta/locationAddressScheme | Create a locationAddressScheme
-[**addLocationAddressSchemeAudit**](LocationAddressSchemeApi.md#addLocationAddressSchemeAudit) | **PUT** /beta/locationAddressScheme/{locationAddressSchemeId}/audit/{locationAddressSchemeAudit} | Add new audit for a locationAddressScheme
-[**addLocationAddressSchemeTag**](LocationAddressSchemeApi.md#addLocationAddressSchemeTag) | **PUT** /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag} | Add new tags for a locationAddressScheme.
-[**deleteLocationAddressScheme**](LocationAddressSchemeApi.md#deleteLocationAddressScheme) | **DELETE** /beta/locationAddressScheme/{locationAddressSchemeId} | Delete a locationAddressScheme
-[**deleteLocationAddressSchemeTag**](LocationAddressSchemeApi.md#deleteLocationAddressSchemeTag) | **DELETE** /beta/locationAddressScheme/{locationAddressSchemeId}/tag/{locationAddressSchemeTag} | Delete a tag for a locationAddressScheme.
-[**getDuplicateLocationAddressSchemeById**](LocationAddressSchemeApi.md#getDuplicateLocationAddressSchemeById) | **GET** /beta/locationAddressScheme/duplicate/{locationAddressSchemeId} | Get a duplicated a locationAddressScheme by id
-[**getLocationAddressSchemeByFilter**](LocationAddressSchemeApi.md#getLocationAddressSchemeByFilter) | **GET** /beta/locationAddressScheme/search | Search locationAddressSchemes by filter
-[**getLocationAddressSchemeById**](LocationAddressSchemeApi.md#getLocationAddressSchemeById) | **GET** /beta/locationAddressScheme/{locationAddressSchemeId} | Get a locationAddressScheme by id
-[**getLocationAddressSchemeTags**](LocationAddressSchemeApi.md#getLocationAddressSchemeTags) | **GET** /beta/locationAddressScheme/{locationAddressSchemeId}/tag | Get the tags for a locationAddressScheme.
-[**updateLocationAddressScheme**](LocationAddressSchemeApi.md#updateLocationAddressScheme) | **PUT** /beta/locationAddressScheme | Update a locationAddressScheme
-[**updateLocationAddressSchemeCustomFields**](LocationAddressSchemeApi.md#updateLocationAddressSchemeCustomFields) | **PUT** /beta/locationAddressScheme/customFields | Update a locationAddressScheme custom fields
+[**addLocationAddressScheme**](LocationAddressSchemeApi.md#addLocationAddressScheme) | **POST** /v2.0/locationAddressScheme | Create a locationAddressScheme
+[**deleteLocationAddressScheme**](LocationAddressSchemeApi.md#deleteLocationAddressScheme) | **DELETE** /v2.0/locationAddressScheme/{locationAddressSchemeId} | Delete a locationAddressScheme
+[**getDuplicateLocationAddressSchemeById**](LocationAddressSchemeApi.md#getDuplicateLocationAddressSchemeById) | **GET** /v2.0/locationAddressScheme/duplicate/{locationAddressSchemeId} | Get a duplicated a locationAddressScheme by id
+[**getLocationAddressSchemeByFilter**](LocationAddressSchemeApi.md#getLocationAddressSchemeByFilter) | **GET** /v2.0/locationAddressScheme/search | Search locationAddressSchemes by filter
+[**getLocationAddressSchemeById**](LocationAddressSchemeApi.md#getLocationAddressSchemeById) | **GET** /v2.0/locationAddressScheme/{locationAddressSchemeId} | Get a locationAddressScheme by id
+[**updateLocationAddressScheme**](LocationAddressSchemeApi.md#updateLocationAddressScheme) | **PUT** /v2.0/locationAddressScheme | Update a locationAddressScheme
+[**updateLocationAddressSchemeCustomFields**](LocationAddressSchemeApi.md#updateLocationAddressSchemeCustomFields) | **PUT** /v2.0/locationAddressScheme/customFields | Update a locationAddressScheme custom fields
 
 
 # **addLocationAddressScheme**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addLocationAddressSchemeAudit**
-> addLocationAddressSchemeAudit($location_address_scheme_id, $location_address_scheme_audit)
-
-Add new audit for a locationAddressScheme
-
-Adds an audit to an existing locationAddressScheme.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationAddressSchemeApi();
-$location_address_scheme_id = 56; // int | Id of the locationAddressScheme to add an audit to
-$location_address_scheme_audit = "location_address_scheme_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addLocationAddressSchemeAudit($location_address_scheme_id, $location_address_scheme_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationAddressSchemeApi->addLocationAddressSchemeAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_address_scheme_id** | **int**| Id of the locationAddressScheme to add an audit to | 
- **location_address_scheme_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addLocationAddressSchemeTag**
-> addLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag)
-
-Add new tags for a locationAddressScheme.
-
-Adds a tag to an existing locationAddressScheme.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationAddressSchemeApi();
-$location_address_scheme_id = 56; // int | Id of the locationAddressScheme to add a tag to
-$location_address_scheme_tag = "location_address_scheme_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationAddressSchemeApi->addLocationAddressSchemeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_address_scheme_id** | **int**| Id of the locationAddressScheme to add a tag to | 
- **location_address_scheme_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteLocationAddressScheme**
 > deleteLocationAddressScheme($location_address_scheme_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **location_address_scheme_id** | **int**| Id of the locationAddressScheme to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteLocationAddressSchemeTag**
-> deleteLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag)
-
-Delete a tag for a locationAddressScheme.
-
-Deletes an existing locationAddressScheme tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationAddressSchemeApi();
-$location_address_scheme_id = 56; // int | Id of the locationAddressScheme to remove tag from
-$location_address_scheme_tag = "location_address_scheme_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteLocationAddressSchemeTag($location_address_scheme_id, $location_address_scheme_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationAddressSchemeApi->deleteLocationAddressSchemeTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_address_scheme_id** | **int**| Id of the locationAddressScheme to remove tag from | 
- **location_address_scheme_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\LocationAddressScheme**](LocationAddressScheme.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getLocationAddressSchemeTags**
-> getLocationAddressSchemeTags($location_address_scheme_id)
-
-Get the tags for a locationAddressScheme.
-
-Get all existing locationAddressScheme tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\LocationAddressSchemeApi();
-$location_address_scheme_id = 56; // int | Id of the locationAddressScheme to get tags for
-
-try { 
-    $api_instance->getLocationAddressSchemeTags($location_address_scheme_id);
-} catch (Exception $e) {
-    echo 'Exception when calling LocationAddressSchemeApi->getLocationAddressSchemeTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **location_address_scheme_id** | **int**| Id of the locationAddressScheme to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

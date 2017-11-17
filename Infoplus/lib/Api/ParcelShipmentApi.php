@@ -92,6 +92,108 @@ class ParcelShipmentApi
   
     
     /**
+     * getDuplicateParcelShipmentById
+     *
+     * Get a duplicated a parcelShipment by id
+     *
+     * @param int $parcel_shipment_id Id of the parcelShipment to be duplicated. (required)
+     * @return \Infoplus\Model\ParcelShipment
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateParcelShipmentById($parcel_shipment_id)
+    {
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateParcelShipmentByIdWithHttpInfo ($parcel_shipment_id);
+        return $response; 
+    }
+
+
+    /**
+     * getDuplicateParcelShipmentByIdWithHttpInfo
+     *
+     * Get a duplicated a parcelShipment by id
+     *
+     * @param int $parcel_shipment_id Id of the parcelShipment to be duplicated. (required)
+     * @return Array of \Infoplus\Model\ParcelShipment, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function getDuplicateParcelShipmentByIdWithHttpInfo($parcel_shipment_id)
+    {
+        
+        // verify the required parameter 'parcel_shipment_id' is set
+        if ($parcel_shipment_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $parcel_shipment_id when calling getDuplicateParcelShipmentById');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v2.0/parcelShipment/duplicate/{parcelShipmentId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
+  
+        
+        
+        // path params
+        
+        if ($parcel_shipment_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "parcelShipmentId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($parcel_shipment_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'GET',
+                $queryParams, $httpBody,
+                $headerParams, '\Infoplus\Model\ParcelShipment'
+            );
+            
+            if (!$response) {
+                return array(null, $statusCode, $httpHeader);
+            }
+
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ParcelShipment', $httpHeader), $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
+            case 200:
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ParcelShipment', $e->getResponseHeaders());
+                $e->setResponseObject($data);
+                break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
      * getParcelShipmentByFilter
      *
      * Search parcelShipments by filter
@@ -127,7 +229,7 @@ class ParcelShipmentApi
         
   
         // parse inputs
-        $resourcePath = "/v1.0/parcelShipment/search";
+        $resourcePath = "/v2.0/parcelShipment/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -237,7 +339,7 @@ class ParcelShipmentApi
         }
   
         // parse inputs
-        $resourcePath = "/v1.0/parcelShipment/{parcelShipmentId}";
+        $resourcePath = "/v2.0/parcelShipment/{parcelShipmentId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -299,6 +401,96 @@ class ParcelShipmentApi
                 $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ParcelShipment', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
+            }
+  
+            throw $e;
+        }
+    }
+    
+    /**
+     * updateParcelShipmentCustomFields
+     *
+     * Update a parcelShipment custom fields
+     *
+     * @param \Infoplus\Model\ParcelShipment $body ParcelShipment to be updated. (required)
+     * @return void
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateParcelShipmentCustomFields($body)
+    {
+        list($response, $statusCode, $httpHeader) = $this->updateParcelShipmentCustomFieldsWithHttpInfo ($body);
+        return $response; 
+    }
+
+
+    /**
+     * updateParcelShipmentCustomFieldsWithHttpInfo
+     *
+     * Update a parcelShipment custom fields
+     *
+     * @param \Infoplus\Model\ParcelShipment $body ParcelShipment to be updated. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \Infoplus\ApiException on non-2xx response
+     */
+    public function updateParcelShipmentCustomFieldsWithHttpInfo($body)
+    {
+        
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateParcelShipmentCustomFields');
+        }
+  
+        // parse inputs
+        $resourcePath = "/v2.0/parcelShipment/customFields";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
+  
+        
+        
+        
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+  
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['API-Key'] = $apiKey;
+        }
+        
+        
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath, 'PUT',
+                $queryParams, $httpBody,
+                $headerParams
+            );
+            
+            return array(null, $statusCode, $httpHeader);
+            
+        } catch (ApiException $e) {
+            switch ($e->getCode()) { 
             }
   
             throw $e;

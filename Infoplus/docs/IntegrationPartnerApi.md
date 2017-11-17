@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getIntegrationPartnerById**](IntegrationPartnerApi.md#getIntegrationPartnerById) | **GET** /beta/integrationPartner/{integrationPartnerId} | Get an integrationPartner by id
-[**getIntegrationPartnerBySearchText**](IntegrationPartnerApi.md#getIntegrationPartnerBySearchText) | **GET** /beta/integrationPartner/search | Search integrationPartners
+[**getIntegrationPartnerById**](IntegrationPartnerApi.md#getIntegrationPartnerById) | **GET** /v2.0/integrationPartner/{integrationPartnerId} | Get an integrationPartner by id
+[**getIntegrationPartnerBySearchText**](IntegrationPartnerApi.md#getIntegrationPartnerBySearchText) | **GET** /v2.0/integrationPartner/search | Search integrationPartners
 
 
 # **getIntegrationPartnerById**

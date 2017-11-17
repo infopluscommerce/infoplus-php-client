@@ -4,8 +4,8 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getOrderLoadProgramBySearchText**](OrderLoadProgramApi.md#getOrderLoadProgramBySearchText) | **GET** /beta/orderLoadProgram/search | Search orderLoadPrograms
-[**getReqLoadProgramById**](OrderLoadProgramApi.md#getReqLoadProgramById) | **GET** /beta/orderLoadProgram/{orderLoadProgramId} | Get an orderLoadProgram by id
+[**getOrderLoadProgramBySearchText**](OrderLoadProgramApi.md#getOrderLoadProgramBySearchText) | **GET** /v2.0/orderLoadProgram/search | Search orderLoadPrograms
+[**getReqLoadProgramById**](OrderLoadProgramApi.md#getReqLoadProgramById) | **GET** /v2.0/orderLoadProgram/{orderLoadProgramId} | Get an orderLoadProgram by id
 
 
 # **getOrderLoadProgramBySearchText**

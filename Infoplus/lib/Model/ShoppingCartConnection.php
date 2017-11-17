@@ -69,14 +69,10 @@ class ShoppingCartConnection implements ArrayAccess
         'access_token' => 'string',
         'username' => 'string',
         'password' => 'string',
-        'default_carrier_id' => 'int',
-        'order_shipment_level' => 'string',
         'sync_orders' => 'bool',
         'sync_inventory' => 'bool',
         'sync_tracking_data' => 'bool',
-        'fulfill_all_items' => 'bool',
         'sync_inventory_levels_last_run_time' => '\DateTime',
-        'sync_orders_last_run_time' => '\DateTime',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -107,14 +103,10 @@ class ShoppingCartConnection implements ArrayAccess
         'access_token' => 'accessToken',
         'username' => 'username',
         'password' => 'password',
-        'default_carrier_id' => 'defaultCarrierId',
-        'order_shipment_level' => 'orderShipmentLevel',
         'sync_orders' => 'syncOrders',
         'sync_inventory' => 'syncInventory',
         'sync_tracking_data' => 'syncTrackingData',
-        'fulfill_all_items' => 'fulfillAllItems',
         'sync_inventory_levels_last_run_time' => 'syncInventoryLevelsLastRunTime',
-        'sync_orders_last_run_time' => 'syncOrdersLastRunTime',
         'custom_fields' => 'customFields'
     );
   
@@ -145,14 +137,10 @@ class ShoppingCartConnection implements ArrayAccess
         'access_token' => 'setAccessToken',
         'username' => 'setUsername',
         'password' => 'setPassword',
-        'default_carrier_id' => 'setDefaultCarrierId',
-        'order_shipment_level' => 'setOrderShipmentLevel',
         'sync_orders' => 'setSyncOrders',
         'sync_inventory' => 'setSyncInventory',
         'sync_tracking_data' => 'setSyncTrackingData',
-        'fulfill_all_items' => 'setFulfillAllItems',
         'sync_inventory_levels_last_run_time' => 'setSyncInventoryLevelsLastRunTime',
-        'sync_orders_last_run_time' => 'setSyncOrdersLastRunTime',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -183,14 +171,10 @@ class ShoppingCartConnection implements ArrayAccess
         'access_token' => 'getAccessToken',
         'username' => 'getUsername',
         'password' => 'getPassword',
-        'default_carrier_id' => 'getDefaultCarrierId',
-        'order_shipment_level' => 'getOrderShipmentLevel',
         'sync_orders' => 'getSyncOrders',
         'sync_inventory' => 'getSyncInventory',
         'sync_tracking_data' => 'getSyncTrackingData',
-        'fulfill_all_items' => 'getFulfillAllItems',
         'sync_inventory_levels_last_run_time' => 'getSyncInventoryLevelsLastRunTime',
-        'sync_orders_last_run_time' => 'getSyncOrdersLastRunTime',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -308,18 +292,6 @@ class ShoppingCartConnection implements ArrayAccess
     protected $password;
     
     /**
-      * $default_carrier_id 
-      * @var int
-      */
-    protected $default_carrier_id;
-    
-    /**
-      * $order_shipment_level 
-      * @var string
-      */
-    protected $order_shipment_level;
-    
-    /**
       * $sync_orders 
       * @var bool
       */
@@ -338,22 +310,10 @@ class ShoppingCartConnection implements ArrayAccess
     protected $sync_tracking_data = false;
     
     /**
-      * $fulfill_all_items 
-      * @var bool
-      */
-    protected $fulfill_all_items = false;
-    
-    /**
       * $sync_inventory_levels_last_run_time 
       * @var \DateTime
       */
     protected $sync_inventory_levels_last_run_time;
-    
-    /**
-      * $sync_orders_last_run_time 
-      * @var \DateTime
-      */
-    protected $sync_orders_last_run_time;
     
     /**
       * $custom_fields 
@@ -388,14 +348,10 @@ class ShoppingCartConnection implements ArrayAccess
             $this->access_token = $data["access_token"];
             $this->username = $data["username"];
             $this->password = $data["password"];
-            $this->default_carrier_id = $data["default_carrier_id"];
-            $this->order_shipment_level = $data["order_shipment_level"];
             $this->sync_orders = $data["sync_orders"];
             $this->sync_inventory = $data["sync_inventory"];
             $this->sync_tracking_data = $data["sync_tracking_data"];
-            $this->fulfill_all_items = $data["fulfill_all_items"];
             $this->sync_inventory_levels_last_run_time = $data["sync_inventory_levels_last_run_time"];
-            $this->sync_orders_last_run_time = $data["sync_orders_last_run_time"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -779,48 +735,6 @@ class ShoppingCartConnection implements ArrayAccess
     }
     
     /**
-     * Gets default_carrier_id
-     * @return int
-     */
-    public function getDefaultCarrierId()
-    {
-        return $this->default_carrier_id;
-    }
-  
-    /**
-     * Sets default_carrier_id
-     * @param int $default_carrier_id 
-     * @return $this
-     */
-    public function setDefaultCarrierId($default_carrier_id)
-    {
-        
-        $this->default_carrier_id = $default_carrier_id;
-        return $this;
-    }
-    
-    /**
-     * Gets order_shipment_level
-     * @return string
-     */
-    public function getOrderShipmentLevel()
-    {
-        return $this->order_shipment_level;
-    }
-  
-    /**
-     * Sets order_shipment_level
-     * @param string $order_shipment_level 
-     * @return $this
-     */
-    public function setOrderShipmentLevel($order_shipment_level)
-    {
-        
-        $this->order_shipment_level = $order_shipment_level;
-        return $this;
-    }
-    
-    /**
      * Gets sync_orders
      * @return bool
      */
@@ -884,27 +798,6 @@ class ShoppingCartConnection implements ArrayAccess
     }
     
     /**
-     * Gets fulfill_all_items
-     * @return bool
-     */
-    public function getFulfillAllItems()
-    {
-        return $this->fulfill_all_items;
-    }
-  
-    /**
-     * Sets fulfill_all_items
-     * @param bool $fulfill_all_items 
-     * @return $this
-     */
-    public function setFulfillAllItems($fulfill_all_items)
-    {
-        
-        $this->fulfill_all_items = $fulfill_all_items;
-        return $this;
-    }
-    
-    /**
      * Gets sync_inventory_levels_last_run_time
      * @return \DateTime
      */
@@ -922,27 +815,6 @@ class ShoppingCartConnection implements ArrayAccess
     {
         
         $this->sync_inventory_levels_last_run_time = $sync_inventory_levels_last_run_time;
-        return $this;
-    }
-    
-    /**
-     * Gets sync_orders_last_run_time
-     * @return \DateTime
-     */
-    public function getSyncOrdersLastRunTime()
-    {
-        return $this->sync_orders_last_run_time;
-    }
-  
-    /**
-     * Sets sync_orders_last_run_time
-     * @param \DateTime $sync_orders_last_run_time 
-     * @return $this
-     */
-    public function setSyncOrdersLastRunTime($sync_orders_last_run_time)
-    {
-        
-        $this->sync_orders_last_run_time = $sync_orders_last_run_time;
         return $this;
     }
     

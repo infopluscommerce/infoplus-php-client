@@ -76,42 +76,12 @@ class ItemBuyerApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addItemBuyerAudit
-     *
-     * Add new audit for an itemBuyer
-     *
-     */
-    public function test_addItemBuyerAudit() {
-
-    }
-    
-    /**
-     * Test case for addItemBuyerTag
-     *
-     * Add new tags for an itemBuyer.
-     *
-     */
-    public function test_addItemBuyerTag() {
-
-    }
-    
-    /**
      * Test case for deleteItemBuyer
      *
      * Delete an itemBuyer
      *
      */
     public function test_deleteItemBuyer() {
-
-    }
-    
-    /**
-     * Test case for deleteItemBuyerTag
-     *
-     * Delete a tag for an itemBuyer.
-     *
-     */
-    public function test_deleteItemBuyerTag() {
 
     }
     
@@ -142,16 +112,6 @@ class ItemBuyerApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getItemBuyerById() {
-
-    }
-    
-    /**
-     * Test case for getItemBuyerTags
-     *
-     * Get the tags for an itemBuyer.
-     *
-     */
-    public function test_getItemBuyerTags() {
 
     }
     

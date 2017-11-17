@@ -125,7 +125,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location";
+        $resourcePath = "/v2.0/location";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class LocationApi
     }
     
     /**
-     * addLocationAudit
-     *
-     * Add new audit for a location
-     *
-     * @param int $location_id Id of the location to add an audit to (required)
-     * @param string $location_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationAudit($location_id, $location_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLocationAuditWithHttpInfo ($location_id, $location_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addLocationAuditWithHttpInfo
-     *
-     * Add new audit for a location
-     *
-     * @param int $location_id Id of the location to add an audit to (required)
-     * @param string $location_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationAuditWithHttpInfo($location_id, $location_audit)
-    {
-        
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling addLocationAudit');
-        }
-        // verify the required parameter 'location_audit' is set
-        if ($location_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_audit when calling addLocationAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/location/{locationId}/audit/{locationAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($location_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addLocationTag
-     *
-     * Add new tags for a location.
-     *
-     * @param int $location_id Id of the location to add a tag to (required)
-     * @param string $location_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationTag($location_id, $location_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLocationTagWithHttpInfo ($location_id, $location_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addLocationTagWithHttpInfo
-     *
-     * Add new tags for a location.
-     *
-     * @param int $location_id Id of the location to add a tag to (required)
-     * @param string $location_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationTagWithHttpInfo($location_id, $location_tag)
-    {
-        
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling addLocationTag');
-        }
-        // verify the required parameter 'location_tag' is set
-        if ($location_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_tag when calling addLocationTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/location/{locationId}/tag/{locationTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($location_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteLocation
      *
      * Delete a location
@@ -443,7 +227,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location/{locationId}";
+        $resourcePath = "/v2.0/location/{locationId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class LocationApi
             $resourcePath = str_replace(
                 "{" . "locationId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteLocationTag
-     *
-     * Delete a tag for a location.
-     *
-     * @param int $location_id Id of the location to remove tag from (required)
-     * @param string $location_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLocationTag($location_id, $location_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteLocationTagWithHttpInfo ($location_id, $location_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteLocationTagWithHttpInfo
-     *
-     * Delete a tag for a location.
-     *
-     * @param int $location_id Id of the location to remove tag from (required)
-     * @param string $location_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLocationTagWithHttpInfo($location_id, $location_tag)
-    {
-        
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling deleteLocationTag');
-        }
-        // verify the required parameter 'location_tag' is set
-        if ($location_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_tag when calling deleteLocationTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/location/{locationId}/tag/{locationTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($location_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location/duplicate/{locationId}";
+        $resourcePath = "/v2.0/location/duplicate/{locationId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class LocationApi
         
   
         // parse inputs
-        $resourcePath = "/beta/location/search";
+        $resourcePath = "/v2.0/location/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location/{locationId}";
+        $resourcePath = "/v2.0/location/{locationId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class LocationApi
     }
     
     /**
-     * getLocationTags
-     *
-     * Get the tags for a location.
-     *
-     * @param int $location_id Id of the location to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLocationTags($location_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getLocationTagsWithHttpInfo ($location_id);
-        return $response; 
-    }
-
-
-    /**
-     * getLocationTagsWithHttpInfo
-     *
-     * Get the tags for a location.
-     *
-     * @param int $location_id Id of the location to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLocationTagsWithHttpInfo($location_id)
-    {
-        
-        // verify the required parameter 'location_id' is set
-        if ($location_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_id when calling getLocationTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/location/{locationId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($location_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateLocation
      *
      * Update a location
@@ -1055,7 +637,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location";
+        $resourcePath = "/v2.0/location";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class LocationApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/location/customFields";
+        $resourcePath = "/v2.0/location/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

@@ -4,17 +4,13 @@ All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOrder**](OrderApi.md#addOrder) | **POST** /beta/order | Create an order
-[**addOrderAudit**](OrderApi.md#addOrderAudit) | **PUT** /beta/order/{orderId}/audit/{orderAudit} | Add new audit for an order
-[**addOrderTag**](OrderApi.md#addOrderTag) | **PUT** /beta/order/{orderId}/tag/{orderTag} | Add new tags for an order.
-[**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /beta/order/{orderId} | Delete an order
-[**deleteOrderTag**](OrderApi.md#deleteOrderTag) | **DELETE** /beta/order/{orderId}/tag/{orderTag} | Delete a tag for an order.
-[**getDuplicateOrderById**](OrderApi.md#getDuplicateOrderById) | **GET** /beta/order/duplicate/{orderId} | Get a duplicated an order by id
-[**getOrderByFilter**](OrderApi.md#getOrderByFilter) | **GET** /beta/order/search | Search orders by filter
-[**getOrderById**](OrderApi.md#getOrderById) | **GET** /beta/order/{orderId} | Get an order by id
-[**getOrderTags**](OrderApi.md#getOrderTags) | **GET** /beta/order/{orderId}/tag | Get the tags for an order.
-[**updateOrder**](OrderApi.md#updateOrder) | **PUT** /beta/order | Update an order
-[**updateOrderCustomFields**](OrderApi.md#updateOrderCustomFields) | **PUT** /beta/order/customFields | Update an order custom fields
+[**addOrder**](OrderApi.md#addOrder) | **POST** /v2.0/order | Create an order
+[**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /v2.0/order/{orderId} | Delete an order
+[**getDuplicateOrderById**](OrderApi.md#getDuplicateOrderById) | **GET** /v2.0/order/duplicate/{orderId} | Get a duplicated an order by id
+[**getOrderByFilter**](OrderApi.md#getOrderByFilter) | **GET** /v2.0/order/search | Search orders by filter
+[**getOrderById**](OrderApi.md#getOrderById) | **GET** /v2.0/order/{orderId} | Get an order by id
+[**updateOrder**](OrderApi.md#updateOrder) | **PUT** /v2.0/order | Update an order
+[**updateOrderCustomFields**](OrderApi.md#updateOrderCustomFields) | **PUT** /v2.0/order/customFields | Update an order custom fields
 
 
 # **addOrder**
@@ -67,108 +63,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **addOrderAudit**
-> addOrderAudit($order_id, $order_audit)
-
-Add new audit for an order
-
-Adds an audit to an existing order.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderApi();
-$order_id = new Number(); // Number | Id of the order to add an audit to
-$order_audit = "order_audit_example"; // string | The audit to add
-
-try { 
-    $api_instance->addOrderAudit($order_id, $order_audit);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderApi->addOrderAudit: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | [**Number**](.md)| Id of the order to add an audit to | 
- **order_audit** | **string**| The audit to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **addOrderTag**
-> addOrderTag($order_id, $order_tag)
-
-Add new tags for an order.
-
-Adds a tag to an existing order.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderApi();
-$order_id = new Number(); // Number | Id of the order to add a tag to
-$order_tag = "order_tag_example"; // string | The tag to add
-
-try { 
-    $api_instance->addOrderTag($order_id, $order_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderApi->addOrderTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | [**Number**](.md)| Id of the order to add a tag to | 
- **order_tag** | **string**| The tag to add | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **deleteOrder**
 > deleteOrder($order_id)
 
@@ -202,57 +96,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | [**Number**](.md)| Id of the order to be deleted. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteOrderTag**
-> deleteOrderTag($order_id, $order_tag)
-
-Delete a tag for an order.
-
-Deletes an existing order tag using the specified data.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderApi();
-$order_id = new Number(); // Number | Id of the order to remove tag from
-$order_tag = "order_tag_example"; // string | The tag to delete
-
-try { 
-    $api_instance->deleteOrderTag($order_id, $order_tag);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderApi->deleteOrderTag: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | [**Number**](.md)| Id of the order to remove tag from | 
- **order_tag** | **string**| The tag to delete | 
 
 ### Return type
 
@@ -413,55 +256,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Model\Order**](Order.md)
-
-### Authorization
-
-[api_key](../README.md#api_key)
-
-### HTTP reuqest headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getOrderTags**
-> getOrderTags($order_id)
-
-Get the tags for an order.
-
-Get all existing order tags.
-
-### Example 
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
-// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
-
-$api_instance = new Infoplus\Api\OrderApi();
-$order_id = new Number(); // Number | Id of the order to get tags for
-
-try { 
-    $api_instance->getOrderTags($order_id);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderApi->getOrderTags: ', $e->getMessage(), "\n";
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **order_id** | [**Number**](.md)| Id of the order to get tags for | 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

@@ -125,7 +125,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint";
+        $resourcePath = "/v2.0/locationFootprint";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -194,222 +194,6 @@ class LocationFootprintApi
     }
     
     /**
-     * addLocationFootprintAudit
-     *
-     * Add new audit for a locationFootprint
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to add an audit to (required)
-     * @param string $location_footprint_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationFootprintAudit($location_footprint_id, $location_footprint_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLocationFootprintAuditWithHttpInfo ($location_footprint_id, $location_footprint_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addLocationFootprintAuditWithHttpInfo
-     *
-     * Add new audit for a locationFootprint
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to add an audit to (required)
-     * @param string $location_footprint_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationFootprintAuditWithHttpInfo($location_footprint_id, $location_footprint_audit)
-    {
-        
-        // verify the required parameter 'location_footprint_id' is set
-        if ($location_footprint_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_id when calling addLocationFootprintAudit');
-        }
-        // verify the required parameter 'location_footprint_audit' is set
-        if ($location_footprint_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_audit when calling addLocationFootprintAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}/audit/{locationFootprintAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($location_footprint_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_footprint_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addLocationFootprintTag
-     *
-     * Add new tags for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to add a tag to (required)
-     * @param string $location_footprint_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationFootprintTag($location_footprint_id, $location_footprint_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addLocationFootprintTagWithHttpInfo ($location_footprint_id, $location_footprint_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addLocationFootprintTagWithHttpInfo
-     *
-     * Add new tags for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to add a tag to (required)
-     * @param string $location_footprint_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addLocationFootprintTagWithHttpInfo($location_footprint_id, $location_footprint_tag)
-    {
-        
-        // verify the required parameter 'location_footprint_id' is set
-        if ($location_footprint_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_id when calling addLocationFootprintTag');
-        }
-        // verify the required parameter 'location_footprint_tag' is set
-        if ($location_footprint_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_tag when calling addLocationFootprintTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($location_footprint_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_footprint_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteLocationFootprint
      *
      * Delete a locationFootprint
@@ -443,7 +227,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}";
+        $resourcePath = "/v2.0/locationFootprint/{locationFootprintId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -462,114 +246,6 @@ class LocationFootprintApi
             $resourcePath = str_replace(
                 "{" . "locationFootprintId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($location_footprint_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteLocationFootprintTag
-     *
-     * Delete a tag for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to remove tag from (required)
-     * @param string $location_footprint_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLocationFootprintTag($location_footprint_id, $location_footprint_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteLocationFootprintTagWithHttpInfo ($location_footprint_id, $location_footprint_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteLocationFootprintTagWithHttpInfo
-     *
-     * Delete a tag for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to remove tag from (required)
-     * @param string $location_footprint_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteLocationFootprintTagWithHttpInfo($location_footprint_id, $location_footprint_tag)
-    {
-        
-        // verify the required parameter 'location_footprint_id' is set
-        if ($location_footprint_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_id when calling deleteLocationFootprintTag');
-        }
-        // verify the required parameter 'location_footprint_tag' is set
-        if ($location_footprint_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_tag when calling deleteLocationFootprintTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}/tag/{locationFootprintTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($location_footprint_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($location_footprint_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_tag),
                 $resourcePath
             );
         }
@@ -645,7 +321,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint/duplicate/{locationFootprintId}";
+        $resourcePath = "/v2.0/locationFootprint/duplicate/{locationFootprintId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -749,7 +425,7 @@ class LocationFootprintApi
         
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint/search";
+        $resourcePath = "/v2.0/locationFootprint/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -859,7 +535,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}";
+        $resourcePath = "/v2.0/locationFootprint/{locationFootprintId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -928,100 +604,6 @@ class LocationFootprintApi
     }
     
     /**
-     * getLocationFootprintTags
-     *
-     * Get the tags for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLocationFootprintTags($location_footprint_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getLocationFootprintTagsWithHttpInfo ($location_footprint_id);
-        return $response; 
-    }
-
-
-    /**
-     * getLocationFootprintTagsWithHttpInfo
-     *
-     * Get the tags for a locationFootprint.
-     *
-     * @param int $location_footprint_id Id of the locationFootprint to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getLocationFootprintTagsWithHttpInfo($location_footprint_id)
-    {
-        
-        // verify the required parameter 'location_footprint_id' is set
-        if ($location_footprint_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $location_footprint_id when calling getLocationFootprintTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/locationFootprint/{locationFootprintId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($location_footprint_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "locationFootprintId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($location_footprint_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateLocationFootprint
      *
      * Update a locationFootprint
@@ -1055,7 +637,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint";
+        $resourcePath = "/v2.0/locationFootprint";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1145,7 +727,7 @@ class LocationFootprintApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/locationFootprint/customFields";
+        $resourcePath = "/v2.0/locationFootprint/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

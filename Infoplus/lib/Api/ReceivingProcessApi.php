@@ -92,222 +92,6 @@ class ReceivingProcessApi
   
     
     /**
-     * addReceivingProcessAudit
-     *
-     * Add new audit for a receivingProcess
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to add an audit to (required)
-     * @param string $receiving_process_audit The audit to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addReceivingProcessAudit($receiving_process_id, $receiving_process_audit)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addReceivingProcessAuditWithHttpInfo ($receiving_process_id, $receiving_process_audit);
-        return $response; 
-    }
-
-
-    /**
-     * addReceivingProcessAuditWithHttpInfo
-     *
-     * Add new audit for a receivingProcess
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to add an audit to (required)
-     * @param string $receiving_process_audit The audit to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addReceivingProcessAuditWithHttpInfo($receiving_process_id, $receiving_process_audit)
-    {
-        
-        // verify the required parameter 'receiving_process_id' is set
-        if ($receiving_process_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_id when calling addReceivingProcessAudit');
-        }
-        // verify the required parameter 'receiving_process_audit' is set
-        if ($receiving_process_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_audit when calling addReceivingProcessAudit');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}/audit/{receivingProcessAudit}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($receiving_process_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($receiving_process_audit !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_audit),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * addReceivingProcessTag
-     *
-     * Add new tags for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to add a tag to (required)
-     * @param string $receiving_process_tag The tag to add (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addReceivingProcessTag($receiving_process_id, $receiving_process_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->addReceivingProcessTagWithHttpInfo ($receiving_process_id, $receiving_process_tag);
-        return $response; 
-    }
-
-
-    /**
-     * addReceivingProcessTagWithHttpInfo
-     *
-     * Add new tags for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to add a tag to (required)
-     * @param string $receiving_process_tag The tag to add (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function addReceivingProcessTagWithHttpInfo($receiving_process_id, $receiving_process_tag)
-    {
-        
-        // verify the required parameter 'receiving_process_id' is set
-        if ($receiving_process_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_id when calling addReceivingProcessTag');
-        }
-        // verify the required parameter 'receiving_process_tag' is set
-        if ($receiving_process_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_tag when calling addReceivingProcessTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        // path params
-        
-        if ($receiving_process_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($receiving_process_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_tag),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * deleteReceivingProcess
      *
      * Delete a receivingProcess
@@ -341,7 +125,7 @@ class ReceivingProcessApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}";
+        $resourcePath = "/v2.0/receivingProcess/{receivingProcessId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -360,114 +144,6 @@ class ReceivingProcessApi
             $resourcePath = str_replace(
                 "{" . "receivingProcessId" . "}",
                 $this->apiClient->getSerializer()->toPathValue($receiving_process_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'DELETE',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteReceivingProcessTag
-     *
-     * Delete a tag for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to remove tag from (required)
-     * @param string $receiving_process_tag The tag to delete (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteReceivingProcessTag($receiving_process_id, $receiving_process_tag)
-    {
-        list($response, $statusCode, $httpHeader) = $this->deleteReceivingProcessTagWithHttpInfo ($receiving_process_id, $receiving_process_tag);
-        return $response; 
-    }
-
-
-    /**
-     * deleteReceivingProcessTagWithHttpInfo
-     *
-     * Delete a tag for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to remove tag from (required)
-     * @param string $receiving_process_tag The tag to delete (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function deleteReceivingProcessTagWithHttpInfo($receiving_process_id, $receiving_process_tag)
-    {
-        
-        // verify the required parameter 'receiving_process_id' is set
-        if ($receiving_process_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_id when calling deleteReceivingProcessTag');
-        }
-        // verify the required parameter 'receiving_process_tag' is set
-        if ($receiving_process_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_tag when calling deleteReceivingProcessTag');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}/tag/{receivingProcessTag}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($receiving_process_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_id),
-                $resourcePath
-            );
-        }// path params
-        
-        if ($receiving_process_tag !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_tag),
                 $resourcePath
             );
         }
@@ -543,7 +219,7 @@ class ReceivingProcessApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/receivingProcess/duplicate/{receivingProcessId}";
+        $resourcePath = "/v2.0/receivingProcess/duplicate/{receivingProcessId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -647,7 +323,7 @@ class ReceivingProcessApi
         
   
         // parse inputs
-        $resourcePath = "/beta/receivingProcess/search";
+        $resourcePath = "/v2.0/receivingProcess/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -757,7 +433,7 @@ class ReceivingProcessApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}";
+        $resourcePath = "/v2.0/receivingProcess/{receivingProcessId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -826,100 +502,6 @@ class ReceivingProcessApi
     }
     
     /**
-     * getReceivingProcessTags
-     *
-     * Get the tags for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to get tags for (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getReceivingProcessTags($receiving_process_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getReceivingProcessTagsWithHttpInfo ($receiving_process_id);
-        return $response; 
-    }
-
-
-    /**
-     * getReceivingProcessTagsWithHttpInfo
-     *
-     * Get the tags for a receivingProcess.
-     *
-     * @param int $receiving_process_id Id of the receivingProcess to get tags for (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getReceivingProcessTagsWithHttpInfo($receiving_process_id)
-    {
-        
-        // verify the required parameter 'receiving_process_id' is set
-        if ($receiving_process_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $receiving_process_id when calling getReceivingProcessTags');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/receivingProcess/{receivingProcessId}/tag";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($receiving_process_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "receivingProcessId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($receiving_process_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
      * updateReceivingProcessCustomFields
      *
      * Update a receivingProcess custom fields
@@ -953,7 +535,7 @@ class ReceivingProcessApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/receivingProcess/customFields";
+        $resourcePath = "/v2.0/receivingProcess/customFields";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

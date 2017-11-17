@@ -76,42 +76,12 @@ class JobTimeApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addJobTimeAudit
-     *
-     * Add new audit for a jobTime
-     *
-     */
-    public function test_addJobTimeAudit() {
-
-    }
-    
-    /**
-     * Test case for addJobTimeTag
-     *
-     * Add new tags for a jobTime.
-     *
-     */
-    public function test_addJobTimeTag() {
-
-    }
-    
-    /**
      * Test case for deleteJobTime
      *
      * Delete a jobTime
      *
      */
     public function test_deleteJobTime() {
-
-    }
-    
-    /**
-     * Test case for deleteJobTimeTag
-     *
-     * Delete a tag for a jobTime.
-     *
-     */
-    public function test_deleteJobTimeTag() {
 
     }
     
@@ -142,16 +112,6 @@ class JobTimeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getJobTimeById() {
-
-    }
-    
-    /**
-     * Test case for getJobTimeTags
-     *
-     * Get the tags for a jobTime.
-     *
-     */
-    public function test_getJobTimeTags() {
 
     }
     

@@ -76,42 +76,12 @@ class AsnApiTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test case for addAsnAudit
-     *
-     * Add new audit for an asn
-     *
-     */
-    public function test_addAsnAudit() {
-
-    }
-    
-    /**
-     * Test case for addAsnTag
-     *
-     * Add new tags for an asn.
-     *
-     */
-    public function test_addAsnTag() {
-
-    }
-    
-    /**
      * Test case for deleteAsn
      *
      * Delete an asn
      *
      */
     public function test_deleteAsn() {
-
-    }
-    
-    /**
-     * Test case for deleteAsnTag
-     *
-     * Delete a tag for an asn.
-     *
-     */
-    public function test_deleteAsnTag() {
 
     }
     
@@ -132,16 +102,6 @@ class AsnApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getAsnById() {
-
-    }
-    
-    /**
-     * Test case for getAsnTags
-     *
-     * Get the tags for an asn.
-     *
-     */
-    public function test_getAsnTags() {
 
     }
     

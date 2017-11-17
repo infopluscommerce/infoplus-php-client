@@ -66,36 +66,6 @@ class AlertApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addAlertAudit
-     *
-     * Add new audit for an alert
-     *
-     */
-    public function test_addAlertAudit() {
-
-    }
-    
-    /**
-     * Test case for addAlertTag
-     *
-     * Add new tags for an alert.
-     *
-     */
-    public function test_addAlertTag() {
-
-    }
-    
-    /**
-     * Test case for deleteAlertTag
-     *
-     * Delete a tag for an alert.
-     *
-     */
-    public function test_deleteAlertTag() {
-
-    }
-    
-    /**
      * Test case for getAlertByFilter
      *
      * Search alerts by filter
@@ -112,16 +82,6 @@ class AlertApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function test_getAlertById() {
-
-    }
-    
-    /**
-     * Test case for getAlertTags
-     *
-     * Get the tags for an alert.
-     *
-     */
-    public function test_getAlertTags() {
 
     }
     

@@ -125,7 +125,7 @@ class ProductTypeApi
         }
   
         // parse inputs
-        $resourcePath = "/beta/productType/{productTypeId}";
+        $resourcePath = "/v2.0/productType/{productTypeId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -227,7 +227,7 @@ class ProductTypeApi
         
   
         // parse inputs
-        $resourcePath = "/beta/productType/search";
+        $resourcePath = "/v2.0/productType/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
