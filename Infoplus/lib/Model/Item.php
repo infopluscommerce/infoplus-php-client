@@ -110,6 +110,7 @@ class Item implements ArrayAccess
         'vendor_price' => 'Number',
         'vendor_per' => 'string',
         'modify_date' => '\DateTime',
+        'behavior_type' => 'string',
         'forward_lot_mixing_rule' => 'string',
         'storage_lot_mixing_rule' => 'string',
         'forward_item_mixing_rule' => 'string',
@@ -220,6 +221,7 @@ class Item implements ArrayAccess
         'vendor_price' => 'vendorPrice',
         'vendor_per' => 'vendorPer',
         'modify_date' => 'modifyDate',
+        'behavior_type' => 'behaviorType',
         'forward_lot_mixing_rule' => 'forwardLotMixingRule',
         'storage_lot_mixing_rule' => 'storageLotMixingRule',
         'forward_item_mixing_rule' => 'forwardItemMixingRule',
@@ -330,6 +332,7 @@ class Item implements ArrayAccess
         'vendor_price' => 'setVendorPrice',
         'vendor_per' => 'setVendorPer',
         'modify_date' => 'setModifyDate',
+        'behavior_type' => 'setBehaviorType',
         'forward_lot_mixing_rule' => 'setForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'setStorageLotMixingRule',
         'forward_item_mixing_rule' => 'setForwardItemMixingRule',
@@ -440,6 +443,7 @@ class Item implements ArrayAccess
         'vendor_price' => 'getVendorPrice',
         'vendor_per' => 'getVendorPer',
         'modify_date' => 'getModifyDate',
+        'behavior_type' => 'getBehaviorType',
         'forward_lot_mixing_rule' => 'getForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'getStorageLotMixingRule',
         'forward_item_mixing_rule' => 'getForwardItemMixingRule',
@@ -842,6 +846,12 @@ class Item implements ArrayAccess
     protected $modify_date;
     
     /**
+      * $behavior_type 
+      * @var string
+      */
+    protected $behavior_type;
+    
+    /**
       * $forward_lot_mixing_rule 
       * @var string
       */
@@ -1149,6 +1159,7 @@ class Item implements ArrayAccess
             $this->vendor_price = $data["vendor_price"];
             $this->vendor_per = $data["vendor_per"];
             $this->modify_date = $data["modify_date"];
+            $this->behavior_type = $data["behavior_type"];
             $this->forward_lot_mixing_rule = $data["forward_lot_mixing_rule"];
             $this->storage_lot_mixing_rule = $data["storage_lot_mixing_rule"];
             $this->forward_item_mixing_rule = $data["forward_item_mixing_rule"];
@@ -2428,6 +2439,27 @@ class Item implements ArrayAccess
     {
         
         $this->modify_date = $modify_date;
+        return $this;
+    }
+    
+    /**
+     * Gets behavior_type
+     * @return string
+     */
+    public function getBehaviorType()
+    {
+        return $this->behavior_type;
+    }
+  
+    /**
+     * Sets behavior_type
+     * @param string $behavior_type 
+     * @return $this
+     */
+    public function setBehaviorType($behavior_type)
+    {
+        
+        $this->behavior_type = $behavior_type;
         return $this;
     }
     

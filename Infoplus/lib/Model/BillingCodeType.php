@@ -53,12 +53,12 @@ class BillingCodeType implements ArrayAccess
     static $swaggerTypes = array(
         'id' => 'int',
         'client_id' => 'int',
-        'create_date' => '\DateTime',
-        'modify_date' => '\DateTime',
+        'billing_code' => 'string',
         'name' => 'string',
         'description' => 'string',
-        'billing_code' => 'string',
         'is_active' => 'bool',
+        'create_date' => '\DateTime',
+        'modify_date' => '\DateTime',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -73,12 +73,12 @@ class BillingCodeType implements ArrayAccess
     static $attributeMap = array(
         'id' => 'id',
         'client_id' => 'clientId',
-        'create_date' => 'createDate',
-        'modify_date' => 'modifyDate',
+        'billing_code' => 'billingCode',
         'name' => 'name',
         'description' => 'description',
-        'billing_code' => 'billingCode',
         'is_active' => 'isActive',
+        'create_date' => 'createDate',
+        'modify_date' => 'modifyDate',
         'custom_fields' => 'customFields'
     );
   
@@ -93,12 +93,12 @@ class BillingCodeType implements ArrayAccess
     static $setters = array(
         'id' => 'setId',
         'client_id' => 'setClientId',
-        'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate',
+        'billing_code' => 'setBillingCode',
         'name' => 'setName',
         'description' => 'setDescription',
-        'billing_code' => 'setBillingCode',
         'is_active' => 'setIsActive',
+        'create_date' => 'setCreateDate',
+        'modify_date' => 'setModifyDate',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -113,12 +113,12 @@ class BillingCodeType implements ArrayAccess
     static $getters = array(
         'id' => 'getId',
         'client_id' => 'getClientId',
-        'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate',
+        'billing_code' => 'getBillingCode',
         'name' => 'getName',
         'description' => 'getDescription',
-        'billing_code' => 'getBillingCode',
         'is_active' => 'getIsActive',
+        'create_date' => 'getCreateDate',
+        'modify_date' => 'getModifyDate',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -140,16 +140,10 @@ class BillingCodeType implements ArrayAccess
     protected $client_id;
     
     /**
-      * $create_date 
-      * @var \DateTime
+      * $billing_code 
+      * @var string
       */
-    protected $create_date;
-    
-    /**
-      * $modify_date 
-      * @var \DateTime
-      */
-    protected $modify_date;
+    protected $billing_code;
     
     /**
       * $name 
@@ -164,16 +158,22 @@ class BillingCodeType implements ArrayAccess
     protected $description;
     
     /**
-      * $billing_code 
-      * @var string
-      */
-    protected $billing_code;
-    
-    /**
       * $is_active 
       * @var bool
       */
     protected $is_active = false;
+    
+    /**
+      * $create_date 
+      * @var \DateTime
+      */
+    protected $create_date;
+    
+    /**
+      * $modify_date 
+      * @var \DateTime
+      */
+    protected $modify_date;
     
     /**
       * $custom_fields 
@@ -192,12 +192,12 @@ class BillingCodeType implements ArrayAccess
         if ($data != null) {
             $this->id = $data["id"];
             $this->client_id = $data["client_id"];
-            $this->create_date = $data["create_date"];
-            $this->modify_date = $data["modify_date"];
+            $this->billing_code = $data["billing_code"];
             $this->name = $data["name"];
             $this->description = $data["description"];
-            $this->billing_code = $data["billing_code"];
             $this->is_active = $data["is_active"];
+            $this->create_date = $data["create_date"];
+            $this->modify_date = $data["modify_date"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -245,44 +245,23 @@ class BillingCodeType implements ArrayAccess
     }
     
     /**
-     * Gets create_date
-     * @return \DateTime
+     * Gets billing_code
+     * @return string
      */
-    public function getCreateDate()
+    public function getBillingCode()
     {
-        return $this->create_date;
+        return $this->billing_code;
     }
   
     /**
-     * Sets create_date
-     * @param \DateTime $create_date 
+     * Sets billing_code
+     * @param string $billing_code 
      * @return $this
      */
-    public function setCreateDate($create_date)
+    public function setBillingCode($billing_code)
     {
         
-        $this->create_date = $create_date;
-        return $this;
-    }
-    
-    /**
-     * Gets modify_date
-     * @return \DateTime
-     */
-    public function getModifyDate()
-    {
-        return $this->modify_date;
-    }
-  
-    /**
-     * Sets modify_date
-     * @param \DateTime $modify_date 
-     * @return $this
-     */
-    public function setModifyDate($modify_date)
-    {
-        
-        $this->modify_date = $modify_date;
+        $this->billing_code = $billing_code;
         return $this;
     }
     
@@ -329,27 +308,6 @@ class BillingCodeType implements ArrayAccess
     }
     
     /**
-     * Gets billing_code
-     * @return string
-     */
-    public function getBillingCode()
-    {
-        return $this->billing_code;
-    }
-  
-    /**
-     * Sets billing_code
-     * @param string $billing_code 
-     * @return $this
-     */
-    public function setBillingCode($billing_code)
-    {
-        
-        $this->billing_code = $billing_code;
-        return $this;
-    }
-    
-    /**
      * Gets is_active
      * @return bool
      */
@@ -367,6 +325,48 @@ class BillingCodeType implements ArrayAccess
     {
         
         $this->is_active = $is_active;
+        return $this;
+    }
+    
+    /**
+     * Gets create_date
+     * @return \DateTime
+     */
+    public function getCreateDate()
+    {
+        return $this->create_date;
+    }
+  
+    /**
+     * Sets create_date
+     * @param \DateTime $create_date 
+     * @return $this
+     */
+    public function setCreateDate($create_date)
+    {
+        
+        $this->create_date = $create_date;
+        return $this;
+    }
+    
+    /**
+     * Gets modify_date
+     * @return \DateTime
+     */
+    public function getModifyDate()
+    {
+        return $this->modify_date;
+    }
+  
+    /**
+     * Sets modify_date
+     * @param \DateTime $modify_date 
+     * @return $this
+     */
+    public function setModifyDate($modify_date)
+    {
+        
+        $this->modify_date = $modify_date;
         return $this;
     }
     

@@ -96,10 +96,12 @@ class Order implements ArrayAccess
         'distribution_charges' => 'Number',
         'division' => 'int',
         'entered_by' => 'string',
+        'pre_allocation_estimated_weight' => 'Number',
         'estimated_weight_lbs' => 'Number',
         'freight' => 'Number',
         'gift_message' => 'string',
         'group_order_id' => 'Number',
+        'parent_kod_order_id' => 'Number',
         'hold_code' => 'string',
         'integration_partner_id' => 'int',
         'number_of_line_items' => 'int',
@@ -139,6 +141,7 @@ class Order implements ArrayAccess
         'subtotal' => 'Number',
         'tax' => 'Number',
         'total' => 'Number',
+        'total_discount' => 'Number',
         'total_paid' => 'Number',
         'total_qty' => 'int',
         'weight_lbs' => 'Number',
@@ -204,10 +207,12 @@ class Order implements ArrayAccess
         'distribution_charges' => 'distributionCharges',
         'division' => 'division',
         'entered_by' => 'enteredBy',
+        'pre_allocation_estimated_weight' => 'preAllocationEstimatedWeight',
         'estimated_weight_lbs' => 'estimatedWeightLbs',
         'freight' => 'freight',
         'gift_message' => 'giftMessage',
         'group_order_id' => 'groupOrderId',
+        'parent_kod_order_id' => 'parentKODOrderId',
         'hold_code' => 'holdCode',
         'integration_partner_id' => 'integrationPartnerId',
         'number_of_line_items' => 'numberOfLineItems',
@@ -247,6 +252,7 @@ class Order implements ArrayAccess
         'subtotal' => 'subtotal',
         'tax' => 'tax',
         'total' => 'total',
+        'total_discount' => 'totalDiscount',
         'total_paid' => 'totalPaid',
         'total_qty' => 'totalQty',
         'weight_lbs' => 'weightLbs',
@@ -312,10 +318,12 @@ class Order implements ArrayAccess
         'distribution_charges' => 'setDistributionCharges',
         'division' => 'setDivision',
         'entered_by' => 'setEnteredBy',
+        'pre_allocation_estimated_weight' => 'setPreAllocationEstimatedWeight',
         'estimated_weight_lbs' => 'setEstimatedWeightLbs',
         'freight' => 'setFreight',
         'gift_message' => 'setGiftMessage',
         'group_order_id' => 'setGroupOrderId',
+        'parent_kod_order_id' => 'setParentKodOrderId',
         'hold_code' => 'setHoldCode',
         'integration_partner_id' => 'setIntegrationPartnerId',
         'number_of_line_items' => 'setNumberOfLineItems',
@@ -355,6 +363,7 @@ class Order implements ArrayAccess
         'subtotal' => 'setSubtotal',
         'tax' => 'setTax',
         'total' => 'setTotal',
+        'total_discount' => 'setTotalDiscount',
         'total_paid' => 'setTotalPaid',
         'total_qty' => 'setTotalQty',
         'weight_lbs' => 'setWeightLbs',
@@ -420,10 +429,12 @@ class Order implements ArrayAccess
         'distribution_charges' => 'getDistributionCharges',
         'division' => 'getDivision',
         'entered_by' => 'getEnteredBy',
+        'pre_allocation_estimated_weight' => 'getPreAllocationEstimatedWeight',
         'estimated_weight_lbs' => 'getEstimatedWeightLbs',
         'freight' => 'getFreight',
         'gift_message' => 'getGiftMessage',
         'group_order_id' => 'getGroupOrderId',
+        'parent_kod_order_id' => 'getParentKodOrderId',
         'hold_code' => 'getHoldCode',
         'integration_partner_id' => 'getIntegrationPartnerId',
         'number_of_line_items' => 'getNumberOfLineItems',
@@ -463,6 +474,7 @@ class Order implements ArrayAccess
         'subtotal' => 'getSubtotal',
         'tax' => 'getTax',
         'total' => 'getTotal',
+        'total_discount' => 'getTotalDiscount',
         'total_paid' => 'getTotalPaid',
         'total_qty' => 'getTotalQty',
         'weight_lbs' => 'getWeightLbs',
@@ -750,6 +762,12 @@ class Order implements ArrayAccess
     protected $entered_by;
     
     /**
+      * $pre_allocation_estimated_weight 
+      * @var Number
+      */
+    protected $pre_allocation_estimated_weight;
+    
+    /**
       * $estimated_weight_lbs 
       * @var Number
       */
@@ -772,6 +790,12 @@ class Order implements ArrayAccess
       * @var Number
       */
     protected $group_order_id;
+    
+    /**
+      * $parent_kod_order_id 
+      * @var Number
+      */
+    protected $parent_kod_order_id;
     
     /**
       * $hold_code 
@@ -1008,6 +1032,12 @@ class Order implements ArrayAccess
     protected $total;
     
     /**
+      * $total_discount 
+      * @var Number
+      */
+    protected $total_discount;
+    
+    /**
       * $total_paid 
       * @var Number
       */
@@ -1115,10 +1145,12 @@ class Order implements ArrayAccess
             $this->distribution_charges = $data["distribution_charges"];
             $this->division = $data["division"];
             $this->entered_by = $data["entered_by"];
+            $this->pre_allocation_estimated_weight = $data["pre_allocation_estimated_weight"];
             $this->estimated_weight_lbs = $data["estimated_weight_lbs"];
             $this->freight = $data["freight"];
             $this->gift_message = $data["gift_message"];
             $this->group_order_id = $data["group_order_id"];
+            $this->parent_kod_order_id = $data["parent_kod_order_id"];
             $this->hold_code = $data["hold_code"];
             $this->integration_partner_id = $data["integration_partner_id"];
             $this->number_of_line_items = $data["number_of_line_items"];
@@ -1158,6 +1190,7 @@ class Order implements ArrayAccess
             $this->subtotal = $data["subtotal"];
             $this->tax = $data["tax"];
             $this->total = $data["total"];
+            $this->total_discount = $data["total_discount"];
             $this->total_paid = $data["total_paid"];
             $this->total_qty = $data["total_qty"];
             $this->weight_lbs = $data["weight_lbs"];
@@ -2116,6 +2149,27 @@ class Order implements ArrayAccess
     }
     
     /**
+     * Gets pre_allocation_estimated_weight
+     * @return Number
+     */
+    public function getPreAllocationEstimatedWeight()
+    {
+        return $this->pre_allocation_estimated_weight;
+    }
+  
+    /**
+     * Sets pre_allocation_estimated_weight
+     * @param Number $pre_allocation_estimated_weight 
+     * @return $this
+     */
+    public function setPreAllocationEstimatedWeight($pre_allocation_estimated_weight)
+    {
+        
+        $this->pre_allocation_estimated_weight = $pre_allocation_estimated_weight;
+        return $this;
+    }
+    
+    /**
      * Gets estimated_weight_lbs
      * @return Number
      */
@@ -2196,6 +2250,27 @@ class Order implements ArrayAccess
     {
         
         $this->group_order_id = $group_order_id;
+        return $this;
+    }
+    
+    /**
+     * Gets parent_kod_order_id
+     * @return Number
+     */
+    public function getParentKodOrderId()
+    {
+        return $this->parent_kod_order_id;
+    }
+  
+    /**
+     * Sets parent_kod_order_id
+     * @param Number $parent_kod_order_id 
+     * @return $this
+     */
+    public function setParentKodOrderId($parent_kod_order_id)
+    {
+        
+        $this->parent_kod_order_id = $parent_kod_order_id;
         return $this;
     }
     
@@ -3015,6 +3090,27 @@ class Order implements ArrayAccess
     {
         
         $this->total = $total;
+        return $this;
+    }
+    
+    /**
+     * Gets total_discount
+     * @return Number
+     */
+    public function getTotalDiscount()
+    {
+        return $this->total_discount;
+    }
+  
+    /**
+     * Sets total_discount
+     * @param Number $total_discount 
+     * @return $this
+     */
+    public function setTotalDiscount($total_discount)
+    {
+        
+        $this->total_discount = $total_discount;
         return $this;
     }
     

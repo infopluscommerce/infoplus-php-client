@@ -14,8 +14,10 @@ Name | Type | Description | Notes
 **status** | **string** |  | 
 **order_smart_filter_id** | **int** |  | [optional] 
 **location_smart_filter_id** | **int** |  | [optional] 
-**order_limit** | **int** |  | [optional] 
+**max_orders** | **int** |  | [optional] 
+**batch_size** | **int** |  | [optional] 
 **version** | **string** |  | [optional] 
+**fulfillment_process_group** | **int** |  | [optional] 
 **number_of_orders** | **int** |  | [optional] 
 **number_of_lines** | **int** |  | [optional] 
 **number_of_sk_us** | **int** |  | [optional] 

@@ -74,6 +74,8 @@ Name | Type | Description | Notes
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **impressions** | **int** |  | [optional] 
 **asn_line** | **int** |  | [optional] 
+**upc** | **string** |  | [optional] 
+**vendor_sku** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

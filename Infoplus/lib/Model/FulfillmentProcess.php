@@ -62,8 +62,10 @@ class FulfillmentProcess implements ArrayAccess
         'status' => 'string',
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
-        'order_limit' => 'int',
+        'max_orders' => 'int',
+        'batch_size' => 'int',
         'version' => 'string',
+        'fulfillment_process_group' => 'int',
         'number_of_orders' => 'int',
         'number_of_lines' => 'int',
         'number_of_sk_us' => 'int',
@@ -123,8 +125,10 @@ class FulfillmentProcess implements ArrayAccess
         'status' => 'status',
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
-        'order_limit' => 'orderLimit',
+        'max_orders' => 'maxOrders',
+        'batch_size' => 'batchSize',
         'version' => 'version',
+        'fulfillment_process_group' => 'fulfillmentProcessGroup',
         'number_of_orders' => 'numberOfOrders',
         'number_of_lines' => 'numberOfLines',
         'number_of_sk_us' => 'numberOfSKUs',
@@ -184,8 +188,10 @@ class FulfillmentProcess implements ArrayAccess
         'status' => 'setStatus',
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
-        'order_limit' => 'setOrderLimit',
+        'max_orders' => 'setMaxOrders',
+        'batch_size' => 'setBatchSize',
         'version' => 'setVersion',
+        'fulfillment_process_group' => 'setFulfillmentProcessGroup',
         'number_of_orders' => 'setNumberOfOrders',
         'number_of_lines' => 'setNumberOfLines',
         'number_of_sk_us' => 'setNumberOfSkUs',
@@ -245,8 +251,10 @@ class FulfillmentProcess implements ArrayAccess
         'status' => 'getStatus',
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
-        'order_limit' => 'getOrderLimit',
+        'max_orders' => 'getMaxOrders',
+        'batch_size' => 'getBatchSize',
         'version' => 'getVersion',
+        'fulfillment_process_group' => 'getFulfillmentProcessGroup',
         'number_of_orders' => 'getNumberOfOrders',
         'number_of_lines' => 'getNumberOfLines',
         'number_of_sk_us' => 'getNumberOfSkUs',
@@ -358,16 +366,28 @@ class FulfillmentProcess implements ArrayAccess
     protected $location_smart_filter_id;
     
     /**
-      * $order_limit 
+      * $max_orders 
       * @var int
       */
-    protected $order_limit;
+    protected $max_orders;
+    
+    /**
+      * $batch_size 
+      * @var int
+      */
+    protected $batch_size;
     
     /**
       * $version 
       * @var string
       */
     protected $version;
+    
+    /**
+      * $fulfillment_process_group 
+      * @var int
+      */
+    protected $fulfillment_process_group;
     
     /**
       * $number_of_orders 
@@ -611,8 +631,10 @@ class FulfillmentProcess implements ArrayAccess
             $this->status = $data["status"];
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
-            $this->order_limit = $data["order_limit"];
+            $this->max_orders = $data["max_orders"];
+            $this->batch_size = $data["batch_size"];
             $this->version = $data["version"];
+            $this->fulfillment_process_group = $data["fulfillment_process_group"];
             $this->number_of_orders = $data["number_of_orders"];
             $this->number_of_lines = $data["number_of_lines"];
             $this->number_of_sk_us = $data["number_of_sk_us"];
@@ -885,23 +907,44 @@ class FulfillmentProcess implements ArrayAccess
     }
     
     /**
-     * Gets order_limit
+     * Gets max_orders
      * @return int
      */
-    public function getOrderLimit()
+    public function getMaxOrders()
     {
-        return $this->order_limit;
+        return $this->max_orders;
     }
   
     /**
-     * Sets order_limit
-     * @param int $order_limit 
+     * Sets max_orders
+     * @param int $max_orders 
      * @return $this
      */
-    public function setOrderLimit($order_limit)
+    public function setMaxOrders($max_orders)
     {
         
-        $this->order_limit = $order_limit;
+        $this->max_orders = $max_orders;
+        return $this;
+    }
+    
+    /**
+     * Gets batch_size
+     * @return int
+     */
+    public function getBatchSize()
+    {
+        return $this->batch_size;
+    }
+  
+    /**
+     * Sets batch_size
+     * @param int $batch_size 
+     * @return $this
+     */
+    public function setBatchSize($batch_size)
+    {
+        
+        $this->batch_size = $batch_size;
         return $this;
     }
     
@@ -923,6 +966,27 @@ class FulfillmentProcess implements ArrayAccess
     {
         
         $this->version = $version;
+        return $this;
+    }
+    
+    /**
+     * Gets fulfillment_process_group
+     * @return int
+     */
+    public function getFulfillmentProcessGroup()
+    {
+        return $this->fulfillment_process_group;
+    }
+  
+    /**
+     * Sets fulfillment_process_group
+     * @param int $fulfillment_process_group 
+     * @return $this
+     */
+    public function setFulfillmentProcessGroup($fulfillment_process_group)
+    {
+        
+        $this->fulfillment_process_group = $fulfillment_process_group;
         return $this;
     }
     

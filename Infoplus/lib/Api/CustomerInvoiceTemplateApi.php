@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderApi
+ * CustomerInvoiceTemplateApi
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Infoplus\ApiException;
 use \Infoplus\ObjectSerializer;
 
 /**
- * OrderApi Class Doc Comment
+ * CustomerInvoiceTemplateApi Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
@@ -47,7 +47,7 @@ use \Infoplus\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderApi
+class CustomerInvoiceTemplateApi
 {
 
     /**
@@ -82,7 +82,7 @@ class OrderApi
     /**
      * Set the API client
      * @param \Infoplus\ApiClient $apiClient set the API client
-     * @return OrderApi
+     * @return CustomerInvoiceTemplateApi
      */
     public function setApiClient(ApiClient $apiClient)
     {
@@ -92,40 +92,40 @@ class OrderApi
   
     
     /**
-     * addOrder
+     * addCustomerInvoiceTemplate
      *
-     * Create an order
+     * Create a customerInvoiceTemplate
      *
-     * @param \Infoplus\Model\Order $body Order to be inserted. (required)
-     * @return \Infoplus\Model\Order
+     * @param \Infoplus\Model\CustomerInvoiceTemplate $body CustomerInvoiceTemplate to be inserted. (required)
+     * @return \Infoplus\Model\CustomerInvoiceTemplate
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrder($body)
+    public function addCustomerInvoiceTemplate($body)
     {
-        list($response, $statusCode, $httpHeader) = $this->addOrderWithHttpInfo ($body);
+        list($response, $statusCode, $httpHeader) = $this->addCustomerInvoiceTemplateWithHttpInfo ($body);
         return $response; 
     }
 
 
     /**
-     * addOrderWithHttpInfo
+     * addCustomerInvoiceTemplateWithHttpInfo
      *
-     * Create an order
+     * Create a customerInvoiceTemplate
      *
-     * @param \Infoplus\Model\Order $body Order to be inserted. (required)
-     * @return Array of \Infoplus\Model\Order, HTTP status code, HTTP response headers (array of strings)
+     * @param \Infoplus\Model\CustomerInvoiceTemplate $body CustomerInvoiceTemplate to be inserted. (required)
+     * @return Array of \Infoplus\Model\CustomerInvoiceTemplate, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrderWithHttpInfo($body)
+    public function addCustomerInvoiceTemplateWithHttpInfo($body)
     {
         
         // verify the required parameter 'body' is set
         if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling addOrder');
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling addCustomerInvoiceTemplate');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order";
+        $resourcePath = "/beta/customerInvoiceTemplate";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -168,19 +168,19 @@ class OrderApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'POST',
                 $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\Order'
+                $headerParams, '\Infoplus\Model\CustomerInvoiceTemplate'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Order', $httpHeader), $statusCode, $httpHeader);
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\CustomerInvoiceTemplate', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Order', $e->getResponseHeaders());
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\CustomerInvoiceTemplate', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             case 405:
@@ -194,46 +194,46 @@ class OrderApi
     }
     
     /**
-     * addOrderAudit
+     * addCustomerInvoiceTemplateAudit
      *
-     * Add new audit for an order
+     * Add new audit for a customerInvoiceTemplate
      *
-     * @param Number $order_id Id of the order to add an audit to (required)
-     * @param string $order_audit The audit to add (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to add an audit to (required)
+     * @param string $customer_invoice_template_audit The audit to add (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrderAudit($order_id, $order_audit)
+    public function addCustomerInvoiceTemplateAudit($customer_invoice_template_id, $customer_invoice_template_audit)
     {
-        list($response, $statusCode, $httpHeader) = $this->addOrderAuditWithHttpInfo ($order_id, $order_audit);
+        list($response, $statusCode, $httpHeader) = $this->addCustomerInvoiceTemplateAuditWithHttpInfo ($customer_invoice_template_id, $customer_invoice_template_audit);
         return $response; 
     }
 
 
     /**
-     * addOrderAuditWithHttpInfo
+     * addCustomerInvoiceTemplateAuditWithHttpInfo
      *
-     * Add new audit for an order
+     * Add new audit for a customerInvoiceTemplate
      *
-     * @param Number $order_id Id of the order to add an audit to (required)
-     * @param string $order_audit The audit to add (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to add an audit to (required)
+     * @param string $customer_invoice_template_audit The audit to add (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrderAuditWithHttpInfo($order_id, $order_audit)
+    public function addCustomerInvoiceTemplateAuditWithHttpInfo($customer_invoice_template_id, $customer_invoice_template_audit)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling addOrderAudit');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling addCustomerInvoiceTemplateAudit');
         }
-        // verify the required parameter 'order_audit' is set
-        if ($order_audit === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_audit when calling addOrderAudit');
+        // verify the required parameter 'customer_invoice_template_audit' is set
+        if ($customer_invoice_template_audit === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_audit when calling addCustomerInvoiceTemplateAudit');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}/audit/{orderAudit}";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}/audit/{customerInvoiceTemplateAudit}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -248,18 +248,18 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }// path params
         
-        if ($order_audit !== null) {
+        if ($customer_invoice_template_audit !== null) {
             $resourcePath = str_replace(
-                "{" . "orderAudit" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_audit),
+                "{" . "customerInvoiceTemplateAudit" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_audit),
                 $resourcePath
             );
         }
@@ -302,46 +302,46 @@ class OrderApi
     }
     
     /**
-     * addOrderTag
+     * addCustomerInvoiceTemplateTag
      *
-     * Add new tags for an order.
+     * Add new tags for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to add a tag to (required)
-     * @param string $order_tag The tag to add (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to add a tag to (required)
+     * @param string $customer_invoice_template_tag The tag to add (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrderTag($order_id, $order_tag)
+    public function addCustomerInvoiceTemplateTag($customer_invoice_template_id, $customer_invoice_template_tag)
     {
-        list($response, $statusCode, $httpHeader) = $this->addOrderTagWithHttpInfo ($order_id, $order_tag);
+        list($response, $statusCode, $httpHeader) = $this->addCustomerInvoiceTemplateTagWithHttpInfo ($customer_invoice_template_id, $customer_invoice_template_tag);
         return $response; 
     }
 
 
     /**
-     * addOrderTagWithHttpInfo
+     * addCustomerInvoiceTemplateTagWithHttpInfo
      *
-     * Add new tags for an order.
+     * Add new tags for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to add a tag to (required)
-     * @param string $order_tag The tag to add (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to add a tag to (required)
+     * @param string $customer_invoice_template_tag The tag to add (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function addOrderTagWithHttpInfo($order_id, $order_tag)
+    public function addCustomerInvoiceTemplateTagWithHttpInfo($customer_invoice_template_id, $customer_invoice_template_tag)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling addOrderTag');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling addCustomerInvoiceTemplateTag');
         }
-        // verify the required parameter 'order_tag' is set
-        if ($order_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_tag when calling addOrderTag');
+        // verify the required parameter 'customer_invoice_template_tag' is set
+        if ($customer_invoice_template_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_tag when calling addCustomerInvoiceTemplateTag');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}/tag/{orderTag}";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}/tag/{customerInvoiceTemplateTag}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -356,18 +356,18 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }// path params
         
-        if ($order_tag !== null) {
+        if ($customer_invoice_template_tag !== null) {
             $resourcePath = str_replace(
-                "{" . "orderTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_tag),
+                "{" . "customerInvoiceTemplateTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_tag),
                 $resourcePath
             );
         }
@@ -410,138 +410,40 @@ class OrderApi
     }
     
     /**
-     * applyOrderWarehouseFulfillmentPlan
+     * deleteCustomerInvoiceTemplate
      *
-     * Run the Apply Order Warehouse Fulfillment Plan method.
+     * Delete a customerInvoiceTemplate
      *
-     * @param \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput $body Input data for Apply Order Warehouse Fulfillment Plan process. (required)
-     * @return \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function applyOrderWarehouseFulfillmentPlan($body)
-    {
-        list($response, $statusCode, $httpHeader) = $this->applyOrderWarehouseFulfillmentPlanWithHttpInfo ($body);
-        return $response; 
-    }
-
-
-    /**
-     * applyOrderWarehouseFulfillmentPlanWithHttpInfo
-     *
-     * Run the Apply Order Warehouse Fulfillment Plan method.
-     *
-     * @param \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput $body Input data for Apply Order Warehouse Fulfillment Plan process. (required)
-     * @return Array of \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function applyOrderWarehouseFulfillmentPlanWithHttpInfo($body)
-    {
-        
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling applyOrderWarehouseFulfillmentPlan');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/order/applyOrderWarehouseFulfillmentPlan";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'POST',
-                $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput'
-            );
-            
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput', $httpHeader), $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * deleteOrder
-     *
-     * Delete an order
-     *
-     * @param Number $order_id Id of the order to be deleted. (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be deleted. (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function deleteOrder($order_id)
+    public function deleteCustomerInvoiceTemplate($customer_invoice_template_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->deleteOrderWithHttpInfo ($order_id);
+        list($response, $statusCode, $httpHeader) = $this->deleteCustomerInvoiceTemplateWithHttpInfo ($customer_invoice_template_id);
         return $response; 
     }
 
 
     /**
-     * deleteOrderWithHttpInfo
+     * deleteCustomerInvoiceTemplateWithHttpInfo
      *
-     * Delete an order
+     * Delete a customerInvoiceTemplate
      *
-     * @param Number $order_id Id of the order to be deleted. (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be deleted. (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function deleteOrderWithHttpInfo($order_id)
+    public function deleteCustomerInvoiceTemplateWithHttpInfo($customer_invoice_template_id)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling deleteOrder');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling deleteCustomerInvoiceTemplate');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -556,10 +458,10 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }
@@ -602,46 +504,46 @@ class OrderApi
     }
     
     /**
-     * deleteOrderTag
+     * deleteCustomerInvoiceTemplateTag
      *
-     * Delete a tag for an order.
+     * Delete a tag for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to remove tag from (required)
-     * @param string $order_tag The tag to delete (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to remove tag from (required)
+     * @param string $customer_invoice_template_tag The tag to delete (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function deleteOrderTag($order_id, $order_tag)
+    public function deleteCustomerInvoiceTemplateTag($customer_invoice_template_id, $customer_invoice_template_tag)
     {
-        list($response, $statusCode, $httpHeader) = $this->deleteOrderTagWithHttpInfo ($order_id, $order_tag);
+        list($response, $statusCode, $httpHeader) = $this->deleteCustomerInvoiceTemplateTagWithHttpInfo ($customer_invoice_template_id, $customer_invoice_template_tag);
         return $response; 
     }
 
 
     /**
-     * deleteOrderTagWithHttpInfo
+     * deleteCustomerInvoiceTemplateTagWithHttpInfo
      *
-     * Delete a tag for an order.
+     * Delete a tag for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to remove tag from (required)
-     * @param string $order_tag The tag to delete (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to remove tag from (required)
+     * @param string $customer_invoice_template_tag The tag to delete (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function deleteOrderTagWithHttpInfo($order_id, $order_tag)
+    public function deleteCustomerInvoiceTemplateTagWithHttpInfo($customer_invoice_template_id, $customer_invoice_template_tag)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling deleteOrderTag');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling deleteCustomerInvoiceTemplateTag');
         }
-        // verify the required parameter 'order_tag' is set
-        if ($order_tag === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_tag when calling deleteOrderTag');
+        // verify the required parameter 'customer_invoice_template_tag' is set
+        if ($customer_invoice_template_tag === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_tag when calling deleteCustomerInvoiceTemplateTag');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}/tag/{orderTag}";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}/tag/{customerInvoiceTemplateTag}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -656,18 +558,18 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }// path params
         
-        if ($order_tag !== null) {
+        if ($customer_invoice_template_tag !== null) {
             $resourcePath = str_replace(
-                "{" . "orderTag" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_tag),
+                "{" . "customerInvoiceTemplateTag" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_tag),
                 $resourcePath
             );
         }
@@ -710,144 +612,42 @@ class OrderApi
     }
     
     /**
-     * getDuplicateOrderById
+     * getCustomerInvoiceTemplateByFilter
      *
-     * Get a duplicated an order by id
-     *
-     * @param Number $order_id Id of the order to be duplicated. (required)
-     * @return \Infoplus\Model\Order
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getDuplicateOrderById($order_id)
-    {
-        list($response, $statusCode, $httpHeader) = $this->getDuplicateOrderByIdWithHttpInfo ($order_id);
-        return $response; 
-    }
-
-
-    /**
-     * getDuplicateOrderByIdWithHttpInfo
-     *
-     * Get a duplicated an order by id
-     *
-     * @param Number $order_id Id of the order to be duplicated. (required)
-     * @return Array of \Infoplus\Model\Order, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function getDuplicateOrderByIdWithHttpInfo($order_id)
-    {
-        
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling getDuplicateOrderById');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/order/duplicate/{orderId}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array());
-  
-        
-        
-        // path params
-        
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'GET',
-                $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\Order'
-            );
-            
-            if (!$response) {
-                return array(null, $statusCode, $httpHeader);
-            }
-
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Order', $httpHeader), $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Order', $e->getResponseHeaders());
-                $e->setResponseObject($data);
-                break;
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * getOrderByFilter
-     *
-     * Search orders by filter
+     * Search customerInvoiceTemplates by filter
      *
      * @param string $filter Query string, used to filter results. (optional)
      * @param int $page Result page number.  Defaults to 1. (optional)
      * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      * @param string $sort Sort results by specified field. (optional)
-     * @return \Infoplus\Model\Order[]
+     * @return \Infoplus\Model\CustomerInvoiceTemplate[]
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderByFilter($filter = null, $page = null, $limit = null, $sort = null)
+    public function getCustomerInvoiceTemplateByFilter($filter = null, $page = null, $limit = null, $sort = null)
     {
-        list($response, $statusCode, $httpHeader) = $this->getOrderByFilterWithHttpInfo ($filter, $page, $limit, $sort);
+        list($response, $statusCode, $httpHeader) = $this->getCustomerInvoiceTemplateByFilterWithHttpInfo ($filter, $page, $limit, $sort);
         return $response; 
     }
 
 
     /**
-     * getOrderByFilterWithHttpInfo
+     * getCustomerInvoiceTemplateByFilterWithHttpInfo
      *
-     * Search orders by filter
+     * Search customerInvoiceTemplates by filter
      *
      * @param string $filter Query string, used to filter results. (optional)
      * @param int $page Result page number.  Defaults to 1. (optional)
      * @param int $limit Maximum results per page.  Defaults to 20.  Max allowed value is 250. (optional)
      * @param string $sort Sort results by specified field. (optional)
-     * @return Array of \Infoplus\Model\Order[], HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \Infoplus\Model\CustomerInvoiceTemplate[], HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
+    public function getCustomerInvoiceTemplateByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
     {
         
   
         // parse inputs
-        $resourcePath = "/beta/order/search";
+        $resourcePath = "/beta/customerInvoiceTemplate/search";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -902,19 +702,19 @@ class OrderApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\Order[]'
+                $headerParams, '\Infoplus\Model\CustomerInvoiceTemplate[]'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Order[]', $httpHeader), $statusCode, $httpHeader);
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\CustomerInvoiceTemplate[]', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Order[]', $e->getResponseHeaders());
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\CustomerInvoiceTemplate[]', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -924,40 +724,40 @@ class OrderApi
     }
     
     /**
-     * getOrderById
+     * getCustomerInvoiceTemplateById
      *
-     * Get an order by id
+     * Get a customerInvoiceTemplate by id
      *
-     * @param Number $order_id Id of the order to be returned. (required)
-     * @return \Infoplus\Model\Order
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be returned. (required)
+     * @return \Infoplus\Model\CustomerInvoiceTemplate
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderById($order_id)
+    public function getCustomerInvoiceTemplateById($customer_invoice_template_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->getOrderByIdWithHttpInfo ($order_id);
+        list($response, $statusCode, $httpHeader) = $this->getCustomerInvoiceTemplateByIdWithHttpInfo ($customer_invoice_template_id);
         return $response; 
     }
 
 
     /**
-     * getOrderByIdWithHttpInfo
+     * getCustomerInvoiceTemplateByIdWithHttpInfo
      *
-     * Get an order by id
+     * Get a customerInvoiceTemplate by id
      *
-     * @param Number $order_id Id of the order to be returned. (required)
-     * @return Array of \Infoplus\Model\Order, HTTP status code, HTTP response headers (array of strings)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be returned. (required)
+     * @return Array of \Infoplus\Model\CustomerInvoiceTemplate, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderByIdWithHttpInfo($order_id)
+    public function getCustomerInvoiceTemplateByIdWithHttpInfo($customer_invoice_template_id)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling getOrderById');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling getCustomerInvoiceTemplateById');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -972,10 +772,10 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }
@@ -1004,19 +804,19 @@ class OrderApi
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\Order'
+                $headerParams, '\Infoplus\Model\CustomerInvoiceTemplate'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\Order', $httpHeader), $statusCode, $httpHeader);
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\CustomerInvoiceTemplate', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\Order', $e->getResponseHeaders());
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\CustomerInvoiceTemplate', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -1026,40 +826,40 @@ class OrderApi
     }
     
     /**
-     * getOrderTags
+     * getCustomerInvoiceTemplateTags
      *
-     * Get the tags for an order.
+     * Get the tags for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to get tags for (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to get tags for (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderTags($order_id)
+    public function getCustomerInvoiceTemplateTags($customer_invoice_template_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->getOrderTagsWithHttpInfo ($order_id);
+        list($response, $statusCode, $httpHeader) = $this->getCustomerInvoiceTemplateTagsWithHttpInfo ($customer_invoice_template_id);
         return $response; 
     }
 
 
     /**
-     * getOrderTagsWithHttpInfo
+     * getCustomerInvoiceTemplateTagsWithHttpInfo
      *
-     * Get the tags for an order.
+     * Get the tags for a customerInvoiceTemplate.
      *
-     * @param Number $order_id Id of the order to get tags for (required)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to get tags for (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderTagsWithHttpInfo($order_id)
+    public function getCustomerInvoiceTemplateTagsWithHttpInfo($customer_invoice_template_id)
     {
         
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling getOrderTags');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling getCustomerInvoiceTemplateTags');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/{orderId}/tag";
+        $resourcePath = "/beta/customerInvoiceTemplate/{customerInvoiceTemplateId}/tag";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1074,10 +874,10 @@ class OrderApi
         
         // path params
         
-        if ($order_id !== null) {
+        if ($customer_invoice_template_id !== null) {
             $resourcePath = str_replace(
-                "{" . "orderId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($order_id),
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
                 $resourcePath
             );
         }
@@ -1120,40 +920,40 @@ class OrderApi
     }
     
     /**
-     * getOrderWarehouseFulfillmentData
+     * getDuplicateCustomerInvoiceTemplateById
      *
-     * Run the Get Order Warehouse Fulfillment Plan method.
+     * Get a duplicated a customerInvoiceTemplate by id
      *
-     * @param \Infoplus\Model\GetOrderWarehouseFulfillmentDataInput $body Input data for Get Order Warehouse Fulfillment Plan process. (required)
-     * @return \Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be duplicated. (required)
+     * @return \Infoplus\Model\CustomerInvoiceTemplate
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderWarehouseFulfillmentData($body)
+    public function getDuplicateCustomerInvoiceTemplateById($customer_invoice_template_id)
     {
-        list($response, $statusCode, $httpHeader) = $this->getOrderWarehouseFulfillmentDataWithHttpInfo ($body);
+        list($response, $statusCode, $httpHeader) = $this->getDuplicateCustomerInvoiceTemplateByIdWithHttpInfo ($customer_invoice_template_id);
         return $response; 
     }
 
 
     /**
-     * getOrderWarehouseFulfillmentDataWithHttpInfo
+     * getDuplicateCustomerInvoiceTemplateByIdWithHttpInfo
      *
-     * Run the Get Order Warehouse Fulfillment Plan method.
+     * Get a duplicated a customerInvoiceTemplate by id
      *
-     * @param \Infoplus\Model\GetOrderWarehouseFulfillmentDataInput $body Input data for Get Order Warehouse Fulfillment Plan process. (required)
-     * @return Array of \Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput, HTTP status code, HTTP response headers (array of strings)
+     * @param int $customer_invoice_template_id Id of the customerInvoiceTemplate to be duplicated. (required)
+     * @return Array of \Infoplus\Model\CustomerInvoiceTemplate, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function getOrderWarehouseFulfillmentDataWithHttpInfo($body)
+    public function getDuplicateCustomerInvoiceTemplateByIdWithHttpInfo($customer_invoice_template_id)
     {
         
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling getOrderWarehouseFulfillmentData');
+        // verify the required parameter 'customer_invoice_template_id' is set
+        if ($customer_invoice_template_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_invoice_template_id when calling getDuplicateCustomerInvoiceTemplateById');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order/getOrderWarehouseFulfillmentData";
+        $resourcePath = "/beta/customerInvoiceTemplate/duplicate/{customerInvoiceTemplateId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1166,16 +966,20 @@ class OrderApi
   
         
         
+        // path params
         
+        if ($customer_invoice_template_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "customerInvoiceTemplateId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_invoice_template_id),
+                $resourcePath
+            );
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        
   
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1194,21 +998,21 @@ class OrderApi
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'POST',
+                $resourcePath, 'GET',
                 $queryParams, $httpBody,
-                $headerParams, '\Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput'
+                $headerParams, '\Infoplus\Model\CustomerInvoiceTemplate'
             );
             
             if (!$response) {
                 return array(null, $statusCode, $httpHeader);
             }
 
-            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput', $httpHeader), $statusCode, $httpHeader);
+            return array(\Infoplus\ObjectSerializer::deserialize($response, '\Infoplus\Model\CustomerInvoiceTemplate', $httpHeader), $statusCode, $httpHeader);
             
         } catch (ApiException $e) {
             switch ($e->getCode()) { 
             case 200:
-                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput', $e->getResponseHeaders());
+                $data = \Infoplus\ObjectSerializer::deserialize($e->getResponseBody(), '\Infoplus\Model\CustomerInvoiceTemplate', $e->getResponseHeaders());
                 $e->setResponseObject($data);
                 break;
             }
@@ -1218,130 +1022,40 @@ class OrderApi
     }
     
     /**
-     * updateOrder
+     * updateCustomerInvoiceTemplate
      *
-     * Update an order
+     * Update a customerInvoiceTemplate
      *
-     * @param \Infoplus\Model\Order $body Order to be updated. (required)
+     * @param \Infoplus\Model\CustomerInvoiceTemplate $body CustomerInvoiceTemplate to be updated. (required)
      * @return void
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function updateOrder($body)
+    public function updateCustomerInvoiceTemplate($body)
     {
-        list($response, $statusCode, $httpHeader) = $this->updateOrderWithHttpInfo ($body);
+        list($response, $statusCode, $httpHeader) = $this->updateCustomerInvoiceTemplateWithHttpInfo ($body);
         return $response; 
     }
 
 
     /**
-     * updateOrderWithHttpInfo
+     * updateCustomerInvoiceTemplateWithHttpInfo
      *
-     * Update an order
+     * Update a customerInvoiceTemplate
      *
-     * @param \Infoplus\Model\Order $body Order to be updated. (required)
+     * @param \Infoplus\Model\CustomerInvoiceTemplate $body CustomerInvoiceTemplate to be updated. (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \Infoplus\ApiException on non-2xx response
      */
-    public function updateOrderWithHttpInfo($body)
+    public function updateCustomerInvoiceTemplateWithHttpInfo($body)
     {
         
         // verify the required parameter 'body' is set
         if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateOrder');
+            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateCustomerInvoiceTemplate');
         }
   
         // parse inputs
-        $resourcePath = "/beta/order";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = ApiClient::selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = ApiClient::selectHeaderContentType(array('application/json'));
-  
-        
-        
-        
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-  
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('API-Key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['API-Key'] = $apiKey;
-        }
-        
-        
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath, 'PUT',
-                $queryParams, $httpBody,
-                $headerParams
-            );
-            
-            return array(null, $statusCode, $httpHeader);
-            
-        } catch (ApiException $e) {
-            switch ($e->getCode()) { 
-            }
-  
-            throw $e;
-        }
-    }
-    
-    /**
-     * updateOrderCustomFields
-     *
-     * Update an order custom fields
-     *
-     * @param \Infoplus\Model\Order $body Order to be updated. (required)
-     * @return void
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function updateOrderCustomFields($body)
-    {
-        list($response, $statusCode, $httpHeader) = $this->updateOrderCustomFieldsWithHttpInfo ($body);
-        return $response; 
-    }
-
-
-    /**
-     * updateOrderCustomFieldsWithHttpInfo
-     *
-     * Update an order custom fields
-     *
-     * @param \Infoplus\Model\Order $body Order to be updated. (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \Infoplus\ApiException on non-2xx response
-     */
-    public function updateOrderCustomFieldsWithHttpInfo($body)
-    {
-        
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $body when calling updateOrderCustomFields');
-        }
-  
-        // parse inputs
-        $resourcePath = "/beta/order/customFields";
+        $resourcePath = "/beta/customerInvoiceTemplate";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();

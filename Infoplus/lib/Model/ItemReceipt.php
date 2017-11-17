@@ -122,6 +122,8 @@ class ItemReceipt implements ArrayAccess
         'modify_date' => '\DateTime',
         'impressions' => 'int',
         'asn_line' => 'int',
+        'upc' => 'string',
+        'vendor_sku' => 'string',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -205,6 +207,8 @@ class ItemReceipt implements ArrayAccess
         'modify_date' => 'modifyDate',
         'impressions' => 'impressions',
         'asn_line' => 'asnLine',
+        'upc' => 'upc',
+        'vendor_sku' => 'vendorSKU',
         'custom_fields' => 'customFields'
     );
   
@@ -288,6 +292,8 @@ class ItemReceipt implements ArrayAccess
         'modify_date' => 'setModifyDate',
         'impressions' => 'setImpressions',
         'asn_line' => 'setAsnLine',
+        'upc' => 'setUpc',
+        'vendor_sku' => 'setVendorSku',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -371,6 +377,8 @@ class ItemReceipt implements ArrayAccess
         'modify_date' => 'getModifyDate',
         'impressions' => 'getImpressions',
         'asn_line' => 'getAsnLine',
+        'upc' => 'getUpc',
+        'vendor_sku' => 'getVendorSku',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -806,6 +814,18 @@ class ItemReceipt implements ArrayAccess
     protected $asn_line;
     
     /**
+      * $upc 
+      * @var string
+      */
+    protected $upc;
+    
+    /**
+      * $vendor_sku 
+      * @var string
+      */
+    protected $vendor_sku;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -891,6 +911,8 @@ class ItemReceipt implements ArrayAccess
             $this->modify_date = $data["modify_date"];
             $this->impressions = $data["impressions"];
             $this->asn_line = $data["asn_line"];
+            $this->upc = $data["upc"];
+            $this->vendor_sku = $data["vendor_sku"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -2383,6 +2405,48 @@ class ItemReceipt implements ArrayAccess
     {
         
         $this->asn_line = $asn_line;
+        return $this;
+    }
+    
+    /**
+     * Gets upc
+     * @return string
+     */
+    public function getUpc()
+    {
+        return $this->upc;
+    }
+  
+    /**
+     * Sets upc
+     * @param string $upc 
+     * @return $this
+     */
+    public function setUpc($upc)
+    {
+        
+        $this->upc = $upc;
+        return $this;
+    }
+    
+    /**
+     * Gets vendor_sku
+     * @return string
+     */
+    public function getVendorSku()
+    {
+        return $this->vendor_sku;
+    }
+  
+    /**
+     * Sets vendor_sku
+     * @param string $vendor_sku 
+     * @return $this
+     */
+    public function setVendorSku($vendor_sku)
+    {
+        
+        $this->vendor_sku = $vendor_sku;
         return $this;
     }
     

@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **quantity** | **int** |  | 
 **date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **user_id** | **int** |  | 
-**lob_id** | **int** |  | 
+**lob_id** | **int** |  | [optional] 
 **billing_code_type_id** | **int** |  | 
+**record_type** | **string** |  | [optional] 
+**record_id** | **string** |  | [optional] 
 **note** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 

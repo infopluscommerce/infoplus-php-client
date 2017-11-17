@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **estimated_zone** | **string** |  | [optional] 
 **parcel_account_no** | **string** |  | [optional] 
 **third_party_parcel_account_no** | **string** |  | [optional] 
+**shipment_id** | **string** |  | [optional] 
 **manifest_id** | **int** |  | [optional] 
 **residential** | **bool** |  | [optional] [default to false]
 **billing_option** | **string** |  | [optional] 
@@ -34,6 +35,7 @@ Name | Type | Description | Notes
 **retail_freight_amount** | [**Number**](Number.md) |  | [optional] 
 **external_shipping_system_id** | **int** |  | [optional] 
 **shipment_type** | **string** |  | [optional] 
+**carrier_company** | **string** |  | 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

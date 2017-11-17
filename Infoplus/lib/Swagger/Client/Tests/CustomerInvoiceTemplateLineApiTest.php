@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderApiTest
+ * CustomerInvoiceTemplateLineApiTest
  * PHP version 5
  *
  * @category Class
@@ -39,7 +39,7 @@ use \Infoplus\ApiException;
 use \Infoplus\ObjectSerializer;
 
 /**
- * OrderApiTest Class Doc Comment
+ * CustomerInvoiceTemplateLineApiTest Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
@@ -47,7 +47,7 @@ use \Infoplus\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderApiTest extends \PHPUnit_Framework_TestCase
+class CustomerInvoiceTemplateLineApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -66,132 +66,92 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
 
     
     /**
-     * Test case for addOrder
+     * Test case for addCustomerInvoiceTemplateLineAudit
      *
-     * Create an order
+     * Add new audit for a customerInvoiceTemplateLine
      *
      */
-    public function test_addOrder() {
+    public function test_addCustomerInvoiceTemplateLineAudit() {
 
     }
     
     /**
-     * Test case for addOrderAudit
+     * Test case for addCustomerInvoiceTemplateLineTag
      *
-     * Add new audit for an order
+     * Add new tags for a customerInvoiceTemplateLine.
      *
      */
-    public function test_addOrderAudit() {
+    public function test_addCustomerInvoiceTemplateLineTag() {
 
     }
     
     /**
-     * Test case for addOrderTag
+     * Test case for deleteCustomerInvoiceTemplateLine
      *
-     * Add new tags for an order.
+     * Delete a customerInvoiceTemplateLine
      *
      */
-    public function test_addOrderTag() {
+    public function test_deleteCustomerInvoiceTemplateLine() {
 
     }
     
     /**
-     * Test case for applyOrderWarehouseFulfillmentPlan
+     * Test case for deleteCustomerInvoiceTemplateLineTag
      *
-     * Run the Apply Order Warehouse Fulfillment Plan method.
+     * Delete a tag for a customerInvoiceTemplateLine.
      *
      */
-    public function test_applyOrderWarehouseFulfillmentPlan() {
+    public function test_deleteCustomerInvoiceTemplateLineTag() {
 
     }
     
     /**
-     * Test case for deleteOrder
+     * Test case for getCustomerInvoiceTemplateLineByFilter
      *
-     * Delete an order
+     * Search customerInvoiceTemplateLines by filter
      *
      */
-    public function test_deleteOrder() {
+    public function test_getCustomerInvoiceTemplateLineByFilter() {
 
     }
     
     /**
-     * Test case for deleteOrderTag
+     * Test case for getCustomerInvoiceTemplateLineById
      *
-     * Delete a tag for an order.
+     * Get a customerInvoiceTemplateLine by id
      *
      */
-    public function test_deleteOrderTag() {
+    public function test_getCustomerInvoiceTemplateLineById() {
 
     }
     
     /**
-     * Test case for getDuplicateOrderById
+     * Test case for getCustomerInvoiceTemplateLineTags
      *
-     * Get a duplicated an order by id
+     * Get the tags for a customerInvoiceTemplateLine.
      *
      */
-    public function test_getDuplicateOrderById() {
+    public function test_getCustomerInvoiceTemplateLineTags() {
 
     }
     
     /**
-     * Test case for getOrderByFilter
+     * Test case for getDuplicateCustomerInvoiceTemplateLineById
      *
-     * Search orders by filter
+     * Get a duplicated a customerInvoiceTemplateLine by id
      *
      */
-    public function test_getOrderByFilter() {
+    public function test_getDuplicateCustomerInvoiceTemplateLineById() {
 
     }
     
     /**
-     * Test case for getOrderById
+     * Test case for updateCustomerInvoiceTemplateLine
      *
-     * Get an order by id
-     *
-     */
-    public function test_getOrderById() {
-
-    }
-    
-    /**
-     * Test case for getOrderTags
-     *
-     * Get the tags for an order.
+     * Update a customerInvoiceTemplateLine
      *
      */
-    public function test_getOrderTags() {
-
-    }
-    
-    /**
-     * Test case for getOrderWarehouseFulfillmentData
-     *
-     * Run the Get Order Warehouse Fulfillment Plan method.
-     *
-     */
-    public function test_getOrderWarehouseFulfillmentData() {
-
-    }
-    
-    /**
-     * Test case for updateOrder
-     *
-     * Update an order
-     *
-     */
-    public function test_updateOrder() {
-
-    }
-    
-    /**
-     * Test case for updateOrderCustomFields
-     *
-     * Update an order custom fields
-     *
-     */
-    public function test_updateOrderCustomFields() {
+    public function test_updateCustomerInvoiceTemplateLine() {
 
     }
     

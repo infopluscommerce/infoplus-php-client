@@ -1,23 +1,23 @@
-# BillingCodeActivity
+# CustomerInvoiceTemplateLine
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**imported_id** | **int** |  | [optional] 
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**quantity** | **int** |  | 
 **lob_id** | **int** |  | 
-**user_id** | **int** |  | 
-**email** | **string** |  | [optional] 
-**billing_code_type_id** | **int** |  | 
-**billing_code_type_name** | **string** |  | [optional] 
-**note** | **string** |  | [optional] 
-**record_type_name** | **string** |  | [optional] 
-**record_type_id** | **int** |  | [optional] 
-**record_id** | **string** |  | [optional] 
+**description** | **string** |  | [optional] 
+**seq_no** | **int** |  | [optional] 
+**account_code** | **string** |  | [optional] 
+**active** | **bool** |  | [default to false]
+**include_if_zero** | **bool** |  | [default to false]
+**department** | **string** |  | [optional] 
+**item_code** | **string** |  | [optional] 
+**invoice_template_id** | **int** |  | [optional] 
+**billing_rule_id** | **int** |  | 
+**price_level_mode** | **string** |  | 
+**script_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

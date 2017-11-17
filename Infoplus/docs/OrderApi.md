@@ -7,12 +7,14 @@ Method | HTTP request | Description
 [**addOrder**](OrderApi.md#addOrder) | **POST** /beta/order | Create an order
 [**addOrderAudit**](OrderApi.md#addOrderAudit) | **PUT** /beta/order/{orderId}/audit/{orderAudit} | Add new audit for an order
 [**addOrderTag**](OrderApi.md#addOrderTag) | **PUT** /beta/order/{orderId}/tag/{orderTag} | Add new tags for an order.
+[**applyOrderWarehouseFulfillmentPlan**](OrderApi.md#applyOrderWarehouseFulfillmentPlan) | **POST** /beta/order/applyOrderWarehouseFulfillmentPlan | Run the Apply Order Warehouse Fulfillment Plan method.
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /beta/order/{orderId} | Delete an order
 [**deleteOrderTag**](OrderApi.md#deleteOrderTag) | **DELETE** /beta/order/{orderId}/tag/{orderTag} | Delete a tag for an order.
 [**getDuplicateOrderById**](OrderApi.md#getDuplicateOrderById) | **GET** /beta/order/duplicate/{orderId} | Get a duplicated an order by id
 [**getOrderByFilter**](OrderApi.md#getOrderByFilter) | **GET** /beta/order/search | Search orders by filter
 [**getOrderById**](OrderApi.md#getOrderById) | **GET** /beta/order/{orderId} | Get an order by id
 [**getOrderTags**](OrderApi.md#getOrderTags) | **GET** /beta/order/{orderId}/tag | Get the tags for an order.
+[**getOrderWarehouseFulfillmentData**](OrderApi.md#getOrderWarehouseFulfillmentData) | **POST** /beta/order/getOrderWarehouseFulfillmentData | Run the Get Order Warehouse Fulfillment Plan method.
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /beta/order | Update an order
 [**updateOrderCustomFields**](OrderApi.md#updateOrderCustomFields) | **PUT** /beta/order/customFields | Update an order custom fields
 
@@ -165,6 +167,56 @@ void (empty response body)
 ### HTTP reuqest headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **applyOrderWarehouseFulfillmentPlan**
+> \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput applyOrderWarehouseFulfillmentPlan($body)
+
+Run the Apply Order Warehouse Fulfillment Plan method.
+
+
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderApi();
+$body = new \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput(); // \Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput | Input data for Apply Order Warehouse Fulfillment Plan process.
+
+try { 
+    $result = $api_instance->applyOrderWarehouseFulfillmentPlan($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->applyOrderWarehouseFulfillmentPlan: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput**](\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanInput.md)| Input data for Apply Order Warehouse Fulfillment Plan process. | 
+
+### Return type
+
+[**\Infoplus\Model\ApplyOrderWarehouseFulfillmentPlanOutput**](ApplyOrderWarehouseFulfillmentPlanOutput.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -462,6 +514,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP reuqest headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getOrderWarehouseFulfillmentData**
+> \Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput getOrderWarehouseFulfillmentData($body)
+
+Run the Get Order Warehouse Fulfillment Plan method.
+
+
+
+### Example 
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. BEARER) for API key, if needed
+// Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'BEARER');
+
+$api_instance = new Infoplus\Api\OrderApi();
+$body = new \Infoplus\Model\GetOrderWarehouseFulfillmentDataInput(); // \Infoplus\Model\GetOrderWarehouseFulfillmentDataInput | Input data for Get Order Warehouse Fulfillment Plan process.
+
+try { 
+    $result = $api_instance->getOrderWarehouseFulfillmentData($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->getOrderWarehouseFulfillmentData: ', $e->getMessage(), "\n";
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Model\GetOrderWarehouseFulfillmentDataInput**](\Infoplus\Model\GetOrderWarehouseFulfillmentDataInput.md)| Input data for Get Order Warehouse Fulfillment Plan process. | 
+
+### Return type
+
+[**\Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput**](GetOrderWarehouseFulfillmentDataOutput.md)
 
 ### Authorization
 

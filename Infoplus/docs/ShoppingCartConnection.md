@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **item_filter_id** | **int** |  | [optional] 
 **infoplus_sku_field_to_map** | **string** |  | 
 **shopping_cart_sku_field_to_map** | **string** |  | 
+**script_id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **shopping_cart_store_url** | **string** |  | 
 **access_code** | **string** |  | 
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **password** | **string** |  | 
 **default_carrier_id** | **int** |  | [optional] 
 **order_shipment_level** | **string** |  | 
+**create_invoices** | **bool** |  | [optional] [default to false]
 **sync_orders** | **bool** |  | [default to false]
 **sync_inventory** | **bool** |  | [default to false]
 **sync_tracking_data** | **bool** |  | [default to false]

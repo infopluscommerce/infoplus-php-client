@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingCode
+ * CustomerInvoiceTemplateLine
  *
  * PHP version 5
  *
@@ -35,7 +35,7 @@ namespace Infoplus\Model;
 
 use \ArrayAccess;
 /**
- * BillingCode Class Doc Comment
+ * CustomerInvoiceTemplateLine Class Doc Comment
  *
  * @category    Class
  * @description 
@@ -44,7 +44,7 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class BillingCode implements ArrayAccess
+class CustomerInvoiceTemplateLine implements ArrayAccess
 {
     /**
       * Array of property to type mappings. Used for (de)serialization 
@@ -54,14 +54,18 @@ class BillingCode implements ArrayAccess
         'id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
-        'quantity' => 'int',
-        'date' => '\DateTime',
-        'user_id' => 'int',
         'lob_id' => 'int',
-        'billing_code_type_id' => 'int',
-        'record_type' => 'string',
-        'record_id' => 'string',
-        'note' => 'string',
+        'description' => 'string',
+        'seq_no' => 'int',
+        'account_code' => 'string',
+        'active' => 'bool',
+        'include_if_zero' => 'bool',
+        'department' => 'string',
+        'item_code' => 'string',
+        'invoice_template_id' => 'int',
+        'billing_rule_id' => 'int',
+        'price_level_mode' => 'string',
+        'script_id' => 'int',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -77,14 +81,18 @@ class BillingCode implements ArrayAccess
         'id' => 'id',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
-        'quantity' => 'quantity',
-        'date' => 'date',
-        'user_id' => 'userId',
         'lob_id' => 'lobId',
-        'billing_code_type_id' => 'billingCodeTypeId',
-        'record_type' => 'recordType',
-        'record_id' => 'recordId',
-        'note' => 'note',
+        'description' => 'description',
+        'seq_no' => 'seqNo',
+        'account_code' => 'accountCode',
+        'active' => 'active',
+        'include_if_zero' => 'includeIfZero',
+        'department' => 'department',
+        'item_code' => 'itemCode',
+        'invoice_template_id' => 'invoiceTemplateId',
+        'billing_rule_id' => 'billingRuleId',
+        'price_level_mode' => 'priceLevelMode',
+        'script_id' => 'scriptId',
         'custom_fields' => 'customFields'
     );
   
@@ -100,14 +108,18 @@ class BillingCode implements ArrayAccess
         'id' => 'setId',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
-        'quantity' => 'setQuantity',
-        'date' => 'setDate',
-        'user_id' => 'setUserId',
         'lob_id' => 'setLobId',
-        'billing_code_type_id' => 'setBillingCodeTypeId',
-        'record_type' => 'setRecordType',
-        'record_id' => 'setRecordId',
-        'note' => 'setNote',
+        'description' => 'setDescription',
+        'seq_no' => 'setSeqNo',
+        'account_code' => 'setAccountCode',
+        'active' => 'setActive',
+        'include_if_zero' => 'setIncludeIfZero',
+        'department' => 'setDepartment',
+        'item_code' => 'setItemCode',
+        'invoice_template_id' => 'setInvoiceTemplateId',
+        'billing_rule_id' => 'setBillingRuleId',
+        'price_level_mode' => 'setPriceLevelMode',
+        'script_id' => 'setScriptId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -123,14 +135,18 @@ class BillingCode implements ArrayAccess
         'id' => 'getId',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
-        'quantity' => 'getQuantity',
-        'date' => 'getDate',
-        'user_id' => 'getUserId',
         'lob_id' => 'getLobId',
-        'billing_code_type_id' => 'getBillingCodeTypeId',
-        'record_type' => 'getRecordType',
-        'record_id' => 'getRecordId',
-        'note' => 'getNote',
+        'description' => 'getDescription',
+        'seq_no' => 'getSeqNo',
+        'account_code' => 'getAccountCode',
+        'active' => 'getActive',
+        'include_if_zero' => 'getIncludeIfZero',
+        'department' => 'getDepartment',
+        'item_code' => 'getItemCode',
+        'invoice_template_id' => 'getInvoiceTemplateId',
+        'billing_rule_id' => 'getBillingRuleId',
+        'price_level_mode' => 'getPriceLevelMode',
+        'script_id' => 'getScriptId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -158,52 +174,76 @@ class BillingCode implements ArrayAccess
     protected $modify_date;
     
     /**
-      * $quantity 
-      * @var int
-      */
-    protected $quantity;
-    
-    /**
-      * $date 
-      * @var \DateTime
-      */
-    protected $date;
-    
-    /**
-      * $user_id 
-      * @var int
-      */
-    protected $user_id;
-    
-    /**
       * $lob_id 
       * @var int
       */
     protected $lob_id;
     
     /**
-      * $billing_code_type_id 
+      * $description 
+      * @var string
+      */
+    protected $description;
+    
+    /**
+      * $seq_no 
       * @var int
       */
-    protected $billing_code_type_id;
+    protected $seq_no;
     
     /**
-      * $record_type 
+      * $account_code 
       * @var string
       */
-    protected $record_type;
+    protected $account_code;
     
     /**
-      * $record_id 
-      * @var string
+      * $active 
+      * @var bool
       */
-    protected $record_id;
+    protected $active = false;
     
     /**
-      * $note 
+      * $include_if_zero 
+      * @var bool
+      */
+    protected $include_if_zero = false;
+    
+    /**
+      * $department 
       * @var string
       */
-    protected $note;
+    protected $department;
+    
+    /**
+      * $item_code 
+      * @var string
+      */
+    protected $item_code;
+    
+    /**
+      * $invoice_template_id 
+      * @var int
+      */
+    protected $invoice_template_id;
+    
+    /**
+      * $billing_rule_id 
+      * @var int
+      */
+    protected $billing_rule_id;
+    
+    /**
+      * $price_level_mode 
+      * @var string
+      */
+    protected $price_level_mode;
+    
+    /**
+      * $script_id 
+      * @var int
+      */
+    protected $script_id;
     
     /**
       * $custom_fields 
@@ -223,14 +263,18 @@ class BillingCode implements ArrayAccess
             $this->id = $data["id"];
             $this->create_date = $data["create_date"];
             $this->modify_date = $data["modify_date"];
-            $this->quantity = $data["quantity"];
-            $this->date = $data["date"];
-            $this->user_id = $data["user_id"];
             $this->lob_id = $data["lob_id"];
-            $this->billing_code_type_id = $data["billing_code_type_id"];
-            $this->record_type = $data["record_type"];
-            $this->record_id = $data["record_id"];
-            $this->note = $data["note"];
+            $this->description = $data["description"];
+            $this->seq_no = $data["seq_no"];
+            $this->account_code = $data["account_code"];
+            $this->active = $data["active"];
+            $this->include_if_zero = $data["include_if_zero"];
+            $this->department = $data["department"];
+            $this->item_code = $data["item_code"];
+            $this->invoice_template_id = $data["invoice_template_id"];
+            $this->billing_rule_id = $data["billing_rule_id"];
+            $this->price_level_mode = $data["price_level_mode"];
+            $this->script_id = $data["script_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -299,69 +343,6 @@ class BillingCode implements ArrayAccess
     }
     
     /**
-     * Gets quantity
-     * @return int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-  
-    /**
-     * Sets quantity
-     * @param int $quantity 
-     * @return $this
-     */
-    public function setQuantity($quantity)
-    {
-        
-        $this->quantity = $quantity;
-        return $this;
-    }
-    
-    /**
-     * Gets date
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-  
-    /**
-     * Sets date
-     * @param \DateTime $date 
-     * @return $this
-     */
-    public function setDate($date)
-    {
-        
-        $this->date = $date;
-        return $this;
-    }
-    
-    /**
-     * Gets user_id
-     * @return int
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-  
-    /**
-     * Sets user_id
-     * @param int $user_id 
-     * @return $this
-     */
-    public function setUserId($user_id)
-    {
-        
-        $this->user_id = $user_id;
-        return $this;
-    }
-    
-    /**
      * Gets lob_id
      * @return int
      */
@@ -383,86 +364,233 @@ class BillingCode implements ArrayAccess
     }
     
     /**
-     * Gets billing_code_type_id
+     * Gets description
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+  
+    /**
+     * Sets description
+     * @param string $description 
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        
+        $this->description = $description;
+        return $this;
+    }
+    
+    /**
+     * Gets seq_no
      * @return int
      */
-    public function getBillingCodeTypeId()
+    public function getSeqNo()
     {
-        return $this->billing_code_type_id;
+        return $this->seq_no;
     }
   
     /**
-     * Sets billing_code_type_id
-     * @param int $billing_code_type_id 
+     * Sets seq_no
+     * @param int $seq_no 
      * @return $this
      */
-    public function setBillingCodeTypeId($billing_code_type_id)
+    public function setSeqNo($seq_no)
     {
         
-        $this->billing_code_type_id = $billing_code_type_id;
+        $this->seq_no = $seq_no;
         return $this;
     }
     
     /**
-     * Gets record_type
+     * Gets account_code
      * @return string
      */
-    public function getRecordType()
+    public function getAccountCode()
     {
-        return $this->record_type;
+        return $this->account_code;
     }
   
     /**
-     * Sets record_type
-     * @param string $record_type 
+     * Sets account_code
+     * @param string $account_code 
      * @return $this
      */
-    public function setRecordType($record_type)
+    public function setAccountCode($account_code)
     {
         
-        $this->record_type = $record_type;
+        $this->account_code = $account_code;
         return $this;
     }
     
     /**
-     * Gets record_id
-     * @return string
+     * Gets active
+     * @return bool
      */
-    public function getRecordId()
+    public function getActive()
     {
-        return $this->record_id;
+        return $this->active;
     }
   
     /**
-     * Sets record_id
-     * @param string $record_id 
+     * Sets active
+     * @param bool $active 
      * @return $this
      */
-    public function setRecordId($record_id)
+    public function setActive($active)
     {
         
-        $this->record_id = $record_id;
+        $this->active = $active;
         return $this;
     }
     
     /**
-     * Gets note
-     * @return string
+     * Gets include_if_zero
+     * @return bool
      */
-    public function getNote()
+    public function getIncludeIfZero()
     {
-        return $this->note;
+        return $this->include_if_zero;
     }
   
     /**
-     * Sets note
-     * @param string $note 
+     * Sets include_if_zero
+     * @param bool $include_if_zero 
      * @return $this
      */
-    public function setNote($note)
+    public function setIncludeIfZero($include_if_zero)
     {
         
-        $this->note = $note;
+        $this->include_if_zero = $include_if_zero;
+        return $this;
+    }
+    
+    /**
+     * Gets department
+     * @return string
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+  
+    /**
+     * Sets department
+     * @param string $department 
+     * @return $this
+     */
+    public function setDepartment($department)
+    {
+        
+        $this->department = $department;
+        return $this;
+    }
+    
+    /**
+     * Gets item_code
+     * @return string
+     */
+    public function getItemCode()
+    {
+        return $this->item_code;
+    }
+  
+    /**
+     * Sets item_code
+     * @param string $item_code 
+     * @return $this
+     */
+    public function setItemCode($item_code)
+    {
+        
+        $this->item_code = $item_code;
+        return $this;
+    }
+    
+    /**
+     * Gets invoice_template_id
+     * @return int
+     */
+    public function getInvoiceTemplateId()
+    {
+        return $this->invoice_template_id;
+    }
+  
+    /**
+     * Sets invoice_template_id
+     * @param int $invoice_template_id 
+     * @return $this
+     */
+    public function setInvoiceTemplateId($invoice_template_id)
+    {
+        
+        $this->invoice_template_id = $invoice_template_id;
+        return $this;
+    }
+    
+    /**
+     * Gets billing_rule_id
+     * @return int
+     */
+    public function getBillingRuleId()
+    {
+        return $this->billing_rule_id;
+    }
+  
+    /**
+     * Sets billing_rule_id
+     * @param int $billing_rule_id 
+     * @return $this
+     */
+    public function setBillingRuleId($billing_rule_id)
+    {
+        
+        $this->billing_rule_id = $billing_rule_id;
+        return $this;
+    }
+    
+    /**
+     * Gets price_level_mode
+     * @return string
+     */
+    public function getPriceLevelMode()
+    {
+        return $this->price_level_mode;
+    }
+  
+    /**
+     * Sets price_level_mode
+     * @param string $price_level_mode 
+     * @return $this
+     */
+    public function setPriceLevelMode($price_level_mode)
+    {
+        
+        $this->price_level_mode = $price_level_mode;
+        return $this;
+    }
+    
+    /**
+     * Gets script_id
+     * @return int
+     */
+    public function getScriptId()
+    {
+        return $this->script_id;
+    }
+  
+    /**
+     * Sets script_id
+     * @param int $script_id 
+     * @return $this
+     */
+    public function setScriptId($script_id)
+    {
+        
+        $this->script_id = $script_id;
         return $this;
     }
     

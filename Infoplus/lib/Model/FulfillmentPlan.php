@@ -60,7 +60,8 @@ class FulfillmentPlan implements ArrayAccess
         'last_run_time' => '\DateTime',
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
-        'maximum_number_of_orders' => 'int',
+        'max_orders' => 'int',
+        'batch_size' => 'int',
         'version' => 'string',
         'create_pick_work' => 'bool',
         'picking_rule' => 'string',
@@ -107,7 +108,8 @@ class FulfillmentPlan implements ArrayAccess
         'last_run_time' => 'lastRunTime',
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
-        'maximum_number_of_orders' => 'maximumNumberOfOrders',
+        'max_orders' => 'maxOrders',
+        'batch_size' => 'batchSize',
         'version' => 'version',
         'create_pick_work' => 'createPickWork',
         'picking_rule' => 'pickingRule',
@@ -154,7 +156,8 @@ class FulfillmentPlan implements ArrayAccess
         'last_run_time' => 'setLastRunTime',
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
-        'maximum_number_of_orders' => 'setMaximumNumberOfOrders',
+        'max_orders' => 'setMaxOrders',
+        'batch_size' => 'setBatchSize',
         'version' => 'setVersion',
         'create_pick_work' => 'setCreatePickWork',
         'picking_rule' => 'setPickingRule',
@@ -201,7 +204,8 @@ class FulfillmentPlan implements ArrayAccess
         'last_run_time' => 'getLastRunTime',
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
-        'maximum_number_of_orders' => 'getMaximumNumberOfOrders',
+        'max_orders' => 'getMaxOrders',
+        'batch_size' => 'getBatchSize',
         'version' => 'getVersion',
         'create_pick_work' => 'getCreatePickWork',
         'picking_rule' => 'getPickingRule',
@@ -290,10 +294,16 @@ class FulfillmentPlan implements ArrayAccess
     protected $location_smart_filter_id;
     
     /**
-      * $maximum_number_of_orders 
+      * $max_orders 
       * @var int
       */
-    protected $maximum_number_of_orders;
+    protected $max_orders;
+    
+    /**
+      * $batch_size 
+      * @var int
+      */
+    protected $batch_size;
     
     /**
       * $version 
@@ -469,7 +479,8 @@ class FulfillmentPlan implements ArrayAccess
             $this->last_run_time = $data["last_run_time"];
             $this->order_smart_filter_id = $data["order_smart_filter_id"];
             $this->location_smart_filter_id = $data["location_smart_filter_id"];
-            $this->maximum_number_of_orders = $data["maximum_number_of_orders"];
+            $this->max_orders = $data["max_orders"];
+            $this->batch_size = $data["batch_size"];
             $this->version = $data["version"];
             $this->create_pick_work = $data["create_pick_work"];
             $this->picking_rule = $data["picking_rule"];
@@ -689,23 +700,44 @@ class FulfillmentPlan implements ArrayAccess
     }
     
     /**
-     * Gets maximum_number_of_orders
+     * Gets max_orders
      * @return int
      */
-    public function getMaximumNumberOfOrders()
+    public function getMaxOrders()
     {
-        return $this->maximum_number_of_orders;
+        return $this->max_orders;
     }
   
     /**
-     * Sets maximum_number_of_orders
-     * @param int $maximum_number_of_orders 
+     * Sets max_orders
+     * @param int $max_orders 
      * @return $this
      */
-    public function setMaximumNumberOfOrders($maximum_number_of_orders)
+    public function setMaxOrders($max_orders)
     {
         
-        $this->maximum_number_of_orders = $maximum_number_of_orders;
+        $this->max_orders = $max_orders;
+        return $this;
+    }
+    
+    /**
+     * Gets batch_size
+     * @return int
+     */
+    public function getBatchSize()
+    {
+        return $this->batch_size;
+    }
+  
+    /**
+     * Sets batch_size
+     * @param int $batch_size 
+     * @return $this
+     */
+    public function setBatchSize($batch_size)
+    {
+        
+        $this->batch_size = $batch_size;
         return $this;
     }
     

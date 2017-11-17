@@ -63,6 +63,9 @@ class BillingCodeActivity implements ArrayAccess
         'billing_code_type_id' => 'int',
         'billing_code_type_name' => 'string',
         'note' => 'string',
+        'record_type_name' => 'string',
+        'record_type_id' => 'int',
+        'record_id' => 'string',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -87,6 +90,9 @@ class BillingCodeActivity implements ArrayAccess
         'billing_code_type_id' => 'billingCodeTypeId',
         'billing_code_type_name' => 'billingCodeTypeName',
         'note' => 'note',
+        'record_type_name' => 'recordTypeName',
+        'record_type_id' => 'recordTypeId',
+        'record_id' => 'recordId',
         'custom_fields' => 'customFields'
     );
   
@@ -111,6 +117,9 @@ class BillingCodeActivity implements ArrayAccess
         'billing_code_type_id' => 'setBillingCodeTypeId',
         'billing_code_type_name' => 'setBillingCodeTypeName',
         'note' => 'setNote',
+        'record_type_name' => 'setRecordTypeName',
+        'record_type_id' => 'setRecordTypeId',
+        'record_id' => 'setRecordId',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -135,6 +144,9 @@ class BillingCodeActivity implements ArrayAccess
         'billing_code_type_id' => 'getBillingCodeTypeId',
         'billing_code_type_name' => 'getBillingCodeTypeName',
         'note' => 'getNote',
+        'record_type_name' => 'getRecordTypeName',
+        'record_type_id' => 'getRecordTypeId',
+        'record_id' => 'getRecordId',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -216,6 +228,24 @@ class BillingCodeActivity implements ArrayAccess
     protected $note;
     
     /**
+      * $record_type_name 
+      * @var string
+      */
+    protected $record_type_name;
+    
+    /**
+      * $record_type_id 
+      * @var int
+      */
+    protected $record_type_id;
+    
+    /**
+      * $record_id 
+      * @var string
+      */
+    protected $record_id;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -242,6 +272,9 @@ class BillingCodeActivity implements ArrayAccess
             $this->billing_code_type_id = $data["billing_code_type_id"];
             $this->billing_code_type_name = $data["billing_code_type_name"];
             $this->note = $data["note"];
+            $this->record_type_name = $data["record_type_name"];
+            $this->record_type_id = $data["record_type_id"];
+            $this->record_id = $data["record_id"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -495,6 +528,69 @@ class BillingCodeActivity implements ArrayAccess
     {
         
         $this->note = $note;
+        return $this;
+    }
+    
+    /**
+     * Gets record_type_name
+     * @return string
+     */
+    public function getRecordTypeName()
+    {
+        return $this->record_type_name;
+    }
+  
+    /**
+     * Sets record_type_name
+     * @param string $record_type_name 
+     * @return $this
+     */
+    public function setRecordTypeName($record_type_name)
+    {
+        
+        $this->record_type_name = $record_type_name;
+        return $this;
+    }
+    
+    /**
+     * Gets record_type_id
+     * @return int
+     */
+    public function getRecordTypeId()
+    {
+        return $this->record_type_id;
+    }
+  
+    /**
+     * Sets record_type_id
+     * @param int $record_type_id 
+     * @return $this
+     */
+    public function setRecordTypeId($record_type_id)
+    {
+        
+        $this->record_type_id = $record_type_id;
+        return $this;
+    }
+    
+    /**
+     * Gets record_id
+     * @return string
+     */
+    public function getRecordId()
+    {
+        return $this->record_id;
+    }
+  
+    /**
+     * Sets record_id
+     * @param string $record_id 
+     * @return $this
+     */
+    public function setRecordId($record_id)
+    {
+        
+        $this->record_id = $record_id;
         return $this;
     }
     

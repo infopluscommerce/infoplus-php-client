@@ -63,6 +63,7 @@ class ShoppingCartConnection implements ArrayAccess
         'item_filter_id' => 'int',
         'infoplus_sku_field_to_map' => 'string',
         'shopping_cart_sku_field_to_map' => 'string',
+        'script_id' => 'int',
         'name' => 'string',
         'shopping_cart_store_url' => 'string',
         'access_code' => 'string',
@@ -71,6 +72,7 @@ class ShoppingCartConnection implements ArrayAccess
         'password' => 'string',
         'default_carrier_id' => 'int',
         'order_shipment_level' => 'string',
+        'create_invoices' => 'bool',
         'sync_orders' => 'bool',
         'sync_inventory' => 'bool',
         'sync_tracking_data' => 'bool',
@@ -103,6 +105,7 @@ class ShoppingCartConnection implements ArrayAccess
         'item_filter_id' => 'itemFilterId',
         'infoplus_sku_field_to_map' => 'infoplusSKUFieldToMap',
         'shopping_cart_sku_field_to_map' => 'shoppingCartSKUFieldToMap',
+        'script_id' => 'scriptId',
         'name' => 'name',
         'shopping_cart_store_url' => 'shoppingCartStoreURL',
         'access_code' => 'accessCode',
@@ -111,6 +114,7 @@ class ShoppingCartConnection implements ArrayAccess
         'password' => 'password',
         'default_carrier_id' => 'defaultCarrierId',
         'order_shipment_level' => 'orderShipmentLevel',
+        'create_invoices' => 'createInvoices',
         'sync_orders' => 'syncOrders',
         'sync_inventory' => 'syncInventory',
         'sync_tracking_data' => 'syncTrackingData',
@@ -143,6 +147,7 @@ class ShoppingCartConnection implements ArrayAccess
         'item_filter_id' => 'setItemFilterId',
         'infoplus_sku_field_to_map' => 'setInfoplusSkuFieldToMap',
         'shopping_cart_sku_field_to_map' => 'setShoppingCartSkuFieldToMap',
+        'script_id' => 'setScriptId',
         'name' => 'setName',
         'shopping_cart_store_url' => 'setShoppingCartStoreUrl',
         'access_code' => 'setAccessCode',
@@ -151,6 +156,7 @@ class ShoppingCartConnection implements ArrayAccess
         'password' => 'setPassword',
         'default_carrier_id' => 'setDefaultCarrierId',
         'order_shipment_level' => 'setOrderShipmentLevel',
+        'create_invoices' => 'setCreateInvoices',
         'sync_orders' => 'setSyncOrders',
         'sync_inventory' => 'setSyncInventory',
         'sync_tracking_data' => 'setSyncTrackingData',
@@ -183,6 +189,7 @@ class ShoppingCartConnection implements ArrayAccess
         'item_filter_id' => 'getItemFilterId',
         'infoplus_sku_field_to_map' => 'getInfoplusSkuFieldToMap',
         'shopping_cart_sku_field_to_map' => 'getShoppingCartSkuFieldToMap',
+        'script_id' => 'getScriptId',
         'name' => 'getName',
         'shopping_cart_store_url' => 'getShoppingCartStoreUrl',
         'access_code' => 'getAccessCode',
@@ -191,6 +198,7 @@ class ShoppingCartConnection implements ArrayAccess
         'password' => 'getPassword',
         'default_carrier_id' => 'getDefaultCarrierId',
         'order_shipment_level' => 'getOrderShipmentLevel',
+        'create_invoices' => 'getCreateInvoices',
         'sync_orders' => 'getSyncOrders',
         'sync_inventory' => 'getSyncInventory',
         'sync_tracking_data' => 'getSyncTrackingData',
@@ -280,6 +288,12 @@ class ShoppingCartConnection implements ArrayAccess
     protected $shopping_cart_sku_field_to_map;
     
     /**
+      * $script_id 
+      * @var int
+      */
+    protected $script_id;
+    
+    /**
       * $name 
       * @var string
       */
@@ -326,6 +340,12 @@ class ShoppingCartConnection implements ArrayAccess
       * @var string
       */
     protected $order_shipment_level;
+    
+    /**
+      * $create_invoices 
+      * @var bool
+      */
+    protected $create_invoices = false;
     
     /**
       * $sync_orders 
@@ -402,6 +422,7 @@ class ShoppingCartConnection implements ArrayAccess
             $this->item_filter_id = $data["item_filter_id"];
             $this->infoplus_sku_field_to_map = $data["infoplus_sku_field_to_map"];
             $this->shopping_cart_sku_field_to_map = $data["shopping_cart_sku_field_to_map"];
+            $this->script_id = $data["script_id"];
             $this->name = $data["name"];
             $this->shopping_cart_store_url = $data["shopping_cart_store_url"];
             $this->access_code = $data["access_code"];
@@ -410,6 +431,7 @@ class ShoppingCartConnection implements ArrayAccess
             $this->password = $data["password"];
             $this->default_carrier_id = $data["default_carrier_id"];
             $this->order_shipment_level = $data["order_shipment_level"];
+            $this->create_invoices = $data["create_invoices"];
             $this->sync_orders = $data["sync_orders"];
             $this->sync_inventory = $data["sync_inventory"];
             $this->sync_tracking_data = $data["sync_tracking_data"];
@@ -675,6 +697,27 @@ class ShoppingCartConnection implements ArrayAccess
     }
     
     /**
+     * Gets script_id
+     * @return int
+     */
+    public function getScriptId()
+    {
+        return $this->script_id;
+    }
+  
+    /**
+     * Sets script_id
+     * @param int $script_id 
+     * @return $this
+     */
+    public function setScriptId($script_id)
+    {
+        
+        $this->script_id = $script_id;
+        return $this;
+    }
+    
+    /**
      * Gets name
      * @return string
      */
@@ -839,6 +882,27 @@ class ShoppingCartConnection implements ArrayAccess
     {
         
         $this->order_shipment_level = $order_shipment_level;
+        return $this;
+    }
+    
+    /**
+     * Gets create_invoices
+     * @return bool
+     */
+    public function getCreateInvoices()
+    {
+        return $this->create_invoices;
+    }
+  
+    /**
+     * Sets create_invoices
+     * @param bool $create_invoices 
+     * @return $this
+     */
+    public function setCreateInvoices($create_invoices)
+    {
+        
+        $this->create_invoices = $create_invoices;
         return $this;
     }
     

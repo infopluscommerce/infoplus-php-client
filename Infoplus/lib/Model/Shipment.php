@@ -71,6 +71,7 @@ class Shipment implements ArrayAccess
         'estimated_zone' => 'string',
         'parcel_account_no' => 'string',
         'third_party_parcel_account_no' => 'string',
+        'shipment_id' => 'string',
         'manifest_id' => 'int',
         'residential' => 'bool',
         'billing_option' => 'string',
@@ -82,6 +83,7 @@ class Shipment implements ArrayAccess
         'retail_freight_amount' => 'Number',
         'external_shipping_system_id' => 'int',
         'shipment_type' => 'string',
+        'carrier_company' => 'string',
         'custom_fields' => 'map[string,object]'
     );
   
@@ -114,6 +116,7 @@ class Shipment implements ArrayAccess
         'estimated_zone' => 'estimatedZone',
         'parcel_account_no' => 'parcelAccountNo',
         'third_party_parcel_account_no' => 'thirdPartyParcelAccountNo',
+        'shipment_id' => 'shipmentID',
         'manifest_id' => 'manifestId',
         'residential' => 'residential',
         'billing_option' => 'billingOption',
@@ -125,6 +128,7 @@ class Shipment implements ArrayAccess
         'retail_freight_amount' => 'retailFreightAmount',
         'external_shipping_system_id' => 'externalShippingSystemId',
         'shipment_type' => 'shipmentType',
+        'carrier_company' => 'carrierCompany',
         'custom_fields' => 'customFields'
     );
   
@@ -157,6 +161,7 @@ class Shipment implements ArrayAccess
         'estimated_zone' => 'setEstimatedZone',
         'parcel_account_no' => 'setParcelAccountNo',
         'third_party_parcel_account_no' => 'setThirdPartyParcelAccountNo',
+        'shipment_id' => 'setShipmentId',
         'manifest_id' => 'setManifestId',
         'residential' => 'setResidential',
         'billing_option' => 'setBillingOption',
@@ -168,6 +173,7 @@ class Shipment implements ArrayAccess
         'retail_freight_amount' => 'setRetailFreightAmount',
         'external_shipping_system_id' => 'setExternalShippingSystemId',
         'shipment_type' => 'setShipmentType',
+        'carrier_company' => 'setCarrierCompany',
         'custom_fields' => 'setCustomFields'
     );
   
@@ -200,6 +206,7 @@ class Shipment implements ArrayAccess
         'estimated_zone' => 'getEstimatedZone',
         'parcel_account_no' => 'getParcelAccountNo',
         'third_party_parcel_account_no' => 'getThirdPartyParcelAccountNo',
+        'shipment_id' => 'getShipmentId',
         'manifest_id' => 'getManifestId',
         'residential' => 'getResidential',
         'billing_option' => 'getBillingOption',
@@ -211,6 +218,7 @@ class Shipment implements ArrayAccess
         'retail_freight_amount' => 'getRetailFreightAmount',
         'external_shipping_system_id' => 'getExternalShippingSystemId',
         'shipment_type' => 'getShipmentType',
+        'carrier_company' => 'getCarrierCompany',
         'custom_fields' => 'getCustomFields'
     );
   
@@ -340,6 +348,12 @@ class Shipment implements ArrayAccess
     protected $third_party_parcel_account_no;
     
     /**
+      * $shipment_id 
+      * @var string
+      */
+    protected $shipment_id;
+    
+    /**
       * $manifest_id 
       * @var int
       */
@@ -406,6 +420,12 @@ class Shipment implements ArrayAccess
     protected $shipment_type;
     
     /**
+      * $carrier_company 
+      * @var string
+      */
+    protected $carrier_company;
+    
+    /**
       * $custom_fields 
       * @var map[string,object]
       */
@@ -440,6 +460,7 @@ class Shipment implements ArrayAccess
             $this->estimated_zone = $data["estimated_zone"];
             $this->parcel_account_no = $data["parcel_account_no"];
             $this->third_party_parcel_account_no = $data["third_party_parcel_account_no"];
+            $this->shipment_id = $data["shipment_id"];
             $this->manifest_id = $data["manifest_id"];
             $this->residential = $data["residential"];
             $this->billing_option = $data["billing_option"];
@@ -451,6 +472,7 @@ class Shipment implements ArrayAccess
             $this->retail_freight_amount = $data["retail_freight_amount"];
             $this->external_shipping_system_id = $data["external_shipping_system_id"];
             $this->shipment_type = $data["shipment_type"];
+            $this->carrier_company = $data["carrier_company"];
             $this->custom_fields = $data["custom_fields"];
         }
     }
@@ -876,6 +898,27 @@ class Shipment implements ArrayAccess
     }
     
     /**
+     * Gets shipment_id
+     * @return string
+     */
+    public function getShipmentId()
+    {
+        return $this->shipment_id;
+    }
+  
+    /**
+     * Sets shipment_id
+     * @param string $shipment_id 
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        
+        $this->shipment_id = $shipment_id;
+        return $this;
+    }
+    
+    /**
      * Gets manifest_id
      * @return int
      */
@@ -1103,6 +1146,27 @@ class Shipment implements ArrayAccess
     {
         
         $this->shipment_type = $shipment_type;
+        return $this;
+    }
+    
+    /**
+     * Gets carrier_company
+     * @return string
+     */
+    public function getCarrierCompany()
+    {
+        return $this->carrier_company;
+    }
+  
+    /**
+     * Sets carrier_company
+     * @param string $carrier_company 
+     * @return $this
+     */
+    public function setCarrierCompany($carrier_company)
+    {
+        
+        $this->carrier_company = $carrier_company;
         return $this;
     }
     
