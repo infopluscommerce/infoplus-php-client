@@ -149,6 +149,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         'shipping_charge' => 'float',
         'total_discount' => 'float',
         'parcel_account_id' => 'int',
+        'third_party_parcel_account_id' => 'int',
         'packing_slip_template_id' => 'int',
         'gift_message' => 'string',
         'branch_sector' => 'string',
@@ -270,6 +271,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         'shipping_charge' => null,
         'total_discount' => null,
         'parcel_account_id' => 'int32',
+        'third_party_parcel_account_id' => 'int32',
         'packing_slip_template_id' => 'int32',
         'gift_message' => null,
         'branch_sector' => null,
@@ -412,6 +414,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         'shipping_charge' => 'shippingCharge',
         'total_discount' => 'totalDiscount',
         'parcel_account_id' => 'parcelAccountId',
+        'third_party_parcel_account_id' => 'thirdPartyParcelAccountId',
         'packing_slip_template_id' => 'packingSlipTemplateId',
         'gift_message' => 'giftMessage',
         'branch_sector' => 'branchSector',
@@ -533,6 +536,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         'shipping_charge' => 'setShippingCharge',
         'total_discount' => 'setTotalDiscount',
         'parcel_account_id' => 'setParcelAccountId',
+        'third_party_parcel_account_id' => 'setThirdPartyParcelAccountId',
         'packing_slip_template_id' => 'setPackingSlipTemplateId',
         'gift_message' => 'setGiftMessage',
         'branch_sector' => 'setBranchSector',
@@ -654,6 +658,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         'shipping_charge' => 'getShippingCharge',
         'total_discount' => 'getTotalDiscount',
         'parcel_account_id' => 'getParcelAccountId',
+        'third_party_parcel_account_id' => 'getThirdPartyParcelAccountId',
         'packing_slip_template_id' => 'getPackingSlipTemplateId',
         'gift_message' => 'getGiftMessage',
         'branch_sector' => 'getBranchSector',
@@ -829,6 +834,7 @@ class OrderActivity implements ModelInterface, ArrayAccess
         $this->container['shipping_charge'] = isset($data['shipping_charge']) ? $data['shipping_charge'] : null;
         $this->container['total_discount'] = isset($data['total_discount']) ? $data['total_discount'] : null;
         $this->container['parcel_account_id'] = isset($data['parcel_account_id']) ? $data['parcel_account_id'] : null;
+        $this->container['third_party_parcel_account_id'] = isset($data['third_party_parcel_account_id']) ? $data['third_party_parcel_account_id'] : null;
         $this->container['packing_slip_template_id'] = isset($data['packing_slip_template_id']) ? $data['packing_slip_template_id'] : null;
         $this->container['gift_message'] = isset($data['gift_message']) ? $data['gift_message'] : null;
         $this->container['branch_sector'] = isset($data['branch_sector']) ? $data['branch_sector'] : null;
@@ -3111,6 +3117,30 @@ class OrderActivity implements ModelInterface, ArrayAccess
     public function setParcelAccountId($parcel_account_id)
     {
         $this->container['parcel_account_id'] = $parcel_account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets third_party_parcel_account_id
+     *
+     * @return int
+     */
+    public function getThirdPartyParcelAccountId()
+    {
+        return $this->container['third_party_parcel_account_id'];
+    }
+
+    /**
+     * Sets third_party_parcel_account_id
+     *
+     * @param int $third_party_parcel_account_id third_party_parcel_account_id
+     *
+     * @return $this
+     */
+    public function setThirdPartyParcelAccountId($third_party_parcel_account_id)
+    {
+        $this->container['third_party_parcel_account_id'] = $third_party_parcel_account_id;
 
         return $this;
     }

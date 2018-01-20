@@ -60,6 +60,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'system_type' => 'string',
+        'script_id' => 'int',
         'api_key' => 'string',
         'api_secret' => 'string',
         'create_date' => '\DateTime',
@@ -76,6 +77,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         'id' => 'int32',
         'name' => null,
         'system_type' => null,
+        'script_id' => 'int32',
         'api_key' => null,
         'api_secret' => null,
         'create_date' => 'date-time',
@@ -113,6 +115,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'system_type' => 'systemType',
+        'script_id' => 'scriptId',
         'api_key' => 'apiKey',
         'api_secret' => 'apiSecret',
         'create_date' => 'createDate',
@@ -129,6 +132,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'system_type' => 'setSystemType',
+        'script_id' => 'setScriptId',
         'api_key' => 'setApiKey',
         'api_secret' => 'setApiSecret',
         'create_date' => 'setCreateDate',
@@ -145,6 +149,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'system_type' => 'getSystemType',
+        'script_id' => 'getScriptId',
         'api_key' => 'getApiKey',
         'api_secret' => 'getApiSecret',
         'create_date' => 'getCreateDate',
@@ -215,6 +220,7 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['system_type'] = isset($data['system_type']) ? $data['system_type'] : null;
+        $this->container['script_id'] = isset($data['script_id']) ? $data['script_id'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
         $this->container['api_secret'] = isset($data['api_secret']) ? $data['api_secret'] : null;
         $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
@@ -339,6 +345,30 @@ class ExternalShippingSystem implements ModelInterface, ArrayAccess
     public function setSystemType($system_type)
     {
         $this->container['system_type'] = $system_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets script_id
+     *
+     * @return int
+     */
+    public function getScriptId()
+    {
+        return $this->container['script_id'];
+    }
+
+    /**
+     * Sets script_id
+     *
+     * @param int $script_id script_id
+     *
+     * @return $this
+     */
+    public function setScriptId($script_id)
+    {
+        $this->container['script_id'] = $script_id;
 
         return $this;
     }

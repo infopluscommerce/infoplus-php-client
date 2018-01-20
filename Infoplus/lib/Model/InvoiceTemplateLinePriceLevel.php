@@ -1,6 +1,6 @@
 <?php
 /**
- * ProcessOutputAPIModel
+ * InvoiceTemplateLinePriceLevel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * ProcessOutputAPIModel Class Doc Comment
+ * InvoiceTemplateLinePriceLevel Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
+class InvoiceTemplateLinePriceLevel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProcessOutputAPIModel';
+    protected static $swaggerModelName = 'invoiceTemplateLinePriceLevel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'object',
-        'status' => 'string',
-        'entity' => 'object',
-        'message_list' => 'string[]'
+        'id' => 'int',
+        'quantity' => 'int',
+        'rate' => 'float',
+        'custom_fields' => 'map[string,object]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'status' => null,
-        'entity' => null,
-        'message_list' => null
+        'id' => 'int32',
+        'quantity' => 'int32',
+        'rate' => null,
+        'custom_fields' => null
     ];
 
     /**
@@ -103,9 +103,9 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'status' => 'status',
-        'entity' => 'entity',
-        'message_list' => 'messageList'
+        'quantity' => 'quantity',
+        'rate' => 'rate',
+        'custom_fields' => 'customFields'
     ];
 
     /**
@@ -115,9 +115,9 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'status' => 'setStatus',
-        'entity' => 'setEntity',
-        'message_list' => 'setMessageList'
+        'quantity' => 'setQuantity',
+        'rate' => 'setRate',
+        'custom_fields' => 'setCustomFields'
     ];
 
     /**
@@ -127,9 +127,9 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'status' => 'getStatus',
-        'entity' => 'getEntity',
-        'message_list' => 'getMessageList'
+        'quantity' => 'getQuantity',
+        'rate' => 'getRate',
+        'custom_fields' => 'getCustomFields'
     ];
 
     /**
@@ -193,9 +193,9 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
-        $this->container['message_list'] = isset($data['message_list']) ? $data['message_list'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['rate'] = isset($data['rate']) ? $data['rate'] : null;
+        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
     /**
@@ -226,7 +226,7 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return object
+     * @return int
      */
     public function getId()
     {
@@ -236,7 +236,7 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param object $id id
+     * @param int $id id
      *
      * @return $this
      */
@@ -248,73 +248,73 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets quantity
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getQuantity()
     {
-        return $this->container['status'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets status
+     * Sets quantity
      *
-     * @param string $status status
+     * @param int $quantity quantity
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setQuantity($quantity)
     {
-        $this->container['status'] = $status;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }
 
     /**
-     * Gets entity
+     * Gets rate
      *
-     * @return object
+     * @return float
      */
-    public function getEntity()
+    public function getRate()
     {
-        return $this->container['entity'];
+        return $this->container['rate'];
     }
 
     /**
-     * Sets entity
+     * Sets rate
      *
-     * @param object $entity entity
+     * @param float $rate rate
      *
      * @return $this
      */
-    public function setEntity($entity)
+    public function setRate($rate)
     {
-        $this->container['entity'] = $entity;
+        $this->container['rate'] = $rate;
 
         return $this;
     }
 
     /**
-     * Gets message_list
+     * Gets custom_fields
      *
-     * @return string[]
+     * @return map[string,object]
      */
-    public function getMessageList()
+    public function getCustomFields()
     {
-        return $this->container['message_list'];
+        return $this->container['custom_fields'];
     }
 
     /**
-     * Sets message_list
+     * Sets custom_fields
      *
-     * @param string[] $message_list message_list
+     * @param map[string,object] $custom_fields custom_fields
      *
      * @return $this
      */
-    public function setMessageList($message_list)
+    public function setCustomFields($custom_fields)
     {
-        $this->container['message_list'] = $message_list;
+        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

@@ -1,16 +1,20 @@
-# ExternalShippingSystem
+# FulfillmentProcessLog
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**name** | **string** |  | 
-**system_type** | **string** |  | 
-**script_id** | **int** |  | [optional] 
-**api_key** | **string** |  | 
-**api_secret** | **string** |  | 
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**process_no_id** | **int** |  | [optional] 
+**warehouse_id** | **int** |  | [optional] 
+**order_id** | **float** |  | [optional] 
+**lob_id** | **int** |  | [optional] 
+**sku_id** | **int** |  | [optional] 
+**location_id** | **int** |  | [optional] 
+**item_receipt_id** | **int** |  | [optional] 
+**allocation_issue_type** | **string** |  | [optional] 
+**message** | **string** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

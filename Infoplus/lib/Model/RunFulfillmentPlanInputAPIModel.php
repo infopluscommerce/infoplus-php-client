@@ -1,6 +1,6 @@
 <?php
 /**
- * ProcessOutputAPIModel
+ * RunFulfillmentPlanInputAPIModel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * ProcessOutputAPIModel Class Doc Comment
+ * RunFulfillmentPlanInputAPIModel Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
+class RunFulfillmentPlanInputAPIModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProcessOutputAPIModel';
+    protected static $swaggerModelName = 'RunFulfillmentPlanInputAPIModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'object',
-        'status' => 'string',
-        'entity' => 'object',
-        'message_list' => 'string[]'
+        'order_no_list' => 'float[]',
+        'fulfillment_plan_id' => 'int',
+        'first_pick_position' => 'int',
+        'ship_date' => '\DateTime'
     ];
 
     /**
@@ -69,10 +69,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-        'status' => null,
-        'entity' => null,
-        'message_list' => null
+        'order_no_list' => null,
+        'fulfillment_plan_id' => 'int32',
+        'first_pick_position' => 'int32',
+        'ship_date' => 'date-time'
     ];
 
     /**
@@ -102,10 +102,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'status' => 'status',
-        'entity' => 'entity',
-        'message_list' => 'messageList'
+        'order_no_list' => 'orderNoList',
+        'fulfillment_plan_id' => 'fulfillmentPlanId',
+        'first_pick_position' => 'firstPickPosition',
+        'ship_date' => 'shipDate'
     ];
 
     /**
@@ -114,10 +114,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'entity' => 'setEntity',
-        'message_list' => 'setMessageList'
+        'order_no_list' => 'setOrderNoList',
+        'fulfillment_plan_id' => 'setFulfillmentPlanId',
+        'first_pick_position' => 'setFirstPickPosition',
+        'ship_date' => 'setShipDate'
     ];
 
     /**
@@ -126,10 +126,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'entity' => 'getEntity',
-        'message_list' => 'getMessageList'
+        'order_no_list' => 'getOrderNoList',
+        'fulfillment_plan_id' => 'getFulfillmentPlanId',
+        'first_pick_position' => 'getFirstPickPosition',
+        'ship_date' => 'getShipDate'
     ];
 
     /**
@@ -192,10 +192,10 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['entity'] = isset($data['entity']) ? $data['entity'] : null;
-        $this->container['message_list'] = isset($data['message_list']) ? $data['message_list'] : null;
+        $this->container['order_no_list'] = isset($data['order_no_list']) ? $data['order_no_list'] : null;
+        $this->container['fulfillment_plan_id'] = isset($data['fulfillment_plan_id']) ? $data['fulfillment_plan_id'] : null;
+        $this->container['first_pick_position'] = isset($data['first_pick_position']) ? $data['first_pick_position'] : null;
+        $this->container['ship_date'] = isset($data['ship_date']) ? $data['ship_date'] : null;
     }
 
     /**
@@ -207,6 +207,12 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['fulfillment_plan_id'] === null) {
+            $invalidProperties[] = "'fulfillment_plan_id' can't be null";
+        }
+        if ($this->container['ship_date'] === null) {
+            $invalidProperties[] = "'ship_date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -219,102 +225,108 @@ class ProcessOutputAPIModel implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['fulfillment_plan_id'] === null) {
+            return false;
+        }
+        if ($this->container['ship_date'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets id
+     * Gets order_no_list
      *
-     * @return object
+     * @return float[]
      */
-    public function getId()
+    public function getOrderNoList()
     {
-        return $this->container['id'];
+        return $this->container['order_no_list'];
     }
 
     /**
-     * Sets id
+     * Sets order_no_list
      *
-     * @param object $id id
+     * @param float[] $order_no_list order_no_list
      *
      * @return $this
      */
-    public function setId($id)
+    public function setOrderNoList($order_no_list)
     {
-        $this->container['id'] = $id;
+        $this->container['order_no_list'] = $order_no_list;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets fulfillment_plan_id
      *
-     * @return string
+     * @return int
      */
-    public function getStatus()
+    public function getFulfillmentPlanId()
     {
-        return $this->container['status'];
+        return $this->container['fulfillment_plan_id'];
     }
 
     /**
-     * Sets status
+     * Sets fulfillment_plan_id
      *
-     * @param string $status status
+     * @param int $fulfillment_plan_id fulfillment_plan_id
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setFulfillmentPlanId($fulfillment_plan_id)
     {
-        $this->container['status'] = $status;
+        $this->container['fulfillment_plan_id'] = $fulfillment_plan_id;
 
         return $this;
     }
 
     /**
-     * Gets entity
+     * Gets first_pick_position
      *
-     * @return object
+     * @return int
      */
-    public function getEntity()
+    public function getFirstPickPosition()
     {
-        return $this->container['entity'];
+        return $this->container['first_pick_position'];
     }
 
     /**
-     * Sets entity
+     * Sets first_pick_position
      *
-     * @param object $entity entity
+     * @param int $first_pick_position first_pick_position
      *
      * @return $this
      */
-    public function setEntity($entity)
+    public function setFirstPickPosition($first_pick_position)
     {
-        $this->container['entity'] = $entity;
+        $this->container['first_pick_position'] = $first_pick_position;
 
         return $this;
     }
 
     /**
-     * Gets message_list
+     * Gets ship_date
      *
-     * @return string[]
+     * @return \DateTime
      */
-    public function getMessageList()
+    public function getShipDate()
     {
-        return $this->container['message_list'];
+        return $this->container['ship_date'];
     }
 
     /**
-     * Sets message_list
+     * Sets ship_date
      *
-     * @param string[] $message_list message_list
+     * @param \DateTime $ship_date ship_date
      *
      * @return $this
      */
-    public function setMessageList($message_list)
+    public function setShipDate($ship_date)
     {
-        $this->container['message_list'] = $message_list;
+        $this->container['ship_date'] = $ship_date;
 
         return $this;
     }

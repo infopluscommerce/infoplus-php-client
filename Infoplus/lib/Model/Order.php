@@ -152,6 +152,9 @@ class Order implements ModelInterface, ArrayAccess
         'total_qty' => 'int',
         'weight_lbs' => 'float',
         'order_assembly_instructions' => 'string',
+        'parcel_label_ref1' => 'string',
+        'parcel_label_ref2' => 'string',
+        'parcel_label_ref3' => 'string',
         'line_items' => '\Infoplus\Infoplus\Model\OrderLine[]',
         'extra_order_data' => '\Infoplus\Infoplus\Model\OrderExtraOrderData[]',
         'extra_line_item_data' => '\Infoplus\Infoplus\Model\OrderExtraLineItemData[]',
@@ -260,6 +263,9 @@ class Order implements ModelInterface, ArrayAccess
         'total_qty' => 'int32',
         'weight_lbs' => null,
         'order_assembly_instructions' => null,
+        'parcel_label_ref1' => null,
+        'parcel_label_ref2' => null,
+        'parcel_label_ref3' => null,
         'line_items' => null,
         'extra_order_data' => null,
         'extra_line_item_data' => null,
@@ -389,6 +395,9 @@ class Order implements ModelInterface, ArrayAccess
         'total_qty' => 'totalQty',
         'weight_lbs' => 'weightLbs',
         'order_assembly_instructions' => 'orderAssemblyInstructions',
+        'parcel_label_ref1' => 'parcelLabelRef1',
+        'parcel_label_ref2' => 'parcelLabelRef2',
+        'parcel_label_ref3' => 'parcelLabelRef3',
         'line_items' => 'lineItems',
         'extra_order_data' => 'extraOrderData',
         'extra_line_item_data' => 'extraLineItemData',
@@ -497,6 +506,9 @@ class Order implements ModelInterface, ArrayAccess
         'total_qty' => 'setTotalQty',
         'weight_lbs' => 'setWeightLbs',
         'order_assembly_instructions' => 'setOrderAssemblyInstructions',
+        'parcel_label_ref1' => 'setParcelLabelRef1',
+        'parcel_label_ref2' => 'setParcelLabelRef2',
+        'parcel_label_ref3' => 'setParcelLabelRef3',
         'line_items' => 'setLineItems',
         'extra_order_data' => 'setExtraOrderData',
         'extra_line_item_data' => 'setExtraLineItemData',
@@ -605,6 +617,9 @@ class Order implements ModelInterface, ArrayAccess
         'total_qty' => 'getTotalQty',
         'weight_lbs' => 'getWeightLbs',
         'order_assembly_instructions' => 'getOrderAssemblyInstructions',
+        'parcel_label_ref1' => 'getParcelLabelRef1',
+        'parcel_label_ref2' => 'getParcelLabelRef2',
+        'parcel_label_ref3' => 'getParcelLabelRef3',
         'line_items' => 'getLineItems',
         'extra_order_data' => 'getExtraOrderData',
         'extra_line_item_data' => 'getExtraLineItemData',
@@ -767,6 +782,9 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['total_qty'] = isset($data['total_qty']) ? $data['total_qty'] : null;
         $this->container['weight_lbs'] = isset($data['weight_lbs']) ? $data['weight_lbs'] : null;
         $this->container['order_assembly_instructions'] = isset($data['order_assembly_instructions']) ? $data['order_assembly_instructions'] : null;
+        $this->container['parcel_label_ref1'] = isset($data['parcel_label_ref1']) ? $data['parcel_label_ref1'] : null;
+        $this->container['parcel_label_ref2'] = isset($data['parcel_label_ref2']) ? $data['parcel_label_ref2'] : null;
+        $this->container['parcel_label_ref3'] = isset($data['parcel_label_ref3']) ? $data['parcel_label_ref3'] : null;
         $this->container['line_items'] = isset($data['line_items']) ? $data['line_items'] : null;
         $this->container['extra_order_data'] = isset($data['extra_order_data']) ? $data['extra_order_data'] : null;
         $this->container['extra_line_item_data'] = isset($data['extra_line_item_data']) ? $data['extra_line_item_data'] : null;
@@ -3111,6 +3129,78 @@ class Order implements ModelInterface, ArrayAccess
     public function setOrderAssemblyInstructions($order_assembly_instructions)
     {
         $this->container['order_assembly_instructions'] = $order_assembly_instructions;
+
+        return $this;
+    }
+
+    /**
+     * Gets parcel_label_ref1
+     *
+     * @return string
+     */
+    public function getParcelLabelRef1()
+    {
+        return $this->container['parcel_label_ref1'];
+    }
+
+    /**
+     * Sets parcel_label_ref1
+     *
+     * @param string $parcel_label_ref1 parcel_label_ref1
+     *
+     * @return $this
+     */
+    public function setParcelLabelRef1($parcel_label_ref1)
+    {
+        $this->container['parcel_label_ref1'] = $parcel_label_ref1;
+
+        return $this;
+    }
+
+    /**
+     * Gets parcel_label_ref2
+     *
+     * @return string
+     */
+    public function getParcelLabelRef2()
+    {
+        return $this->container['parcel_label_ref2'];
+    }
+
+    /**
+     * Sets parcel_label_ref2
+     *
+     * @param string $parcel_label_ref2 parcel_label_ref2
+     *
+     * @return $this
+     */
+    public function setParcelLabelRef2($parcel_label_ref2)
+    {
+        $this->container['parcel_label_ref2'] = $parcel_label_ref2;
+
+        return $this;
+    }
+
+    /**
+     * Gets parcel_label_ref3
+     *
+     * @return string
+     */
+    public function getParcelLabelRef3()
+    {
+        return $this->container['parcel_label_ref3'];
+    }
+
+    /**
+     * Sets parcel_label_ref3
+     *
+     * @param string $parcel_label_ref3 parcel_label_ref3
+     *
+     * @return $this
+     */
+    public function setParcelLabelRef3($parcel_label_ref3)
+    {
+        $this->container['parcel_label_ref3'] = $parcel_label_ref3;
 
         return $this;
     }

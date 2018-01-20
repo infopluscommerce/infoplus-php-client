@@ -310,6 +310,13 @@ Class | Method | HTTP request | Description
 *FulfillmentProcessApi* | [**getFulfillmentProcessById**](docs/Api/FulfillmentProcessApi.md#getfulfillmentprocessbyid) | **GET** /beta/fulfillmentProcess/{fulfillmentProcessId} | Get a fulfillmentProcess by id
 *FulfillmentProcessApi* | [**getFulfillmentProcessTags**](docs/Api/FulfillmentProcessApi.md#getfulfillmentprocesstags) | **GET** /beta/fulfillmentProcess/{fulfillmentProcessId}/tag | Get the tags for a fulfillmentProcess.
 *FulfillmentProcessApi* | [**updateFulfillmentProcessCustomFields**](docs/Api/FulfillmentProcessApi.md#updatefulfillmentprocesscustomfields) | **PUT** /beta/fulfillmentProcess/customFields | Update a fulfillmentProcess custom fields
+*FulfillmentProcessLogApi* | [**addFulfillmentProcessLogAudit**](docs/Api/FulfillmentProcessLogApi.md#addfulfillmentprocesslogaudit) | **PUT** /beta/fulfillmentProcessLog/{fulfillmentProcessLogId}/audit/{fulfillmentProcessLogAudit} | Add new audit for a fulfillmentProcessLog
+*FulfillmentProcessLogApi* | [**addFulfillmentProcessLogTag**](docs/Api/FulfillmentProcessLogApi.md#addfulfillmentprocesslogtag) | **PUT** /beta/fulfillmentProcessLog/{fulfillmentProcessLogId}/tag/{fulfillmentProcessLogTag} | Add new tags for a fulfillmentProcessLog.
+*FulfillmentProcessLogApi* | [**deleteFulfillmentProcessLogTag**](docs/Api/FulfillmentProcessLogApi.md#deletefulfillmentprocesslogtag) | **DELETE** /beta/fulfillmentProcessLog/{fulfillmentProcessLogId}/tag/{fulfillmentProcessLogTag} | Delete a tag for a fulfillmentProcessLog.
+*FulfillmentProcessLogApi* | [**getDuplicateFulfillmentProcessLogById**](docs/Api/FulfillmentProcessLogApi.md#getduplicatefulfillmentprocesslogbyid) | **GET** /beta/fulfillmentProcessLog/duplicate/{fulfillmentProcessLogId} | Get a duplicated a fulfillmentProcessLog by id
+*FulfillmentProcessLogApi* | [**getFulfillmentProcessLogByFilter**](docs/Api/FulfillmentProcessLogApi.md#getfulfillmentprocesslogbyfilter) | **GET** /beta/fulfillmentProcessLog/search | Search fulfillmentProcessLogs by filter
+*FulfillmentProcessLogApi* | [**getFulfillmentProcessLogById**](docs/Api/FulfillmentProcessLogApi.md#getfulfillmentprocesslogbyid) | **GET** /beta/fulfillmentProcessLog/{fulfillmentProcessLogId} | Get a fulfillmentProcessLog by id
+*FulfillmentProcessLogApi* | [**getFulfillmentProcessLogTags**](docs/Api/FulfillmentProcessLogApi.md#getfulfillmentprocesslogtags) | **GET** /beta/fulfillmentProcessLog/{fulfillmentProcessLogId}/tag | Get the tags for a fulfillmentProcessLog.
 *IntegrationPartnerApi* | [**getIntegrationPartnerById**](docs/Api/IntegrationPartnerApi.md#getintegrationpartnerbyid) | **GET** /beta/integrationPartner/{integrationPartnerId} | Get an integrationPartner by id
 *IntegrationPartnerApi* | [**getIntegrationPartnerBySearchText**](docs/Api/IntegrationPartnerApi.md#getintegrationpartnerbysearchtext) | **GET** /beta/integrationPartner/search | Search integrationPartners
 *InventoryAdjustmentApi* | [**addInventoryAdjustmentAudit**](docs/Api/InventoryAdjustmentApi.md#addinventoryadjustmentaudit) | **PUT** /beta/inventoryAdjustment/{inventoryAdjustmentId}/audit/{inventoryAdjustmentAudit} | Add new audit for an inventoryAdjustment
@@ -615,6 +622,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrderById**](docs/Api/OrderApi.md#getorderbyid) | **GET** /beta/order/{orderId} | Get an order by id
 *OrderApi* | [**getOrderTags**](docs/Api/OrderApi.md#getordertags) | **GET** /beta/order/{orderId}/tag | Get the tags for an order.
 *OrderApi* | [**getOrderWarehouseFulfillmentData**](docs/Api/OrderApi.md#getorderwarehousefulfillmentdata) | **POST** /beta/order/getOrderWarehouseFulfillmentData | Run the Get Order Warehouse Fulfillment Plan method.
+*OrderApi* | [**runFulfillmentPlan**](docs/Api/OrderApi.md#runfulfillmentplan) | **POST** /beta/order/runFulfillmentPlan | Run the RunFulfillmentPlan process.
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /beta/order | Update an order
 *OrderApi* | [**updateOrderCustomFields**](docs/Api/OrderApi.md#updateordercustomfields) | **PUT** /beta/order/customFields | Update an order custom fields
 *OrderActivityApi* | [**addOrderActivity**](docs/Api/OrderActivityApi.md#addorderactivity) | **POST** /beta/orderActivity | Create an orderActivity
@@ -840,6 +848,13 @@ Class | Method | HTTP request | Description
 *ShoppingCartConnectionApi* | [**getShoppingCartConnectionTags**](docs/Api/ShoppingCartConnectionApi.md#getshoppingcartconnectiontags) | **GET** /beta/shoppingCartConnection/{shoppingCartConnectionId}/tag | Get the tags for a shoppingCartConnection.
 *ShoppingCartConnectionApi* | [**updateShoppingCartConnection**](docs/Api/ShoppingCartConnectionApi.md#updateshoppingcartconnection) | **PUT** /beta/shoppingCartConnection | Update a shoppingCartConnection
 *ShoppingCartConnectionApi* | [**updateShoppingCartConnectionCustomFields**](docs/Api/ShoppingCartConnectionApi.md#updateshoppingcartconnectioncustomfields) | **PUT** /beta/shoppingCartConnection/customFields | Update a shoppingCartConnection custom fields
+*SlaSetupApi* | [**addSlaSetupAudit**](docs/Api/SlaSetupApi.md#addslasetupaudit) | **PUT** /beta/slaSetup/{slaSetupId}/audit/{slaSetupAudit} | Add new audit for a slaSetup
+*SlaSetupApi* | [**addSlaSetupTag**](docs/Api/SlaSetupApi.md#addslasetuptag) | **PUT** /beta/slaSetup/{slaSetupId}/tag/{slaSetupTag} | Add new tags for a slaSetup.
+*SlaSetupApi* | [**deleteSlaSetupTag**](docs/Api/SlaSetupApi.md#deleteslasetuptag) | **DELETE** /beta/slaSetup/{slaSetupId}/tag/{slaSetupTag} | Delete a tag for a slaSetup.
+*SlaSetupApi* | [**getDuplicateSlaSetupById**](docs/Api/SlaSetupApi.md#getduplicateslasetupbyid) | **GET** /beta/slaSetup/duplicate/{slaSetupId} | Get a duplicated a slaSetup by id
+*SlaSetupApi* | [**getSlaSetupByFilter**](docs/Api/SlaSetupApi.md#getslasetupbyfilter) | **GET** /beta/slaSetup/search | Search slaSetups by filter
+*SlaSetupApi* | [**getSlaSetupById**](docs/Api/SlaSetupApi.md#getslasetupbyid) | **GET** /beta/slaSetup/{slaSetupId} | Get a slaSetup by id
+*SlaSetupApi* | [**getSlaSetupTags**](docs/Api/SlaSetupApi.md#getslasetuptags) | **GET** /beta/slaSetup/{slaSetupId}/tag | Get the tags for a slaSetup.
 *SubstitutionApi* | [**addSubstitution**](docs/Api/SubstitutionApi.md#addsubstitution) | **POST** /beta/substitution | Create a substitution
 *SubstitutionApi* | [**addSubstitutionAudit**](docs/Api/SubstitutionApi.md#addsubstitutionaudit) | **PUT** /beta/substitution/{substitutionId}/audit/{substitutionAudit} | Add new audit for a substitution
 *SubstitutionApi* | [**addSubstitutionTag**](docs/Api/SubstitutionApi.md#addsubstitutiontag) | **PUT** /beta/substitution/{substitutionId}/tag/{substitutionTag} | Add new tags for a substitution.
@@ -993,6 +1008,7 @@ Class | Method | HTTP request | Description
  - [ExternalShippingSystem](docs/Model/ExternalShippingSystem.md)
  - [FulfillmentPlan](docs/Model/FulfillmentPlan.md)
  - [FulfillmentProcess](docs/Model/FulfillmentProcess.md)
+ - [FulfillmentProcessLog](docs/Model/FulfillmentProcessLog.md)
  - [GetOrderWarehouseFulfillmentDataInput](docs/Model/GetOrderWarehouseFulfillmentDataInput.md)
  - [GetOrderWarehouseFulfillmentDataOutput](docs/Model/GetOrderWarehouseFulfillmentDataOutput.md)
  - [IntegrationPartner](docs/Model/IntegrationPartner.md)
@@ -1000,6 +1016,7 @@ Class | Method | HTTP request | Description
  - [InventoryDetail](docs/Model/InventoryDetail.md)
  - [InventorySnapshot](docs/Model/InventorySnapshot.md)
  - [InventoryStorageActivity](docs/Model/InventoryStorageActivity.md)
+ - [InvoiceTemplateLinePriceLevel](docs/Model/InvoiceTemplateLinePriceLevel.md)
  - [InvoiceWorksheet](docs/Model/InvoiceWorksheet.md)
  - [InvoiceWorksheetLine](docs/Model/InvoiceWorksheetLine.md)
  - [Item](docs/Model/Item.md)
@@ -1063,10 +1080,12 @@ Class | Method | HTTP request | Description
  - [Replenishment](docs/Model/Replenishment.md)
  - [ReplenishmentPlan](docs/Model/ReplenishmentPlan.md)
  - [ReplenishmentProcess](docs/Model/ReplenishmentProcess.md)
+ - [RunFulfillmentPlanInputAPIModel](docs/Model/RunFulfillmentPlanInputAPIModel.md)
  - [ScheduledPlanLog](docs/Model/ScheduledPlanLog.md)
  - [ServiceType](docs/Model/ServiceType.md)
  - [Shipment](docs/Model/Shipment.md)
  - [ShoppingCartConnection](docs/Model/ShoppingCartConnection.md)
+ - [SlaSetup](docs/Model/SlaSetup.md)
  - [Substitution](docs/Model/Substitution.md)
  - [Supplement](docs/Model/Supplement.md)
  - [ThirdPartyParcelAccount](docs/Model/ThirdPartyParcelAccount.md)

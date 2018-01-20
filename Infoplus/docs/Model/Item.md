@@ -62,6 +62,8 @@ Name | Type | Description | Notes
 **vendor_price** | **float** |  | [optional] 
 **vendor_per** | **string** |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**primary_image** | **string** |  | [optional] 
+**pick_image** | **string** |  | [optional] 
 **behavior_type** | **string** |  | [optional] 
 **forward_lot_mixing_rule** | **string** |  | 
 **storage_lot_mixing_rule** | **string** |  | 

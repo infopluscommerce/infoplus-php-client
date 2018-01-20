@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerInvoiceTemplateLine
+ * FulfillmentProcessLog
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * CustomerInvoiceTemplateLine Class Doc Comment
+ * FulfillmentProcessLog Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
+class FulfillmentProcessLog implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'customerInvoiceTemplateLine';
+    protected static $swaggerModelName = 'fulfillmentProcessLog';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,19 +60,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         'id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
+        'process_no_id' => 'int',
+        'warehouse_id' => 'int',
+        'order_id' => 'float',
         'lob_id' => 'int',
-        'description' => 'string',
-        'seq_no' => 'int',
-        'account_code' => 'string',
-        'active' => 'bool',
-        'include_if_zero' => 'bool',
-        'department' => 'string',
-        'item_code' => 'string',
-        'invoice_template_id' => 'int',
-        'billing_rule_id' => 'int',
-        'price_level_mode' => 'string',
-        'script_id' => 'int',
-        'price_level_list' => '\Infoplus\Infoplus\Model\InvoiceTemplateLinePriceLevel[]',
+        'sku_id' => 'int',
+        'location_id' => 'int',
+        'item_receipt_id' => 'int',
+        'allocation_issue_type' => 'string',
+        'message' => 'string',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -85,19 +81,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         'id' => 'int32',
         'create_date' => 'date-time',
         'modify_date' => 'date-time',
+        'process_no_id' => 'int32',
+        'warehouse_id' => 'int32',
+        'order_id' => null,
         'lob_id' => 'int32',
-        'description' => null,
-        'seq_no' => 'int32',
-        'account_code' => null,
-        'active' => null,
-        'include_if_zero' => null,
-        'department' => null,
-        'item_code' => null,
-        'invoice_template_id' => 'int32',
-        'billing_rule_id' => 'int32',
-        'price_level_mode' => null,
-        'script_id' => 'int32',
-        'price_level_list' => null,
+        'sku_id' => 'int32',
+        'location_id' => 'int32',
+        'item_receipt_id' => 'int32',
+        'allocation_issue_type' => null,
+        'message' => null,
         'custom_fields' => null
     ];
 
@@ -131,19 +123,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         'id' => 'id',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
+        'process_no_id' => 'processNoId',
+        'warehouse_id' => 'warehouseId',
+        'order_id' => 'orderId',
         'lob_id' => 'lobId',
-        'description' => 'description',
-        'seq_no' => 'seqNo',
-        'account_code' => 'accountCode',
-        'active' => 'active',
-        'include_if_zero' => 'includeIfZero',
-        'department' => 'department',
-        'item_code' => 'itemCode',
-        'invoice_template_id' => 'invoiceTemplateId',
-        'billing_rule_id' => 'billingRuleId',
-        'price_level_mode' => 'priceLevelMode',
-        'script_id' => 'scriptId',
-        'price_level_list' => 'priceLevelList',
+        'sku_id' => 'skuId',
+        'location_id' => 'locationId',
+        'item_receipt_id' => 'itemReceiptId',
+        'allocation_issue_type' => 'allocationIssueType',
+        'message' => 'message',
         'custom_fields' => 'customFields'
     ];
 
@@ -156,19 +144,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
+        'process_no_id' => 'setProcessNoId',
+        'warehouse_id' => 'setWarehouseId',
+        'order_id' => 'setOrderId',
         'lob_id' => 'setLobId',
-        'description' => 'setDescription',
-        'seq_no' => 'setSeqNo',
-        'account_code' => 'setAccountCode',
-        'active' => 'setActive',
-        'include_if_zero' => 'setIncludeIfZero',
-        'department' => 'setDepartment',
-        'item_code' => 'setItemCode',
-        'invoice_template_id' => 'setInvoiceTemplateId',
-        'billing_rule_id' => 'setBillingRuleId',
-        'price_level_mode' => 'setPriceLevelMode',
-        'script_id' => 'setScriptId',
-        'price_level_list' => 'setPriceLevelList',
+        'sku_id' => 'setSkuId',
+        'location_id' => 'setLocationId',
+        'item_receipt_id' => 'setItemReceiptId',
+        'allocation_issue_type' => 'setAllocationIssueType',
+        'message' => 'setMessage',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -181,19 +165,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
+        'process_no_id' => 'getProcessNoId',
+        'warehouse_id' => 'getWarehouseId',
+        'order_id' => 'getOrderId',
         'lob_id' => 'getLobId',
-        'description' => 'getDescription',
-        'seq_no' => 'getSeqNo',
-        'account_code' => 'getAccountCode',
-        'active' => 'getActive',
-        'include_if_zero' => 'getIncludeIfZero',
-        'department' => 'getDepartment',
-        'item_code' => 'getItemCode',
-        'invoice_template_id' => 'getInvoiceTemplateId',
-        'billing_rule_id' => 'getBillingRuleId',
-        'price_level_mode' => 'getPriceLevelMode',
-        'script_id' => 'getScriptId',
-        'price_level_list' => 'getPriceLevelList',
+        'sku_id' => 'getSkuId',
+        'location_id' => 'getLocationId',
+        'item_receipt_id' => 'getItemReceiptId',
+        'allocation_issue_type' => 'getAllocationIssueType',
+        'message' => 'getMessage',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -260,19 +240,15 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
         $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
+        $this->container['process_no_id'] = isset($data['process_no_id']) ? $data['process_no_id'] : null;
+        $this->container['warehouse_id'] = isset($data['warehouse_id']) ? $data['warehouse_id'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['lob_id'] = isset($data['lob_id']) ? $data['lob_id'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['seq_no'] = isset($data['seq_no']) ? $data['seq_no'] : null;
-        $this->container['account_code'] = isset($data['account_code']) ? $data['account_code'] : null;
-        $this->container['active'] = isset($data['active']) ? $data['active'] : false;
-        $this->container['include_if_zero'] = isset($data['include_if_zero']) ? $data['include_if_zero'] : false;
-        $this->container['department'] = isset($data['department']) ? $data['department'] : null;
-        $this->container['item_code'] = isset($data['item_code']) ? $data['item_code'] : null;
-        $this->container['invoice_template_id'] = isset($data['invoice_template_id']) ? $data['invoice_template_id'] : null;
-        $this->container['billing_rule_id'] = isset($data['billing_rule_id']) ? $data['billing_rule_id'] : null;
-        $this->container['price_level_mode'] = isset($data['price_level_mode']) ? $data['price_level_mode'] : null;
-        $this->container['script_id'] = isset($data['script_id']) ? $data['script_id'] : null;
-        $this->container['price_level_list'] = isset($data['price_level_list']) ? $data['price_level_list'] : null;
+        $this->container['sku_id'] = isset($data['sku_id']) ? $data['sku_id'] : null;
+        $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
+        $this->container['item_receipt_id'] = isset($data['item_receipt_id']) ? $data['item_receipt_id'] : null;
+        $this->container['allocation_issue_type'] = isset($data['allocation_issue_type']) ? $data['allocation_issue_type'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -285,21 +261,6 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['lob_id'] === null) {
-            $invalidProperties[] = "'lob_id' can't be null";
-        }
-        if ($this->container['active'] === null) {
-            $invalidProperties[] = "'active' can't be null";
-        }
-        if ($this->container['include_if_zero'] === null) {
-            $invalidProperties[] = "'include_if_zero' can't be null";
-        }
-        if ($this->container['billing_rule_id'] === null) {
-            $invalidProperties[] = "'billing_rule_id' can't be null";
-        }
-        if ($this->container['price_level_mode'] === null) {
-            $invalidProperties[] = "'price_level_mode' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,21 +273,6 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['lob_id'] === null) {
-            return false;
-        }
-        if ($this->container['active'] === null) {
-            return false;
-        }
-        if ($this->container['include_if_zero'] === null) {
-            return false;
-        }
-        if ($this->container['billing_rule_id'] === null) {
-            return false;
-        }
-        if ($this->container['price_level_mode'] === null) {
-            return false;
-        }
         return true;
     }
 
@@ -404,6 +350,78 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets process_no_id
+     *
+     * @return int
+     */
+    public function getProcessNoId()
+    {
+        return $this->container['process_no_id'];
+    }
+
+    /**
+     * Sets process_no_id
+     *
+     * @param int $process_no_id process_no_id
+     *
+     * @return $this
+     */
+    public function setProcessNoId($process_no_id)
+    {
+        $this->container['process_no_id'] = $process_no_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets warehouse_id
+     *
+     * @return int
+     */
+    public function getWarehouseId()
+    {
+        return $this->container['warehouse_id'];
+    }
+
+    /**
+     * Sets warehouse_id
+     *
+     * @param int $warehouse_id warehouse_id
+     *
+     * @return $this
+     */
+    public function setWarehouseId($warehouse_id)
+    {
+        $this->container['warehouse_id'] = $warehouse_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return float
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param float $order_id order_id
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
      * Gets lob_id
      *
      * @return int
@@ -428,289 +446,121 @@ class CustomerInvoiceTemplateLine implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets seq_no
+     * Gets sku_id
      *
      * @return int
      */
-    public function getSeqNo()
+    public function getSkuId()
     {
-        return $this->container['seq_no'];
+        return $this->container['sku_id'];
     }
 
     /**
-     * Sets seq_no
+     * Sets sku_id
      *
-     * @param int $seq_no seq_no
+     * @param int $sku_id sku_id
      *
      * @return $this
      */
-    public function setSeqNo($seq_no)
+    public function setSkuId($sku_id)
     {
-        $this->container['seq_no'] = $seq_no;
+        $this->container['sku_id'] = $sku_id;
 
         return $this;
     }
 
     /**
-     * Gets account_code
-     *
-     * @return string
-     */
-    public function getAccountCode()
-    {
-        return $this->container['account_code'];
-    }
-
-    /**
-     * Sets account_code
-     *
-     * @param string $account_code account_code
-     *
-     * @return $this
-     */
-    public function setAccountCode($account_code)
-    {
-        $this->container['account_code'] = $account_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active active
-     *
-     * @return $this
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets include_if_zero
-     *
-     * @return bool
-     */
-    public function getIncludeIfZero()
-    {
-        return $this->container['include_if_zero'];
-    }
-
-    /**
-     * Sets include_if_zero
-     *
-     * @param bool $include_if_zero include_if_zero
-     *
-     * @return $this
-     */
-    public function setIncludeIfZero($include_if_zero)
-    {
-        $this->container['include_if_zero'] = $include_if_zero;
-
-        return $this;
-    }
-
-    /**
-     * Gets department
-     *
-     * @return string
-     */
-    public function getDepartment()
-    {
-        return $this->container['department'];
-    }
-
-    /**
-     * Sets department
-     *
-     * @param string $department department
-     *
-     * @return $this
-     */
-    public function setDepartment($department)
-    {
-        $this->container['department'] = $department;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_code
-     *
-     * @return string
-     */
-    public function getItemCode()
-    {
-        return $this->container['item_code'];
-    }
-
-    /**
-     * Sets item_code
-     *
-     * @param string $item_code item_code
-     *
-     * @return $this
-     */
-    public function setItemCode($item_code)
-    {
-        $this->container['item_code'] = $item_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets invoice_template_id
+     * Gets location_id
      *
      * @return int
      */
-    public function getInvoiceTemplateId()
+    public function getLocationId()
     {
-        return $this->container['invoice_template_id'];
+        return $this->container['location_id'];
     }
 
     /**
-     * Sets invoice_template_id
+     * Sets location_id
      *
-     * @param int $invoice_template_id invoice_template_id
+     * @param int $location_id location_id
      *
      * @return $this
      */
-    public function setInvoiceTemplateId($invoice_template_id)
+    public function setLocationId($location_id)
     {
-        $this->container['invoice_template_id'] = $invoice_template_id;
+        $this->container['location_id'] = $location_id;
 
         return $this;
     }
 
     /**
-     * Gets billing_rule_id
+     * Gets item_receipt_id
      *
      * @return int
      */
-    public function getBillingRuleId()
+    public function getItemReceiptId()
     {
-        return $this->container['billing_rule_id'];
+        return $this->container['item_receipt_id'];
     }
 
     /**
-     * Sets billing_rule_id
+     * Sets item_receipt_id
      *
-     * @param int $billing_rule_id billing_rule_id
+     * @param int $item_receipt_id item_receipt_id
      *
      * @return $this
      */
-    public function setBillingRuleId($billing_rule_id)
+    public function setItemReceiptId($item_receipt_id)
     {
-        $this->container['billing_rule_id'] = $billing_rule_id;
+        $this->container['item_receipt_id'] = $item_receipt_id;
 
         return $this;
     }
 
     /**
-     * Gets price_level_mode
+     * Gets allocation_issue_type
      *
      * @return string
      */
-    public function getPriceLevelMode()
+    public function getAllocationIssueType()
     {
-        return $this->container['price_level_mode'];
+        return $this->container['allocation_issue_type'];
     }
 
     /**
-     * Sets price_level_mode
+     * Sets allocation_issue_type
      *
-     * @param string $price_level_mode price_level_mode
+     * @param string $allocation_issue_type allocation_issue_type
      *
      * @return $this
      */
-    public function setPriceLevelMode($price_level_mode)
+    public function setAllocationIssueType($allocation_issue_type)
     {
-        $this->container['price_level_mode'] = $price_level_mode;
+        $this->container['allocation_issue_type'] = $allocation_issue_type;
 
         return $this;
     }
 
     /**
-     * Gets script_id
+     * Gets message
      *
-     * @return int
+     * @return string
      */
-    public function getScriptId()
+    public function getMessage()
     {
-        return $this->container['script_id'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets script_id
+     * Sets message
      *
-     * @param int $script_id script_id
+     * @param string $message message
      *
      * @return $this
      */
-    public function setScriptId($script_id)
+    public function setMessage($message)
     {
-        $this->container['script_id'] = $script_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_level_list
-     *
-     * @return \Infoplus\Infoplus\Model\InvoiceTemplateLinePriceLevel[]
-     */
-    public function getPriceLevelList()
-    {
-        return $this->container['price_level_list'];
-    }
-
-    /**
-     * Sets price_level_list
-     *
-     * @param \Infoplus\Infoplus\Model\InvoiceTemplateLinePriceLevel[] $price_level_list price_level_list
-     *
-     * @return $this
-     */
-    public function setPriceLevelList($price_level_list)
-    {
-        $this->container['price_level_list'] = $price_level_list;
+        $this->container['message'] = $message;
 
         return $this;
     }

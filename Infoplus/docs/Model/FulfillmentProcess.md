@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **batch_size** | **int** |  | [optional] 
 **version** | **string** |  | [optional] 
 **fulfillment_process_group** | **int** |  | [optional] 
+**is_mass_distribution** | **bool** |  | [optional] [default to false]
 **number_of_orders** | **int** |  | [optional] 
 **number_of_lines** | **int** |  | [optional] 
 **number_of_sk_us** | **int** |  | [optional] 
@@ -46,6 +47,7 @@ Name | Type | Description | Notes
 **pre_generate_parcel_labels** | **bool** |  | [optional] [default to false]
 **ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **auto_ship_casebreak_cartons** | **bool** |  | [optional] [default to false]
+**auto_ship_orders** | **bool** |  | [optional] [default to false]
 **cartonize_orders** | **bool** |  | [optional] [default to false]
 **create_packing_slip** | **string** |  | 
 **override_packing_slip_template_id** | **int** |  | [optional] 

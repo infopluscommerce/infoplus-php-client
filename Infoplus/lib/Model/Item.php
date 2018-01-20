@@ -116,6 +116,8 @@ class Item implements ModelInterface, ArrayAccess
         'vendor_price' => 'float',
         'vendor_per' => 'string',
         'modify_date' => '\DateTime',
+        'primary_image' => 'string',
+        'pick_image' => 'string',
         'behavior_type' => 'string',
         'forward_lot_mixing_rule' => 'string',
         'storage_lot_mixing_rule' => 'string',
@@ -224,6 +226,8 @@ class Item implements ModelInterface, ArrayAccess
         'vendor_price' => null,
         'vendor_per' => null,
         'modify_date' => 'date-time',
+        'primary_image' => null,
+        'pick_image' => null,
         'behavior_type' => null,
         'forward_lot_mixing_rule' => null,
         'storage_lot_mixing_rule' => null,
@@ -353,6 +357,8 @@ class Item implements ModelInterface, ArrayAccess
         'vendor_price' => 'vendorPrice',
         'vendor_per' => 'vendorPer',
         'modify_date' => 'modifyDate',
+        'primary_image' => 'primaryImage',
+        'pick_image' => 'pickImage',
         'behavior_type' => 'behaviorType',
         'forward_lot_mixing_rule' => 'forwardLotMixingRule',
         'storage_lot_mixing_rule' => 'storageLotMixingRule',
@@ -461,6 +467,8 @@ class Item implements ModelInterface, ArrayAccess
         'vendor_price' => 'setVendorPrice',
         'vendor_per' => 'setVendorPer',
         'modify_date' => 'setModifyDate',
+        'primary_image' => 'setPrimaryImage',
+        'pick_image' => 'setPickImage',
         'behavior_type' => 'setBehaviorType',
         'forward_lot_mixing_rule' => 'setForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'setStorageLotMixingRule',
@@ -569,6 +577,8 @@ class Item implements ModelInterface, ArrayAccess
         'vendor_price' => 'getVendorPrice',
         'vendor_per' => 'getVendorPer',
         'modify_date' => 'getModifyDate',
+        'primary_image' => 'getPrimaryImage',
+        'pick_image' => 'getPickImage',
         'behavior_type' => 'getBehaviorType',
         'forward_lot_mixing_rule' => 'getForwardLotMixingRule',
         'storage_lot_mixing_rule' => 'getStorageLotMixingRule',
@@ -731,6 +741,8 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['vendor_price'] = isset($data['vendor_price']) ? $data['vendor_price'] : null;
         $this->container['vendor_per'] = isset($data['vendor_per']) ? $data['vendor_per'] : null;
         $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
+        $this->container['primary_image'] = isset($data['primary_image']) ? $data['primary_image'] : null;
+        $this->container['pick_image'] = isset($data['pick_image']) ? $data['pick_image'] : null;
         $this->container['behavior_type'] = isset($data['behavior_type']) ? $data['behavior_type'] : null;
         $this->container['forward_lot_mixing_rule'] = isset($data['forward_lot_mixing_rule']) ? $data['forward_lot_mixing_rule'] : null;
         $this->container['storage_lot_mixing_rule'] = isset($data['storage_lot_mixing_rule']) ? $data['storage_lot_mixing_rule'] : null;
@@ -2349,6 +2361,54 @@ class Item implements ModelInterface, ArrayAccess
     public function setModifyDate($modify_date)
     {
         $this->container['modify_date'] = $modify_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets primary_image
+     *
+     * @return string
+     */
+    public function getPrimaryImage()
+    {
+        return $this->container['primary_image'];
+    }
+
+    /**
+     * Sets primary_image
+     *
+     * @param string $primary_image primary_image
+     *
+     * @return $this
+     */
+    public function setPrimaryImage($primary_image)
+    {
+        $this->container['primary_image'] = $primary_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets pick_image
+     *
+     * @return string
+     */
+    public function getPickImage()
+    {
+        return $this->container['pick_image'];
+    }
+
+    /**
+     * Sets pick_image
+     *
+     * @param string $pick_image pick_image
+     *
+     * @return $this
+     */
+    public function setPickImage($pick_image)
+    {
+        $this->container['pick_image'] = $pick_image;
 
         return $this;
     }

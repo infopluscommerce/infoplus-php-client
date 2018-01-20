@@ -69,6 +69,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'max_orders' => 'int',
         'batch_size' => 'int',
         'version' => 'string',
+        'is_mass_distribution' => 'bool',
         'create_pick_work' => 'bool',
         'picking_rule' => 'string',
         'layout_rule' => 'string',
@@ -85,6 +86,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'pick_scan_scheme_id' => 'int',
         'cartonize_orders' => 'bool',
         'auto_ship_casebreak_cartons' => 'bool',
+        'auto_ship_orders' => 'bool',
         'pre_generate_parcel_labels' => 'bool',
         'create_packing_slip' => 'string',
         'override_packing_slip_template_id' => 'int',
@@ -114,6 +116,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'max_orders' => 'int32',
         'batch_size' => 'int32',
         'version' => null,
+        'is_mass_distribution' => null,
         'create_pick_work' => null,
         'picking_rule' => null,
         'layout_rule' => null,
@@ -130,6 +133,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'pick_scan_scheme_id' => 'int32',
         'cartonize_orders' => null,
         'auto_ship_casebreak_cartons' => null,
+        'auto_ship_orders' => null,
         'pre_generate_parcel_labels' => null,
         'create_packing_slip' => null,
         'override_packing_slip_template_id' => 'int32',
@@ -180,6 +184,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'max_orders' => 'maxOrders',
         'batch_size' => 'batchSize',
         'version' => 'version',
+        'is_mass_distribution' => 'isMassDistribution',
         'create_pick_work' => 'createPickWork',
         'picking_rule' => 'pickingRule',
         'layout_rule' => 'layoutRule',
@@ -196,6 +201,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'pick_scan_scheme_id' => 'pickScanSchemeId',
         'cartonize_orders' => 'cartonizeOrders',
         'auto_ship_casebreak_cartons' => 'autoShipCasebreakCartons',
+        'auto_ship_orders' => 'autoShipOrders',
         'pre_generate_parcel_labels' => 'preGenerateParcelLabels',
         'create_packing_slip' => 'createPackingSlip',
         'override_packing_slip_template_id' => 'overridePackingSlipTemplateId',
@@ -225,6 +231,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'max_orders' => 'setMaxOrders',
         'batch_size' => 'setBatchSize',
         'version' => 'setVersion',
+        'is_mass_distribution' => 'setIsMassDistribution',
         'create_pick_work' => 'setCreatePickWork',
         'picking_rule' => 'setPickingRule',
         'layout_rule' => 'setLayoutRule',
@@ -241,6 +248,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'pick_scan_scheme_id' => 'setPickScanSchemeId',
         'cartonize_orders' => 'setCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'setAutoShipCasebreakCartons',
+        'auto_ship_orders' => 'setAutoShipOrders',
         'pre_generate_parcel_labels' => 'setPreGenerateParcelLabels',
         'create_packing_slip' => 'setCreatePackingSlip',
         'override_packing_slip_template_id' => 'setOverridePackingSlipTemplateId',
@@ -270,6 +278,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'max_orders' => 'getMaxOrders',
         'batch_size' => 'getBatchSize',
         'version' => 'getVersion',
+        'is_mass_distribution' => 'getIsMassDistribution',
         'create_pick_work' => 'getCreatePickWork',
         'picking_rule' => 'getPickingRule',
         'layout_rule' => 'getLayoutRule',
@@ -286,6 +295,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'pick_scan_scheme_id' => 'getPickScanSchemeId',
         'cartonize_orders' => 'getCartonizeOrders',
         'auto_ship_casebreak_cartons' => 'getAutoShipCasebreakCartons',
+        'auto_ship_orders' => 'getAutoShipOrders',
         'pre_generate_parcel_labels' => 'getPreGenerateParcelLabels',
         'create_packing_slip' => 'getCreatePackingSlip',
         'override_packing_slip_template_id' => 'getOverridePackingSlipTemplateId',
@@ -369,6 +379,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         $this->container['max_orders'] = isset($data['max_orders']) ? $data['max_orders'] : null;
         $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['is_mass_distribution'] = isset($data['is_mass_distribution']) ? $data['is_mass_distribution'] : false;
         $this->container['create_pick_work'] = isset($data['create_pick_work']) ? $data['create_pick_work'] : false;
         $this->container['picking_rule'] = isset($data['picking_rule']) ? $data['picking_rule'] : null;
         $this->container['layout_rule'] = isset($data['layout_rule']) ? $data['layout_rule'] : null;
@@ -385,6 +396,7 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         $this->container['pick_scan_scheme_id'] = isset($data['pick_scan_scheme_id']) ? $data['pick_scan_scheme_id'] : null;
         $this->container['cartonize_orders'] = isset($data['cartonize_orders']) ? $data['cartonize_orders'] : false;
         $this->container['auto_ship_casebreak_cartons'] = isset($data['auto_ship_casebreak_cartons']) ? $data['auto_ship_casebreak_cartons'] : false;
+        $this->container['auto_ship_orders'] = isset($data['auto_ship_orders']) ? $data['auto_ship_orders'] : false;
         $this->container['pre_generate_parcel_labels'] = isset($data['pre_generate_parcel_labels']) ? $data['pre_generate_parcel_labels'] : false;
         $this->container['create_packing_slip'] = isset($data['create_packing_slip']) ? $data['create_packing_slip'] : null;
         $this->container['override_packing_slip_template_id'] = isset($data['override_packing_slip_template_id']) ? $data['override_packing_slip_template_id'] : null;
@@ -759,6 +771,30 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
     public function setVersion($version)
     {
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_mass_distribution
+     *
+     * @return bool
+     */
+    public function getIsMassDistribution()
+    {
+        return $this->container['is_mass_distribution'];
+    }
+
+    /**
+     * Sets is_mass_distribution
+     *
+     * @param bool $is_mass_distribution is_mass_distribution
+     *
+     * @return $this
+     */
+    public function setIsMassDistribution($is_mass_distribution)
+    {
+        $this->container['is_mass_distribution'] = $is_mass_distribution;
 
         return $this;
     }
@@ -1143,6 +1179,30 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
     public function setAutoShipCasebreakCartons($auto_ship_casebreak_cartons)
     {
         $this->container['auto_ship_casebreak_cartons'] = $auto_ship_casebreak_cartons;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_ship_orders
+     *
+     * @return bool
+     */
+    public function getAutoShipOrders()
+    {
+        return $this->container['auto_ship_orders'];
+    }
+
+    /**
+     * Sets auto_ship_orders
+     *
+     * @param bool $auto_ship_orders auto_ship_orders
+     *
+     * @return $this
+     */
+    public function setAutoShipOrders($auto_ship_orders)
+    {
+        $this->container['auto_ship_orders'] = $auto_ship_orders;
 
         return $this;
     }

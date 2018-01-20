@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**getOrderById**](OrderApi.md#getOrderById) | **GET** /beta/order/{orderId} | Get an order by id
 [**getOrderTags**](OrderApi.md#getOrderTags) | **GET** /beta/order/{orderId}/tag | Get the tags for an order.
 [**getOrderWarehouseFulfillmentData**](OrderApi.md#getOrderWarehouseFulfillmentData) | **POST** /beta/order/getOrderWarehouseFulfillmentData | Run the Get Order Warehouse Fulfillment Plan method.
+[**runFulfillmentPlan**](OrderApi.md#runFulfillmentPlan) | **POST** /beta/order/runFulfillmentPlan | Run the RunFulfillmentPlan process.
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /beta/order | Update an order
 [**updateOrderCustomFields**](OrderApi.md#updateOrderCustomFields) | **PUT** /beta/order/customFields | Update an order custom fields
 
@@ -619,6 +620,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Infoplus\Infoplus\Model\GetOrderWarehouseFulfillmentDataOutput**](../Model/GetOrderWarehouseFulfillmentDataOutput.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **runFulfillmentPlan**
+> \Infoplus\Infoplus\Model\ProcessOutputAPIModel[] runFulfillmentPlan($body)
+
+Run the RunFulfillmentPlan process.
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+$config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+
+$apiInstance = new Infoplus\Api\OrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Infoplus\Infoplus\Model\RunFulfillmentPlanInputAPIModel(); // \Infoplus\Infoplus\Model\RunFulfillmentPlanInputAPIModel | Input data for RunFulfillmentPlan process.
+
+try {
+    $result = $apiInstance->runFulfillmentPlan($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->runFulfillmentPlan: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Infoplus\Model\RunFulfillmentPlanInputAPIModel**](../Model/RunFulfillmentPlanInputAPIModel.md)| Input data for RunFulfillmentPlan process. |
+
+### Return type
+
+[**\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]**](../Model/ProcessOutputAPIModel.md)
 
 ### Authorization
 

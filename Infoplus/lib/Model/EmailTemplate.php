@@ -59,11 +59,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'lob_id' => 'int',
-        'subject_text' => 'string',
+        'subject' => 'string',
         'name' => 'string',
         'from_name' => 'string',
         'from_address' => 'string',
+        'to_name' => 'string',
+        'to_address' => 'string',
+        'cc_address' => 'string',
+        'bcc_address' => 'string',
         'email_template_type' => 'string',
+        'record_type' => 'string',
+        'api_version' => 'string',
+        'script_id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
         'custom_fields' => 'map[string,object]'
@@ -77,11 +84,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'id' => 'int32',
         'lob_id' => 'int32',
-        'subject_text' => null,
+        'subject' => null,
         'name' => null,
         'from_name' => null,
         'from_address' => null,
+        'to_name' => null,
+        'to_address' => null,
+        'cc_address' => null,
+        'bcc_address' => null,
         'email_template_type' => null,
+        'record_type' => null,
+        'api_version' => null,
+        'script_id' => 'int32',
         'create_date' => 'date-time',
         'modify_date' => 'date-time',
         'custom_fields' => null
@@ -116,11 +130,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'lob_id' => 'lobId',
-        'subject_text' => 'subjectText',
+        'subject' => 'subject',
         'name' => 'name',
         'from_name' => 'fromName',
         'from_address' => 'fromAddress',
+        'to_name' => 'toName',
+        'to_address' => 'toAddress',
+        'cc_address' => 'ccAddress',
+        'bcc_address' => 'bccAddress',
         'email_template_type' => 'emailTemplateType',
+        'record_type' => 'recordType',
+        'api_version' => 'apiVersion',
+        'script_id' => 'scriptId',
         'create_date' => 'createDate',
         'modify_date' => 'modifyDate',
         'custom_fields' => 'customFields'
@@ -134,11 +155,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'lob_id' => 'setLobId',
-        'subject_text' => 'setSubjectText',
+        'subject' => 'setSubject',
         'name' => 'setName',
         'from_name' => 'setFromName',
         'from_address' => 'setFromAddress',
+        'to_name' => 'setToName',
+        'to_address' => 'setToAddress',
+        'cc_address' => 'setCcAddress',
+        'bcc_address' => 'setBccAddress',
         'email_template_type' => 'setEmailTemplateType',
+        'record_type' => 'setRecordType',
+        'api_version' => 'setApiVersion',
+        'script_id' => 'setScriptId',
         'create_date' => 'setCreateDate',
         'modify_date' => 'setModifyDate',
         'custom_fields' => 'setCustomFields'
@@ -152,11 +180,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'lob_id' => 'getLobId',
-        'subject_text' => 'getSubjectText',
+        'subject' => 'getSubject',
         'name' => 'getName',
         'from_name' => 'getFromName',
         'from_address' => 'getFromAddress',
+        'to_name' => 'getToName',
+        'to_address' => 'getToAddress',
+        'cc_address' => 'getCcAddress',
+        'bcc_address' => 'getBccAddress',
         'email_template_type' => 'getEmailTemplateType',
+        'record_type' => 'getRecordType',
+        'api_version' => 'getApiVersion',
+        'script_id' => 'getScriptId',
         'create_date' => 'getCreateDate',
         'modify_date' => 'getModifyDate',
         'custom_fields' => 'getCustomFields'
@@ -224,11 +259,18 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['lob_id'] = isset($data['lob_id']) ? $data['lob_id'] : null;
-        $this->container['subject_text'] = isset($data['subject_text']) ? $data['subject_text'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['from_name'] = isset($data['from_name']) ? $data['from_name'] : null;
         $this->container['from_address'] = isset($data['from_address']) ? $data['from_address'] : null;
+        $this->container['to_name'] = isset($data['to_name']) ? $data['to_name'] : null;
+        $this->container['to_address'] = isset($data['to_address']) ? $data['to_address'] : null;
+        $this->container['cc_address'] = isset($data['cc_address']) ? $data['cc_address'] : null;
+        $this->container['bcc_address'] = isset($data['bcc_address']) ? $data['bcc_address'] : null;
         $this->container['email_template_type'] = isset($data['email_template_type']) ? $data['email_template_type'] : null;
+        $this->container['record_type'] = isset($data['record_type']) ? $data['record_type'] : null;
+        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
+        $this->container['script_id'] = isset($data['script_id']) ? $data['script_id'] : null;
         $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
         $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
@@ -245,6 +287,9 @@ class EmailTemplate implements ModelInterface, ArrayAccess
 
         if ($this->container['lob_id'] === null) {
             $invalidProperties[] = "'lob_id' can't be null";
+        }
+        if ($this->container['subject'] === null) {
+            $invalidProperties[] = "'subject' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -271,6 +316,9 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['lob_id'] === null) {
+            return false;
+        }
+        if ($this->container['subject'] === null) {
             return false;
         }
         if ($this->container['name'] === null) {
@@ -338,25 +386,25 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets subject_text
+     * Gets subject
      *
      * @return string
      */
-    public function getSubjectText()
+    public function getSubject()
     {
-        return $this->container['subject_text'];
+        return $this->container['subject'];
     }
 
     /**
-     * Sets subject_text
+     * Sets subject
      *
-     * @param string $subject_text subject_text
+     * @param string $subject subject
      *
      * @return $this
      */
-    public function setSubjectText($subject_text)
+    public function setSubject($subject)
     {
-        $this->container['subject_text'] = $subject_text;
+        $this->container['subject'] = $subject;
 
         return $this;
     }
@@ -434,6 +482,102 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets to_name
+     *
+     * @return string
+     */
+    public function getToName()
+    {
+        return $this->container['to_name'];
+    }
+
+    /**
+     * Sets to_name
+     *
+     * @param string $to_name to_name
+     *
+     * @return $this
+     */
+    public function setToName($to_name)
+    {
+        $this->container['to_name'] = $to_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets to_address
+     *
+     * @return string
+     */
+    public function getToAddress()
+    {
+        return $this->container['to_address'];
+    }
+
+    /**
+     * Sets to_address
+     *
+     * @param string $to_address to_address
+     *
+     * @return $this
+     */
+    public function setToAddress($to_address)
+    {
+        $this->container['to_address'] = $to_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets cc_address
+     *
+     * @return string
+     */
+    public function getCcAddress()
+    {
+        return $this->container['cc_address'];
+    }
+
+    /**
+     * Sets cc_address
+     *
+     * @param string $cc_address cc_address
+     *
+     * @return $this
+     */
+    public function setCcAddress($cc_address)
+    {
+        $this->container['cc_address'] = $cc_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets bcc_address
+     *
+     * @return string
+     */
+    public function getBccAddress()
+    {
+        return $this->container['bcc_address'];
+    }
+
+    /**
+     * Sets bcc_address
+     *
+     * @param string $bcc_address bcc_address
+     *
+     * @return $this
+     */
+    public function setBccAddress($bcc_address)
+    {
+        $this->container['bcc_address'] = $bcc_address;
+
+        return $this;
+    }
+
+    /**
      * Gets email_template_type
      *
      * @return string
@@ -453,6 +597,78 @@ class EmailTemplate implements ModelInterface, ArrayAccess
     public function setEmailTemplateType($email_template_type)
     {
         $this->container['email_template_type'] = $email_template_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets record_type
+     *
+     * @return string
+     */
+    public function getRecordType()
+    {
+        return $this->container['record_type'];
+    }
+
+    /**
+     * Sets record_type
+     *
+     * @param string $record_type record_type
+     *
+     * @return $this
+     */
+    public function setRecordType($record_type)
+    {
+        $this->container['record_type'] = $record_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_version
+     *
+     * @return string
+     */
+    public function getApiVersion()
+    {
+        return $this->container['api_version'];
+    }
+
+    /**
+     * Sets api_version
+     *
+     * @param string $api_version api_version
+     *
+     * @return $this
+     */
+    public function setApiVersion($api_version)
+    {
+        $this->container['api_version'] = $api_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets script_id
+     *
+     * @return int
+     */
+    public function getScriptId()
+    {
+        return $this->container['script_id'];
+    }
+
+    /**
+     * Sets script_id
+     *
+     * @param int $script_id script_id
+     *
+     * @return $this
+     */
+    public function setScriptId($script_id)
+    {
+        $this->container['script_id'] = $script_id;
 
         return $this;
     }
