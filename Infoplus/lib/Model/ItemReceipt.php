@@ -82,6 +82,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'void_date' => '\DateTime',
         'freeze_action' => 'string',
         'rev_date' => 'string',
+        'expiration_date' => '\DateTime',
         'art_back' => 'string',
         'origin' => 'string',
         'sample' => 'int',
@@ -119,7 +120,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'line_no' => 'int',
         'prod_lot' => 'string',
         'product_id_tag' => 'string',
+        'units_per_inner_pack' => 'int',
         'units_per_case' => 'int',
+        'units_per_pallet' => 'int',
         'case_weight' => 'float',
         'height' => 'float',
         'width' => 'float',
@@ -164,6 +167,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'void_date' => 'date-time',
         'freeze_action' => null,
         'rev_date' => null,
+        'expiration_date' => 'date-time',
         'art_back' => null,
         'origin' => null,
         'sample' => 'int32',
@@ -201,7 +205,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'line_no' => 'int32',
         'prod_lot' => null,
         'product_id_tag' => null,
+        'units_per_inner_pack' => 'int32',
         'units_per_case' => 'int32',
+        'units_per_pallet' => 'int32',
         'case_weight' => null,
         'height' => null,
         'width' => null,
@@ -267,6 +273,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'void_date' => 'voidDate',
         'freeze_action' => 'freezeAction',
         'rev_date' => 'revDate',
+        'expiration_date' => 'expirationDate',
         'art_back' => 'artBack',
         'origin' => 'origin',
         'sample' => 'sample',
@@ -304,7 +311,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'line_no' => 'lineNo',
         'prod_lot' => 'prodLot',
         'product_id_tag' => 'productIdTag',
+        'units_per_inner_pack' => 'unitsPerInnerPack',
         'units_per_case' => 'unitsPerCase',
+        'units_per_pallet' => 'unitsPerPallet',
         'case_weight' => 'caseWeight',
         'height' => 'height',
         'width' => 'width',
@@ -349,6 +358,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'void_date' => 'setVoidDate',
         'freeze_action' => 'setFreezeAction',
         'rev_date' => 'setRevDate',
+        'expiration_date' => 'setExpirationDate',
         'art_back' => 'setArtBack',
         'origin' => 'setOrigin',
         'sample' => 'setSample',
@@ -386,7 +396,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'line_no' => 'setLineNo',
         'prod_lot' => 'setProdLot',
         'product_id_tag' => 'setProductIdTag',
+        'units_per_inner_pack' => 'setUnitsPerInnerPack',
         'units_per_case' => 'setUnitsPerCase',
+        'units_per_pallet' => 'setUnitsPerPallet',
         'case_weight' => 'setCaseWeight',
         'height' => 'setHeight',
         'width' => 'setWidth',
@@ -431,6 +443,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'void_date' => 'getVoidDate',
         'freeze_action' => 'getFreezeAction',
         'rev_date' => 'getRevDate',
+        'expiration_date' => 'getExpirationDate',
         'art_back' => 'getArtBack',
         'origin' => 'getOrigin',
         'sample' => 'getSample',
@@ -468,7 +481,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         'line_no' => 'getLineNo',
         'prod_lot' => 'getProdLot',
         'product_id_tag' => 'getProductIdTag',
+        'units_per_inner_pack' => 'getUnitsPerInnerPack',
         'units_per_case' => 'getUnitsPerCase',
+        'units_per_pallet' => 'getUnitsPerPallet',
         'case_weight' => 'getCaseWeight',
         'height' => 'getHeight',
         'width' => 'getWidth',
@@ -567,6 +582,7 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         $this->container['void_date'] = isset($data['void_date']) ? $data['void_date'] : null;
         $this->container['freeze_action'] = isset($data['freeze_action']) ? $data['freeze_action'] : null;
         $this->container['rev_date'] = isset($data['rev_date']) ? $data['rev_date'] : null;
+        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
         $this->container['art_back'] = isset($data['art_back']) ? $data['art_back'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['sample'] = isset($data['sample']) ? $data['sample'] : null;
@@ -604,7 +620,9 @@ class ItemReceipt implements ModelInterface, ArrayAccess
         $this->container['line_no'] = isset($data['line_no']) ? $data['line_no'] : null;
         $this->container['prod_lot'] = isset($data['prod_lot']) ? $data['prod_lot'] : null;
         $this->container['product_id_tag'] = isset($data['product_id_tag']) ? $data['product_id_tag'] : null;
+        $this->container['units_per_inner_pack'] = isset($data['units_per_inner_pack']) ? $data['units_per_inner_pack'] : null;
         $this->container['units_per_case'] = isset($data['units_per_case']) ? $data['units_per_case'] : null;
+        $this->container['units_per_pallet'] = isset($data['units_per_pallet']) ? $data['units_per_pallet'] : null;
         $this->container['case_weight'] = isset($data['case_weight']) ? $data['case_weight'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
@@ -1317,6 +1335,30 @@ class ItemReceipt implements ModelInterface, ArrayAccess
     public function setRevDate($rev_date)
     {
         $this->container['rev_date'] = $rev_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_date
+     *
+     * @return \DateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->container['expiration_date'];
+    }
+
+    /**
+     * Sets expiration_date
+     *
+     * @param \DateTime $expiration_date expiration_date
+     *
+     * @return $this
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        $this->container['expiration_date'] = $expiration_date;
 
         return $this;
     }
@@ -2210,6 +2252,30 @@ class ItemReceipt implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets units_per_inner_pack
+     *
+     * @return int
+     */
+    public function getUnitsPerInnerPack()
+    {
+        return $this->container['units_per_inner_pack'];
+    }
+
+    /**
+     * Sets units_per_inner_pack
+     *
+     * @param int $units_per_inner_pack units_per_inner_pack
+     *
+     * @return $this
+     */
+    public function setUnitsPerInnerPack($units_per_inner_pack)
+    {
+        $this->container['units_per_inner_pack'] = $units_per_inner_pack;
+
+        return $this;
+    }
+
+    /**
      * Gets units_per_case
      *
      * @return int
@@ -2229,6 +2295,30 @@ class ItemReceipt implements ModelInterface, ArrayAccess
     public function setUnitsPerCase($units_per_case)
     {
         $this->container['units_per_case'] = $units_per_case;
+
+        return $this;
+    }
+
+    /**
+     * Gets units_per_pallet
+     *
+     * @return int
+     */
+    public function getUnitsPerPallet()
+    {
+        return $this->container['units_per_pallet'];
+    }
+
+    /**
+     * Sets units_per_pallet
+     *
+     * @param int $units_per_pallet units_per_pallet
+     *
+     * @return $this
+     */
+    public function setUnitsPerPallet($units_per_pallet)
+    {
+        $this->container['units_per_pallet'] = $units_per_pallet;
 
         return $this;
     }

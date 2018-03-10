@@ -1,6 +1,6 @@
 <?php
 /**
- * KitComponent
+ * ItemSerialScheme
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * KitComponent Class Doc Comment
+ * ItemSerialScheme Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class KitComponent implements ModelInterface, ArrayAccess
+class ItemSerialScheme implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class KitComponent implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'kitComponent';
+    protected static $swaggerModelName = 'itemSerialScheme';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,13 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'invno' => 'string',
-        'sku' => 'string',
-        'quantity' => 'int',
-        'instructions' => 'string',
-        'additional_services' => 'string',
-        'critical' => 'string',
+        'id' => 'int',
+        'create_date' => '\DateTime',
+        'modify_date' => '\DateTime',
+        'name' => 'string',
+        'receiving_behavior' => 'string',
+        'shipping_behavior' => 'string',
+        'require_unique' => 'string',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -72,12 +73,13 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'invno' => null,
-        'sku' => null,
-        'quantity' => 'int32',
-        'instructions' => null,
-        'additional_services' => null,
-        'critical' => null,
+        'id' => 'int32',
+        'create_date' => 'date-time',
+        'modify_date' => 'date-time',
+        'name' => null,
+        'receiving_behavior' => null,
+        'shipping_behavior' => null,
+        'require_unique' => null,
         'custom_fields' => null
     ];
 
@@ -108,12 +110,13 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'invno' => 'invno',
-        'sku' => 'sku',
-        'quantity' => 'quantity',
-        'instructions' => 'instructions',
-        'additional_services' => 'additionalServices',
-        'critical' => 'critical',
+        'id' => 'id',
+        'create_date' => 'createDate',
+        'modify_date' => 'modifyDate',
+        'name' => 'name',
+        'receiving_behavior' => 'receivingBehavior',
+        'shipping_behavior' => 'shippingBehavior',
+        'require_unique' => 'requireUnique',
         'custom_fields' => 'customFields'
     ];
 
@@ -123,12 +126,13 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'invno' => 'setInvno',
-        'sku' => 'setSku',
-        'quantity' => 'setQuantity',
-        'instructions' => 'setInstructions',
-        'additional_services' => 'setAdditionalServices',
-        'critical' => 'setCritical',
+        'id' => 'setId',
+        'create_date' => 'setCreateDate',
+        'modify_date' => 'setModifyDate',
+        'name' => 'setName',
+        'receiving_behavior' => 'setReceivingBehavior',
+        'shipping_behavior' => 'setShippingBehavior',
+        'require_unique' => 'setRequireUnique',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -138,12 +142,13 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'invno' => 'getInvno',
-        'sku' => 'getSku',
-        'quantity' => 'getQuantity',
-        'instructions' => 'getInstructions',
-        'additional_services' => 'getAdditionalServices',
-        'critical' => 'getCritical',
+        'id' => 'getId',
+        'create_date' => 'getCreateDate',
+        'modify_date' => 'getModifyDate',
+        'name' => 'getName',
+        'receiving_behavior' => 'getReceivingBehavior',
+        'shipping_behavior' => 'getShippingBehavior',
+        'require_unique' => 'getRequireUnique',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -207,12 +212,13 @@ class KitComponent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['invno'] = isset($data['invno']) ? $data['invno'] : null;
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
-        $this->container['additional_services'] = isset($data['additional_services']) ? $data['additional_services'] : null;
-        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
+        $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['receiving_behavior'] = isset($data['receiving_behavior']) ? $data['receiving_behavior'] : null;
+        $this->container['shipping_behavior'] = isset($data['shipping_behavior']) ? $data['shipping_behavior'] : null;
+        $this->container['require_unique'] = isset($data['require_unique']) ? $data['require_unique'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -225,14 +231,14 @@ class KitComponent implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
+        if ($this->container['receiving_behavior'] === null) {
+            $invalidProperties[] = "'receiving_behavior' can't be null";
         }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
+        if ($this->container['shipping_behavior'] === null) {
+            $invalidProperties[] = "'shipping_behavior' can't be null";
         }
-        if ($this->container['critical'] === null) {
-            $invalidProperties[] = "'critical' can't be null";
+        if ($this->container['require_unique'] === null) {
+            $invalidProperties[] = "'require_unique' can't be null";
         }
         return $invalidProperties;
     }
@@ -246,13 +252,13 @@ class KitComponent implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['sku'] === null) {
+        if ($this->container['receiving_behavior'] === null) {
             return false;
         }
-        if ($this->container['quantity'] === null) {
+        if ($this->container['shipping_behavior'] === null) {
             return false;
         }
-        if ($this->container['critical'] === null) {
+        if ($this->container['require_unique'] === null) {
             return false;
         }
         return true;
@@ -260,145 +266,169 @@ class KitComponent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets invno
-     *
-     * @return string
-     */
-    public function getInvno()
-    {
-        return $this->container['invno'];
-    }
-
-    /**
-     * Sets invno
-     *
-     * @param string $invno invno
-     *
-     * @return $this
-     */
-    public function setInvno($invno)
-    {
-        $this->container['invno'] = $invno;
-
-        return $this;
-    }
-
-    /**
-     * Gets sku
-     *
-     * @return string
-     */
-    public function getSku()
-    {
-        return $this->container['sku'];
-    }
-
-    /**
-     * Sets sku
-     *
-     * @param string $sku sku
-     *
-     * @return $this
-     */
-    public function setSku($sku)
-    {
-        $this->container['sku'] = $sku;
-
-        return $this;
-    }
-
-    /**
-     * Gets quantity
+     * Gets id
      *
      * @return int
      */
-    public function getQuantity()
+    public function getId()
     {
-        return $this->container['quantity'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets quantity
+     * Sets id
      *
-     * @param int $quantity quantity
+     * @param int $id id
      *
      * @return $this
      */
-    public function setQuantity($quantity)
+    public function setId($id)
     {
-        $this->container['quantity'] = $quantity;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets instructions
+     * Gets create_date
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getInstructions()
+    public function getCreateDate()
     {
-        return $this->container['instructions'];
+        return $this->container['create_date'];
     }
 
     /**
-     * Sets instructions
+     * Sets create_date
      *
-     * @param string $instructions instructions
+     * @param \DateTime $create_date create_date
      *
      * @return $this
      */
-    public function setInstructions($instructions)
+    public function setCreateDate($create_date)
     {
-        $this->container['instructions'] = $instructions;
+        $this->container['create_date'] = $create_date;
 
         return $this;
     }
 
     /**
-     * Gets additional_services
+     * Gets modify_date
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getAdditionalServices()
+    public function getModifyDate()
     {
-        return $this->container['additional_services'];
+        return $this->container['modify_date'];
     }
 
     /**
-     * Sets additional_services
+     * Sets modify_date
      *
-     * @param string $additional_services additional_services
+     * @param \DateTime $modify_date modify_date
      *
      * @return $this
      */
-    public function setAdditionalServices($additional_services)
+    public function setModifyDate($modify_date)
     {
-        $this->container['additional_services'] = $additional_services;
+        $this->container['modify_date'] = $modify_date;
 
         return $this;
     }
 
     /**
-     * Gets critical
+     * Gets name
      *
      * @return string
      */
-    public function getCritical()
+    public function getName()
     {
-        return $this->container['critical'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets critical
+     * Sets name
      *
-     * @param string $critical critical
+     * @param string $name name
      *
      * @return $this
      */
-    public function setCritical($critical)
+    public function setName($name)
     {
-        $this->container['critical'] = $critical;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets receiving_behavior
+     *
+     * @return string
+     */
+    public function getReceivingBehavior()
+    {
+        return $this->container['receiving_behavior'];
+    }
+
+    /**
+     * Sets receiving_behavior
+     *
+     * @param string $receiving_behavior receiving_behavior
+     *
+     * @return $this
+     */
+    public function setReceivingBehavior($receiving_behavior)
+    {
+        $this->container['receiving_behavior'] = $receiving_behavior;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_behavior
+     *
+     * @return string
+     */
+    public function getShippingBehavior()
+    {
+        return $this->container['shipping_behavior'];
+    }
+
+    /**
+     * Sets shipping_behavior
+     *
+     * @param string $shipping_behavior shipping_behavior
+     *
+     * @return $this
+     */
+    public function setShippingBehavior($shipping_behavior)
+    {
+        $this->container['shipping_behavior'] = $shipping_behavior;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_unique
+     *
+     * @return string
+     */
+    public function getRequireUnique()
+    {
+        return $this->container['require_unique'];
+    }
+
+    /**
+     * Sets require_unique
+     *
+     * @param string $require_unique require_unique
+     *
+     * @return $this
+     */
+    public function setRequireUnique($require_unique)
+    {
+        $this->container['require_unique'] = $require_unique;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * KitComponent
+ * EditLineItemFulfillmentStrategyInputAPIModel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * KitComponent Class Doc Comment
+ * EditLineItemFulfillmentStrategyInputAPIModel Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class KitComponent implements ModelInterface, ArrayAccess
+class EditLineItemFulfillmentStrategyInputAPIModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class KitComponent implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'kitComponent';
+    protected static $swaggerModelName = 'EditLineItemFulfillmentStrategyInputAPIModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,9 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'invno' => 'string',
-        'sku' => 'string',
-        'quantity' => 'int',
-        'instructions' => 'string',
-        'additional_services' => 'string',
-        'critical' => 'string',
-        'custom_fields' => 'map[string,object]'
+        'order_no_list' => 'float[]',
+        'fulfillment_channel_id' => 'int',
+        'sku' => 'string'
     ];
 
     /**
@@ -72,13 +68,9 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'invno' => null,
-        'sku' => null,
-        'quantity' => 'int32',
-        'instructions' => null,
-        'additional_services' => null,
-        'critical' => null,
-        'custom_fields' => null
+        'order_no_list' => null,
+        'fulfillment_channel_id' => 'int32',
+        'sku' => null
     ];
 
     /**
@@ -108,13 +100,9 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'invno' => 'invno',
-        'sku' => 'sku',
-        'quantity' => 'quantity',
-        'instructions' => 'instructions',
-        'additional_services' => 'additionalServices',
-        'critical' => 'critical',
-        'custom_fields' => 'customFields'
+        'order_no_list' => 'orderNoList',
+        'fulfillment_channel_id' => 'fulfillmentChannelId',
+        'sku' => 'sku'
     ];
 
     /**
@@ -123,13 +111,9 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'invno' => 'setInvno',
-        'sku' => 'setSku',
-        'quantity' => 'setQuantity',
-        'instructions' => 'setInstructions',
-        'additional_services' => 'setAdditionalServices',
-        'critical' => 'setCritical',
-        'custom_fields' => 'setCustomFields'
+        'order_no_list' => 'setOrderNoList',
+        'fulfillment_channel_id' => 'setFulfillmentChannelId',
+        'sku' => 'setSku'
     ];
 
     /**
@@ -138,13 +122,9 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'invno' => 'getInvno',
-        'sku' => 'getSku',
-        'quantity' => 'getQuantity',
-        'instructions' => 'getInstructions',
-        'additional_services' => 'getAdditionalServices',
-        'critical' => 'getCritical',
-        'custom_fields' => 'getCustomFields'
+        'order_no_list' => 'getOrderNoList',
+        'fulfillment_channel_id' => 'getFulfillmentChannelId',
+        'sku' => 'getSku'
     ];
 
     /**
@@ -207,13 +187,9 @@ class KitComponent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['invno'] = isset($data['invno']) ? $data['invno'] : null;
+        $this->container['order_no_list'] = isset($data['order_no_list']) ? $data['order_no_list'] : null;
+        $this->container['fulfillment_channel_id'] = isset($data['fulfillment_channel_id']) ? $data['fulfillment_channel_id'] : null;
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
-        $this->container['additional_services'] = isset($data['additional_services']) ? $data['additional_services'] : null;
-        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
-        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
     /**
@@ -225,14 +201,8 @@ class KitComponent implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
-        if ($this->container['critical'] === null) {
-            $invalidProperties[] = "'critical' can't be null";
+        if ($this->container['fulfillment_channel_id'] === null) {
+            $invalidProperties[] = "'fulfillment_channel_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -246,13 +216,7 @@ class KitComponent implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['sku'] === null) {
-            return false;
-        }
-        if ($this->container['quantity'] === null) {
-            return false;
-        }
-        if ($this->container['critical'] === null) {
+        if ($this->container['fulfillment_channel_id'] === null) {
             return false;
         }
         return true;
@@ -260,25 +224,49 @@ class KitComponent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets invno
+     * Gets order_no_list
      *
-     * @return string
+     * @return float[]
      */
-    public function getInvno()
+    public function getOrderNoList()
     {
-        return $this->container['invno'];
+        return $this->container['order_no_list'];
     }
 
     /**
-     * Sets invno
+     * Sets order_no_list
      *
-     * @param string $invno invno
+     * @param float[] $order_no_list order_no_list
      *
      * @return $this
      */
-    public function setInvno($invno)
+    public function setOrderNoList($order_no_list)
     {
-        $this->container['invno'] = $invno;
+        $this->container['order_no_list'] = $order_no_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets fulfillment_channel_id
+     *
+     * @return int
+     */
+    public function getFulfillmentChannelId()
+    {
+        return $this->container['fulfillment_channel_id'];
+    }
+
+    /**
+     * Sets fulfillment_channel_id
+     *
+     * @param int $fulfillment_channel_id fulfillment_channel_id
+     *
+     * @return $this
+     */
+    public function setFulfillmentChannelId($fulfillment_channel_id)
+    {
+        $this->container['fulfillment_channel_id'] = $fulfillment_channel_id;
 
         return $this;
     }
@@ -303,126 +291,6 @@ class KitComponent implements ModelInterface, ArrayAccess
     public function setSku($sku)
     {
         $this->container['sku'] = $sku;
-
-        return $this;
-    }
-
-    /**
-     * Gets quantity
-     *
-     * @return int
-     */
-    public function getQuantity()
-    {
-        return $this->container['quantity'];
-    }
-
-    /**
-     * Sets quantity
-     *
-     * @param int $quantity quantity
-     *
-     * @return $this
-     */
-    public function setQuantity($quantity)
-    {
-        $this->container['quantity'] = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * Gets instructions
-     *
-     * @return string
-     */
-    public function getInstructions()
-    {
-        return $this->container['instructions'];
-    }
-
-    /**
-     * Sets instructions
-     *
-     * @param string $instructions instructions
-     *
-     * @return $this
-     */
-    public function setInstructions($instructions)
-    {
-        $this->container['instructions'] = $instructions;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_services
-     *
-     * @return string
-     */
-    public function getAdditionalServices()
-    {
-        return $this->container['additional_services'];
-    }
-
-    /**
-     * Sets additional_services
-     *
-     * @param string $additional_services additional_services
-     *
-     * @return $this
-     */
-    public function setAdditionalServices($additional_services)
-    {
-        $this->container['additional_services'] = $additional_services;
-
-        return $this;
-    }
-
-    /**
-     * Gets critical
-     *
-     * @return string
-     */
-    public function getCritical()
-    {
-        return $this->container['critical'];
-    }
-
-    /**
-     * Sets critical
-     *
-     * @param string $critical critical
-     *
-     * @return $this
-     */
-    public function setCritical($critical)
-    {
-        $this->container['critical'] = $critical;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_fields
-     *
-     * @return map[string,object]
-     */
-    public function getCustomFields()
-    {
-        return $this->container['custom_fields'];
-    }
-
-    /**
-     * Sets custom_fields
-     *
-     * @param map[string,object] $custom_fields custom_fields
-     *
-     * @return $this
-     */
-    public function setCustomFields($custom_fields)
-    {
-        $this->container['custom_fields'] = $custom_fields;
 
         return $this;
     }

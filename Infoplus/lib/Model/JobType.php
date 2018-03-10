@@ -243,6 +243,9 @@ class JobType implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ($this->container['job_code'] === null) {
+            $invalidProperties[] = "'job_code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -259,6 +262,9 @@ class JobType implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['name'] === null) {
+            return false;
+        }
+        if ($this->container['job_code'] === null) {
             return false;
         }
         return true;

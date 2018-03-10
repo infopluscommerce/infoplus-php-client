@@ -64,6 +64,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         'location_id' => 'int',
         'adjustment_code' => 'string',
         'total_quantity' => 'int',
+        'change_quantity' => 'int',
         'message' => 'string',
         'status' => 'string',
         'product_id_tag' => 'string',
@@ -84,6 +85,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         'location_id' => 'int32',
         'adjustment_code' => null,
         'total_quantity' => 'int32',
+        'change_quantity' => 'int32',
         'message' => null,
         'status' => null,
         'product_id_tag' => null,
@@ -125,6 +127,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         'location_id' => 'locationId',
         'adjustment_code' => 'adjustmentCode',
         'total_quantity' => 'totalQuantity',
+        'change_quantity' => 'changeQuantity',
         'message' => 'message',
         'status' => 'status',
         'product_id_tag' => 'productIdTag',
@@ -145,6 +148,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         'location_id' => 'setLocationId',
         'adjustment_code' => 'setAdjustmentCode',
         'total_quantity' => 'setTotalQuantity',
+        'change_quantity' => 'setChangeQuantity',
         'message' => 'setMessage',
         'status' => 'setStatus',
         'product_id_tag' => 'setProductIdTag',
@@ -165,6 +169,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         'location_id' => 'getLocationId',
         'adjustment_code' => 'getAdjustmentCode',
         'total_quantity' => 'getTotalQuantity',
+        'change_quantity' => 'getChangeQuantity',
         'message' => 'getMessage',
         'status' => 'getStatus',
         'product_id_tag' => 'getProductIdTag',
@@ -239,6 +244,7 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
         $this->container['adjustment_code'] = isset($data['adjustment_code']) ? $data['adjustment_code'] : null;
         $this->container['total_quantity'] = isset($data['total_quantity']) ? $data['total_quantity'] : null;
+        $this->container['change_quantity'] = isset($data['change_quantity']) ? $data['change_quantity'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['product_id_tag'] = isset($data['product_id_tag']) ? $data['product_id_tag'] : null;
@@ -264,9 +270,6 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
         if ($this->container['adjustment_code'] === null) {
             $invalidProperties[] = "'adjustment_code' can't be null";
         }
-        if ($this->container['total_quantity'] === null) {
-            $invalidProperties[] = "'total_quantity' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -286,9 +289,6 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['adjustment_code'] === null) {
-            return false;
-        }
-        if ($this->container['total_quantity'] === null) {
             return false;
         }
         return true;
@@ -459,6 +459,30 @@ class QuickAdjustment implements ModelInterface, ArrayAccess
     public function setTotalQuantity($total_quantity)
     {
         $this->container['total_quantity'] = $total_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets change_quantity
+     *
+     * @return int
+     */
+    public function getChangeQuantity()
+    {
+        return $this->container['change_quantity'];
+    }
+
+    /**
+     * Sets change_quantity
+     *
+     * @param int $change_quantity change_quantity
+     *
+     * @return $this
+     */
+    public function setChangeQuantity($change_quantity)
+    {
+        $this->container['change_quantity'] = $change_quantity;
 
         return $this;
     }

@@ -81,6 +81,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'nc_extended_sell' => 'float',
         'item_weight' => 'float',
         'production_lot' => 'string',
+        'expiration_date' => '\DateTime',
         'weight_per_wrap' => 'float',
         'sector' => 'string',
         'order_assembly_instructions' => 'string',
@@ -90,6 +91,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_sub_group_id' => 'int',
         'item_product_code_id' => 'int',
         'item_summary_code_id' => 'int',
+        'fulfillment_channel' => 'string',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -123,6 +125,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'nc_extended_sell' => null,
         'item_weight' => null,
         'production_lot' => null,
+        'expiration_date' => 'date-time',
         'weight_per_wrap' => null,
         'sector' => null,
         'order_assembly_instructions' => null,
@@ -132,6 +135,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_sub_group_id' => 'int32',
         'item_product_code_id' => 'int32',
         'item_summary_code_id' => 'int32',
+        'fulfillment_channel' => null,
         'custom_fields' => null
     ];
 
@@ -186,6 +190,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'nc_extended_sell' => 'ncExtendedSell',
         'item_weight' => 'itemWeight',
         'production_lot' => 'productionLot',
+        'expiration_date' => 'expirationDate',
         'weight_per_wrap' => 'weightPerWrap',
         'sector' => 'sector',
         'order_assembly_instructions' => 'orderAssemblyInstructions',
@@ -195,6 +200,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_sub_group_id' => 'itemSubGroupId',
         'item_product_code_id' => 'itemProductCodeId',
         'item_summary_code_id' => 'itemSummaryCodeId',
+        'fulfillment_channel' => 'fulfillmentChannel',
         'custom_fields' => 'customFields'
     ];
 
@@ -228,6 +234,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'nc_extended_sell' => 'setNcExtendedSell',
         'item_weight' => 'setItemWeight',
         'production_lot' => 'setProductionLot',
+        'expiration_date' => 'setExpirationDate',
         'weight_per_wrap' => 'setWeightPerWrap',
         'sector' => 'setSector',
         'order_assembly_instructions' => 'setOrderAssemblyInstructions',
@@ -237,6 +244,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_sub_group_id' => 'setItemSubGroupId',
         'item_product_code_id' => 'setItemProductCodeId',
         'item_summary_code_id' => 'setItemSummaryCodeId',
+        'fulfillment_channel' => 'setFulfillmentChannel',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -270,6 +278,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'nc_extended_sell' => 'getNcExtendedSell',
         'item_weight' => 'getItemWeight',
         'production_lot' => 'getProductionLot',
+        'expiration_date' => 'getExpirationDate',
         'weight_per_wrap' => 'getWeightPerWrap',
         'sector' => 'getSector',
         'order_assembly_instructions' => 'getOrderAssemblyInstructions',
@@ -279,6 +288,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_sub_group_id' => 'getItemSubGroupId',
         'item_product_code_id' => 'getItemProductCodeId',
         'item_summary_code_id' => 'getItemSummaryCodeId',
+        'fulfillment_channel' => 'getFulfillmentChannel',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -366,6 +376,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         $this->container['nc_extended_sell'] = isset($data['nc_extended_sell']) ? $data['nc_extended_sell'] : null;
         $this->container['item_weight'] = isset($data['item_weight']) ? $data['item_weight'] : null;
         $this->container['production_lot'] = isset($data['production_lot']) ? $data['production_lot'] : null;
+        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
         $this->container['weight_per_wrap'] = isset($data['weight_per_wrap']) ? $data['weight_per_wrap'] : null;
         $this->container['sector'] = isset($data['sector']) ? $data['sector'] : null;
         $this->container['order_assembly_instructions'] = isset($data['order_assembly_instructions']) ? $data['order_assembly_instructions'] : null;
@@ -375,6 +386,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         $this->container['item_sub_group_id'] = isset($data['item_sub_group_id']) ? $data['item_sub_group_id'] : null;
         $this->container['item_product_code_id'] = isset($data['item_product_code_id']) ? $data['item_product_code_id'] : null;
         $this->container['item_summary_code_id'] = isset($data['item_summary_code_id']) ? $data['item_summary_code_id'] : null;
+        $this->container['fulfillment_channel'] = isset($data['fulfillment_channel']) ? $data['fulfillment_channel'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -411,6 +423,9 @@ class OrderLine implements ModelInterface, ArrayAccess
         if ($this->container['item_summary_code_id'] === null) {
             $invalidProperties[] = "'item_summary_code_id' can't be null";
         }
+        if ($this->container['fulfillment_channel'] === null) {
+            $invalidProperties[] = "'fulfillment_channel' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -445,6 +460,9 @@ class OrderLine implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['item_summary_code_id'] === null) {
+            return false;
+        }
+        if ($this->container['fulfillment_channel'] === null) {
             return false;
         }
         return true;
@@ -1028,6 +1046,30 @@ class OrderLine implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets expiration_date
+     *
+     * @return \DateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->container['expiration_date'];
+    }
+
+    /**
+     * Sets expiration_date
+     *
+     * @param \DateTime $expiration_date expiration_date
+     *
+     * @return $this
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        $this->container['expiration_date'] = $expiration_date;
+
+        return $this;
+    }
+
+    /**
      * Gets weight_per_wrap
      *
      * @return float
@@ -1239,6 +1281,30 @@ class OrderLine implements ModelInterface, ArrayAccess
     public function setItemSummaryCodeId($item_summary_code_id)
     {
         $this->container['item_summary_code_id'] = $item_summary_code_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fulfillment_channel
+     *
+     * @return string
+     */
+    public function getFulfillmentChannel()
+    {
+        return $this->container['fulfillment_channel'];
+    }
+
+    /**
+     * Sets fulfillment_channel
+     *
+     * @param string $fulfillment_channel fulfillment_channel
+     *
+     * @return $this
+     */
+    public function setFulfillmentChannel($fulfillment_channel)
+    {
+        $this->container['fulfillment_channel'] = $fulfillment_channel;
 
         return $this;
     }

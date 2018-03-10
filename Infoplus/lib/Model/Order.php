@@ -807,15 +807,6 @@ class Order implements ModelInterface, ArrayAccess
         if ($this->container['warehouse_id'] === null) {
             $invalidProperties[] = "'warehouse_id' can't be null";
         }
-        if ($this->container['order_date'] === null) {
-            $invalidProperties[] = "'order_date' can't be null";
-        }
-        if ($this->container['media_code'] === null) {
-            $invalidProperties[] = "'media_code' can't be null";
-        }
-        if ($this->container['legacy_restriction_type'] === null) {
-            $invalidProperties[] = "'legacy_restriction_type' can't be null";
-        }
         if ($this->container['line_items'] === null) {
             $invalidProperties[] = "'line_items' can't be null";
         }
@@ -835,15 +826,6 @@ class Order implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['warehouse_id'] === null) {
-            return false;
-        }
-        if ($this->container['order_date'] === null) {
-            return false;
-        }
-        if ($this->container['media_code'] === null) {
-            return false;
-        }
-        if ($this->container['legacy_restriction_type'] === null) {
             return false;
         }
         if ($this->container['line_items'] === null) {

@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**applyOrderWarehouseFulfillmentPlan**](OrderApi.md#applyOrderWarehouseFulfillmentPlan) | **POST** /beta/order/applyOrderWarehouseFulfillmentPlan | Run the Apply Order Warehouse Fulfillment Plan method.
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /beta/order/{orderId} | Delete an order
 [**deleteOrderTag**](OrderApi.md#deleteOrderTag) | **DELETE** /beta/order/{orderId}/tag/{orderTag} | Delete a tag for an order.
+[**editFulfillmentChannel**](OrderApi.md#editFulfillmentChannel) | **POST** /beta/order/editFulfillmentChannel | Run the EditLineItemFulfillmentStrategy process.
+[**editLineItems**](OrderApi.md#editLineItems) | **POST** /beta/order/editLineItems | Run the ReqManualSubstitution process.
 [**getDuplicateOrderById**](OrderApi.md#getDuplicateOrderById) | **GET** /beta/order/duplicate/{orderId} | Get a duplicated an order by id
 [**getOrderByFilter**](OrderApi.md#getOrderByFilter) | **GET** /beta/order/search | Search orders by filter
 [**getOrderById**](OrderApi.md#getOrderById) | **GET** /beta/order/{orderId} | Get an order by id
@@ -340,6 +342,116 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **editFulfillmentChannel**
+> \Infoplus\Infoplus\Model\ProcessOutputAPIModel[] editFulfillmentChannel($body)
+
+Run the EditLineItemFulfillmentStrategy process.
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+$config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+
+$apiInstance = new Infoplus\Api\OrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel(); // \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel | Input data for EditLineItemFulfillmentStrategy process.
+
+try {
+    $result = $apiInstance->editFulfillmentChannel($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->editFulfillmentChannel: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel**](../Model/EditLineItemFulfillmentStrategyInputAPIModel.md)| Input data for EditLineItemFulfillmentStrategy process. |
+
+### Return type
+
+[**\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]**](../Model/ProcessOutputAPIModel.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **editLineItems**
+> \Infoplus\Infoplus\Model\ProcessOutputAPIModel[] editLineItems($body)
+
+Run the ReqManualSubstitution process.
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: api_key
+$config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+
+$apiInstance = new Infoplus\Api\OrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel(); // \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel | Input data for ReqManualSubstitution process.
+
+try {
+    $result = $apiInstance->editLineItems($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->editLineItems: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel**](../Model/ReqManualSubstitutionInputAPIModel.md)| Input data for ReqManualSubstitution process. |
+
+### Return type
+
+[**\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]**](../Model/ProcessOutputAPIModel.md)
 
 ### Authorization
 

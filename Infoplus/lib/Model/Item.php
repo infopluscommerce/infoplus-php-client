@@ -89,7 +89,7 @@ class Item implements ModelInterface, ArrayAccess
         'max_cycle' => 'int',
         'max_interim' => 'int',
         'numeric_sort_order' => 'int',
-        'outside_vendor' => 'int',
+        'outside_vendor_id' => 'int',
         'pick_no' => 'string',
         'pod_order_suffix' => 'int',
         'pod_rev_date' => 'string',
@@ -102,6 +102,9 @@ class Item implements ModelInterface, ArrayAccess
         'unit_code' => 'string',
         'units_per_wrap' => 'int',
         'weight_per_wrap' => 'float',
+        'quantity_per_inner_pack' => 'int',
+        'quantity_per_case' => 'int',
+        'quantity_per_pallet' => 'int',
         'void_date' => '\DateTime',
         'wrap_code' => 'string',
         'extrinsic_text1' => 'string',
@@ -127,6 +130,7 @@ class Item implements ModelInterface, ArrayAccess
         'barcode_field' => 'string',
         'warehouse_display_field' => 'string',
         'product_id_tag_scheme_id' => 'int',
+        'item_serial_scheme_id' => 'int',
         'hazmat' => 'string',
         'is_alcohol' => 'bool',
         'alcohol_type' => 'string',
@@ -199,7 +203,7 @@ class Item implements ModelInterface, ArrayAccess
         'max_cycle' => 'int32',
         'max_interim' => 'int32',
         'numeric_sort_order' => 'int32',
-        'outside_vendor' => 'int32',
+        'outside_vendor_id' => 'int32',
         'pick_no' => null,
         'pod_order_suffix' => 'int32',
         'pod_rev_date' => null,
@@ -212,6 +216,9 @@ class Item implements ModelInterface, ArrayAccess
         'unit_code' => null,
         'units_per_wrap' => 'int32',
         'weight_per_wrap' => null,
+        'quantity_per_inner_pack' => 'int32',
+        'quantity_per_case' => 'int32',
+        'quantity_per_pallet' => 'int32',
         'void_date' => 'date-time',
         'wrap_code' => null,
         'extrinsic_text1' => null,
@@ -237,6 +244,7 @@ class Item implements ModelInterface, ArrayAccess
         'barcode_field' => null,
         'warehouse_display_field' => null,
         'product_id_tag_scheme_id' => 'int32',
+        'item_serial_scheme_id' => 'int32',
         'hazmat' => null,
         'is_alcohol' => null,
         'alcohol_type' => null,
@@ -330,7 +338,7 @@ class Item implements ModelInterface, ArrayAccess
         'max_cycle' => 'maxCycle',
         'max_interim' => 'maxInterim',
         'numeric_sort_order' => 'numericSortOrder',
-        'outside_vendor' => 'outsideVendor',
+        'outside_vendor_id' => 'outsideVendorId',
         'pick_no' => 'pickNo',
         'pod_order_suffix' => 'podOrderSuffix',
         'pod_rev_date' => 'podRevDate',
@@ -343,6 +351,9 @@ class Item implements ModelInterface, ArrayAccess
         'unit_code' => 'unitCode',
         'units_per_wrap' => 'unitsPerWrap',
         'weight_per_wrap' => 'weightPerWrap',
+        'quantity_per_inner_pack' => 'quantityPerInnerPack',
+        'quantity_per_case' => 'quantityPerCase',
+        'quantity_per_pallet' => 'quantityPerPallet',
         'void_date' => 'voidDate',
         'wrap_code' => 'wrapCode',
         'extrinsic_text1' => 'extrinsicText1',
@@ -368,6 +379,7 @@ class Item implements ModelInterface, ArrayAccess
         'barcode_field' => 'barcodeField',
         'warehouse_display_field' => 'warehouseDisplayField',
         'product_id_tag_scheme_id' => 'productIdTagSchemeId',
+        'item_serial_scheme_id' => 'itemSerialSchemeId',
         'hazmat' => 'hazmat',
         'is_alcohol' => 'isAlcohol',
         'alcohol_type' => 'alcoholType',
@@ -440,7 +452,7 @@ class Item implements ModelInterface, ArrayAccess
         'max_cycle' => 'setMaxCycle',
         'max_interim' => 'setMaxInterim',
         'numeric_sort_order' => 'setNumericSortOrder',
-        'outside_vendor' => 'setOutsideVendor',
+        'outside_vendor_id' => 'setOutsideVendorId',
         'pick_no' => 'setPickNo',
         'pod_order_suffix' => 'setPodOrderSuffix',
         'pod_rev_date' => 'setPodRevDate',
@@ -453,6 +465,9 @@ class Item implements ModelInterface, ArrayAccess
         'unit_code' => 'setUnitCode',
         'units_per_wrap' => 'setUnitsPerWrap',
         'weight_per_wrap' => 'setWeightPerWrap',
+        'quantity_per_inner_pack' => 'setQuantityPerInnerPack',
+        'quantity_per_case' => 'setQuantityPerCase',
+        'quantity_per_pallet' => 'setQuantityPerPallet',
         'void_date' => 'setVoidDate',
         'wrap_code' => 'setWrapCode',
         'extrinsic_text1' => 'setExtrinsicText1',
@@ -478,6 +493,7 @@ class Item implements ModelInterface, ArrayAccess
         'barcode_field' => 'setBarcodeField',
         'warehouse_display_field' => 'setWarehouseDisplayField',
         'product_id_tag_scheme_id' => 'setProductIdTagSchemeId',
+        'item_serial_scheme_id' => 'setItemSerialSchemeId',
         'hazmat' => 'setHazmat',
         'is_alcohol' => 'setIsAlcohol',
         'alcohol_type' => 'setAlcoholType',
@@ -550,7 +566,7 @@ class Item implements ModelInterface, ArrayAccess
         'max_cycle' => 'getMaxCycle',
         'max_interim' => 'getMaxInterim',
         'numeric_sort_order' => 'getNumericSortOrder',
-        'outside_vendor' => 'getOutsideVendor',
+        'outside_vendor_id' => 'getOutsideVendorId',
         'pick_no' => 'getPickNo',
         'pod_order_suffix' => 'getPodOrderSuffix',
         'pod_rev_date' => 'getPodRevDate',
@@ -563,6 +579,9 @@ class Item implements ModelInterface, ArrayAccess
         'unit_code' => 'getUnitCode',
         'units_per_wrap' => 'getUnitsPerWrap',
         'weight_per_wrap' => 'getWeightPerWrap',
+        'quantity_per_inner_pack' => 'getQuantityPerInnerPack',
+        'quantity_per_case' => 'getQuantityPerCase',
+        'quantity_per_pallet' => 'getQuantityPerPallet',
         'void_date' => 'getVoidDate',
         'wrap_code' => 'getWrapCode',
         'extrinsic_text1' => 'getExtrinsicText1',
@@ -588,6 +607,7 @@ class Item implements ModelInterface, ArrayAccess
         'barcode_field' => 'getBarcodeField',
         'warehouse_display_field' => 'getWarehouseDisplayField',
         'product_id_tag_scheme_id' => 'getProductIdTagSchemeId',
+        'item_serial_scheme_id' => 'getItemSerialSchemeId',
         'hazmat' => 'getHazmat',
         'is_alcohol' => 'getIsAlcohol',
         'alcohol_type' => 'getAlcoholType',
@@ -714,7 +734,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['max_cycle'] = isset($data['max_cycle']) ? $data['max_cycle'] : null;
         $this->container['max_interim'] = isset($data['max_interim']) ? $data['max_interim'] : null;
         $this->container['numeric_sort_order'] = isset($data['numeric_sort_order']) ? $data['numeric_sort_order'] : null;
-        $this->container['outside_vendor'] = isset($data['outside_vendor']) ? $data['outside_vendor'] : null;
+        $this->container['outside_vendor_id'] = isset($data['outside_vendor_id']) ? $data['outside_vendor_id'] : null;
         $this->container['pick_no'] = isset($data['pick_no']) ? $data['pick_no'] : null;
         $this->container['pod_order_suffix'] = isset($data['pod_order_suffix']) ? $data['pod_order_suffix'] : null;
         $this->container['pod_rev_date'] = isset($data['pod_rev_date']) ? $data['pod_rev_date'] : null;
@@ -727,6 +747,9 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['unit_code'] = isset($data['unit_code']) ? $data['unit_code'] : null;
         $this->container['units_per_wrap'] = isset($data['units_per_wrap']) ? $data['units_per_wrap'] : null;
         $this->container['weight_per_wrap'] = isset($data['weight_per_wrap']) ? $data['weight_per_wrap'] : null;
+        $this->container['quantity_per_inner_pack'] = isset($data['quantity_per_inner_pack']) ? $data['quantity_per_inner_pack'] : null;
+        $this->container['quantity_per_case'] = isset($data['quantity_per_case']) ? $data['quantity_per_case'] : null;
+        $this->container['quantity_per_pallet'] = isset($data['quantity_per_pallet']) ? $data['quantity_per_pallet'] : null;
         $this->container['void_date'] = isset($data['void_date']) ? $data['void_date'] : null;
         $this->container['wrap_code'] = isset($data['wrap_code']) ? $data['wrap_code'] : null;
         $this->container['extrinsic_text1'] = isset($data['extrinsic_text1']) ? $data['extrinsic_text1'] : null;
@@ -752,6 +775,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['barcode_field'] = isset($data['barcode_field']) ? $data['barcode_field'] : null;
         $this->container['warehouse_display_field'] = isset($data['warehouse_display_field']) ? $data['warehouse_display_field'] : null;
         $this->container['product_id_tag_scheme_id'] = isset($data['product_id_tag_scheme_id']) ? $data['product_id_tag_scheme_id'] : null;
+        $this->container['item_serial_scheme_id'] = isset($data['item_serial_scheme_id']) ? $data['item_serial_scheme_id'] : null;
         $this->container['hazmat'] = isset($data['hazmat']) ? $data['hazmat'] : null;
         $this->container['is_alcohol'] = isset($data['is_alcohol']) ? $data['is_alcohol'] : false;
         $this->container['alcohol_type'] = isset($data['alcohol_type']) ? $data['alcohol_type'] : null;
@@ -834,17 +858,8 @@ class Item implements ModelInterface, ArrayAccess
         if ($this->container['secure'] === null) {
             $invalidProperties[] = "'secure' can't be null";
         }
-        if ($this->container['serial_code'] === null) {
-            $invalidProperties[] = "'serial_code' can't be null";
-        }
         if ($this->container['unit_code'] === null) {
             $invalidProperties[] = "'unit_code' can't be null";
-        }
-        if ($this->container['units_per_wrap'] === null) {
-            $invalidProperties[] = "'units_per_wrap' can't be null";
-        }
-        if ($this->container['wrap_code'] === null) {
-            $invalidProperties[] = "'wrap_code' can't be null";
         }
         if ($this->container['forward_lot_mixing_rule'] === null) {
             $invalidProperties[] = "'forward_lot_mixing_rule' can't be null";
@@ -915,16 +930,7 @@ class Item implements ModelInterface, ArrayAccess
         if ($this->container['secure'] === null) {
             return false;
         }
-        if ($this->container['serial_code'] === null) {
-            return false;
-        }
         if ($this->container['unit_code'] === null) {
-            return false;
-        }
-        if ($this->container['units_per_wrap'] === null) {
-            return false;
-        }
-        if ($this->container['wrap_code'] === null) {
             return false;
         }
         if ($this->container['forward_lot_mixing_rule'] === null) {
@@ -1718,25 +1724,25 @@ class Item implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets outside_vendor
+     * Gets outside_vendor_id
      *
      * @return int
      */
-    public function getOutsideVendor()
+    public function getOutsideVendorId()
     {
-        return $this->container['outside_vendor'];
+        return $this->container['outside_vendor_id'];
     }
 
     /**
-     * Sets outside_vendor
+     * Sets outside_vendor_id
      *
-     * @param int $outside_vendor outside_vendor
+     * @param int $outside_vendor_id outside_vendor_id
      *
      * @return $this
      */
-    public function setOutsideVendor($outside_vendor)
+    public function setOutsideVendorId($outside_vendor_id)
     {
-        $this->container['outside_vendor'] = $outside_vendor;
+        $this->container['outside_vendor_id'] = $outside_vendor_id;
 
         return $this;
     }
@@ -2025,6 +2031,78 @@ class Item implements ModelInterface, ArrayAccess
     public function setWeightPerWrap($weight_per_wrap)
     {
         $this->container['weight_per_wrap'] = $weight_per_wrap;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_inner_pack
+     *
+     * @return int
+     */
+    public function getQuantityPerInnerPack()
+    {
+        return $this->container['quantity_per_inner_pack'];
+    }
+
+    /**
+     * Sets quantity_per_inner_pack
+     *
+     * @param int $quantity_per_inner_pack quantity_per_inner_pack
+     *
+     * @return $this
+     */
+    public function setQuantityPerInnerPack($quantity_per_inner_pack)
+    {
+        $this->container['quantity_per_inner_pack'] = $quantity_per_inner_pack;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_case
+     *
+     * @return int
+     */
+    public function getQuantityPerCase()
+    {
+        return $this->container['quantity_per_case'];
+    }
+
+    /**
+     * Sets quantity_per_case
+     *
+     * @param int $quantity_per_case quantity_per_case
+     *
+     * @return $this
+     */
+    public function setQuantityPerCase($quantity_per_case)
+    {
+        $this->container['quantity_per_case'] = $quantity_per_case;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_pallet
+     *
+     * @return int
+     */
+    public function getQuantityPerPallet()
+    {
+        return $this->container['quantity_per_pallet'];
+    }
+
+    /**
+     * Sets quantity_per_pallet
+     *
+     * @param int $quantity_per_pallet quantity_per_pallet
+     *
+     * @return $this
+     */
+    public function setQuantityPerPallet($quantity_per_pallet)
+    {
+        $this->container['quantity_per_pallet'] = $quantity_per_pallet;
 
         return $this;
     }
@@ -2625,6 +2703,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setProductIdTagSchemeId($product_id_tag_scheme_id)
     {
         $this->container['product_id_tag_scheme_id'] = $product_id_tag_scheme_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_serial_scheme_id
+     *
+     * @return int
+     */
+    public function getItemSerialSchemeId()
+    {
+        return $this->container['item_serial_scheme_id'];
+    }
+
+    /**
+     * Sets item_serial_scheme_id
+     *
+     * @param int $item_serial_scheme_id item_serial_scheme_id
+     *
+     * @return $this
+     */
+    public function setItemSerialSchemeId($item_serial_scheme_id)
+    {
+        $this->container['item_serial_scheme_id'] = $item_serial_scheme_id;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * KitComponent
+ * ReqManualSubstitutionInputAPIModel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * KitComponent Class Doc Comment
+ * ReqManualSubstitutionInputAPIModel Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class KitComponent implements ModelInterface, ArrayAccess
+class ReqManualSubstitutionInputAPIModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class KitComponent implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'kitComponent';
+    protected static $swaggerModelName = 'ReqManualSubstitutionInputAPIModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,14 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'invno' => 'string',
-        'sku' => 'string',
-        'quantity' => 'int',
-        'instructions' => 'string',
-        'additional_services' => 'string',
-        'critical' => 'string',
-        'custom_fields' => 'map[string,object]'
+        'order_no_list' => 'float[]',
+        'original_sku' => 'string',
+        'original_kit_sku' => 'string',
+        'original_quantity' => 'int',
+        'original_component_sku' => 'string',
+        'new_sku' => 'string',
+        'new_quantity' => 'int',
+        'edit_type' => 'string'
     ];
 
     /**
@@ -72,13 +73,14 @@ class KitComponent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'invno' => null,
-        'sku' => null,
-        'quantity' => 'int32',
-        'instructions' => null,
-        'additional_services' => null,
-        'critical' => null,
-        'custom_fields' => null
+        'order_no_list' => null,
+        'original_sku' => null,
+        'original_kit_sku' => null,
+        'original_quantity' => 'int32',
+        'original_component_sku' => null,
+        'new_sku' => null,
+        'new_quantity' => 'int32',
+        'edit_type' => null
     ];
 
     /**
@@ -108,13 +110,14 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'invno' => 'invno',
-        'sku' => 'sku',
-        'quantity' => 'quantity',
-        'instructions' => 'instructions',
-        'additional_services' => 'additionalServices',
-        'critical' => 'critical',
-        'custom_fields' => 'customFields'
+        'order_no_list' => 'orderNoList',
+        'original_sku' => 'originalSKU',
+        'original_kit_sku' => 'originalKitSKU',
+        'original_quantity' => 'originalQuantity',
+        'original_component_sku' => 'originalComponentSKU',
+        'new_sku' => 'newSKU',
+        'new_quantity' => 'newQuantity',
+        'edit_type' => 'editType'
     ];
 
     /**
@@ -123,13 +126,14 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'invno' => 'setInvno',
-        'sku' => 'setSku',
-        'quantity' => 'setQuantity',
-        'instructions' => 'setInstructions',
-        'additional_services' => 'setAdditionalServices',
-        'critical' => 'setCritical',
-        'custom_fields' => 'setCustomFields'
+        'order_no_list' => 'setOrderNoList',
+        'original_sku' => 'setOriginalSku',
+        'original_kit_sku' => 'setOriginalKitSku',
+        'original_quantity' => 'setOriginalQuantity',
+        'original_component_sku' => 'setOriginalComponentSku',
+        'new_sku' => 'setNewSku',
+        'new_quantity' => 'setNewQuantity',
+        'edit_type' => 'setEditType'
     ];
 
     /**
@@ -138,13 +142,14 @@ class KitComponent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'invno' => 'getInvno',
-        'sku' => 'getSku',
-        'quantity' => 'getQuantity',
-        'instructions' => 'getInstructions',
-        'additional_services' => 'getAdditionalServices',
-        'critical' => 'getCritical',
-        'custom_fields' => 'getCustomFields'
+        'order_no_list' => 'getOrderNoList',
+        'original_sku' => 'getOriginalSku',
+        'original_kit_sku' => 'getOriginalKitSku',
+        'original_quantity' => 'getOriginalQuantity',
+        'original_component_sku' => 'getOriginalComponentSku',
+        'new_sku' => 'getNewSku',
+        'new_quantity' => 'getNewQuantity',
+        'edit_type' => 'getEditType'
     ];
 
     /**
@@ -207,13 +212,14 @@ class KitComponent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['invno'] = isset($data['invno']) ? $data['invno'] : null;
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['instructions'] = isset($data['instructions']) ? $data['instructions'] : null;
-        $this->container['additional_services'] = isset($data['additional_services']) ? $data['additional_services'] : null;
-        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
-        $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
+        $this->container['order_no_list'] = isset($data['order_no_list']) ? $data['order_no_list'] : null;
+        $this->container['original_sku'] = isset($data['original_sku']) ? $data['original_sku'] : null;
+        $this->container['original_kit_sku'] = isset($data['original_kit_sku']) ? $data['original_kit_sku'] : null;
+        $this->container['original_quantity'] = isset($data['original_quantity']) ? $data['original_quantity'] : null;
+        $this->container['original_component_sku'] = isset($data['original_component_sku']) ? $data['original_component_sku'] : null;
+        $this->container['new_sku'] = isset($data['new_sku']) ? $data['new_sku'] : null;
+        $this->container['new_quantity'] = isset($data['new_quantity']) ? $data['new_quantity'] : null;
+        $this->container['edit_type'] = isset($data['edit_type']) ? $data['edit_type'] : null;
     }
 
     /**
@@ -225,14 +231,8 @@ class KitComponent implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
-        }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
-        if ($this->container['critical'] === null) {
-            $invalidProperties[] = "'critical' can't be null";
+        if ($this->container['edit_type'] === null) {
+            $invalidProperties[] = "'edit_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -246,13 +246,7 @@ class KitComponent implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['sku'] === null) {
-            return false;
-        }
-        if ($this->container['quantity'] === null) {
-            return false;
-        }
-        if ($this->container['critical'] === null) {
+        if ($this->container['edit_type'] === null) {
             return false;
         }
         return true;
@@ -260,169 +254,193 @@ class KitComponent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets invno
+     * Gets order_no_list
      *
-     * @return string
+     * @return float[]
      */
-    public function getInvno()
+    public function getOrderNoList()
     {
-        return $this->container['invno'];
+        return $this->container['order_no_list'];
     }
 
     /**
-     * Sets invno
+     * Sets order_no_list
      *
-     * @param string $invno invno
+     * @param float[] $order_no_list order_no_list
      *
      * @return $this
      */
-    public function setInvno($invno)
+    public function setOrderNoList($order_no_list)
     {
-        $this->container['invno'] = $invno;
+        $this->container['order_no_list'] = $order_no_list;
 
         return $this;
     }
 
     /**
-     * Gets sku
+     * Gets original_sku
      *
      * @return string
      */
-    public function getSku()
+    public function getOriginalSku()
     {
-        return $this->container['sku'];
+        return $this->container['original_sku'];
     }
 
     /**
-     * Sets sku
+     * Sets original_sku
      *
-     * @param string $sku sku
+     * @param string $original_sku original_sku
      *
      * @return $this
      */
-    public function setSku($sku)
+    public function setOriginalSku($original_sku)
     {
-        $this->container['sku'] = $sku;
+        $this->container['original_sku'] = $original_sku;
 
         return $this;
     }
 
     /**
-     * Gets quantity
+     * Gets original_kit_sku
+     *
+     * @return string
+     */
+    public function getOriginalKitSku()
+    {
+        return $this->container['original_kit_sku'];
+    }
+
+    /**
+     * Sets original_kit_sku
+     *
+     * @param string $original_kit_sku original_kit_sku
+     *
+     * @return $this
+     */
+    public function setOriginalKitSku($original_kit_sku)
+    {
+        $this->container['original_kit_sku'] = $original_kit_sku;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_quantity
      *
      * @return int
      */
-    public function getQuantity()
+    public function getOriginalQuantity()
     {
-        return $this->container['quantity'];
+        return $this->container['original_quantity'];
     }
 
     /**
-     * Sets quantity
+     * Sets original_quantity
      *
-     * @param int $quantity quantity
+     * @param int $original_quantity original_quantity
      *
      * @return $this
      */
-    public function setQuantity($quantity)
+    public function setOriginalQuantity($original_quantity)
     {
-        $this->container['quantity'] = $quantity;
+        $this->container['original_quantity'] = $original_quantity;
 
         return $this;
     }
 
     /**
-     * Gets instructions
+     * Gets original_component_sku
      *
      * @return string
      */
-    public function getInstructions()
+    public function getOriginalComponentSku()
     {
-        return $this->container['instructions'];
+        return $this->container['original_component_sku'];
     }
 
     /**
-     * Sets instructions
+     * Sets original_component_sku
      *
-     * @param string $instructions instructions
+     * @param string $original_component_sku original_component_sku
      *
      * @return $this
      */
-    public function setInstructions($instructions)
+    public function setOriginalComponentSku($original_component_sku)
     {
-        $this->container['instructions'] = $instructions;
+        $this->container['original_component_sku'] = $original_component_sku;
 
         return $this;
     }
 
     /**
-     * Gets additional_services
+     * Gets new_sku
      *
      * @return string
      */
-    public function getAdditionalServices()
+    public function getNewSku()
     {
-        return $this->container['additional_services'];
+        return $this->container['new_sku'];
     }
 
     /**
-     * Sets additional_services
+     * Sets new_sku
      *
-     * @param string $additional_services additional_services
+     * @param string $new_sku new_sku
      *
      * @return $this
      */
-    public function setAdditionalServices($additional_services)
+    public function setNewSku($new_sku)
     {
-        $this->container['additional_services'] = $additional_services;
+        $this->container['new_sku'] = $new_sku;
 
         return $this;
     }
 
     /**
-     * Gets critical
+     * Gets new_quantity
+     *
+     * @return int
+     */
+    public function getNewQuantity()
+    {
+        return $this->container['new_quantity'];
+    }
+
+    /**
+     * Sets new_quantity
+     *
+     * @param int $new_quantity new_quantity
+     *
+     * @return $this
+     */
+    public function setNewQuantity($new_quantity)
+    {
+        $this->container['new_quantity'] = $new_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets edit_type
      *
      * @return string
      */
-    public function getCritical()
+    public function getEditType()
     {
-        return $this->container['critical'];
+        return $this->container['edit_type'];
     }
 
     /**
-     * Sets critical
+     * Sets edit_type
      *
-     * @param string $critical critical
+     * @param string $edit_type edit_type
      *
      * @return $this
      */
-    public function setCritical($critical)
+    public function setEditType($edit_type)
     {
-        $this->container['critical'] = $critical;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_fields
-     *
-     * @return map[string,object]
-     */
-    public function getCustomFields()
-    {
-        return $this->container['custom_fields'];
-    }
-
-    /**
-     * Sets custom_fields
-     *
-     * @param map[string,object] $custom_fields custom_fields
-     *
-     * @return $this
-     */
-    public function setCustomFields($custom_fields)
-    {
-        $this->container['custom_fields'] = $custom_fields;
+        $this->container['edit_type'] = $edit_type;
 
         return $this;
     }

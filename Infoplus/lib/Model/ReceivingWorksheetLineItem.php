@@ -68,12 +68,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         'wrap_code' => 'string',
         'units_per_wrap' => 'int',
         'units_per_case' => 'int',
-        'cases_per_pallet' => 'int',
+        'quantity_per_inner_pack' => 'int',
+        'quantity_per_pallet' => 'int',
         'weight_per_wrap' => 'float',
         'weight_per_case' => 'float',
         'production_lot' => 'string',
         'product_id_tag' => 'string',
         'revision_date' => 'string',
+        'expiration_date' => '\DateTime',
         'origin' => 'string',
         'carton_length' => 'float',
         'carton_width' => 'float',
@@ -100,12 +102,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         'wrap_code' => null,
         'units_per_wrap' => 'int32',
         'units_per_case' => 'int32',
-        'cases_per_pallet' => 'int32',
+        'quantity_per_inner_pack' => 'int32',
+        'quantity_per_pallet' => 'int32',
         'weight_per_wrap' => null,
         'weight_per_case' => null,
         'production_lot' => null,
         'product_id_tag' => null,
         'revision_date' => null,
+        'expiration_date' => 'date-time',
         'origin' => null,
         'carton_length' => null,
         'carton_width' => null,
@@ -153,12 +157,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         'wrap_code' => 'wrapCode',
         'units_per_wrap' => 'unitsPerWrap',
         'units_per_case' => 'unitsPerCase',
-        'cases_per_pallet' => 'casesPerPallet',
+        'quantity_per_inner_pack' => 'quantityPerInnerPack',
+        'quantity_per_pallet' => 'quantityPerPallet',
         'weight_per_wrap' => 'weightPerWrap',
         'weight_per_case' => 'weightPerCase',
         'production_lot' => 'productionLot',
         'product_id_tag' => 'productIdTag',
         'revision_date' => 'revisionDate',
+        'expiration_date' => 'expirationDate',
         'origin' => 'origin',
         'carton_length' => 'cartonLength',
         'carton_width' => 'cartonWidth',
@@ -185,12 +191,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         'wrap_code' => 'setWrapCode',
         'units_per_wrap' => 'setUnitsPerWrap',
         'units_per_case' => 'setUnitsPerCase',
-        'cases_per_pallet' => 'setCasesPerPallet',
+        'quantity_per_inner_pack' => 'setQuantityPerInnerPack',
+        'quantity_per_pallet' => 'setQuantityPerPallet',
         'weight_per_wrap' => 'setWeightPerWrap',
         'weight_per_case' => 'setWeightPerCase',
         'production_lot' => 'setProductionLot',
         'product_id_tag' => 'setProductIdTag',
         'revision_date' => 'setRevisionDate',
+        'expiration_date' => 'setExpirationDate',
         'origin' => 'setOrigin',
         'carton_length' => 'setCartonLength',
         'carton_width' => 'setCartonWidth',
@@ -217,12 +225,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         'wrap_code' => 'getWrapCode',
         'units_per_wrap' => 'getUnitsPerWrap',
         'units_per_case' => 'getUnitsPerCase',
-        'cases_per_pallet' => 'getCasesPerPallet',
+        'quantity_per_inner_pack' => 'getQuantityPerInnerPack',
+        'quantity_per_pallet' => 'getQuantityPerPallet',
         'weight_per_wrap' => 'getWeightPerWrap',
         'weight_per_case' => 'getWeightPerCase',
         'production_lot' => 'getProductionLot',
         'product_id_tag' => 'getProductIdTag',
         'revision_date' => 'getRevisionDate',
+        'expiration_date' => 'getExpirationDate',
         'origin' => 'getOrigin',
         'carton_length' => 'getCartonLength',
         'carton_width' => 'getCartonWidth',
@@ -303,12 +313,14 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         $this->container['wrap_code'] = isset($data['wrap_code']) ? $data['wrap_code'] : null;
         $this->container['units_per_wrap'] = isset($data['units_per_wrap']) ? $data['units_per_wrap'] : null;
         $this->container['units_per_case'] = isset($data['units_per_case']) ? $data['units_per_case'] : null;
-        $this->container['cases_per_pallet'] = isset($data['cases_per_pallet']) ? $data['cases_per_pallet'] : null;
+        $this->container['quantity_per_inner_pack'] = isset($data['quantity_per_inner_pack']) ? $data['quantity_per_inner_pack'] : null;
+        $this->container['quantity_per_pallet'] = isset($data['quantity_per_pallet']) ? $data['quantity_per_pallet'] : null;
         $this->container['weight_per_wrap'] = isset($data['weight_per_wrap']) ? $data['weight_per_wrap'] : null;
         $this->container['weight_per_case'] = isset($data['weight_per_case']) ? $data['weight_per_case'] : null;
         $this->container['production_lot'] = isset($data['production_lot']) ? $data['production_lot'] : null;
         $this->container['product_id_tag'] = isset($data['product_id_tag']) ? $data['product_id_tag'] : null;
         $this->container['revision_date'] = isset($data['revision_date']) ? $data['revision_date'] : null;
+        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
         $this->container['origin'] = isset($data['origin']) ? $data['origin'] : null;
         $this->container['carton_length'] = isset($data['carton_length']) ? $data['carton_length'] : null;
         $this->container['carton_width'] = isset($data['carton_width']) ? $data['carton_width'] : null;
@@ -330,12 +342,6 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
         if ($this->container['receiving_qty'] === null) {
             $invalidProperties[] = "'receiving_qty' can't be null";
         }
-        if ($this->container['unit_code'] === null) {
-            $invalidProperties[] = "'unit_code' can't be null";
-        }
-        if ($this->container['wrap_code'] === null) {
-            $invalidProperties[] = "'wrap_code' can't be null";
-        }
         if ($this->container['weight_per_wrap'] === null) {
             $invalidProperties[] = "'weight_per_wrap' can't be null";
         }
@@ -352,12 +358,6 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['receiving_qty'] === null) {
-            return false;
-        }
-        if ($this->container['unit_code'] === null) {
-            return false;
-        }
-        if ($this->container['wrap_code'] === null) {
             return false;
         }
         if ($this->container['weight_per_wrap'] === null) {
@@ -632,25 +632,49 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cases_per_pallet
+     * Gets quantity_per_inner_pack
      *
      * @return int
      */
-    public function getCasesPerPallet()
+    public function getQuantityPerInnerPack()
     {
-        return $this->container['cases_per_pallet'];
+        return $this->container['quantity_per_inner_pack'];
     }
 
     /**
-     * Sets cases_per_pallet
+     * Sets quantity_per_inner_pack
      *
-     * @param int $cases_per_pallet cases_per_pallet
+     * @param int $quantity_per_inner_pack quantity_per_inner_pack
      *
      * @return $this
      */
-    public function setCasesPerPallet($cases_per_pallet)
+    public function setQuantityPerInnerPack($quantity_per_inner_pack)
     {
-        $this->container['cases_per_pallet'] = $cases_per_pallet;
+        $this->container['quantity_per_inner_pack'] = $quantity_per_inner_pack;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_pallet
+     *
+     * @return int
+     */
+    public function getQuantityPerPallet()
+    {
+        return $this->container['quantity_per_pallet'];
+    }
+
+    /**
+     * Sets quantity_per_pallet
+     *
+     * @param int $quantity_per_pallet quantity_per_pallet
+     *
+     * @return $this
+     */
+    public function setQuantityPerPallet($quantity_per_pallet)
+    {
+        $this->container['quantity_per_pallet'] = $quantity_per_pallet;
 
         return $this;
     }
@@ -771,6 +795,30 @@ class ReceivingWorksheetLineItem implements ModelInterface, ArrayAccess
     public function setRevisionDate($revision_date)
     {
         $this->container['revision_date'] = $revision_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_date
+     *
+     * @return \DateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->container['expiration_date'];
+    }
+
+    /**
+     * Sets expiration_date
+     *
+     * @param \DateTime $expiration_date expiration_date
+     *
+     * @return $this
+     */
+    public function setExpirationDate($expiration_date)
+    {
+        $this->container['expiration_date'] = $expiration_date;
 
         return $this;
     }

@@ -1592,6 +1592,530 @@ class OrderApi
     }
 
     /**
+     * Operation editFulfillmentChannel
+     *
+     * Run the EditLineItemFulfillmentStrategy process.
+     *
+     * @param  \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel $body Input data for EditLineItemFulfillmentStrategy process. (required)
+     *
+     * @throws \Infoplus\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Infoplus\Infoplus\Model\ProcessOutputAPIModel[]
+     */
+    public function editFulfillmentChannel($body)
+    {
+        list($response) = $this->editFulfillmentChannelWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation editFulfillmentChannelWithHttpInfo
+     *
+     * Run the EditLineItemFulfillmentStrategy process.
+     *
+     * @param  \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel $body Input data for EditLineItemFulfillmentStrategy process. (required)
+     *
+     * @throws \Infoplus\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Infoplus\Infoplus\Model\ProcessOutputAPIModel[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function editFulfillmentChannelWithHttpInfo($body)
+    {
+        $returnType = '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]';
+        $request = $this->editFulfillmentChannelRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation editFulfillmentChannelAsync
+     *
+     * Run the EditLineItemFulfillmentStrategy process.
+     *
+     * @param  \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel $body Input data for EditLineItemFulfillmentStrategy process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editFulfillmentChannelAsync($body)
+    {
+        return $this->editFulfillmentChannelAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation editFulfillmentChannelAsyncWithHttpInfo
+     *
+     * Run the EditLineItemFulfillmentStrategy process.
+     *
+     * @param  \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel $body Input data for EditLineItemFulfillmentStrategy process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editFulfillmentChannelAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]';
+        $request = $this->editFulfillmentChannelRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'editFulfillmentChannel'
+     *
+     * @param  \Infoplus\Infoplus\Model\EditLineItemFulfillmentStrategyInputAPIModel $body Input data for EditLineItemFulfillmentStrategy process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function editFulfillmentChannelRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling editFulfillmentChannel'
+            );
+        }
+
+        $resourcePath = '/beta/order/editFulfillmentChannel';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation editLineItems
+     *
+     * Run the ReqManualSubstitution process.
+     *
+     * @param  \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel $body Input data for ReqManualSubstitution process. (required)
+     *
+     * @throws \Infoplus\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Infoplus\Infoplus\Model\ProcessOutputAPIModel[]
+     */
+    public function editLineItems($body)
+    {
+        list($response) = $this->editLineItemsWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation editLineItemsWithHttpInfo
+     *
+     * Run the ReqManualSubstitution process.
+     *
+     * @param  \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel $body Input data for ReqManualSubstitution process. (required)
+     *
+     * @throws \Infoplus\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Infoplus\Infoplus\Model\ProcessOutputAPIModel[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function editLineItemsWithHttpInfo($body)
+    {
+        $returnType = '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]';
+        $request = $this->editLineItemsRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation editLineItemsAsync
+     *
+     * Run the ReqManualSubstitution process.
+     *
+     * @param  \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel $body Input data for ReqManualSubstitution process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editLineItemsAsync($body)
+    {
+        return $this->editLineItemsAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation editLineItemsAsyncWithHttpInfo
+     *
+     * Run the ReqManualSubstitution process.
+     *
+     * @param  \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel $body Input data for ReqManualSubstitution process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editLineItemsAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Infoplus\Infoplus\Model\ProcessOutputAPIModel[]';
+        $request = $this->editLineItemsRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'editLineItems'
+     *
+     * @param  \Infoplus\Infoplus\Model\ReqManualSubstitutionInputAPIModel $body Input data for ReqManualSubstitution process. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function editLineItemsRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling editLineItems'
+            );
+        }
+
+        $resourcePath = '/beta/order/editLineItems';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getDuplicateOrderById
      *
      * Get a duplicated an order by id
