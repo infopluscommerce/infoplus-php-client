@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**quantity** | **int** |  | 
+**quantity** | **float** |  | 
 **lob_id** | **int** |  | 
 **user_id** | **int** |  | 
 **email** | **string** |  | [optional] 

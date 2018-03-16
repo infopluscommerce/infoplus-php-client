@@ -68,7 +68,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'is_mixed_receipts' => 'bool',
         'quantity' => 'int',
         'address' => 'string',
-        'number_of_cases' => 'int',
+        'estimated_inner_packs' => 'int',
+        'estimated_cases' => 'int',
+        'estimated_pallets' => 'int',
         'inventory_value' => 'float',
         'inventory_age_days' => 'int',
         'warehouse_id' => 'int',
@@ -115,7 +117,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'po_no' => 'string',
         'receipt_distribution_date' => '\DateTime',
         'receipt_units_per_wrap' => 'int',
-        'receipt_units_per_case' => 'int',
+        'receipt_quantity_per_inner_pack' => 'int',
+        'receipt_quantity_per_case' => 'int',
+        'receipt_quantity_per_pallet' => 'int',
         'receipt_revision_date' => 'string',
         'receipt_production_lot' => 'string',
         'receipt_receive_date' => '\DateTime',
@@ -163,7 +167,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'is_mixed_receipts' => null,
         'quantity' => 'int32',
         'address' => null,
-        'number_of_cases' => 'int32',
+        'estimated_inner_packs' => 'int32',
+        'estimated_cases' => 'int32',
+        'estimated_pallets' => 'int32',
         'inventory_value' => null,
         'inventory_age_days' => 'int32',
         'warehouse_id' => 'int32',
@@ -210,7 +216,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'po_no' => null,
         'receipt_distribution_date' => 'date-time',
         'receipt_units_per_wrap' => 'int32',
-        'receipt_units_per_case' => 'int32',
+        'receipt_quantity_per_inner_pack' => 'int32',
+        'receipt_quantity_per_case' => 'int32',
+        'receipt_quantity_per_pallet' => 'int32',
         'receipt_revision_date' => null,
         'receipt_production_lot' => null,
         'receipt_receive_date' => 'date-time',
@@ -279,7 +287,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'is_mixed_receipts' => 'isMixedReceipts',
         'quantity' => 'quantity',
         'address' => 'address',
-        'number_of_cases' => 'numberOfCases',
+        'estimated_inner_packs' => 'estimatedInnerPacks',
+        'estimated_cases' => 'estimatedCases',
+        'estimated_pallets' => 'estimatedPallets',
         'inventory_value' => 'inventoryValue',
         'inventory_age_days' => 'inventoryAgeDays',
         'warehouse_id' => 'warehouseId',
@@ -326,7 +336,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'po_no' => 'poNo',
         'receipt_distribution_date' => 'receiptDistributionDate',
         'receipt_units_per_wrap' => 'receiptUnitsPerWrap',
-        'receipt_units_per_case' => 'receiptUnitsPerCase',
+        'receipt_quantity_per_inner_pack' => 'receiptQuantityPerInnerPack',
+        'receipt_quantity_per_case' => 'receiptQuantityPerCase',
+        'receipt_quantity_per_pallet' => 'receiptQuantityPerPallet',
         'receipt_revision_date' => 'receiptRevisionDate',
         'receipt_production_lot' => 'receiptProductionLot',
         'receipt_receive_date' => 'receiptReceiveDate',
@@ -374,7 +386,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'is_mixed_receipts' => 'setIsMixedReceipts',
         'quantity' => 'setQuantity',
         'address' => 'setAddress',
-        'number_of_cases' => 'setNumberOfCases',
+        'estimated_inner_packs' => 'setEstimatedInnerPacks',
+        'estimated_cases' => 'setEstimatedCases',
+        'estimated_pallets' => 'setEstimatedPallets',
         'inventory_value' => 'setInventoryValue',
         'inventory_age_days' => 'setInventoryAgeDays',
         'warehouse_id' => 'setWarehouseId',
@@ -421,7 +435,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'po_no' => 'setPoNo',
         'receipt_distribution_date' => 'setReceiptDistributionDate',
         'receipt_units_per_wrap' => 'setReceiptUnitsPerWrap',
-        'receipt_units_per_case' => 'setReceiptUnitsPerCase',
+        'receipt_quantity_per_inner_pack' => 'setReceiptQuantityPerInnerPack',
+        'receipt_quantity_per_case' => 'setReceiptQuantityPerCase',
+        'receipt_quantity_per_pallet' => 'setReceiptQuantityPerPallet',
         'receipt_revision_date' => 'setReceiptRevisionDate',
         'receipt_production_lot' => 'setReceiptProductionLot',
         'receipt_receive_date' => 'setReceiptReceiveDate',
@@ -469,7 +485,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'is_mixed_receipts' => 'getIsMixedReceipts',
         'quantity' => 'getQuantity',
         'address' => 'getAddress',
-        'number_of_cases' => 'getNumberOfCases',
+        'estimated_inner_packs' => 'getEstimatedInnerPacks',
+        'estimated_cases' => 'getEstimatedCases',
+        'estimated_pallets' => 'getEstimatedPallets',
         'inventory_value' => 'getInventoryValue',
         'inventory_age_days' => 'getInventoryAgeDays',
         'warehouse_id' => 'getWarehouseId',
@@ -516,7 +534,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         'po_no' => 'getPoNo',
         'receipt_distribution_date' => 'getReceiptDistributionDate',
         'receipt_units_per_wrap' => 'getReceiptUnitsPerWrap',
-        'receipt_units_per_case' => 'getReceiptUnitsPerCase',
+        'receipt_quantity_per_inner_pack' => 'getReceiptQuantityPerInnerPack',
+        'receipt_quantity_per_case' => 'getReceiptQuantityPerCase',
+        'receipt_quantity_per_pallet' => 'getReceiptQuantityPerPallet',
         'receipt_revision_date' => 'getReceiptRevisionDate',
         'receipt_production_lot' => 'getReceiptProductionLot',
         'receipt_receive_date' => 'getReceiptReceiveDate',
@@ -618,7 +638,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         $this->container['is_mixed_receipts'] = isset($data['is_mixed_receipts']) ? $data['is_mixed_receipts'] : false;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['number_of_cases'] = isset($data['number_of_cases']) ? $data['number_of_cases'] : null;
+        $this->container['estimated_inner_packs'] = isset($data['estimated_inner_packs']) ? $data['estimated_inner_packs'] : null;
+        $this->container['estimated_cases'] = isset($data['estimated_cases']) ? $data['estimated_cases'] : null;
+        $this->container['estimated_pallets'] = isset($data['estimated_pallets']) ? $data['estimated_pallets'] : null;
         $this->container['inventory_value'] = isset($data['inventory_value']) ? $data['inventory_value'] : null;
         $this->container['inventory_age_days'] = isset($data['inventory_age_days']) ? $data['inventory_age_days'] : null;
         $this->container['warehouse_id'] = isset($data['warehouse_id']) ? $data['warehouse_id'] : null;
@@ -665,7 +687,9 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
         $this->container['po_no'] = isset($data['po_no']) ? $data['po_no'] : null;
         $this->container['receipt_distribution_date'] = isset($data['receipt_distribution_date']) ? $data['receipt_distribution_date'] : null;
         $this->container['receipt_units_per_wrap'] = isset($data['receipt_units_per_wrap']) ? $data['receipt_units_per_wrap'] : null;
-        $this->container['receipt_units_per_case'] = isset($data['receipt_units_per_case']) ? $data['receipt_units_per_case'] : null;
+        $this->container['receipt_quantity_per_inner_pack'] = isset($data['receipt_quantity_per_inner_pack']) ? $data['receipt_quantity_per_inner_pack'] : null;
+        $this->container['receipt_quantity_per_case'] = isset($data['receipt_quantity_per_case']) ? $data['receipt_quantity_per_case'] : null;
+        $this->container['receipt_quantity_per_pallet'] = isset($data['receipt_quantity_per_pallet']) ? $data['receipt_quantity_per_pallet'] : null;
         $this->container['receipt_revision_date'] = isset($data['receipt_revision_date']) ? $data['receipt_revision_date'] : null;
         $this->container['receipt_production_lot'] = isset($data['receipt_production_lot']) ? $data['receipt_production_lot'] : null;
         $this->container['receipt_receive_date'] = isset($data['receipt_receive_date']) ? $data['receipt_receive_date'] : null;
@@ -992,25 +1016,73 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets number_of_cases
+     * Gets estimated_inner_packs
      *
      * @return int
      */
-    public function getNumberOfCases()
+    public function getEstimatedInnerPacks()
     {
-        return $this->container['number_of_cases'];
+        return $this->container['estimated_inner_packs'];
     }
 
     /**
-     * Sets number_of_cases
+     * Sets estimated_inner_packs
      *
-     * @param int $number_of_cases number_of_cases
+     * @param int $estimated_inner_packs estimated_inner_packs
      *
      * @return $this
      */
-    public function setNumberOfCases($number_of_cases)
+    public function setEstimatedInnerPacks($estimated_inner_packs)
     {
-        $this->container['number_of_cases'] = $number_of_cases;
+        $this->container['estimated_inner_packs'] = $estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_cases
+     *
+     * @return int
+     */
+    public function getEstimatedCases()
+    {
+        return $this->container['estimated_cases'];
+    }
+
+    /**
+     * Sets estimated_cases
+     *
+     * @param int $estimated_cases estimated_cases
+     *
+     * @return $this
+     */
+    public function setEstimatedCases($estimated_cases)
+    {
+        $this->container['estimated_cases'] = $estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_pallets
+     *
+     * @return int
+     */
+    public function getEstimatedPallets()
+    {
+        return $this->container['estimated_pallets'];
+    }
+
+    /**
+     * Sets estimated_pallets
+     *
+     * @param int $estimated_pallets estimated_pallets
+     *
+     * @return $this
+     */
+    public function setEstimatedPallets($estimated_pallets)
+    {
+        $this->container['estimated_pallets'] = $estimated_pallets;
 
         return $this;
     }
@@ -2120,25 +2192,73 @@ class InventoryStorageActivity implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets receipt_units_per_case
+     * Gets receipt_quantity_per_inner_pack
      *
      * @return int
      */
-    public function getReceiptUnitsPerCase()
+    public function getReceiptQuantityPerInnerPack()
     {
-        return $this->container['receipt_units_per_case'];
+        return $this->container['receipt_quantity_per_inner_pack'];
     }
 
     /**
-     * Sets receipt_units_per_case
+     * Sets receipt_quantity_per_inner_pack
      *
-     * @param int $receipt_units_per_case receipt_units_per_case
+     * @param int $receipt_quantity_per_inner_pack receipt_quantity_per_inner_pack
      *
      * @return $this
      */
-    public function setReceiptUnitsPerCase($receipt_units_per_case)
+    public function setReceiptQuantityPerInnerPack($receipt_quantity_per_inner_pack)
     {
-        $this->container['receipt_units_per_case'] = $receipt_units_per_case;
+        $this->container['receipt_quantity_per_inner_pack'] = $receipt_quantity_per_inner_pack;
+
+        return $this;
+    }
+
+    /**
+     * Gets receipt_quantity_per_case
+     *
+     * @return int
+     */
+    public function getReceiptQuantityPerCase()
+    {
+        return $this->container['receipt_quantity_per_case'];
+    }
+
+    /**
+     * Sets receipt_quantity_per_case
+     *
+     * @param int $receipt_quantity_per_case receipt_quantity_per_case
+     *
+     * @return $this
+     */
+    public function setReceiptQuantityPerCase($receipt_quantity_per_case)
+    {
+        $this->container['receipt_quantity_per_case'] = $receipt_quantity_per_case;
+
+        return $this;
+    }
+
+    /**
+     * Gets receipt_quantity_per_pallet
+     *
+     * @return int
+     */
+    public function getReceiptQuantityPerPallet()
+    {
+        return $this->container['receipt_quantity_per_pallet'];
+    }
+
+    /**
+     * Sets receipt_quantity_per_pallet
+     *
+     * @param int $receipt_quantity_per_pallet receipt_quantity_per_pallet
+     *
+     * @return $this
+     */
+    public function setReceiptQuantityPerPallet($receipt_quantity_per_pallet)
+    {
+        $this->container['receipt_quantity_per_pallet'] = $receipt_quantity_per_pallet;
 
         return $this;
     }

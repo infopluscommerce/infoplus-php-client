@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **create_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **modify_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**quantity** | **int** |  | 
+**quantity** | **float** |  | 
 **date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **user_id** | **int** |  | 
 **lob_id** | **int** |  | [optional] 

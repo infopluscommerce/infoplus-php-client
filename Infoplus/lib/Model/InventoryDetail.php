@@ -61,7 +61,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         'warehouse_location_id' => 'int',
         'quantity' => 'int',
         'distribution_date' => '\DateTime',
-        'units_per_case' => 'int',
+        'quantity_per_inner_pack' => 'int',
+        'quantity_per_case' => 'int',
+        'quantity_per_pallet' => 'int',
+        'estimated_inner_packs' => 'int',
+        'estimated_cases' => 'int',
+        'estimated_pallets' => 'int',
         'units_per_wrap' => 'int',
         'revision_date' => 'string',
         'production_lot' => 'string',
@@ -82,7 +87,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         'warehouse_location_id' => 'int32',
         'quantity' => 'int32',
         'distribution_date' => 'date-time',
-        'units_per_case' => 'int32',
+        'quantity_per_inner_pack' => 'int32',
+        'quantity_per_case' => 'int32',
+        'quantity_per_pallet' => 'int32',
+        'estimated_inner_packs' => 'int32',
+        'estimated_cases' => 'int32',
+        'estimated_pallets' => 'int32',
         'units_per_wrap' => 'int32',
         'revision_date' => null,
         'production_lot' => null,
@@ -124,7 +134,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         'warehouse_location_id' => 'warehouseLocationId',
         'quantity' => 'quantity',
         'distribution_date' => 'distributionDate',
-        'units_per_case' => 'unitsPerCase',
+        'quantity_per_inner_pack' => 'quantityPerInnerPack',
+        'quantity_per_case' => 'quantityPerCase',
+        'quantity_per_pallet' => 'quantityPerPallet',
+        'estimated_inner_packs' => 'estimatedInnerPacks',
+        'estimated_cases' => 'estimatedCases',
+        'estimated_pallets' => 'estimatedPallets',
         'units_per_wrap' => 'unitsPerWrap',
         'revision_date' => 'revisionDate',
         'production_lot' => 'productionLot',
@@ -145,7 +160,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         'warehouse_location_id' => 'setWarehouseLocationId',
         'quantity' => 'setQuantity',
         'distribution_date' => 'setDistributionDate',
-        'units_per_case' => 'setUnitsPerCase',
+        'quantity_per_inner_pack' => 'setQuantityPerInnerPack',
+        'quantity_per_case' => 'setQuantityPerCase',
+        'quantity_per_pallet' => 'setQuantityPerPallet',
+        'estimated_inner_packs' => 'setEstimatedInnerPacks',
+        'estimated_cases' => 'setEstimatedCases',
+        'estimated_pallets' => 'setEstimatedPallets',
         'units_per_wrap' => 'setUnitsPerWrap',
         'revision_date' => 'setRevisionDate',
         'production_lot' => 'setProductionLot',
@@ -166,7 +186,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         'warehouse_location_id' => 'getWarehouseLocationId',
         'quantity' => 'getQuantity',
         'distribution_date' => 'getDistributionDate',
-        'units_per_case' => 'getUnitsPerCase',
+        'quantity_per_inner_pack' => 'getQuantityPerInnerPack',
+        'quantity_per_case' => 'getQuantityPerCase',
+        'quantity_per_pallet' => 'getQuantityPerPallet',
+        'estimated_inner_packs' => 'getEstimatedInnerPacks',
+        'estimated_cases' => 'getEstimatedCases',
+        'estimated_pallets' => 'getEstimatedPallets',
         'units_per_wrap' => 'getUnitsPerWrap',
         'revision_date' => 'getRevisionDate',
         'production_lot' => 'getProductionLot',
@@ -241,7 +266,12 @@ class InventoryDetail implements ModelInterface, ArrayAccess
         $this->container['warehouse_location_id'] = isset($data['warehouse_location_id']) ? $data['warehouse_location_id'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['distribution_date'] = isset($data['distribution_date']) ? $data['distribution_date'] : null;
-        $this->container['units_per_case'] = isset($data['units_per_case']) ? $data['units_per_case'] : null;
+        $this->container['quantity_per_inner_pack'] = isset($data['quantity_per_inner_pack']) ? $data['quantity_per_inner_pack'] : null;
+        $this->container['quantity_per_case'] = isset($data['quantity_per_case']) ? $data['quantity_per_case'] : null;
+        $this->container['quantity_per_pallet'] = isset($data['quantity_per_pallet']) ? $data['quantity_per_pallet'] : null;
+        $this->container['estimated_inner_packs'] = isset($data['estimated_inner_packs']) ? $data['estimated_inner_packs'] : null;
+        $this->container['estimated_cases'] = isset($data['estimated_cases']) ? $data['estimated_cases'] : null;
+        $this->container['estimated_pallets'] = isset($data['estimated_pallets']) ? $data['estimated_pallets'] : null;
         $this->container['units_per_wrap'] = isset($data['units_per_wrap']) ? $data['units_per_wrap'] : null;
         $this->container['revision_date'] = isset($data['revision_date']) ? $data['revision_date'] : null;
         $this->container['production_lot'] = isset($data['production_lot']) ? $data['production_lot'] : null;
@@ -380,25 +410,145 @@ class InventoryDetail implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets units_per_case
+     * Gets quantity_per_inner_pack
      *
      * @return int
      */
-    public function getUnitsPerCase()
+    public function getQuantityPerInnerPack()
     {
-        return $this->container['units_per_case'];
+        return $this->container['quantity_per_inner_pack'];
     }
 
     /**
-     * Sets units_per_case
+     * Sets quantity_per_inner_pack
      *
-     * @param int $units_per_case units_per_case
+     * @param int $quantity_per_inner_pack quantity_per_inner_pack
      *
      * @return $this
      */
-    public function setUnitsPerCase($units_per_case)
+    public function setQuantityPerInnerPack($quantity_per_inner_pack)
     {
-        $this->container['units_per_case'] = $units_per_case;
+        $this->container['quantity_per_inner_pack'] = $quantity_per_inner_pack;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_case
+     *
+     * @return int
+     */
+    public function getQuantityPerCase()
+    {
+        return $this->container['quantity_per_case'];
+    }
+
+    /**
+     * Sets quantity_per_case
+     *
+     * @param int $quantity_per_case quantity_per_case
+     *
+     * @return $this
+     */
+    public function setQuantityPerCase($quantity_per_case)
+    {
+        $this->container['quantity_per_case'] = $quantity_per_case;
+
+        return $this;
+    }
+
+    /**
+     * Gets quantity_per_pallet
+     *
+     * @return int
+     */
+    public function getQuantityPerPallet()
+    {
+        return $this->container['quantity_per_pallet'];
+    }
+
+    /**
+     * Sets quantity_per_pallet
+     *
+     * @param int $quantity_per_pallet quantity_per_pallet
+     *
+     * @return $this
+     */
+    public function setQuantityPerPallet($quantity_per_pallet)
+    {
+        $this->container['quantity_per_pallet'] = $quantity_per_pallet;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getEstimatedInnerPacks()
+    {
+        return $this->container['estimated_inner_packs'];
+    }
+
+    /**
+     * Sets estimated_inner_packs
+     *
+     * @param int $estimated_inner_packs estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setEstimatedInnerPacks($estimated_inner_packs)
+    {
+        $this->container['estimated_inner_packs'] = $estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_cases
+     *
+     * @return int
+     */
+    public function getEstimatedCases()
+    {
+        return $this->container['estimated_cases'];
+    }
+
+    /**
+     * Sets estimated_cases
+     *
+     * @param int $estimated_cases estimated_cases
+     *
+     * @return $this
+     */
+    public function setEstimatedCases($estimated_cases)
+    {
+        $this->container['estimated_cases'] = $estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_pallets
+     *
+     * @return int
+     */
+    public function getEstimatedPallets()
+    {
+        return $this->container['estimated_pallets'];
+    }
+
+    /**
+     * Sets estimated_pallets
+     *
+     * @param int $estimated_pallets estimated_pallets
+     *
+     * @return $this
+     */
+    public function setEstimatedPallets($estimated_pallets)
+    {
+        $this->container['estimated_pallets'] = $estimated_pallets;
 
         return $this;
     }

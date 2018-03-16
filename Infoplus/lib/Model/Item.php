@@ -162,6 +162,24 @@ class Item implements ModelInterface, ArrayAccess
         'unavailable_quantity' => 'int',
         'overall_days_on_hand' => 'int',
         'overall_stock_status' => 'string',
+        'estimated_pallets' => 'int',
+        'estimated_cases' => 'int',
+        'estimated_inner_packs' => 'int',
+        'w1_estimated_pallets' => 'int',
+        'w1_estimated_cases' => 'int',
+        'w1_estimated_inner_packs' => 'int',
+        'w2_estimated_pallets' => 'int',
+        'w2_estimated_cases' => 'int',
+        'w2_estimated_inner_packs' => 'int',
+        'w3_estimated_pallets' => 'int',
+        'w3_estimated_cases' => 'int',
+        'w3_estimated_inner_packs' => 'int',
+        'w4_estimated_pallets' => 'int',
+        'w4_estimated_cases' => 'int',
+        'w4_estimated_inner_packs' => 'int',
+        'w5_estimated_pallets' => 'int',
+        'w5_estimated_cases' => 'int',
+        'w5_estimated_inner_packs' => 'int',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -276,6 +294,24 @@ class Item implements ModelInterface, ArrayAccess
         'unavailable_quantity' => 'int32',
         'overall_days_on_hand' => 'int32',
         'overall_stock_status' => null,
+        'estimated_pallets' => 'int32',
+        'estimated_cases' => 'int32',
+        'estimated_inner_packs' => 'int32',
+        'w1_estimated_pallets' => 'int32',
+        'w1_estimated_cases' => 'int32',
+        'w1_estimated_inner_packs' => 'int32',
+        'w2_estimated_pallets' => 'int32',
+        'w2_estimated_cases' => 'int32',
+        'w2_estimated_inner_packs' => 'int32',
+        'w3_estimated_pallets' => 'int32',
+        'w3_estimated_cases' => 'int32',
+        'w3_estimated_inner_packs' => 'int32',
+        'w4_estimated_pallets' => 'int32',
+        'w4_estimated_cases' => 'int32',
+        'w4_estimated_inner_packs' => 'int32',
+        'w5_estimated_pallets' => 'int32',
+        'w5_estimated_cases' => 'int32',
+        'w5_estimated_inner_packs' => 'int32',
         'custom_fields' => null
     ];
 
@@ -411,6 +447,24 @@ class Item implements ModelInterface, ArrayAccess
         'unavailable_quantity' => 'unavailableQuantity',
         'overall_days_on_hand' => 'overallDaysOnHand',
         'overall_stock_status' => 'overallStockStatus',
+        'estimated_pallets' => 'estimatedPallets',
+        'estimated_cases' => 'estimatedCases',
+        'estimated_inner_packs' => 'estimatedInnerPacks',
+        'w1_estimated_pallets' => 'w1EstimatedPallets',
+        'w1_estimated_cases' => 'w1EstimatedCases',
+        'w1_estimated_inner_packs' => 'w1EstimatedInnerPacks',
+        'w2_estimated_pallets' => 'w2EstimatedPallets',
+        'w2_estimated_cases' => 'w2EstimatedCases',
+        'w2_estimated_inner_packs' => 'w2EstimatedInnerPacks',
+        'w3_estimated_pallets' => 'w3EstimatedPallets',
+        'w3_estimated_cases' => 'w3EstimatedCases',
+        'w3_estimated_inner_packs' => 'w3EstimatedInnerPacks',
+        'w4_estimated_pallets' => 'w4EstimatedPallets',
+        'w4_estimated_cases' => 'w4EstimatedCases',
+        'w4_estimated_inner_packs' => 'w4EstimatedInnerPacks',
+        'w5_estimated_pallets' => 'w5EstimatedPallets',
+        'w5_estimated_cases' => 'w5EstimatedCases',
+        'w5_estimated_inner_packs' => 'w5EstimatedInnerPacks',
         'custom_fields' => 'customFields'
     ];
 
@@ -525,6 +579,24 @@ class Item implements ModelInterface, ArrayAccess
         'unavailable_quantity' => 'setUnavailableQuantity',
         'overall_days_on_hand' => 'setOverallDaysOnHand',
         'overall_stock_status' => 'setOverallStockStatus',
+        'estimated_pallets' => 'setEstimatedPallets',
+        'estimated_cases' => 'setEstimatedCases',
+        'estimated_inner_packs' => 'setEstimatedInnerPacks',
+        'w1_estimated_pallets' => 'setW1EstimatedPallets',
+        'w1_estimated_cases' => 'setW1EstimatedCases',
+        'w1_estimated_inner_packs' => 'setW1EstimatedInnerPacks',
+        'w2_estimated_pallets' => 'setW2EstimatedPallets',
+        'w2_estimated_cases' => 'setW2EstimatedCases',
+        'w2_estimated_inner_packs' => 'setW2EstimatedInnerPacks',
+        'w3_estimated_pallets' => 'setW3EstimatedPallets',
+        'w3_estimated_cases' => 'setW3EstimatedCases',
+        'w3_estimated_inner_packs' => 'setW3EstimatedInnerPacks',
+        'w4_estimated_pallets' => 'setW4EstimatedPallets',
+        'w4_estimated_cases' => 'setW4EstimatedCases',
+        'w4_estimated_inner_packs' => 'setW4EstimatedInnerPacks',
+        'w5_estimated_pallets' => 'setW5EstimatedPallets',
+        'w5_estimated_cases' => 'setW5EstimatedCases',
+        'w5_estimated_inner_packs' => 'setW5EstimatedInnerPacks',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -639,6 +711,24 @@ class Item implements ModelInterface, ArrayAccess
         'unavailable_quantity' => 'getUnavailableQuantity',
         'overall_days_on_hand' => 'getOverallDaysOnHand',
         'overall_stock_status' => 'getOverallStockStatus',
+        'estimated_pallets' => 'getEstimatedPallets',
+        'estimated_cases' => 'getEstimatedCases',
+        'estimated_inner_packs' => 'getEstimatedInnerPacks',
+        'w1_estimated_pallets' => 'getW1EstimatedPallets',
+        'w1_estimated_cases' => 'getW1EstimatedCases',
+        'w1_estimated_inner_packs' => 'getW1EstimatedInnerPacks',
+        'w2_estimated_pallets' => 'getW2EstimatedPallets',
+        'w2_estimated_cases' => 'getW2EstimatedCases',
+        'w2_estimated_inner_packs' => 'getW2EstimatedInnerPacks',
+        'w3_estimated_pallets' => 'getW3EstimatedPallets',
+        'w3_estimated_cases' => 'getW3EstimatedCases',
+        'w3_estimated_inner_packs' => 'getW3EstimatedInnerPacks',
+        'w4_estimated_pallets' => 'getW4EstimatedPallets',
+        'w4_estimated_cases' => 'getW4EstimatedCases',
+        'w4_estimated_inner_packs' => 'getW4EstimatedInnerPacks',
+        'w5_estimated_pallets' => 'getW5EstimatedPallets',
+        'w5_estimated_cases' => 'getW5EstimatedCases',
+        'w5_estimated_inner_packs' => 'getW5EstimatedInnerPacks',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -807,6 +897,24 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['unavailable_quantity'] = isset($data['unavailable_quantity']) ? $data['unavailable_quantity'] : null;
         $this->container['overall_days_on_hand'] = isset($data['overall_days_on_hand']) ? $data['overall_days_on_hand'] : null;
         $this->container['overall_stock_status'] = isset($data['overall_stock_status']) ? $data['overall_stock_status'] : null;
+        $this->container['estimated_pallets'] = isset($data['estimated_pallets']) ? $data['estimated_pallets'] : null;
+        $this->container['estimated_cases'] = isset($data['estimated_cases']) ? $data['estimated_cases'] : null;
+        $this->container['estimated_inner_packs'] = isset($data['estimated_inner_packs']) ? $data['estimated_inner_packs'] : null;
+        $this->container['w1_estimated_pallets'] = isset($data['w1_estimated_pallets']) ? $data['w1_estimated_pallets'] : null;
+        $this->container['w1_estimated_cases'] = isset($data['w1_estimated_cases']) ? $data['w1_estimated_cases'] : null;
+        $this->container['w1_estimated_inner_packs'] = isset($data['w1_estimated_inner_packs']) ? $data['w1_estimated_inner_packs'] : null;
+        $this->container['w2_estimated_pallets'] = isset($data['w2_estimated_pallets']) ? $data['w2_estimated_pallets'] : null;
+        $this->container['w2_estimated_cases'] = isset($data['w2_estimated_cases']) ? $data['w2_estimated_cases'] : null;
+        $this->container['w2_estimated_inner_packs'] = isset($data['w2_estimated_inner_packs']) ? $data['w2_estimated_inner_packs'] : null;
+        $this->container['w3_estimated_pallets'] = isset($data['w3_estimated_pallets']) ? $data['w3_estimated_pallets'] : null;
+        $this->container['w3_estimated_cases'] = isset($data['w3_estimated_cases']) ? $data['w3_estimated_cases'] : null;
+        $this->container['w3_estimated_inner_packs'] = isset($data['w3_estimated_inner_packs']) ? $data['w3_estimated_inner_packs'] : null;
+        $this->container['w4_estimated_pallets'] = isset($data['w4_estimated_pallets']) ? $data['w4_estimated_pallets'] : null;
+        $this->container['w4_estimated_cases'] = isset($data['w4_estimated_cases']) ? $data['w4_estimated_cases'] : null;
+        $this->container['w4_estimated_inner_packs'] = isset($data['w4_estimated_inner_packs']) ? $data['w4_estimated_inner_packs'] : null;
+        $this->container['w5_estimated_pallets'] = isset($data['w5_estimated_pallets']) ? $data['w5_estimated_pallets'] : null;
+        $this->container['w5_estimated_cases'] = isset($data['w5_estimated_cases']) ? $data['w5_estimated_cases'] : null;
+        $this->container['w5_estimated_inner_packs'] = isset($data['w5_estimated_inner_packs']) ? $data['w5_estimated_inner_packs'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -3471,6 +3579,438 @@ class Item implements ModelInterface, ArrayAccess
     public function setOverallStockStatus($overall_stock_status)
     {
         $this->container['overall_stock_status'] = $overall_stock_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_pallets
+     *
+     * @return int
+     */
+    public function getEstimatedPallets()
+    {
+        return $this->container['estimated_pallets'];
+    }
+
+    /**
+     * Sets estimated_pallets
+     *
+     * @param int $estimated_pallets estimated_pallets
+     *
+     * @return $this
+     */
+    public function setEstimatedPallets($estimated_pallets)
+    {
+        $this->container['estimated_pallets'] = $estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_cases
+     *
+     * @return int
+     */
+    public function getEstimatedCases()
+    {
+        return $this->container['estimated_cases'];
+    }
+
+    /**
+     * Sets estimated_cases
+     *
+     * @param int $estimated_cases estimated_cases
+     *
+     * @return $this
+     */
+    public function setEstimatedCases($estimated_cases)
+    {
+        $this->container['estimated_cases'] = $estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getEstimatedInnerPacks()
+    {
+        return $this->container['estimated_inner_packs'];
+    }
+
+    /**
+     * Sets estimated_inner_packs
+     *
+     * @param int $estimated_inner_packs estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setEstimatedInnerPacks($estimated_inner_packs)
+    {
+        $this->container['estimated_inner_packs'] = $estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets w1_estimated_pallets
+     *
+     * @return int
+     */
+    public function getW1EstimatedPallets()
+    {
+        return $this->container['w1_estimated_pallets'];
+    }
+
+    /**
+     * Sets w1_estimated_pallets
+     *
+     * @param int $w1_estimated_pallets w1_estimated_pallets
+     *
+     * @return $this
+     */
+    public function setW1EstimatedPallets($w1_estimated_pallets)
+    {
+        $this->container['w1_estimated_pallets'] = $w1_estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets w1_estimated_cases
+     *
+     * @return int
+     */
+    public function getW1EstimatedCases()
+    {
+        return $this->container['w1_estimated_cases'];
+    }
+
+    /**
+     * Sets w1_estimated_cases
+     *
+     * @param int $w1_estimated_cases w1_estimated_cases
+     *
+     * @return $this
+     */
+    public function setW1EstimatedCases($w1_estimated_cases)
+    {
+        $this->container['w1_estimated_cases'] = $w1_estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets w1_estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getW1EstimatedInnerPacks()
+    {
+        return $this->container['w1_estimated_inner_packs'];
+    }
+
+    /**
+     * Sets w1_estimated_inner_packs
+     *
+     * @param int $w1_estimated_inner_packs w1_estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setW1EstimatedInnerPacks($w1_estimated_inner_packs)
+    {
+        $this->container['w1_estimated_inner_packs'] = $w1_estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets w2_estimated_pallets
+     *
+     * @return int
+     */
+    public function getW2EstimatedPallets()
+    {
+        return $this->container['w2_estimated_pallets'];
+    }
+
+    /**
+     * Sets w2_estimated_pallets
+     *
+     * @param int $w2_estimated_pallets w2_estimated_pallets
+     *
+     * @return $this
+     */
+    public function setW2EstimatedPallets($w2_estimated_pallets)
+    {
+        $this->container['w2_estimated_pallets'] = $w2_estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets w2_estimated_cases
+     *
+     * @return int
+     */
+    public function getW2EstimatedCases()
+    {
+        return $this->container['w2_estimated_cases'];
+    }
+
+    /**
+     * Sets w2_estimated_cases
+     *
+     * @param int $w2_estimated_cases w2_estimated_cases
+     *
+     * @return $this
+     */
+    public function setW2EstimatedCases($w2_estimated_cases)
+    {
+        $this->container['w2_estimated_cases'] = $w2_estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets w2_estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getW2EstimatedInnerPacks()
+    {
+        return $this->container['w2_estimated_inner_packs'];
+    }
+
+    /**
+     * Sets w2_estimated_inner_packs
+     *
+     * @param int $w2_estimated_inner_packs w2_estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setW2EstimatedInnerPacks($w2_estimated_inner_packs)
+    {
+        $this->container['w2_estimated_inner_packs'] = $w2_estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets w3_estimated_pallets
+     *
+     * @return int
+     */
+    public function getW3EstimatedPallets()
+    {
+        return $this->container['w3_estimated_pallets'];
+    }
+
+    /**
+     * Sets w3_estimated_pallets
+     *
+     * @param int $w3_estimated_pallets w3_estimated_pallets
+     *
+     * @return $this
+     */
+    public function setW3EstimatedPallets($w3_estimated_pallets)
+    {
+        $this->container['w3_estimated_pallets'] = $w3_estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets w3_estimated_cases
+     *
+     * @return int
+     */
+    public function getW3EstimatedCases()
+    {
+        return $this->container['w3_estimated_cases'];
+    }
+
+    /**
+     * Sets w3_estimated_cases
+     *
+     * @param int $w3_estimated_cases w3_estimated_cases
+     *
+     * @return $this
+     */
+    public function setW3EstimatedCases($w3_estimated_cases)
+    {
+        $this->container['w3_estimated_cases'] = $w3_estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets w3_estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getW3EstimatedInnerPacks()
+    {
+        return $this->container['w3_estimated_inner_packs'];
+    }
+
+    /**
+     * Sets w3_estimated_inner_packs
+     *
+     * @param int $w3_estimated_inner_packs w3_estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setW3EstimatedInnerPacks($w3_estimated_inner_packs)
+    {
+        $this->container['w3_estimated_inner_packs'] = $w3_estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets w4_estimated_pallets
+     *
+     * @return int
+     */
+    public function getW4EstimatedPallets()
+    {
+        return $this->container['w4_estimated_pallets'];
+    }
+
+    /**
+     * Sets w4_estimated_pallets
+     *
+     * @param int $w4_estimated_pallets w4_estimated_pallets
+     *
+     * @return $this
+     */
+    public function setW4EstimatedPallets($w4_estimated_pallets)
+    {
+        $this->container['w4_estimated_pallets'] = $w4_estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets w4_estimated_cases
+     *
+     * @return int
+     */
+    public function getW4EstimatedCases()
+    {
+        return $this->container['w4_estimated_cases'];
+    }
+
+    /**
+     * Sets w4_estimated_cases
+     *
+     * @param int $w4_estimated_cases w4_estimated_cases
+     *
+     * @return $this
+     */
+    public function setW4EstimatedCases($w4_estimated_cases)
+    {
+        $this->container['w4_estimated_cases'] = $w4_estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets w4_estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getW4EstimatedInnerPacks()
+    {
+        return $this->container['w4_estimated_inner_packs'];
+    }
+
+    /**
+     * Sets w4_estimated_inner_packs
+     *
+     * @param int $w4_estimated_inner_packs w4_estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setW4EstimatedInnerPacks($w4_estimated_inner_packs)
+    {
+        $this->container['w4_estimated_inner_packs'] = $w4_estimated_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets w5_estimated_pallets
+     *
+     * @return int
+     */
+    public function getW5EstimatedPallets()
+    {
+        return $this->container['w5_estimated_pallets'];
+    }
+
+    /**
+     * Sets w5_estimated_pallets
+     *
+     * @param int $w5_estimated_pallets w5_estimated_pallets
+     *
+     * @return $this
+     */
+    public function setW5EstimatedPallets($w5_estimated_pallets)
+    {
+        $this->container['w5_estimated_pallets'] = $w5_estimated_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets w5_estimated_cases
+     *
+     * @return int
+     */
+    public function getW5EstimatedCases()
+    {
+        return $this->container['w5_estimated_cases'];
+    }
+
+    /**
+     * Sets w5_estimated_cases
+     *
+     * @param int $w5_estimated_cases w5_estimated_cases
+     *
+     * @return $this
+     */
+    public function setW5EstimatedCases($w5_estimated_cases)
+    {
+        $this->container['w5_estimated_cases'] = $w5_estimated_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets w5_estimated_inner_packs
+     *
+     * @return int
+     */
+    public function getW5EstimatedInnerPacks()
+    {
+        return $this->container['w5_estimated_inner_packs'];
+    }
+
+    /**
+     * Sets w5_estimated_inner_packs
+     *
+     * @param int $w5_estimated_inner_packs w5_estimated_inner_packs
+     *
+     * @return $this
+     */
+    public function setW5EstimatedInnerPacks($w5_estimated_inner_packs)
+    {
+        $this->container['w5_estimated_inner_packs'] = $w5_estimated_inner_packs;
 
         return $this;
     }

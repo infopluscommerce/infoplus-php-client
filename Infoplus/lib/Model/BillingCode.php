@@ -60,7 +60,7 @@ class BillingCode implements ModelInterface, ArrayAccess
         'id' => 'int',
         'create_date' => '\DateTime',
         'modify_date' => '\DateTime',
-        'quantity' => 'int',
+        'quantity' => 'float',
         'date' => '\DateTime',
         'user_id' => 'int',
         'lob_id' => 'int',
@@ -80,7 +80,7 @@ class BillingCode implements ModelInterface, ArrayAccess
         'id' => 'int32',
         'create_date' => 'date-time',
         'modify_date' => 'date-time',
-        'quantity' => 'int32',
+        'quantity' => null,
         'date' => 'date-time',
         'user_id' => 'int32',
         'lob_id' => 'int32',
@@ -364,7 +364,7 @@ class BillingCode implements ModelInterface, ArrayAccess
     /**
      * Gets quantity
      *
-     * @return int
+     * @return float
      */
     public function getQuantity()
     {
@@ -374,7 +374,7 @@ class BillingCode implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity quantity
+     * @param float $quantity quantity
      *
      * @return $this
      */
