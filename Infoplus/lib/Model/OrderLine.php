@@ -92,6 +92,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_product_code_id' => 'int',
         'item_summary_code_id' => 'int',
         'fulfillment_channel' => 'string',
+        'dynamic_kit_component_list' => '\Infoplus\Infoplus\Model\DynamicKitComponentLine[]',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -136,6 +137,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_product_code_id' => 'int32',
         'item_summary_code_id' => 'int32',
         'fulfillment_channel' => null,
+        'dynamic_kit_component_list' => null,
         'custom_fields' => null
     ];
 
@@ -201,6 +203,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_product_code_id' => 'itemProductCodeId',
         'item_summary_code_id' => 'itemSummaryCodeId',
         'fulfillment_channel' => 'fulfillmentChannel',
+        'dynamic_kit_component_list' => 'dynamicKitComponentList',
         'custom_fields' => 'customFields'
     ];
 
@@ -245,6 +248,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_product_code_id' => 'setItemProductCodeId',
         'item_summary_code_id' => 'setItemSummaryCodeId',
         'fulfillment_channel' => 'setFulfillmentChannel',
+        'dynamic_kit_component_list' => 'setDynamicKitComponentList',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -289,6 +293,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         'item_product_code_id' => 'getItemProductCodeId',
         'item_summary_code_id' => 'getItemSummaryCodeId',
         'fulfillment_channel' => 'getFulfillmentChannel',
+        'dynamic_kit_component_list' => 'getDynamicKitComponentList',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -387,6 +392,7 @@ class OrderLine implements ModelInterface, ArrayAccess
         $this->container['item_product_code_id'] = isset($data['item_product_code_id']) ? $data['item_product_code_id'] : null;
         $this->container['item_summary_code_id'] = isset($data['item_summary_code_id']) ? $data['item_summary_code_id'] : null;
         $this->container['fulfillment_channel'] = isset($data['fulfillment_channel']) ? $data['fulfillment_channel'] : null;
+        $this->container['dynamic_kit_component_list'] = isset($data['dynamic_kit_component_list']) ? $data['dynamic_kit_component_list'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -1305,6 +1311,30 @@ class OrderLine implements ModelInterface, ArrayAccess
     public function setFulfillmentChannel($fulfillment_channel)
     {
         $this->container['fulfillment_channel'] = $fulfillment_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets dynamic_kit_component_list
+     *
+     * @return \Infoplus\Infoplus\Model\DynamicKitComponentLine[]
+     */
+    public function getDynamicKitComponentList()
+    {
+        return $this->container['dynamic_kit_component_list'];
+    }
+
+    /**
+     * Sets dynamic_kit_component_list
+     *
+     * @param \Infoplus\Infoplus\Model\DynamicKitComponentLine[] $dynamic_kit_component_list dynamic_kit_component_list
+     *
+     * @return $this
+     */
+    public function setDynamicKitComponentList($dynamic_kit_component_list)
+    {
+        $this->container['dynamic_kit_component_list'] = $dynamic_kit_component_list;
 
         return $this;
     }

@@ -64,6 +64,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         'modify_date' => '\DateTime',
         'packing_notes' => 'string',
         'require_cartonized_asn' => 'bool',
+        'uses_reservations' => 'bool',
         'require_gs1128_label' => 'bool',
         'shipping_notes' => 'string',
         'packing_slip_id' => 'int',
@@ -86,6 +87,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         'modify_date' => 'date-time',
         'packing_notes' => null,
         'require_cartonized_asn' => null,
+        'uses_reservations' => null,
         'require_gs1128_label' => null,
         'shipping_notes' => null,
         'packing_slip_id' => 'int32',
@@ -129,6 +131,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         'modify_date' => 'modifyDate',
         'packing_notes' => 'packingNotes',
         'require_cartonized_asn' => 'requireCartonizedASN',
+        'uses_reservations' => 'usesReservations',
         'require_gs1128_label' => 'requireGS1128Label',
         'shipping_notes' => 'shippingNotes',
         'packing_slip_id' => 'packingSlipId',
@@ -151,6 +154,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         'modify_date' => 'setModifyDate',
         'packing_notes' => 'setPackingNotes',
         'require_cartonized_asn' => 'setRequireCartonizedAsn',
+        'uses_reservations' => 'setUsesReservations',
         'require_gs1128_label' => 'setRequireGs1128Label',
         'shipping_notes' => 'setShippingNotes',
         'packing_slip_id' => 'setPackingSlipId',
@@ -173,6 +177,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         'modify_date' => 'getModifyDate',
         'packing_notes' => 'getPackingNotes',
         'require_cartonized_asn' => 'getRequireCartonizedAsn',
+        'uses_reservations' => 'getUsesReservations',
         'require_gs1128_label' => 'getRequireGs1128Label',
         'shipping_notes' => 'getShippingNotes',
         'packing_slip_id' => 'getPackingSlipId',
@@ -249,6 +254,7 @@ class OrderSource implements ModelInterface, ArrayAccess
         $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
         $this->container['packing_notes'] = isset($data['packing_notes']) ? $data['packing_notes'] : null;
         $this->container['require_cartonized_asn'] = isset($data['require_cartonized_asn']) ? $data['require_cartonized_asn'] : false;
+        $this->container['uses_reservations'] = isset($data['uses_reservations']) ? $data['uses_reservations'] : false;
         $this->container['require_gs1128_label'] = isset($data['require_gs1128_label']) ? $data['require_gs1128_label'] : false;
         $this->container['shipping_notes'] = isset($data['shipping_notes']) ? $data['shipping_notes'] : null;
         $this->container['packing_slip_id'] = isset($data['packing_slip_id']) ? $data['packing_slip_id'] : null;
@@ -459,6 +465,30 @@ class OrderSource implements ModelInterface, ArrayAccess
     public function setRequireCartonizedAsn($require_cartonized_asn)
     {
         $this->container['require_cartonized_asn'] = $require_cartonized_asn;
+
+        return $this;
+    }
+
+    /**
+     * Gets uses_reservations
+     *
+     * @return bool
+     */
+    public function getUsesReservations()
+    {
+        return $this->container['uses_reservations'];
+    }
+
+    /**
+     * Sets uses_reservations
+     *
+     * @param bool $uses_reservations uses_reservations
+     *
+     * @return $this
+     */
+    public function setUsesReservations($uses_reservations)
+    {
+        $this->container['uses_reservations'] = $uses_reservations;
 
         return $this;
     }

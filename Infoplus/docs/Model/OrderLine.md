@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **item_product_code_id** | **int** |  | [optional] 
 **item_summary_code_id** | **int** |  | 
 **fulfillment_channel** | **string** |  | 
+**dynamic_kit_component_list** | [**\Infoplus\Infoplus\Model\DynamicKitComponentLine[]**](DynamicKitComponentLine.md) |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -64,6 +64,7 @@ class Order implements ModelInterface, ArrayAccess
         'order_date' => '\DateTime',
         'customer_no' => 'string',
         'use_order_no_root' => 'int',
+        'shipping_method' => 'string',
         'first_ship_date' => '\DateTime',
         'last_ship_date' => '\DateTime',
         'deliver_on_date' => '\DateTime',
@@ -175,6 +176,7 @@ class Order implements ModelInterface, ArrayAccess
         'order_date' => 'date-time',
         'customer_no' => null,
         'use_order_no_root' => 'int32',
+        'shipping_method' => null,
         'first_ship_date' => 'date-time',
         'last_ship_date' => 'date-time',
         'deliver_on_date' => 'date-time',
@@ -307,6 +309,7 @@ class Order implements ModelInterface, ArrayAccess
         'order_date' => 'orderDate',
         'customer_no' => 'customerNo',
         'use_order_no_root' => 'useOrderNoRoot',
+        'shipping_method' => 'shippingMethod',
         'first_ship_date' => 'firstShipDate',
         'last_ship_date' => 'lastShipDate',
         'deliver_on_date' => 'deliverOnDate',
@@ -418,6 +421,7 @@ class Order implements ModelInterface, ArrayAccess
         'order_date' => 'setOrderDate',
         'customer_no' => 'setCustomerNo',
         'use_order_no_root' => 'setUseOrderNoRoot',
+        'shipping_method' => 'setShippingMethod',
         'first_ship_date' => 'setFirstShipDate',
         'last_ship_date' => 'setLastShipDate',
         'deliver_on_date' => 'setDeliverOnDate',
@@ -529,6 +533,7 @@ class Order implements ModelInterface, ArrayAccess
         'order_date' => 'getOrderDate',
         'customer_no' => 'getCustomerNo',
         'use_order_no_root' => 'getUseOrderNoRoot',
+        'shipping_method' => 'getShippingMethod',
         'first_ship_date' => 'getFirstShipDate',
         'last_ship_date' => 'getLastShipDate',
         'deliver_on_date' => 'getDeliverOnDate',
@@ -694,6 +699,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['order_date'] = isset($data['order_date']) ? $data['order_date'] : null;
         $this->container['customer_no'] = isset($data['customer_no']) ? $data['customer_no'] : null;
         $this->container['use_order_no_root'] = isset($data['use_order_no_root']) ? $data['use_order_no_root'] : null;
+        $this->container['shipping_method'] = isset($data['shipping_method']) ? $data['shipping_method'] : null;
         $this->container['first_ship_date'] = isset($data['first_ship_date']) ? $data['first_ship_date'] : null;
         $this->container['last_ship_date'] = isset($data['last_ship_date']) ? $data['last_ship_date'] : null;
         $this->container['deliver_on_date'] = isset($data['deliver_on_date']) ? $data['deliver_on_date'] : null;
@@ -999,6 +1005,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setUseOrderNoRoot($use_order_no_root)
     {
         $this->container['use_order_no_root'] = $use_order_no_root;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_method
+     *
+     * @return string
+     */
+    public function getShippingMethod()
+    {
+        return $this->container['shipping_method'];
+    }
+
+    /**
+     * Sets shipping_method
+     *
+     * @param string $shipping_method shipping_method
+     *
+     * @return $this
+     */
+    public function setShippingMethod($shipping_method)
+    {
+        $this->container['shipping_method'] = $shipping_method;
 
         return $this;
     }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **order_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **customer_no** | **string** |  | [optional] 
 **use_order_no_root** | **int** |  | [optional] 
+**shipping_method** | **string** |  | [optional] 
 **first_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **last_ship_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **deliver_on_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
