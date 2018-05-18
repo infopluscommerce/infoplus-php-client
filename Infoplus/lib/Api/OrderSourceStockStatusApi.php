@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkBatchApi
+ * OrderSourceStockStatusApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Infoplus\HeaderSelector;
 use Infoplus\ObjectSerializer;
 
 /**
- * WorkBatchApi Class Doc Comment
+ * OrderSourceStockStatusApi Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WorkBatchApi
+class OrderSourceStockStatusApi
 {
     /**
      * @var ClientInterface
@@ -83,38 +83,38 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchAudit
+     * Operation addOrderSourceStockStatusAudit
      *
-     * Add new audit for a workBatch
+     * Add new audit for an orderSourceStockStatus
      *
-     * @param  int $work_batch_id Id of the workBatch to add an audit to (required)
-     * @param  string $work_batch_audit The audit to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add an audit to (required)
+     * @param  string $order_source_stock_status_audit The audit to add (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addWorkBatchAudit($work_batch_id, $work_batch_audit)
+    public function addOrderSourceStockStatusAudit($order_source_stock_status_id, $order_source_stock_status_audit)
     {
-        $this->addWorkBatchAuditWithHttpInfo($work_batch_id, $work_batch_audit);
+        $this->addOrderSourceStockStatusAuditWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_audit);
     }
 
     /**
-     * Operation addWorkBatchAuditWithHttpInfo
+     * Operation addOrderSourceStockStatusAuditWithHttpInfo
      *
-     * Add new audit for a workBatch
+     * Add new audit for an orderSourceStockStatus
      *
-     * @param  int $work_batch_id Id of the workBatch to add an audit to (required)
-     * @param  string $work_batch_audit The audit to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add an audit to (required)
+     * @param  string $order_source_stock_status_audit The audit to add (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addWorkBatchAuditWithHttpInfo($work_batch_id, $work_batch_audit)
+    public function addOrderSourceStockStatusAuditWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_audit)
     {
         $returnType = '';
-        $request = $this->addWorkBatchAuditRequest($work_batch_id, $work_batch_audit);
+        $request = $this->addOrderSourceStockStatusAuditRequest($order_source_stock_status_id, $order_source_stock_status_audit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -154,19 +154,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchAuditAsync
+     * Operation addOrderSourceStockStatusAuditAsync
      *
-     * Add new audit for a workBatch
+     * Add new audit for an orderSourceStockStatus
      *
-     * @param  int $work_batch_id Id of the workBatch to add an audit to (required)
-     * @param  string $work_batch_audit The audit to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add an audit to (required)
+     * @param  string $order_source_stock_status_audit The audit to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addWorkBatchAuditAsync($work_batch_id, $work_batch_audit)
+    public function addOrderSourceStockStatusAuditAsync($order_source_stock_status_id, $order_source_stock_status_audit)
     {
-        return $this->addWorkBatchAuditAsyncWithHttpInfo($work_batch_id, $work_batch_audit)
+        return $this->addOrderSourceStockStatusAuditAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_audit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -175,20 +175,20 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchAuditAsyncWithHttpInfo
+     * Operation addOrderSourceStockStatusAuditAsyncWithHttpInfo
      *
-     * Add new audit for a workBatch
+     * Add new audit for an orderSourceStockStatus
      *
-     * @param  int $work_batch_id Id of the workBatch to add an audit to (required)
-     * @param  string $work_batch_audit The audit to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add an audit to (required)
+     * @param  string $order_source_stock_status_audit The audit to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addWorkBatchAuditAsyncWithHttpInfo($work_batch_id, $work_batch_audit)
+    public function addOrderSourceStockStatusAuditAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_audit)
     {
         $returnType = '';
-        $request = $this->addWorkBatchAuditRequest($work_batch_id, $work_batch_audit);
+        $request = $this->addOrderSourceStockStatusAuditRequest($order_source_stock_status_id, $order_source_stock_status_audit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -214,30 +214,30 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'addWorkBatchAudit'
+     * Create request for operation 'addOrderSourceStockStatusAudit'
      *
-     * @param  int $work_batch_id Id of the workBatch to add an audit to (required)
-     * @param  string $work_batch_audit The audit to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add an audit to (required)
+     * @param  string $order_source_stock_status_audit The audit to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addWorkBatchAuditRequest($work_batch_id, $work_batch_audit)
+    protected function addOrderSourceStockStatusAuditRequest($order_source_stock_status_id, $order_source_stock_status_audit)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling addWorkBatchAudit'
+                'Missing the required parameter $order_source_stock_status_id when calling addOrderSourceStockStatusAudit'
             );
         }
-        // verify the required parameter 'work_batch_audit' is set
-        if ($work_batch_audit === null) {
+        // verify the required parameter 'order_source_stock_status_audit' is set
+        if ($order_source_stock_status_audit === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_audit when calling addWorkBatchAudit'
+                'Missing the required parameter $order_source_stock_status_audit when calling addOrderSourceStockStatusAudit'
             );
         }
 
-        $resourcePath = '/beta/workBatch/{workBatchId}/audit/{workBatchAudit}';
+        $resourcePath = '/beta/orderSourceStockStatus/{orderSourceStockStatusId}/audit/{orderSourceStockStatusAudit}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -246,18 +246,18 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
         // path params
-        if ($work_batch_audit !== null) {
+        if ($order_source_stock_status_audit !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchAudit' . '}',
-                ObjectSerializer::toPathValue($work_batch_audit),
+                '{' . 'orderSourceStockStatusAudit' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_audit),
                 $resourcePath
             );
         }
@@ -332,38 +332,38 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchTag
+     * Operation addOrderSourceStockStatusTag
      *
-     * Add new tags for a workBatch.
+     * Add new tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to add a tag to (required)
-     * @param  string $work_batch_tag The tag to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add a tag to (required)
+     * @param  string $order_source_stock_status_tag The tag to add (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function addWorkBatchTag($work_batch_id, $work_batch_tag)
+    public function addOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        $this->addWorkBatchTagWithHttpInfo($work_batch_id, $work_batch_tag);
+        $this->addOrderSourceStockStatusTagWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag);
     }
 
     /**
-     * Operation addWorkBatchTagWithHttpInfo
+     * Operation addOrderSourceStockStatusTagWithHttpInfo
      *
-     * Add new tags for a workBatch.
+     * Add new tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to add a tag to (required)
-     * @param  string $work_batch_tag The tag to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add a tag to (required)
+     * @param  string $order_source_stock_status_tag The tag to add (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addWorkBatchTagWithHttpInfo($work_batch_id, $work_batch_tag)
+    public function addOrderSourceStockStatusTagWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
     {
         $returnType = '';
-        $request = $this->addWorkBatchTagRequest($work_batch_id, $work_batch_tag);
+        $request = $this->addOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag);
 
         try {
             $options = $this->createHttpClientOption();
@@ -403,19 +403,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchTagAsync
+     * Operation addOrderSourceStockStatusTagAsync
      *
-     * Add new tags for a workBatch.
+     * Add new tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to add a tag to (required)
-     * @param  string $work_batch_tag The tag to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add a tag to (required)
+     * @param  string $order_source_stock_status_tag The tag to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addWorkBatchTagAsync($work_batch_id, $work_batch_tag)
+    public function addOrderSourceStockStatusTagAsync($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        return $this->addWorkBatchTagAsyncWithHttpInfo($work_batch_id, $work_batch_tag)
+        return $this->addOrderSourceStockStatusTagAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -424,20 +424,20 @@ class WorkBatchApi
     }
 
     /**
-     * Operation addWorkBatchTagAsyncWithHttpInfo
+     * Operation addOrderSourceStockStatusTagAsyncWithHttpInfo
      *
-     * Add new tags for a workBatch.
+     * Add new tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to add a tag to (required)
-     * @param  string $work_batch_tag The tag to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add a tag to (required)
+     * @param  string $order_source_stock_status_tag The tag to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addWorkBatchTagAsyncWithHttpInfo($work_batch_id, $work_batch_tag)
+    public function addOrderSourceStockStatusTagAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
     {
         $returnType = '';
-        $request = $this->addWorkBatchTagRequest($work_batch_id, $work_batch_tag);
+        $request = $this->addOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -463,30 +463,30 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'addWorkBatchTag'
+     * Create request for operation 'addOrderSourceStockStatusTag'
      *
-     * @param  int $work_batch_id Id of the workBatch to add a tag to (required)
-     * @param  string $work_batch_tag The tag to add (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to add a tag to (required)
+     * @param  string $order_source_stock_status_tag The tag to add (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addWorkBatchTagRequest($work_batch_id, $work_batch_tag)
+    protected function addOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling addWorkBatchTag'
+                'Missing the required parameter $order_source_stock_status_id when calling addOrderSourceStockStatusTag'
             );
         }
-        // verify the required parameter 'work_batch_tag' is set
-        if ($work_batch_tag === null) {
+        // verify the required parameter 'order_source_stock_status_tag' is set
+        if ($order_source_stock_status_tag === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_tag when calling addWorkBatchTag'
+                'Missing the required parameter $order_source_stock_status_tag when calling addOrderSourceStockStatusTag'
             );
         }
 
-        $resourcePath = '/beta/workBatch/{workBatchId}/tag/{workBatchTag}';
+        $resourcePath = '/beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag/{orderSourceStockStatusTag}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -495,18 +495,18 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
         // path params
-        if ($work_batch_tag !== null) {
+        if ($order_source_stock_status_tag !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchTag' . '}',
-                ObjectSerializer::toPathValue($work_batch_tag),
+                '{' . 'orderSourceStockStatusTag' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_tag),
                 $resourcePath
             );
         }
@@ -581,38 +581,38 @@ class WorkBatchApi
     }
 
     /**
-     * Operation deleteWorkBatchTag
+     * Operation deleteOrderSourceStockStatusTag
      *
-     * Delete a tag for a workBatch.
+     * Delete a tag for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to remove tag from (required)
-     * @param  string $work_batch_tag The tag to delete (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to remove tag from (required)
+     * @param  string $order_source_stock_status_tag The tag to delete (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteWorkBatchTag($work_batch_id, $work_batch_tag)
+    public function deleteOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        $this->deleteWorkBatchTagWithHttpInfo($work_batch_id, $work_batch_tag);
+        $this->deleteOrderSourceStockStatusTagWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag);
     }
 
     /**
-     * Operation deleteWorkBatchTagWithHttpInfo
+     * Operation deleteOrderSourceStockStatusTagWithHttpInfo
      *
-     * Delete a tag for a workBatch.
+     * Delete a tag for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to remove tag from (required)
-     * @param  string $work_batch_tag The tag to delete (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to remove tag from (required)
+     * @param  string $order_source_stock_status_tag The tag to delete (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWorkBatchTagWithHttpInfo($work_batch_id, $work_batch_tag)
+    public function deleteOrderSourceStockStatusTagWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
     {
         $returnType = '';
-        $request = $this->deleteWorkBatchTagRequest($work_batch_id, $work_batch_tag);
+        $request = $this->deleteOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag);
 
         try {
             $options = $this->createHttpClientOption();
@@ -652,19 +652,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation deleteWorkBatchTagAsync
+     * Operation deleteOrderSourceStockStatusTagAsync
      *
-     * Delete a tag for a workBatch.
+     * Delete a tag for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to remove tag from (required)
-     * @param  string $work_batch_tag The tag to delete (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to remove tag from (required)
+     * @param  string $order_source_stock_status_tag The tag to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWorkBatchTagAsync($work_batch_id, $work_batch_tag)
+    public function deleteOrderSourceStockStatusTagAsync($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        return $this->deleteWorkBatchTagAsyncWithHttpInfo($work_batch_id, $work_batch_tag)
+        return $this->deleteOrderSourceStockStatusTagAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -673,20 +673,20 @@ class WorkBatchApi
     }
 
     /**
-     * Operation deleteWorkBatchTagAsyncWithHttpInfo
+     * Operation deleteOrderSourceStockStatusTagAsyncWithHttpInfo
      *
-     * Delete a tag for a workBatch.
+     * Delete a tag for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to remove tag from (required)
-     * @param  string $work_batch_tag The tag to delete (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to remove tag from (required)
+     * @param  string $order_source_stock_status_tag The tag to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWorkBatchTagAsyncWithHttpInfo($work_batch_id, $work_batch_tag)
+    public function deleteOrderSourceStockStatusTagAsyncWithHttpInfo($order_source_stock_status_id, $order_source_stock_status_tag)
     {
         $returnType = '';
-        $request = $this->deleteWorkBatchTagRequest($work_batch_id, $work_batch_tag);
+        $request = $this->deleteOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -712,30 +712,30 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'deleteWorkBatchTag'
+     * Create request for operation 'deleteOrderSourceStockStatusTag'
      *
-     * @param  int $work_batch_id Id of the workBatch to remove tag from (required)
-     * @param  string $work_batch_tag The tag to delete (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to remove tag from (required)
+     * @param  string $order_source_stock_status_tag The tag to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteWorkBatchTagRequest($work_batch_id, $work_batch_tag)
+    protected function deleteOrderSourceStockStatusTagRequest($order_source_stock_status_id, $order_source_stock_status_tag)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling deleteWorkBatchTag'
+                'Missing the required parameter $order_source_stock_status_id when calling deleteOrderSourceStockStatusTag'
             );
         }
-        // verify the required parameter 'work_batch_tag' is set
-        if ($work_batch_tag === null) {
+        // verify the required parameter 'order_source_stock_status_tag' is set
+        if ($order_source_stock_status_tag === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_tag when calling deleteWorkBatchTag'
+                'Missing the required parameter $order_source_stock_status_tag when calling deleteOrderSourceStockStatusTag'
             );
         }
 
-        $resourcePath = '/beta/workBatch/{workBatchId}/tag/{workBatchTag}';
+        $resourcePath = '/beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag/{orderSourceStockStatusTag}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -744,18 +744,18 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
         // path params
-        if ($work_batch_tag !== null) {
+        if ($order_source_stock_status_tag !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchTag' . '}',
-                ObjectSerializer::toPathValue($work_batch_tag),
+                '{' . 'orderSourceStockStatusTag' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_tag),
                 $resourcePath
             );
         }
@@ -830,37 +830,37 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getDuplicateWorkBatchById
+     * Operation getDuplicateOrderSourceStockStatusById
      *
-     * Get a duplicated a workBatch by id
+     * Get a duplicated an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be duplicated. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be duplicated. (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Infoplus\Infoplus\Model\WorkBatch
+     * @return \Infoplus\Infoplus\Model\OrderSourceStockStatus
      */
-    public function getDuplicateWorkBatchById($work_batch_id)
+    public function getDuplicateOrderSourceStockStatusById($order_source_stock_status_id)
     {
-        list($response) = $this->getDuplicateWorkBatchByIdWithHttpInfo($work_batch_id);
+        list($response) = $this->getDuplicateOrderSourceStockStatusByIdWithHttpInfo($order_source_stock_status_id);
         return $response;
     }
 
     /**
-     * Operation getDuplicateWorkBatchByIdWithHttpInfo
+     * Operation getDuplicateOrderSourceStockStatusByIdWithHttpInfo
      *
-     * Get a duplicated a workBatch by id
+     * Get a duplicated an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be duplicated. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be duplicated. (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Infoplus\Infoplus\Model\WorkBatch, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Infoplus\Infoplus\Model\OrderSourceStockStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDuplicateWorkBatchByIdWithHttpInfo($work_batch_id)
+    public function getDuplicateOrderSourceStockStatusByIdWithHttpInfo($order_source_stock_status_id)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch';
-        $request = $this->getDuplicateWorkBatchByIdRequest($work_batch_id);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus';
+        $request = $this->getDuplicateOrderSourceStockStatusByIdRequest($order_source_stock_status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -911,7 +911,7 @@ class WorkBatchApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Infoplus\Infoplus\Model\WorkBatch',
+                        '\Infoplus\Infoplus\Model\OrderSourceStockStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -922,18 +922,18 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getDuplicateWorkBatchByIdAsync
+     * Operation getDuplicateOrderSourceStockStatusByIdAsync
      *
-     * Get a duplicated a workBatch by id
+     * Get a duplicated an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be duplicated. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be duplicated. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDuplicateWorkBatchByIdAsync($work_batch_id)
+    public function getDuplicateOrderSourceStockStatusByIdAsync($order_source_stock_status_id)
     {
-        return $this->getDuplicateWorkBatchByIdAsyncWithHttpInfo($work_batch_id)
+        return $this->getDuplicateOrderSourceStockStatusByIdAsyncWithHttpInfo($order_source_stock_status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -942,19 +942,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getDuplicateWorkBatchByIdAsyncWithHttpInfo
+     * Operation getDuplicateOrderSourceStockStatusByIdAsyncWithHttpInfo
      *
-     * Get a duplicated a workBatch by id
+     * Get a duplicated an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be duplicated. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be duplicated. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDuplicateWorkBatchByIdAsyncWithHttpInfo($work_batch_id)
+    public function getDuplicateOrderSourceStockStatusByIdAsyncWithHttpInfo($order_source_stock_status_id)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch';
-        $request = $this->getDuplicateWorkBatchByIdRequest($work_batch_id);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus';
+        $request = $this->getDuplicateOrderSourceStockStatusByIdRequest($order_source_stock_status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -994,23 +994,23 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'getDuplicateWorkBatchById'
+     * Create request for operation 'getDuplicateOrderSourceStockStatusById'
      *
-     * @param  int $work_batch_id Id of the workBatch to be duplicated. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be duplicated. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDuplicateWorkBatchByIdRequest($work_batch_id)
+    protected function getDuplicateOrderSourceStockStatusByIdRequest($order_source_stock_status_id)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling getDuplicateWorkBatchById'
+                'Missing the required parameter $order_source_stock_status_id when calling getDuplicateOrderSourceStockStatusById'
             );
         }
 
-        $resourcePath = '/beta/workBatch/duplicate/{workBatchId}';
+        $resourcePath = '/beta/orderSourceStockStatus/duplicate/{orderSourceStockStatusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1019,10 +1019,10 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
@@ -1097,9 +1097,9 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchByFilter
+     * Operation getOrderSourceStockStatusByFilter
      *
-     * Search workBatchs by filter
+     * Search orderSourceStockStatuses by filter
      *
      * @param  string $filter Query string, used to filter results. (optional)
      * @param  int $page Result page number.  Defaults to 1. (optional)
@@ -1108,18 +1108,18 @@ class WorkBatchApi
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Infoplus\Infoplus\Model\WorkBatch[]
+     * @return \Infoplus\Infoplus\Model\OrderSourceStockStatus[]
      */
-    public function getWorkBatchByFilter($filter = null, $page = null, $limit = null, $sort = null)
+    public function getOrderSourceStockStatusByFilter($filter = null, $page = null, $limit = null, $sort = null)
     {
-        list($response) = $this->getWorkBatchByFilterWithHttpInfo($filter, $page, $limit, $sort);
+        list($response) = $this->getOrderSourceStockStatusByFilterWithHttpInfo($filter, $page, $limit, $sort);
         return $response;
     }
 
     /**
-     * Operation getWorkBatchByFilterWithHttpInfo
+     * Operation getOrderSourceStockStatusByFilterWithHttpInfo
      *
-     * Search workBatchs by filter
+     * Search orderSourceStockStatuses by filter
      *
      * @param  string $filter Query string, used to filter results. (optional)
      * @param  int $page Result page number.  Defaults to 1. (optional)
@@ -1128,12 +1128,12 @@ class WorkBatchApi
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Infoplus\Infoplus\Model\WorkBatch[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Infoplus\Infoplus\Model\OrderSourceStockStatus[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkBatchByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
+    public function getOrderSourceStockStatusByFilterWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch[]';
-        $request = $this->getWorkBatchByFilterRequest($filter, $page, $limit, $sort);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus[]';
+        $request = $this->getOrderSourceStockStatusByFilterRequest($filter, $page, $limit, $sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1184,7 +1184,7 @@ class WorkBatchApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Infoplus\Infoplus\Model\WorkBatch[]',
+                        '\Infoplus\Infoplus\Model\OrderSourceStockStatus[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1195,9 +1195,9 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchByFilterAsync
+     * Operation getOrderSourceStockStatusByFilterAsync
      *
-     * Search workBatchs by filter
+     * Search orderSourceStockStatuses by filter
      *
      * @param  string $filter Query string, used to filter results. (optional)
      * @param  int $page Result page number.  Defaults to 1. (optional)
@@ -1207,9 +1207,9 @@ class WorkBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchByFilterAsync($filter = null, $page = null, $limit = null, $sort = null)
+    public function getOrderSourceStockStatusByFilterAsync($filter = null, $page = null, $limit = null, $sort = null)
     {
-        return $this->getWorkBatchByFilterAsyncWithHttpInfo($filter, $page, $limit, $sort)
+        return $this->getOrderSourceStockStatusByFilterAsyncWithHttpInfo($filter, $page, $limit, $sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1218,9 +1218,9 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchByFilterAsyncWithHttpInfo
+     * Operation getOrderSourceStockStatusByFilterAsyncWithHttpInfo
      *
-     * Search workBatchs by filter
+     * Search orderSourceStockStatuses by filter
      *
      * @param  string $filter Query string, used to filter results. (optional)
      * @param  int $page Result page number.  Defaults to 1. (optional)
@@ -1230,10 +1230,10 @@ class WorkBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchByFilterAsyncWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
+    public function getOrderSourceStockStatusByFilterAsyncWithHttpInfo($filter = null, $page = null, $limit = null, $sort = null)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch[]';
-        $request = $this->getWorkBatchByFilterRequest($filter, $page, $limit, $sort);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus[]';
+        $request = $this->getOrderSourceStockStatusByFilterRequest($filter, $page, $limit, $sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1273,7 +1273,7 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'getWorkBatchByFilter'
+     * Create request for operation 'getOrderSourceStockStatusByFilter'
      *
      * @param  string $filter Query string, used to filter results. (optional)
      * @param  int $page Result page number.  Defaults to 1. (optional)
@@ -1283,10 +1283,10 @@ class WorkBatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWorkBatchByFilterRequest($filter = null, $page = null, $limit = null, $sort = null)
+    protected function getOrderSourceStockStatusByFilterRequest($filter = null, $page = null, $limit = null, $sort = null)
     {
 
-        $resourcePath = '/beta/workBatch/search';
+        $resourcePath = '/beta/orderSourceStockStatus/search';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1381,37 +1381,37 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchById
+     * Operation getOrderSourceStockStatusById
      *
-     * Get a workBatch by id
+     * Get an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be returned. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be returned. (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Infoplus\Infoplus\Model\WorkBatch
+     * @return \Infoplus\Infoplus\Model\OrderSourceStockStatus
      */
-    public function getWorkBatchById($work_batch_id)
+    public function getOrderSourceStockStatusById($order_source_stock_status_id)
     {
-        list($response) = $this->getWorkBatchByIdWithHttpInfo($work_batch_id);
+        list($response) = $this->getOrderSourceStockStatusByIdWithHttpInfo($order_source_stock_status_id);
         return $response;
     }
 
     /**
-     * Operation getWorkBatchByIdWithHttpInfo
+     * Operation getOrderSourceStockStatusByIdWithHttpInfo
      *
-     * Get a workBatch by id
+     * Get an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be returned. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be returned. (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Infoplus\Infoplus\Model\WorkBatch, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Infoplus\Infoplus\Model\OrderSourceStockStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkBatchByIdWithHttpInfo($work_batch_id)
+    public function getOrderSourceStockStatusByIdWithHttpInfo($order_source_stock_status_id)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch';
-        $request = $this->getWorkBatchByIdRequest($work_batch_id);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus';
+        $request = $this->getOrderSourceStockStatusByIdRequest($order_source_stock_status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1462,7 +1462,7 @@ class WorkBatchApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Infoplus\Infoplus\Model\WorkBatch',
+                        '\Infoplus\Infoplus\Model\OrderSourceStockStatus',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1473,18 +1473,18 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchByIdAsync
+     * Operation getOrderSourceStockStatusByIdAsync
      *
-     * Get a workBatch by id
+     * Get an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be returned. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be returned. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchByIdAsync($work_batch_id)
+    public function getOrderSourceStockStatusByIdAsync($order_source_stock_status_id)
     {
-        return $this->getWorkBatchByIdAsyncWithHttpInfo($work_batch_id)
+        return $this->getOrderSourceStockStatusByIdAsyncWithHttpInfo($order_source_stock_status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1493,19 +1493,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchByIdAsyncWithHttpInfo
+     * Operation getOrderSourceStockStatusByIdAsyncWithHttpInfo
      *
-     * Get a workBatch by id
+     * Get an orderSourceStockStatus by id
      *
-     * @param  int $work_batch_id Id of the workBatch to be returned. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be returned. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchByIdAsyncWithHttpInfo($work_batch_id)
+    public function getOrderSourceStockStatusByIdAsyncWithHttpInfo($order_source_stock_status_id)
     {
-        $returnType = '\Infoplus\Infoplus\Model\WorkBatch';
-        $request = $this->getWorkBatchByIdRequest($work_batch_id);
+        $returnType = '\Infoplus\Infoplus\Model\OrderSourceStockStatus';
+        $request = $this->getOrderSourceStockStatusByIdRequest($order_source_stock_status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1545,23 +1545,23 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'getWorkBatchById'
+     * Create request for operation 'getOrderSourceStockStatusById'
      *
-     * @param  int $work_batch_id Id of the workBatch to be returned. (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to be returned. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWorkBatchByIdRequest($work_batch_id)
+    protected function getOrderSourceStockStatusByIdRequest($order_source_stock_status_id)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling getWorkBatchById'
+                'Missing the required parameter $order_source_stock_status_id when calling getOrderSourceStockStatusById'
             );
         }
 
-        $resourcePath = '/beta/workBatch/{workBatchId}';
+        $resourcePath = '/beta/orderSourceStockStatus/{orderSourceStockStatusId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1570,10 +1570,10 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
@@ -1648,36 +1648,36 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchTags
+     * Operation getOrderSourceStockStatusTags
      *
-     * Get the tags for a workBatch.
+     * Get the tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to get tags for (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to get tags for (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function getWorkBatchTags($work_batch_id)
+    public function getOrderSourceStockStatusTags($order_source_stock_status_id)
     {
-        $this->getWorkBatchTagsWithHttpInfo($work_batch_id);
+        $this->getOrderSourceStockStatusTagsWithHttpInfo($order_source_stock_status_id);
     }
 
     /**
-     * Operation getWorkBatchTagsWithHttpInfo
+     * Operation getOrderSourceStockStatusTagsWithHttpInfo
      *
-     * Get the tags for a workBatch.
+     * Get the tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to get tags for (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to get tags for (required)
      *
      * @throws \Infoplus\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkBatchTagsWithHttpInfo($work_batch_id)
+    public function getOrderSourceStockStatusTagsWithHttpInfo($order_source_stock_status_id)
     {
         $returnType = '';
-        $request = $this->getWorkBatchTagsRequest($work_batch_id);
+        $request = $this->getOrderSourceStockStatusTagsRequest($order_source_stock_status_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1717,18 +1717,18 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchTagsAsync
+     * Operation getOrderSourceStockStatusTagsAsync
      *
-     * Get the tags for a workBatch.
+     * Get the tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to get tags for (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to get tags for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchTagsAsync($work_batch_id)
+    public function getOrderSourceStockStatusTagsAsync($order_source_stock_status_id)
     {
-        return $this->getWorkBatchTagsAsyncWithHttpInfo($work_batch_id)
+        return $this->getOrderSourceStockStatusTagsAsyncWithHttpInfo($order_source_stock_status_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1737,19 +1737,19 @@ class WorkBatchApi
     }
 
     /**
-     * Operation getWorkBatchTagsAsyncWithHttpInfo
+     * Operation getOrderSourceStockStatusTagsAsyncWithHttpInfo
      *
-     * Get the tags for a workBatch.
+     * Get the tags for an orderSourceStockStatus.
      *
-     * @param  int $work_batch_id Id of the workBatch to get tags for (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to get tags for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkBatchTagsAsyncWithHttpInfo($work_batch_id)
+    public function getOrderSourceStockStatusTagsAsyncWithHttpInfo($order_source_stock_status_id)
     {
         $returnType = '';
-        $request = $this->getWorkBatchTagsRequest($work_batch_id);
+        $request = $this->getOrderSourceStockStatusTagsRequest($order_source_stock_status_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1775,23 +1775,23 @@ class WorkBatchApi
     }
 
     /**
-     * Create request for operation 'getWorkBatchTags'
+     * Create request for operation 'getOrderSourceStockStatusTags'
      *
-     * @param  int $work_batch_id Id of the workBatch to get tags for (required)
+     * @param  int $order_source_stock_status_id Id of the orderSourceStockStatus to get tags for (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getWorkBatchTagsRequest($work_batch_id)
+    protected function getOrderSourceStockStatusTagsRequest($order_source_stock_status_id)
     {
-        // verify the required parameter 'work_batch_id' is set
-        if ($work_batch_id === null) {
+        // verify the required parameter 'order_source_stock_status_id' is set
+        if ($order_source_stock_status_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $work_batch_id when calling getWorkBatchTags'
+                'Missing the required parameter $order_source_stock_status_id when calling getOrderSourceStockStatusTags'
             );
         }
 
-        $resourcePath = '/beta/workBatch/{workBatchId}/tag';
+        $resourcePath = '/beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1800,10 +1800,10 @@ class WorkBatchApi
 
 
         // path params
-        if ($work_batch_id !== null) {
+        if ($order_source_stock_status_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'workBatchId' . '}',
-                ObjectSerializer::toPathValue($work_batch_id),
+                '{' . 'orderSourceStockStatusId' . '}',
+                ObjectSerializer::toPathValue($order_source_stock_status_id),
                 $resourcePath
             );
         }
@@ -1871,456 +1871,6 @@ class WorkBatchApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateWorkBatch
-     *
-     * Update a workBatch
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \Infoplus\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function updateWorkBatch($body)
-    {
-        $this->updateWorkBatchWithHttpInfo($body);
-    }
-
-    /**
-     * Operation updateWorkBatchWithHttpInfo
-     *
-     * Update a workBatch
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \Infoplus\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateWorkBatchWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->updateWorkBatchRequest($body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateWorkBatchAsync
-     *
-     * Update a workBatch
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWorkBatchAsync($body)
-    {
-        return $this->updateWorkBatchAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateWorkBatchAsyncWithHttpInfo
-     *
-     * Update a workBatch
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWorkBatchAsyncWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->updateWorkBatchRequest($body);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateWorkBatch'
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function updateWorkBatchRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateWorkBatch'
-            );
-        }
-
-        $resourcePath = '/beta/workBatch';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
-        if ($apiKey !== null) {
-            $headers['API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateWorkBatchCustomFields
-     *
-     * Update a workBatch custom fields
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \Infoplus\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function updateWorkBatchCustomFields($body)
-    {
-        $this->updateWorkBatchCustomFieldsWithHttpInfo($body);
-    }
-
-    /**
-     * Operation updateWorkBatchCustomFieldsWithHttpInfo
-     *
-     * Update a workBatch custom fields
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \Infoplus\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateWorkBatchCustomFieldsWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->updateWorkBatchCustomFieldsRequest($body);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateWorkBatchCustomFieldsAsync
-     *
-     * Update a workBatch custom fields
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWorkBatchCustomFieldsAsync($body)
-    {
-        return $this->updateWorkBatchCustomFieldsAsyncWithHttpInfo($body)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateWorkBatchCustomFieldsAsyncWithHttpInfo
-     *
-     * Update a workBatch custom fields
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateWorkBatchCustomFieldsAsyncWithHttpInfo($body)
-    {
-        $returnType = '';
-        $request = $this->updateWorkBatchCustomFieldsRequest($body);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateWorkBatchCustomFields'
-     *
-     * @param  \Infoplus\Infoplus\Model\WorkBatch $body WorkBatch to be updated. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function updateWorkBatchCustomFieldsRequest($body)
-    {
-        // verify the required parameter 'body' is set
-        if ($body === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling updateWorkBatchCustomFields'
-            );
-        }
-
-        $resourcePath = '/beta/workBatch/customFields';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
-        if ($apiKey !== null) {
-            $headers['API-Key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -1,26 +1,24 @@
-# Infoplus\WorkBatchApi
+# Infoplus\OrderSourceStockStatusApi
 
 All URIs are relative to *https://kingsrook.localhost-testsubdomain1.infopluswms.com:8443/infoplus-wms/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addWorkBatchAudit**](WorkBatchApi.md#addWorkBatchAudit) | **PUT** /beta/workBatch/{workBatchId}/audit/{workBatchAudit} | Add new audit for a workBatch
-[**addWorkBatchTag**](WorkBatchApi.md#addWorkBatchTag) | **PUT** /beta/workBatch/{workBatchId}/tag/{workBatchTag} | Add new tags for a workBatch.
-[**deleteWorkBatchTag**](WorkBatchApi.md#deleteWorkBatchTag) | **DELETE** /beta/workBatch/{workBatchId}/tag/{workBatchTag} | Delete a tag for a workBatch.
-[**getDuplicateWorkBatchById**](WorkBatchApi.md#getDuplicateWorkBatchById) | **GET** /beta/workBatch/duplicate/{workBatchId} | Get a duplicated a workBatch by id
-[**getWorkBatchByFilter**](WorkBatchApi.md#getWorkBatchByFilter) | **GET** /beta/workBatch/search | Search workBatchs by filter
-[**getWorkBatchById**](WorkBatchApi.md#getWorkBatchById) | **GET** /beta/workBatch/{workBatchId} | Get a workBatch by id
-[**getWorkBatchTags**](WorkBatchApi.md#getWorkBatchTags) | **GET** /beta/workBatch/{workBatchId}/tag | Get the tags for a workBatch.
-[**updateWorkBatch**](WorkBatchApi.md#updateWorkBatch) | **PUT** /beta/workBatch | Update a workBatch
-[**updateWorkBatchCustomFields**](WorkBatchApi.md#updateWorkBatchCustomFields) | **PUT** /beta/workBatch/customFields | Update a workBatch custom fields
+[**addOrderSourceStockStatusAudit**](OrderSourceStockStatusApi.md#addOrderSourceStockStatusAudit) | **PUT** /beta/orderSourceStockStatus/{orderSourceStockStatusId}/audit/{orderSourceStockStatusAudit} | Add new audit for an orderSourceStockStatus
+[**addOrderSourceStockStatusTag**](OrderSourceStockStatusApi.md#addOrderSourceStockStatusTag) | **PUT** /beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag/{orderSourceStockStatusTag} | Add new tags for an orderSourceStockStatus.
+[**deleteOrderSourceStockStatusTag**](OrderSourceStockStatusApi.md#deleteOrderSourceStockStatusTag) | **DELETE** /beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag/{orderSourceStockStatusTag} | Delete a tag for an orderSourceStockStatus.
+[**getDuplicateOrderSourceStockStatusById**](OrderSourceStockStatusApi.md#getDuplicateOrderSourceStockStatusById) | **GET** /beta/orderSourceStockStatus/duplicate/{orderSourceStockStatusId} | Get a duplicated an orderSourceStockStatus by id
+[**getOrderSourceStockStatusByFilter**](OrderSourceStockStatusApi.md#getOrderSourceStockStatusByFilter) | **GET** /beta/orderSourceStockStatus/search | Search orderSourceStockStatuses by filter
+[**getOrderSourceStockStatusById**](OrderSourceStockStatusApi.md#getOrderSourceStockStatusById) | **GET** /beta/orderSourceStockStatus/{orderSourceStockStatusId} | Get an orderSourceStockStatus by id
+[**getOrderSourceStockStatusTags**](OrderSourceStockStatusApi.md#getOrderSourceStockStatusTags) | **GET** /beta/orderSourceStockStatus/{orderSourceStockStatusId}/tag | Get the tags for an orderSourceStockStatus.
 
 
-# **addWorkBatchAudit**
-> addWorkBatchAudit($work_batch_id, $work_batch_audit)
+# **addOrderSourceStockStatusAudit**
+> addOrderSourceStockStatusAudit($order_source_stock_status_id, $order_source_stock_status_audit)
 
-Add new audit for a workBatch
+Add new audit for an orderSourceStockStatus
 
-Adds an audit to an existing workBatch.
+Adds an audit to an existing orderSourceStockStatus.
 
 ### Example
 ```php
@@ -32,19 +30,19 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to add an audit to
-$work_batch_audit = "work_batch_audit_example"; // string | The audit to add
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to add an audit to
+$order_source_stock_status_audit = "order_source_stock_status_audit_example"; // string | The audit to add
 
 try {
-    $apiInstance->addWorkBatchAudit($work_batch_id, $work_batch_audit);
+    $apiInstance->addOrderSourceStockStatusAudit($order_source_stock_status_id, $order_source_stock_status_audit);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->addWorkBatchAudit: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->addOrderSourceStockStatusAudit: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -53,8 +51,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to add an audit to |
- **work_batch_audit** | **string**| The audit to add |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to add an audit to |
+ **order_source_stock_status_audit** | **string**| The audit to add |
 
 ### Return type
 
@@ -71,12 +69,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **addWorkBatchTag**
-> addWorkBatchTag($work_batch_id, $work_batch_tag)
+# **addOrderSourceStockStatusTag**
+> addOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag)
 
-Add new tags for a workBatch.
+Add new tags for an orderSourceStockStatus.
 
-Adds a tag to an existing workBatch.
+Adds a tag to an existing orderSourceStockStatus.
 
 ### Example
 ```php
@@ -88,19 +86,19 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to add a tag to
-$work_batch_tag = "work_batch_tag_example"; // string | The tag to add
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to add a tag to
+$order_source_stock_status_tag = "order_source_stock_status_tag_example"; // string | The tag to add
 
 try {
-    $apiInstance->addWorkBatchTag($work_batch_id, $work_batch_tag);
+    $apiInstance->addOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->addWorkBatchTag: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->addOrderSourceStockStatusTag: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -109,8 +107,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to add a tag to |
- **work_batch_tag** | **string**| The tag to add |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to add a tag to |
+ **order_source_stock_status_tag** | **string**| The tag to add |
 
 ### Return type
 
@@ -127,12 +125,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteWorkBatchTag**
-> deleteWorkBatchTag($work_batch_id, $work_batch_tag)
+# **deleteOrderSourceStockStatusTag**
+> deleteOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag)
 
-Delete a tag for a workBatch.
+Delete a tag for an orderSourceStockStatus.
 
-Deletes an existing workBatch tag using the specified data.
+Deletes an existing orderSourceStockStatus tag using the specified data.
 
 ### Example
 ```php
@@ -144,19 +142,19 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to remove tag from
-$work_batch_tag = "work_batch_tag_example"; // string | The tag to delete
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to remove tag from
+$order_source_stock_status_tag = "order_source_stock_status_tag_example"; // string | The tag to delete
 
 try {
-    $apiInstance->deleteWorkBatchTag($work_batch_id, $work_batch_tag);
+    $apiInstance->deleteOrderSourceStockStatusTag($order_source_stock_status_id, $order_source_stock_status_tag);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->deleteWorkBatchTag: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->deleteOrderSourceStockStatusTag: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -165,8 +163,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to remove tag from |
- **work_batch_tag** | **string**| The tag to delete |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to remove tag from |
+ **order_source_stock_status_tag** | **string**| The tag to delete |
 
 ### Return type
 
@@ -183,12 +181,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getDuplicateWorkBatchById**
-> \Infoplus\Infoplus\Model\WorkBatch getDuplicateWorkBatchById($work_batch_id)
+# **getDuplicateOrderSourceStockStatusById**
+> \Infoplus\Infoplus\Model\OrderSourceStockStatus getDuplicateOrderSourceStockStatusById($order_source_stock_status_id)
 
-Get a duplicated a workBatch by id
+Get a duplicated an orderSourceStockStatus by id
 
-Returns a duplicated workBatch identified by the specified id.
+Returns a duplicated orderSourceStockStatus identified by the specified id.
 
 ### Example
 ```php
@@ -200,19 +198,19 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to be duplicated.
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to be duplicated.
 
 try {
-    $result = $apiInstance->getDuplicateWorkBatchById($work_batch_id);
+    $result = $apiInstance->getDuplicateOrderSourceStockStatusById($order_source_stock_status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->getDuplicateWorkBatchById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->getDuplicateOrderSourceStockStatusById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -221,11 +219,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to be duplicated. |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to be duplicated. |
 
 ### Return type
 
-[**\Infoplus\Infoplus\Model\WorkBatch**](../Model/WorkBatch.md)
+[**\Infoplus\Infoplus\Model\OrderSourceStockStatus**](../Model/OrderSourceStockStatus.md)
 
 ### Authorization
 
@@ -238,12 +236,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getWorkBatchByFilter**
-> \Infoplus\Infoplus\Model\WorkBatch[] getWorkBatchByFilter($filter, $page, $limit, $sort)
+# **getOrderSourceStockStatusByFilter**
+> \Infoplus\Infoplus\Model\OrderSourceStockStatus[] getOrderSourceStockStatusByFilter($filter, $page, $limit, $sort)
 
-Search workBatchs by filter
+Search orderSourceStockStatuses by filter
 
-Returns the list of workBatchs that match the given filter.
+Returns the list of orderSourceStockStatuses that match the given filter.
 
 ### Example
 ```php
@@ -255,7 +253,7 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -267,10 +265,10 @@ $limit = 56; // int | Maximum results per page.  Defaults to 20.  Max allowed va
 $sort = "sort_example"; // string | Sort results by specified field.
 
 try {
-    $result = $apiInstance->getWorkBatchByFilter($filter, $page, $limit, $sort);
+    $result = $apiInstance->getOrderSourceStockStatusByFilter($filter, $page, $limit, $sort);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->getWorkBatchByFilter: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->getOrderSourceStockStatusByFilter: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -286,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Infoplus\Infoplus\Model\WorkBatch[]**](../Model/WorkBatch.md)
+[**\Infoplus\Infoplus\Model\OrderSourceStockStatus[]**](../Model/OrderSourceStockStatus.md)
 
 ### Authorization
 
@@ -299,12 +297,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getWorkBatchById**
-> \Infoplus\Infoplus\Model\WorkBatch getWorkBatchById($work_batch_id)
+# **getOrderSourceStockStatusById**
+> \Infoplus\Infoplus\Model\OrderSourceStockStatus getOrderSourceStockStatusById($order_source_stock_status_id)
 
-Get a workBatch by id
+Get an orderSourceStockStatus by id
 
-Returns the workBatch identified by the specified id.
+Returns the orderSourceStockStatus identified by the specified id.
 
 ### Example
 ```php
@@ -316,19 +314,19 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to be returned.
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to be returned.
 
 try {
-    $result = $apiInstance->getWorkBatchById($work_batch_id);
+    $result = $apiInstance->getOrderSourceStockStatusById($order_source_stock_status_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->getWorkBatchById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->getOrderSourceStockStatusById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -337,11 +335,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to be returned. |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to be returned. |
 
 ### Return type
 
-[**\Infoplus\Infoplus\Model\WorkBatch**](../Model/WorkBatch.md)
+[**\Infoplus\Infoplus\Model\OrderSourceStockStatus**](../Model/OrderSourceStockStatus.md)
 
 ### Authorization
 
@@ -354,12 +352,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getWorkBatchTags**
-> getWorkBatchTags($work_batch_id)
+# **getOrderSourceStockStatusTags**
+> getOrderSourceStockStatusTags($order_source_stock_status_id)
 
-Get the tags for a workBatch.
+Get the tags for an orderSourceStockStatus.
 
-Get all existing workBatch tags.
+Get all existing orderSourceStockStatus tags.
 
 ### Example
 ```php
@@ -371,18 +369,18 @@ $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key'
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
 
-$apiInstance = new Infoplus\Api\WorkBatchApi(
+$apiInstance = new Infoplus\Api\OrderSourceStockStatusApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$work_batch_id = 56; // int | Id of the workBatch to get tags for
+$order_source_stock_status_id = 56; // int | Id of the orderSourceStockStatus to get tags for
 
 try {
-    $apiInstance->getWorkBatchTags($work_batch_id);
+    $apiInstance->getOrderSourceStockStatusTags($order_source_stock_status_id);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->getWorkBatchTags: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderSourceStockStatusApi->getOrderSourceStockStatusTags: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -391,7 +389,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_batch_id** | **int**| Id of the workBatch to get tags for |
+ **order_source_stock_status_id** | **int**| Id of the orderSourceStockStatus to get tags for |
 
 ### Return type
 
@@ -404,114 +402,6 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateWorkBatch**
-> updateWorkBatch($body)
-
-Update a workBatch
-
-Updates an existing workBatch using the specified data.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-$config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
-
-$apiInstance = new Infoplus\Api\WorkBatchApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \Infoplus\Infoplus\Model\WorkBatch(); // \Infoplus\Infoplus\Model\WorkBatch | WorkBatch to be updated.
-
-try {
-    $apiInstance->updateWorkBatch($body);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->updateWorkBatch: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Infoplus\Infoplus\Model\WorkBatch**](../Model/WorkBatch.md)| WorkBatch to be updated. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateWorkBatchCustomFields**
-> updateWorkBatchCustomFields($body)
-
-Update a workBatch custom fields
-
-Updates an existing workBatch custom fields using the specified data.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-$config = Infoplus\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Infoplus\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
-
-$apiInstance = new Infoplus\Api\WorkBatchApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \Infoplus\Infoplus\Model\WorkBatch(); // \Infoplus\Infoplus\Model\WorkBatch | WorkBatch to be updated.
-
-try {
-    $apiInstance->updateWorkBatchCustomFields($body);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkBatchApi->updateWorkBatchCustomFields: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Infoplus\Infoplus\Model\WorkBatch**](../Model/WorkBatch.md)| WorkBatch to be updated. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

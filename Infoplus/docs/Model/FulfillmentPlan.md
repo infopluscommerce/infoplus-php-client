@@ -9,11 +9,13 @@ Name | Type | Description | Notes
 **name** | **string** |  | 
 **description** | **string** |  | [optional] 
 **warehouse_id** | **int** |  | 
+**priority_code** | **int** |  | [optional] 
 **last_run_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **order_smart_filter_id** | **int** |  | 
 **location_smart_filter_id** | **int** |  | [optional] 
 **max_orders** | **int** |  | [optional] 
-**batch_size** | **int** |  | [optional] 
+**batch_size_max** | **int** |  | [optional] 
+**batch_size_min** | **int** |  | [optional] 
 **version** | **string** |  | [optional] 
 **is_mass_distribution** | **bool** |  | [optional] [default to false]
 **create_pick_work** | **bool** |  | [default to false]

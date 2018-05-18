@@ -63,11 +63,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'warehouse_id' => 'int',
+        'priority_code' => 'int',
         'last_run_time' => '\DateTime',
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
         'max_orders' => 'int',
-        'batch_size' => 'int',
+        'batch_size_max' => 'int',
+        'batch_size_min' => 'int',
         'version' => 'string',
         'is_mass_distribution' => 'bool',
         'create_pick_work' => 'bool',
@@ -110,11 +112,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'warehouse_id' => 'int32',
+        'priority_code' => 'int32',
         'last_run_time' => 'date-time',
         'order_smart_filter_id' => 'int32',
         'location_smart_filter_id' => 'int32',
         'max_orders' => 'int32',
-        'batch_size' => 'int32',
+        'batch_size_max' => 'int32',
+        'batch_size_min' => 'int32',
         'version' => null,
         'is_mass_distribution' => null,
         'create_pick_work' => null,
@@ -178,11 +182,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'warehouse_id' => 'warehouseId',
+        'priority_code' => 'priorityCode',
         'last_run_time' => 'lastRunTime',
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
         'max_orders' => 'maxOrders',
-        'batch_size' => 'batchSize',
+        'batch_size_max' => 'batchSizeMax',
+        'batch_size_min' => 'batchSizeMin',
         'version' => 'version',
         'is_mass_distribution' => 'isMassDistribution',
         'create_pick_work' => 'createPickWork',
@@ -225,11 +231,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'warehouse_id' => 'setWarehouseId',
+        'priority_code' => 'setPriorityCode',
         'last_run_time' => 'setLastRunTime',
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
         'max_orders' => 'setMaxOrders',
-        'batch_size' => 'setBatchSize',
+        'batch_size_max' => 'setBatchSizeMax',
+        'batch_size_min' => 'setBatchSizeMin',
         'version' => 'setVersion',
         'is_mass_distribution' => 'setIsMassDistribution',
         'create_pick_work' => 'setCreatePickWork',
@@ -272,11 +280,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'warehouse_id' => 'getWarehouseId',
+        'priority_code' => 'getPriorityCode',
         'last_run_time' => 'getLastRunTime',
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
         'max_orders' => 'getMaxOrders',
-        'batch_size' => 'getBatchSize',
+        'batch_size_max' => 'getBatchSizeMax',
+        'batch_size_min' => 'getBatchSizeMin',
         'version' => 'getVersion',
         'is_mass_distribution' => 'getIsMassDistribution',
         'create_pick_work' => 'getCreatePickWork',
@@ -373,11 +383,13 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['warehouse_id'] = isset($data['warehouse_id']) ? $data['warehouse_id'] : null;
+        $this->container['priority_code'] = isset($data['priority_code']) ? $data['priority_code'] : null;
         $this->container['last_run_time'] = isset($data['last_run_time']) ? $data['last_run_time'] : null;
         $this->container['order_smart_filter_id'] = isset($data['order_smart_filter_id']) ? $data['order_smart_filter_id'] : null;
         $this->container['location_smart_filter_id'] = isset($data['location_smart_filter_id']) ? $data['location_smart_filter_id'] : null;
         $this->container['max_orders'] = isset($data['max_orders']) ? $data['max_orders'] : null;
-        $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
+        $this->container['batch_size_max'] = isset($data['batch_size_max']) ? $data['batch_size_max'] : null;
+        $this->container['batch_size_min'] = isset($data['batch_size_min']) ? $data['batch_size_min'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['is_mass_distribution'] = isset($data['is_mass_distribution']) ? $data['is_mass_distribution'] : false;
         $this->container['create_pick_work'] = isset($data['create_pick_work']) ? $data['create_pick_work'] : false;
@@ -632,6 +644,30 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets priority_code
+     *
+     * @return int
+     */
+    public function getPriorityCode()
+    {
+        return $this->container['priority_code'];
+    }
+
+    /**
+     * Sets priority_code
+     *
+     * @param int $priority_code priority_code
+     *
+     * @return $this
+     */
+    public function setPriorityCode($priority_code)
+    {
+        $this->container['priority_code'] = $priority_code;
+
+        return $this;
+    }
+
+    /**
      * Gets last_run_time
      *
      * @return \DateTime
@@ -728,25 +764,49 @@ class FulfillmentPlan implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets batch_size
+     * Gets batch_size_max
      *
      * @return int
      */
-    public function getBatchSize()
+    public function getBatchSizeMax()
     {
-        return $this->container['batch_size'];
+        return $this->container['batch_size_max'];
     }
 
     /**
-     * Sets batch_size
+     * Sets batch_size_max
      *
-     * @param int $batch_size batch_size
+     * @param int $batch_size_max batch_size_max
      *
      * @return $this
      */
-    public function setBatchSize($batch_size)
+    public function setBatchSizeMax($batch_size_max)
     {
-        $this->container['batch_size'] = $batch_size;
+        $this->container['batch_size_max'] = $batch_size_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_size_min
+     *
+     * @return int
+     */
+    public function getBatchSizeMin()
+    {
+        return $this->container['batch_size_min'];
+    }
+
+    /**
+     * Sets batch_size_min
+     *
+     * @param int $batch_size_min batch_size_min
+     *
+     * @return $this
+     */
+    public function setBatchSizeMin($batch_size_min)
+    {
+        $this->container['batch_size_min'] = $batch_size_min;
 
         return $this;
     }

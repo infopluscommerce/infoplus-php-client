@@ -69,10 +69,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         'order_smart_filter_id' => 'int',
         'location_smart_filter_id' => 'int',
         'max_orders' => 'int',
-        'batch_size' => 'int',
+        'batch_max_size' => 'int',
+        'batch_min_size' => 'int',
         'version' => 'string',
         'fulfillment_process_group' => 'int',
         'is_mass_distribution' => 'bool',
+        'priority_code' => 'int',
         'number_of_orders' => 'int',
         'number_of_lines' => 'int',
         'number_of_sk_us' => 'int',
@@ -131,10 +133,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         'order_smart_filter_id' => 'int32',
         'location_smart_filter_id' => 'int32',
         'max_orders' => 'int32',
-        'batch_size' => 'int32',
+        'batch_max_size' => 'int32',
+        'batch_min_size' => 'int32',
         'version' => null,
         'fulfillment_process_group' => 'int32',
         'is_mass_distribution' => null,
+        'priority_code' => 'int32',
         'number_of_orders' => 'int32',
         'number_of_lines' => 'int32',
         'number_of_sk_us' => 'int32',
@@ -214,10 +218,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         'order_smart_filter_id' => 'orderSmartFilterId',
         'location_smart_filter_id' => 'locationSmartFilterId',
         'max_orders' => 'maxOrders',
-        'batch_size' => 'batchSize',
+        'batch_max_size' => 'batchMaxSize',
+        'batch_min_size' => 'batchMinSize',
         'version' => 'version',
         'fulfillment_process_group' => 'fulfillmentProcessGroup',
         'is_mass_distribution' => 'isMassDistribution',
+        'priority_code' => 'priorityCode',
         'number_of_orders' => 'numberOfOrders',
         'number_of_lines' => 'numberOfLines',
         'number_of_sk_us' => 'numberOfSKUs',
@@ -276,10 +282,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         'order_smart_filter_id' => 'setOrderSmartFilterId',
         'location_smart_filter_id' => 'setLocationSmartFilterId',
         'max_orders' => 'setMaxOrders',
-        'batch_size' => 'setBatchSize',
+        'batch_max_size' => 'setBatchMaxSize',
+        'batch_min_size' => 'setBatchMinSize',
         'version' => 'setVersion',
         'fulfillment_process_group' => 'setFulfillmentProcessGroup',
         'is_mass_distribution' => 'setIsMassDistribution',
+        'priority_code' => 'setPriorityCode',
         'number_of_orders' => 'setNumberOfOrders',
         'number_of_lines' => 'setNumberOfLines',
         'number_of_sk_us' => 'setNumberOfSkUs',
@@ -338,10 +346,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         'order_smart_filter_id' => 'getOrderSmartFilterId',
         'location_smart_filter_id' => 'getLocationSmartFilterId',
         'max_orders' => 'getMaxOrders',
-        'batch_size' => 'getBatchSize',
+        'batch_max_size' => 'getBatchMaxSize',
+        'batch_min_size' => 'getBatchMinSize',
         'version' => 'getVersion',
         'fulfillment_process_group' => 'getFulfillmentProcessGroup',
         'is_mass_distribution' => 'getIsMassDistribution',
+        'priority_code' => 'getPriorityCode',
         'number_of_orders' => 'getNumberOfOrders',
         'number_of_lines' => 'getNumberOfLines',
         'number_of_sk_us' => 'getNumberOfSkUs',
@@ -454,10 +464,12 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
         $this->container['order_smart_filter_id'] = isset($data['order_smart_filter_id']) ? $data['order_smart_filter_id'] : null;
         $this->container['location_smart_filter_id'] = isset($data['location_smart_filter_id']) ? $data['location_smart_filter_id'] : null;
         $this->container['max_orders'] = isset($data['max_orders']) ? $data['max_orders'] : null;
-        $this->container['batch_size'] = isset($data['batch_size']) ? $data['batch_size'] : null;
+        $this->container['batch_max_size'] = isset($data['batch_max_size']) ? $data['batch_max_size'] : null;
+        $this->container['batch_min_size'] = isset($data['batch_min_size']) ? $data['batch_min_size'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['fulfillment_process_group'] = isset($data['fulfillment_process_group']) ? $data['fulfillment_process_group'] : null;
         $this->container['is_mass_distribution'] = isset($data['is_mass_distribution']) ? $data['is_mass_distribution'] : false;
+        $this->container['priority_code'] = isset($data['priority_code']) ? $data['priority_code'] : null;
         $this->container['number_of_orders'] = isset($data['number_of_orders']) ? $data['number_of_orders'] : null;
         $this->container['number_of_lines'] = isset($data['number_of_lines']) ? $data['number_of_lines'] : null;
         $this->container['number_of_sk_us'] = isset($data['number_of_sk_us']) ? $data['number_of_sk_us'] : null;
@@ -854,25 +866,49 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets batch_size
+     * Gets batch_max_size
      *
      * @return int
      */
-    public function getBatchSize()
+    public function getBatchMaxSize()
     {
-        return $this->container['batch_size'];
+        return $this->container['batch_max_size'];
     }
 
     /**
-     * Sets batch_size
+     * Sets batch_max_size
      *
-     * @param int $batch_size batch_size
+     * @param int $batch_max_size batch_max_size
      *
      * @return $this
      */
-    public function setBatchSize($batch_size)
+    public function setBatchMaxSize($batch_max_size)
     {
-        $this->container['batch_size'] = $batch_size;
+        $this->container['batch_max_size'] = $batch_max_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_min_size
+     *
+     * @return int
+     */
+    public function getBatchMinSize()
+    {
+        return $this->container['batch_min_size'];
+    }
+
+    /**
+     * Sets batch_min_size
+     *
+     * @param int $batch_min_size batch_min_size
+     *
+     * @return $this
+     */
+    public function setBatchMinSize($batch_min_size)
+    {
+        $this->container['batch_min_size'] = $batch_min_size;
 
         return $this;
     }
@@ -945,6 +981,30 @@ class FulfillmentProcess implements ModelInterface, ArrayAccess
     public function setIsMassDistribution($is_mass_distribution)
     {
         $this->container['is_mass_distribution'] = $is_mass_distribution;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority_code
+     *
+     * @return int
+     */
+    public function getPriorityCode()
+    {
+        return $this->container['priority_code'];
+    }
+
+    /**
+     * Sets priority_code
+     *
+     * @param int $priority_code priority_code
+     *
+     * @return $this
+     */
+    public function setPriorityCode($priority_code)
+    {
+        $this->container['priority_code'] = $priority_code;
 
         return $this;
     }

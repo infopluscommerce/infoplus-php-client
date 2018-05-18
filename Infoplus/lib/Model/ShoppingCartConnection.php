@@ -87,6 +87,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         'sync_orders_last_run_time' => '\DateTime',
         'inventory_level_warehouse_controls' => 'string',
         'warehouse_list' => '\Infoplus\Infoplus\Model\Warehouse[]',
+        'inventory_level_store_controls' => 'string',
+        'store_list' => '\Infoplus\Infoplus\Model\Store[]',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -126,6 +128,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         'sync_orders_last_run_time' => 'date-time',
         'inventory_level_warehouse_controls' => null,
         'warehouse_list' => null,
+        'inventory_level_store_controls' => null,
+        'store_list' => null,
         'custom_fields' => null
     ];
 
@@ -186,6 +190,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         'sync_orders_last_run_time' => 'syncOrdersLastRunTime',
         'inventory_level_warehouse_controls' => 'inventoryLevelWarehouseControls',
         'warehouse_list' => 'warehouseList',
+        'inventory_level_store_controls' => 'inventoryLevelStoreControls',
+        'store_list' => 'storeList',
         'custom_fields' => 'customFields'
     ];
 
@@ -225,6 +231,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         'sync_orders_last_run_time' => 'setSyncOrdersLastRunTime',
         'inventory_level_warehouse_controls' => 'setInventoryLevelWarehouseControls',
         'warehouse_list' => 'setWarehouseList',
+        'inventory_level_store_controls' => 'setInventoryLevelStoreControls',
+        'store_list' => 'setStoreList',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -264,6 +272,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         'sync_orders_last_run_time' => 'getSyncOrdersLastRunTime',
         'inventory_level_warehouse_controls' => 'getInventoryLevelWarehouseControls',
         'warehouse_list' => 'getWarehouseList',
+        'inventory_level_store_controls' => 'getInventoryLevelStoreControls',
+        'store_list' => 'getStoreList',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -357,6 +367,8 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         $this->container['sync_orders_last_run_time'] = isset($data['sync_orders_last_run_time']) ? $data['sync_orders_last_run_time'] : null;
         $this->container['inventory_level_warehouse_controls'] = isset($data['inventory_level_warehouse_controls']) ? $data['inventory_level_warehouse_controls'] : null;
         $this->container['warehouse_list'] = isset($data['warehouse_list']) ? $data['warehouse_list'] : null;
+        $this->container['inventory_level_store_controls'] = isset($data['inventory_level_store_controls']) ? $data['inventory_level_store_controls'] : null;
+        $this->container['store_list'] = isset($data['store_list']) ? $data['store_list'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -423,6 +435,9 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
         if ($this->container['inventory_level_warehouse_controls'] === null) {
             $invalidProperties[] = "'inventory_level_warehouse_controls' can't be null";
         }
+        if ($this->container['inventory_level_store_controls'] === null) {
+            $invalidProperties[] = "'inventory_level_store_controls' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -487,6 +502,9 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['inventory_level_warehouse_controls'] === null) {
+            return false;
+        }
+        if ($this->container['inventory_level_store_controls'] === null) {
             return false;
         }
         return true;
@@ -1209,6 +1227,54 @@ class ShoppingCartConnection implements ModelInterface, ArrayAccess
     public function setWarehouseList($warehouse_list)
     {
         $this->container['warehouse_list'] = $warehouse_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets inventory_level_store_controls
+     *
+     * @return string
+     */
+    public function getInventoryLevelStoreControls()
+    {
+        return $this->container['inventory_level_store_controls'];
+    }
+
+    /**
+     * Sets inventory_level_store_controls
+     *
+     * @param string $inventory_level_store_controls inventory_level_store_controls
+     *
+     * @return $this
+     */
+    public function setInventoryLevelStoreControls($inventory_level_store_controls)
+    {
+        $this->container['inventory_level_store_controls'] = $inventory_level_store_controls;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_list
+     *
+     * @return \Infoplus\Infoplus\Model\Store[]
+     */
+    public function getStoreList()
+    {
+        return $this->container['store_list'];
+    }
+
+    /**
+     * Sets store_list
+     *
+     * @param \Infoplus\Infoplus\Model\Store[] $store_list store_list
+     *
+     * @return $this
+     */
+    public function setStoreList($store_list)
+    {
+        $this->container['store_list'] = $store_list;
 
         return $this;
     }

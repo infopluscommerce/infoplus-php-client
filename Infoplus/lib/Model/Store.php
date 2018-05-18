@@ -1,6 +1,6 @@
 <?php
 /**
- * WorkBatch
+ * Store
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Infoplus\ObjectSerializer;
 
 /**
- * WorkBatch Class Doc Comment
+ * Store Class Doc Comment
  *
  * @category Class
  * @package  Infoplus
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WorkBatch implements ModelInterface, ArrayAccess
+class Store implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class WorkBatch implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'workBatch';
+    protected static $swaggerModelName = 'store';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'warehouse_id' => 'int',
-        'batch_priority_code' => 'int',
-        'create_date' => '\DateTime',
-        'modify_date' => '\DateTime',
+        'store_name' => 'string',
+        'store_id' => 'string',
         'custom_fields' => 'map[string,object]'
     ];
 
@@ -71,11 +68,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32',
-        'warehouse_id' => 'int32',
-        'batch_priority_code' => 'int32',
-        'create_date' => 'date-time',
-        'modify_date' => 'date-time',
+        'store_name' => null,
+        'store_id' => null,
         'custom_fields' => null
     ];
 
@@ -106,11 +100,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'warehouse_id' => 'warehouseId',
-        'batch_priority_code' => 'batchPriorityCode',
-        'create_date' => 'createDate',
-        'modify_date' => 'modifyDate',
+        'store_name' => 'storeName',
+        'store_id' => 'storeId',
         'custom_fields' => 'customFields'
     ];
 
@@ -120,11 +111,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'warehouse_id' => 'setWarehouseId',
-        'batch_priority_code' => 'setBatchPriorityCode',
-        'create_date' => 'setCreateDate',
-        'modify_date' => 'setModifyDate',
+        'store_name' => 'setStoreName',
+        'store_id' => 'setStoreId',
         'custom_fields' => 'setCustomFields'
     ];
 
@@ -134,11 +122,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'warehouse_id' => 'getWarehouseId',
-        'batch_priority_code' => 'getBatchPriorityCode',
-        'create_date' => 'getCreateDate',
-        'modify_date' => 'getModifyDate',
+        'store_name' => 'getStoreName',
+        'store_id' => 'getStoreId',
         'custom_fields' => 'getCustomFields'
     ];
 
@@ -202,11 +187,8 @@ class WorkBatch implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['warehouse_id'] = isset($data['warehouse_id']) ? $data['warehouse_id'] : null;
-        $this->container['batch_priority_code'] = isset($data['batch_priority_code']) ? $data['batch_priority_code'] : null;
-        $this->container['create_date'] = isset($data['create_date']) ? $data['create_date'] : null;
-        $this->container['modify_date'] = isset($data['modify_date']) ? $data['modify_date'] : null;
+        $this->container['store_name'] = isset($data['store_name']) ? $data['store_name'] : null;
+        $this->container['store_id'] = isset($data['store_id']) ? $data['store_id'] : null;
         $this->container['custom_fields'] = isset($data['custom_fields']) ? $data['custom_fields'] : null;
     }
 
@@ -219,8 +201,11 @@ class WorkBatch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['warehouse_id'] === null) {
-            $invalidProperties[] = "'warehouse_id' can't be null";
+        if ($this->container['store_name'] === null) {
+            $invalidProperties[] = "'store_name' can't be null";
+        }
+        if ($this->container['store_id'] === null) {
+            $invalidProperties[] = "'store_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -234,7 +219,10 @@ class WorkBatch implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['warehouse_id'] === null) {
+        if ($this->container['store_name'] === null) {
+            return false;
+        }
+        if ($this->container['store_id'] === null) {
             return false;
         }
         return true;
@@ -242,121 +230,49 @@ class WorkBatch implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets store_name
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getStoreName()
     {
-        return $this->container['id'];
+        return $this->container['store_name'];
     }
 
     /**
-     * Sets id
+     * Sets store_name
      *
-     * @param int $id id
+     * @param string $store_name store_name
      *
      * @return $this
      */
-    public function setId($id)
+    public function setStoreName($store_name)
     {
-        $this->container['id'] = $id;
+        $this->container['store_name'] = $store_name;
 
         return $this;
     }
 
     /**
-     * Gets warehouse_id
+     * Gets store_id
      *
-     * @return int
+     * @return string
      */
-    public function getWarehouseId()
+    public function getStoreId()
     {
-        return $this->container['warehouse_id'];
+        return $this->container['store_id'];
     }
 
     /**
-     * Sets warehouse_id
+     * Sets store_id
      *
-     * @param int $warehouse_id warehouse_id
+     * @param string $store_id store_id
      *
      * @return $this
      */
-    public function setWarehouseId($warehouse_id)
+    public function setStoreId($store_id)
     {
-        $this->container['warehouse_id'] = $warehouse_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets batch_priority_code
-     *
-     * @return int
-     */
-    public function getBatchPriorityCode()
-    {
-        return $this->container['batch_priority_code'];
-    }
-
-    /**
-     * Sets batch_priority_code
-     *
-     * @param int $batch_priority_code batch_priority_code
-     *
-     * @return $this
-     */
-    public function setBatchPriorityCode($batch_priority_code)
-    {
-        $this->container['batch_priority_code'] = $batch_priority_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_date
-     *
-     * @return \DateTime
-     */
-    public function getCreateDate()
-    {
-        return $this->container['create_date'];
-    }
-
-    /**
-     * Sets create_date
-     *
-     * @param \DateTime $create_date create_date
-     *
-     * @return $this
-     */
-    public function setCreateDate($create_date)
-    {
-        $this->container['create_date'] = $create_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets modify_date
-     *
-     * @return \DateTime
-     */
-    public function getModifyDate()
-    {
-        return $this->container['modify_date'];
-    }
-
-    /**
-     * Sets modify_date
-     *
-     * @param \DateTime $modify_date modify_date
-     *
-     * @return $this
-     */
-    public function setModifyDate($modify_date)
-    {
-        $this->container['modify_date'] = $modify_date;
+        $this->container['store_id'] = $store_id;
 
         return $this;
     }

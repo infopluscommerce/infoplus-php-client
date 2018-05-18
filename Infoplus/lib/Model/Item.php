@@ -160,6 +160,33 @@ class Item implements ModelInterface, ArrayAccess
         'orderable_quantity' => 'int',
         'unallocatable_quantity' => 'int',
         'unavailable_quantity' => 'int',
+        'available_quantity_inner_packs' => 'int',
+        'damaged_quantity_inner_packs' => 'int',
+        'in_fulfillment_process_quantity_inner_packs' => 'int',
+        'on_hand_quantity_inner_packs' => 'int',
+        'open_order_quantity_inner_packs' => 'int',
+        'open_po_quantity_inner_packs' => 'int',
+        'orderable_quantity_inner_packs' => 'int',
+        'unallocatable_quantity_inner_packs' => 'int',
+        'unavailable_quantity_inner_packs' => 'int',
+        'available_quantity_cases' => 'int',
+        'damaged_quantity_cases' => 'int',
+        'in_fulfillment_process_quantity_cases' => 'int',
+        'on_hand_quantity_cases' => 'int',
+        'open_order_quantity_cases' => 'int',
+        'open_po_quantity_cases' => 'int',
+        'orderable_quantity_cases' => 'int',
+        'unallocatable_quantity_cases' => 'int',
+        'unavailable_quantity_cases' => 'int',
+        'available_quantity_pallets' => 'int',
+        'damaged_quantity_pallets' => 'int',
+        'in_fulfillment_process_quantity_pallets' => 'int',
+        'on_hand_quantity_pallets' => 'int',
+        'open_order_quantity_pallets' => 'int',
+        'open_po_quantity_pallets' => 'int',
+        'orderable_quantity_pallets' => 'int',
+        'unallocatable_quantity_pallets' => 'int',
+        'unavailable_quantity_pallets' => 'int',
         'overall_days_on_hand' => 'int',
         'overall_stock_status' => 'string',
         'estimated_pallets' => 'int',
@@ -292,6 +319,33 @@ class Item implements ModelInterface, ArrayAccess
         'orderable_quantity' => 'int32',
         'unallocatable_quantity' => 'int32',
         'unavailable_quantity' => 'int32',
+        'available_quantity_inner_packs' => 'int32',
+        'damaged_quantity_inner_packs' => 'int32',
+        'in_fulfillment_process_quantity_inner_packs' => 'int32',
+        'on_hand_quantity_inner_packs' => 'int32',
+        'open_order_quantity_inner_packs' => 'int32',
+        'open_po_quantity_inner_packs' => 'int32',
+        'orderable_quantity_inner_packs' => 'int32',
+        'unallocatable_quantity_inner_packs' => 'int32',
+        'unavailable_quantity_inner_packs' => 'int32',
+        'available_quantity_cases' => 'int32',
+        'damaged_quantity_cases' => 'int32',
+        'in_fulfillment_process_quantity_cases' => 'int32',
+        'on_hand_quantity_cases' => 'int32',
+        'open_order_quantity_cases' => 'int32',
+        'open_po_quantity_cases' => 'int32',
+        'orderable_quantity_cases' => 'int32',
+        'unallocatable_quantity_cases' => 'int32',
+        'unavailable_quantity_cases' => 'int32',
+        'available_quantity_pallets' => 'int32',
+        'damaged_quantity_pallets' => 'int32',
+        'in_fulfillment_process_quantity_pallets' => 'int32',
+        'on_hand_quantity_pallets' => 'int32',
+        'open_order_quantity_pallets' => 'int32',
+        'open_po_quantity_pallets' => 'int32',
+        'orderable_quantity_pallets' => 'int32',
+        'unallocatable_quantity_pallets' => 'int32',
+        'unavailable_quantity_pallets' => 'int32',
         'overall_days_on_hand' => 'int32',
         'overall_stock_status' => null,
         'estimated_pallets' => 'int32',
@@ -445,6 +499,33 @@ class Item implements ModelInterface, ArrayAccess
         'orderable_quantity' => 'orderableQuantity',
         'unallocatable_quantity' => 'unallocatableQuantity',
         'unavailable_quantity' => 'unavailableQuantity',
+        'available_quantity_inner_packs' => 'availableQuantityInnerPacks',
+        'damaged_quantity_inner_packs' => 'damagedQuantityInnerPacks',
+        'in_fulfillment_process_quantity_inner_packs' => 'inFulfillmentProcessQuantityInnerPacks',
+        'on_hand_quantity_inner_packs' => 'onHandQuantityInnerPacks',
+        'open_order_quantity_inner_packs' => 'openOrderQuantityInnerPacks',
+        'open_po_quantity_inner_packs' => 'openPOQuantityInnerPacks',
+        'orderable_quantity_inner_packs' => 'orderableQuantityInnerPacks',
+        'unallocatable_quantity_inner_packs' => 'unallocatableQuantityInnerPacks',
+        'unavailable_quantity_inner_packs' => 'unavailableQuantityInnerPacks',
+        'available_quantity_cases' => 'availableQuantityCases',
+        'damaged_quantity_cases' => 'damagedQuantityCases',
+        'in_fulfillment_process_quantity_cases' => 'inFulfillmentProcessQuantityCases',
+        'on_hand_quantity_cases' => 'onHandQuantityCases',
+        'open_order_quantity_cases' => 'openOrderQuantityCases',
+        'open_po_quantity_cases' => 'openPOQuantityCases',
+        'orderable_quantity_cases' => 'orderableQuantityCases',
+        'unallocatable_quantity_cases' => 'unallocatableQuantityCases',
+        'unavailable_quantity_cases' => 'unavailableQuantityCases',
+        'available_quantity_pallets' => 'availableQuantityPallets',
+        'damaged_quantity_pallets' => 'damagedQuantityPallets',
+        'in_fulfillment_process_quantity_pallets' => 'inFulfillmentProcessQuantityPallets',
+        'on_hand_quantity_pallets' => 'onHandQuantityPallets',
+        'open_order_quantity_pallets' => 'openOrderQuantityPallets',
+        'open_po_quantity_pallets' => 'openPOQuantityPallets',
+        'orderable_quantity_pallets' => 'orderableQuantityPallets',
+        'unallocatable_quantity_pallets' => 'unallocatableQuantityPallets',
+        'unavailable_quantity_pallets' => 'unavailableQuantityPallets',
         'overall_days_on_hand' => 'overallDaysOnHand',
         'overall_stock_status' => 'overallStockStatus',
         'estimated_pallets' => 'estimatedPallets',
@@ -577,6 +658,33 @@ class Item implements ModelInterface, ArrayAccess
         'orderable_quantity' => 'setOrderableQuantity',
         'unallocatable_quantity' => 'setUnallocatableQuantity',
         'unavailable_quantity' => 'setUnavailableQuantity',
+        'available_quantity_inner_packs' => 'setAvailableQuantityInnerPacks',
+        'damaged_quantity_inner_packs' => 'setDamagedQuantityInnerPacks',
+        'in_fulfillment_process_quantity_inner_packs' => 'setInFulfillmentProcessQuantityInnerPacks',
+        'on_hand_quantity_inner_packs' => 'setOnHandQuantityInnerPacks',
+        'open_order_quantity_inner_packs' => 'setOpenOrderQuantityInnerPacks',
+        'open_po_quantity_inner_packs' => 'setOpenPoQuantityInnerPacks',
+        'orderable_quantity_inner_packs' => 'setOrderableQuantityInnerPacks',
+        'unallocatable_quantity_inner_packs' => 'setUnallocatableQuantityInnerPacks',
+        'unavailable_quantity_inner_packs' => 'setUnavailableQuantityInnerPacks',
+        'available_quantity_cases' => 'setAvailableQuantityCases',
+        'damaged_quantity_cases' => 'setDamagedQuantityCases',
+        'in_fulfillment_process_quantity_cases' => 'setInFulfillmentProcessQuantityCases',
+        'on_hand_quantity_cases' => 'setOnHandQuantityCases',
+        'open_order_quantity_cases' => 'setOpenOrderQuantityCases',
+        'open_po_quantity_cases' => 'setOpenPoQuantityCases',
+        'orderable_quantity_cases' => 'setOrderableQuantityCases',
+        'unallocatable_quantity_cases' => 'setUnallocatableQuantityCases',
+        'unavailable_quantity_cases' => 'setUnavailableQuantityCases',
+        'available_quantity_pallets' => 'setAvailableQuantityPallets',
+        'damaged_quantity_pallets' => 'setDamagedQuantityPallets',
+        'in_fulfillment_process_quantity_pallets' => 'setInFulfillmentProcessQuantityPallets',
+        'on_hand_quantity_pallets' => 'setOnHandQuantityPallets',
+        'open_order_quantity_pallets' => 'setOpenOrderQuantityPallets',
+        'open_po_quantity_pallets' => 'setOpenPoQuantityPallets',
+        'orderable_quantity_pallets' => 'setOrderableQuantityPallets',
+        'unallocatable_quantity_pallets' => 'setUnallocatableQuantityPallets',
+        'unavailable_quantity_pallets' => 'setUnavailableQuantityPallets',
         'overall_days_on_hand' => 'setOverallDaysOnHand',
         'overall_stock_status' => 'setOverallStockStatus',
         'estimated_pallets' => 'setEstimatedPallets',
@@ -709,6 +817,33 @@ class Item implements ModelInterface, ArrayAccess
         'orderable_quantity' => 'getOrderableQuantity',
         'unallocatable_quantity' => 'getUnallocatableQuantity',
         'unavailable_quantity' => 'getUnavailableQuantity',
+        'available_quantity_inner_packs' => 'getAvailableQuantityInnerPacks',
+        'damaged_quantity_inner_packs' => 'getDamagedQuantityInnerPacks',
+        'in_fulfillment_process_quantity_inner_packs' => 'getInFulfillmentProcessQuantityInnerPacks',
+        'on_hand_quantity_inner_packs' => 'getOnHandQuantityInnerPacks',
+        'open_order_quantity_inner_packs' => 'getOpenOrderQuantityInnerPacks',
+        'open_po_quantity_inner_packs' => 'getOpenPoQuantityInnerPacks',
+        'orderable_quantity_inner_packs' => 'getOrderableQuantityInnerPacks',
+        'unallocatable_quantity_inner_packs' => 'getUnallocatableQuantityInnerPacks',
+        'unavailable_quantity_inner_packs' => 'getUnavailableQuantityInnerPacks',
+        'available_quantity_cases' => 'getAvailableQuantityCases',
+        'damaged_quantity_cases' => 'getDamagedQuantityCases',
+        'in_fulfillment_process_quantity_cases' => 'getInFulfillmentProcessQuantityCases',
+        'on_hand_quantity_cases' => 'getOnHandQuantityCases',
+        'open_order_quantity_cases' => 'getOpenOrderQuantityCases',
+        'open_po_quantity_cases' => 'getOpenPoQuantityCases',
+        'orderable_quantity_cases' => 'getOrderableQuantityCases',
+        'unallocatable_quantity_cases' => 'getUnallocatableQuantityCases',
+        'unavailable_quantity_cases' => 'getUnavailableQuantityCases',
+        'available_quantity_pallets' => 'getAvailableQuantityPallets',
+        'damaged_quantity_pallets' => 'getDamagedQuantityPallets',
+        'in_fulfillment_process_quantity_pallets' => 'getInFulfillmentProcessQuantityPallets',
+        'on_hand_quantity_pallets' => 'getOnHandQuantityPallets',
+        'open_order_quantity_pallets' => 'getOpenOrderQuantityPallets',
+        'open_po_quantity_pallets' => 'getOpenPoQuantityPallets',
+        'orderable_quantity_pallets' => 'getOrderableQuantityPallets',
+        'unallocatable_quantity_pallets' => 'getUnallocatableQuantityPallets',
+        'unavailable_quantity_pallets' => 'getUnavailableQuantityPallets',
         'overall_days_on_hand' => 'getOverallDaysOnHand',
         'overall_stock_status' => 'getOverallStockStatus',
         'estimated_pallets' => 'getEstimatedPallets',
@@ -895,6 +1030,33 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['orderable_quantity'] = isset($data['orderable_quantity']) ? $data['orderable_quantity'] : null;
         $this->container['unallocatable_quantity'] = isset($data['unallocatable_quantity']) ? $data['unallocatable_quantity'] : null;
         $this->container['unavailable_quantity'] = isset($data['unavailable_quantity']) ? $data['unavailable_quantity'] : null;
+        $this->container['available_quantity_inner_packs'] = isset($data['available_quantity_inner_packs']) ? $data['available_quantity_inner_packs'] : null;
+        $this->container['damaged_quantity_inner_packs'] = isset($data['damaged_quantity_inner_packs']) ? $data['damaged_quantity_inner_packs'] : null;
+        $this->container['in_fulfillment_process_quantity_inner_packs'] = isset($data['in_fulfillment_process_quantity_inner_packs']) ? $data['in_fulfillment_process_quantity_inner_packs'] : null;
+        $this->container['on_hand_quantity_inner_packs'] = isset($data['on_hand_quantity_inner_packs']) ? $data['on_hand_quantity_inner_packs'] : null;
+        $this->container['open_order_quantity_inner_packs'] = isset($data['open_order_quantity_inner_packs']) ? $data['open_order_quantity_inner_packs'] : null;
+        $this->container['open_po_quantity_inner_packs'] = isset($data['open_po_quantity_inner_packs']) ? $data['open_po_quantity_inner_packs'] : null;
+        $this->container['orderable_quantity_inner_packs'] = isset($data['orderable_quantity_inner_packs']) ? $data['orderable_quantity_inner_packs'] : null;
+        $this->container['unallocatable_quantity_inner_packs'] = isset($data['unallocatable_quantity_inner_packs']) ? $data['unallocatable_quantity_inner_packs'] : null;
+        $this->container['unavailable_quantity_inner_packs'] = isset($data['unavailable_quantity_inner_packs']) ? $data['unavailable_quantity_inner_packs'] : null;
+        $this->container['available_quantity_cases'] = isset($data['available_quantity_cases']) ? $data['available_quantity_cases'] : null;
+        $this->container['damaged_quantity_cases'] = isset($data['damaged_quantity_cases']) ? $data['damaged_quantity_cases'] : null;
+        $this->container['in_fulfillment_process_quantity_cases'] = isset($data['in_fulfillment_process_quantity_cases']) ? $data['in_fulfillment_process_quantity_cases'] : null;
+        $this->container['on_hand_quantity_cases'] = isset($data['on_hand_quantity_cases']) ? $data['on_hand_quantity_cases'] : null;
+        $this->container['open_order_quantity_cases'] = isset($data['open_order_quantity_cases']) ? $data['open_order_quantity_cases'] : null;
+        $this->container['open_po_quantity_cases'] = isset($data['open_po_quantity_cases']) ? $data['open_po_quantity_cases'] : null;
+        $this->container['orderable_quantity_cases'] = isset($data['orderable_quantity_cases']) ? $data['orderable_quantity_cases'] : null;
+        $this->container['unallocatable_quantity_cases'] = isset($data['unallocatable_quantity_cases']) ? $data['unallocatable_quantity_cases'] : null;
+        $this->container['unavailable_quantity_cases'] = isset($data['unavailable_quantity_cases']) ? $data['unavailable_quantity_cases'] : null;
+        $this->container['available_quantity_pallets'] = isset($data['available_quantity_pallets']) ? $data['available_quantity_pallets'] : null;
+        $this->container['damaged_quantity_pallets'] = isset($data['damaged_quantity_pallets']) ? $data['damaged_quantity_pallets'] : null;
+        $this->container['in_fulfillment_process_quantity_pallets'] = isset($data['in_fulfillment_process_quantity_pallets']) ? $data['in_fulfillment_process_quantity_pallets'] : null;
+        $this->container['on_hand_quantity_pallets'] = isset($data['on_hand_quantity_pallets']) ? $data['on_hand_quantity_pallets'] : null;
+        $this->container['open_order_quantity_pallets'] = isset($data['open_order_quantity_pallets']) ? $data['open_order_quantity_pallets'] : null;
+        $this->container['open_po_quantity_pallets'] = isset($data['open_po_quantity_pallets']) ? $data['open_po_quantity_pallets'] : null;
+        $this->container['orderable_quantity_pallets'] = isset($data['orderable_quantity_pallets']) ? $data['orderable_quantity_pallets'] : null;
+        $this->container['unallocatable_quantity_pallets'] = isset($data['unallocatable_quantity_pallets']) ? $data['unallocatable_quantity_pallets'] : null;
+        $this->container['unavailable_quantity_pallets'] = isset($data['unavailable_quantity_pallets']) ? $data['unavailable_quantity_pallets'] : null;
         $this->container['overall_days_on_hand'] = isset($data['overall_days_on_hand']) ? $data['overall_days_on_hand'] : null;
         $this->container['overall_stock_status'] = isset($data['overall_stock_status']) ? $data['overall_stock_status'] : null;
         $this->container['estimated_pallets'] = isset($data['estimated_pallets']) ? $data['estimated_pallets'] : null;
@@ -3531,6 +3693,654 @@ class Item implements ModelInterface, ArrayAccess
     public function setUnavailableQuantity($unavailable_quantity)
     {
         $this->container['unavailable_quantity'] = $unavailable_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getAvailableQuantityInnerPacks()
+    {
+        return $this->container['available_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets available_quantity_inner_packs
+     *
+     * @param int $available_quantity_inner_packs available_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setAvailableQuantityInnerPacks($available_quantity_inner_packs)
+    {
+        $this->container['available_quantity_inner_packs'] = $available_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets damaged_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getDamagedQuantityInnerPacks()
+    {
+        return $this->container['damaged_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets damaged_quantity_inner_packs
+     *
+     * @param int $damaged_quantity_inner_packs damaged_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setDamagedQuantityInnerPacks($damaged_quantity_inner_packs)
+    {
+        $this->container['damaged_quantity_inner_packs'] = $damaged_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_fulfillment_process_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getInFulfillmentProcessQuantityInnerPacks()
+    {
+        return $this->container['in_fulfillment_process_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets in_fulfillment_process_quantity_inner_packs
+     *
+     * @param int $in_fulfillment_process_quantity_inner_packs in_fulfillment_process_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setInFulfillmentProcessQuantityInnerPacks($in_fulfillment_process_quantity_inner_packs)
+    {
+        $this->container['in_fulfillment_process_quantity_inner_packs'] = $in_fulfillment_process_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets on_hand_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getOnHandQuantityInnerPacks()
+    {
+        return $this->container['on_hand_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets on_hand_quantity_inner_packs
+     *
+     * @param int $on_hand_quantity_inner_packs on_hand_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setOnHandQuantityInnerPacks($on_hand_quantity_inner_packs)
+    {
+        $this->container['on_hand_quantity_inner_packs'] = $on_hand_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_order_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getOpenOrderQuantityInnerPacks()
+    {
+        return $this->container['open_order_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets open_order_quantity_inner_packs
+     *
+     * @param int $open_order_quantity_inner_packs open_order_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setOpenOrderQuantityInnerPacks($open_order_quantity_inner_packs)
+    {
+        $this->container['open_order_quantity_inner_packs'] = $open_order_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_po_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getOpenPoQuantityInnerPacks()
+    {
+        return $this->container['open_po_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets open_po_quantity_inner_packs
+     *
+     * @param int $open_po_quantity_inner_packs open_po_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setOpenPoQuantityInnerPacks($open_po_quantity_inner_packs)
+    {
+        $this->container['open_po_quantity_inner_packs'] = $open_po_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets orderable_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getOrderableQuantityInnerPacks()
+    {
+        return $this->container['orderable_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets orderable_quantity_inner_packs
+     *
+     * @param int $orderable_quantity_inner_packs orderable_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setOrderableQuantityInnerPacks($orderable_quantity_inner_packs)
+    {
+        $this->container['orderable_quantity_inner_packs'] = $orderable_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets unallocatable_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getUnallocatableQuantityInnerPacks()
+    {
+        return $this->container['unallocatable_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets unallocatable_quantity_inner_packs
+     *
+     * @param int $unallocatable_quantity_inner_packs unallocatable_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setUnallocatableQuantityInnerPacks($unallocatable_quantity_inner_packs)
+    {
+        $this->container['unallocatable_quantity_inner_packs'] = $unallocatable_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets unavailable_quantity_inner_packs
+     *
+     * @return int
+     */
+    public function getUnavailableQuantityInnerPacks()
+    {
+        return $this->container['unavailable_quantity_inner_packs'];
+    }
+
+    /**
+     * Sets unavailable_quantity_inner_packs
+     *
+     * @param int $unavailable_quantity_inner_packs unavailable_quantity_inner_packs
+     *
+     * @return $this
+     */
+    public function setUnavailableQuantityInnerPacks($unavailable_quantity_inner_packs)
+    {
+        $this->container['unavailable_quantity_inner_packs'] = $unavailable_quantity_inner_packs;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_quantity_cases
+     *
+     * @return int
+     */
+    public function getAvailableQuantityCases()
+    {
+        return $this->container['available_quantity_cases'];
+    }
+
+    /**
+     * Sets available_quantity_cases
+     *
+     * @param int $available_quantity_cases available_quantity_cases
+     *
+     * @return $this
+     */
+    public function setAvailableQuantityCases($available_quantity_cases)
+    {
+        $this->container['available_quantity_cases'] = $available_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets damaged_quantity_cases
+     *
+     * @return int
+     */
+    public function getDamagedQuantityCases()
+    {
+        return $this->container['damaged_quantity_cases'];
+    }
+
+    /**
+     * Sets damaged_quantity_cases
+     *
+     * @param int $damaged_quantity_cases damaged_quantity_cases
+     *
+     * @return $this
+     */
+    public function setDamagedQuantityCases($damaged_quantity_cases)
+    {
+        $this->container['damaged_quantity_cases'] = $damaged_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_fulfillment_process_quantity_cases
+     *
+     * @return int
+     */
+    public function getInFulfillmentProcessQuantityCases()
+    {
+        return $this->container['in_fulfillment_process_quantity_cases'];
+    }
+
+    /**
+     * Sets in_fulfillment_process_quantity_cases
+     *
+     * @param int $in_fulfillment_process_quantity_cases in_fulfillment_process_quantity_cases
+     *
+     * @return $this
+     */
+    public function setInFulfillmentProcessQuantityCases($in_fulfillment_process_quantity_cases)
+    {
+        $this->container['in_fulfillment_process_quantity_cases'] = $in_fulfillment_process_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets on_hand_quantity_cases
+     *
+     * @return int
+     */
+    public function getOnHandQuantityCases()
+    {
+        return $this->container['on_hand_quantity_cases'];
+    }
+
+    /**
+     * Sets on_hand_quantity_cases
+     *
+     * @param int $on_hand_quantity_cases on_hand_quantity_cases
+     *
+     * @return $this
+     */
+    public function setOnHandQuantityCases($on_hand_quantity_cases)
+    {
+        $this->container['on_hand_quantity_cases'] = $on_hand_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_order_quantity_cases
+     *
+     * @return int
+     */
+    public function getOpenOrderQuantityCases()
+    {
+        return $this->container['open_order_quantity_cases'];
+    }
+
+    /**
+     * Sets open_order_quantity_cases
+     *
+     * @param int $open_order_quantity_cases open_order_quantity_cases
+     *
+     * @return $this
+     */
+    public function setOpenOrderQuantityCases($open_order_quantity_cases)
+    {
+        $this->container['open_order_quantity_cases'] = $open_order_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_po_quantity_cases
+     *
+     * @return int
+     */
+    public function getOpenPoQuantityCases()
+    {
+        return $this->container['open_po_quantity_cases'];
+    }
+
+    /**
+     * Sets open_po_quantity_cases
+     *
+     * @param int $open_po_quantity_cases open_po_quantity_cases
+     *
+     * @return $this
+     */
+    public function setOpenPoQuantityCases($open_po_quantity_cases)
+    {
+        $this->container['open_po_quantity_cases'] = $open_po_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets orderable_quantity_cases
+     *
+     * @return int
+     */
+    public function getOrderableQuantityCases()
+    {
+        return $this->container['orderable_quantity_cases'];
+    }
+
+    /**
+     * Sets orderable_quantity_cases
+     *
+     * @param int $orderable_quantity_cases orderable_quantity_cases
+     *
+     * @return $this
+     */
+    public function setOrderableQuantityCases($orderable_quantity_cases)
+    {
+        $this->container['orderable_quantity_cases'] = $orderable_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets unallocatable_quantity_cases
+     *
+     * @return int
+     */
+    public function getUnallocatableQuantityCases()
+    {
+        return $this->container['unallocatable_quantity_cases'];
+    }
+
+    /**
+     * Sets unallocatable_quantity_cases
+     *
+     * @param int $unallocatable_quantity_cases unallocatable_quantity_cases
+     *
+     * @return $this
+     */
+    public function setUnallocatableQuantityCases($unallocatable_quantity_cases)
+    {
+        $this->container['unallocatable_quantity_cases'] = $unallocatable_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets unavailable_quantity_cases
+     *
+     * @return int
+     */
+    public function getUnavailableQuantityCases()
+    {
+        return $this->container['unavailable_quantity_cases'];
+    }
+
+    /**
+     * Sets unavailable_quantity_cases
+     *
+     * @param int $unavailable_quantity_cases unavailable_quantity_cases
+     *
+     * @return $this
+     */
+    public function setUnavailableQuantityCases($unavailable_quantity_cases)
+    {
+        $this->container['unavailable_quantity_cases'] = $unavailable_quantity_cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets available_quantity_pallets
+     *
+     * @return int
+     */
+    public function getAvailableQuantityPallets()
+    {
+        return $this->container['available_quantity_pallets'];
+    }
+
+    /**
+     * Sets available_quantity_pallets
+     *
+     * @param int $available_quantity_pallets available_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setAvailableQuantityPallets($available_quantity_pallets)
+    {
+        $this->container['available_quantity_pallets'] = $available_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets damaged_quantity_pallets
+     *
+     * @return int
+     */
+    public function getDamagedQuantityPallets()
+    {
+        return $this->container['damaged_quantity_pallets'];
+    }
+
+    /**
+     * Sets damaged_quantity_pallets
+     *
+     * @param int $damaged_quantity_pallets damaged_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setDamagedQuantityPallets($damaged_quantity_pallets)
+    {
+        $this->container['damaged_quantity_pallets'] = $damaged_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_fulfillment_process_quantity_pallets
+     *
+     * @return int
+     */
+    public function getInFulfillmentProcessQuantityPallets()
+    {
+        return $this->container['in_fulfillment_process_quantity_pallets'];
+    }
+
+    /**
+     * Sets in_fulfillment_process_quantity_pallets
+     *
+     * @param int $in_fulfillment_process_quantity_pallets in_fulfillment_process_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setInFulfillmentProcessQuantityPallets($in_fulfillment_process_quantity_pallets)
+    {
+        $this->container['in_fulfillment_process_quantity_pallets'] = $in_fulfillment_process_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets on_hand_quantity_pallets
+     *
+     * @return int
+     */
+    public function getOnHandQuantityPallets()
+    {
+        return $this->container['on_hand_quantity_pallets'];
+    }
+
+    /**
+     * Sets on_hand_quantity_pallets
+     *
+     * @param int $on_hand_quantity_pallets on_hand_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setOnHandQuantityPallets($on_hand_quantity_pallets)
+    {
+        $this->container['on_hand_quantity_pallets'] = $on_hand_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_order_quantity_pallets
+     *
+     * @return int
+     */
+    public function getOpenOrderQuantityPallets()
+    {
+        return $this->container['open_order_quantity_pallets'];
+    }
+
+    /**
+     * Sets open_order_quantity_pallets
+     *
+     * @param int $open_order_quantity_pallets open_order_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setOpenOrderQuantityPallets($open_order_quantity_pallets)
+    {
+        $this->container['open_order_quantity_pallets'] = $open_order_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_po_quantity_pallets
+     *
+     * @return int
+     */
+    public function getOpenPoQuantityPallets()
+    {
+        return $this->container['open_po_quantity_pallets'];
+    }
+
+    /**
+     * Sets open_po_quantity_pallets
+     *
+     * @param int $open_po_quantity_pallets open_po_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setOpenPoQuantityPallets($open_po_quantity_pallets)
+    {
+        $this->container['open_po_quantity_pallets'] = $open_po_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets orderable_quantity_pallets
+     *
+     * @return int
+     */
+    public function getOrderableQuantityPallets()
+    {
+        return $this->container['orderable_quantity_pallets'];
+    }
+
+    /**
+     * Sets orderable_quantity_pallets
+     *
+     * @param int $orderable_quantity_pallets orderable_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setOrderableQuantityPallets($orderable_quantity_pallets)
+    {
+        $this->container['orderable_quantity_pallets'] = $orderable_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets unallocatable_quantity_pallets
+     *
+     * @return int
+     */
+    public function getUnallocatableQuantityPallets()
+    {
+        return $this->container['unallocatable_quantity_pallets'];
+    }
+
+    /**
+     * Sets unallocatable_quantity_pallets
+     *
+     * @param int $unallocatable_quantity_pallets unallocatable_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setUnallocatableQuantityPallets($unallocatable_quantity_pallets)
+    {
+        $this->container['unallocatable_quantity_pallets'] = $unallocatable_quantity_pallets;
+
+        return $this;
+    }
+
+    /**
+     * Gets unavailable_quantity_pallets
+     *
+     * @return int
+     */
+    public function getUnavailableQuantityPallets()
+    {
+        return $this->container['unavailable_quantity_pallets'];
+    }
+
+    /**
+     * Sets unavailable_quantity_pallets
+     *
+     * @param int $unavailable_quantity_pallets unavailable_quantity_pallets
+     *
+     * @return $this
+     */
+    public function setUnavailableQuantityPallets($unavailable_quantity_pallets)
+    {
+        $this->container['unavailable_quantity_pallets'] = $unavailable_quantity_pallets;
 
         return $this;
     }

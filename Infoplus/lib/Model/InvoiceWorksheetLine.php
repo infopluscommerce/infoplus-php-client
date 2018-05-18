@@ -288,6 +288,9 @@ class InvoiceWorksheetLine implements ModelInterface, ArrayAccess
         if ($this->container['lob_id'] === null) {
             $invalidProperties[] = "'lob_id' can't be null";
         }
+        if ($this->container['invoice_worksheet_id'] === null) {
+            $invalidProperties[] = "'invoice_worksheet_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -301,6 +304,9 @@ class InvoiceWorksheetLine implements ModelInterface, ArrayAccess
     {
 
         if ($this->container['lob_id'] === null) {
+            return false;
+        }
+        if ($this->container['invoice_worksheet_id'] === null) {
             return false;
         }
         return true;

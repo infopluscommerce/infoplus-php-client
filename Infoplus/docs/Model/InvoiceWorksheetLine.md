@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **extended_charge** | **float** |  | [optional] 
 **backup_file** | **int** |  | [optional] 
 **backup_file_url** | **string** |  | [optional] 
-**invoice_worksheet_id** | **int** |  | [optional] 
+**invoice_worksheet_id** | **int** |  | 
 **invoice_template_line_id** | **int** |  | [optional] 
 **custom_fields** | **map[string,object]** |  | [optional] 
 
