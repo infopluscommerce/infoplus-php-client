@@ -1,0 +1,46 @@
+# OrderLine
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
+**order_no** | **float** |  | 
+**lob_id** | **int** |  | 
+**sku** | **string** |  | 
+**po_no_id** | **int** |  | [optional] 
+**ordered_qty** | **int** |  | [optional] 
+**allowed_qty** | **int** |  | [optional] 
+**shipped_qty** | **int** |  | [optional] 
+**backorder_qty** | **int** |  | [optional] 
+**rev_date** | **string** |  | [optional] 
+**charge_code** | **string** |  | [optional] 
+**distribution_code** | **string** |  | [optional] 
+**upc** | **string** |  | [optional] 
+**vendor_sku** | **string** |  | [optional] 
+**order_source_sku** | **string** |  | [optional] 
+**unit_cost** | **float** |  | [optional] 
+**unit_sell** | **float** |  | [optional] 
+**unit_discount** | **float** |  | [optional] 
+**extended_cost** | **float** |  | [optional] 
+**extended_sell** | **float** |  | [optional] 
+**extended_discount** | **float** |  | [optional] 
+**nc_extended_sell** | **float** |  | [optional] 
+**item_weight** | **float** |  | [optional] 
+**production_lot** | **string** |  | [optional] 
+**expiration_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**weight_per_wrap** | **float** |  | [optional] 
+**sector** | **string** |  | [optional] 
+**order_assembly_instructions** | **string** |  | [optional] 
+**item_account_code_id** | **int** |  | 
+**item_legacy_low_stock_contact_id** | **int** |  | 
+**item_major_group_id** | **int** |  | 
+**item_sub_group_id** | **int** |  | 
+**item_product_code_id** | **int** |  | [optional] 
+**item_summary_code_id** | **int** |  | 
+**fulfillment_channel** | **string** |  | 
+**dynamic_kit_component_list** | [**\Infoplus\Infoplus\Model\DynamicKitComponentLine[]**](DynamicKitComponentLine.md) |  | [optional] 
+**custom_fields** | **map[string,object]** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
